@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE preface PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<preface id="preface-1">
+  <title>Préface</title>
+  <para>Maven est un outil de "build", de gestion de projet, un conteneur abstrait
+  où s'exécutent les différentes étapes de construction du projet. C'est un outil
+  qui s'est révélé indispensable pour les projets qui deviennent complexes et qui ont besoin
+  de construire et de gérer de manière cohérente de nombreux modules et
+  bibliothèques interdépendants, eux-même utilisant des dizaines voir des centaines
+  de composants tiers. C'est un outil qui a fortement allégé le fardeau quotidien
+  de la gestion des dépendances vers les bibliothèques tierces pour des millions
+  d'ingénieurs, et a permis à de nombreuses organisations de se sortir de l'ornière
+  de la gestion de la construction du projet pour atteindre un monde où l'effort
+  requis pour construire et maintenir un logiciel n'est plus le facteur limitant dans
+  la conception d'un logiciel.</para>
+
+  <para>Ce travail est la première tentative d'un livre compréhensible sur Maven.
+  Il se base sur les expériences et le travail combinés des auteurs des livres
+  précédents sur Maven, aussi vous ne devez pas le voir comme une étape finale mais
+  comme la première édition d'une longue liste de mises à jour à suivre. Alors que
+  Maven n'a que quelques années d'existence, les auteurs de ce livre pensent qu'il
+  a juste commencé à remplir les audacieuses promesses faites. Les auteurs, et
+  l'entreprise derrière ce livre, <ulink url="http://www.sonatype.com">Sonatype</ulink>,
+  pensent que la publication de ce livre marque le début d'une nouvelle phase d'innovation
+  et de développement de Maven et de son écosystème environnant.</para>
+
+  <section id="preface-1-sect-how-to-use"> 
+    <title>Comment utiliser ce livre</title>
+
+    <para>Prenez le, lisez le contenu de ses pages. Une fois arrivé à la fin d'une page,
+    vous voudrez soit cliquer sur le lien, si vous regardez la version <acronym>HTML</acronym>,
+    ou alors, si vous avez la vesion imprimée, vous souleverez un coin de la page et 
+    vous la tournerez. Si vous êtes assis à coté d'un ordinateur, vous pouvez taper
+    certains des exemples et suivre au fur et à mesure. Par pitié, ne lancez pas ce
+    gros volume à la tête de quelqu'un sous le coup de la colère.</para>
+
+    <para>Ce livre se compose de trois parties: Introduction, <xref
+    linkend="part-example" />, et <xref linkend="part-reference" />. L'introduction se
+    compose de deux chapitres: <xref linkend="introduction" /> et
+    <xref linkend="installation" />. <xref linkend="part-example" /> introduit
+    Maven par sa mise en oeuvre sur des exemples concrets tout en expliquant 
+    le comment et le pourquoi ces exemples sont structurés ainsi. Si vous êtes
+    novice en ce qui concerne Maven, commencez par <xref linkend="part-example" />.
+    <xref linkend="part-reference" /> est moins une introduction qu'une référence,
+    chaque chapitre de  <xref linkend="part-reference" /> dtraite d'un sujet en
+    particulier et en donne le maximum de détails possible. Par exemple, 
+    For example, le chapitre <xref linkend="writing-plugins" /> dans
+    <xref linkend="part-reference" /> traite de la manière d'écrire des plugins
+    au travers des quelques exemples associés à un ensemble de tableaux et de
+    listes.</para>
+
+    <para>Même si les deux parties <xref linkend="part-example" /> et <xref
+    linkend="part-reference" /> fourissent des explications, chacune a sa propre
+    stratégie. Là où <xref linkend="part-example" /> se concentre sur le contexte
+    d'un projet Maven, <xref linkend="part-reference" /> se concentre sur un
+    sujet particulier. Vous pouvez sauter certaines parties du livre, <xref
+    linkend="part-example" /> n'est en aucune sorte un pré-requis pour <xref
+    linkend="part-reference" />, mais vous pourrez mieux apprécier
+    <xref linkend="part-reference" /> si vous avez lu <xref
+    linkend="part-example" />. Maven s'apprend mieux par l'exemple, mais une fois
+    ceux-ci faits, vous aurez besoin d'éléments de référence pour commencer à
+    adpter Maven à votre environnement.</para>
+  </section>
+
+  <section id="preface-1-sect-feedback">
+    <title>Vos Retours</title>
+
+    <para>Nous n'avons pas écrit ce livre afin de produire un document Word que 
+    nous envererionsà notre maison d'édition avant d'aller en fêter le lancement
+    en nous autocongratulant pour un travail terminé. Ce livre n'est pas "terminé";
+    en fait, ce livre ne le sera jamais complètement. Le sujet qu'il couvre
+    est en perpétuelle évolution et expansion, aussi nous considérons ce travail
+    comme une discussion vivante avec la communité. Publier ce livre signifie juste
+    que le véritable travail vient de commencer, et vous, notre lecteur, vous avez
+    un rôle essentiel pour nous aider à maintenir et améliorer ce livre. Si vous
+    voyez une erreur quelconue dans ce livre, une faute d'orthographe, du code de
+    mauvaise qualité, un mensonge éhonté, vous devriez nous le dire et nous envoyer
+    un e-mailà: <ulink url="mailto:tobrien@sonatype.com">book@sonatype.com</ulink>.</para>
+
+    <!--TODO: Change this to mavenbook@sonatype.com when it is available.-->
+
+    <para>La continuelle pertinence de ce livre dépend de vous et de vos retours.
+    Nous voulons savoir ce qui marche et ce qui ne va pas. Nous voulons savoir s'il
+    existe des points qui restent obscurs. Notamment, nous voulons savoir sivous
+    trouvez ce livre affreux. Les commentaires positifs ou négatifs sont les bienvenus.
+    Bien sûr nous nous réservons le droit de ne pas être d'accord avec vous, mais
+    toute remarque sera récompensée par une jolie réponse.</para>
+  </section>
+
+  <section id="preface-1-sect-fontConventions">
+    <title>Conventions de Police</title>
+
+    <para>Ce livre respecte certaines conventions quant à l'utilisation des polices
+    de caractère. Comprendre ces conventions dès le début facilite l'utilisation
+    de ce livre.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term><emphasis role="italic">Italique</emphasis></term>
+
+        <listitem>
+          <para>Utilisée pour les fichiers, les extensions, les URLs, les noms des
+          apllications, la mise en valeur, et les termes nouveaux lors de leur
+          première utilisation.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <variablelist>
+      <varlistentry>
+        <term><literal moreinfo="none">Largeur Fixe</literal></term>
+
+        <listitem>
+          <para>Utilisée pour les classes, les méthodes, les variables en Java,
+          les propriétés, les éléments en relation avec les bases de données,
+          et les extraits de code qui apparaissent dans le texte.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <variablelist>
+      <varlistentry>
+        <term><emphasis role="bold"> <literal moreinfo="none">Largeur Fixe 
+        Gras</literal> </emphasis></term>
+
+        <listitem>
+          <para>Utilisée pour les commandes que vous devez taper sur une ligne de
+          commande et pour mettre en valeur un nouvel élément de code introduit
+          dans un exemple qui fonctionne.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <variablelist>
+      <varlistentry>
+        <term><emphasis role="italic"> <literal moreinfo="none">Largeur fixe
+        italique</literal> </emphasis></term>
+
+        <listitem>
+          <para>Utilisée pour annoter les affichages.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+
+  <section id="preface-1-sect-writing-conventions">
+    <title>COnventions d'écriture Maven</title>
+
+    <para>Le livre respecte certaines conventions de nommage et d'utilisation des
+    polices de caractère en accord avec Maven. Comprendre ces conventions facilite
+    la lecture de ce livre.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>Compiler plugin</term>
+
+        <listitem>
+          <para>Les plugins Maven commencent par des majuscules.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><varname>create</varname> goal</term>
+
+        <listitem>
+          <para>Les noms de goal sont affichés avec une police à largeur fixe.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>"plugin"</term>
+
+        <listitem>
+          <para>Avec Maven, tout tourne autour de l'utilisation intensive
+          d'extensions mais vous ne trouverez le terme plugin dans aucun
+          dictionnaire. Nous utilisons ce terme de "plugin" dans ce livre
+          car il est plus facile à lire et écrire et car c'est devenu un standard
+          pour la communauté Maven.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Maven Lifecycle, Maven Standard Directory Layout, Maven Plugin,
+        Project Object Model</term>
+
+        <listitem>
+          <para>Les concepts fondamentaux de Maven commencent par des majucules
+          lorsqu'il y est fait référence dans le texte.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><varname>goalParameter</varname></term>
+
+        <listitem>
+          <para>Le paramètre d'un goal Maven est affiché avec une police à
+          largeur fixe.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><varname>compile</varname> phase</term>
+
+        <listitem>
+          <para>Les phases du cycle de vie de Maven sont affichées avec une police
+          à largeur fixe.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+
+  <section id="preface-1-sect-acknowledgements">
+    <title>Remerciements</title>
+
+    <para>Sonatype souhaite remercier les contributeurs suivants. Les personnes
+    citées ci-dessous ont doné des retours qui ont permis une amélioration de la
+    qualité de cet ouvrage. Meci donc à Raymond Toal, Steve Daly, Paul Strack, Paul
+    Reinerfelt, Chad Gorshing, Marcus Biel, Brian Dols, Mangalaganesh
+    Balasubramanian, Marius Kruger, and Mark Stewart. Et plus spécifiquement, 
+    merci à Joel Costigliola pour son aide à débogger et corriger le chapitre sur
+    Spring web. Stan Guillory était pratiquement un contributeur au vu du nombre
+    de corrections qu'il a posté sur le site Get Satisfaction pour ce livre. Merci
+    Stan. Un grand merci àRichard Coasby de Bamboo pour son rôle de consultant en
+    grammaire.</para>
+
+    <para>Merci à tous nos auteurs contributeurs, y compris Eric Redmond.</para>
+
+    <para>Merci aux contributeurs suivants qui nous ont signalé des erreurs soit
+    par courriel ou par le site Get Satisfaction: Paco Soberón, Ray Krueger,
+    Steinar Cook, Henning Saul, Anders Hammar, "george_007", "ksangani", Niko
+    Mahle, Arun Kumar, Harold Shinsato, "mimil", "-thrawn-", Matt Gumbley. Si
+    vous voyez votre pseudo Get Satisfaction dans cette liste , et que vous
+    souhaitiez  le voir remplacé par votre véritable nom, envoyez nous un courriel
+    à <ulink url="mailto:book@sonatype.com">book@sonatype.com</ulink>.</para>
+  </section>
+</preface>
