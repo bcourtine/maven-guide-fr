@@ -457,14 +457,13 @@
     </para>
 
     <para>Comparons l'exemple Ant précédent avec un exemple Maven. Avec Maven, pour
-    créer un fihier JAR à partir de code source Java, tout ce que vous avez à faire
+    créer un fichier JAR à partir de code source Java, tout ce que vous avez à faire
     est de créer un simple
       <filename>pom.xml</filename>, mettre votre code source dans
       <filename>\${basedir}/src/main/java</filename> et exécuter la commande
       <command>mvn
     install
-      </command> depuis la ligne de commande. Le contenu du
-      <filename>pom.xml</filename> Maven qui permet d'obtenir le même résultat que
+      </command> depuis la ligne de commande. Le contenu du       <filename>pom.xml</filename> Maven qui permet d'obtenir le même résultat que
       le simple fichier Ant qui se trouve dans
       <xref linkend="ex-ant-sample" /> se trouve lui dans 
       <xref

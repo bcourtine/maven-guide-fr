@@ -4,12 +4,12 @@
 <preface id="public-forward">
   <title>Avant-Propos: ${project.version}</title>
 
-  <para>Q. Une minute, ce livre a été mis sous presse et des troncs d'arbres morts
-  ont été tatoués, mais il est encore en Béta? Que cela signifie t il ?</para>
+  <para>Q. Une minute, ce livre a été mis sous presse et on a tatoués les corps d'arbres morts,
+  mais il est encore en Béta? Que cela signifie t il ?</para>
 
   <para>R. Cela indique que nous sommes dans un projet à long terme. Si nous avons
   travaillé à la rédation de ce livre une bonne partie de l'année, et que nous en sommes
-  seulement en Béta ${project.version}, celà signifie que nous avons encore du travail
+  seulement en Béta ${project.version}, cela signifie que nous avons encore du travail
   avant de concrétiser notre vision d'un livre idéal. Attendez vous à un flot continu d'
   améliorations et d'ajouts dans les prochains mois.</para>
 
