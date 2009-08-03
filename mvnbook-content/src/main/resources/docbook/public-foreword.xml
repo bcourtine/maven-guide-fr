@@ -4,7 +4,7 @@
 <preface id="public-forward">
   <title>Avant-Propos: ${project.version}</title>
 
-  <para>Q. Une minute, ce livre a été mis sous presse et on a tatoués les corps d'arbres morts,
+  <para>Q. Une minute, ce livre a été mis sous presse et on a tatoué les corps d'arbres morts,
   mais il est encore en Béta? Que cela signifie t il ?</para>
 
   <para>R. Cela indique que nous sommes dans un projet à long terme. Si nous avons
@@ -16,31 +16,30 @@
   <para>Q. Ce livre sortira t il un jour de son status de Béta?</para>
 
   <para>R. Peut-être jamais. Souvenez vous que GMail est toujours en Béta. Si ce livre
-  devait sortir de Béta, c'est alors que nous pourrrions dire qu'il n'y a plus rien à lui ajouter
-  ou aucune virgule à modifier. J'ai toujours pensé que les bons livres évoluent dans le temps
-  et qu'ils vivent par delà les confins de des chapitres et sections qui les composent.
+  devait sortir de Béta, alors cela signifierait que nous n'aurions rien à lui ajouter et aucune
+  virgule à modifier. J'ai toujours pensé que les bons livres évoluent dans le temps
+  et qu'ils vivent par delà les confins des chapitres et sections qui les composent.
   Un bon livre est une discussion qui se poursuit, un ensemble d'intéractions, non seulement
-  entre les auteurs et les lecteurs, mais aussi entre les lecteurs. C'est une façon originale
-  de dire qu'un livre c'est une communauté.</para>
+  entre les auteurs et les lecteurs, mais aussi entre les lecteurs eux-mêmes. C'est une façon
+  originale de dire qu'un livre c'est une communauté.</para>
 
   <para>Nous avons publié un livre chez O'Reilly qui (pour utiliser un cliché)
   "supportera l'épreuve du temps". La version imprimée de ce livre contient des informations
   qui resteront pertinentes et valides dans le futur, et nous encourageons tout le monde à aller
   acheter un livre aujourd'hui. Même si vous même n'en avez pas besoin, allez
-  sur Amazon, achetez une copie et donner la à un ami qui n'a pas encore découvert Maven.</para>
+  sur Amazon, achetez une copie et donnez la à un ami qui n'a pas encore découvert Maven.</para>
 
   <para>Q. Qu'y a t'il de nouveau dans cette version?</para>
 
   <para>Et bien, dans cette version nous avons extrait le chapitre traitant de Nexus
   pour en faire un livre à part entière. Si vous allez au chapitre de Gestion de Référentiel
-  vous verrez qu'il n'y a plus qu'une page contenant un lien vers un livre nouveau et complet
+  vous verrez qu'il n'y a plus qu'une page contenant un lien vers un nouveau livre complet
   sur Sonatype Nexus intitulé <ulink url="${nexus.book.baseurl}">Repository Management with
   Nexus</ulink>.</para>
 
-  <para>Jusqu'à présent nous avons eu beaucoup de retours, ne vous arrêtez pas.
-  Vos retours sont très apprécies, aussi envoyez les à <ulink
-  url="mailto:book@sonatype.com">book@sonatype.com</ulink>. Pour vous tenir au
-  courant des mises à jour, lisez le blog du livre : <ulink
+  <para>Jusqu'à présent nous avons eu beaucoup de retours, ne vous arrêtez pas. Ceux-ci sont très
+  apprécies, aussi envoyez les à <ulink url="mailto:book@sonatype.com">book@sonatype.com</ulink>.
+  Pour être averti des mises à jour, lisez le blog du livre : <ulink
   url="http://blogs.sonatype.com/book">http://blogs.sonatype.com/book</ulink>.
   Tout le monde à Sonatype a mis la main à la pâte pour cette version du livre,
   c'est pourquoi l'auteur est officiellement "Sonatype".</para>
