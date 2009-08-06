@@ -1,55 +1,308 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+ <!DOCTYPE preface PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<preface id="public-forward">
-  <title>Avant-Propos: ${project.version}</title>
-
-  <para>Q. Une minute, ce livre a été mis sous presse et on a tatoué les corps d'arbres morts,
-  mais il est encore en Béta? Que cela signifie t il ?</para>
-
-  <para>R. Cela indique que nous sommes dans un projet à long terme. Si nous avons
-  travaillé à la rédation de ce livre une bonne partie de l'année, et que nous en sommes
-  seulement en Béta ${project.version}, cela signifie que nous avons encore du travail
-  avant de concrétiser notre vision d'un livre idéal. Attendez vous à un flot continu d'
-  améliorations et d'ajouts dans les prochains mois.</para>
-
-  <para>Q. Ce livre sortira t il un jour de son status de Béta?</para>
-
-  <para>R. Peut-être jamais. Souvenez vous que GMail est toujours en Béta. Si ce livre
-  devait sortir de Béta, alors cela signifierait que nous n'aurions rien à lui ajouter et aucune
-  virgule à modifier. J'ai toujours pensé que les bons livres évoluent dans le temps
-  et qu'ils vivent par delà les confins des chapitres et sections qui les composent.
-  Un bon livre est une discussion qui se poursuit, un ensemble d'intéractions, non seulement
-  entre les auteurs et les lecteurs, mais aussi entre les lecteurs eux-mêmes. C'est une façon
-  originale de dire qu'un livre c'est une communauté.</para>
-
-  <para>Nous avons publié un livre chez O'Reilly qui (pour utiliser un cliché)
-  "supportera l'épreuve du temps". La version imprimée de ce livre contient des informations
-  qui resteront pertinentes et valides dans le futur, et nous encourageons tout le monde à aller
-  acheter un livre aujourd'hui. Même si vous même n'en avez pas besoin, allez
-  sur Amazon, achetez une copie et donnez la à un ami qui n'a pas encore découvert Maven.</para>
-
-  <para>Q. Qu'y a t'il de nouveau dans cette version?</para>
-
-  <para>Et bien, dans cette version nous avons extrait le chapitre traitant de Nexus
-  pour en faire un livre à part entière. Si vous allez au chapitre de Gestion de Référentiel
-  vous verrez qu'il n'y a plus qu'une page contenant un lien vers un nouveau livre complet
-  sur Sonatype Nexus intitulé <ulink url="${nexus.book.baseurl}">Repository Management with
-  Nexus</ulink>.</para>
-
-  <para>Jusqu'à présent nous avons eu beaucoup de retours, ne vous arrêtez pas. Ceux-ci sont très
-  apprécies, aussi envoyez les à <ulink url="mailto:book@sonatype.com">book@sonatype.com</ulink>.
-  Pour être averti des mises à jour, lisez le blog du livre : <ulink
-  url="http://blogs.sonatype.com/book">http://blogs.sonatype.com/book</ulink>.
-  Tout le monde à Sonatype a mis la main à la pâte pour cette version du livre,
-  c'est pourquoi l'auteur est officiellement "Sonatype".</para>
-
+<preface id="public-foreward">
+  <title>Avant propos: ${project.version}</title>
+  <para>Jusqu'à présent nous avons eu beaucoup de retours, ne vous arrêtez pas. Ceux-ci sont très apprécies, aussi envoyez les à
+    <ulink
+  url="mailto:book@sonatype.com">book@sonatype.com
+    </ulink>. Pour être averti des mises à jour, lisez le blog du livre:
+    <ulink
+  url="http://blogs.sonatype.com/book">http://blogs.sonatype.com/book
+    </ulink>. Tout le monde à Sonatype a mis la main à la pâte pour cette version du livre, c'est pourquoi l'auteur est officiellement "Sonatype".
+  </para>
   <para>Tim O'Brien (tobrien@sonatype.com)</para>
-
   <para>Evanston, IL</para>
-
-  <para>January 16, 2008</para>
-
-  <para>PS: Vous ai je dit que vous devriez vraiment <ulink url="http://www.amazon.com/Maven-Definitive-Guide-Sonatype-Company/dp/0596517335/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1223866448&amp;sr=8-1">acheter
-  a une copie de ce livre</ulink>?</para>
+  <para>August 7, 2009 </para>
+  <section id="foreword-sect-revisions">
+    <title>Historique de Modifications</title>
+    <para>De nombreux lecteurs nous ont demandé detracer les modifications que nous apportons au contenu du livre, la section suivante les liste par ordre retro-chronologique depuis la version ${project.version}. </para>
+    <section>
+      <title>Modifications de l'Edition 0.7</title>
+      <para>Les modifications suivantes on été apportées:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Le build Maven de Maven: Nous avons configuré le Definitive Guide pour qu'il utilise le pugin
+            <ulink
+          url="http://github.com/tobrien/scribd-plugin/tree/master">Maven Scribd
+            </ulink>. Pour voir la configuration du build de ce livre, allez voir le projet
+            <ulink
+          url="http://github.com/sonatype/maven-guide-en/tree/master">maven-guide-en
+            </ulink> sur GitHub. (
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-128">MVNDEF-128
+            </ulink> and
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-127">MVNDEF-127
+            </ulink>)
+          </para>
+        </listitem>
+        <listitem>
+          <para>Correction de reférences incorrectes vers le livre Eclipsedans les sections
+            <xref linkend="archetype-sect-third-party" /> et
+            <xref linkend="archetype-sect-using-m2eclipse" />. Cette section référençait une liste d'archétypes disponible lorsque l'on utilise le wizard de création de prjet de m2eclipse. (
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-79">MVNDEF-79
+            </ulink> and
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-78">MVNDEF-78
+            </ulink>)
+          </para>
+        </listitem>
+        <listitem>
+          <para>Correction de références incorrectes dans le chapitre traitant de Spring Web
+            <xref linkend="multimodule-web-spring-sect-simple-web" /> et. (
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-77">MVNDEF-77
+            </ulink>,
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-76">MVNDEF-76
+            </ulink>, et
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-75">MVNDEF-75
+            </ulink>)
+          </para>
+        </listitem>
+        <listitem>
+          <para>Correction d'une faute de frappe dans <xref
+          linkend="optimizing-sect-dependencies" />. (<ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-25">MVNDEF-25</ulink>)</para>
+        </listitem>
+        <listitem>
+          <para>Correction d'un problème de dépassement de ligne dans <xref
+          linkend="multimodule-web-spring-sect-running-simple-command" />,
+          <xref linkend="ex-trigger-pre-clean" />, <xref
+          linkend="archtype-sect-generate" />, <xref
+          linkend="archetype-sect-appfuse" />, <xref
+          linkend="archetype-sect-publishing" />, <xref
+          linkend="flex-dev-sect-library-archetype" />, <xref
+          linkend="flex-dev-sect-application-archetype" /> et <xref
+          linkend="flex-dev-sect-multimodule-archetype" /></para>
+        </listitem>
+        <listitem>
+          <para>Correction de deux références non échappées à \${basedir} dans <xref
+          linkend="flex-dev-sect-config-asdoc" />, <xref
+          linkend="flex-dev-sect-compiling" />, et <xref
+          linkend="flex-dev-sect-common-configuration" />. (<ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-191">MVNDEF-191</ulink>,
+          <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-192">MVNDEF-192</ulink>,
+          et <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-193">MVNDEF-193</ulink>)</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="foreword-sect-rev-0_6">
+      <title>Modifications de l'Edition 0.6</title>
+      <para>Les modifications suivantes on été apportées:</para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-23">MVNDEF-23
+            </ulink> - Correction d'une faute de frappe dans
+            <xref linkend="writing-plugins-sect-override-default-lifecycle" /> - "Maven won't know anything it" -&gt; "Maven won't know anything about it"
+          </para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="foreword-sect-rev-0_5">
+      <title>Modifications de l'Edition 0.5</title>
+      <para>Les modifications suivantes impactent le livre dans son ensemble:</para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-101">MVNDEF-101
+            </ulink> - Réduction de la Largeur des Marges PDF
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-100">MVNDEF-100
+            </ulink> - Création d'une de Colonnes de Tble de Largeurs Spécifiques pour le chapitre Flex
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-99">MVNDEF-99
+            </ulink> - Réduction de la Taille de la Police dans le Livre PDF
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-98">MVNDEF-98
+            </ulink> - Created a Table with Custom Column Widths and Multiple Named Spans
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>Le gros des changements dans la version 0.5 concerne le chapitre FlexMojos, un chapitre qui est toujours à l'état de brouillon puisque le projet FlexMojos est toujours en cours de développement.</para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-51">MVNDEF-85
+            </ulink> - Ajout de documentation pour les cycles de vie spécifiques SWC et SWF dans le chapitre FlexMojos -
+            <xref linkend="flex-dev-sect-custom-lifecycle" />
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-83">MVNDEF-83
+            </ulink> - Ajout des instructions pour configurer le Flash Player afin qu'il supporte les tests unitaires de FlexMojos -
+            <xref linkend="flex-dev-sect-configuring-unit-tests" />
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="flex-dev-sect-configuring-unit-tests">MVNDEF-82
+            </ulink> - Mise à jour des Archétypes FlexMojos Archetypes selon la version 3.1.0. Les archétypes FlexMojos 3.1.0 ne dépendent plus du POM parent pour personnaliser le build pour Flex -
+            <xref linkend="flex-dev-sect-creating-with-archetype" />
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-84">MVNDEF-84
+            </ulink> - Ajout d'une section qui documente tous les goals du plugin FlexMojos -
+            <xref linkend="flex-dev-sect-goals" />
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-103">MVNDEF-103
+            </ulink> - Ajout d'une section au Chaptre Flexsur l'ajout du Sonatype Plugin Group à votre configuration Maven -
+            <xref linkend="flex-dev-sect-plugin-group" />
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-102">MVNDEF-102
+            </ulink> - Mise à jour du livre pour référencer la version 3.2.0 de FlexMojos
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-94">MVNDEF-94
+            </ulink> - Documentation des goals test-compile et test-run. -
+            <xref linkend="flex-dev-sect-unit-testing" />
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-89">MVNDEF-89
+            </ulink> - Documentation du goal flexbuilder -
+            <xref linkend="flex-dev-sect-flexbuilder" />
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-87">MVNDEF-87
+            </ulink> - Documentation des goals compile-swc et compile-swf -
+            <xref linkend="flex-dev-sect-compiling" />
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-86">MVNDEF-86
+            </ulink> - Documentation du goal et du rapport Actionscript Documentation -
+            <xref linkend="flex-dev-sect-gen-asdoc" /> et
+            <xref linkend="flex-dev-sect-reports" />
+          </para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="foreword-sect-rev-0_4">
+      <title>Modifications de l'Edition 0.4</title>
+      <para>Les modifications suivantes on été apportées pour l'Edition 0.4:</para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-51">MVNDEF-51
+            </ulink> - Ajout d'une section dans le Settings Appendix sur le cryptage des mots de passe du fichier Maven Settings -
+            <xref linkend="appendix-settings-sect-encrypting-passwords" />
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-54">MVNDEF-54
+            </ulink> - Ajout des informations sur le timestamp de compilation aux données sur la notion de version dans Maven de la section
+            <xref linkend="installation-sect-test-install" />
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-52">MVNDEF-52
+            </ulink> - Ajout des informations sur Java Home dans les traces de la commande version de Maven de la section
+            <xref linkend="installation-sect-test-install" />
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>Correction de fautes de frappe:</para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-59">MVNDEF-59
+            </ulink> - Correction d'une faute de frappe dans le chapitre sur les relations entre POM.
+            <xref linkend="pom-relationships-sect-grouping-deps" /> qui contenait une note avec un type "dependenctManagement" corrigé en "dependencyManagement"
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-46">MVNDEF-46
+            </ulink> - Correction d'une faute de frappe dans
+            <xref linkend="installation-sect-compare-ant-maven" />, "execute the a" est corrigé en "execute a"
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-45">MVNDEF-45
+            </ulink> -Correction d'une faute de frappe dans
+            <xref linkend="site-generation-sect-site-appearance" />, "is created many" est corrigé en "is creating many"
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-44">MVNDEF-44
+            </ulink> - Correction d'une faute de frappe dans
+            <xref linkend="simple-project-sect-lifecycle" />, "execute all proceeding phases" est corrigé en "execute all preceding phases"
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-31">MVNDEF-31
+            </ulink> - Vérification que la correction de "weather-servley" en "weather-servlet" est bien faite dans
+            <xref linkend="fig-web-components" />
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <ulink
+          url="https://issues.sonatype.org/browse/MVNDEF-39">MVNDEF-39
+            </ulink> - Le prefixe du goal du plugin Compiler est "compiler" et non "compile" comme il était précédemment écrit dans
+            <xref linkend="writing-plugins-top-level-elements" />
+          </para>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
 </preface>
