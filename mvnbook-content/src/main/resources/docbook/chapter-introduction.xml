@@ -259,7 +259,7 @@ le simple fichier Ant décrit dans
                   <para>Ant est procedural, il faut lui indiquer exactement ce qu'il doit faire et quand le faire. Il faut lui dire de compiler, puis de copier, puis de compresser.</para>
                 </listitem>
                 <listitem>
-                  <para>Ant dn'a aps de cycle de vie, vous devez définir des fonctions et les dépendances de ces fonctions. Vous devez ensuite rattacher une série de tâches à chaque fonction manuellement. </para>
+                  <para>Ant n'a aps de cycle de vie, vous devez définir des fonctions et les dépendances de ces fonctions. Vous devez ensuite rattacher une série de tâches à chaque fonction manuellement. </para>
                 </listitem>
               </itemizedlist>
             </para>
@@ -297,19 +297,19 @@ le simple fichier Ant décrit dans
       <command>mvn test</command>. Si vous voulez déployer une application web et non plus un
       <acronym>JAR</acronym>, tout ce que vous avez à faire est de changer le type de votre projet en (war) et de positionner le
 docroot sur
-      <filename>\${basedir}/src/main/webapp</filename>. Vien sûr, vous pourriez faire tout cela avec Ant mais vous devriez tout écrire depuis le début In Ant, you would first have to figure out where the JUnit
-      <acronym>JAR</acronym> file should be, then you would have to create a classpath that includes the JUnit
-      <acronym>JAR</acronym> file, then you would tell Ant where it should look for test source code, write a goal that compiles the test source to bytecode, execute the unit tests with JUnit.
+      <filename>\${basedir}/src/main/webapp</filename>. Bien sûr, vous pourriez faire tout cela avec Ant mais vous devriez tout écrire depuis le début Dans Ant, vous devriez commencer par définir où devrait se trouver le fichier
+      <acronym>JAR</acronym> de JUnit, ensuite vous devriez créer un classpath qui contienne le fichier
+      <acronym>JAR</acronym> de JUnit, puis vous devriez indiquer à Ant où devrait se trouver le code source des tests, écrire une fonction pour compiler le code source des tests en bytecode, et pour exécuter ces tests unitaires avec JUnit.
     </para>
-    <para>Without supporting technologies like antlibs and Ivy (even with these supporting technologies), Ant has the feeling of a custom procedural build. An efficient set of Maven
-      <acronym>POM</acronym>s in a project which adheres to Maven's assumed conventions has surprisingly little
-      <acronym>XML</acronym> compared to the Ant alternative. Another benefit of Maven is the reliance on widely-shared Maven plugins. Everyone uses the Maven Surefire plugin for unit testing, and if someone adds support for a new unit testing framework, you can gain new capabilities in your own build by just incrementing the version of a particular Maven plugin in your project's
-      <acronym>POM</acronym>.
+    <para>Sans l'apport des technologies comme antlibs et Ivy (même avec ces technologies complémentaires), Ant laisse l'impression d'un build procdural personnalisé. Un ensemble efficace de
+      <acronym>POM</acronym>s Maven dans un projet qui respecte les conventions de Maven a peu de
+      <acronym>XML</acronym>, aussi surprenant que cela puise paraître, en comparaison de Ant. Un autre avantage de Maven est qu'il s'appuye sur des plugins Maven très largement diffusés et partagés. Tout le monde utilise le plugin Maven Surefire pour les tests unitaires, et si quelqu'un ajoute le support d'un nouveau framework de tests unitaires, vous obtenez cette nouvelle fonctionnalité dans votre build juste en incrémentant le numéro de versionde ce plugin particuler dans le
+      <acronym>POM</acronym> de votre projet.
     </para>
-    <para>The decision to use Maven or Ant isn't a binary one, and Ant still has a place in a complex build. If your current build contains some highly customized process, or if you've written some Ant scripts to complete a specific process in a specific way that cannot be adapted to the Maven standards, you can still use these scripts with Maven. Ant is made available as a core Maven plugin. Custom Maven plugins can be implemented in Ant, and Maven projects can be configured to execute Ant scripts within the Maven project lifecycle. </para>
+    <para>La décision d'utiliser Maven ou Ant n'est pas une décision binaire, et Ant a toujours sa place pour les builds complexes. Si votre build contient un traitement très spécifique, ou si vous vaez écrit des scripts Ant pour remplir une tâche spécifique de manière spécifique qui ne peut être adaptée aux standards Maven, vous pouvez toujours utiliser ces scripts dans Maven. Ant est disponible sous la forme d'un des plugins principaux de Maven. Des plugins personnalisés de Maven peuvent être écrits en utilisant Ant, et les projets Maven peuvent être configurés pour exécuter des scripts Ant durant le cycle de vie du projet Maven. </para>
   </section>
   <section id="installation-sect-introSummary">
-    <title>Summary</title>
-    <para>This introduction has been kept purposefully short. We have covered a basic outline of what Maven is, and how it stacks up to and improves upon other build tools throughout time. The next chapter will dive into a simple project and show how Maven can perform phenomenal tasks with the smallest amount of configuration.</para>
+    <title>En résumé ...</title>
+    <para>Cette introduction reste courte volontairement. Nous avons couvert les grandes lignes qui définissent Maven, et comment il se compare et s'améliore dans le temps par rapport aux autres outils de build. Le chapitre suivant va nous plonger dans un projet simple et nous montrer comment Maven réalise des tâches phénoménales avec très peu de configuration.</para>
   </section>
 </chapter>

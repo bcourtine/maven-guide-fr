@@ -17,6 +17,8 @@
 
     <xsl:param name="fop1.extensions">1</xsl:param>
 
+    <xsl:param name="use.role.for.mediaobject">1</xsl:param>
+    <xsl:param name="preferred.mediaobject.role" select="'print'"/>
     <!--###################################################
                      Table Of Contents
    ################################################### -->
@@ -55,6 +57,8 @@
 	<xsl:param name="page.margin.top" select="'0.2in'" />
 	<xsl:param name="page.margin.inner" select="'0.5in'" />
 	<xsl:param name="page.margin.outer" select="'0.5in'" />
+
+    <xsl:param name="body.start.indent" select="'0pt'" />
 
     <!-- No intendation of Titles -->
     <xsl:param name="title.margin.left">0pc</xsl:param>
@@ -112,67 +116,6 @@
 		###################################################
 	-->
 	<xsl:template name="book.titlepage.recto">
-		<fo:block>
-			<fo:table table-layout="fixed" width="175mm">
-				<fo:table-column column-width="175mm" />
-				<fo:table-body>
-					<fo:table-row>
-						<fo:table-cell text-align="center">
-							<fo:block>
-								<fo:external-graphic
-									src="http://www.sonatype.com/images/sonatype_banner3_optima.png" />
-							</fo:block>
-							<fo:block font-family="Helvetica" font-size="22pt"
-								padding-before="10mm">
-								<xsl:value-of select="bookinfo/subtitle" />
-							</fo:block>
-							<fo:block font-family="Helvetica" font-size="14pt"
-								padding="10mm">
-								<xsl:value-of select="bookinfo/title" />
-							</fo:block>
-							<fo:block font-family="Helvetica" font-size="12pt"
-								padding="10mm">
-								<xsl:value-of select="bookinfo/releaseinfo" />
-							</fo:block>
-						</fo:table-cell>
-					</fo:table-row>
-					<fo:table-row>
-						<fo:table-cell text-align="center">
-							<fo:block font-family="Helvetica" font-size="14pt"
-								padding="10mm">
-								<xsl:value-of select="bookinfo/pubdate" />
-							</fo:block>
-						</fo:table-cell>
-					</fo:table-row>
-					<fo:table-row>
-						<fo:table-cell text-align="center">
-							<fo:block font-family="Helvetica" font-size="12pt"
-								padding="10mm">
-								<xsl:for-each select="bookinfo/authorgroup/author">
-									<xsl:if test="position() > 1">
-										<xsl:text>, </xsl:text>
-									</xsl:if>
-									<xsl:value-of select="firstname" />
-									<xsl:text> </xsl:text>
-									<xsl:value-of select="surname" />
-									<xsl:text> (</xsl:text>
-									<xsl:value-of select="affiliation" />
-									<xsl:text>)</xsl:text>
-								</xsl:for-each>
-							</fo:block>
-							<fo:block font-family="Helvetica" font-size="12pt"
-								padding="10mm">
-								<xsl:text>Copyright &#xA9; 2006-2008</xsl:text>
-							</fo:block>
-
-                            <fo:block font-family="Helvetica" font-size="10pt" padding="1mm">
-                                <xsl:value-of select="bookinfo/legalnotice"/>
-                            </fo:block>
-                        </fo:table-cell>
-                    </fo:table-row>
-                </fo:table-body>
-            </fo:table>
-        </fo:block>
     </xsl:template>
 
     <!-- Prevent blank pages in output -->
@@ -345,6 +288,10 @@
     </xsl:attribute-set>
 
     <!-- Titles of formal objects (tables, examples, ...) -->
+<xsl:attribute-set name="formal.object.properties">
+   <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
+</xsl:attribute-set>
+
     <xsl:attribute-set name="formal.title.properties" use-attribute-sets="normal.para.spacing">
         <xsl:attribute name="font-weight">bold</xsl:attribute>
         <xsl:attribute name="font-size">
@@ -406,6 +353,7 @@
 
     <!-- Use nice graphics for admonitions -->
     <xsl:param name="admon.graphics">'1'</xsl:param>
+    <xsl:param name="admon.graphics.extension">.svg</xsl:param>
     <!--  <xsl:param name="admon.graphics.path">&admon_gfx_path;</xsl:param> -->
 
     <!--###################################################
