@@ -13,12 +13,12 @@
   d'ingénieurs, et a permis à de nombreuses organisations de se sortir de l'ornière
   de la gestion du build du projet pour atteindre un monde où l'effort
   requis pour construire et maintenir un logiciel n'est plus le facteur limitant dans
-  la conception d'un logiciel.</para>
+  sa conception.</para>
 
   <para>Ce travail est la première tentative d'un livre compréhensible sur Maven.
   Il se base sur les expériences et le travail combinés des auteurs des livres
   précédents sur Maven, aussi vous ne devez pas le voir comme une étape finale mais
-  comme la première édition d'une longue liste de mises à jour à suivre. Alors que
+  comme la première édition d'une longue liste de mises à jour. Alors que
   Maven n'a que quelques années d'existence, les auteurs de ce livre pensent qu'il
   a juste commencé à remplir les audacieuses promesses faites. Les auteurs, et
   l'entreprise derrière ce livre, <ulink url="http://www.sonatype.com">Sonatype</ulink>,
@@ -40,10 +40,10 @@
     compose de deux chapitres: <xref linkend="introduction" /> et
     <xref linkend="installation" />. <xref linkend="part-example" /> introduit
     Maven par sa mise en oeuvre sur des exemples concrets tout en expliquant 
-    le comment et le pourquoi ces exemples sont structurés ainsi. Si vous êtes
+    le comment et le pourquoi de leur structure. Si vous êtes
     novice en ce qui concerne Maven, commencez par <xref linkend="part-example" />.
     <xref linkend="part-reference" /> est moins une introduction qu'une référence,
-    chaque chapitre de  <xref linkend="part-reference" /> dtraite d'un sujet en
+    chaque chapitre de  <xref linkend="part-reference" /> traite d'un sujet en
     particulier et en donne le maximum de détails possible. Par exemple, 
     For example, le chapitre <xref linkend="writing-plugins" /> dans
     <xref linkend="part-reference" /> traite de la manière d'écrire des plugins
@@ -51,7 +51,7 @@
     listes.</para>
 
     <para>Même si les deux parties <xref linkend="part-example" /> et <xref
-    linkend="part-reference" /> fourissent des explications, chacune a sa propre
+    linkend="part-reference" /> fournissent des explications, chacune a sa propre
     stratégie. Là où <xref linkend="part-example" /> se concentre sur le contexte
     d'un projet Maven, <xref linkend="part-reference" /> se concentre sur un
     sujet particulier. Vous pouvez sauter certaines parties du livre, <xref
@@ -80,8 +80,8 @@
 
     <!--TODO: Change this to mavenbook@sonatype.com when it is available.-->
 
-    <para>La continuelle pertinence de ce livre dépend de vous et de vos retours.
-    Nous voulons savoir ce qui marche et ce qui ne va pas. Nous voulons savoir s'il
+    <para>C'est grâce à vous et à vos retours que ce livre restera pertinent.
+    Nous voulons savoir ce qui marche et ce qui ne marche pas. Nous voulons savoir s'il
     existe des points qui restent obscurs. Notamment, nous voulons savoir si vous
     trouvez ce livre affreux. Les commentaires positifs ou négatifs sont les bienvenus.
     Bien sûr nous nous réservons le droit de ne pas être d'accord avec vous, mais
@@ -101,7 +101,7 @@
 
         <listitem>
           <para>Utilisée pour les fichiers, les extensions, les URLs, les noms des
-          apllications, la mise en valeur, et les termes nouveaux lors de leur
+          applications, la mise en valeur, et les termes nouveaux lors de leur
           première utilisation.</para>
         </listitem>
       </varlistentry>
@@ -112,7 +112,7 @@
         <term><literal moreinfo="none">Largeur Fixe</literal></term>
 
         <listitem>
-          <para>Utilisée pour les classes, les méthodes, les variables en Java,
+          <para>Utilisée pour les classes, les méthodes, les variables Java,
           les propriétés, les éléments en relation avec les bases de données,
           et les extraits de code qui apparaissent dans le texte.</para>
         </listitem>
@@ -173,7 +173,7 @@
 
         <listitem>
           <para>Avec Maven, tout tourne autour de l'utilisation intensive
-          d'extensions mais vous ne trouverez le terme plugin dans aucun
+          de greffons mais vous ne trouverez le terme plugin dans aucun
           dictionnaire. Nous utilisons ce terme de "plugin" dans ce livre
           car il est plus facile à lire et écrire et car c'est devenu un standard
           pour la communauté Maven.</para>

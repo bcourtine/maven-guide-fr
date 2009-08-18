@@ -144,7 +144,7 @@ Password: ******
     </section>
     <section id="installation-sect-windows">
       <title>Installer Maven sur Microsoft Windows</title>
-      <para>Installier Maven sur Windows est très proche de l'installation sur Mac
+      <para>Installer Maven sur Windows est très proche de l'installation sur Mac
         <acronym>OSX</acronym>, les principales différences sont le répertoire d'installation et la définition de variables d'environnement. Dans ce livre nous allons supposer que le répertoire d'installation de Maven est
         <filename>c:\Program
       Files\apache-maven-${maven.version}
@@ -175,7 +175,7 @@ C:\Users\tobrien &gt;
   </section>
   <section id="installation-sect-test-install">
     <title>Tester une Installation Maven</title>
-    <para>Une fois Maven installé, vous pouvez vérifier sa version n exécutant la commande suivante
+    <para>Une fois Maven installé, vous pouvez vérifier sa version en exécutant la commande suivante
       <command>mvn -v</command> en ligne de commande. Si Maven a été installé, vous devriez voir en sortie quelquechose ressemblant à cela.
     </para>
     <screen>$
@@ -193,13 +193,13 @@ OS name: "mac os x" version: "10.5.6" arch: "i386" Family: "unix"
     </para>
   </section>
   <section id="installation-sect-details">
-    <title>Détaisl de l'Insatallation de Maven</title>
+    <title>Détails de l'Installation de Maven</title>
     <para>L'archive à télécharger de Maven a une taille d'environ 1.5 MiB
       <footnoteref
-    linkend="foot-installation-mebibytes" />, cette taille réduite a été obtenue car le coeur de Maven a été conçu pour récupérer à la demande plugins et dépendances depuis des dépôts distants. Lorsque vous commencez à utiliser Maven, il va télécharger les plugins depuis un dépôt local décrit dans
-      <xref linkend="installation-sect-user" />. Au cas où vous seriez curieux, jettons un oeil au répertoire d'installation de Maven.
+    linkend="foot-installation-mebibytes" />, cette taille réduite a été obtenue car le c&oelig;ur de Maven a été conçu pour récupérer à la demande plugins et dépendances depuis des dépôts distants. Lorsque vous commencez à utiliser Maven, il va télécharger les plugins depuis un dépôt local décrit dans
+      <xref linkend="installation-sect-user" />. Au cas où vous seriez curieux, jettons un &oelig;il au répertoire d'installation de Maven.
       <footnote id="foot-installation-mebibytes">
-        <para>Avez-vous déjà acheté un disque dur de 200 Go pour vous rendre compte qu'une fois installé il faisait moins de 200 GiB? Les ordinateurs fonctionnent en Gibibytes, mais les boutiques vdent des produits en Gigaoctets. MiB représente des Mebibyte soit 2
+        <para>Avez-vous déjà acheté un disque dur de 200 Go pour vous rendre compte qu'une fois installé il faisait moins de 200 GiB? Les ordinateurs fonctionnent en Gibibytes, mais les boutiques vendent des produits en Gigaoctets. MiB représente des Mebibyte soit 2
           <superscript>20</superscript> ou 1024
           <superscript>2</superscript>. Ces mesures standardisées sont validées et reconnues par l'
           <acronym>IEEE</acronym>, le
@@ -258,7 +258,7 @@ lib/
       </indexterm>
       <filename>~/.m2</filename>.
       <filename>lib/</filename> contient un fichier JAR unique (
-      <filename>maven-core-${maven.version}-uber.jar</filename>) qui contient le coeur de Maven.
+      <filename>maven-core-${maven.version}-uber.jar</filename>) qui contient le c&oelig;ur de Maven.
     </para>
     <note>
       <para>A moins que vous ne travailliez sur un système Unix partagé, vous ne devriez pas avoir à modifier le fichier
@@ -272,7 +272,7 @@ lib/
       </para>
     </note>
     <section id="installation-sect-user">
-      <title>Configuration et Dépôt spécifiques l'Utilisateur</title>
+      <title>Configuration et Dépôt spécifiques à l'Utilisateur</title>
       <para>Une fois que vous avez commencé à réellement utiliser Maven, vous vous apercevrez que Maven a créé localement des fichiers de configuration spécifiques à l'utilisateur ainsi qu'un dépôt local dans votre répertoire utilisateur. Dans
         <filename>~/.m2</filename> vous trouverez:
       </para>
@@ -347,21 +347,21 @@ $ mvn one:convert
         <varname>one:</varname>
         <varname>convert</varname> va lire le fichier
         <filename>project.xml</filename> et produire un
-        <filename>pom.xml</filename> compatible avec Maven 2. Si votre nuild Maven 1 a été personnalisé avec un script Jelly dans le fichier
+        <filename>pom.xml</filename> compatible avec Maven 2. Si votre build Maven 1 a été personnalisé avec un script Jelly dans le fichier
         <filename>maven.xml</filename>, il va vous falloir tester d'autres options. Alors que Maven 1 préconisait l'utilisation de scripts Jelly pour personnaliser les builds, Maven 2 préconise la personnalisation au travers de plugins personnels, de plugins de script ou le Maven Antrun Plugin.
       </para>
       <para>Ce qu'il faut retenir lorsque l'on migre de Maven 1 à Maven 2, c'est que Maven 2 est un framework de build complètement différent. Maven 2 introduit le concept du Cycle de Vie Maven, et redéfinit les relations entre plugins. Si vous migrez de Maven 1 à Maven 2, vous devez passer du temps à apprendre les différences qui existent entre ces deux versions. Bien qu'il puisse sembler plus important de commencer par apprendre la nouvelle structure du POM, vous devriez commencer par le Cycle de Vie. Une fois le Cycle de Vie de Maven compris, vous pourrez utiliser toute la puissance de Maven. </para>
     </section>
   </section>
   <section id="installation-sect-uninstalling">
-    <title>Desintaller Maven</title>
+    <title>Désinstaller Maven</title>
     <para>La plupart des instructions d'installation demande de décompresser l'archive de la distribution de Maven dans un répertoire, et de dfinir quelques variables d'environnement. Si vous devez supprimer Maven de votre ordinateur, tout ce que vous avez à faire est de supprimer le répertoire d'installation de Maven ainsi que les variables d'environnement. Vous voudrez sûrement supprimer le répertoire
       <filename>~/.m2</filename> qui contient votre dépôt local.
     </para>
   </section>
   <section id="installation-sect-getting-help">
     <title>Obtenir de l'Aide avec Maven</title>
-    <para>Même si ce livre est un essai vers une référence compréhensible, il existe des sujets que nous oublierons, nous ne convrirons pas certaines situations particulières ainsi que certaines astuces. Le coeur de Maven est très simple, cependant le véritable travail de Maven se fait dans les plugins, et étant donné leur nombre nous n'arrierons pas à tous les couvrir en un seul ouvrage. Vous allez rencontrer des problèmes et des fonctionnalités qui ne sont pas traités dans ce livre; dans ce cas, nous vous suggérons ces différents points pour y  chercher vos réponses: </para>
+    <para>Même si ce livre est un essai vers une référence compréhensible, il existe des sujets que nous oublierons, nous ne couvrirons pas certaines situations particulières ainsi que certaines astuces. Le c&oelig;ur de Maven est très simple, cependant le véritable travail de Maven se fait dans les plugins, et étant donné leur nombre nous n'arrierons pas à tous les couvrir en un seul ouvrage. Vous allez rencontrer des problèmes et des fonctionnalités qui ne sont pas traités dans ce livre; dans ce cas, nous vous suggérons ces différents points pour y  chercher vos réponses: </para>
     <variablelist>
       <varlistentry>
         <term>
@@ -374,7 +374,7 @@ $ mvn one:convert
       <varlistentry>
         <term>La Liste de Diffusion des Utilisateurs de Maven</term>
         <listitem>
-          <para>La mailing-list Maven User est l'endroit où les utilisateurs peuvent poser leurs questions. Avant de poser votre question sur cette liste de diffusion, vous voudrez rechercher toute discussion antérieure qui pourrait avoir un rapport avec votre question. C'est considéré comme un manque de savoir vivre que de poser une question qui a déjà été posée sans avoir vérifié auparavant les archives pour voir si quelqu'un y avait déjà répondu Il y a un certain nombre de sites très utiles pour parcourir les archives des listes de diffusion, nous avons trouvé, pour notre part, Nabble très pratique. Vous pouvez pacourir les archives de la liste de diffusion des Utilisateurs ici:
+          <para>La liste de diffusion Maven User est l'endroit où les utilisateurs peuvent poser leurs questions. Avant de poser votre question sur cette liste de diffusion, vous voudrez rechercher toute discussion antérieure qui pourrait avoir un rapport avec votre question. C'est considéré comme un manque de savoir vivre que de poser une question qui a déjà été posée sans avoir vérifié auparavant les archives pour voir si quelqu'un y avait déjà répondu Il y a un certain nombre de sites très utiles pour parcourir les archives des listes de diffusion, nous avons trouvé, pour notre part, Nabble très pratique. Vous pouvez pacourir les archives de la liste de diffusion des Utilisateurs ici:
             <ulink
           url="http://www.nabble.com/Maven---Users-f178.html">http://www.nabble.com/Maven---Users-f178.html
             </ulink>. Vous pouvez vous abonner à cette liste de diffusion en suivant les instructions disponibles ici:
@@ -446,8 +446,8 @@ $ mvn one:convert
       </varlistentry>
     </variablelist>
     <section id="installation-sect-describing-plugin">
-      <title>Decrire un Plugin Maven</title>
-      <para>Une fois que vous commencez à utiliser Maven, vous paserez le plus clair de votre temps à rechercher des informaions sur les Plugins Maven: Comment fonctionnent les plugins ? Quels sont les paramètres de configuration ? Quels sont les goals? Vous utiliserez fréquemment le goal
+      <title>Décrire un Plugin Maven</title>
+      <para>Une fois que vous commencez à utiliser Maven, vous passerez le plus clair de votre temps à rechercher des informations sur les Plugins Maven: Comment fonctionnent les plugins? Quels sont les paramètres de configuration? Quels sont les goals? Vous utiliserez fréquemment le goal
         <varname>help:</varname>
         <varname>describe</varname> pour obtenir ce type d'informations. Le paramètre
         <varname>plugin</varname> vous permet de spécifier le plugin sur lequel vous voulez des informations, en passant son prefixe (par exemple
@@ -456,7 +456,7 @@ $ mvn one:convert
         <varname>groupId:</varname>
         <varname>artifact[:</varname>
         <varname>version]</varname>, la version étant optionnelle Par exemple, la commande suivante utilise le goal
-        <varname>describe</varname> du plugin Help pour afficher des informaions sur le plugin Maven Help.
+        <varname>describe</varname> du plugin Help pour afficher des informations sur le plugin Maven Help.
       </para>
       <screen>$
         <command>mvn help:describe -Dplugin=help</command>

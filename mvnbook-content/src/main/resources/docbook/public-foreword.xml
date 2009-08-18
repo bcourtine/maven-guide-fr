@@ -16,7 +16,7 @@
   <para>August 7, 2009 </para>
   <section id="foreword-sect-revisions">
     <title>Historique de Modifications</title>
-    <para>De nombreux lecteurs nous ont demandé detracer les modifications que nous apportons au contenu du livre, la section suivante les liste par ordre retro-chronologique depuis la version ${project.version}. </para>
+    <para>De nombreux lecteurs nous ont demandé de tracer les modifications que nous apportons au contenu du livre, la section suivante les liste par ordre retro-chronologique depuis la version ${project.version}. </para>
     <section>
       <title>Modifications de l'Edition 0.7</title>
       <para>Les modifications suivantes on été apportées:</para>
