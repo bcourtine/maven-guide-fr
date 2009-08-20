@@ -5,13 +5,13 @@
   <title>Mon Premier Projet avec Maven</title>
   <section id="simple-project-sect-intro">
     <title>Introduction</title>
-    <para>Dans ce chapitre, nous introduisons un projet simple créé à partir de rien en utilisant le plugin Maven Archetype. Cette application basique va nous fournir l'occasion de discuter certains des concepts au coeur de Maven tout en suivant le développement du projet.</para>
-    <para>Avant de se lancer dans l'utilisation de Maven sur des builds complexes avec plusieurs modules, nous allons commencer par les bases. Si vous avez déjà utilisé Maven auparavant, vous noterez qui fait bien son travail en s'occupant des détails. Vos builds tendent à "fonctionner correctement", et vous n'avez à vous plonger dans les détails de Maven que lorsque vous voulez personnaliser un comportement par défaut ou écrire votre propre plugin. Cependant, quand vous devez vous plonger dans ces détails, une bonne compéhension des concepts principaux est essentielle. Ce chapitre a pour but de vous présenter le projet Maven le plus simple possible puis vous montrer les concepts principaux de Maven qui en font une solide plateforme de build. Une fois que vous l'aurez lu, vous aurez une compréhension fondamentale du cycle de vie du build, des dépôts Maven et du Project Object Model (
+    <para>Dans ce chapitre, nous présentons un projet simple créé à partir de rien en utilisant le plugin Maven Archetype. Cette application basique va nous fournir l'occasion de discuter certains des concepts au c&oelig;ur de Maven tout en suivant le développement du projet.</para>
+    <para>Avant de se lancer dans l'utilisation de Maven sur des builds complexes avec plusieurs modules, nous allons commencer par les bases. Si vous avez déjà utilisé Maven auparavant, vous verrez qu'il fait bien son travail et s'occupe des détails. Vos builds tendent à "fonctionner correctement", et vous n'avez à vous plonger dans les détails de Maven que lorsque vous voulez personnaliser un comportement par défaut ou écrire votre propre plugin. Cependant, quand vous devez vous plonger dans ces détails, une bonne compréhension des concepts principaux est essentielle. Ce chapitre a pour but de vous présenter le projet Maven le plus simple possible puis de vous montrer les concepts principaux de Maven qui en font une solide plateforme de build. Une fois que vous l'aurez lu, vous aurez une compréhension fondamentale du cycle de vie du build, des dépôts Maven et du Project Object Model (
       <acronym>POM</acronym>).
     </para>
     <section id="simple-project-sect-downloading-example">
       <title>Télécharger l'Exemple de ce Chapitre</title>
-      <para>Ce chapitre développe un exemple très simple qui sera utilisé pour explorer les concepts principaux de Maven. Si vous suivez les étapes décrites dans ce chapitre, vous ne devriez pas avoir besoin de télécharger les exemples pour recréer le code produit par Maven. Nous allons utiliser le plugin Maven Archetype pour créer ce simple projet que ce chapitre ne modifie en rien. Si vous préferrez lire ce chapitre avec le code source final de l'exemple, le projet qui sert d'exemple dans ce chapitre peut être téléchargé avec le code source des exemples du livre depuis
+      <para>Ce chapitre développe un exemple très simple qui sera utilisé pour explorer les concepts principaux de Maven. Si vous suivez les étapes décrites dans ce chapitre, vous ne devriez pas avoir besoin de télécharger les exemples pour recréer le code produit par Maven. Nous allons utiliser le plugin Maven Archetype pour créer ce projet simple que ce chapitre ne modifie en rien. Si vous préferrez lire ce chapitre avec le code source final de l'exemple, le projet qui sert d'exemple dans ce chapitre peut être téléchargé avec le code source des exemples du livre depuis
         <ulink
       url="http://www.sonatype.com/book/mvn-examples-1.0.zip">http://www.sonatype.com/book/mvn-examples-1.0.zip
         </ulink> ou
@@ -20,7 +20,7 @@
         </ulink>. Décompressez cette archive dans n'importe quel répertoire, puis allez dans le répertoire
         <filename>ch03/</filename>. Dans le répertoire
         <filename>ch03/</filename> vous trouverez un répertoire
-        <filename>simple/</filename> qui contient le code source de ce chapitre. Si vous souhaitez suivre avec le code de cet exemple dans un navigateur web, allez à
+        <filename>simple/</filename> qui contient le code source de ce chapitre. Si vous souhaitez suivre avec le code de cet exemple affiché dans un navigateur web, allez à
         <ulink
       url="http://www.sonatype.com/book/examples-1.0">http://www.sonatype.com/book/examples-1.0
         </ulink> et cliquez sur le répertoire
@@ -29,10 +29,9 @@
     </section>
   </section>
   <section id="simple-project-sect-create-simple">
-    <title>Création d'un Simple Projet</title>
-    <para>Pour commencer un nouveau projet Maven, utilisez le plugin Maven Archetype plugin depuis la ligne de commande. </para>
-    <screen>
-      <command>$ mvn archetype:create -DgroupId=org.sonatype.mavenbook.ch03 \
+    <title>Création du Projet Simple</title>
+    <para>Pour commencer un nouveau projet Maven, utilisez le plugin Maven Archetype depuis la ligne de commande. </para>
+    <screen><command>$ mvn archetype:create -DgroupId=org.sonatype.mavenbook.ch03 \
                                          -DartifactId=simple \
                                          -DpackageName=org.sonatype.mavenbook
       </command>[INFO] Scanning for projects...
@@ -56,10 +55,9 @@
 [INFO] Archetype created in dir: /Users/tobrien/svnw/sonatype/examples/simple
     </screen>
     <para>
-      <command>mvn</command> c'est l'instruction pour Maven 2.
+      <command>mvn</command> correspond à l'instruction d'exécution de Maven 2.
       <varname>archetype:</varname>
-      <varname>create</varname> est un goal Maven. Si vous connaissez
-      <indexterm>
+      <varname>create</varname> est un goal Maven. Si vous connaissez<indexterm>
         <primary>goals</primary>
         <secondary>à propos</secondary>
       </indexterm>
@@ -74,19 +72,19 @@
         <primary>racine POM</primary>
         <seealso>POM</seealso>
       </indexterm> Apache Ant, un goal Maven est analogue à une target Ant; tous les deux décrivent une unité de tâche à accomplir lors d'un build. La paire
-      <varname>-Dname=value</varname> représente un argument passé au goal sous la forme de propriétés
+      <varname>-Dname=value</varname> représente un argument passé au goal sous la forme de propriété
       <varname>-D</varname>, comme pour les propriétés système que vous pourriez passer à la Machine Virtuelle Java via la ligne de commande. Le but du goal
       <varname>archetype:</varname>
-      <varname>create</varname> est de créé rapidement un projet à partir d'un archétype. Dans ce contexte, un
+      <varname>create</varname> est de créer rapidement un projet à partir d'un archétype. Dans ce contexte, un
       <indexterm>
         <primary sortas="archetypes">archétypes, definition</primary>
-      </indexterm> archétype se défini comme " un  modèle original ou idéal d'après lequel sont bâtis un ouvrage, une ɶuvre; un prototype."
+      </indexterm> archétype se défini comme " un  modèle original ou idéal d'après lequel sont bâtis un ouvrage, une &oelig;vre; un prototype."
       <footnote
         id="foot-archetype-def">
         <para>
           <emphasis>Selon l'American Heritage Dictionary of the English Language</emphasis>.
         </para>
-      </footnote>Il existe un grand nombre d'archétypes disponibles pour Maven, depuis une application Swing simplr jusqu'à une application web complexe. Dans ce chapitre, nous allons utiliser l'archétype le plus basique pour créer un simple squelette projet de démarrage. Le préfixe
+      </footnote>Il existe un grand nombre d'archétypes disponibles pour Maven, depuis une simple application Swing jusqu'à une application web complexe. Dans ce chapitre, nous allons utiliser l'archétype le plus basique pour créer un simple squelette projet de démarrage. Le préfixe
       <literal>archetype</literal> correspond au plugin, et
       <literal>create</literal> correspond au goal.
     </para>
@@ -98,8 +96,7 @@
       <co id="coDef-simple-fs-main" linkends="coRef-simple-fs-main" />/main/java /src/test/
       <co id="coDef-simple-fs-test" linkends="coRef-simple-fs-test" />/test/java
     </screen>
-    <para>Ce répertoire suit les recommandations de Disposition Maven Standard des Répertoires
-      <indexterm>
+    <para>Ce répertoire suit les recommandations de Disposition Maven Standard des Répertoires<indexterm>
         <primary>Standard Directory Layout</primary>
       </indexterm>
       <indexterm>
@@ -124,13 +121,13 @@
       </callout>
       <callout arearefs="coDef-simple-fs-main" id="coRef-simple-fs-main">
         <para>Les sources et les ressources de notre projet se retrouvent sous le répertoire
-          <filename>src/main</filename>. Dans le cas de notre simple projet Java cela consistera en quelques classes Java et fichiers de propriétés. Pour un autre projet, on pourrait y trouver le répertoire racine d'une application web ou les fichiers de configuration d'un serveur d'application. Dans un projet Java, les classes Java sont dans
+          <filename>src/main</filename>. Dans le cas de notre projet Java simple cela consistera en quelques classes Java et fichiers de propriétés. Pour un autre projet, on pourrait y trouver le répertoire racine d'une application web ou les fichiers de configuration d'un serveur d'application. Dans un projet Java, les classes Java sont dans
           <filename>src/main/java</filename> et les ressources disponibles dans le classpath vont dans
           <filename>src/main/resources</filename>.
         </para>
       </callout>
       <callout arearefs="coDef-simple-fs-test" id="coRef-simple-fs-test">
-        <para>Les tests de notre pojet vont dans
+        <para>Les tests de notre projet vont dans
           <filename>src/test</filename>. Dans ce réperoire, les classes Java, comme par exemple les tests JUnit ou TestNG, sont dans
           <filename>src/test/java</filename>, et les ressources du classpath pour les tests vont dans
           <filename>src/test/resources</filename>.
@@ -158,11 +155,10 @@ public class App
     <para>Le plus simple des archétypes Maven produit le programme le plus simple possible: un programme qui affiche "Hello World!" sur la sortie standard. </para>
   </section>
   <section id="simple-project-sect-building-simple">
-    <title>Construire un Simple Project</title>
+    <title>Construire le Projet Simple</title>
     <para>Une fois le projet créé grâce au plugin Maven Archetype suivant les instructions de la section précédente (
       <xref linkend="simple-project-sect-create-simple" />) il faut maintenant construire et  packager l'application. Afin d'y parvenir, exécutez
-      <command>mvn install</command> depuis
-      <indexterm>
+      <command>mvn install</command> depuis<indexterm>
         <primary>mvn install command</primary>
       </indexterm>
       <indexterm>
@@ -176,8 +172,7 @@ public class App
       </indexterm> le répertoire qui contient le
       <filename>pom.xml</filename>:
     </para>
-    <screen>
-      <command>$ mvn install
+    <screen><command>$ mvn install
       </command>[INFO] Scanning for projects...
 [INFO] ----------------------------------------------------------------------
 [INFO] Building simple
@@ -211,16 +206,14 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
   ~/.m2/repository/com/sonatype/maven/ch03/simple/1.0-SNAPSHOT/ \
   simple-1.0-SNAPSHOT.jar
     </screen>
-    <para>Vous venez juste de créer, compiler, tester, packager et installer le projet Maven le plus simple possible. Pour vous prouvez que ce programme fonctionne, exécutez le depuis la ligne de commande. </para>
-    <screen>
-      <command>$ java -cp target/simple-1.0-SNAPSHOT.jar org.sonatype.mavenbook.App
+    <para>Vous venez juste de créer, compiler, tester, packager et installer le projet Maven le plus simple possible. Pour vous prouver que ce programme fonctionne, exécutez le depuis la ligne de commande.</para>
+    <screen><command>$ java -cp target/simple-1.0-SNAPSHOT.jar org.sonatype.mavenbook.App
       </command>Hello World!
     </screen>
   </section>
   <section id="simple-project-sect-pom">
-    <title>Simple Project Object Model</title>
-    <para>Lors de son exécution Maven lit dans le Project Object Model
-      <indexterm>
+    <title>Modèle Objet du Projet Simple</title>
+    <para>Lors de son exécution Maven lit dans le Project Object Model<indexterm>
         <primary>POM (Project Object Model)</primary>
       </indexterm>
       <indexterm>
@@ -230,14 +223,12 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <indexterm>
         <primary>pom.xml file</primary>
       </indexterm> les informations sur le projet. Le
-      <acronym>POM</acronym> répond aux questions telles que: De quel type de projet s'agit il ? Quel est le nom du projet? Ce projet a t il été personnalisé?
+      <acronym>POM</acronym> répond aux questions telles que: De quel type de projet s'agit il? Quel est le nom du projet? Ce projet a t il été personnalisé?
       <xref linkend="example_simple-project-pom" /> montre le fichier
       <filename>pom.xml</filename> par défaut créé par le goal create du plugin Maven Archetype.
     </para>
     <example id="example_simple-project-pom">
-      <title>Simple project's
-        <filename>pom.xml</filename> file
-      </title>
+      <title>Fichier <filename>pom.xml</filename> du projet Simple</title>
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
@@ -263,7 +254,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     <para>Ce fichier
       <filename>pom.xml</filename> est le plus basique
       <acronym>POM</acronym> que vous rencontrerez dans un projet Maven, la plupart du temps un fichier
-      <acronym>POM</acronym> fest considérablement plus complexe: il définit de nombreuses dépendances et personnalise le comportement des plugins. Les premiers éléments&mdash;
+      <acronym>POM</acronym> est considérablement plus complexe: il définit de nombreuses dépendances et personnalise le comportement des plugins. Les premiers éléments&mdash;
       <sgmltag>groupId</sgmltag>,
       <sgmltag>artifactId</sgmltag>,
       <sgmltag>packaging</sgmltag>,
@@ -271,50 +262,42 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <sgmltag>name</sgmltag> et
       <sgmltag>url</sgmltag> sont des éléments descriptifs du
       <acronym>POM</acronym> donnant un nom compréhensible par un être humain et associant le projet à un site web. L'élément
-      <sgmltag>dependencies</sgmltag> définit une dépendance unique, dans le scope test, sur un framework de test appelé JUnit. Nous reverons ces sujets par la suite dans
+      <sgmltag>dependencies</sgmltag> définit une dépendance unique, dans le scope test, sur un framework de test appelé JUnit. Nous reverons ces sujets par la suite dans la
       <xref linkend="simple-project-sect-simple-core" />, tout ce que vous devez savoir, en ce moment, c'est le que le
       <filename>pom.xml</filename> est le fichier qui permet l'exécution de Maven.
     </para>
     <para>Maven s'exécute toujours selon un
       <acronym>POM</acronym> effectif, une combinaison de la configuration du
-      <filename>pom.xml</filename> de ce projet, de l'ensemble des
-      <acronym>POM</acronym>s parent, d'un super-
-      <acronym>POM</acronym> défini dans Maven, de la configuration de l'utilisateur, et des profils actifs. Tous les projets étendent au final le super-
-      <acronym>POM</acronym>,qui définit une configuration par défaut raisonnable et qui est compètement expliqué dans
-      <xref linkend="pom-relationships" />. Même si votre projet a un
+      <filename>pom.xml</filename> du projet, de l'ensemble des
+      <acronym>POM</acronym>s parent, d'un super-<acronym>POM</acronym> défini dans Maven, de la configuration de l'utilisateur, et des profils actifs. Tous les projets étendent au final le super-
+      <acronym>POM</acronym>, qui définit une configuration par défaut raisonnable et qui est complètement expliqué dans le <xref linkend="pom-relationships" />. Même si votre projet a un
       <filename>pom.xml</filename> minimal, le contenu du
-      <acronym>POM</acronym> de votre projet est interpolé à partir des conenus des
-      <acronym>POM</acronym>s parent, de la configuration de ul'tilisateur, et de tout profil actif. Pour voir ce
+      <acronym>POM</acronym> de votre projet est interpolé à partir des contenus des
+      <acronym>POM</acronym>s parent, de la configuration de l'utilisateur, et de tout profil actif. Pour voir ce
       <acronym>POM</acronym>  "effectif", exécutez la commande suivante depuis le répertoire racine de votre simple projet.
     </para>
-    <screen>$
-      <command>mvn help:effective-pom</command>
-    </screen>
+    <screen>$<command>mvn help:effective-pom</command></screen>
     <para>Lorsque vous exécutez cette commande, vous pouvez voir un
-      <acronym>POM</acronym> nettement plus consistent qui montre la configuration par défaut de Maven. Ce goal devient vite pratique lorsque vous essayez de débugger un build et que vous voulez voir comment les POMs des parents de ce projet contribuent au POM effectif. Pour plus d'informations sur le plugin Maven Help, regardez
-      <xref linkend="installation-sect-help-plugin-install" />.
+      <acronym>POM</acronym> nettement plus consistent qui montre la configuration par défaut de Maven. Ce goal devient vite pratique lorsque vous essayez de débogguer un build et que vous voulez voir comment les POMs des parents de ce projet contribuent au POM effectif. Pour plus d'informations sur le plugin Maven Help, lisez la <xref linkend="installation-sect-help-plugin-install" />.
     </para>
   </section>
   <section id="simple-project-sect-simple-core">
     <title>Les Principaux Concepts</title>
-    <para>Maintenant que nous avons exécuté Maven pour la première fois, il est temps de s'intéresser aux  concepts qui sont au coeur de Maven. Dans l'exemple précédent, vous avez généré un projet qui consistait en un
-      <acronym>POM</acronym> et un peu de code respectant la disposition Maven standard des répertoires. Puis vous exécutez Maven en lui passant une phase de son cycle de vie ce qui a demandé à Maven d'exécuter toute une série de goals de plugins Maven. Enfin, vous avez installé l'artéfact Maven dans votre dépôt local. Une minute? Qu'est ce que le "cycle de vie"? Qu'est donc un "dépôt local"? La section qui suit définit certains des concepts au coeur de Maven.
+    <para>Maintenant que nous avons exécuté Maven pour la première fois, il est temps de s'intéresser aux  concepts qui sont au c&oelig;ur de Maven. Dans l'exemple précédent, vous avez généré un projet qui consistait en un
+      <acronym>POM</acronym> et un peu de code respectant la disposition Maven standard des répertoires. Puis vous avez exécuté Maven en lui passant une phase de son cycle de vie ce qui a demandé à Maven d'exécuter toute une série de goals de plugins Maven. Enfin, vous avez installé l'artéfact Maven dans votre dépôt local. Une minute? Qu'est ce que le "cycle de vie"? Qu'est donc un "dépôt local"? La section qui suit définit certains des concepts au c&oelig;ur de Maven.
     </para>
     <section id="simple-project-sect-plugins-goals">
-      <title>Plugins Maven Plugins et Goals</title>
-      <para>Dans la section précédente, nous avons exécuté Maven  en ligne de commande avec deux types d'
-        <indexterm>
+      <title>Plugins Maven et Goals</title>
+      <para>Dans la section précédente, nous avons exécuté Maven en ligne de commande avec deux types d'<indexterm>
           <primary>Maven plugins</primary>
           <see>plugins</see>
         </indexterm>
         <indexterm>
           <primary>goals</primary>
           <seealso>plugins</seealso>
-        </indexterm> command-line
-        <phrase role="keep-together">arguments</phrase> différents. La première commande appelait uniquement un goal d'un plugin, le goal
+        </indexterm><phrase role="keep-together">arguments</phrase> différents en ligne de commande. La première commande appelait uniquement un goal d'un plugin, le goal
         <varname>create</varname> du plugin Archetype. La deuxième exécution de Maven était une phase du cycle de vie,
-        <varname>install</varname>. Pour
-        <indexterm>
+        <varname>install</varname>. Pour<indexterm>
           <primary>executing goals</primary>
         </indexterm>
         <indexterm>
@@ -325,33 +308,34 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <varname>archetype</varname> est l'identifiant du plugin et
         <varname>create</varname> l'identifiant du goal. Lorsque Maven exécute le goal d'un plugin, il affiche l'identifiant du plugin et l'identifiant du goal sur la sortie standard:
       </para>
-      <screen>
-        <command>$ mvn archetype:create -DgroupId=org.sonatype.mavenbook.ch03 \
+      <screen><command>$ mvn archetype:create -DgroupId=org.sonatype.mavenbook.ch03 \
                                         -DartifactId=simple \
                                         -DpackageName=org.sonatype.mavenbook
         </command>...
         <emphasis>[INFO] [archetype:create]</emphasis>
 [INFO] artifact org.apache.maven.archetypes:maven-archetype-quickstart: \
        checking for updates from central
-...
       </screen>
-      <para>Un Plugin Maven se compose de un ou plusieurs goals. On peut prendre comme exemples de plugins Maven, de simples plugins qui composent le ceur de Maven comme le plugin Jar qui possède les goals pour créer des fichiers
-        <acronym>JAR</acronym> files, le plugin Compiler qui lui possède les goals pour compiler le code source et le code des tests unitaires, ou le plugin Surefire dont les goals permettent l'exécution des tests unitaires et la production des rapports. On trouve aussi d'autres plugins, plus spécialisés, comme le plugin Hibernate3 pour l'intégration de la bibliothèque très connue de persitence Hibernate, le plugin JRuby qui permet l'exécution de code Ruby durant un build Maven ou l'écriture de plugins Maven en Ruby. Maven permet aussi de définir ses propres plugins. Vous pouvez écrire votre propre plugin en Java ou dans de nombreux autres langages dont Ant, Groovy, Beanshell et, comme indiqué plus haut, Ruby.
+      <para>Un Plugin Maven se compose d'un ou plusieurs goals. On peut prendre comme exemples de plugins Maven, de simples plugins qui composent le c&oelig;ur de Maven comme le plugin Jar dont les goals permettent de créer des fichiers
+        <acronym>JAR</acronym>, le plugin Compiler avec ses goals pour compiler le code source et le code des tests unitaires, ou le plugin Surefire dont les goals permettent l'exécution des tests unitaires et la production des rapports. On trouve aussi d'autres plugins, plus spécialisés, comme le plugin Hibernate3 pour l'intégration de la très connue bibliothèque de persitence Hibernate, le plugin JRuby qui permet l'exécution de code Ruby durant un build Maven ou l'écriture de plugins Maven en Ruby. Maven permet aussi de définir ses propres plugins. Vous pouvez écrire votre propre plugin en Java ou dans de nombreux autres langages dont Ant, Groovy, Beanshell et, comme indiqué plus haut, Ruby.
       </para>
-      <figure>
+      <figure id="fig-plugin-goals">
         <title>Un Plugin Possède des Goals</title>
         <mediaobject>
-          <imageobject>
+          <imageobject role="web">
             <imagedata fileref="figs/web/simple-project_plugin.png"
                        width="5in" />
           </imageobject>
+          <imageobject role="print">
+            <imagedata fileref="figs/print/simple-project_plugin.pdf"
+                       format="PDF" />
+          </imageobject>
         </mediaobject>
       </figure>
-      <para>Un goal est une tâche spécifique qui peut être exécuté individuellement
-        <indexterm>
+      <para>Un goal est une tâche spécifique qui peut être exécutée individuellement<indexterm>
           <primary>goals</primary>
           <secondary>defined</secondary>
-        </indexterm> ou combiné à d'autres goals pour un build plus large. Un goal est une "tâche unitaire" dans Maven. On peut prendre comme exemples de goals le goal
+        </indexterm> ou combinée à d'autres goals pour un build plus large. Un goal est une "tâche unitaire" dans Maven. On peut prendre comme exemples de goals le goal
         <varname>compile</varname> du plugin Compiler, qui compile tout le code source du projet, ou le goal
         <varname>test</varname> du plugin Surefire, qui exécute les tests unitaires. La configuration des goals se fait au travers de propriétés qui sont utilisées pour personnaliser le comportement. Par exemple, le goal
         <varname>compile</varname> du plugin Compiler définit un ensemble de
@@ -381,30 +365,27 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         </note>
       </para>
       <para>Les goals ont des paramètres qui peuvent avoir des valeurs par défaut raisonnables. Dans l'exemple de
-        <varname>archetype:</varname>
-        <varname>create</varname>, nous n'avons pas précisé, via la ligne de commande, quel type d'archétype devait être utilisé pour créer le projet; nous avons simplement indiqué un
+        <varname>archetype:</varname><varname>create</varname>, nous n'avons pas précisé, via la ligne de commande, quel type d'archétype devait être utilisé pour créer le projet; nous avons simplement indiqué un
         <varname>groupId</varname> et un
-        <varname>artifactId</varname>. C'est notre premier contact avec le concept
-        <indexterm>
+        <varname>artifactId</varname>. C'est notre premier contact avec le concept<indexterm>
           <primary>convention over configuration</primary>
         </indexterm>
         <emphasis> de convention plutôt que configuration</emphasis>. La convention, ou le comportoment par défaut, pour le goal
-        <varname>create</varname> est de créer un projet simple à partir de l'archétype Quickstart. Le goal
+        <varname>create</varname> est de créer un projet basique à partir de l'archétype Quickstart. Le goal
         <varname>create</varname> définit une propriété de configuration
         <varname>archetypeArtifactId</varname> dont la valeur par défaut est
         <varname>maven-archetype-</varname>
-        <varname>quickstart</varname>. L'archétype Quickstart génère la coquille d'un projet minimal qui contient un
-        <acronym>POM</acronym> et une unique classe. Le plugin Archetype est bien plus puissant que cet exemple ne le laisse croirer, mais cest une façon efficace de commencer rapidement de nouveaux projets. Plus tard dans ce livre, nous vous montrerons comment il est possible d'utiliser le plugin Archetype pour produiredes projets complexes, comme des applications web, et comment utiliser le plugin  Archetype pour définir vos propres structures de projets.
+        <varname>quickstart</varname>. L'archétype Quickstart génère le squelette d'un projet minimal qui contient un
+        <acronym>POM</acronym> et une unique classe. Le plugin Archetype est bien plus puissant que cet exemple ne le laisse supposer, mais c'est une façon efficace de commencer rapidement de nouveaux projets. Plus tard dans ce livre, nous vous montrerons comment il est possible d'utiliser le plugin Archetype pour produire des projets complexes, comme des applications web, et comment utiliser le plugin Archetype pour définir vos propres structures de projets.
       </para>
-      <para>Le coeur de Maven n'intervient que très peu dans les tâches spécifiques qui composent le build de votre projet. Maven, tout seul, ignore comment compiler votre code ou produire un fichier
-        <acronym>JAR</acronym>. Il délègue tout cela à des plugins Maven comme le plugin Compiler et le plugin Jar, qui sont téléchargés selon les besoins et mis à jour régulièrement depuis le dépôt central de Maven. Lorsque vous téléchargez Maven, vous n'obtenez que le coeur de la plateforme qui ne sait que parser une ligne de commande, gérer un classpath, parser un fichier
-        <acronym>POM</acronym>, et télécharger des plugins Maven selon les besoins. Les utilisateurs ont facilement accès aux dernières options du compilateur grâce à Maven qui maintient à part le le plugin Compiler de son coeur et fournit un mécanisme de mise à jour. Ainsi, les plugins Maven fournissent une logique de build réutilisable universellement. Vous ne définissez pas la tâche de compilation dans un fichier de build,; vous utilisez le plugin  Compiler plugin qui est partagé par tous les utilisateurs de Maven. Si le plugin Compiler est amélioré, tout projet qui utilise Maven en bénéficie immédiatement. (Et, si n'aimez pas le plugin Compiler, vous pouvez le remplacer par votre propre implémentation.)
+      <para>Le c&oelig;ur de Maven n'intervient que très peu dans les tâches spécifiques qui composent le build de votre projet. Maven, tout seul, ignore comment compiler votre code ou produire un fichier
+        <acronym>JAR</acronym>. Il délègue tout cela à des plugins Maven comme le plugin Compiler et le plugin Jar, qui sont téléchargés selon les besoins et mis à jour régulièrement depuis le dépôt central de Maven. Lorsque vous téléchargez Maven, vous n'obtenez que le c&oelig;ur de la plateforme qui ne sait que parser une ligne de commande, gérer un classpath, parser un fichier
+        <acronym>POM</acronym>, et télécharger des plugins Maven selon les besoins. Les utilisateurs ont facilement accès aux dernières options du compilateur grâce à Maven qui maintient le plugin Compiler en dehors de son c&oelig;ur et fournit un mécanisme de mise à jour. Ainsi, les plugins Maven apportent une logique de build réutilisable universellement. Vous ne définissez pas la tâche de compilation dans un fichier de build,; vous utilisez le plugin  Compiler plugin qui est partagé par tous les utilisateurs de Maven. Si le plugin Compiler est amélioré, tout projet qui utilise Maven en bénéficie immédiatement. (Et, si n'aimez pas le plugin Compiler, vous pouvez le remplacer par votre propre implémentation.)
       </para>
     </section>
     <section id="simple-project-sect-lifecycle">
-      <title>Le Cylde de VIe deMaven</title>
-      <para>La deuxième commande que nous avons exécutée dans la section précédente
-        <indexterm>
+      <title>Le Cycle de Vie de Maven</title>
+      <para>La deuxième commande que nous avons exécutée dans la section précédente<indexterm>
           <primary>Maven lifecycle</primary>
           <see>build lifecycle</see>
         </indexterm>
@@ -418,22 +399,17 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <indexterm>
           <primary>phases, lifecycle</primary>
           <see>build lifecycle</see>
-        </indexterm> était
-        <command>mvn install</command>. Cette commande n'appele pas le goal d'un plugin, mais une phase du cycle de vie de Maven. Une phase est une des étapes de ce que Maven appele "le cycle de vie du build".Le cycle de vie du build est une suite ordonnée de phases aboutissant à la construction d'un projet. Maven peut supporter différents cycle de vie, mais celui qui est le plus utilisé est le ccycle de vie
-        <indexterm>
+        </indexterm> était <command>mvn install</command>. Cette commande n'appele pas le goal d'un plugin, mais une phase du cycle de vie de Maven. Une phase est une des étapes de ce que Maven appele "le cycle de vie du build". Le cycle de vie du build est une suite ordonnée de phases aboutissant à la construction d'un projet. Maven peut supporter différents cycle de vie, mais celui qui reste le plus utilisé est le cycle de vie<indexterm>
           <primary>default Maven lifecycle</primary>
         </indexterm>
         <indexterm>
           <primary>build lifecycle</primary>
           <secondary>default Maven lifecycle</secondary>
-        </indexterm> par défaut de Maven lifecycle, qui commence par une phase de validation de l'intégrité du projet et se termine par une phase qui déploie un projet en production. Les phases du cycle de vie sont laissées vagues intentionnellement, définies comme validation, test, ou déploiement elles peuvent avoir un sens différent selon le contexte des projets. Par exemple, la phase
-        <varname>package</varname> dans un projet qui produit un
-        <acronym>JAR</acronym>, signifiemeans "package ce projet sous la forme d'un JAR"; pour un projet qui produit une application web, cette phase
-        <varname>package</varname> peut produire un fichier
-        <acronym>WAR</acronym>.
+        </indexterm> par défaut de Maven, qui commence par une phase de validation de l'intégrité du projet et se termine par une phase qui déploie le projet en production. Les phases du cycle de vie sont laissées vagues intentionnellement, définies comme validation, test, ou déploiement elles peuvent avoir un sens différent selon le contexte des projets. Par exemple, la phase
+        <varname>package</varname> dans un projet qui produit un <acronym>JAR</acronym>, signifie "package ce projet sous la forme d'un JAR"; pour un projet qui produit une application web, cette phase
+        <varname>package</varname> peut produire un fichier <acronym>WAR</acronym>.
       </para>
-      <para>Les goals des plugins peuvent être rattachés
-        <indexterm>
+      <para>Les goals des plugins peuvent être rattachés<indexterm>
           <primary>plugin goals</primary>
           <see>goals</see>
         </indexterm>
@@ -445,17 +421,19 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <command>mvn install</command> et relevez les différents goals qui ont été exécutés. Lorsque ce simple exemple atteint la phase
         <varname>package</varname>, il exécute le goal
         <varname>jar</varname> du plugin Jar. Puisque notre projet Quickstart a (par défaut) un packaging de type
-        <varname>jar</varname>, le the goal
-        <varname>jar:</varname>
-        <varname>jar</varname> est rattaché à la phase
-        <varname>package</varname>.
+        <varname>jar</varname>, le goal
+        <varname>jar:</varname><varname>jar</varname> est rattaché à la phase <varname>package</varname>.
       </para>
       <para>
-        <figure>
+        <figure id="fig-goals-bind-to-phases">
           <title>Liens entre un Goal et une Phase</title>
           <mediaobject>
-            <imageobject>
+            <imageobject role="web">
               <imagedata fileref="figs/web/simple-project_phasebinding.png" />
+            </imageobject>
+            <imageobject role="print">
+              <imagedata fileref="figs/print/simple-project_phasebinding.pdf"
+                         format="PDF" />
             </imageobject>
           </mediaobject>
         </figure>
@@ -464,18 +442,10 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <varname>package</varname> va créer un fichier
         <acronym>JAR</acronym> pour un projet ayant un packaging de type
         <varname>jar</varname>. Mais qu'en est il des goals qui la précèdent, comme
-        <varname>compiler:</varname>
-        <varname>compile</varname> et
-        <varname
-      role="keep-together">surefire:
-        </varname>
-        <varname
-      role="keep-together">test
-        </varname>? Ces goals s'exécutent lors des phases qui précèdent la phase
-        <varname>package</varname> selon le
-        <indexterm>
+        <varname>compiler:</varname><varname>compile</varname> et <varname role="keep-together">surefire:</varname><varname role="keep-together">test</varname>? Ces goals s'exécutent lors des phases qui précèdent la phase
+        <varname>package</varname> selon le<indexterm>
           <primary>executing lifecycle phases</primary>
-        </indexterm> cycle de vie deMaven; exécuter une phase provoque l'exécution de l'ensemble des phases qui la précèdent,le tout se terminant par la phase spécifiée sur la ligne de commande. Chaque phase se compose de zéro à plusieurs goals, et puisque nous n'avons configuré ou personnalisé aucun plugin, cet exemple rattache un ensemble de goals standards au cycle de vie par défaut. Les goals suivants ont été exécuté dans l'ordre pendant que Maven parcourait le cycle de vie par défaut jusqu'à la phase
+        </indexterm> cycle de vie de Maven; exécuter une phase provoque l'exécution de l'ensemble des phases qui la précèdent, le tout se terminant par la phase spécifiée sur la ligne de commande. Chaque phase se compose de zéro à plusieurs goals, et puisque nous n'avons configuré ou personnalisé aucun plugin, cet exemple rattache un ensemble de goals standards au cycle de vie par défaut. Les goals suivants ont été exécutés dans l'ordre pendant que Maven parcourait le cycle de vie par défaut jusqu'à la phase
         <varname>package</varname>:
       </para>
       <variablelist>
@@ -484,13 +454,10 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             <varname>resources:resources</varname>
           </term>
           <listitem>
-            <para>Le goal
-              <varname>resources</varname> du plugin
-              <indexterm>
+            <para>Le goal <varname>resources</varname> du plugin<indexterm>
                 <primary>Resources plugin</primary>
                 <secondary>resources goal</secondary>
-              </indexterm> Resources est rattaché à la phase
-              <varname>process-resources</varname>. Ce goal copie toutes les ressources du répertoire
+              </indexterm> Resources est rattaché à la phase <varname>process-resources</varname>. Ce goal copie toutes les ressources du répertoire
               <filename>src/main/resources</filename> et des autres répertoires configurés comme contenant des ressources dans le répertoire cible.
             </para>
           </listitem>
@@ -500,16 +467,13 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             <varname>compiler:compile</varname>
           </term>
           <listitem>
-            <para>Le goal
-              <varname>compile</varname> du plugin Compiler
-              <indexterm>
+            <para>Le goal <varname>compile</varname> du plugin Compiler<indexterm>
                 <primary>compile:compile goal</primary>
               </indexterm>
               <indexterm>
                 <primary>Compiler plugin</primary>
                 <secondary>compile goal</secondary>
-              </indexterm> est lié à la phase
-              <varname>compile</varname>. Ce goal compile tout le source code du répertoire
+              </indexterm> est lié à la phase <varname>compile</varname>. Ce goal compile tout le source code du répertoire
               <filename>src/main/java</filename> et des autres répertoires configurés comme contenant du code source dans le répertoire cible.
             </para>
           </listitem>
@@ -519,14 +483,11 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             <varname>resources:testResources</varname>
           </term>
           <listitem>
-            <para>Le goal
-              <varname>testResources</varname> du plugin Resources
-              <indexterm>
+            <para>Le goal <varname>testResources</varname> du plugin Resources<indexterm>
                 <primary>Resources plugin</primary>
                 <secondary>testResources goal</secondary>
-              </indexterm> est lié à la phase
-              <varname>process-test-resources</varname>. Ce goal copie toutes les ressourcesdu répertoire
-              <filename>src/test/resources</filename> et des autres répertoires configurés comme contenant des ressources de test dans le répertoire de test cible.
+              </indexterm> est lié à la phase <varname>process-test-resources</varname>. Ce goal copie toutes les ressources du répertoire
+              <filename>src/test/resources</filename> et des autres répertoires configurés comme contenant des ressources de test dans le répertoire cible pour les tests.
             </para>
           </listitem>
         </varlistentry>
@@ -535,14 +496,11 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             <varname>compiler:testCompile</varname>
           </term>
           <listitem>
-            <para>Le goal
-              <varname>testCompile</varname> du plugin Compiler
-              <indexterm>
+            <para>Le goal <varname>testCompile</varname> du plugin Compiler<indexterm>
                 <primary>Compiler plugin</primary>
                 <secondary>testCompile goal</secondary>
-              </indexterm> est rattaché à la phase
-              <varname>test-compile</varname>. Ce goal compile les tests unitaires du répertoire
-              <filename>src/test/java</filename> et des autres répertoires configurés comme contenant du code source de test dans le répertoire de test cible.
+              </indexterm> est rattaché à la phase <varname>test-compile</varname>. Ce goal compile les tests unitaires du répertoire
+              <filename>src/test/java</filename> et des autres répertoires configurés comme contenant du code source de test dans le répertoire cible pour les tests.
             </para>
           </listitem>
         </varlistentry>
@@ -551,9 +509,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             <varname>surefire:test</varname>
           </term>
           <listitem>
-            <para>Le goal
-              <varname>test</varname> du plugin Surefire est
-              <indexterm>
+            <para>Le goal <varname>test</varname> du plugin Surefire est<indexterm>
                 <primary>Surefire plugin</primary>
                 <secondary>test goal</secondary>
               </indexterm>
@@ -564,8 +520,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
               <indexterm>
                 <primary>testing</primary>
                 <secondary>Surefire:test goal</secondary>
-              </indexterm> rattaché à la phase
-              <varname>test</varname>. Ce goal exécute tous les tests et produit des fichiers contenant leurs résultats détaillés. Par défaut, en cas d'échec de l'un des tests le goal arrêtera le build.
+              </indexterm> rattaché à la phase <varname>test</varname>. Ce goal exécute tous les tests et produit des fichiers contenant leurs résultats détaillés. Par défaut, en cas d'échec de l'un des tests le goal arrêtera le build.
             </para>
           </listitem>
         </varlistentry>
@@ -575,50 +530,48 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           </term>
           <listitem>
             <para>Le goal
-              <varname>jar</varname> du  plugin Jar est lié
-              <indexterm>
+              <varname>jar</varname> du  plugin Jar est lié<indexterm>
                 <primary>jar:jar goal</primary>
-              </indexterm> à la phase
-              <varname>package</varname>. Ce goal package le contenu du répertoire cible en un fichier JAR.
+              </indexterm> à la phase <varname>package</varname>. Ce goal package le contenu du répertoire cible en un fichier JAR.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
       <para>
-        <figure>
+        <figure id="fig-goals-bind-to-default-lifecycle">
           <title>Les Goals Rattachés sont lancés à l'Exécution de leurs Phases</title>
           <mediaobject>
-            <imageobject>
+            <imageobject role="web">
               <imagedata fileref="figs/web/simple-project_lifecyclebinding.png" />
+            </imageobject>
+            <imageobject role="print">
+              <imagedata fileref="figs/print/simple-project_lifecyclebinding.pdf"
+                         format="PDF" />
             </imageobject>
           </mediaobject>
         </figure>
       </para>
       <para>Pour résumer, lorsque nous avons exécuté
-        <command>mvn install</command>, Maven execute toutes les phases jusqu'à la phase install, et pour cela il parcourt toutes les phases du cycle de vie, exécutant tous les goals liés à chacune de ces phases. Au lieu d'exécuter une des phases du cycle de vie de Maven, ous pourriez obtenir le même résultat en spécifiant une liste de goals de plugin de la manière suivante:
+        <command>mvn install</command>, Maven exécute toutes les phases jusqu'à la phase install, et pour cela il parcourt toutes les phases du cycle de vie, exécutant tous les goals liés à chacune de ces phases. Au lieu d'exécuter une des phases du cycle de vie de Maven, vous pourriez obtenir le même résultat en spécifiant une liste de goals de plugin de la manière suivante:
       </para>
-      <screen>
-        <command>mvn resources:resources \
+      <screen><command>mvn resources:resources \
     compiler:compile \
     resources:testResources \
     compiler:testCompile \
     surefire:test \
     jar:jar \
     install:install
-        </command>
-      </screen>
-      <para>Il est beaucoup plus simple d'exécuter les phases du cycle de vi plutôt que de lister explicitement les goals à exécuter en lign de commande, de plus, ce cycle de vie commun permet à chaque projet utilisant Maven d'adhérer à un ensemble de standards bien définis. C'est ce cycle de vie qui permet à un développeur de passer d'un projet à l'autre sans connaitre tous les détails du build de chacun d'entre eux. Si vous savez construire un projet Maven, vous savez tous les construire. </para>
+        </command></screen>
+      <para>Il est beaucoup plus simple d'exécuter les phases du cycle de vie plutôt que de lister explicitement les goals à exécuter en ligne de commande, de plus, ce cycle de vie commun permet à chaque projet utilisant Maven d'adhérer à un ensemble de standards bien définis. C'est ce cycle de vie qui permet à un développeur de passer d'un projet à l'autre sans connaitre tous les détails du build de chacun d'entre eux. Si vous savez construire un projet Maven, vous savez tous les construire. </para>
     </section>
     <section id="simple-project-sect-maven-coordinates">
       <title>Les Coordonnées Maven</title>
-      <para>Le plugin Archetype a créé un projet avec un fichier
-        <indexterm class="startofrange" id="coord1">
+      <para>Le plugin Archetype a créé un projet avec un fichier<indexterm class="startofrange" id="coord1">
           <primary>Maven coordinates</primary>
         </indexterm>
         <indexterm class="startofrange" id="coord2">
           <primary>coordinates</primary>
-        </indexterm>
-        <filename>pom.xml</filename>. Ceci est le Project Object Model (
+        </indexterm> <filename>pom.xml</filename>. Ceci est le Project Object Model (
         <acronym>POM</acronym>), une description déclarative d'un projet. Quand Maven exécute un goal, ccelui-ci a accès aux informations définies dans le
         <acronym>POM</acronym> du projet. Lorsque le goal
         <varname>jar:</varname>
@@ -637,18 +590,20 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <acronym>POM</acronym> Maven. Regardez le
         <acronym>POM</acronym> qui va suivre.
       </para>
-      <para>
-        <figure>
+      <para><figure id="fig-project-coords">
           <title>Coordonnées d'un Projet Maven</title>
           <mediaobject>
-            <imageobject>
+            <imageobject role="web">
               <imagedata fileref="figs/web/simple-project_annopom.png"
-                         width="6in" /> 
+                         width="6in" />
+            </imageobject>
+
+            <imageobject role="print">
+              <imagedata fileref="figs/print/simple-project_annopom.pdf" />
             </imageobject>
           </mediaobject>
-        </figure>
-      </para>
-      <para>Nous avons surligné les cooronnées Maven de ce projet: les
+        </figure></para>
+      <para>Nous avons surligné les cordonnées Maven de ce projet: les
         <varname>groupId</varname>,
         <varname>artifactId</varname>,
         <varname>version</varname> et
@@ -656,16 +611,12 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <footnote
           id="foot-simple-classify">
           <para>Il existe une cinquième coordonnée, plus rarement utilisée, appelée
-            <varname>classifier</varname> dont nous parlerons plus tard dans le livre. Vous pouvez ignorer la coordonnée classifier pour l'instant.
+            <varname>classifier</varname> dont nous parlerons plus tard dans le livre. Vous pouvez l'oublier pour l'instant.
           </para>
-        </footnote>Dans dans tout système à coordonnées, les coordonnées Maven permettent de définir un point spécifique dans "l'espace": du global au local. Maven identifie un projet via ses coordonnées lorsqu'un projet est relié à un autre en tant que dépendance, plugin ou comme projet parent. Les coordonnées Maven sont souvent écrites en utilisant les deux points comme séparateur selon le format suivant:
-        <code>groupId:artifactId:packaging:version</code>. Dans le fichier
-        <filename>pom.xml</filename> ci-dessus, les coordonnées de notre projet sont les suivantes:
+        </footnote>Comme dans dans tout système à coordonnées, les coordonnées Maven permettent de définir un point spécifique dans "l'espace": du global au local. Maven identifie un projet via ses coordonnées lorsqu'un projet est relié à un autre en tant que dépendance, plugin ou comme projet parent. Les coordonnées Maven sont souvent écrites en utilisant les deux points comme séparateur selon le format suivant:
+        <code>groupId:artifactId:packaging:version</code>. Dans le fichier <filename>pom.xml</filename> ci-dessus, les coordonnées de notre projet sont les suivantes:
         <code>mavenbook:my-app:jar:1.0-SNAPSHOT</code>. Cette notation s'applique aussi pour les dépendances d'un projet, notre projet qui a besoin de la version 3.8.1 de JUnit, contient une dépendance à
-        <varname>junit:</varname>
-        <varname>junit:</varname>
-        <varname>jar:</varname>
-        <varname>3.8.1</varname>.
+        <varname>junit:</varname><varname>junit:</varname><varname>jar:</varname><varname>3.8.1</varname>.
       </para>
       <variablelist>
         <varlistentry>
@@ -673,14 +624,11 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             <varname>groupId</varname>
           </term>
           <listitem>
-            <para>Le groupe, l'entreprise, l'équipe, l'oraganisation, le projet ou autre
-              <indexterm>
+            <para>Le groupe, l'entreprise, l'équipe, l'oraganisation, le projet ou autre<indexterm>
                 <primary>groupId attribute (pom.xml)</primary>
               </indexterm> groupe. La convention pour les identifiants du groupe est qu'ils commencent par le nom de domaine inversé de l'organisation qui crée le projet. Les projets de Sonatype devrait avoir un
-              <varname>groupId</varname> qui commence par
-              <package>com.sonatype</package>, et les projets de l'Apache Software Foundation devraient avoir un
-              <varname>groupId</varname> qui commence par
-              <package>org.apache</package>.
+              <varname>groupId</varname> qui commence par <package>com.sonatype</package>, et les projets de l'Apache Software Foundation devraient avoir un
+              <varname>groupId</varname> qui commence par <package>org.apache</package>.
             </para>
           </listitem>
         </varlistentry>
@@ -689,9 +637,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             <varname>artifactId</varname>
           </term>
           <listitem>
-            <para>IUn identifiant unique sous le
-              <varname>groupId</varname> qui
-              <indexterm>
+            <para>Identifiant unique sous le <varname>groupId</varname> qui<indexterm>
                 <primary>artifactId attribute (pom.xml)</primary>
               </indexterm> représente un projet unique.
             </para>
@@ -702,8 +648,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             <varname>version</varname>
           </term>
           <listitem>
-            <para>La version spécifique d'un projet. Lesprojets qui ont été
-              <indexterm>
+            <para>Version spécifique d'un projet. Les projets qui ont été<indexterm>
                 <primary>version attribute (pom.xml)</primary>
               </indexterm> livrés ont un identifiant de version fixe qui fait référence à une version bien spécifique du projet. Les projects en cours de développement peuvent utiliser un identifiant de version qui indique que cette version n'est pas stable :
               <varname>SNAPSHOT</varname>.
@@ -712,11 +657,8 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         </varlistentry>
       </variablelist>
       <para>Le format de packaging est aussi un composant important des coordonnées Maven, mais il fait pas partie des identifiants uniques d'un projet. L'ensemble
-        <varname>groupId:</varname>
-        <varname>artifactId:</varname>
-        <varname>version</varname> d'un projet identifie de manière unique un projet; vous ne pouvez pas avoir un projet avec les mêmes trois identifiants
-        <varname>groupId</varname>,
-        <varname>artifactId</varname>, et
+        <varname>groupId:</varname><varname>artifactId:</varname><varname>version</varname> d'un projet identifie de manière unique un projet; vous ne pouvez pas avoir un projet avec les mêmes trois identifiants
+        <varname>groupId</varname>, <varname>artifactId</varname>, et
         <varname>version</varname>.
       </para>
       <variablelist>
@@ -726,8 +668,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           </term>
           <listitem>
             <para>Le type du projet,
-              <varname>jar</varname> par défaut,
-              <indexterm>
+              <varname>jar</varname> par défaut,<indexterm>
                 <primary>packaging attribute (pom.xml)</primary>
               </indexterm> décrit le résultat packagé produit par le projet. Un projet avec un packaging
               <varname>jar</varname> produit une archive
@@ -737,54 +678,44 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>Ces quatres éléments sont la clef pour trouver et utiliser un projet particulier dans le vaste monde des projets "Mavenisés". Les dépôts Maven (publiques,
-        <indexterm>
+      <para>Ces quatres éléments sont la clef pour trouver et utiliser un projet particulier dans le vaste monde des projets "Mavenisés". Les dépôts Maven (publiques,<indexterm>
           <primary>repositories</primary>
         </indexterm>
         <indexterm>
           <primary>Maven repositories</primary>
-        </indexterm> privés, et locaux) sont organisés autour de ces identifiants. Lorsque ce projet est installé dans le dépôt Maven local, il devient immédiatement disponible pour tout autre projet qui voudrait l'utiliser. Tout ce que vous avez à faire est de l'ajouter comme dépendance à un autre projet
-        <indexterm class="endofrange" startref="coord1"></indexterm>
-        <indexterm class="endofrange" startref="coord2"></indexterm> en utilisant les coordonnées Maven uniques pour un artéfact spécifique.
+        </indexterm> privés, et locaux) sont organisés autour de ces identifiants. Lorsque ce projet est installé dans le dépôt Maven local, il devient immédiatement disponible pour tout autre projet qui voudrait l'utiliser. Tout ce que vous avez à faire est de l'ajouter comme dépendance à un autre projet<indexterm class="endofrange" startref="coord1"></indexterm>
+        <indexterm class="endofrange" startref="coord2"></indexterm> en utilisant les coordonnées Maven uniques propres à l'artéfact.
       </para>
-      <para>
-        <figure>
-          <title>L'Espace Maven est un système de projets à coordonnées</title>
+      <para><figure id="fig-simple-mavenspace">
+          <title>L'Espace des projets Maven est un système à coordonnées</title>
           <mediaobject>
-            <imageobject>
+            <imageobject role="web">
               <imagedata fileref="figs/web/simple-project_mavenspace.png"
-                         width="6in" />
+                         width="" />
+            </imageobject>
+            <imageobject role="print">
+              <imagedata fileref="figs/print/simple-project_mavenspace.pdf" />
             </imageobject>
           </mediaobject>
-        </figure>
-      </para>
+        </figure></para>
     </section>
     <section id="simple-project-section-simple-repo">
       <title>Les Dépôts Maven</title>
-      <para>Lors de sa première exécution, vous allez vous apercevoir que Maven télécharge un grand nombre de fichiers depuis un dépôt Maven distant. Si vous exécutez Maven pour la première fois pour ce simple projet, la première chose qu'il va faire est de télécharger la dernière version du plugin Resources lorsqu'il va déclencher le goal
+      <para>Lors de sa première exécution, vous allez vous apercevoir que Maven télécharge un grand nombre de fichiers depuis un dépôt Maven distant. Si vous exécutez Maven pour la première fois pour le projet simple, la première chose qu'il va faire est de télécharger la dernière version du plugin Resources lorsqu'il va déclencher le goal
         <varname>resources:</varname>
         <varname>resource</varname>. Avec Maven, artéfacts et plugins sont téléchargés depuis des dépôts distants au moment où on e a besoin. Une des raisons pour lesquelles Maven est si léger à télécharger (1.5 MiB) est que cette version initiale ne vient qu'avec très peu de plugins. Maven est livré avec le strict minimum et récupère de dépôts distants ce dont il a besoin quand il en a besoin. Maven est livré avec l'emplacement d'un dépôt distant par défaut (
         <ulink
       url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2
         </ulink>) qu'il utilise pour télécharger les principaux plugins et les dépendances Maven.
       </para>
-      <para>Souvent vous aurez des projets qui dépendent de bibliothèques propriétaires ou non disponibles publiquement. Dans ce cas vous devrez installer votre propre dépôt au sein du réseau de votre organisation, ou télécharger et installer ces dépendances manuellement. Les déps distants par défaut peuvent être remplacés ou complétées par des références à des dépôts Maven personnalisés gérés par votre organisation. Il existe de nombreux produits sur le marché pour permettre à des organisations de gérer et maintenir des miroirs des dépôts Maven publiques.</para>
-      <para>Qu'est ce qui fait d'un dépôt Maven un dépôt Maven? Un dépôt Maven se définit par son orgnaisation, un dépôt est un ensemble d'artéfacts de projet rangés selon une sructure et un format qui puissent être facilement compris par Maven. Dans un dépôt Maven, tout est rangé selon une structure de répertoires correspondant aux coordonnées Maven d'un projet. Vous pouvez voir cette organisation en ouvrant un navigateur internet et en parcourant le dépôt central de Maven sur
+      <para>Souvent vous aurez des projets qui dépendent de bibliothèques propriétaires ou non disponibles publiquement. Dans ce cas vous devrez installer votre propre dépôt au sein du réseau de votre organisation, ou télécharger et installer ces dépendances manuellement. Les dépôts distants par défaut peuvent être remplacés ou complétées par des références à des dépôts Maven personnalisés gérés par votre organisation. Il existe de nombreux produits sur le marché pour permettre à des organisations de gérer et maintenir des miroirs des dépôts Maven publiques.</para>
+      <para>Qu'est ce qui fait d'un dépôt Maven un dépôt Maven? Un dépôt Maven se définit par son organisation, un dépôt est un ensemble d'artéfacts de projet rangés selon une sructure et un format qui peuvent être facilement compris par Maven. Dans un dépôt Maven, tout est rangé selon une structure de répertoires correspondant aux coordonnées Maven d'un projet. Vous pouvez voir cette organisation en ouvrant un navigateur internet et en parcourant le dépôt central de Maven sur
         <ulink
       url="http://repo1.maven.org/maven2/">http://repo1.maven.org/maven2/
-        </ulink>. Vous verrez qu'n artéfact ayant pour coordonnées
-        <varname>org.</varname>
-        <varname>apache.commons:</varname>
-        <varname>commons-email:</varname>
-        <varname>1.1</varname> se retrouve dans le répertoire
-        <filename>/org/apache/commons/commons-email/1.1/</filename> dans le fichier qui s'appele
-        <filename>commons-email-1.1.jar</filename>. Le comportement standard pour un dépôt Maven est de ranger un artéfact sous le répertoire racine du dépôt dans un répertoire respectant le format suivant.
-        <screen>/&lt;
-          <varname>groupId</varname>&gt;/&lt;
-          <varname>artifactId</varname>&gt;/&lt;
-          <varname>version</varname>&gt;/&lt;
-          <varname>artifactId</varname>&gt;-&lt;version&gt;.&lt;
-          <varname>packaging</varname>&gt;
+        </ulink>. Vous verrez qu'un artéfact ayant pour coordonnées <varname>org.</varname><varname>apache.commons:</varname><varname>commons-email:</varname><varname>1.1</varname> se retrouve dans le répertoire
+        <filename>/org/apache/commons/commons-email/1.1/</filename> dans le fichier qui s'appele <filename>commons-email-1.1.jar</filename>. Le comportement standard pour un dépôt Maven est de ranger un artéfact sous le répertoire racine du dépôt dans un répertoire respectant le format suivant.
+        <screen>
+          /&lt;<varname>groupId</varname>&gt;/&lt;<varname>artifactId</varname>&gt;/&lt;<varname>version</varname>&gt;/&lt;<varname>artifactId</varname>&gt;-&lt;version&gt;.&lt;<varname>packaging</varname>&gt;
         </screen>
       </para>
       <para>Maven télécharge artéfacts et plugins depuis un dépôt distant et les enregistre dans le dépôt local Maven de votre machine. Une fois que Maven a téléchargé un artéfact depuis un dépôt distant, il n'a plus besoin de le télécharger à nouveau. En effet, Maven cherchera toujours dans le dépôt local avant d'aller chercher ailleurs. Sur Windows XP, votre dépôt local est probablemnt dans
@@ -794,48 +725,39 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <varname>install</varname> exécute un goal qui installe les artéfacts de votre projet dans votre dépôt Maven local.
       </para>
       <para>Dans votre dépôt local, vous devriez voir l'artéfact créé par notre projet simple. Si vous exécutez la commande
-        <command>mvn
-      install
-        </command>, Maven installera l'artéfact de notre projet dans votre dépôt local. Essayez le.
+        <command>mvn install</command>, Maven installera l'artéfact de notre projet dans votre dépôt local. Essayez le.
       </para>
-      <screen>$
-        <command>mvn install</command>
+      <screen>$<command>mvn install</command>
 ...
 [INFO] [install:install]
 [INFO] Installing .../simple-1.0-SNAPSHOT.jar to \
        ~/.m2/repository/com/sonatype/maven/simple/1.0-SNAPSHOT/ \
        simple-1.0-SNAPSHOT.jar
-...
-      </screen>
-      <para>Comme le montrent les traces de cette commande, Maven a installé le fichier
-        <acronym>JAR</acronym> de notre projet dans notre dépôt Maven local. Maven utilise le dépôt local pour partager les dépendances entre projets locaux. Si vous développez deux projets&mdash;projet A et projet B&mdash;où le project B dépend de l'artéfact produit par le projet A. Maven récupérera l'artéfact du projet A depuis votre dépôt local quand il construira le projet B. Les dépôts Maven sont à la fois un cache local des artéfacts téléchargés depuis un dépôt distant et un mécansime qui permet à vos projets de dépendre les uns des autres.
+...</screen>
+      <para>Comme le montrent les traces de cette commande, Maven a installé le fichier <acronym>JAR</acronym> de notre projet dans notre dépôt Maven local. Maven utilise le dépôt local pour partager les dépendances entre projets locaux. Si vous développez deux projets&mdash;projet A et projet B&mdash;où le project B dépend de l'artéfact produit par le projet A. Maven récupérera l'artéfact du projet A depuis votre dépôt local quand il construira le projet B. Les dépôts Maven sont à la fois un cache local des artéfacts téléchargés depuis un dépôt distant et un mécansime qui permet à vos projets de dépendre les uns des autres.
       </para>
     </section>
     <section id="simple-project-sect-dep-management">
       <title>La Gestion des Dépendances de Maven</title>
-      <para>Dans l'exemple simple de ce chapitre, Maven a résolu les coordonnées de la dépendance JUnit&mdash;
-        <varname>junit:</varname>
-        <varname>junit:</varname>
-        <varname>3.8.1</varname>&mdash;sous la forme d'un chemin dans un dépôt Maven
-        <filename>/junit/junit/3.8.1/junit-3.8.1.jar</filename>. La capacité à trouver un artéfact dans un dépôt à partir de ses coordonnées nous permet de définir les dépedances dans le
+      <para>Dans l'exemple de ce chapitre, Maven a résolu les coordonnées de la dépendance JUnit&mdash;
+        <varname>junit:</varname><varname>junit:</varname><varname>3.8.1</varname>&mdash;sous la forme d'un chemin dans un dépôt Maven
+        <filename>/junit/junit/3.8.1/junit-3.8.1.jar</filename>. C'est cette capacité à trouver un artéfact dans un dépôt à partir de ses coordonnées qui nous permet de définir les dépendances dans le
         <acronym>POM</acronym> du projet. Si vous examinez le fichier
-        <filename>pom.xml</filename> du projet simple, vous verrez qu'il comporte une section
-        <sgmltag>dependencies</sgmltag> pour traiter des dépendances, et que cette section contient un seule dépendance&mdash;JUnit.
+        <filename>pom.xml</filename> du projet simple, vous verrez qu'il comporte une section <sgmltag>dependencies</sgmltag> pour traiter des dépendances, et que cette section contient un seule dépendance&mdash;JUnit.
       </para>
-      <para>Un projet plus complexe contiendrait sûrement plusieurs dépendances, ou pourrait avoir des dépendances qui dépendent elles-même d'autres artéfacts. L'une des principales forces de Maven
-        <indexterm>
+      <para>Un projet plus complexe contiendrait sûrement plusieurs dépendances, ou pourrait avoir des dépendances qui dépendent elles-même d'autres artéfacts. L'une des principales forces de Maven<indexterm>
           <primary>transitive dependencies</primary>
           <secondary>support for</secondary>
-        </indexterm> est sonsa gestion des dépendances transitives. Supposons que votre projet dépende d'une bibliothèque, qui à son tour dépend de 5 ou 10 autres bibliothèques (comme Spring ou Hibernate par exemple). Au lieu d'avoir à trouver et lister explicitement toutes ces dépendances dans votre
+        </indexterm> est sa gestion des dépendances transitives. Supposons que votre projet dépende d'une bibliothèque, qui à son tour dépend de 5 ou 10 autres bibliothèques (comme Spring ou Hibernate par exemple). Au lieu d'avoir à trouver et lister explicitement toutes ces dépendances dans votre
         <filename>pom.xml</filename>, vous pouvez ne déclarer que la dépendance à la bibliothèque qui vous intéresse, Maven se chargera d'ajouter ses dépendances à votre projet implicitement. Maven va gérer aussi les conflits de dépendances, vous fournira le moyen de modifier son comportement par défaut et d'exclure certaines dépendances transitives.
       </para>
-      <para>Regardons la dépendance téléchargée dans votre dépôt local lors de l'exemple précédent. Regardez dans votre dépôt local le répertoire
+      <para>Regardons la dépendance téléchargée dans votre dépôt local lors de l'exemple précédent. Ouvrez dans votre dépôt local le répertoire
         <filename>~/.m2/repository/junit/junit/3.8.1/</filename>. Si vous avez suivi les instructions de ce chapitre vous trouverez un fichier
         <filename>junit-3.8.1.jar</filename> et un fichier
         <filename>junit-3.8.1.pom</filename> avec quelques fichiers de checksum que Maven utilise pour vérifier l'authentiticité des artéfats téléchargés. Remarquez que Maven n'a pas juste téléchargé le
         <acronym> JAR</acronym> de JUnit, mais aussi un fichier
         <acronym>POM</acronym> pour les dépendances de JUnit. C'est le téléchargement des fichiers
-        <acronym>POM</acronym> en plus des artéfacts qui est au coeur de la gestion des dépendances transitives par Maven.
+        <acronym>POM</acronym> en plus des artéfacts qui est au c&oelig;ur de la gestion des dépendances transitives par Maven.
       </para>
       <para>Quand vous installez l'artéfact produit par votre projet dans le dépôt local, vous noterez que Maven publie une version légèrement modifiée du
         <filename>pom.xml</filename> de votre projet dans le répertoire contenant le fichier
@@ -848,12 +770,16 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <acronym>JAR</acronym>; c'est un fichier
         <acronym>POM</acronym> qui à son tour peut déclarer de nouvelles dépendances. Ce sont ces dépendances de dépendances que l'on appele dépendances transitives, et cela est rendu possible par le fait que les dépôts Maven contiennent plus que du bytecode; ils contiennent des métadonnées sur les artéfacts.
       </para>
-      <figure>
+      <figure id="fig-resolve-transitive">
         <title>Résolution des Dépendances Transitives par Maven</title>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="figs/web/simple-project_depgraph.png"
-                       width="6in" />
+          <imageobject role="web">
+            <imagedata fileref="figs/web/simple-project_depgraph.png" width="" />
+          </imageobject>
+
+          <imageobject role="print">
+            <imagedata fileref="figs/print/simple-project_depgraph.pdf"
+                       format="PDF" />
           </imageobject>
         </mediaobject>
       </figure>
@@ -925,7 +851,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
   </section>
   <section id="simple-project-sect-summary">
     <title>En résumé</title>
-    <para>Dans ce chapitre, nous avons créé un projet simple que nous avons packagé sous la forme d'un fichier JAR, puis nous avons installé ce JAR dans le dépôt local de Maven pour qu'il soit utilisable par d'autres projets, enfin nous avons produit un site web contenant de la documentation. Nous avons fait tout ça sans écrire une seule ligne de code ou modifié un seul fichier de configuration. Nous nous sommes arrêtés en chemin pour développer les définitions de certains de concepts au coeur de Maven. Dans le chaitre suivant, nous allons commencer à personnaliser et modifier le fichier
+    <para>Dans ce chapitre, nous avons créé un projet simple que nous avons packagé sous la forme d'un fichier JAR, puis nous avons installé ce JAR dans le dépôt local de Maven pour qu'il soit utilisable par d'autres projets, enfin nous avons produit un site web contenant de la documentation. Nous avons fait tout ça sans écrire une seule ligne de code ou modifié un seul fichier de configuration. Nous nous sommes arrêtés en chemin pour développer les définitions de certains de concepts au c&oelig;ur de Maven. Dans le chaitre suivant, nous allons commencer à personnaliser et modifier le fichier
       <filename>pom.xml</filename> de notre projet pour lui ajouter des dépendances et configurer les tests unitaires.
     </para>
   </section>
