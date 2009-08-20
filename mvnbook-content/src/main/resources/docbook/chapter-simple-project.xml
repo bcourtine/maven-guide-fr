@@ -17,7 +17,7 @@
         </ulink> ou
         <ulink
       url="http://www.sonatype.com/book/mvn-examples-1.0.tar.gz">http://www.sonatype.com/book/mvn-examples-1.0.tar.gz
-        </ulink>. Décompressez cette archive dans n'importe quel répertoire, puis allez dans le répertoire
+        </ulink>. Décompressez cette archive dans le répertoire de votre choix, puis allez dans le répertoire
         <filename>ch03/</filename>. Dans le répertoire
         <filename>ch03/</filename> vous trouverez un répertoire
         <filename>simple/</filename> qui contient le code source de ce chapitre. Si vous souhaitez suivre avec le code de cet exemple affiché dans un navigateur web, allez à
@@ -788,7 +788,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <indexterm>
           <primary>scope, dependency</primary>
         </indexterm>
-        <filename>pom.xml</filename> du projet simple conteint une unique dépendance&mdash;
+        <filename>pom.xml</filename> du projet simple contient une unique dépendance&mdash;
         <varname>junit:</varname>
         <varname>junit:</varname>
         <varname>jar:</varname>
@@ -796,27 +796,18 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <varname>test</varname> indiquée dans la balise scope. Lorsqu'une dépendance Maven a une portée de type
         <varname>test</varname>, elle n'est pas disponible pour le goal
         <varname>compile</varname> du plugin Compiler. Cette dépendance sera ajoutée au classpath des goals
-        <varname>compiler:</varname>
-        <varname>testCompile</varname> et
-        <varname>surefire:</varname>
-        <varname>test</varname>.
+        <varname>compiler:</varname><varname>testCompile</varname> et <varname>surefire:</varname><varname>test</varname>.
       </para>
-      <para>Durant la créatio du
+      <para>Durant la création du
         <acronym>JAR</acronym> d'un projet, les dépendances ne sont pas intégrées à l'artéfact produit; elles ne sont utilisées que lors de la compilation. Par contre lorsque vous utilisez Maven pour produire un
-        <acronym>WAR</acronym> ou un
-        <acronym>EAR</acronym>, vous pouvez le configuree de manière à packager les dépendances avec l'artéfact produit, et vous pouvez même configurer Maven pour exclure certaines dépendances du fichier
-        <acronym>WAR</acronym> par l'utilisation de la portée
-        <varname>provided</varname> La portée
-        <varname>provided</varname>indique à Maven que la dépendance est nécessaire à la compilation, mais qu'elle ne doit pas être intégrée à l'artéfact produit par le build. Cette portée est donc très pratique lorsque vous développez une application web. Vous aurez besoin du jar des spécifications Servlet pour compiler, mais vous ne voulez pas inclure le
-        <acronym>JAR</acronym> de l'
-        <acronym>API</acronym> Servlet dans le répertoire
-        <filename>WEB-INF/lib</filename>.
+        <acronym>WAR</acronym> ou un <acronym>EAR</acronym>, vous pouvez le configurer de manière à packager les dépendances avec l'artéfact produit, et vous pouvez même configurer Maven pour exclure certaines dépendances du fichier
+        <acronym>WAR</acronym> par l'utilisation de la portée <varname>provided</varname>. La portée <varname>provided</varname>indique à Maven que la dépendance est nécessaire à la compilation, mais qu'elle ne doit pas être intégrée à l'artéfact produit par le build. Cette portée est donc très pratique lorsque vous développez une application web. Vous aurez besoin du jar des spécifications Servlet pour compiler, mais vous ne voulez pas inclure le
+        <acronym>JAR</acronym> de l'<acronym>API</acronym> Servlet dans le répertoire <filename>WEB-INF/lib</filename>.
       </para>
     </section>
     <section id="simple-project-sect-site-generation">
       <title>Rapports et Production du Site</title>
-      <para>Une fonction importante de Maven est sa capacité à produire
-        <indexterm>
+      <para>Une fonction importante de Maven est sa capacité à produire<indexterm>
           <primary>documentation generation</primary>
         </indexterm>
         <indexterm>
@@ -829,16 +820,12 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <primary>site lifecycle phase</primary>
         </indexterm> de la documentation et des rapports. Dans le répertoire de votre projet simple, exécutez la commande suivante:
       </para>
-      <screen>$
-        <command>mvn site</command>
-      </screen>
+      <screen>$<command>mvn site</command></screen>
       <para>Ce qui exécute la phase
         <varname>site</varname> du cycle de vie. Contrairement au cycle de vie du build, qui gère la génération de code , la manipulation des ressources, la compilation , le packaging, etc., ce cycle de vie ne concerne que le traitement du contenu du site qui se trouve dans le répertoire
         <filename>src/site</filename> et la production de rapports. Une fois la commande exécutée, vous devriez voir un site web du projet dans le réperoire
-        <filename>target/site</filename>. Ouvrez
-        <filename>target/site/index.html</filename>et vous devriez voir le squelette d'un site du projet. Ce squelette contient certains rapports sous le menu de navigation "Project Reports" à gauche, ainsi que des informations sur le projet, les dépendances, et les développeurs dans le menu "Project Information".Le site web du projet simple est quasiment vide puisque le
-        <acronym>POM</acronym>contient très peu d'informations, juste des coordonnées, un nom, une
-        <acronym>URL</acronym>,et une unique dépendance de test.
+        <filename>target/site</filename>. Ouvrez <filename>target/site/index.html</filename>et vous devriez voir le squelette du site du projet Simple. Ce squelette contient certains rapports sous le menu de navigation "Project Reports" à gauche, ainsi que des informations sur le projet, les dépendances, et les développeurs dans le menu "Project Information". Le site web du projet simple est quasiment vide puisque le
+        <acronym>POM</acronym> contient très peu d'informations, juste des coordonnées, un nom, une <acronym>URL</acronym>, et une unique dépendance de test.
       </para>
       <para>Sur ce site, vous noterez que des rapports par défaut sont disponibles. Un rapport de test fournit les succès et le échecs de l'ensemble des tests unitaires du projet. Un autre rapport produit la javadoc pour l'
         <acronym>API</acronym> du projet. Maven fournit un ensemble de rapports configurables, comme la rapport Clover qui examine la couverture des tests unitaires, le rapport
@@ -851,7 +838,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
   </section>
   <section id="simple-project-sect-summary">
     <title>En résumé</title>
-    <para>Dans ce chapitre, nous avons créé un projet simple que nous avons packagé sous la forme d'un fichier JAR, puis nous avons installé ce JAR dans le dépôt local de Maven pour qu'il soit utilisable par d'autres projets, enfin nous avons produit un site web contenant de la documentation. Nous avons fait tout ça sans écrire une seule ligne de code ou modifié un seul fichier de configuration. Nous nous sommes arrêtés en chemin pour développer les définitions de certains de concepts au c&oelig;ur de Maven. Dans le chaitre suivant, nous allons commencer à personnaliser et modifier le fichier
+    <para>Dans ce chapitre, nous avons créé un projet simple que nous avons packagé sous la forme d'un fichier JAR, puis nous avons installé ce JAR dans le dépôt local de Maven pour qu'il soit utilisable par d'autres projets, enfin nous avons produit un site web contenant de la documentation. Nous avons fait tout cela sans écrire une seule ligne de code ou modifier un seul fichier de configuration. Nous nous sommes arrêtés en chemin pour développer les définitions de certains de concepts au c&oelig;ur de Maven. Dans le chapitre suivant, nous allons commencer à personnaliser et modifier le fichier
       <filename>pom.xml</filename> de notre projet pour lui ajouter des dépendances et configurer les tests unitaires.
     </para>
   </section>
