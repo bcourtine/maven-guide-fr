@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="introduction">
+<chapter id="introduction" lang="fr">
   <title>Introduction à Apache Maven</title>
   <para>Bien qu'il existe de nombreuses références à Maven sur internet, on ne
   trouve pas un seul document correctement écrit sur Maven et qui puisse

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="installation">
+<chapter id="installation" lang="fr">
   <title>Installation et Exécution de Maven</title>
   <para>Ce chapitre contient les instructions détaillées pour installer Maven sur de nombreuses plateformes. Plutôt que de supposer que vous sachiez comment installer un logiciel et définir des variables d'environnement, nous avons fait le choix d'être aussi détaillés que possible afin de réduire le nombre de problèmes que vous pourriez rencontrer suite à une installation partielle. La seule chose que nous allons supposer dans ce chapitre est que vous avez déjà installé un Java Development Kit (
     <acronym>JDK</acronym>) convenable. Si vous n'êtes intéressés que par l'installation elle-même, vous pouvez passer à la suite du livre après avoir lu
