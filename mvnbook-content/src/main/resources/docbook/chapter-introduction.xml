@@ -20,8 +20,8 @@
     <para>Ne vous laissez pas impressionner par le fait que Maven est un "outil de gestion de projet".  Si vous cherchiez juste un outil de build alors Maven restera l'homme de la situation. D'ailleurs, les premiers chapitres de ce livre vont traiter le cas d'utilisation le plus courant: utiliser Maven pour construire et distribuer votre projet. </para>
   </section>
   <section id="installation-sect-conventionConfiguration">
-    <title>Convention Plutôt que Configurationn</title>
-    <para>Le concept de convention plutôt que configuration est très simple.  Les systèmes, les bibliothèques et les frameworks devraient avoir un comportement par défaut raisonnable.  Un système devrait "juste fonctionner" sans avoir à exiger une configuration superflue. Des frameworks populaires comme
+    <title>Convention plutôt que Configuration</title>
+    <para>Le concept de convention plutôt que configuration est très simple. Les systèmes, les bibliothèques et les frameworks devraient avoir un comportement par défaut raisonnable.  Un système devrait "juste fonctionner" sans avoir à exiger une configuration superflue. Des frameworks populaires comme
       <ulink url="http://www.rubyonrails.org/">Ruby on Rails</ulink> et
       <acronym>EJB3</acronym> ont commencé à appliquer ces principes en réaction à la complexité de la configuration de frameworks tels que les spécifications initiales
       <acronym>EJB</acronym> 2.1. Une illustration de ce principe de convention plutôt que configuration est la persistence
