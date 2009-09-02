@@ -1,0 +1,1700 @@
+<?xml version="1.0" ?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd"><xliff xmlns:xml="http://www.w3.org/XML/1998/namespace" null:xml="http://www.w3.org/XML/1998/namespace" version="1.0">
+ <file source-language="en-US" datatype="XML" original="/home/ehsavoie/dev/mavenbook/maven-guide-en/mvnbook-content/src/main/resources/docbook/chapter-optimizing.xml" xml:space="default" target-language="fr-FR">
+  <header><skl>
+<external-file href="chapter-optimizing.skl"></external-file></skl></header>
+  <body>
+<trans-unit id="a1" translate="yes" reformat="yes" xml:space="default">    
+       <source><it id="1" pos="open">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</it></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">0</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a2" translate="yes" reformat="yes" xml:space="default" approved="no">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Optimizing and Refactoring POMs<ept id="1">&lt;/title&gt;</ept></mrk></source>
+       <target xml:lang="fr-FR" state="new"><bpt id="1">&lt;title&gt;</bpt>Remaniement et Optimisation de POMs<ept id="1">&lt;/title&gt;</ept></target><count-group name="word count">
+          <count count-type="word count" unit="word">4</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a3" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Introduction<ept id="1">&lt;/title&gt;</ept></mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">1</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a4" translate="yes" reformat="yes" xml:space="default" approved="no">    
+       <source>In <mrk mtype="protected"><bpt id="1">&lt;xref linkend="multimodule-web-spring" /&gt;</bpt>, we showed how many<bpt id="2">&lt;indexterm class="startofrange" id="optref1a"&gt;</bpt> <bpt id="3">&lt;primary&gt;</bpt>POM (Project Object Model)<ept id="1">&lt;/primary&gt;</ept> <bpt id="4">&lt;secondary&gt;</bpt>optimizing and refactoring<ept id="2">&lt;/secondary&gt;</ept> <ept id="3">&lt;/indexterm&gt;</ept><bpt id="5">&lt;indexterm class="startofrange" id="optref1b"&gt;</bpt> <bpt id="6">&lt;primary&gt;</bpt>optimizing POMs<ept id="4">&lt;/primary&gt;</ept> <ept id="5">&lt;/indexterm&gt;</ept><bpt id="7">&lt;indexterm&gt;</bpt> <bpt id="8">&lt;primary&gt;</bpt>refactoring POMs<ept id="6">&lt;/primary&gt;</ept> <bpt id="9">&lt;see&gt;</bpt>optimizing POMs<ept id="7">&lt;/see&gt;</ept> <ept id="8">&lt;/indexterm&gt;</ept><bpt id="10">&lt;indexterm&gt;</bpt> <bpt id="11">&lt;primary&gt;</bpt>object model<ept id="9">&lt;/primary&gt;</ept> <bpt id="12">&lt;see&gt;</bpt>POM; pom.xml file<ept id="10">&lt;/see&gt;</ept> <ept id="11">&lt;/indexterm&gt;</ept><bpt id="13">&lt;indexterm&gt;</bpt> <bpt id="14">&lt;primary&gt;</bpt>pom.xml file<ept id="12">&lt;/primary&gt;</ept> <bpt id="15">&lt;secondary&gt;</bpt>optimizing<ept id="13">&lt;/secondary&gt;</ept> <bpt id="16">&lt;see&gt;</bpt>optimizing POMs<ept id="14">&lt;/see&gt;</ept> <ept id="15">&lt;/indexterm&gt;</ept> pieces of Maven come together to produce a fully functional multimodule build.</mrk></source>
+       <target xml:lang="fr-FR" state="new">Dans le <bpt id="1">&lt;xref linkend="multimodule-web-spring" /&gt;</bpt>, nous avons vu combien il faut<bpt id="2">&lt;indexterm class="startofrange" id="optref1a"&gt;</bpt> <bpt id="3">&lt;primary&gt;</bpt>POM (Project Object Model)<ept id="1">&lt;/primary&gt;</ept> <bpt id="4">&lt;secondary&gt;</bpt>optimizing and refactoring<ept id="2">&lt;/secondary&gt;</ept> <ept id="3">&lt;/indexterm&gt;</ept><bpt id="5">&lt;indexterm class="startofrange" id="optref1b"&gt;</bpt> <bpt id="6">&lt;primary&gt;</bpt>optimizing POMs<ept id="4">&lt;/primary&gt;</ept> <ept id="5">&lt;/indexterm&gt;</ept><bpt id="7">&lt;indexterm&gt;</bpt> <bpt id="8">&lt;primary&gt;</bpt>refactoring POMs<ept id="6">&lt;/primary&gt;</ept> <bpt id="9">&lt;see&gt;</bpt>optimizing POMs<ept id="7">&lt;/see&gt;</ept> <ept id="8">&lt;/indexterm&gt;</ept><bpt id="10">&lt;indexterm&gt;</bpt> <bpt id="11">&lt;primary&gt;</bpt>object model<ept id="9">&lt;/primary&gt;</ept> <bpt id="12">&lt;see&gt;</bpt>POM; pom.xml file<ept id="10">&lt;/see&gt;</ept> <ept id="11">&lt;/indexterm&gt;</ept><bpt id="13">&lt;indexterm&gt;</bpt> <bpt id="14">&lt;primary&gt;</bpt>pom.xml file<ept id="12">&lt;/primary&gt;</ept> <bpt id="15">&lt;secondary&gt;</bpt>optimizing<ept id="13">&lt;/secondary&gt;</ept> <bpt id="16">&lt;see&gt;</bpt>optimizing POMs<ept id="14">&lt;/see&gt;</ept> <ept id="15">&lt;/indexterm&gt;</ept> d'éléments de Maven qui interviennent conjointement pour produire un build multimodule complètement fonctionnel.</target><count-group name="word count">
+          <count count-type="word count" unit="word">40</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a5" translate="yes" reformat="yes" xml:space="default" approved="no">    
+       <source>Although the example from that chapter suggests a real application—one that interacts with a database, a web service, and that itself presents two interfaces:</source>
+       <target xml:lang="fr-FR" state="new">Bien que l'exemple de ce chapitre suggérait une véritable application&amp;mdash;one that interacts with a database, a web service, and that itself presents two interfaces:</target><count-group name="word count">
+          <count count-type="word count" unit="word">24</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a6" translate="yes" reformat="yes" xml:space="default">    
+       <source>one in a web application, and one on the command line—that example project is still contrived.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">16</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a7" translate="yes" reformat="yes" xml:space="default">    
+       <source>To present the complexity of a real project would require a book far larger than the one you are now reading.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">21</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a8" translate="yes" reformat="yes" xml:space="default">    
+       <source>Real-life applications evolve over years and are often maintained by large, diverse groups of developers, each with a different focus.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">20</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a9" translate="yes" reformat="yes" xml:space="default">    
+       <source>In a real-world project, you are often evaluating decisions and designs made and created by others.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">16</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a10" translate="yes" reformat="yes" xml:space="default">    
+       <source>In this chapter, we take a step back from the examples you’ve seen in <mrk mtype="protected"><bpt id="1">&lt;xref linkend="part-example" /&gt;</bpt>, and we ask ourselves if there are any optimizations that might make more sense given what we now know about Maven.</mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">35</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a11" translate="yes" reformat="yes" xml:space="default">    
+       <source>Maven is a very capable tool that can be as simple or as complex as you need it to be.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">20</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a12" translate="yes" reformat="yes" xml:space="default">    
+       <source>Because of this, there are often a million ways to accomplish the same task, and there is often no one “right” way to configure your Maven project.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">27</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a13" translate="yes" reformat="yes" xml:space="default">    
+       <source>Don't misinterpret that last sentence as a license to go off and ask Maven to do something it wasn't designed for.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">23</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a14" translate="yes" reformat="yes" xml:space="default">    
+       <source>While Maven allows for a diversity of approach, there is certainly "A Maven Way", and you'll be more productive using Maven as it was designed to be used.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">31</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a15" translate="yes" reformat="yes" xml:space="default">    
+       <source>All this chapter is trying to do is communicate some of the optimizations you can perform on an existing Maven project.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">21</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a16" translate="yes" reformat="yes" xml:space="default">    
+       <source>Why didn't we just introduce an optimized <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> in the first place?</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">13</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a17" translate="yes" reformat="yes" xml:space="default">    
+       <source>Designing <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept>s for pedagogy is a very different requirement from designing <bpt id="2">&lt;acronym&gt;</bpt>POM<ept id="2">&lt;/acronym&gt;</ept>s for efficiency.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">16</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a18" translate="yes" reformat="yes" xml:space="default">    
+       <source>While it is certainly much easier to define a certain setting in your <bpt id="1">&lt;filename&gt;</bpt>~/.m2/settings.xml<ept id="1">&lt;/filename&gt;</ept> than to declare a profile in a <bpt id="2">&lt;filename&gt;</bpt>pom.xml<ept id="2">&lt;/filename&gt;</ept>, writing a book, and reading a book is mostly about pacing and making sure we're not introducing concepts before you are ready.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">43</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a19" translate="yes" reformat="yes" xml:space="default">    
+       <source>In <mrk mtype="protected"><bpt id="1">&lt;xref linkend="part-example" /&gt;</bpt>, we've made an effort not to overwhelm the reader with too much information, and, in doing so, we've skipped some core concepts like the <bpt id="2">&lt;sgmltag&gt;</bpt>dependencyManagement<ept id="1">&lt;/sgmltag&gt;</ept> element introduced in this chapter.</mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">33</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a20" translate="yes" reformat="yes" xml:space="default">    
+       <source>There are many instances in <mrk mtype="protected"><bpt id="1">&lt;xref linkend="part-example" /&gt;</bpt> when the authors of this book took a shortcut or glossed over an important detail to shuffle you along to the main point of a specific chapter.</mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">32</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a21" translate="yes" reformat="yes" xml:space="default">    
+       <source>You learned how to create a Maven project, and you compiled and installed it without having to wade through hundreds of pages introducing every last switch and dial available to you.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">31</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a22" translate="yes" reformat="yes" xml:space="default">    
+       <source>We’ve done this because we believe it is important to deliver the new Maven user to a result faster rather than meandering our way through a very long, seemingly interminable story.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">31</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a23" translate="yes" reformat="yes" xml:space="default">    
+       <source>Once you’ve started to use Maven, you should know how to analyze your own projects and <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept>s.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">18</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a24" translate="yes" reformat="yes" xml:space="default">    
+       <source>In this chapter, we take a step back and look at what we are left with after the example from <mrk mtype="protected"><bpt id="1">&lt;xref linkend="multimodule-web-spring" /&gt;</bpt>.</mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">20</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a25" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>POM Cleanup<ept id="1">&lt;/title&gt;</ept></mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">2</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a26" translate="yes" reformat="yes" xml:space="default">    
+       <source>Optimizing a multimodule project’s <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> is best<mrk mtype="protected"><bpt id="2">&lt;indexterm&gt;</bpt> <bpt id="3">&lt;primary&gt;</bpt>multimodule projects, optimizing POMs for<ept id="2">&lt;/primary&gt;</ept> <ept id="3">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="4">&lt;indexterm&gt;</bpt> <bpt id="5">&lt;primary&gt;</bpt>POM (Project Object Model)<ept id="4">&lt;/primary&gt;</ept> <bpt id="6">&lt;secondary&gt;</bpt>optimizing and refactoring<ept id="5">&lt;/secondary&gt;</ept> <bpt id="7">&lt;tertiary&gt;</bpt>about cleaning up POMs<ept id="6">&lt;/tertiary&gt;</ept> <ept id="7">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="8">&lt;indexterm&gt;</bpt> <bpt id="9">&lt;primary&gt;</bpt>optimizing POMs<ept id="8">&lt;/primary&gt;</ept> <bpt id="10">&lt;secondary&gt;</bpt>about cleaning up POMs<ept id="9">&lt;/secondary&gt;</ept> <ept id="10">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="11">&lt;indexterm&gt;</bpt> <bpt id="12">&lt;primary&gt;</bpt>cleaning up POMs<ept id="11">&lt;/primary&gt;</ept> <bpt id="13">&lt;seealso&gt;</bpt>optimizing POMs<ept id="12">&lt;/seealso&gt;</ept> <ept id="13">&lt;/indexterm&gt;</ept></mrk> done in several passes, as there are many areas to focus on.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">46</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a27" translate="yes" reformat="yes" xml:space="default">    
+       <source>In general, we are looking for repetition within a <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> and across the sibling <bpt id="2">&lt;acronym&gt;</bpt>POM<ept id="2">&lt;/acronym&gt;</ept>s.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">16</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a28" translate="yes" reformat="yes" xml:space="default">    
+       <source>When you are starting out, or when a project is still evolving rapidly, it is acceptable to duplicate some dependencies and plugin configurations here and there, but as the project matures and as the number of modules increases, you will want to take some time to refactor common dependencies and configuration points.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">52</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a29" translate="yes" reformat="yes" xml:space="default">    
+       <source>Making your <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept>s more efficient will go a long way to helping you manage complexity as your project grows.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">20</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a30" translate="yes" reformat="yes" xml:space="default">    
+       <source>Whenever there is duplication of some piece of information, there is usually a better way.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">15</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a31" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Optimizing Dependencies<ept id="1">&lt;/title&gt;</ept></mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">2</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a32" translate="yes" reformat="yes" xml:space="default">    
+       <source>If you look through the various <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept>s<mrk mtype="protected"><bpt id="2">&lt;indexterm class="startofrange" id="optref2a"&gt;</bpt> <bpt id="3">&lt;primary&gt;</bpt>POM (Project Object Model)<ept id="2">&lt;/primary&gt;</ept> <bpt id="4">&lt;secondary&gt;</bpt>optimizing and refactoring<ept id="3">&lt;/secondary&gt;</ept> <bpt id="5">&lt;tertiary&gt;</bpt>dependency optimization<ept id="4">&lt;/tertiary&gt;</ept> <ept id="5">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="6">&lt;indexterm class="startofrange" id="optref2b"&gt;</bpt> <bpt id="7">&lt;primary&gt;</bpt>optimizing POMs<ept id="6">&lt;/primary&gt;</ept> <bpt id="8">&lt;secondary&gt;</bpt>dependency optimization<ept id="7">&lt;/secondary&gt;</ept> <ept id="8">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="9">&lt;indexterm class="startofrange" id="optref2c"&gt;</bpt> <bpt id="10">&lt;primary&gt;</bpt>dependencies<ept id="9">&lt;/primary&gt;</ept> <bpt id="11">&lt;secondary&gt;</bpt>optimizing<ept id="10">&lt;/secondary&gt;</ept> <ept id="11">&lt;/indexterm&gt;</ept></mrk> created in <mrk mtype="protected"><bpt id="12">&lt;xref linkend="multimodule-web-spring" /&gt;</bpt>, note several patterns of replication.</mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">30</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a33" translate="yes" reformat="yes" xml:space="default">    
+       <source>The first pattern we can see is that some dependencies such as <bpt id="1">&lt;varname&gt;</bpt>spring<ept id="1">&lt;/varname&gt;</ept> and <bpt id="2">&lt;varname&gt;</bpt>hibernate-annotations<ept id="2">&lt;/varname&gt;</ept> are declared in several modules.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">20</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a34" translate="yes" reformat="yes" xml:space="default">    
+       <source>The <bpt id="1">&lt;varname&gt;</bpt>hibernate<ept id="1">&lt;/varname&gt;</ept> dependency also has the exclusion on</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">8</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a35" translate="yes" reformat="yes" xml:space="default">    
+       <source>javax.transaction</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">3</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a36" translate="yes" reformat="yes" xml:space="default">    
+       <source>replicated in each definition.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">4</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a37" translate="yes" reformat="yes" xml:space="default">    
+       <source>The<mrk mtype="protected"><bpt id="1">&lt;indexterm&gt;</bpt> <bpt id="2">&lt;primary&gt;</bpt>duplicated dependency declarations<ept id="1">&lt;/primary&gt;</ept> <ept id="2">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="3">&lt;indexterm&gt;</bpt> <bpt id="4">&lt;primary&gt;</bpt>replicated dependencies<ept id="3">&lt;/primary&gt;</ept> <ept id="4">&lt;/indexterm&gt;</ept></mrk> second pattern of duplication to note is that sometimes several dependencies are related and share the same version.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">24</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a38" translate="yes" reformat="yes" xml:space="default">    
+       <source>This is often the case when a project’s release consists of several closely coupled components.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">15</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a39" translate="yes" reformat="yes" xml:space="default">    
+       <source>For example, look at the dependencies on <bpt id="1">&lt;varname&gt;</bpt>hibernate-<ept id="1">&lt;/varname&gt;</ept><bpt id="2">&lt;varname&gt;</bpt>annotations<ept id="2">&lt;/varname&gt;</ept> and <bpt id="3">&lt;varname&gt;</bpt>hibernate-commons-annotations<ept id="3">&lt;/varname&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">14</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a40" translate="yes" reformat="yes" xml:space="default">    
+       <source>Both are listed as version <bpt id="1">&lt;varname&gt;</bpt>3.3.0.ga<ept id="1">&lt;/varname&gt;</ept>, and we can expect the versions of both these dependencies to change together going forward.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">22</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a41" translate="yes" reformat="yes" xml:space="default">    
+       <source>Both the <bpt id="1">&lt;varname&gt;</bpt>hibernate-annotations<ept id="1">&lt;/varname&gt;</ept> and <bpt id="2">&lt;varname&gt;</bpt>hibernate-commons-annotations<ept id="2">&lt;/varname&gt;</ept> are components of the same project released by JBoss, and so when there is a new project release, both of these dependencies will change.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">31</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a42" translate="yes" reformat="yes" xml:space="default">    
+       <source>The third and last pattern of duplication is the<mrk mtype="protected"><bpt id="1">&lt;indexterm&gt;</bpt> <bpt id="2">&lt;primary&gt;</bpt>sibling module dependency duplication<ept id="1">&lt;/primary&gt;</ept> <ept id="2">&lt;/indexterm&gt;</ept></mrk> duplication of sibling module dependencies and sibling module versions.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">22</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a43" translate="yes" reformat="yes" xml:space="default">    
+       <source>Maven provides simple mechanisms that let you factor all of this<mrk mtype="protected"><bpt id="1">&lt;indexterm&gt;</bpt> <bpt id="2">&lt;primary&gt;</bpt>POM (Project Object Model)<ept id="1">&lt;/primary&gt;</ept> <bpt id="3">&lt;secondary&gt;</bpt>parent (top-level)<ept id="2">&lt;/secondary&gt;</ept> <bpt id="4">&lt;tertiary&gt;</bpt>resolving dependency duplication<ept id="3">&lt;/tertiary&gt;</ept> <ept id="4">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="5">&lt;indexterm&gt;</bpt> <bpt id="6">&lt;primary&gt;</bpt>top-level POM<ept id="5">&lt;/primary&gt;</ept> <bpt id="7">&lt;secondary&gt;</bpt>resolving dependency duplication<ept id="6">&lt;/secondary&gt;</ept> <ept id="7">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="8">&lt;indexterm&gt;</bpt> <bpt id="9">&lt;primary&gt;</bpt>parent POM<ept id="8">&lt;/primary&gt;</ept> <bpt id="10">&lt;secondary&gt;</bpt>resolving dependency duplication<ept id="9">&lt;/secondary&gt;</ept> <ept id="10">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="11">&lt;indexterm&gt;</bpt> <bpt id="12">&lt;primary&gt;</bpt>pom.xml file<ept id="11">&lt;/primary&gt;</ept> <bpt id="13">&lt;secondary&gt;</bpt>parent (top-level)<ept id="12">&lt;/secondary&gt;</ept> <bpt id="14">&lt;tertiary&gt;</bpt>resolving dependency duplication<ept id="13">&lt;/tertiary&gt;</ept> <ept id="14">&lt;/indexterm&gt;</ept></mrk> duplication into a parent <bpt id="15">&lt;acronym&gt;</bpt>POM<ept id="15">&lt;/acronym&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">42</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a44" translate="yes" reformat="yes" xml:space="default">    
+       <source>Just as in your project’s source code, any time you have duplication in your <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept>s, you open the door a bit for trouble down the road.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">27</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a45" translate="yes" reformat="yes" xml:space="default">    
+       <source>Duplicated dependency declarations make it difficult to ensure consistent versions across a large project.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">14</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a46" translate="yes" reformat="yes" xml:space="default">    
+       <source>When you only have two or three modules, this might not be a primary issue, but when your organization is using a large, multimodule Maven build to manage hundreds of components across multiple departments, one single mismatch between dependencies can cause chaos and confusion.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">44</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a47" translate="yes" reformat="yes" xml:space="default">    
+       <source>A simple version mismatch in a project’s dependency on a bytecode <mrk mtype="protected"><bpt id="1">&lt;phrase role="keep-together"&gt;</bpt>manipulation<ept id="1">&lt;/phrase&gt;</ept></mrk> package called <bpt id="2">&lt;acronym&gt;</bpt>ASM<ept id="2">&lt;/acronym&gt;</ept> three levels deep in the project hierarchy could throw a wrench into a web application maintained by a completely different group of developers who depend on that particular<mrk mtype="protected"><bpt id="3">&lt;indexterm&gt;</bpt> <bpt id="4">&lt;primary&gt;</bpt>unit tests<ept id="3">&lt;/primary&gt;</ept> <bpt id="5">&lt;secondary&gt;</bpt>dependency duplication and<ept id="4">&lt;/secondary&gt;</ept> <ept id="5">&lt;/indexterm&gt;</ept></mrk> module.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">49</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a48" translate="yes" reformat="yes" xml:space="default">    
+       <source>Unit tests could pass because they are being run with one version of a dependency, but they could fail disastrously in production where the bundle (WAR, in this case) was packaged up with a different version.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">36</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a49" translate="yes" reformat="yes" xml:space="default">    
+       <source>If you have tens of projects using something like Hibernate Annotations, each repeating and duplicating the dependencies and exclusions, the mean time between someone screwing up a build is going to be very short.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">34</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a50" translate="yes" reformat="yes" xml:space="default">    
+       <source>As your Maven projects become more complex, your dependency lists are going to grow, and you are going to want to consolidate versions and dependency declarations in parent <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept>s.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">30</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a51" translate="yes" reformat="yes" xml:space="default">    
+       <source>The duplication of the sibling module versions can introduce a<mrk mtype="protected"><bpt id="1">&lt;indexterm&gt;</bpt> <bpt id="2">&lt;primary&gt;</bpt>sibling module dependency duplication<ept id="1">&lt;/primary&gt;</ept> <ept id="2">&lt;/indexterm&gt;</ept></mrk> particularly nasty problem that is not directly caused by Maven and is learned only after you’ve been bitten by this bug a few times.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">38</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a52" translate="yes" reformat="yes" xml:space="default">    
+       <source>If you use the Maven Release plugin to perform your releases, all these sibling dependency versions will be updated automatically for you, so maintaining them is not the concern.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">29</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a53" translate="yes" reformat="yes" xml:space="default">    
+       <source>If <bpt id="1">&lt;varname&gt;</bpt>simple-web<ept id="1">&lt;/varname&gt;</ept> version <bpt id="2">&lt;varname&gt;</bpt>1.3-SNAPSHOT<ept id="2">&lt;/varname&gt;</ept> depends on <bpt id="3">&lt;varname&gt;</bpt>simple-persist<ept id="3">&lt;/varname&gt;</ept> version <bpt id="4">&lt;varname&gt;</bpt>1.3-SNAPSHOT<ept id="4">&lt;/varname&gt;</ept>, and if you are performing a release of the 1.3 version of both projects, the Maven Release plugin is smart enough to change the versions throughout your multimodule project’s <bpt id="5">&lt;acronym&gt;</bpt>POM<ept id="5">&lt;/acronym&gt;</ept>s automatically.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">40</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a54" translate="yes" reformat="yes" xml:space="default">    
+       <source>Running the release with the Release plugin will automatically increment all of the versions in your build to <bpt id="1">&lt;varname&gt;</bpt>1.4-SNAPSHOT<ept id="1">&lt;/varname&gt;</ept>, and the release plugin will commit the code change to the repository.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">31</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a55" translate="yes" reformat="yes" xml:space="default">    
+       <source>Releasing a huge multimodule project couldn’t be easier, until...</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">9</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a56" translate="yes" reformat="yes" xml:space="default">    
+       <source>Problems occur when developers merge changes to the<mrk mtype="protected"><bpt id="1">&lt;indexterm&gt;</bpt> <bpt id="2">&lt;primary&gt;</bpt>merging POM changes<ept id="1">&lt;/primary&gt;</ept> <ept id="2">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="3">&lt;indexterm&gt;</bpt> <bpt id="4">&lt;primary&gt;</bpt>POM (Project Object Model)<ept id="3">&lt;/primary&gt;</ept> <bpt id="5">&lt;secondary&gt;</bpt>merging POMs<ept id="4">&lt;/secondary&gt;</ept> <ept id="5">&lt;/indexterm&gt;</ept></mrk> <bpt id="6">&lt;acronym&gt;</bpt>POM<ept id="6">&lt;/acronym&gt;</ept> and interfere with a release that is in progress.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">27</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a57" translate="yes" reformat="yes" xml:space="default">    
+       <source>Often a developer merges and occasionally mishandles the conflict on the sibling dependency, inadvertently reverting that version to a previous release.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">21</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a58" translate="yes" reformat="yes" xml:space="default">    
+       <source>Since the consecutive versions of the dependency are often compatible, it does not show up when the developer builds, and won’t show up in any continuous integration build system as a failed build.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">33</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a59" translate="yes" reformat="yes" xml:space="default">    
+       <source>Imagine a very complex build where the trunk is full of components at <bpt id="1">&lt;varname&gt;</bpt>1.4-SNAPSHOT<ept id="1">&lt;/varname&gt;</ept>, and now imagine that Developer A has updated Component A deep within the project’s hierarchy to depend on version <bpt id="2">&lt;varname&gt;</bpt>1.3-SNAPSHOT<ept id="2">&lt;/varname&gt;</ept> of Component B. Even though most developers have <bpt id="3">&lt;varname&gt;</bpt>1.4-SNAPSHOT<ept id="3">&lt;/varname&gt;</ept>, the build succeeds if version <bpt id="4">&lt;varname&gt;</bpt>1.3-SNAPSHOT<ept id="4">&lt;/varname&gt;</ept> and <bpt id="5">&lt;varname&gt;</bpt>1.4-SNAPSHOT<ept id="5">&lt;/varname&gt;</ept> of Component B are compatible.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">56</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a60" translate="yes" reformat="yes" xml:space="default">    
+       <source>Maven continues to build the project using the <bpt id="1">&lt;varname&gt;</bpt>1.3-SNAPSHOT<ept id="1">&lt;/varname&gt;</ept> version of Component B from the developer’s local repositories.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">18</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a61" translate="yes" reformat="yes" xml:space="default">    
+       <source>Everything seems to be going quite smoothly—the project builds, the continuous integration build works fine, and so on.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">18</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a62" translate="yes" reformat="yes" xml:space="default">    
+       <source>Someone might have a mystifying bug related to Component B, but she chalks it up to malevolent gremlins and moves on.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">21</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a63" translate="yes" reformat="yes" xml:space="default">    
+       <source>Meanwhile, a pump in the reactor room is steadily building up pressure, until something blows....</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">15</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a64" translate="yes" reformat="yes" xml:space="default">    
+       <source>Someone, let's call them Mr. Inadvertent, had a merge conflict in component A, and mistakenly pegged component A's dependency on component B to <bpt id="1">&lt;varname&gt;</bpt>1.3-SNAPSHOT<ept id="1">&lt;/varname&gt;</ept> while the rest of the project marches on.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">34</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a65" translate="yes" reformat="yes" xml:space="default">    
+       <source>A bunch of developers have been trying to fix a bug in component B all this time and they've been mystified as to why they can't seem to fix the bug in production.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">35</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a66" translate="yes" reformat="yes" xml:space="default">    
+       <source>Eventually someone looks at component A and realizes that the dependency is pointing to the wrong version.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">17</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a67" translate="yes" reformat="yes" xml:space="default">    
+       <source>Hopefully, the bug wasn't large enough to cost money or lives, but Mr. Inadvertent feels stupid and people tend to trust him a little less than they did before the whole sibling dependency screw-up.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">35</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a68" translate="yes" reformat="yes" xml:space="default">    
+       <source>(Hopefully, Mr. Inadvertent realizes that this was user error and not Maven's fault, but more than likely he starts an awful blog and complains about Maven endlessly to make himself feel better.)</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">33</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a69" translate="yes" reformat="yes" xml:space="default">    
+       <source>Fortunately, dependency duplication and sibling dependency mismatch are easily preventable if you make some small changes.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">16</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a70" translate="yes" reformat="yes" xml:space="default">    
+       <source>The first thing we’re going to do is find all the dependencies used in more than one project and move them up to the parent <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept>’s <bpt id="2">&lt;sgmltag&gt;</bpt>dependencyManagement<ept id="2">&lt;/sgmltag&gt;</ept> section.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">29</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a71" translate="yes" reformat="yes" xml:space="default">    
+       <source>We’ll leave out the sibling dependencies for now.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">8</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a72" translate="yes" reformat="yes" xml:space="default">    
+       <source>The <bpt id="1">&lt;varname&gt;</bpt>simple-parent<ept id="1">&lt;/varname&gt;</ept> pom now contains the following:</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">7</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a73" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project&amp;gt;
+  ...
+  &amp;lt;dependencyManagement&amp;gt;
+    &amp;lt;dependencies&amp;gt;
+      &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;spring&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;2.0.7&amp;lt;/version&amp;gt;
+      &amp;lt;/dependency&amp;gt;
+      &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.apache.velocity&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;velocity&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;1.5&amp;lt;/version&amp;gt;
+      &amp;lt;/dependency&amp;gt;  
+      &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;hibernate-annotations&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;3.3.0.ga&amp;lt;/version&amp;gt;
+      &amp;lt;/dependency&amp;gt;
+      &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;hibernate-commons-annotations&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;3.3.0.ga&amp;lt;/version&amp;gt;
+      &amp;lt;/dependency&amp;gt;
+      &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;hibernate&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;3.2.5.ga&amp;lt;/version&amp;gt;
+        &amp;lt;exclusions&amp;gt;
+          &amp;lt;exclusion&amp;gt;
+            &amp;lt;groupId&amp;gt;javax.transaction&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;jta&amp;lt;/artifactId&amp;gt;
+          &amp;lt;/exclusion&amp;gt;
+        &amp;lt;/exclusions&amp;gt;
+      &amp;lt;/dependency&amp;gt;
+    &amp;lt;/dependencies&amp;gt;
+  &amp;lt;/dependencyManagement&amp;gt;
+  ...
+&amp;lt;/project&amp;gt;<ept id="1">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">0</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a74" translate="yes" reformat="yes" xml:space="default">    
+       <source>Once these are moved up, we need to remove the versions for these dependencies from each of the <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept>s; otherwise, they will override the <bpt id="2">&lt;sgmltag&gt;</bpt>dependencyManagement<ept id="2">&lt;/sgmltag&gt;</ept> defined in the parent project.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">31</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a75" translate="yes" reformat="yes" xml:space="default">    
+       <source>Let’s look at only <bpt id="1">&lt;varname&gt;</bpt>simple-model<ept id="1">&lt;/varname&gt;</ept> for brevity’s sake:</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">8</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a76" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project&amp;gt;
+  ...
+  &amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;hibernate-annotations&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;hibernate&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;
+  ...
+&amp;lt;/project&amp;gt;<ept id="1">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">0</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a77" translate="yes" reformat="yes" xml:space="default">    
+       <source>The next thing we should do is fix the replication of the <bpt id="1">&lt;varname&gt;</bpt>hibernate-annotations<ept id="1">&lt;/varname&gt;</ept> and <bpt id="2">&lt;varname&gt;</bpt>hibernate-commons-annotations<ept id="2">&lt;/varname&gt;</ept> version since these should match.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">22</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a78" translate="yes" reformat="yes" xml:space="default">    
+       <source>We’ll do this by creating a property called <bpt id="1">&lt;varname&gt;</bpt>hibernate.annotations.version<ept id="1">&lt;/varname&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">13</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a79" translate="yes" reformat="yes" xml:space="default">    
+       <source>The resulting <bpt id="1">&lt;varname&gt;</bpt>simple-parent<ept id="1">&lt;/varname&gt;</ept> section looks like this:</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">7</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a80" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project&amp;gt;
+  ...
+  &amp;lt;properties&amp;gt;
+    &amp;lt;hibernate.annotations.version&amp;gt;3.3.0.ga&amp;lt;/hibernate.annotations.version&amp;gt;
+  &amp;lt;/properties&amp;gt;
+
+  &amp;lt;dependencyManagement&amp;gt;
+    ...
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;hibernate-annotations&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;\${hibernate.annotations.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;hibernate-commons-annotations&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;\${hibernate.annotations.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    ...
+  &amp;lt;/dependencyManagement&amp;gt;
+  ...
+&amp;lt;/project<ept id="1">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">0</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a81" translate="yes" reformat="yes" xml:space="default">    
+       <source>The last issue we have to resolve is with the sibling dependencies.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">12</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a82" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;indexterm&gt;</bpt> <bpt id="2">&lt;primary&gt;</bpt>sibling module dependency duplication<ept id="1">&lt;/primary&gt;</ept> <ept id="2">&lt;/indexterm&gt;</ept></mrk> One technique we could use is to move these up to the <bpt id="3">&lt;sgmltag&gt;</bpt>dependencyManagement<ept id="3">&lt;/sgmltag&gt;</ept> section, just like all the others,<mrk mtype="protected"><bpt id="4">&lt;indexterm&gt;</bpt> <bpt id="5">&lt;primary&gt;</bpt>version attribute (pom.xml)<ept id="4">&lt;/primary&gt;</ept> <bpt id="6">&lt;secondary&gt;</bpt>built-in, to avoid dependency duplication<ept id="5">&lt;/secondary&gt;</ept> <ept id="6">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="7">&lt;indexterm&gt;</bpt> <bpt id="8">&lt;primary&gt;</bpt>groupId attribute (pom.xml)<ept id="7">&lt;/primary&gt;</ept> <bpt id="9">&lt;secondary&gt;</bpt>built-in, to avoid dependency duplication<ept id="8">&lt;/secondary&gt;</ept> <ept id="9">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="10">&lt;indexterm&gt;</bpt> <bpt id="11">&lt;primary&gt;</bpt>dependencies<ept id="10">&lt;/primary&gt;</ept> <bpt id="12">&lt;secondary&gt;</bpt>plugin<ept id="11">&lt;/secondary&gt;</ept> <bpt id="13">&lt;see&gt;</bpt>plugins<ept id="12">&lt;/see&gt;</ept> <ept id="13">&lt;/indexterm&gt;</ept></mrk> and define the versions of sibling projects in the top-level parent project.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">54</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a83" translate="yes" reformat="yes" xml:space="default">    
+       <source>This is certainly a valid approach, but we can also solve the version problem just by using two built-in properties—<bpt id="1">&lt;varname&gt;</bpt>\${project.groupId}<ept id="1">&lt;/varname&gt;</ept> and <bpt id="2">&lt;varname&gt;</bpt>\${project.version}<ept id="2">&lt;/varname&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">29</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a84" translate="yes" reformat="yes" xml:space="default">    
+       <source>Since they are sibling dependencies, there is not much value to be gained by enumerating them in the parent, so we’ll rely on the built-in <bpt id="1">&lt;varname&gt;</bpt>\${project.version}<ept id="1">&lt;/varname&gt;</ept> property.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">30</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a85" translate="yes" reformat="yes" xml:space="default">    
+       <source>Because they all share the same group, we can further future-proof these declarations by referring to the current <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept>’s group using the built-in <bpt id="2">&lt;varname&gt;</bpt>\${project.groupId}<ept id="2">&lt;/varname&gt;</ept> property.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">29</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a86" translate="yes" reformat="yes" xml:space="default">    
+       <source>The <bpt id="1">&lt;varname&gt;</bpt>simple-command<ept id="1">&lt;/varname&gt;</ept> <mrk mtype="protected"><bpt id="2">&lt;phrase role="keep-together"&gt;</bpt>dependency<ept id="2">&lt;/phrase&gt;</ept></mrk> section now looks like this:</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">8</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a87" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project&amp;gt;
+  ...
+  &amp;lt;dependencies&amp;gt;
+    ...
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;\${project.groupId}&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;simple-weather&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;\${project.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;\${project.groupId}&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;simple-persist&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;\${project.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    ...
+  &amp;lt;/dependencies&amp;gt;
+  ...
+&amp;lt;/project&amp;gt;<ept id="1">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">0</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a88" translate="yes" reformat="yes" xml:space="default">    
+       <source>Here’s a summary of the two optimizations we completed that reduce duplication of dependencies:</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">14</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a89" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;term role="plain"&gt;</bpt>Pull-up common dependencies to <bpt id="2">&lt;sgmltag&gt;</bpt>dependencyManagement<ept id="1">&lt;/sgmltag&gt;</ept><ept id="2">&lt;/term&gt;</ept></mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">5</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a90" translate="yes" reformat="yes" xml:space="default">    
+       <source>If more than one project depends on a specific dependency, you can list the dependency in <bpt id="1">&lt;sgmltag&gt;</bpt>dependencyManagement<ept id="1">&lt;/sgmltag&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">17</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a91" translate="yes" reformat="yes" xml:space="default">    
+       <source>The parent <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> can contain a version and a set of exclusions; all the child <bpt id="2">&lt;acronym&gt;</bpt>POM<ept id="2">&lt;/acronym&gt;</ept> needs to do to reference this dependency is use the <bpt id="3">&lt;varname&gt;</bpt>groupId <ept id="3">&lt;/varname&gt;</ept>and <bpt id="4">&lt;varname&gt;</bpt>artifactId<ept id="4">&lt;/varname&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">29</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a92" translate="yes" reformat="yes" xml:space="default">    
+       <source>Child projects can omit the version and exclusions if the dependency is listed in <bpt id="1">&lt;sgmltag&gt;</bpt>dependencyManagement<ept id="1">&lt;/sgmltag&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">15</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a93" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;term role="plain"&gt;</bpt>Use built-in project <bpt id="2">&lt;literal&gt;</bpt>version<ept id="1">&lt;/literal&gt;</ept> and <bpt id="3">&lt;literal&gt;</bpt>groupId<ept id="2">&lt;/literal&gt;</ept> for sibling projects<ept id="3">&lt;/term&gt;</ept></mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">9</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a94" translate="yes" reformat="yes" xml:space="default">    
+       <source>Use $<bpt id="1">&lt;varname&gt;</bpt>{project.version}<ept id="1">&lt;/varname&gt;</ept> and <bpt id="2">&lt;varname&gt;</bpt>\${project.groupId}<ept id="2">&lt;/varname&gt;</ept> when referring to a sibling project.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">16</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a95" translate="yes" reformat="yes" xml:space="default">    
+       <source>Sibling projects almost always share the same <mrk mtype="protected"><bpt id="1">&lt;literal&gt;</bpt>groupId<ept id="1">&lt;/literal&gt;</ept></mrk>, and they almost always share the same release version.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">17</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a96" translate="yes" reformat="yes" xml:space="default">    
+       <source>Using <bpt id="1">&lt;varname&gt;</bpt>\${project.version}<ept id="1">&lt;/varname&gt;</ept> will help you avoid the <mrk mtype="protected"><bpt id="2">&lt;indexterm class="endofrange" startref="optref2a"&gt;</bpt><ept id="2">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="3">&lt;indexterm class="endofrange" startref="optref2b"&gt;</bpt><ept id="3">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="4">&lt;indexterm class="endofrange" startref="optref2c"&gt;</bpt><ept id="4">&lt;/indexterm&gt;</ept></mrk>sibling version mismatch problem discussed previously.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">16</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a97" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Optimizing Plugins<ept id="1">&lt;/title&gt;</ept></mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">2</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a98" translate="yes" reformat="yes" xml:space="default">    
+       <source>If we take a look at the various plugin configurations, we can see<mrk mtype="protected"><bpt id="1">&lt;indexterm class="startofrange" id="optref3a"&gt;</bpt> <bpt id="2">&lt;primary&gt;</bpt>POM (Project Object Model)<ept id="1">&lt;/primary&gt;</ept> <bpt id="3">&lt;secondary&gt;</bpt>optimizing and refactoring<ept id="2">&lt;/secondary&gt;</ept> <bpt id="4">&lt;tertiary&gt;</bpt>plugin optimization<ept id="3">&lt;/tertiary&gt;</ept> <ept id="4">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="5">&lt;indexterm class="startofrange" id="optref3b"&gt;</bpt> <bpt id="6">&lt;primary&gt;</bpt>optimizing POMs<ept id="5">&lt;/primary&gt;</ept> <bpt id="7">&lt;secondary&gt;</bpt>plugin optimization<ept id="6">&lt;/secondary&gt;</ept> <ept id="7">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="8">&lt;indexterm class="startofrange" id="optref3c"&gt;</bpt> <bpt id="9">&lt;primary&gt;</bpt>plugins<ept id="8">&lt;/primary&gt;</ept> <bpt id="10">&lt;secondary&gt;</bpt>optimizing<ept id="9">&lt;/secondary&gt;</ept> <ept id="10">&lt;/indexterm&gt;</ept></mrk> the <bpt id="11">&lt;acronym&gt;</bpt>HSQLDB<ept id="11">&lt;/acronym&gt;</ept> dependencies duplicated in several places.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">35</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a99" translate="yes" reformat="yes" xml:space="default">    
+       <source>Unfortunately, <bpt id="1">&lt;sgmltag&gt;</bpt>dependencyManagement<ept id="1">&lt;/sgmltag&gt;</ept> doesn’t apply to plugin dependencies, but we can still use a property to consolidate the versions.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">18</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a100" translate="yes" reformat="yes" xml:space="default">    
+       <source>Most complex Maven multimodule projects tend to define all versions in the top-level <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">14</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a101" translate="yes" reformat="yes" xml:space="default">    
+       <source>This top-level <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> then becomes a focal point for changes that affect the entire project.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">15</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a102" translate="yes" reformat="yes" xml:space="default">    
+       <source>Think of version numbers as string literals in a Java class; if you are constantly repeating a literal, you’ll likely want to make it a variable so that when it needs to be changed, you have to change it in only one place.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">43</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a103" translate="yes" reformat="yes" xml:space="default">    
+       <source>Rolling up the version of <bpt id="1">&lt;acronym&gt;</bpt>HSQLDB<ept id="1">&lt;/acronym&gt;</ept> into a property in the top-level <bpt id="2">&lt;acronym&gt;</bpt>POM<ept id="2">&lt;/acronym&gt;</ept> yields the following <mrk mtype="protected"><bpt id="3">&lt;literal&gt;</bpt>properties<ept id="3">&lt;/literal&gt;</ept></mrk> element:</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">18</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a104" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project&amp;gt;
+  ...
+  &amp;lt;properties&amp;gt;
+    &amp;lt;hibernate.annotations.version&amp;gt;3.3.0.ga&amp;lt;/hibernate.annotations.version&amp;gt;
+    &amp;lt;hsqldb.version&amp;gt;1.8.0.7&amp;lt;/hsqldb.version&amp;gt;
+  &amp;lt;/properties&amp;gt;
+  ...
+&amp;lt;/project&amp;gt;<ept id="1">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">0</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a105" translate="yes" reformat="yes" xml:space="default">    
+       <source>The next thing we notice is that the <bpt id="1">&lt;varname&gt;</bpt>hibernate3-maven-plugin<ept id="1">&lt;/varname&gt;</ept> configuration is duplicated in the <bpt id="2">&lt;varname&gt;</bpt>simple-webapp<ept id="2">&lt;/varname&gt;</ept> and <bpt id="3">&lt;varname&gt;</bpt>simple-command<ept id="3">&lt;/varname&gt;</ept> modules.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">19</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a106" translate="yes" reformat="yes" xml:space="default">    
+       <source>We can manage the plugin configuration in the top-level <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> just as we managed the dependencies in the top-level <bpt id="2">&lt;acronym&gt;</bpt>POM<ept id="2">&lt;/acronym&gt;</ept> with the <bpt id="3">&lt;sgmltag&gt;</bpt>dependencyManagement<ept id="3">&lt;/sgmltag&gt;</ept> section.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">24</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a107" translate="yes" reformat="yes" xml:space="default">    
+       <source>To do this, we use the<mrk mtype="protected"><bpt id="1">&lt;indexterm&gt;</bpt> <bpt id="2">&lt;primary sortas="pluginManagement element (pom.xml)"&gt;</bpt>&amp;lt;pluginManagement&amp;gt; element (pom.xml)<ept id="1">&lt;/primary&gt;</ept> <ept id="2">&lt;/indexterm&gt;</ept></mrk> <bpt id="3">&lt;sgmltag role="keep-together"&gt;</bpt>pluginManagement<ept id="3">&lt;/sgmltag&gt;</ept> element in the top-level<mrk mtype="protected"><bpt id="4">&lt;indexterm class="endofrange" startref="optref3a"&gt;</bpt><ept id="4">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="5">&lt;indexterm class="endofrange" startref="optref3b"&gt;</bpt><ept id="5">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="6">&lt;indexterm class="endofrange" startref="optref3c"&gt;</bpt><ept id="6">&lt;/indexterm&gt;</ept></mrk> <bpt id="7">&lt;acronym&gt;</bpt>POM<ept id="7">&lt;/acronym&gt;</ept>’s build element:</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">18</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a108" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project&amp;gt;
+  ...
+  &amp;lt;build&amp;gt;
+    &amp;lt;pluginManagement&amp;gt;
+      &amp;lt;plugins&amp;gt;
+        &amp;lt;plugin&amp;gt;
+          &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+          &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+          &amp;lt;configuration&amp;gt;
+            &amp;lt;source&amp;gt;1.5&amp;lt;/source&amp;gt;
+            &amp;lt;target&amp;gt;1.5&amp;lt;/target&amp;gt;
+          &amp;lt;/configuration&amp;gt;
+        &amp;lt;/plugin&amp;gt;
+        &amp;lt;plugin&amp;gt;
+          &amp;lt;groupId&amp;gt;org.codehaus.mojo&amp;lt;/groupId&amp;gt;
+          &amp;lt;artifactId&amp;gt;hibernate3-maven-plugin&amp;lt;/artifactId&amp;gt;
+          &amp;lt;version&amp;gt;2.1&amp;lt;/version&amp;gt;
+          &amp;lt;configuration&amp;gt;
+            &amp;lt;components&amp;gt;
+              &amp;lt;component&amp;gt;
+                &amp;lt;name&amp;gt;hbm2ddl&amp;lt;/name&amp;gt;
+                &amp;lt;implementation&amp;gt;annotationconfiguration&amp;lt;/implementation&amp;gt;
+              &amp;lt;/component&amp;gt;
+            &amp;lt;/components&amp;gt;
+          &amp;lt;/configuration&amp;gt;
+          &amp;lt;dependencies&amp;gt;
+            &amp;lt;dependency&amp;gt;
+              &amp;lt;groupId&amp;gt;hsqldb&amp;lt;/groupId&amp;gt;
+              &amp;lt;artifactId&amp;gt;hsqldb&amp;lt;/artifactId&amp;gt;
+              &amp;lt;version&amp;gt;\${hsqldb.version}&amp;lt;/version&amp;gt;
+            &amp;lt;/dependency&amp;gt;
+          &amp;lt;/dependencies&amp;gt;
+        &amp;lt;/plugin&amp;gt;
+      &amp;lt;/plugins&amp;gt;
+    &amp;lt;/pluginManagement&amp;gt;
+  &amp;lt;/build&amp;gt;
+  ...
+&amp;lt;/project&amp;gt;
+<ept id="1">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">0</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a109" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Optimizing with the Maven Dependency Plugin<ept id="1">&lt;/title&gt;</ept></mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">6</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a110" translate="yes" reformat="yes" xml:space="default">    
+       <source>On larger projects, additional dependencies often tend to creep into<mrk mtype="protected"><bpt id="1">&lt;indexterm class="startofrange" id="optref4a"&gt;</bpt> <bpt id="2">&lt;primary&gt;</bpt>POM (Project Object Model)<ept id="1">&lt;/primary&gt;</ept> <bpt id="3">&lt;secondary&gt;</bpt>optimizing and refactoring<ept id="2">&lt;/secondary&gt;</ept> <bpt id="4">&lt;tertiary sortas=" Maven Dependency plugin"&gt;</bpt>with Maven Dependency plugin<ept id="3">&lt;/tertiary&gt;</ept> <ept id="4">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="5">&lt;indexterm class="startofrange" id="optref4b"&gt;</bpt> <bpt id="6">&lt;primary&gt;</bpt>optimizing POMs<ept id="5">&lt;/primary&gt;</ept> <bpt id="7">&lt;secondary sortas="Maven Dependency plugin"&gt;</bpt>Maven Dependency plugin<ept id="6">&lt;/secondary&gt;</ept> <ept id="7">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="8">&lt;indexterm class="startofrange" id="optref4c"&gt;</bpt> <bpt id="9">&lt;primary&gt;</bpt>Maven Dependency plugin<ept id="8">&lt;/primary&gt;</ept> <bpt id="10">&lt;secondary&gt;</bpt>optimizing POMs with<ept id="9">&lt;/secondary&gt;</ept> <ept id="10">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="11">&lt;indexterm class="startofrange" id="optref4d"&gt;</bpt> <bpt id="12">&lt;primary&gt;</bpt>dependencies<ept id="11">&lt;/primary&gt;</ept> <bpt id="13">&lt;secondary&gt;</bpt>optimizing<ept id="12">&lt;/secondary&gt;</ept> <bpt id="14">&lt;tertiary&gt;</bpt>Maven Dependency plugin for<ept id="13">&lt;/tertiary&gt;</ept> <ept id="14">&lt;/indexterm&gt;</ept></mrk> a POM as the number of dependencies grow.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">46</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a111" translate="yes" reformat="yes" xml:space="default">    
+       <source>As dependencies change, you are often left with dependencies that are not being used, and just as often, you may forget to declare explicit dependencies for libraries you require.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">29</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a112" translate="yes" reformat="yes" xml:space="default">    
+       <source>Because Maven 2.x includes transitive dependencies in the compile scope, your project may compile properly but fail to run in production.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">21</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a113" translate="yes" reformat="yes" xml:space="default">    
+       <source>Consider a case where a project uses classes from a widely used project such as Jakarta Commons BeanUtils.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">18</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a114" translate="yes" reformat="yes" xml:space="default">    
+       <source>Instead of declaring an explicit dependency on <mrk mtype="protected"><bpt id="1">&lt;phrase role="keep-together"&gt;</bpt>BeanUtils<ept id="1">&lt;/phrase&gt;</ept></mrk>, your project simply relies on a project like Hibernate that references BeanUtils as a transitive dependency.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">24</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a115" translate="yes" reformat="yes" xml:space="default">    
+       <source>Your project may compile successfully and run just fine, but if you upgrade to a new version of Hibernate that doesn’t depend on BeanUtils, you’ll start to get compile and runtime errors, and it won’t be immediately obvious why your project stopped compiling.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">43</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a116" translate="yes" reformat="yes" xml:space="default">    
+       <source>Also, because you haven’t explicitly listed a dependency version, Maven cannot resolve any version conflicts that may arise.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">18</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a117" translate="yes" reformat="yes" xml:space="default">    
+       <source>A good rule of thumb in Maven is to always declare explicit dependencies for classes referenced in your code.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">19</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a118" translate="yes" reformat="yes" xml:space="default">    
+       <source>If you are going to be importing Commons BeanUtils classes, you should also be declaring a direct dependency on Commons BeanUtils.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">21</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a119" translate="yes" reformat="yes" xml:space="default">    
+       <source>Fortunately, via bytecode analysis, the Maven Dependency plugin is able to assist you in uncovering direct references to dependencies.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">19</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a120" translate="yes" reformat="yes" xml:space="default">    
+       <source>Using the updated POMs we previously optimized, let’s look to see if any errors pop up:</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">16</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a121" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;screen&gt;</bpt>$ <bpt id="2">&lt;command&gt;</bpt>mvn dependency:analyze<ept id="1">&lt;/command&gt;</ept>
+[INFO] Scanning for projects...
+[INFO] Reactor build order:
+[INFO]   Chapter 8 Simple Parent Project
+[INFO]   Chapter 8 Simple Object Model
+[INFO]   Chapter 8 Simple Weather API
+[INFO]   Chapter 8 Simple Persistence API
+[INFO]   Chapter 8 Simple Command Line Tool
+[INFO]   Chapter 8 Simple Web Application
+[INFO]   Chapter 8 Parent Project
+[INFO] Searching repository for plugin with prefix: 'dependency'.
+
+...
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Chapter 8 Simple Object Model
+[INFO]    task-segment: [dependency:analyze]
+[INFO] ------------------------------------------------------------------------
+[INFO] Preparing dependency:analyze
+[INFO] [resources:resources]
+[INFO] Using default encoding to copy filtered resources.
+[INFO] [compiler:compile]
+[INFO] Nothing to compile - all classes are up to date
+[INFO] [resources:testResources]
+[INFO] Using default encoding to copy filtered resources.
+[INFO] [compiler:testCompile]
+[INFO] Nothing to compile - all classes are up to date
+[INFO] [dependency:analyze]
+[WARNING] Used undeclared dependencies found:
+[WARNING]    javax.persistence:persistence-api:jar:1.0:compile
+[WARNING] Unused declared dependencies found:
+[WARNING]    org.hibernate:hibernate-annotations:jar:3.3.0.ga:compile
+[WARNING]    org.hibernate:hibernate:jar:3.2.5.ga:compile
+[WARNING]    junit:junit:jar:3.8.1:test
+
+...
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Chapter 8 Simple Web Application
+[INFO]    task-segment: [dependency:analyze]
+[INFO] ------------------------------------------------------------------------
+[INFO] Preparing dependency:analyze
+[INFO] [resources:resources]
+[INFO] Using default encoding to copy filtered resources.
+[INFO] [compiler:compile]
+[INFO] Nothing to compile - all classes are up to date
+[INFO] [resources:testResources]
+[INFO] Using default encoding to copy filtered resources.
+[INFO] [compiler:testCompile]
+[INFO] No sources to compile
+[INFO] [dependency:analyze]
+[WARNING] Used undeclared dependencies found:
+[WARNING]    org.sonatype.mavenbook.ch08:simple-model:jar:1.0:compile
+[WARNING] Unused declared dependencies found:
+[WARNING]    org.apache.velocity:velocity:jar:1.5:compile
+[WARNING]    javax.servlet:jstl:jar:1.1.2:compile
+[WARNING]    taglibs:standard:jar:1.1.2:compile
+[WARNING]    junit:junit:jar:3.8.1:test<ept id="2">&lt;/screen&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">0</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a122" translate="yes" reformat="yes" xml:space="default">    
+       <source>In the truncated output just shown, you can see the output of the<mrk mtype="protected"><bpt id="1">&lt;indexterm&gt;</bpt> <bpt id="2">&lt;primary&gt;</bpt>Dependency plugin<ept id="1">&lt;/primary&gt;</ept> <bpt id="3">&lt;secondary&gt;</bpt>analyze goal<ept id="2">&lt;/secondary&gt;</ept> <ept id="3">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="4">&lt;indexterm&gt;</bpt> <bpt id="5">&lt;primary&gt;</bpt>Maven Dependency plugin<ept id="4">&lt;/primary&gt;</ept> <bpt id="6">&lt;secondary&gt;</bpt>analyze goal<ept id="5">&lt;/secondary&gt;</ept> <ept id="6">&lt;/indexterm&gt;</ept></mrk> <bpt id="7">&lt;varname&gt;</bpt>dependency:<ept id="7">&lt;/varname&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">23</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a123" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;varname&gt;</bpt>analyze<ept id="1">&lt;/varname&gt;</ept> goal.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">2</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a124" translate="yes" reformat="yes" xml:space="default">    
+       <source>This goal analyzes the project to see whether there are any indirect dependencies, or dependencies that are being referenced but are not directly declared.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">24</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a125" translate="yes" reformat="yes" xml:space="default">    
+       <source>In the <bpt id="1">&lt;varname&gt;</bpt>simple-model<ept id="1">&lt;/varname&gt;</ept> project, the Dependency plugin indicates a “used undeclared dependency” on <bpt id="2">&lt;varname&gt;</bpt>javax.persistence:<ept id="2">&lt;/varname&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">16</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a126" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;varname&gt;</bpt>persistence-api<ept id="1">&lt;/varname&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">1</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a127" translate="yes" reformat="yes" xml:space="default">    
+       <source>To investigate further, go to the <bpt id="1">&lt;varname&gt;</bpt>simple-model<ept id="1">&lt;/varname&gt;</ept> directory and run the <bpt id="2">&lt;varname&gt;</bpt>dependency:<ept id="2">&lt;/varname&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">12</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a128" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;varname&gt;</bpt>tree<ept id="1">&lt;/varname&gt;</ept> goal, which will list all of the project’s direct and transitive dependencies:</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">13</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a129" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;screen&gt;</bpt>$ <bpt id="2">&lt;command&gt;</bpt>mvn dependency:tree<ept id="1">&lt;/command&gt;</ept>
+[INFO] Scanning for projects...
+[INFO] Searching repository for plugin with prefix: 'dependency'.
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Chapter 8 Simple Object Model
+[INFO]    task-segment: [dependency:tree]
+[INFO] ------------------------------------------------------------------------
+[INFO] [dependency:tree]
+[INFO] org.sonatype.mavenbook.ch08:simple-model:jar:1.0
+[INFO] +- org.hibernate:hibernate-annotations:jar:3.3.0.ga:compile
+[INFO] |  \- javax.persistence:persistence-api:jar:1.0:compile
+[INFO] +- org.hibernate:hibernate:jar:3.2.5.ga:compile
+[INFO] |  +- net.sf.ehcache:ehcache:jar:1.2.3:compile
+[INFO] |  +- commons-logging:commons-logging:jar:1.0.4:compile
+[INFO] |  +- asm:asm-attrs:jar:1.5.3:compile
+[INFO] |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  +- cglib:cglib:jar:2.1_3:compile
+[INFO] |  +- asm:asm:jar:1.5.3:compile
+[INFO] |  \- commons-collections:commons-collections:jar:2.1.1:compile
+[INFO] \- junit:junit:jar:3.8.1:test
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+<ept id="2">&lt;/screen&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">0</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a130" translate="yes" reformat="yes" xml:space="default">    
+       <source>From this output, we can see that the <bpt id="1">&lt;varname&gt;</bpt>persistence-api<ept id="1">&lt;/varname&gt;</ept> dependency is coming from <bpt id="2">&lt;varname&gt;</bpt>hibernate<ept id="2">&lt;/varname&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">14</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a131" translate="yes" reformat="yes" xml:space="default">    
+       <source>A cursory scan of the source in this module will reveal many <bpt id="1">&lt;varname&gt;</bpt>javax.<ept id="1">&lt;/varname&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">13</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a132" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;varname&gt;</bpt>persistence<ept id="1">&lt;/varname&gt;</ept> import statements confirming that we are, indeed, directly referencing this dependency.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">12</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a133" translate="yes" reformat="yes" xml:space="default">    
+       <source>The simple fix is to add a direct reference to the dependency.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">12</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a134" translate="yes" reformat="yes" xml:space="default">    
+       <source>In this example, we put the dependency version in <bpt id="1">&lt;varname&gt;</bpt>simple-parent<ept id="1">&lt;/varname&gt;</ept>’s <bpt id="2">&lt;sgmltag&gt;</bpt>dependencyManagement<ept id="2">&lt;/sgmltag&gt;</ept> section because the dependency is linked to Hibernate, and the Hibernate version is declared here.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">27</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a135" translate="yes" reformat="yes" xml:space="default">    
+       <source>Eventually you are going to want to upgrade your project’s version of Hibernate.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">13</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a136" translate="yes" reformat="yes" xml:space="default">    
+       <source>Listing the <bpt id="1">&lt;varname&gt;</bpt>persistence-api<ept id="1">&lt;/varname&gt;</ept> dependency version near the Hibernate dependency version will make it more obvious later when your team modifies the parent <bpt id="2">&lt;acronym&gt;</bpt>POM<ept id="2">&lt;/acronym&gt;</ept> to upgrade the Hibernate version.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">28</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a137" translate="yes" reformat="yes" xml:space="default">    
+       <source>If you look at the <bpt id="1">&lt;varname&gt;</bpt>dependency:<ept id="1">&lt;/varname&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">6</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a138" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;varname&gt;</bpt>analyze<ept id="1">&lt;/varname&gt;</ept> output from the <bpt id="2">&lt;varname&gt;</bpt>simple-web<ept id="2">&lt;/varname&gt;</ept> module, you will see that we also need to add a direct reference to the <bpt id="3">&lt;varname&gt;</bpt>simple-model<ept id="3">&lt;/varname&gt;</ept> dependency.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">22</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a139" translate="yes" reformat="yes" xml:space="default">    
+       <source>The code in <bpt id="1">&lt;varname&gt;</bpt>simple-webapp<ept id="1">&lt;/varname&gt;</ept> directly references the model objects in <bpt id="2">&lt;varname&gt;</bpt>simple-model<ept id="2">&lt;/varname&gt;</ept>, and the <bpt id="3">&lt;varname&gt;</bpt>simple-model<ept id="3">&lt;/varname&gt;</ept> is exposed to <bpt id="4">&lt;varname&gt;</bpt>simple-webapp<ept id="4">&lt;/varname&gt;</ept> as a transitive dependency via <bpt id="5">&lt;varname&gt;</bpt>simple-persist<ept id="5">&lt;/varname&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">24</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a140" translate="yes" reformat="yes" xml:space="default">    
+       <source>Since this is a sibling dependency that shares both the <bpt id="1">&lt;varname&gt;</bpt>version<ept id="1">&lt;/varname&gt;</ept> and <bpt id="2">&lt;varname&gt;</bpt>groupId<ept id="2">&lt;/varname&gt;</ept>, the dependency can be defined in <bpt id="3">&lt;varname&gt;</bpt>simple-webapp<ept id="3">&lt;/varname&gt;</ept>’s <bpt id="4">&lt;filename moreinfo="none"&gt;</bpt>pom.xml<ept id="4">&lt;/filename&gt;</ept> using the <bpt id="5">&lt;varname&gt;</bpt>\${project.groupId}<ept id="5">&lt;/varname&gt;</ept> and <bpt id="6">&lt;varname
+    role="keep-together"&gt;</bpt>\${project.version}<ept id="6">&lt;/varname&gt;</ept>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">32</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a141" translate="yes" reformat="yes" xml:space="default">    
+       <source>How did the Maven Dependency plugin uncover these issues?</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">9</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a142" translate="yes" reformat="yes" xml:space="default">    
+       <source>How does <bpt id="1">&lt;varname role="keep-together"&gt;</bpt>dependency:<ept id="1">&lt;/varname&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">3</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a143" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;varname role="keep-together"&gt;</bpt>analyze<ept id="1">&lt;/varname&gt;</ept> know which classes and dependencies are directly referenced by your project’s bytecode?</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">13</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a144" translate="yes" reformat="yes" xml:space="default">    
+       <source>The Dependency plugin uses the ObjectWeb ASM (<bpt id="1">&lt;ulink
+    url="http://asm.objectweb.org/"&gt;</bpt>http://asm.objectweb.org/<ept id="1">&lt;/ulink&gt;</ept>) <mrk mtype="protected"><bpt id="2">&lt;indexterm&gt;</bpt> <bpt id="3">&lt;primary&gt;</bpt>ObjectWeb ASM toolkit<ept id="2">&lt;/primary&gt;</ept> <ept id="3">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="4">&lt;indexterm&gt;</bpt> <bpt id="5">&lt;primary&gt;</bpt>bytecode analysis (Dependency plugin)<ept id="4">&lt;/primary&gt;</ept> <ept id="5">&lt;/indexterm&gt;</ept></mrk>toolkit to analyze the raw bytecode.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">21</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a145" translate="yes" reformat="yes" xml:space="default">    
+       <source>The Dependency plugin uses ASM to walk through all the classes in the current project, and it builds a list of every other class referenced.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">25</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a146" translate="yes" reformat="yes" xml:space="default">    
+       <source>It then walks through all the dependencies, direct and transitive, and marks off the classes discovered in the direct dependencies.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">20</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a147" translate="yes" reformat="yes" xml:space="default">    
+       <source>Any classes not located in the direct dependencies are discovered in the transitive dependencies, and the list<mrk mtype="protected"><bpt id="1">&lt;indexterm&gt;</bpt> <bpt id="2">&lt;primary&gt;</bpt>used, undeclared dependencies (Dependency plugin)<ept id="1">&lt;/primary&gt;</ept> <ept id="2">&lt;/indexterm&gt;</ept></mrk> of “used, undeclared dependencies” is produced.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">28</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a148" translate="yes" reformat="yes" xml:space="default">    
+       <source>In contrast, the list of unused, declared dependencies is a little<mrk mtype="protected"><bpt id="1">&lt;indexterm&gt;</bpt> <bpt id="2">&lt;primary&gt;</bpt>unused, undeclared dependencies (Dependency plugin)<ept id="1">&lt;/primary&gt;</ept> <ept id="2">&lt;/indexterm&gt;</ept></mrk> trickier to validate, and less useful than the “used, undeclared dependencies.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">27</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a149" translate="yes" reformat="yes" xml:space="default">    
+       <source>” For one, some dependencies are used only at runtime or for tests, and they won’t be found in the bytecode.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">21</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a150" translate="yes" reformat="yes" xml:space="default">    
+       <source>These are pretty obvious when you see them in the output; for example, JUnit appears in this list, but this is expected because it is used only for unit tests.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">30</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a151" translate="yes" reformat="yes" xml:space="default">    
+       <source>You’ll also notice that the Velocity and Servlet API dependencies are listed in this list for the <mrk mtype="protected"><bpt id="1">&lt;literal&gt;</bpt>simple-web<ept id="1">&lt;/literal&gt;</ept></mrk> module.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">19</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a152" translate="yes" reformat="yes" xml:space="default">    
+       <source>This is also expected because, although the project doesn’t have any direct references to the classes of these artifacts, they are still essential during runtime.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">25</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a153" translate="yes" reformat="yes" xml:space="default">    
+       <source>Be careful when removing any unused, declared dependencies unless you have very good test coverage, or you might introduce a runtime error.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">22</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a154" translate="yes" reformat="yes" xml:space="default">    
+       <source>A more sinister issue pops up with bytecode optimization.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">9</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a155" translate="yes" reformat="yes" xml:space="default">    
+       <source>For example, it is legal for a compiler to substitute the value of a constant and optimize away the reference.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">20</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a156" translate="yes" reformat="yes" xml:space="default">    
+       <source>Removing this dependency will cause the compile to fail, yet the tool shows it as unused.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">16</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a157" translate="yes" reformat="yes" xml:space="default">    
+       <source>Future versions of the Maven Dependency plugin will provide better techniques for detecting and/or ignoring these types of issues.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">19</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a158" translate="yes" reformat="yes" xml:space="default">    
+       <source>You should use the <bpt id="1">&lt;varname&gt;</bpt>dependency:<ept id="1">&lt;/varname&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">5</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a159" translate="yes" reformat="yes" xml:space="default">    
+       <source><bpt id="1">&lt;varname&gt;</bpt>analyze<ept id="1">&lt;/varname&gt;</ept> tool periodically to detect these common errors in your projects.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">11</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a160" translate="yes" reformat="yes" xml:space="default">    
+       <source>It can be configured to fail the build if certain conditions are found, and it is <mrk mtype="protected"><bpt id="1">&lt;indexterm class="endofrange" startref="optref4a"&gt;</bpt><ept id="1">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="2">&lt;indexterm class="endofrange" startref="optref4b"&gt;</bpt><ept id="2">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="3">&lt;indexterm class="endofrange" startref="optref4c"&gt;</bpt><ept id="3">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="4">&lt;indexterm class="endofrange" startref="optref4d"&gt;</bpt><ept id="4">&lt;/indexterm&gt;</ept></mrk>also available as a report.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">21</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a161" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Final POMs<ept id="1">&lt;/title&gt;</ept></mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">2</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a162" translate="yes" reformat="yes" xml:space="default">    
+       <source>As an overview, the final <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> files are<mrk mtype="protected"><bpt id="2">&lt;indexterm&gt;</bpt> <bpt id="3">&lt;primary&gt;</bpt>simple-parent POM (for reference)<ept id="2">&lt;/primary&gt;</ept> <ept id="3">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="4">&lt;indexterm&gt;</bpt> <bpt id="5">&lt;primary&gt;</bpt>pom.xml file<ept id="4">&lt;/primary&gt;</ept> <bpt id="6">&lt;secondary&gt;</bpt>final POMs (for reference)<ept id="5">&lt;/secondary&gt;</ept> <bpt id="7">&lt;tertiary&gt;</bpt>simple-parent POM<ept id="6">&lt;/tertiary&gt;</ept> <ept id="7">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="8">&lt;indexterm&gt;</bpt> <bpt id="9">&lt;primary&gt;</bpt>simple parent project (example)<ept id="8">&lt;/primary&gt;</ept> <bpt id="10">&lt;secondary&gt;</bpt>final POM for (for reference)<ept id="9">&lt;/secondary&gt;</ept> <ept id="10">&lt;/indexterm&gt;</ept></mrk> listed as a reference for this chapter.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">36</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a163" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;xref linkend="ex-final-pom-for-simple-parent" /&gt;</bpt> shows the top-level <bpt id="2">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> for <bpt id="3">&lt;varname&gt;</bpt>simple-parent<ept id="2">&lt;/varname&gt;</ept>.</mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">6</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a164" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Final POM for simple-parent<ept id="1">&lt;/title&gt;</ept></mrk> <bpt id="2">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd"&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+
+  &amp;lt;groupId&amp;gt;org.sonatype.mavenbook.ch08&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;simple-parent&amp;lt;/artifactId&amp;gt;
+  &amp;lt;packaging&amp;gt;pom&amp;lt;/packaging&amp;gt;
+  &amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt;
+  &amp;lt;name&amp;gt;Chapter 8 Simple Parent Project&amp;lt;/name&amp;gt;
+ 
+  &amp;lt;modules&amp;gt;
+    &amp;lt;module&amp;gt;simple-command&amp;lt;/module&amp;gt;
+    &amp;lt;module&amp;gt;simple-model&amp;lt;/module&amp;gt;
+    &amp;lt;module&amp;gt;simple-weather&amp;lt;/module&amp;gt;
+    &amp;lt;module&amp;gt;simple-persist&amp;lt;/module&amp;gt;
+    &amp;lt;module&amp;gt;simple-webapp&amp;lt;/module&amp;gt;
+  &amp;lt;/modules&amp;gt;
+
+  &amp;lt;build&amp;gt;
+    &amp;lt;pluginManagement&amp;gt;
+      &amp;lt;plugins&amp;gt;
+        &amp;lt;plugin&amp;gt;
+          &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+          &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+          &amp;lt;configuration&amp;gt;
+            &amp;lt;source&amp;gt;1.5&amp;lt;/source&amp;gt;
+            &amp;lt;target&amp;gt;1.5&amp;lt;/target&amp;gt;
+          &amp;lt;/configuration&amp;gt;
+        &amp;lt;/plugin&amp;gt;
+        &amp;lt;plugin&amp;gt;
+          &amp;lt;groupId&amp;gt;org.codehaus.mojo&amp;lt;/groupId&amp;gt;
+          &amp;lt;artifactId&amp;gt;hibernate3-maven-plugin&amp;lt;/artifactId&amp;gt;
+          &amp;lt;version&amp;gt;2.1&amp;lt;/version&amp;gt;
+          &amp;lt;configuration&amp;gt;
+            &amp;lt;components&amp;gt;
+              &amp;lt;component&amp;gt;
+                &amp;lt;name&amp;gt;hbm2ddl&amp;lt;/name&amp;gt;
+                &amp;lt;implementation&amp;gt;annotationconfiguration&amp;lt;/implementation&amp;gt;
+              &amp;lt;/component&amp;gt;
+            &amp;lt;/components&amp;gt;
+          &amp;lt;/configuration&amp;gt;
+          &amp;lt;dependencies&amp;gt;
+            &amp;lt;dependency&amp;gt;
+              &amp;lt;groupId&amp;gt;hsqldb&amp;lt;/groupId&amp;gt;
+              &amp;lt;artifactId&amp;gt;hsqldb&amp;lt;/artifactId&amp;gt;
+              &amp;lt;version&amp;gt;\${hsqldb.version}&amp;lt;/version&amp;gt;
+            &amp;lt;/dependency&amp;gt;
+          &amp;lt;/dependencies&amp;gt;
+        &amp;lt;/plugin&amp;gt;
+      &amp;lt;/plugins&amp;gt;
+   &amp;lt;/pluginManagement&amp;gt; 
+  &amp;lt;/build&amp;gt;
+
+  &amp;lt;properties&amp;gt;
+    &amp;lt;hibernate.annotations.version&amp;gt;3.3.0.ga&amp;lt;/hibernate.annotations.version&amp;gt;
+    &amp;lt;hsqldb.version&amp;gt;1.8.0.7&amp;lt;/hsqldb.version&amp;gt;
+  &amp;lt;/properties&amp;gt;
+  &amp;lt;dependencyManagement&amp;gt;
+    &amp;lt;dependencies&amp;gt;
+      &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;spring&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;2.0.7&amp;lt;/version&amp;gt;
+      &amp;lt;/dependency&amp;gt;
+      &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.apache.velocity&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;velocity&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;1.5&amp;lt;/version&amp;gt;
+      &amp;lt;/dependency&amp;gt;  
+      &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;javax.persistence&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;persistence-api&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt;
+      &amp;lt;/dependency&amp;gt;
+      &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;hibernate-annotations&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;\${hibernate.annotations.version}&amp;lt;/version&amp;gt;
+      &amp;lt;/dependency&amp;gt;
+      &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;hibernate-commons-annotations&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;\${hibernate.annotations.version}&amp;lt;/version&amp;gt;
+      &amp;lt;/dependency&amp;gt;
+      &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;hibernate&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;3.2.5.ga&amp;lt;/version&amp;gt;
+        &amp;lt;exclusions&amp;gt;
+          &amp;lt;exclusion&amp;gt;
+            &amp;lt;groupId&amp;gt;javax.transaction&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;jta&amp;lt;/artifactId&amp;gt;
+          &amp;lt;/exclusion&amp;gt;
+        &amp;lt;/exclusions&amp;gt;
+      &amp;lt;/dependency&amp;gt;
+    &amp;lt;/dependencies&amp;gt;
+  &amp;lt;/dependencyManagement&amp;gt;
+  
+  &amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;3.8.1&amp;lt;/version&amp;gt;
+      &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;      <ept id="2">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">4</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a165" translate="yes" reformat="yes" xml:space="default">    
+       <source>The <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> shown in <mrk mtype="protected"><bpt id="2">&lt;xref linkend="ex-final-pom-for-simple-command" /&gt;</bpt> captures the<bpt id="3">&lt;indexterm&gt;</bpt> <bpt id="4">&lt;primary&gt;</bpt>simple-command POM (for reference)<ept id="2">&lt;/primary&gt;</ept> <ept id="3">&lt;/indexterm&gt;</ept><bpt id="5">&lt;indexterm&gt;</bpt> <bpt id="6">&lt;primary&gt;</bpt>pom.xml file<ept id="4">&lt;/primary&gt;</ept> <bpt id="7">&lt;secondary&gt;</bpt>final POMs (for reference)<ept id="5">&lt;/secondary&gt;</ept> <bpt id="8">&lt;tertiary&gt;</bpt>simple-command POM<ept id="6">&lt;/tertiary&gt;</ept> <ept id="7">&lt;/indexterm&gt;</ept> <bpt id="9">&lt;acronym&gt;</bpt>POM<ept id="8">&lt;/acronym&gt;</ept> for <bpt id="10">&lt;varname&gt;</bpt>simple-command<ept id="9">&lt;/varname&gt;</ept>, the command-line version of the tool.</mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">27</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a166" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Final POM for simple-command<ept id="1">&lt;/title&gt;</ept></mrk> <bpt id="2">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd"&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+  &amp;lt;parent&amp;gt;
+    &amp;lt;groupId&amp;gt;org.sonatype.mavenbook.ch08&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;simple-parent&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt;
+  &amp;lt;/parent&amp;gt;
+
+  &amp;lt;artifactId&amp;gt;simple-command&amp;lt;/artifactId&amp;gt;
+  &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;
+  &amp;lt;name&amp;gt;Chapter 8 Simple Command Line Tool&amp;lt;/name&amp;gt;
+
+  &amp;lt;build&amp;gt;
+    &amp;lt;pluginManagement&amp;gt;
+      &amp;lt;plugins&amp;gt;
+        &amp;lt;plugin&amp;gt;
+          &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+          &amp;lt;artifactId&amp;gt;maven-jar-plugin&amp;lt;/artifactId&amp;gt;
+          &amp;lt;configuration&amp;gt;
+            &amp;lt;archive&amp;gt;
+              &amp;lt;manifest&amp;gt;
+                &amp;lt;mainClass&amp;gt;org.sonatype.mavenbook.weather.Main&amp;lt;/mainClass&amp;gt;
+                &amp;lt;addClasspath&amp;gt;true&amp;lt;/addClasspath&amp;gt;
+              &amp;lt;/manifest&amp;gt;
+            &amp;lt;/archive&amp;gt;
+          &amp;lt;/configuration&amp;gt;
+        &amp;lt;/plugin&amp;gt;
+        &amp;lt;plugin&amp;gt;
+          &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+          &amp;lt;artifactId&amp;gt;maven-surefire-plugin&amp;lt;/artifactId&amp;gt;
+          &amp;lt;configuration&amp;gt;
+            &amp;lt;testFailureIgnore&amp;gt;true&amp;lt;/testFailureIgnore&amp;gt;
+          &amp;lt;/configuration&amp;gt;
+        &amp;lt;/plugin&amp;gt;
+        &amp;lt;plugin&amp;gt;
+         &amp;lt;artifactId&amp;gt;maven-assembly-plugin&amp;lt;/artifactId&amp;gt;
+          &amp;lt;configuration&amp;gt;
+            &amp;lt;descriptorRefs&amp;gt;
+              &amp;lt;descriptorRef&amp;gt;jar-with-dependencies&amp;lt;/descriptorRef&amp;gt;
+            &amp;lt;/descriptorRefs&amp;gt;
+          &amp;lt;/configuration&amp;gt;
+        &amp;lt;/plugin&amp;gt;
+      &amp;lt;/plugins&amp;gt;
+    &amp;lt;/pluginManagement&amp;gt;
+  &amp;lt;/build&amp;gt;
+
+  &amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;\${project.groupId}&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;simple-weather&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;\${project.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;\${project.groupId}&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;simple-persist&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;\${project.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;spring&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.apache.velocity&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;velocity&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;    
+  &amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;
+<ept id="2">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">4</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a167" translate="yes" reformat="yes" xml:space="default">    
+       <source>The <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> shown in <mrk mtype="protected"><bpt id="2">&lt;xref linkend="ex-final-pom-for-simple-model" /&gt;</bpt> is the<bpt id="3">&lt;indexterm&gt;</bpt> <bpt id="4">&lt;primary&gt;</bpt>simple-model POM (for reference)<ept id="2">&lt;/primary&gt;</ept> <ept id="3">&lt;/indexterm&gt;</ept><bpt id="5">&lt;indexterm&gt;</bpt> <bpt id="6">&lt;primary&gt;</bpt>pom.xml file<ept id="4">&lt;/primary&gt;</ept> <bpt id="7">&lt;secondary&gt;</bpt>final POMs (for reference)<ept id="5">&lt;/secondary&gt;</ept> <bpt id="8">&lt;tertiary&gt;</bpt>simple-model POM<ept id="6">&lt;/tertiary&gt;</ept> <ept id="7">&lt;/indexterm&gt;</ept> <bpt id="9">&lt;varname&gt;</bpt>simple-model<ept id="8">&lt;/varname&gt;</ept> project’s <bpt id="10">&lt;acronym&gt;</bpt>POM<ept id="9">&lt;/acronym&gt;</ept>.</mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">21</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a168" translate="yes" reformat="yes" xml:space="default">    
+       <source>The <bpt id="1">&lt;varname&gt;</bpt>simple-model<ept id="1">&lt;/varname&gt;</ept> project contains all of the model objects used throughout the application.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">13</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a169" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Final POM for simple-model<ept id="1">&lt;/title&gt;</ept></mrk> <bpt id="2">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd"&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+  &amp;lt;parent&amp;gt;
+    &amp;lt;groupId&amp;gt;org.sonatype.mavenbook.ch08&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;simple-parent&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt;
+  &amp;lt;/parent&amp;gt;
+  &amp;lt;artifactId&amp;gt;simple-model&amp;lt;/artifactId&amp;gt;
+  &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;
+
+  &amp;lt;name&amp;gt;Chapter 8 Simple Object Model&amp;lt;/name&amp;gt;
+
+  &amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;hibernate-annotations&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;hibernate&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;javax.persistence&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;persistence-api&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;
+<ept id="2">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">4</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a170" translate="yes" reformat="yes" xml:space="default">    
+       <source>The <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> shown in <mrk mtype="protected"><bpt id="2">&lt;xref linkend="ex-final-pom-for-simple-persist" /&gt;</bpt> is the<bpt id="3">&lt;indexterm&gt;</bpt> <bpt id="4">&lt;primary&gt;</bpt>simple-persist POM (for reference)<ept id="2">&lt;/primary&gt;</ept> <ept id="3">&lt;/indexterm&gt;</ept><bpt id="5">&lt;indexterm&gt;</bpt> <bpt id="6">&lt;primary&gt;</bpt>pom.xml file<ept id="4">&lt;/primary&gt;</ept> <bpt id="7">&lt;secondary&gt;</bpt>final POMs (for reference)<ept id="5">&lt;/secondary&gt;</ept> <bpt id="8">&lt;tertiary&gt;</bpt>simple-persist POM<ept id="6">&lt;/tertiary&gt;</ept> <ept id="7">&lt;/indexterm&gt;</ept> <bpt id="9">&lt;varname&gt;</bpt>simple-persist<ept id="8">&lt;/varname&gt;</ept> project’s <bpt id="10">&lt;acronym&gt;</bpt>POM<ept id="9">&lt;/acronym&gt;</ept>.</mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">21</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a171" translate="yes" reformat="yes" xml:space="default">    
+       <source>The <bpt id="1">&lt;varname&gt;</bpt>simple-persist<ept id="1">&lt;/varname&gt;</ept> project contains all of the persistence logic that is implemented using <mrk mtype="protected"><bpt id="2">&lt;phrase role="keep-together"&gt;</bpt>Hibernate<ept id="2">&lt;/phrase&gt;</ept></mrk>.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">14</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a172" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Final POM for simple-persist<ept id="1">&lt;/title&gt;</ept></mrk> <bpt id="2">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd"&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+  &amp;lt;parent&amp;gt;
+    &amp;lt;groupId&amp;gt;org.sonatype.mavenbook.ch08&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;simple-parent&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt;
+  &amp;lt;/parent&amp;gt;
+  &amp;lt;artifactId&amp;gt;simple-persist&amp;lt;/artifactId&amp;gt;
+  &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;
+
+  &amp;lt;name&amp;gt;Chapter 8 Simple Persistence API&amp;lt;/name&amp;gt;
+
+  &amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;\${project.groupId}&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;simple-model&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;\${project.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;hibernate&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;hibernate-annotations&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.hibernate&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;hibernate-commons-annotations&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;servlet-api&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;2.4&amp;lt;/version&amp;gt;
+      &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;spring&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;
+<ept id="2">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">4</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a173" translate="yes" reformat="yes" xml:space="default">    
+       <source>The <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> shown in <mrk mtype="protected"><bpt id="2">&lt;xref linkend="ex-final-pom-for-simple-weather" /&gt;</bpt> is the<bpt id="3">&lt;indexterm&gt;</bpt> <bpt id="4">&lt;primary&gt;</bpt>simple-weather POM (for reference)<ept id="2">&lt;/primary&gt;</ept> <ept id="3">&lt;/indexterm&gt;</ept><bpt id="5">&lt;indexterm&gt;</bpt> <bpt id="6">&lt;primary&gt;</bpt>pom.xml file<ept id="4">&lt;/primary&gt;</ept> <bpt id="7">&lt;secondary&gt;</bpt>final POMs (for reference)<ept id="5">&lt;/secondary&gt;</ept> <bpt id="8">&lt;tertiary&gt;</bpt>simple-weather POM<ept id="6">&lt;/tertiary&gt;</ept> <ept id="7">&lt;/indexterm&gt;</ept><bpt id="9">&lt;indexterm&gt;</bpt> <bpt id="10">&lt;primary&gt;</bpt>weather project (example)<ept id="8">&lt;/primary&gt;</ept> <bpt id="11">&lt;secondary&gt;</bpt>final simple-weather POM<ept id="9">&lt;/secondary&gt;</ept> <ept id="10">&lt;/indexterm&gt;</ept> <bpt id="12">&lt;varname&gt;</bpt>simple-weather<ept id="11">&lt;/varname&gt;</ept> project’s <bpt id="13">&lt;acronym&gt;</bpt>POM<ept id="12">&lt;/acronym&gt;</ept>.</mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">27</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a174" translate="yes" reformat="yes" xml:space="default">    
+       <source>The <bpt id="1">&lt;varname&gt;</bpt>simple-weather<ept id="1">&lt;/varname&gt;</ept> project is the project that contains all of the logic to parse the Yahoo! Weather <bpt id="2">&lt;acronym&gt;</bpt>RSS<ept id="2">&lt;/acronym&gt;</ept> feed.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">19</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a175" translate="yes" reformat="yes" xml:space="default">    
+       <source>This project depends on the <bpt id="1">&lt;varname&gt;</bpt>simple-model<ept id="1">&lt;/varname&gt;</ept> project.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">7</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a176" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Final POM for simple-weather<ept id="1">&lt;/title&gt;</ept></mrk> <bpt id="2">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd"&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+  &amp;lt;parent&amp;gt;
+    &amp;lt;groupId&amp;gt;org.sonatype.mavenbook.ch08&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;simple-parent&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt;
+  &amp;lt;/parent&amp;gt;
+  &amp;lt;artifactId&amp;gt;simple-weather&amp;lt;/artifactId&amp;gt;
+  &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;
+
+  &amp;lt;name&amp;gt;Chapter 8 Simple Weather API&amp;lt;/name&amp;gt;
+
+  &amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;\${project.groupId}&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;simple-model&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;\${project.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;log4j&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;log4j&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;1.2.14&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;dom4j&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;dom4j&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;1.6.1&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;jaxen&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;jaxen&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;1.1.1&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.apache.commons&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;1.3.2&amp;lt;/version&amp;gt;
+      &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;
+<ept id="2">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">4</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a177" translate="yes" reformat="yes" xml:space="default">    
+       <source>Finally, the <bpt id="1">&lt;acronym&gt;</bpt>POM<ept id="1">&lt;/acronym&gt;</ept> shown in <mrk mtype="protected"><bpt id="2">&lt;xref linkend="ex-final-pom-for-simple-webapp" /&gt;</bpt> is the<bpt id="3">&lt;indexterm&gt;</bpt> <bpt id="4">&lt;primary&gt;</bpt>simple-webapp POM (for reference)<ept id="2">&lt;/primary&gt;</ept> <ept id="3">&lt;/indexterm&gt;</ept><bpt id="5">&lt;indexterm&gt;</bpt> <bpt id="6">&lt;primary&gt;</bpt>pom.xml file<ept id="4">&lt;/primary&gt;</ept> <bpt id="7">&lt;secondary&gt;</bpt>final POMs (for reference)<ept id="5">&lt;/secondary&gt;</ept> <bpt id="8">&lt;tertiary&gt;</bpt>simple-webapp POM<ept id="6">&lt;/tertiary&gt;</ept> <ept id="7">&lt;/indexterm&gt;</ept><bpt id="9">&lt;indexterm&gt;</bpt> <bpt id="10">&lt;primary&gt;</bpt>Web applications<ept id="8">&lt;/primary&gt;</ept> <bpt id="11">&lt;secondary&gt;</bpt>final simple-weather POM<ept id="9">&lt;/secondary&gt;</ept> <ept id="10">&lt;/indexterm&gt;</ept> <bpt id="12">&lt;varname&gt;</bpt>simple-webapp<ept id="11">&lt;/varname&gt;</ept> project’s <bpt id="13">&lt;acronym&gt;</bpt>POM<ept id="12">&lt;/acronym&gt;</ept>.</mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">27</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a178" translate="yes" reformat="yes" xml:space="default">    
+       <source>The <bpt id="1">&lt;varname&gt;</bpt>simple-webapp<ept id="1">&lt;/varname&gt;</ept> project contains a web application that stores retrieved weather forecasts in an <bpt id="2">&lt;acronym&gt;</bpt>HSQLDB<ept id="2">&lt;/acronym&gt;</ept> database and that also interacts with the libraries generated by the <bpt id="3">&lt;varname&gt;</bpt>simple-weather<ept id="3">&lt;/varname&gt;</ept> project.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">28</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a179" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Final POM for simple-webapp<ept id="1">&lt;/title&gt;</ept></mrk> <bpt id="2">&lt;programlisting language="xml"&gt;</bpt>&amp;lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                      http://maven.apache.org/maven-v4_0_0.xsd"&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+  &amp;lt;parent&amp;gt;
+    &amp;lt;groupId&amp;gt;org.sonatype.mavenbook.ch08&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;simple-parent&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt;
+  &amp;lt;/parent&amp;gt;
+
+  &amp;lt;artifactId&amp;gt;simple-webapp&amp;lt;/artifactId&amp;gt;
+  &amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt;
+  &amp;lt;name&amp;gt;Chapter 8 Simple Web Application&amp;lt;/name&amp;gt;
+  &amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;servlet-api&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;2.4&amp;lt;/version&amp;gt;
+      &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;\${project.groupId}&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;simple-model&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;\${project.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;\${project.groupId}&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;simple-weather&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;\${project.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;\${project.groupId}&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;simple-persist&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;\${project.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;spring&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;jstl&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;1.1.2&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;taglibs&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;standard&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;1.1.2&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.apache.velocity&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;velocity&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;
+  &amp;lt;build&amp;gt;
+    &amp;lt;finalName&amp;gt;simple-webapp&amp;lt;/finalName&amp;gt;
+    &amp;lt;plugins&amp;gt;
+      &amp;lt;plugin&amp;gt;
+        &amp;lt;groupId&amp;gt;org.mortbay.jetty&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;maven-jetty-plugin&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;6.1.9&amp;lt;/version&amp;gt;
+        &amp;lt;dependencies&amp;gt;
+          &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;hsqldb&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;hsqldb&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;\${hsqldb.version}&amp;lt;/version&amp;gt;
+          &amp;lt;/dependency&amp;gt;
+        &amp;lt;/dependencies&amp;gt;
+      &amp;lt;/plugin&amp;gt;
+    &amp;lt;/plugins&amp;gt;
+  &amp;lt;/build&amp;gt;
+&amp;lt;/project&amp;gt;
+<ept id="2">&lt;/programlisting&gt;</ept></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">4</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a180" translate="yes" reformat="yes" xml:space="default">    
+       <source><mrk mtype="protected"><bpt id="1">&lt;title&gt;</bpt>Conclusion<ept id="1">&lt;/title&gt;</ept></mrk></source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">1</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a181" translate="yes" reformat="yes" xml:space="default">    
+       <source>This chapter has shown you several techniques for improving the control of your dependencies and plugins to ease future maintenance of your builds.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">23</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a182" translate="yes" reformat="yes" xml:space="default">    
+       <source>We recommend periodically reviewing your builds in this way to ensure that duplication and thus <mrk mtype="protected"><bpt id="1">&lt;phrase role="keep-together"&gt;</bpt>potential<ept id="1">&lt;/phrase&gt;</ept></mrk> trouble spots are minimized.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">20</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a183" translate="yes" reformat="yes" xml:space="default">    
+       <source>As a project matures, new dependencies are inevitably introduced, and you may find that a dependency previously used in 1 place is now used in 10 and should be moved up.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">29</count>
+       </count-group>
+    </trans-unit>
+<trans-unit id="a184" translate="yes" reformat="yes" xml:space="default">    
+       <source>The used and unused dependencies list changes over <mrk mtype="protected"><bpt id="1">&lt;indexterm class="endofrange" startref="optref1a"&gt;</bpt><ept id="1">&lt;/indexterm&gt;</ept></mrk><mrk mtype="protected"><bpt id="2">&lt;indexterm class="endofrange" startref="optref1b"&gt;</bpt><ept id="2">&lt;/indexterm&gt;</ept></mrk>time and can easily be cleaned up with the Maven Dependency plugin.</source>
+       <count-group name="word count">
+          <count count-type="word count" unit="word">20</count>
+       </count-group>
+    </trans-unit>
+</body>
+</file>
+</xliff>

@@ -1,0 +1,240 @@
+<?xml version="1.0" ?>
+<!DOCTYPE tt-xliff-skl PUBLIC "-//SUN-TRANSTECH//DTD XLIFF SKELETON//EN"
+ "http://www.ireland/~timf/tt-xliff-skl.dtd" >
+<tt-xliff-skl version="1.0">
+ <file source-language="en-US" datatype="html" original="/home/ehsavoie/dev/mavenbook/maven-guide-en/mvnbook-content/src/main/resources/docbook/chapter-optimizing.xml">
+  <header><xliff-file href="chapter-optimizing.xlf"/></header>
+  <body>
+<tu-placeholder id="a1"/><formatting type="whitespace">
+</formatting>
+<formatting type="whitespace"> </formatting>
+<formatting>&lt;!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"&gt;
+&lt;chapter id="optimizing"&gt;</formatting>
+<tu-placeholder id="a2"/><formatting type="whitespace"> </formatting>
+<formatting type="whitespace"> </formatting>
+<formatting>&lt;section id="optimizing-sect-intro"&gt;</formatting>
+<tu-placeholder id="a3"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a4"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a5"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a6"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a7"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a8"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a9"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a10"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a11"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a12"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a13"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a14"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a15"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a16"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a17"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a18"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a19"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a20"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a21"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a22"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a23"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a24"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;/section&gt; &lt;section id="optimizing-sect-pom-cleanup"&gt;</formatting>
+<tu-placeholder id="a25"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a26"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a27"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a28"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a29"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a30"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;/section&gt; &lt;section id="optimizing-sect-dependencies"&gt;</formatting>
+<tu-placeholder id="a31"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a32"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a33"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a34"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;package&gt;</formatting>
+<tu-placeholder id="a35"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/package&gt;</formatting>
+<tu-placeholder id="a36"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a37"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a38"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a39"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a40"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a41"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a42"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a43"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a44"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a45"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a46"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a47"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a48"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a49"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a50"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a51"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a52"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a53"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a54"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a55"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a56"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a57"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a58"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a59"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a60"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a61"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a62"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a63"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a64"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a65"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a66"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a67"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a68"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a69"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a70"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a71"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a72"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt;</formatting>
+<tu-placeholder id="a73"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a74"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a75"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt;</formatting>
+<tu-placeholder id="a76"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a77"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a78"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a79"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt;</formatting>
+<tu-placeholder id="a80"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a81"/><tu-placeholder id="a82"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a83"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a84"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a85"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a86"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt;</formatting>
+<tu-placeholder id="a87"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a88"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;variablelist&gt; &lt;varlistentry&gt;</formatting>
+<tu-placeholder id="a89"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;listitem&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a90"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a91"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a92"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;/listitem&gt; &lt;/varlistentry&gt; &lt;varlistentry&gt;</formatting>
+<tu-placeholder id="a93"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;listitem&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a94"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a95"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a96"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;/listitem&gt; &lt;/varlistentry&gt; &lt;/variablelist&gt; &lt;/section&gt; &lt;section id="optimizing-sect-plugins"&gt;</formatting>
+<tu-placeholder id="a97"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a98"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a99"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a100"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a101"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a102"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a103"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt;</formatting>
+<tu-placeholder id="a104"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a105"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a106"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a107"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt;</formatting>
+<tu-placeholder id="a108"/><formatting type="whitespace"> </formatting>
+<formatting type="whitespace"> </formatting>
+<formatting>&lt;/section&gt; &lt;section id="optimizing-sect-dependency-plugin"&gt;</formatting>
+<tu-placeholder id="a109"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a110"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a111"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a112"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a113"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a114"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a115"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a116"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a117"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a118"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a119"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a120"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt;</formatting>
+<tu-placeholder id="a121"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a122"/><tu-placeholder id="a123"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a124"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a125"/><tu-placeholder id="a126"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a127"/><tu-placeholder id="a128"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt;</formatting>
+<tu-placeholder id="a129"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a130"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a131"/><tu-placeholder id="a132"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a133"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a134"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a135"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a136"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a137"/><tu-placeholder id="a138"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a139"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a140"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a141"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a142"/><tu-placeholder id="a143"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a144"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a145"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a146"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a147"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a148"/><tu-placeholder id="a149"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a150"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a151"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a152"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a153"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a154"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a155"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a156"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a157"/><formatting>&lt;/para&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a158"/><tu-placeholder id="a159"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a160"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;/section&gt; &lt;section id="optimizing-sect-final-poms"&gt;</formatting>
+<tu-placeholder id="a161"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a162"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a163"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;example id="ex-final-pom-for-simple-parent"&gt;</formatting>
+<tu-placeholder id="a164"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/example&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a165"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;example id="ex-final-pom-for-simple-command"&gt;</formatting>
+<tu-placeholder id="a166"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/example&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a167"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a168"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;example id="ex-final-pom-for-simple-model"&gt;</formatting>
+<tu-placeholder id="a169"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/example&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a170"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a171"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;example id="ex-final-pom-for-simple-persist"&gt;</formatting>
+<tu-placeholder id="a172"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/example&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a173"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a174"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a175"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;example id="ex-final-pom-for-simple-weather"&gt;</formatting>
+<tu-placeholder id="a176"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/example&gt; &lt;para&gt;</formatting>
+<tu-placeholder id="a177"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a178"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;/para&gt; &lt;example id="ex-final-pom-for-simple-webapp"&gt;</formatting>
+<tu-placeholder id="a179"/><formatting type="whitespace"> </formatting>
+<formatting type="whitespace"> </formatting>
+<formatting>&lt;/example&gt; &lt;/section&gt; &lt;section id="optimizing-sect-conclusion"&gt;</formatting>
+<tu-placeholder id="a180"/><formatting type="whitespace"> </formatting>
+<formatting>&lt;para&gt;</formatting>
+<tu-placeholder id="a181"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a182"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a183"/><formatting type="whitespace"> </formatting>
+<tu-placeholder id="a184"/><formatting>&lt;/para&gt; &lt;/section&gt;
+&lt;/chapter&gt;</formatting>
+</body>
+</file>
+</tt-xliff-skl>
