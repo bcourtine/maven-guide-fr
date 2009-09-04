@@ -483,7 +483,7 @@ public class WeatherServlet extends HttpServlet {
     <varname>simple-weather</varname>, nous devons transformer de dernier (<varname>simple-weather</varname>)
     en <acronym>JAR</acronym> avant de pouvoir compiler la webapp. Pour faire cela, 
     utilisons la commande <command>mvn clean install</command> à partir du projet de plus haut niveau
-    <varname>simple-parent</varname> :
+    <varname>simple-parent</varname> :</para>
     
     <screen>~/examples/ch06/simple-parent$ <command>mvn clean install</command>
 [INFO] Scanning for projects...
