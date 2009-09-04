@@ -15,8 +15,7 @@
     </para>
     <para>
       <screen>
-        <prompt moreinfo="none">% </prompt>
-        <command moreinfo="none">java -version</command>
+        <prompt moreinfo="none">% </prompt><command moreinfo="none">java -version</command>
 java version "1.5.0_16"
 Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_16-b06-284)
 Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)
@@ -45,7 +44,7 @@ Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)
   </section>
   <section id="installation-sect-maven-install">
     <title>Installer Maven</title>
-    <para>Il existe de grandes différences entre un système d'exploitation comme  Mac
+    <para>Il existe de grandes diff�rences entre un système d'exploitation comme  Mac
       <acronym>OS X</acronym> et Microsoft Windows, de même que de subtiles différences entre les différentes versions de Windows. Heureusement, le processus d'installation de Maven sur ces systèmes d'exploitation est relativement simple et sans douleur. Les sections qui suivent mettent en relief les bonnes pratiques pour installer Maven sur une palette de systèmes d'exploitation.
     </para>
     <section id="installation-sect-maven-osx">
@@ -65,14 +64,10 @@ Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)
         </ulink>. Télécharger la version courante de Maven dans le format qui vous convient le mieux. Choisissez l'emplacement où vous voulez l'installer et décompressez l'archive à cet endroit. Si vous avez décompressé l'archive dans le répertoire
         <filename>/usr/local/apache-maven-${maven.version}</filename>, vous pouvez vouloir créer un lien symbolique afin de vous faciliter la vie et éviter d'avoir à modifier l'environnement.
       </para>
-      <screen>/usr/local %
-        <command moreinfo="none">cd /usr/local
-        </command>/usr/local %
-        <command moreinfo="none">ln -s apache-maven-${maven.version} maven
-        </command>/usr/local %
-        <command>export M2_HOME=/usr/local/maven</command>
-/usr/local % 
-        <command>export PATH=\${M2_HOME}/bin:\${PATH}</command>
+      <screen>/usr/local %<command moreinfo="none">cd /usr/local</command>
+        /usr/local %<command moreinfo="none">ln -s apache-maven-${maven.version} maven</command>
+        /usr/local %<command>export M2_HOME=/usr/local/maven</command>
+        /usr/local %<command>export PATH=\${M2_HOME}/bin:\${PATH}</command>
       </screen>
       <para>Une fois Maven installé, il vous reste quelques petites choses à faire afin de pouvoir l'utiliser correctement Vous devez ajouter le répertoire
         <filename
@@ -143,10 +138,8 @@ Password: ******
         <envar>PATH</envar> et
         <envar>M2_HOME</envar>. En ligne de commande, vous pouvez définir ces variables d'environnement en tapant les instructions suivantes:
       </para>
-      <screen>C:\Users\tobrien &gt;
-        <command>set M2_HOME=c:\Program Files\apache-maven-${maven.version}</command>
-C:\Users\tobrien &gt;
-        <command>set PATH=%PATH%;%M2_HOME%\bin</command>
+      <screen>C:\Users\tobrien &gt;<command>set M2_HOME=c:\Program Files\apache-maven-${maven.version}</command>
+              C:\Users\tobrien &gt;<command>set PATH=%PATH%;%M2_HOME%\bin</command>
       </screen>
       <para><!--TODO: Document process of setting environment variables in the window control panel system dialog.-->Définir ces variables d'environnement en ligne de commande va vous permettre d'exécuter Maven dans la même console, mais à moins de les définir comme des variables du Système avec le Panneau de Contrôle, vous devrez exécuter ces deux lignes à chaque fois que vous vous connecterez à votre système. Vous devriez modifier ces deux variables avec le Panneau de Contrôle sur Microsoft Windows.
       </para>
@@ -201,8 +194,7 @@ OS name: "mac os x" version: "10.5.6" arch: "i386" Family: "unix"
         </para>
       </footnote>
     </para>
-    <screen>/usr/local/maven $
-      <command>ls -p1</command>
+    <screen>/usr/local/maven $<command>ls -p1</command>
 LICENSE.txt
 NOTICE.txt
 README.txt
