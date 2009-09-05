@@ -22,12 +22,13 @@
     <organization.slogan>Sonatype: The Maven Company</organization.slogan>
     <organization.logo>http://cms.sonatype.com/sites/all/themes/sonatype/images/sonatype_logo.gif</organization.logo>
     <copyright.year>2009</copyright.year>
-    <maven.version>2.2.0</maven.version>
+    <maven.version>2.2.1</maven.version>
     <nexus.book.baseurl>http://books.sonatype.com/nexus-book-stage/</nexus.book.baseurl>
     <nexus.book.title>Repository Management with Nexus</nexus.book.title>
     <m2eclipse.book.baseurl>http://books.sonatype.com/m2eclipse-book-stage/</m2eclipse.book.baseurl>
     <m2eclipse.book.title>Developing with Eclipse and Maven</m2eclipse.book.title>
-    <flexmojos.version>3.2.0</flexmojos.version>
+    <flexmojos.version>3.3.0</flexmojos.version>
+    <flexmojos.repository>http://repository.sonatype.org/content/groups/flexgroup/</Flexmojos.repository>
   </properties>
 
   <build>
