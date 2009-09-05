@@ -28,7 +28,7 @@
     <m2eclipse.book.baseurl>http://books.sonatype.com/m2eclipse-book-stage/</m2eclipse.book.baseurl>
     <m2eclipse.book.title>Developing with Eclipse and Maven</m2eclipse.book.title>
     <flexmojos.version>3.3.0</flexmojos.version>
-    <flexmojos.repository>http://repository.sonatype.org/content/groups/flexgroup/</Flexmojos.repository>
+    <flexmojos.repository>http://repository.sonatype.org/content/groups/flexgroup/</flexmojos.repository>
   </properties>
 
   <build>
