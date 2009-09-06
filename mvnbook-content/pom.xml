@@ -102,7 +102,52 @@
             <configuration>
               <imgSrcPath>${basedir}/target/classes/docbook/</imgSrcPath>
               <foCustomization>${basedir}/target/classes/xsl/fopdf.xsl</foCustomization>
-	      <useExtensions>1</useExtensions>
+	          <useExtensions>1</useExtensions>
+	  <bodyFontFamily>TimesNewRoman</bodyFontFamily>
+	  <monospaceFontFamily>CourierNew</monospaceFontFamily>
+	  <titleFontFamily>ArialBold</titleFontFamily>
+	  <fonts>
+	    <font>
+	      <name>ArialBold</name>
+	      <style>normal</style>
+	      <weight>normal</weight>
+	      <embedFile>${basedir}/src/fonts/ArialBold.ttf</embedFile>
+              <metricsFile>${basedir}/target/fonts/ArialBold-metrics.xml</metricsFile>
+
+	    </font>
+	    <font>
+	      <name>CourierNew</name>
+	      <style>normal</style>
+	      <weight>normal</weight>
+	      <embedFile>${basedir}/src/fonts/Courier.ttf</embedFile>
+              <metricsFile>${basedir}/target/fonts/Courier-metrics.xml</metricsFile>
+
+	    </font>
+	    <font>
+	      <name>CourierNew</name>
+	      <style>normal</style>
+	      <weight>bold</weight>
+	      <embedFile>${basedir}/src/fonts/Courier-Bold.ttf</embedFile>
+              <metricsFile>${basedir}/target/fonts/Courier-Bold-metrics.xml</metricsFile>
+
+	    </font>
+	    <font>
+	      <name>CourierNew</name>
+	      <style>italic</style>
+	      <weight>normal</weight>
+	      <embedFile>${basedir}/src/fonts/Courier-Oblique.ttf</embedFile>
+              <metricsFile>${basedir}/target/fonts/Courier-Oblique-metrics.xml</metricsFile>
+
+	    </font>
+	    <font>
+	      <name>TimesNewRoman</name>
+	      <style>normal</style>
+	      <weight>normal</weight>
+	      <embedFile>${basedir}/src/fonts/TimesNewRoman.ttf</embedFile>
+              <metricsFile>${basedir}/target/fonts/TimesNewRoman-metrics.xml</metricsFile>
+
+	    </font>
+	  </fonts>
             </configuration>
           </execution>
           <execution>
@@ -148,6 +193,22 @@
 	      <includes>public-book.xml</includes>
 	      <xincludeSupported>true</xincludeSupported>
 	    </configuration>
+      </plugin>
+      <plugin>
+	<groupId>com.agilejava.docbkx</groupId>
+	<artifactId>docbkx-fop-support</artifactId>
+	<version>2.0.9</version>
+	<executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <ansi>true</ansi>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.sonatype.book</groupId>

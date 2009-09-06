@@ -344,12 +344,11 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <title>Un Plugin Possède des Goals</title>
         <mediaobject>
           <imageobject role="web">
-            <imagedata fileref="figs/web/simple-project_plugin.png"
-                       width="5in" />
+            <imagedata fileref="figs/web/simple-project_plugin.png" />
           </imageobject>
           <imageobject role="print">
             <imagedata fileref="figs/print/simple-project_plugin.pdf"
-                       format="PDF" />
+                       format="PDF" align="center" scalefit="0" width="100%"/>
           </imageobject>
         </mediaobject>
       </figure>
@@ -453,7 +452,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             </imageobject>
             <imageobject role="print">
               <imagedata fileref="figs/print/simple-project_phasebinding.pdf"
-                         format="PDF" />
+                         format="PDF" align="center" scalefit="0" width="100%"/>
             </imageobject>
           </mediaobject>
         </figure>
@@ -566,7 +565,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             </imageobject>
             <imageobject role="print">
               <imagedata fileref="figs/print/simple-project_lifecyclebinding.pdf"
-                         format="PDF" />
+                         format="PDF" align="center" scalefit="0" width="100%"/>
             </imageobject>
           </mediaobject>
         </figure>
@@ -614,12 +613,11 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <title>Coordonnées d'un Projet Maven</title>
           <mediaobject>
             <imageobject role="web">
-              <imagedata fileref="figs/web/simple-project_annopom.png"
-                         width="6in" />
+              <imagedata fileref="figs/web/simple-project_annopom.png" />
             </imageobject>
 
             <imageobject role="print">
-              <imagedata fileref="figs/print/simple-project_annopom.pdf" />
+              <imagedata fileref="figs/print/simple-project_annopom.pdf" align="center" scalefit="0" width="100%"/> />
             </imageobject>
           </mediaobject>
         </figure></para>
@@ -710,11 +708,10 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <title>L'Espace des projets Maven est un système à coordonnées</title>
           <mediaobject>
             <imageobject role="web">
-              <imagedata fileref="figs/web/simple-project_mavenspace.png"
-                         width="" />
+              <imagedata fileref="figs/web/simple-project_mavenspace.png" />
             </imageobject>
             <imageobject role="print">
-              <imagedata fileref="figs/print/simple-project_mavenspace.pdf" />
+              <imagedata fileref="figs/print/simple-project_mavenspace.pdf" align="center" scalefit="0" width="100%"/> />
             </imageobject>
           </mediaobject>
         </figure></para>
@@ -794,12 +791,12 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <title>Résolution des Dépendances Transitives par Maven</title>
         <mediaobject>
           <imageobject role="web">
-            <imagedata fileref="figs/web/simple-project_depgraph.png" width="" />
+            <imagedata fileref="figs/web/simple-project_depgraph.png" />
           </imageobject>
 
           <imageobject role="print">
             <imagedata fileref="figs/print/simple-project_depgraph.pdf"
-                       format="PDF" />
+                       format="PDF" align="center" scalefit="0" width="100%"/>
           </imageobject>
         </mediaobject>
       </figure>
