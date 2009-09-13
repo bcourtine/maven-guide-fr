@@ -30,34 +30,55 @@
   </section>
   <section id="simple-project-sect-create-simple">
     <title>Création du Projet Simple</title>
-    <para>Pour commencer un nouveau projet Maven, utilisez le plugin Maven Archetype depuis la ligne de commande. </para>
-    <screen><command>$ mvn archetype:create -DgroupId=org.sonatype.mavenbook.ch03 \
+    <para>Pour commencer un nouveau projet Maven, utilisez le plugin Maven Archetype depuis la ligne de commande. Exécutez le goal <varname>archetype:generate</varname> et sélectionnez l'archétype numéro 15, en tapez "Y" pour confirmer et produire le nouveau projet:</para>
+    <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.ch03 \
                                          -DartifactId=simple \
-                                         -DpackageName=org.sonatype.mavenbook
-      </command>[INFO] Scanning for projects...
-[INFO] Searching repository for plugin with prefix: 'archetype'.               
-[INFO] artifact org.apache.maven.plugins:maven-archetype-plugin: checking for 
-       updates from central
-[INFO] -----------------------------------------------------------------------
+                                         -DpackageName=org.sonatype.mavenbook \
+                                         -Dversion=1.0-SNAPSHOT
+</command>[INFO] Scanning for projects...
+[INFO] Searching repository for plugin with prefix: 'archetype'.
+[INFO] ------------------------------------------------------------------------
 [INFO] Building Maven Default Project
-[INFO]    task-segment: [archetype:create] (aggregator-style)
-[INFO] --------------------------------------------------------------------
-[INFO] [archetype:create]
-[INFO] artifact org.apache.maven.archetypes:maven-archetype-quickstart: \
-       checking for updates from central
+[INFO] task-segment: [archetype:generate] (aggregator-style)
+[INFO] ------------------------------------------------------------------------
+[INFO] Preparing archetype:generate
+[INFO] No goals needed for project - skipping
+[INFO] Setting property: velocimacro.messages.on =&gt; 'false'.
+[INFO] Setting property: resource.loader =&gt; 'classpath'.
+[INFO] Setting property: resource.manager.logwhenfound =&gt; 'false'.
+[INFO] [archetype:generate {execution: default-cli}]
+[INFO] Generating project in Interactive mode
+[INFO] No archetype defined. Using maven-archetype-quickstart \
+       (org.apache.maven.archetypes:maven-archetype-quickstart:1.0)
+Choose archetype:
+...
+12: internal -&gt; maven-archetype-mojo (A Maven Java plugin development project)
+13: internal -&gt; maven-archetype-portlet (A simple portlet application)
+14: internal -&gt; maven-archetype-profiles ()
+15: internal -&gt; maven-archetype-quickstart ()
+16: internal -&gt; maven-archetype-site-simple (A simple site generation project)
+17: internal -&gt; maven-archetype-site (A more complex site project)
+18: internal -&gt; maven-archetype-webapp (A simple Java web application)
+19: internal -&gt; jini-service-archetype (Archetype for Jini service project creation)
+Choose a number: (...) 15: : <emphasis>15</emphasis>
+Confirm properties configuration:
+groupId: org.sonatype.mavenbook.ch03
+artifactId: simple
+version: 1.0-SNAPSHOT
+package: org.sonatype.mavenbook.ch03
+ Y: : <emphasis>Y</emphasis>
+...
 [INFO] Parameter: groupId, Value: org.sonatype.mavenbook.ch03
-[INFO] Parameter: packageName, Value: org.sonatype.mavenbook
-[INFO] Parameter: basedir, Value: /Users/tobrien/svnw/sonatype/examples
-[INFO] Parameter: package, Value: org.sonatype.mavenbook
-[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+[INFO] Parameter: packageName, Value: org.sonatype.mavenbook.ch03
+[INFO] Parameter: package, Value: org.sonatype.mavenbook.ch03
 [INFO] Parameter: artifactId, Value: simple
-[INFO] * End of debug info from resources from generated POM *
-[INFO] Archetype created in dir: /Users/tobrien/svnw/sonatype/examples/simple
-    </screen>
+[INFO] Parameter: basedir, Value: /private/tmp
+[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+[INFO] BUILD SUCCESSFUL
+</screen>
     <para>
       <command>mvn</command> correspond à l'instruction d'exécution de Maven 2.
-      <varname>archetype:</varname>
-      <varname>create</varname> est un goal Maven. Si vous connaissez<indexterm>
+      <varname>archetype:generate</varname> est un goal Maven. Si vous connaissez<indexterm>
         <primary>goals</primary>
         <secondary>à propos</secondary>
       </indexterm>
@@ -74,8 +95,7 @@
       </indexterm> Apache Ant, un goal Maven est analogue à une target Ant; tous les deux décrivent une unité de tâche à accomplir lors d'un build. La paire
       <varname>-Dname=value</varname> représente un argument passé au goal sous la forme de propriété
       <varname>-D</varname>, comme pour les propriétés système que vous pourriez passer à la Machine Virtuelle Java via la ligne de commande. Le but du goal
-      <varname>archetype:</varname>
-      <varname>create</varname> est de créer rapidement un projet à partir d'un archétype. Dans ce contexte, un
+      <varname>archetype:generate</varname> est de créer rapidement un projet à partir d'un archétype. Dans ce contexte, un
       <indexterm>
         <primary sortas="archetypes">archétypes, definition</primary>
       </indexterm> archétype se défini comme " un  modèle original ou idéal d'après lequel sont bâtis un ouvrage, une &oelig;vre; un prototype."
@@ -84,9 +104,9 @@
         <para>
           <emphasis>Selon l'American Heritage Dictionary of the English Language</emphasis>.
         </para>
-      </footnote>Il existe un grand nombre d'archétypes disponibles pour Maven, depuis une simple application Swing jusqu'à une application web complexe. Dans ce chapitre, nous allons utiliser l'archétype le plus basique pour créer un simple squelette projet de démarrage. Le préfixe
+      </footnote>Il existe un grand nombre d'archétypes disponibles pour Maven, depuis une simple application Swing jusqu'à une application web complexe, le goal <varname>archetype:generate</varname> propose de choisir parmi environ 40 archétypes. Dans ce chapitre, nous allons utiliser l'archétype le plus basique pour créer un simple squelette projet de démarrage. Le préfixe
       <literal>archetype</literal> correspond au plugin, et
-      <literal>create</literal> correspond au goal.
+      <literal>generate</literal> correspond au goal.
     </para>
     <para>Une fois ce projet généré, allons regarder la structure de répertoire Maven qui a été créée sous le répertoire simple. </para>
     <screen>simple/
@@ -172,8 +192,8 @@ public class App
       </indexterm> le répertoire qui contient le
       <filename>pom.xml</filename>:
     </para>
-    <screen><command>$ mvn install
-      </command>[INFO] Scanning for projects...
+    <screen><command>$ cd simple
+$ mvn install</command>[INFO] Scanning for projects...
 [INFO] ----------------------------------------------------------------------
 [INFO] Building simple
 [INFO]    task-segment: [install]
@@ -225,7 +245,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       </indexterm> les informations sur le projet. Le
       <acronym>POM</acronym> répond aux questions telles que: De quel type de projet s'agit il? Quel est le nom du projet? Ce projet a t il été personnalisé?
       <xref linkend="example_simple-project-pom" /> montre le fichier
-      <filename>pom.xml</filename> par défaut créé par le goal create du plugin Maven Archetype.
+      <filename>pom.xml</filename> par défaut créé par le goal generate du plugin Maven Archetype.
     </para>
     <example id="example_simple-project-pom">
       <title>Fichier <filename>pom.xml</filename> du projet Simple</title>
@@ -296,7 +316,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <primary>goals</primary>
           <seealso>plugins</seealso>
         </indexterm><phrase role="keep-together">arguments</phrase> différents en ligne de commande. La première commande appelait uniquement un goal d'un plugin, le goal
-        <varname>create</varname> du plugin Archetype. La deuxième exécution de Maven était une phase du cycle de vie,
+        <varname>generate</varname> du plugin Archetype. La deuxième exécution de Maven était une phase du cycle de vie,
         <varname>install</varname>. Pour<indexterm>
           <primary>executing goals</primary>
         </indexterm>
@@ -304,18 +324,19 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <primary>executing goals</primary>
           <seealso>goals</seealso>
         </indexterm> exécuter un unique goal d'un plugin Maven, nous avons utilisé la syntaxe
-        <command>mvn archetype:create</command>, où
+        <command>mvn archetype:generate</command>, où
         <varname>archetype</varname> est l'identifiant du plugin et
-        <varname>create</varname> l'identifiant du goal. Lorsque Maven exécute le goal d'un plugin, il affiche l'identifiant du plugin et l'identifiant du goal sur la sortie standard:
+        <varname>generate</varname> l'identifiant du goal. Lorsque Maven exécute le goal d'un plugin, il affiche l'identifiant du plugin et l'identifiant du goal sur la sortie standard:
       </para>
-      <screen><command>$ mvn archetype:create -DgroupId=org.sonatype.mavenbook.ch03 \
+      <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.ch03 \
                                         -DartifactId=simple \
                                         -DpackageName=org.sonatype.mavenbook
-        </command>...
-        <emphasis>[INFO] [archetype:create]</emphasis>
+</command>...
+<emphasis>[INFO] [archetype:generate]</emphasis>
 [INFO] artifact org.apache.maven.archetypes:maven-archetype-quickstart: \
        checking for updates from central
-      </screen>
+...
+</screen>
       <para>Un Plugin Maven se compose d'un ou plusieurs goals. On peut prendre comme exemples de plugins Maven, de simples plugins qui composent le c&oelig;ur de Maven comme le plugin Jar dont les goals permettent de créer des fichiers
         <acronym>JAR</acronym>, le plugin Compiler avec ses goals pour compiler le code source et le code des tests unitaires, ou le plugin Surefire dont les goals permettent l'exécution des tests unitaires et la production des rapports. On trouve aussi d'autres plugins, plus spécialisés, comme le plugin Hibernate3 pour l'intégration de la très connue bibliothèque de persitence Hibernate, le plugin JRuby qui permet l'exécution de code Ruby durant un build Maven ou l'écriture de plugins Maven en Ruby. Maven permet aussi de définir ses propres plugins. Vous pouvez écrire votre propre plugin en Java ou dans de nombreux autres langages dont Ant, Groovy, Beanshell et, comme indiqué plus haut, Ruby.
       </para>
@@ -323,12 +344,11 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <title>Un Plugin Possède des Goals</title>
         <mediaobject>
           <imageobject role="web">
-            <imagedata fileref="figs/web/simple-project_plugin.png"
-                       width="5in" />
+            <imagedata fileref="figs/web/simple-project_plugin.png" />
           </imageobject>
           <imageobject role="print">
             <imagedata fileref="figs/print/simple-project_plugin.pdf"
-                       format="PDF" />
+                       format="PDF" align="center" scalefit="0" width="100%"/>
           </imageobject>
         </mediaobject>
       </figure>
@@ -342,12 +362,12 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <phrase role="keep-together">paramètres</phrase> de configuration qui vous permettent de préciser la version du JDK cible ou les options d'optimisation du compilateur. Dans l'exemple précédent, nous avons passé les paramètres de configuration
         <varname>groupId</varname> et
         <varname>artifactId</varname> au goal
-        <varname>create</varname> du plugin Archetype via les paramètres de la ligne de commande
+        <varname>generate</varname> du plugin Archetype via les paramètres de la ligne de commande
         <command>-DgroupId=org.sonatype.mavenbook.ch03</command> et
         <command>-DartifactId=simple</command>. Nous avons
         <phrase role="keep-together">aussi</phrase> passé le paramètre
         <varname>packageName</varname> au goal
-        <literal>create</literal> avec la valeur
+        <literal>generate</literal> avec la valeur
         <package>org.sonatype.mavenbook</package>. Si nous n'avions pas précisé le paramètre
         <varname>packageName</varname>, le nom du package aurait été par défaut
         <package>org.sonatype.mavenbook.ch03</package>.
@@ -358,16 +378,15 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             <replaceable>pluginId</replaceable>
             <literal>:</literal>
             <replaceable>goalId</replaceable>. Par exemple, pour utiliser le goal
-            <literal>create</literal> du plugin Archetype plugin, nous pouvons écrire
-            <varname>archetype:</varname>
-            <varname>create</varname>.
+            <literal>generate</literal> du plugin Archetype plugin, nous pouvons écrire
+            <varname>archetype:generate</varname>.
           </para>
         </note>
       </para>
       <para>Les goals ont des paramètres qui peuvent avoir des valeurs par défaut raisonnables. Dans l'exemple de
-        <varname>archetype:</varname><varname>create</varname>, nous n'avons pas précisé, via la ligne de commande, quel type d'archétype devait être utilisé pour créer le projet; nous avons simplement indiqué un
+        <varname>archetype:generate</varname>, nous n'avons pas précisé, via la ligne de commande, quel type d'archétype devait être utilisé pour créer le projet; nous avons simplement indiqué un
         <varname>groupId</varname> et un
-        <varname>artifactId</varname>. C'est notre premier contact avec le concept<indexterm>
+        <varname>artifactId</varname>. Comme nous n'avons pas fourni le type d'archétype à créer, le goal <varname>generate</varname> nous a demandé d'intervenir, le gaol generate s'est donc interrompu et nous a demandé de choisir dans une liste. Par contre, si nous avions utilisé le goal <varname>archetype:create</varname>, Maven aurait supposé que nous voulions créer un nouveau projet avec l'archétype <varname>maven-archetype-quickstart</varname>. C'est notre premier contact avec le concept<indexterm>
           <primary>convention over configuration</primary>
         </indexterm>
         <emphasis> de convention plutôt que configuration</emphasis>. La convention, ou le comportoment par défaut, pour le goal
@@ -433,7 +452,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             </imageobject>
             <imageobject role="print">
               <imagedata fileref="figs/print/simple-project_phasebinding.pdf"
-                         format="PDF" />
+                         format="PDF" align="center" scalefit="0" width="100%"/>
             </imageobject>
           </mediaobject>
         </figure>
@@ -546,7 +565,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             </imageobject>
             <imageobject role="print">
               <imagedata fileref="figs/print/simple-project_lifecyclebinding.pdf"
-                         format="PDF" />
+                         format="PDF" align="center" scalefit="0" width="100%"/>
             </imageobject>
           </mediaobject>
         </figure>
@@ -594,12 +613,11 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <title>Coordonnées d'un Projet Maven</title>
           <mediaobject>
             <imageobject role="web">
-              <imagedata fileref="figs/web/simple-project_annopom.png"
-                         width="6in" />
+              <imagedata fileref="figs/web/simple-project_annopom.png" />
             </imageobject>
 
             <imageobject role="print">
-              <imagedata fileref="figs/print/simple-project_annopom.pdf" />
+              <imagedata fileref="figs/print/simple-project_annopom.pdf" align="center" scalefit="0" width="100%"/> />
             </imageobject>
           </mediaobject>
         </figure></para>
@@ -690,11 +708,10 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <title>L'Espace des projets Maven est un système à coordonnées</title>
           <mediaobject>
             <imageobject role="web">
-              <imagedata fileref="figs/web/simple-project_mavenspace.png"
-                         width="" />
+              <imagedata fileref="figs/web/simple-project_mavenspace.png" />
             </imageobject>
             <imageobject role="print">
-              <imagedata fileref="figs/print/simple-project_mavenspace.pdf" />
+              <imagedata fileref="figs/print/simple-project_mavenspace.pdf" align="center" scalefit="0" width="100%"/> />
             </imageobject>
           </mediaobject>
         </figure></para>
@@ -774,12 +791,12 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <title>Résolution des Dépendances Transitives par Maven</title>
         <mediaobject>
           <imageobject role="web">
-            <imagedata fileref="figs/web/simple-project_depgraph.png" width="" />
+            <imagedata fileref="figs/web/simple-project_depgraph.png" />
           </imageobject>
 
           <imageobject role="print">
             <imagedata fileref="figs/print/simple-project_depgraph.pdf"
-                       format="PDF" />
+                       format="PDF" align="center" scalefit="0" width="100%"/>
           </imageobject>
         </mediaobject>
       </figure>
