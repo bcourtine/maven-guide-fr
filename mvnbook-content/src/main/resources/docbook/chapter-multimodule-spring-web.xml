@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="multimodule-web-spring">
+<chapter id="multimodule-web-spring" lang="fr">
   <title>Un Projet Multimodules d'Enterprise</title>
 
   <section id="multimodule-web-spring-sect-intro">
@@ -456,7 +456,7 @@ public class Weather {
           L'annotation <classname>@GeneratedValue</classname> permet de contrôler comment les nouvelles valeurs de la clé primaire sont générées. 
           Dans le cas de notre propriété <varname>id</varname>, 
           nous utilisons la valeur <varname>IDENTITY</varname> de l'énumération <classname>GenerationType</classname>
-          qui permet d'utiliser la génération d'identité fournie par la base de données sous-jacente.   
+          qui permet d'utiliser la génération d'identité fournie par la base de données sous-jacente.</para>
         </listitem>
       </varlistentry>
 
@@ -847,7 +847,7 @@ public class WeatherService {
     </example>
 
     <para>Ce <acronym>POM</acronym> références le <acronym>POM</acronym> du module <varname>simple-parent</varname> en <acronym>POM</acronym> parent et définit quelques dépendances. 
-    Les dépendances listées dans le <acronym>POM</acronym> du module <varname>simple-persist</varname> sont :
+    Les dépendances listées dans le <acronym>POM</acronym> du module <varname>simple-persist</varname> sont :</para>
 
     <variablelist>
       <varlistentry>
@@ -1158,7 +1158,6 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
     pour générer le schéma de la base de données basé sur les objets annotés du projet <varname>simple-model</varname>.
     Ce fichier <filename>hibernate.cfg.xml</filename> configure les propriétés des connexions <acronym>JDBC</acronym> 
     et énumère la liste des objets annotés.</para>
-
   </section>
 
   <section id="multimodule-web-spring-sect-simple-web">
@@ -1703,7 +1702,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
         Dans le cas contraire, vous pourriez louper d'importants messages qui montrent un problème survenu lors du démarrage d'application.
         Si vous avez un ensemble particulièrement grand de beans managés par Spring, et que l'un d'entre n'arrive pas à s'initialiser lors du démarrage de l'application, votre application échouera.
         Si vous avez initialisé votre système de log avant le démarrage de Spring, vous avez une chance de récupérer un warning ou une erreur.
-        Au contraire, si vous n'avez pas initialisé le système de log avant le démarrage de Spring, vous n'aurez aucune idée du pourquoi votre application refuse de démarrer.
+        Au contraire, si vous n'avez pas initialisé le système de log avant le démarrage de Spring, vous n'aurez aucune idée du pourquoi votre application refuse de démarrer.</para>
       </callout>
 
       <callout arearefs="coDef-spring-webx-4" id="coRef-spring-webx-4">
