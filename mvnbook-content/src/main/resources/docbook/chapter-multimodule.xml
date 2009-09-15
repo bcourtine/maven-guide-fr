@@ -2,12 +2,12 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="multimodule" lang="fr">
-  <title>Un projet multimodules</title>
+  <title>Un projet Multi-module</title>
 
   <section id="multimodule-sect-intro">
     <title>Introduction</title>
 
-    <para>Dans ce chapitre, nous allons créer un projet multimodule qui combine 
+    <para>Dans ce chapitre, nous allons créer un projet multi-module qui combine
       les<indexterm class="startofrange" id="multimod1a">
         <primary>projet multimodules (exemple)</primary>
       </indexterm><indexterm class="startofrange" id="multimod1b">
@@ -17,10 +17,10 @@
       <indexterm>
         <primary>project méteo (exemple)</primary>
         <seealso>projet multimodules</seealso>
-      </indexterm> exemples des deux chapitres précédents. 
-      Le code du <literal>simple-weather</literal> développé dans le <xref
+      </indexterm> exemples des deux chapitres précédents.
+      Le code du projet <literal>simple-weather</literal> développé dans le <xref
     linkend="customizing" /> sera combiné avec le projet 
-    <literal>simple-webapp</literal> définit dans le <xref linkend="web" />
+    <literal>simple-webapp</literal> défini dans le <xref linkend="web" />
     pour créer une application web qui récupère et affiche des renseignements
     de météorologiques sur une page Web. À la fin de ce chapitre, vous serez 
     capables d'utiliser Maven pour développer des projets multimodules complexes.
@@ -29,13 +29,13 @@
     <section id="multimodule-sect-downloading">
       <title>Télécharger l'exemple de ce chapitre</title>
 
-      <para>Le projet multimodule de cet exemple consiste à développer une 
+      <para>Le projet multi-module de cet exemple consiste à développer une
       version modifiée des projets des chapitres
       <xref linkend="customizing" xrefstyle="select: labelnumber" /> et <xref
       linkend="web" xrefstyle="select: labelnumber" /> sans utiliser le plugin 
       Maven Archetype. Nous vous recommandons fortement de télécharger une copie
       du code exemple pour l'utiliser comme référence supplémentaire lors de 
-      la lecture de ce chapitre. Le projet d'exemple de ce chapitre est téléchargeable
+      la lecture de ce chapitre. Le projet exemple de ce chapitre est téléchargeable
       avec le reste des exemples du livre aux adresses suivantes : <ulink
       url="http://www.sonatype.com/book/mvn-examples-1.0.zip"></ulink> ou
       <ulink url="http://www.sonatype.com/book/mvn-examples-1.0.tar.gz"></ulink>.
@@ -57,7 +57,7 @@
   <section id="multimodule-sect-simple-parent">
     <title>Le Projet Parent</title>
 
-    <para>Un projet mutimodules est défini par un 
+    <para>Un projet multi-module est défini par un
     <acronym>POM</acronym><indexterm class="startofrange" id="parent1a">
         <primary>projet parent simple (exemple)</primary>
         <secondary>multimodules</secondary>
@@ -68,10 +68,10 @@
         <primary>Applications Web</primary>
         <secondary>exemple de projet multimodules</secondary>
         <tertiary>projet parent simple</tertiary>
-      </indexterm> parent référençant un ou plusieurs sous modules. Dans le répertoire
+      </indexterm> parent référençant un ou plusieurs sous-modules. Dans le répertoire
     <filename>simple-parent/</filename>, vous trouverez le 
-    <acronym>POM</acronym> parent (également appelé <acronym>POM</acronym> top-level)
-    dans le fichier <filename>simple-parent/pom.xml</filename>. Consultez l'exemple <xref
+    <acronym>POM</acronym> parent (également appelé <acronym>POM</acronym> de plus haut niveau)
+    dans le fichier <filename>simple-parent/pom.xml</filename>. Consultez l'<xref
     linkend="ex-multimodule-parent-pom" />.</para>
 
     <example id="ex-multimodule-parent-pom">
@@ -122,18 +122,17 @@
 </programlisting>
     </example>
 
-    <para>Remarquez que le parent définit un ensemble de coordonnées Maven : le 
+    <para>Remarquez que le parent définit un ensemble de coordonnées Maven: le 
     <varname>groupId</varname> avec pour valeur <varname>org.</varname><varname>sonatype.</varname>
-    <varname>mavenbook.ch06</varname>, l'<varname>artifactId</varname> nommé 
-    <varname>simple-parent</varname>, et la <varname>version</varname> définie en 
-    <varname>1.0</varname>. Le projet parent ne crée pas de <acronym>JAR</acronym>
+    <varname>mavenbook.ch06</varname>, l'<varname>artifactId</varname> <varname>simple-parent</varname>,
+    et la <varname>version</varname> <varname>1.0</varname>. Le projet parent ne crée pas de <acronym>JAR</acronym>
     ni de <acronym>WAR</acronym> comme c'était le cas dans nos projets précédents.
     À la place, il s'agit simplement d'un <acronym>POM</acronym> qui fait 
     référence à d'autres projets Maven. Le packaging approprié pour un projet
-    du type <varname>simple-parent</varname> qui fournit un simple Modèle d'Objet de Projet 
+    du type <varname>simple-parent</varname> qui fournit un simple Modèle Objet de Projet 
     (Project Object Model) est <varname>pom</varname>. 
     La section suivante du <filename>pom.xml</filename> liste les sous-modules du projet.
-    Ces modules sont déclarés via une balise XML du même nom : <sgmltag>modules</sgmltag>, 
+    Ces modules sont déclarés via une balise XML <sgmltag>modules</sgmltag>,
     et chaque<indexterm>
         <primary sortas="balise modules (pom.xml)">balise &lt;modules&gt; 
         (pom.xml)</primary>
@@ -157,10 +156,10 @@
     la <acronym>JVM</acronym> Java 5 comme cible de compilation. Comme le 
     plugin du compilateur est attaché au cycle de vie par défaut, il est possible
     d'utiliser la section <sgmltag>pluginManagement</sgmltag> du 
-    <filename>pom.xml</filename> pour effectuer cela. Nous discuterons du 
+    <filename>pom.xml</filename> pour effectuer cela. Nous discuterons de la balise 
     <sgmltag>pluginManagement</sgmltag> plus en détail dans les chapitres suivants, 
-    mais la séparation entre la configuration des plugins par défaut et l'ajout de 
-    nouveaux plugins est beaucoup plus facile à voir lorsqu'ils sont dissociés de cette manière.
+    mais la configuration des plugins par défaut et l'ajout de nouveaux plugins sont
+    ainsi beaucoup plus faciles à voir lorsqu'ils sont dissociés de cette manière.
     La balise <sgmltag>dependencies</sgmltag> ajoute JUnit 3.8.1 comme une dépendance globale.
     La configuration du build comme les dépendances sont héritées dans tous les sous-modules.
     L'utilisation l'héritage de POM vous permet d'ajouter des dépendances communes 
@@ -169,7 +168,7 @@
   </section>
 
   <section id="multimodule-sect-simple-weather">
-    <title>Le Module Météo</title>
+    <title>Le Module simple-weather</title>
 
     <para>Commençons par regarder le sous-module <varname>simple-weather</varname>.
     Ce module contient toutes  
@@ -181,7 +180,7 @@
         <secondary>exemple de projet multimodules</secondary>
         <tertiary>sous-module météorologiques simple</tertiary>
       </indexterm> les classes qui s'occupent des interactions et du parsing
-      du flux météo Yahoo!.</para>
+      du flux RSS de Yahoo! Météo.</para>
 
     <example>
       <title>POM du Module simple-weather</title>
@@ -262,9 +261,9 @@
       </indexterm>Le POM parent du module 
     <varname>simple-weather</varname> est identifié par un
     <varname>groupId</varname> avec pour valeur
-    <varname>org.sonatype.mavenbook.ch06</varname>, par un
-    <varname>artifactId</varname> nommé <varname>simple-parent</varname>, et par la 
-    <varname>version</varname> <varname>1.0</varname>. Consultez l'exemple <xref
+    <varname>org.sonatype.mavenbook.ch06</varname>, par l'
+    <varname>artifactId</varname> <varname>simple-parent</varname>, et par la 
+    <varname>version</varname> <varname>1.0</varname>. Consultez l'<xref
     linkend="multimodule-weather-service" />.</para>
 
     <example id="multimodule-weather-service">
@@ -296,11 +295,11 @@ public class WeatherService {
     se trouve la classe <classname>WeatherService</classname>. Celle-ci fait 
     référence à trois objets définis dans le <xref linkend="customizing" />. Dans l'exemple de ce chapitre, nous créons un
     projet séparé qui contient les services utilisés par le projet de l'application web.  
-    C'est un modèle commun dans le développement Java en entreprise, une application complexe
+    C'est un modèle commun dans le développement d'entreprise Java, une application complexe
     se compose souvent de plusieurs applications web. Vous pourriez donc avoir une 
     application d'entreprise composée de plusieurs applications web et de plusieurs 
     applications en ligne de commande. Souvent, vous voudrez extraire 
-    certains éléments communs dans un service externalisé pour les réutiliser
+    certains éléments communs dans un service externalisé pour pouvoir les réutiliser
     sur plusieurs projets. C'est donc dans cette optique que nous créons la classe
     <classname>WeatherService</classname>. Ainsi, nous verons comment le projet  
     <varname>simple-webapp</varname> fait référence à un service défini dans module séparé : 
@@ -310,7 +309,7 @@ public class WeatherService {
     chaîne de caractère contenant un code postal en paramètre. Celui-ci est 
     passé à la méthode <methodname>retrieve()</methodname> de la classe 
     <classname>YahooRetriever</classname> qui retournera un flux <acronym>XML</acronym>
-    résultat provenant de Yahoo! Météo. Ce même <acronym>XML</acronym> est ensuite passé 
+    provenant de Yahoo! Météo. Ce même <acronym>XML</acronym> est ensuite passé 
     à la méthode <methodname>parse()</methodname> de la classe <classname>YahooParser</classname> 
     qui transforme le flux et vous le retourne sous la forme d'un objet <classname>Weather</classname>.
     Ce dernier est ensuite formaté sous la forme d'une chaîne de caractère présentable 
@@ -319,7 +318,7 @@ public class WeatherService {
   </section>
 
   <section id="multimodule-sect-simple-web">
-    <title>Le Module de l'Application Web</title>
+    <title>Le Module de simple-web</title>
 
     <para>Le module <varname>simple-webapp</varname> est le second sous-module 
     <indexterm class="startofrange" id="multimod3a">
@@ -329,7 +328,7 @@ public class WeatherService {
         <primary>Applications Web</primary>
         <secondary>Exemple d'un projet multimodule</secondary>
         <tertiary>simple sous-module d'une application web</tertiary>
-      </indexterm> référençant le projet <varname>simple-parent</varname>.
+      </indexterm>référençant le projet <varname>simple-parent</varname>.
       Cette application web a pour dépendance le second module <varname>simple-weather</varname> car
       elle contient des servlets qui permettent d'afficher le résultat de la 
       recherche sur Yahoo! Météo.</para>
@@ -379,8 +378,7 @@ public class WeatherService {
     <para>Ce module <varname>simple-webapp</varname> contient une servlet très 
     simple qui se contente de récupérer un code postal à partir d'une requête HTTP, d'appeler
     la classe <classname>WeatherService</classname> que nous venons de voir précédemment dans     
-    l'<xref linkend="multimodule-weather-service" /> et d'afficher le résultat
-    dans le <classname>Writer</classname> dans la réponse.</para>
+    l'<xref linkend="multimodule-weather-service" />, et d'écrire le résultat dans le <classname>Writer</classname> de la réponse.</para>
 
     <example>
       <title>Servlet WeatherServlet du projet simple-webapp</title>
@@ -421,14 +419,14 @@ public class WeatherServlet extends HttpServlet {
       </indexterm> le fichier <filename>web.xml</filename> du module <varname>simple-webapp</varname>.
     Ce fichier se trouve dans le répertoire <filename>src/main/webapp/WEB-INF</filename>.
     Les balises <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag>
-    du fichier <filename>web.xml</filename> mappent l'uri <filename>/weather</filename>
+    du fichier <filename>web.xml</filename> associent l'uri <filename>/weather</filename>
     à la <indexterm class="endofrange" startref="multimod3a"></indexterm><indexterm class="endofrange"
     startref="multimod3b"></indexterm> servlet <classname>WeatherServlet</classname>.
     Consultez le code XML nécessaire pour effectuer cette configuration dans l'<xref linkend="ex-simple-webapp-web.xml" />.
     </para>
 
     <example id="ex-simple-webapp-web.xml">
-      <title>web.xml du module simple-webapp</title>
+      <title>Fichier web.xml du module simple-webapp</title>
 
       <programlisting language="xml">&lt;!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
@@ -458,7 +456,7 @@ public class WeatherServlet extends HttpServlet {
   </section>
 
   <section id="multimodule-sect-building-multimodule">
-    <title>Build du Projet Multimodule</title>
+    <title>Build du Projet Multi-module</title>
 
     <para>Nous venons de créer le projet <varname>simple-weather</varname> qui contient
     <indexterm class="startofrange" id="multimod4a">
@@ -479,7 +477,7 @@ public class WeatherServlet extends HttpServlet {
         <seealso>fichier WAR files</seealso>
       </indexterm> <acronym>WAR</acronym>. Pour cela, vous devez compiler et installer
       les deux projets précédemment créés dans un ordre précis. Comme le projet
-      <varname>simple-webapp</varname> à pour dépendance le projet 
+      <varname>simple-webapp</varname> dépend du projet
     <varname>simple-weather</varname>, nous devons transformer de dernier (<varname>simple-weather</varname>)
     en <acronym>JAR</acronym> avant de pouvoir compiler la webapp. Pour faire cela, 
     utilisons la commande <command>mvn clean install</command> à partir du projet de plus haut niveau
@@ -517,7 +515,7 @@ public class WeatherServlet extends HttpServlet {
 
     <para>Lorsque Maven est exécuté dans un projet avec des sous-modules,
     il commence par charger le <acronym>POM</acronym> parent et localiser tous les
-    <acronym>POM</acronym>s des sous-modules. Maven regroupe alors tous ces <acronym>POM</acronym>
+    <acronym>POM</acronym>s des sous-modules. Maven regroupe alors tous ces <acronym>POM</acronym>s
     dans le plugin Maven Reactor. Il s'agit d'un plugin chargé d'analyser les dépendances entre les modules.
     Le plugin Reactor s'occupe de l'ordonnancement des composants pour garantir que les
     modules interdépendants soient compilés et installés dans le bon ordre.</para>
@@ -527,20 +525,20 @@ public class WeatherServlet extends HttpServlet {
       à moins que des changements ne soient nécessaires. Une bonne technique pour comprendre
       ce mécanisme consiste à imaginer que les modules avec les dépendances inter projets soient
       descendus dans une liste jusqu'à ce que l'ordre des dépendances soit satisfaisant. 
-      Dans quelques rares occasions, il peut être bon à réarranger manuellement l'ordre de vos modules --
+      Dans quelques rares occasions, il peut être bon de réarranger manuellement l'ordre de vos modules --
       par exemple si vous voulez qu'un module fréquemment instable soit remonté en début de build.
       </para>
     </note>
     <para>Dès que le plugin Reactor a trouvé l'ordre dans lequel les projets doivent être construits,
-    Maven exécute les goals indiqués pour chaque module afin d'effectuer le build du projet multimodules.
+    Maven exécute les goals indiqués pour chaque module afin d'effectuer le build du projet multi-module.
     Dans cet exemple, vous pouvez effectivement remarquer que Maven commence par construire 
-    le module <varname>simple-weather</varname> avant l'application Web <varname>simple-webapp</varname> 
+    le module <varname>simple-weather</varname> avant l'application web <varname>simple-webapp</varname>
     en exécutant la commande <command>mvn clean install</command>.</para>
 
     <note>
-      <para>Quand vous exécutez Maven à partir de la ligne de commande vous voudrez fréquemment utiliser la phase 
+      <para>Quand vous exécutez Maven à partir de la ligne de commande vous serez amenés à utiliser fréquemment la phase
       <varname>clean</varname> avant l'exécution d'autres stades du cycle de vie.
-      Lorsque vos précisez <varname>clean</varname> sur la ligne de commande, vous vous assurez 
+      Lorsque vous précisez <varname>clean</varname> sur la ligne de commande, vous vous assurez
       que Maven enlève les fichiers générés lors des builds précédents avant qu'il ne compile et package votre application.
       Exécuter la commande <varname>clean</varname> n'est pas nécessaire, mais c'est une précaution utile 
       pour s'assurer que vous effectuez un "build propre".</para>
@@ -550,7 +548,7 @@ public class WeatherServlet extends HttpServlet {
   <section id="multimodule-sect-running-web">
     <title>Exécution de l'Application Web</title>
 
-    <para>Une fois que le projet multimodule a été installé via la commande <command>mvn
+    <para>Une fois que le projet multi-module a été installé via la commande <command>mvn
     <indexterm class="startofrange" id="multimod5a">
         <primary>projet multimodules (exemple)</primary>
         <secondary>exécution</secondary>
@@ -560,7 +558,7 @@ public class WeatherServlet extends HttpServlet {
         <tertiary>exécution</tertiary>
       </indexterm>clean install</command> depuis le projet parent,
     <varname>simple-project</varname>, vous pouvez vous rendre dans le répertoire de la <varname>simple-webapp</varname>
-    et lancer le goal Run du plugin Jetty :</para>
+    et lancer le goal run du plugin Jetty :</para>
 
     <screen>~/examples/ch06/simple-parent/simple-webapp $ <command>mvn jetty:run</command>
 [INFO] ----------------------------------------------------------------------

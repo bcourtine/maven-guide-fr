@@ -127,7 +127,7 @@ package: org.sonatype.mavenbook.ch03
     <calloutlist>
       <callout arearefs="coDef-simple-fs-root" id="coRef-simple-fs-root">
         <para>Le plugin Maven Archetype crée un répertoire dont le nom correspond à l'
-          <varname>artifactId</varname>. Simple. C'est ce qu'on appele le répertoire racine
+          <varname>artifactId</varname> Simple. C'est ce qu'on appele le répertoire racine
           <indexterm>
             <primary>base directory</primary>
           </indexterm> du projet.
