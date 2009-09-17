@@ -119,7 +119,7 @@ Password: ******
         <para>Pour plus d'informations sur le port maven2, allez voir maven2
           <filename>
             <ulink
-        url="http://trac.macports.org/browser/trunk/dports/java/maven2/Portfile"Portfile
+        url="http://trac.macports.org/browser/trunk/dports/java/maven2/Portfile">Portfile
             </ulink>
           </filename>. Pour plus d'informations sur le projet MacPorts et son installation, allez voir la
           <ulink url="http://www.macports.org/index.php">page du projet MacPorts</ulink>.
@@ -129,10 +129,10 @@ Password: ******
     <section id="installation-sect-windows">
       <title>Installer Maven sur Microsoft Windows</title>
       <para>Installer Maven sur Windows est très proche de l'installation sur Mac
-        <acronym>OSX</acronym>. les principales différences sont le répertoire d'installation et la définition des variables d'environnement. Dans ce livre, nous allons supposer que le répertoire d'installation de Maven est
+        <acronym>OSX</acronym>. Les principales différences sont le répertoire d'installation et la définition des variables d'environnement. Dans ce livre, nous allons supposer que le répertoire d'installation de Maven est
         <filename>c:\Program
       Files\apache-maven-${maven.version}
-        </filename>, mais ça ne change pas grand-chose si vous installez Maven dans un autre répertoire, tant que vous configurez correctement les variables d'environnement. Une fois que vous avez décompressé Maven dans le répertoire d'installation, il vous faut définir deux variables d'environnement :
+        </filename>, mais ça ne change pas grand-chose si vous installez Maven dans un autre répertoire, tant que vous configurez correctement les variables d'environnement. Une fois que vous avez décompressé Maven dans le répertoire d'installation, il vous faut définir deux variables d'environnement:
         <envar>PATH</envar> et
         <envar>M2_HOME</envar>. En ligne de commande, vous pouvez définir ces variables d'environnement en tapant les instructions suivantes:
       </para>
@@ -180,7 +180,7 @@ OS name: "mac os x" version: "10.5.6" arch: "i386" Family: "unix"
     linkend="foot-installation-mebibytes" />, cette taille réduite a été obtenue car le c&oelig;ur de Maven a été conçu pour récupérer à la demande plugins et dépendances depuis des dépôts distants. Lorsque vous commencez à utiliser Maven, celui-ci va télécharger les plugins depuis un dépôt local décrit dans
       <xref linkend="installation-sect-user" />. Comme vous êtes curieux, jettons un &oelig;il au répertoire d'installation de Maven.
       <footnote id="foot-installation-mebibytes">
-        <para>Avez-vous déjà acheté un disque dur de 200 Go pour vous rendre compte qu'une fois installé il faisait moins de 200 GiB ? Les ordinateurs fonctionnent en Gibibytes, mais les boutiques vendent des produits en Gigaoctets. MiB représente des Mebibyte soit 2
+        <para>Avez-vous déjà acheté un disque dur de 200 Go pour vous rendre compte qu'une fois installé il faisait moins de 200 GiB? Les ordinateurs fonctionnent en Gibibytes, mais les boutiques vendent des produits en Gigaoctets. MiB représente des Mebibyte soit 2
           <superscript>20</superscript> ou 1024
           <superscript>2</superscript>. Ces mesures standardisées sont validées et reconnues par l'
           <acronym>IEEE</acronym>, le
@@ -252,7 +252,7 @@ lib/
     <section id="installation-sect-user">
       <title>Configuration et Dépôt spécifiques à l'Utilisateur</title>
       <para>Une fois que vous avez commencé à réellement utiliser Maven, vous vous apercevrez que Maven a créé localement des fichiers de configuration spécifiques à l'utilisateur ainsi qu'un dépôt local dans votre répertoire utilisateur. Dans
-        <filename>~/.m2</filename> vous trouverez :
+        <filename>~/.m2</filename> vous trouverez:
       </para>
       <variablelist>
         <varlistentry>
@@ -309,12 +309,12 @@ lib/
     </section>
     <section id="installation-sect-upgrade-detail">
       <title>Migrer de Maven 1.x à Maven 2.x</title>
-      <para>Si vous migrez de Maven 1 à Maven 2, vous allez utiliser un nouveau POM et une nouvelle structure de dépôt. Si vous avez déjà votre propre dépôt Maven 1 pour gérer vos artefacts, vous pouvez utiliser Nexus Repository Manager pour exposer un dépôt au format Maven 1 de manière à ce qu'il soit compris par des clients Maven 2. Pour plus d'informations sur le Nexus Repository Manager, nous vous encorageons à lire le livre <ulink url="http://www.sonatype.com/books/nexus-book/reference/">Repository Management with Nexus</ulink>. En plus d'outils comme Nexus, vous avez la possibilité de configurer des références à des dépôts utilisant la structure
+      <para>Si vous migrez de Maven 1 à Maven 2, vous allez utiliser un nouveau POM et une nouvelle structure de dépôt. Si vous avez déjà votre propre dépôt Maven 1 pour gérer vos artefacts, vous pouvez utiliser Nexus Repository Manager pour exposer un dépôt au format Maven 1 de manière à ce qu'il soit compris par des clients Maven 2. Pour plus d'informations sur le Nexus Repository Manager, nous vous encourageons à lire le livre <ulink url="http://www.sonatype.com/books/nexus-book/reference/">Repository Management with Nexus</ulink>. En plus d'outils comme Nexus, vous avez la possibilité de configurer des références à des dépôts utilisant la structure
         <varname>legacy</varname>. Pour plus d'informations sur la configuration de dépôt legacy, regardez la <xref linkend="appendix-settings-sect-settings-repository" />.
       </para>
       <para>Si vous avez tout un ensemble de projets Maven 1, le Maven One Plugin devrait vous intéresser. Le Maven One Plugin a été conçu pour faciliter la migration des projets de Maven 1 à Maven 2. Si vous avez un projet Maven 1, vous pouvez convertir son POM en exécutant le goal
         <varname>one:</varname>
-        <varname>convert</varname> de la manière suivante :
+        <varname>convert</varname> de la manière suivante:
       </para>
       <screen>$ cd my-project
               $ mvn one:convert
@@ -337,23 +337,23 @@ lib/
   </section>
   <section id="installation-sect-getting-help">
     <title>Obtenir de l'Aide avec Maven</title>
-    <para>Même si ce livre essaye de se rapprocher d’une référence compréhensible, nous oblierons certaines sujets : nous ne couvrirons pas certaines situations particulières ainsi que certaines astuces. Le c&oelig;ur de Maven est très simple, cependant la véritable valeur ajoutée de Maven s'effectue par l'intermédiaire de ces plugins, et étant donné leur nombre nous n'arriverons pas à tous les couvrir en un seul ouvrage. Vous allez rencontrer des problèmes et des fonctionnalités qui ne sont pas traités dans ce livre; dans ce cas, nous vous suggérons ces différents points pour y chercher vos réponses : </para>
+    <para>Même si ce livre essaye de se rapprocher d’une référence compréhensible, nous oublierons certains sujets: nous ne couvrirons pas certaines situations particulières ainsi que certaines astuces. Le c&oelig;ur de Maven est très simple, cependant la véritable valeur ajoutée de Maven s'effectue par l'intermédiaire de ces plugins, et étant donné leur nombre nous n'arriverons pas à tous les couvrir en un seul ouvrage. Vous allez rencontrer des problèmes et des fonctionnalités qui ne sont pas traités dans ce livre; dans ce cas, nous vous suggérons ces différents points pour y chercher vos réponses: </para>
     <variablelist>
       <varlistentry>
         <term>
           <ulink url="http://maven.apache.org">http://maven.apache.org</ulink>
         </term>
         <listitem>
-          <para>C'est le premier endroit où chercher, le site web de Maven contient une grande quantité d'information et de documentation. Chaque plugin possède quelques pages de documentation, et il  existe une série de documents  "quick start"  qui pouront vous servir de complément à ce livre. Bien que le site internet de Maven soit une véritable mine d'informations, il peut vite devenir frustrant si on s'y perd facilement. Il existe une boîte de recherche Google sur la page d'accueil du site qui va rechercher dans un ensemble de sites reconnus sur Maven. Cela donne de meilleurs résultats qu'une recherche Google classique. </para>
+          <para>C'est le premier endroit où chercher, le site web de Maven contient une grande quantité d'information et de documentation. Chaque plugin possède quelques pages de documentation, et il existe une série de documents "quick start" qui pourront vous servir de complément à ce livre. Bien que le site internet de Maven soit une véritable mine d'informations, il peut vite devenir frustrant d'autant qu'on s'y perd facilement. Il existe une boîte de recherche Google sur la page d'accueil du site qui va rechercher dans un ensemble de sites reconnus sur Maven. Cela donne de meilleurs résultats qu'une recherche Google classique. </para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>La Liste de Diffusion des Utilisateurs de Maven</term>
         <listitem>
-          <para>La liste de diffusion Maven User est l'endroit où les utilisateurs peuvent poser leurs questions. Avant de poser votre question sur cette liste de diffusion, recherchez toute discussion antérieure qui pourrait avoir un rapport avec votre question. En effet, il est mal vu de poser une question qui a déjà été posée sans avoir vérifié auparavant les archives pour voir si quelqu'un y avait déjà répondu. Il y a un certain nombre de sites très utiles pour parcourir les archives des listes de diffusion. Nous avons trouvé, pour notre part, Nabble très pratique. Vous pouvez parcourir les archives de la liste de diffusion des Utilisateurs ici :
+          <para>La liste de diffusion Maven User est l'endroit où les utilisateurs peuvent poser leurs questions. Avant de poser votre question sur cette liste de diffusion, recherchez toute discussion antérieure qui pourrait avoir un rapport avec votre question. En effet, il est mal vu de poser une question qui a déjà été posée sans avoir vérifié auparavant les archives pour voir si quelqu'un y avait déjà répondu. Il y a un certain nombre de sites très utiles pour parcourir les archives des listes de diffusion. Nous avons trouvé, pour notre part, Nabble très pratique. Vous pouvez parcourir les archives de la liste de diffusion des Utilisateurs ici:
             <ulink
           url="http://www.nabble.com/Maven---Users-f178.html">http://www.nabble.com/Maven---Users-f178.html
-            </ulink>. Vous pouvez vous abonner à cette liste de diffusion en suivant les instructions disponibles ici :
+            </ulink>. Vous pouvez vous abonner à cette liste de diffusion en suivant les instructions disponibles ici:
             <ulink
           url="http://maven.apache.org/mail-lists.html">http://maven.apache.org/mail-lists.html
             </ulink>.
@@ -387,7 +387,7 @@ lib/
       <varname>active-profiles</varname>,
       <varname>effective-pom</varname>, et
       <varname>effective-settings</varname>&mdash;décrivent un projet particulier et doivent être exécutés depuis le répertoire racine d'un projet. Le dernier goal&mdash;
-      <varname>describe</varname>&mdash;est un peu plus complexe, il affiche des informations sur un plugin ou le goal d'un plugin. Les commandes suivantes vous donnent des informations générales sur ces quatre goals :
+      <varname>describe</varname>&mdash;est un peu plus complexe, il affiche des informations sur un plugin ou le goal d'un plugin. Les commandes suivantes vous donnent des informations générales sur ces quatre goals:
     </para>
     <variablelist>
       <varlistentry>
@@ -422,7 +422,7 @@ lib/
     </variablelist>
     <section id="installation-sect-describing-plugin">
       <title>Décrire un Plugin Maven</title>
-      <para>Une fois que vous commencez à utiliser Maven, vous passerez le plus clair de votre temps à rechercher des informations sur les Plugins Maven : Comment fonctionnent les plugins ? Quels sont les paramètres de configuration ? Quels sont les goals ? Vous utiliserez fréquemment le goal
+      <para>Une fois que vous commencez à utiliser Maven, vous passerez le plus clair de votre temps à rechercher des informations sur les Plugins Maven: Comment fonctionnent les plugins? Quels sont les paramètres de configuration? Quels sont les goals? Vous utiliserez fréquemment le goal
         <varname>help:</varname>
         <varname>describe</varname> pour obtenir ce type d'information. Le paramètre
         <varname>plugin</varname> vous permet de spécifier le plugin sur lequel vous voulez des informations, en passant son préfixe (par exemple
@@ -453,7 +453,7 @@ The Maven Help plugin provides goals aimed at helping to make sense out of
         <varname>plugin</varname> a affiché les coordonnées Maven du plugin, le préfixe du goal et une description succincte du plugin. Même si ces informations sont utiles, habituellement on voudra en savoir un peu plus. Pour afficher la liste des goals avec leurs paramètres grâce au plugin Help, il faut exécuter le goal
         <varname>help:</varname>
         <varname>describe</varname> avec le paramètre
-        <varname>full</varname> comme ci-dessous :
+        <varname>full</varname> comme ci-dessous:
       </para>
       <screen>$<command>mvn help:describe -Dplugin=help -Dfull</command>
 ...
@@ -518,7 +518,7 @@ This mojo doesn't have any component requirements.
       <screen>$<command>mvn help:describe -Dplugin=compiler -Dmojo=compile -Dfull</command>
       </screen>
       <note>
-        <para>Quoi ? Un Mojo ? Chez Maven, le goal d'un Plugin goal s'appelle un "Mojo". </para>
+        <para>Quoi? Un Mojo? Chez Maven, le goal d'un Plugin goal s'appelle un "Mojo". </para>
       </note>
     </section>
   </section>
@@ -533,12 +533,12 @@ This mojo doesn't have any component requirements.
     <para>Il y a une forte probabilité, si vous lisez ce livre, que vous ne soyez pas un homme de loi. Si vous vous demandez ce que signifie Apache License, Version 2.0, l'Apache Software Foundation a écrit une Foire Aux Questions (FAQ) très utile sur cette licence ici
       <ulink
     url="http://www.apache.org/foundation/licence-FAQ.html">http://www.apache.org/foundation/licence-FAQ.html
-      </ulink>. Voici la réponse à la question "Je ne suis pas un homme de loi. Que cela signifie t'il ?"
+      </ulink>. Voici la réponse à la question "Je ne suis pas un homme de loi. Que cela signifie t'il?"
     </para>
     <para>
       <blockquote>
         <para>
-          <emphasis>[Cette licence] vous autorise à :</emphasis>
+          <emphasis>[Cette licence] vous autorise à:</emphasis>
         </para>
         <itemizedlist>
           <listitem>
@@ -549,7 +549,7 @@ This mojo doesn't have any component requirements.
           </listitem>
         </itemizedlist>
         <para>
-          <emphasis>Elle vous interdit de :</emphasis>
+          <emphasis>Elle vous interdit de:</emphasis>
         </para>
         <itemizedlist>
           <listitem>
@@ -563,7 +563,7 @@ This mojo doesn't have any component requirements.
           </listitem>
         </itemizedlist>
         <para>
-          <emphasis>Elle vous demande :</emphasis>
+          <emphasis>Elle vous demande:</emphasis>
         </para>
         <itemizedlist>
           <listitem>
@@ -574,7 +574,7 @@ This mojo doesn't have any component requirements.
           </listitem>
         </itemizedlist>
         <para>
-          <emphasis>Elle ne vous demande pas :</emphasis>
+          <emphasis>Elle ne vous demande pas:</emphasis>
         </para>
         <itemizedlist>
           <listitem>
