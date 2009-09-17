@@ -2,7 +2,7 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="web">
-  <title>A Simple Web Application</title>
+  <title>Une Simple Application Web</title>
 
   <section id="web-sect-intro">
     <title>Introduction</title>
@@ -30,7 +30,7 @@
         <see>Web applications</see>
       </indexterm> Archetype. Nous allons exécuter cette application web dans
     un conteneur de Servlet nommé Jetty, ajouter quelques dépendances, écrire
-    une simple Servlet, et générer une archive <acronym>WAR</acronym>. À la
+    une simple Servlet, et générer une archive <acronym>WAR</acronym>. À la
     fin du chapitre, vous serez capable de démarrer rapidement le
     développement d'applications web en utilisant Maven.</para>
 
@@ -62,14 +62,14 @@
 
     <para>Nous avons volontairement gardé ce chapitre axé sur une bonne
     vieille application web (Plain-Old Web Applications,
-    <acronym>POWA</acronym>) avec une Servlet et une page JavaServer Pages
+    <acronym>POWA</acronym>) &mdash;une Servlet et une page JavaServer Pages
     (<acronym>JSP</acronym>). Nous n'allons pas vous expliquer comment
     développer une application Struts 2, Tapestry, Wicket, Java Server Faces
     (<acronym>JSF</acronym>), ou Waffle, et nous n'allons pas non plus
     intégrer un conteneur <acronym>IoC</acronym> (Inversion of Control) comme
     Plexus, Guice, ou le Framework Spring. Le but de ce chapitre est de vous
     montrer les possibilités que Maven fournit pour développer des
-    applications web, ni plus, ni moins. Plus loin dans ce livre nous
+    applications web&mdash;ni plus, ni moins. Plus loin dans ce livre nous
     développerons deux applications web : l'une basée sur Hibernate, Velocity,
     et le Framework Spring; l'autre utilisant Plexus.</para>
   </section>
@@ -77,7 +77,7 @@
   <section id="web-sect-creating-project">
     <title>Creation du Simple Projet Web</title>
 
-    <para>Pour créer votre projet d'application web <indexterm
+    <para>Pour créer votre projet d'application web<indexterm
         class="startofrange" id="webapp2">
         <primary>Web applications</primary>
 
@@ -85,30 +85,41 @@
 
         <tertiary>creating</tertiary>
       </indexterm>, exécutez la commande <command>mvn
-    archetype:create</command> en précisant un <varname>artifactId</varname>
+    archetype:generate</command> en précisant un <varname>artifactId</varname>
     et un <varname>groupId</varname>. Paramétrez
     l'<varname>archetypeArtifactId</varname> à 
     <varname>maven-archetype-webapp</varname>. Exécuter cette commande va
     créer la structure des répertoires appropriée et le <acronym>POM</acronym>
     Maven:</para>
-
-    <screen>~/examples$ <command>mvn archetype:create -DgroupId=org.sonatype.mavenbook.ch05 \
-                            -DartifactId=simple-webapp \
-                            -DpackageName=org.sonatype.mavenbook \
-                            -DarchetypeArtifactId=maven-archetype-webapp</command>
-[INFO] [archetype:create]
-[INFO] ----------------------------------------------------------------------
-[INFO] Using parameters for creating Archetype: maven-archetype-webapp:RELEASE
-[INFO] ----------------------------------------------------------------------
+    <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.ch05 \
+                         -DartifactId=simple-webapp \
+                         -DpackageName=org.sonatype.mavenbook \
+                          -Dversion=1.0-SNAPSHOT</command>
+...
+[INFO] [archetype:generate {execution: default-cli}]
+Choose archetype:
+...
+15: internal -&gt; maven-archetype-quickstart ()
+16: internal -&gt; maven-archetype-site-simple (A simple site generation project)
+17: internal -&gt; maven-archetype-site (A more complex site project)
+18: internal -&gt; maven-archetype-webapp (A simple Java web application)
+...
+Choose a number:  (...) 15: : <emphasis>18</emphasis>
+Confirm properties configuration:
+groupId: org.sonatype.mavenbook.ch05
+artifactId: simple-webapp
+version: 1.0-SNAPSHOT
+package: org.sonatype.mavenbook.ch05
+ Y: : <emphasis>Y</emphasis>
 [INFO] Parameter: groupId, Value: org.sonatype.mavenbook.ch05
-[INFO] Parameter: packageName, Value: org.sonatype.mavenbook
-[INFO] Parameter: basedir, Value: ~/examples
-[INFO] Parameter: package, Value: org.sonatype.mavenbook
-[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+[INFO] Parameter: packageName, Value: org.sonatype.mavenbook.ch05
+[INFO] Parameter: package, Value: org.sonatype.mavenbook.ch05
 [INFO] Parameter: artifactId, Value: simple-webapp
-[INFO] *************** End of debug info from resources from generated POM **
-[INFO] Archetype created in dir: ~/examples/simple-webapp </screen>
-
+[INFO] Parameter: basedir, Value: /private/tmp
+[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+...
+[INFO] BUILD SUCCESSFUL
+</screen>
     <para>Une fois que le plugin Maven Archetype a généré le projet, ouvrez le
     répertoire <filename role="keep-together">simple-web</filename> et
     regardez le fichier <filename>pom.xml</filename>. Vous devriez
