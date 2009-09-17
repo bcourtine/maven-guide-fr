@@ -429,7 +429,7 @@ public class SimpleServlet extends HttpServlet {
     <para>Tout est en place pour tester la servlet; la classe est bien dans
     <filename>src/main/java</filename> et le <filename>web.xml</filename> a
     été mis à jour. Avant que vous lanciez le plugin Jetty, compilez votre
-    projet en exécutant <command>mvn compile</command>:</para>
+    projet en exécutant <command>mvn compile</command> :</para>
 
     <screen>~/examples$ <command>mvn compile</command>
 ...
@@ -468,7 +468,7 @@ public class SimpleServlet extends HttpServlet {
 </screen>
 
     <para>La compilation échoue car votre projet Maven n'a pas la dépendance
-    pour l'<acronym>API</acronym> Servlet. Dans la section suivante, nous
+    vers l'<acronym>API</acronym> Servlet. Dans la section suivante, nous
     allons ajouter l'<acronym>API</acronym> Servlet au <acronym>POM</acronym>
     de notre projet.</para>
   </section>
@@ -516,8 +516,8 @@ public class SimpleServlet extends HttpServlet {
 
     <para>Il est important de noter que nous utilisons le scope
     <literal>provided</literal> pour cette dépendance. Cela permet de préciser
-    à Maven que le jar est "provided" (fournit) par le conteneur et n'a ainsi
-    pas besoin d'être inclut dans le war. Si vous souhaitiez écrire votre
+    à Maven que le jar est "provided" (fourni) par le conteneur et n'a ainsi
+    pas besoin d'être inclus dans le war. Si vous souhaitez écrire votre
     propre tag <acronym>JSP</acronym><indexterm>
         <primary>JSP 2.0 specification, dependency on</primary>
       </indexterm><indexterm>
@@ -525,12 +525,12 @@ public class SimpleServlet extends HttpServlet {
 
         <secondary sortas="JSP 2.0 specification">on JSP 2.0
         specification</secondary>
-      </indexterm> pour cette simple application web, vous devriez ajouter une
-    dépendance sur la spec <acronym>JSP</acronym> 2.0. Utilisez la
+      </indexterm> pour cette simple application web, vous devrez ajouter une
+    dépendance sur la specification <acronym>JSP</acronym> 2.0. Utilisez la
     configuration présentée dans l'exemple :</para>
 
     <example>
-      <title>Ajouter la dépendance JSP 2.0 Specification</title>
+      <title>Ajouter la dépendance aux Specifications JSP 2.0</title>
 
       <programlisting language="xml">&lt;project&gt;
   [...]
@@ -548,7 +548,7 @@ public class SimpleServlet extends HttpServlet {
     </example>
 
     <para>Une fois que vous avez ajouté la dépendance sur l'API Servlet,
-    exécutez <command>mvn clean install</command> suivi par <command>mvn
+    exécutez la commande <command>mvn clean install</command> suivie de la commande <command>mvn
     jetty:run</command>.</para>
 
     <screen>[tobrien@t1 simple-webapp]$ <command>mvn clean install</command>
@@ -561,7 +561,7 @@ public class SimpleServlet extends HttpServlet {
 2007-12-14 16:18:32.745::INFO:  Started SelectChannelConnector@0.0.0.0:8080
 [INFO] Started Jetty Server</screen>
 
-    <para>À ce stade, vous devriez pouvoir récupérer la sortie de la
+    <para>À ce stade, vous devriez pouvoir récupérer le résultat de la
     <classname>SimpleServlet</classname>. Depuis la ligne de commande, vous
     pouvez utiliser curl pour afficher la réponse de cette servlet sur la
     sortie standard :</para>
@@ -577,7 +577,7 @@ SimpleServlet Executed</screen>
     rapidement une application web. Ce chapitre ne s'est pas étendu sur les
     millions de façons différentes de créer une application web complète,
     d'autres chapitres fourniront plus de détails sur des projets qui mettent
-    en œuvre quelques uns des frameworks web et technologies les plus
+    en &oelig;uvre quelques uns des frameworks web et technologies les plus
     populaires.</para>
   </section>
 </chapter>
