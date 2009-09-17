@@ -90,7 +90,7 @@
     l'<varname>archetypeArtifactId</varname> à 
     <varname>maven-archetype-webapp</varname>. Exécuter cette commande va
     créer la structure des répertoires appropriée et le <acronym>POM</acronym>
-    Maven:</para>
+    Maven :</para>
     <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.ch05 \
                          -DartifactId=simple-webapp \
                          -DpackageName=org.sonatype.mavenbook \
@@ -160,7 +160,7 @@ package: org.sonatype.mavenbook.ch05
 
     <para>Ensuite, vous allez devoir configurer le plugin Maven Compiler pour
     utiliser Java 5. Pour cela, ajoutez l'élément <sgmltag>plugins</sgmltag>
-    au POM initial comme décrit dans <xref
+    au POM initial comme décrit dans l'<xref
     linkend="ex-web-initial-pom-with-compiler" />.</para>
 
     <example id="ex-web-initial-pom-with-compiler">
@@ -210,7 +210,7 @@ package: org.sonatype.mavenbook.ch05
     <acronym>WAR</acronym> dans le répertoire <filename>target/</filename>. Le
     nom par défaut de ce fichier est
     <filename>${artifactId}-${version}.war</filename>. Dans ce projet, le
-    <acronym>WAR</acronym> par défaut serait généré dans
+    <acronym>WAR</acronym> par défaut serait donc
     <filename>target/simple-webapp-1.0-SNAPSHOT.war</filename>. Dans le projet
     <literal>simple-webapp</literal>, nous avons personnalisé le nom du
     fichier <acronym>WAR</acronym> généré en ajoutant l'élément
@@ -240,18 +240,18 @@ package: org.sonatype.mavenbook.ch05
         <primary>Maven Jetty plugin</primary>
 
         <secondary>configuring in pom.xml</secondary>
-      </indexterm> vous voudrez probablement la déployer dans un conteneur de
+      </indexterm> vous allez vouloir la déployer dans un conteneur de
     Servlet et tester l'<filename>index.jsp</filename> qui a été créée par le
-    plugin Maven Archetype. Normalement, cela implique de télécharger quelque
-    chose comme Jetty ou Apache Tomcat, décompresser la distribution, copier
+    plugin Maven Archetype. Normalement, cela implique de télécharger un serveur
+    comme Jetty ou Apache Tomcat, décompresser la distribution, copier
     votre fichier <acronym>WAR</acronym> dans un répertoire
     <filename>webapps/</filename> et ensuite démarrer le conteneur. Bien que
-    vous puissiez faire ainsi, ce n'est pas nécessaire. À la place, vous
+    vous puissiez procéder ainsi, ce n'est pas nécessaire. À la place, vous
     pouvez utiliser le plugin Maven Jetty pour exécuter votre application web
     avec Maven. Pour ce faire, vous allez devoir configurer le plugin Maven
     Jetty dans le <filename>pom.xml</filename> de votre projet. Ajoutez
     l'élement <literal>plugin</literal> à votre configuration de build comme
-    démontré dans l'exemple ci-dessous.</para>
+    le montre l'exemple ci-dessous :</para>
 
     <example>
       <title>Configurer le plugin Jetty</title>
@@ -272,9 +272,9 @@ package: org.sonatype.mavenbook.ch05
     </example>
 
     <para>Une fois que vous avez configuré le plugin Maven Jetty dans le
-    <filename>pom.xml</filename> de votre projet, vous pouvez invoquez la
-    tâche Run du plugin Jetty pour démarrer votre application web dans le
-    conteneur de Servlet Jetty. Exécutez <command>mvn jetty:run</command>
+    <filename>pom.xml</filename> de votre projet, vous pouvez invoquez le
+    goal run du plugin Jetty pour démarrer votre application web dans le
+    conteneur de Servlet Jetty. Exécutez la commande <command>mvn jetty:run</command>
     comme suit :</para>
 
     <screen>~/examples$ <command>mvn jetty:run</command>
@@ -297,15 +297,14 @@ package: org.sonatype.mavenbook.ch05
 2007-11-17 22:11:50.673::INFO:  jetty-6.1.6rc1
 2007-11-17 22:11:50.846::INFO:  No Transaction manager found 
 2007-11-17 22:11:51.057::INFO:  Started SelectChannelConnector@0.0.0.0:8080
-[INFO] Started Jetty Server
-</screen>
+[INFO] Started Jetty Server</screen>
 
-    <para>Après que Maven ait démarré le conteneur de Servlet Jetty, ouvrez
+    <para>Une fois que Maven a démarré le conteneur de Servlet Jetty, ouvrez
     l'URL <ulink
     url="http://localhost:8080/simple-webapp/">http://localhost:8080/simple-webapp/</ulink>
     dans un navigateur web. La simple page <filename>index.jsp</filename>
-    générée par l'Archetype est trivial; Elle contient un titre de second
-    niveau avec le texte "Hello World!". Maven attend que la racine du site
+    générée par l'Archetype est triviale; elle contient un titre de second
+    niveau avec le texte "Hello World!". Maven s'attend à ce que la racine du site
     web soit dans <filename>src/main/webapp</filename>. C'est dans ce
     répertoire que vous trouverez le fichier<filename> index.jsp</filename>
     utilisé dans <xref linkend="web-example-index" />.</para>
@@ -354,7 +353,7 @@ package: org.sonatype.mavenbook.ch05
       </indexterm><indexterm class="startofrange" id="webapp4b">
         <primary>servlets, adding to project</primary>
       </indexterm> configurée est à peu près inutile. Ajoutons une simple
-    servlet à cette application et modifiions le <filename>pom.xml</filename>
+    servlet à cette application et modifions le <filename>pom.xml</filename>
     et le <filename>web.xml</filename> pour supporter ce changement.
     Premièrement, nous allons devoir créer un nouveau package dans
     <filename>src/main/java</filename> nommé
@@ -363,11 +362,10 @@ package: org.sonatype.mavenbook.ch05
     <screen>$ <command>mkdir -p src/main/java/org/sonatype/mavenbook/web</command>
 $ <command>cd src/main/java/org/sonatype/mavenbook/web</command></screen>
 
-    <para>Une fois que vous avez créer ce package, allez dans le répertoire
+    <para>Une fois que vous avez créé ce package, allez dans le répertoire
     <filename>src/main/java/org/sonatype/mavenbook/web</filename> et créez une
-    classe nommée <classname>SimpleServlet</classname> dans le fichier
-    <filename>SimpleServlet.java</filename>, qui contient le code suivant
-    :</para>
+    classe <classname>SimpleServlet</classname> dans le fichier
+    <filename>SimpleServlet.java</filename>, qui contient le code suivant :</para>
 
     <example>
       <title>Classe SimpleServlet</title>
@@ -391,12 +389,12 @@ public class SimpleServlet extends HttpServlet {
 }</programlisting>
     </example>
 
-    <para>Notre classe <classname>SimpleServlet</classname> est très simple:
-    une servlet qui affiche un simple message sur le
+    <para>Notre classe <classname>SimpleServlet</classname> est très simple :
+    une servlet qui affiche un message simple sur le
     <classname>Writer</classname> de la réponse. Pour ajouter cette servlet à
-    votre application web, et la mapper sur une requête, ajoutez les éléments
-    <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag> présenté
-    dans le <filename>web.xml</filename> suivant dans le fichier<indexterm>
+    votre application web, et la faire correspondre à une requête, ajoutez les éléments
+    <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag> de l'exemple de <filename>web.xml</filename>
+    dans le fichier<indexterm>
         <primary>web.xml file</primary>
 
         <secondary>servlet and servlet-mapping attributes</secondary>
@@ -405,11 +403,11 @@ public class SimpleServlet extends HttpServlet {
       </indexterm><indexterm>
         <primary>servlet attribute (web.xml)</primary>
       </indexterm> <filename>web.xml</filename> de votre projet. Le fichier
-    <filename>web.xml</filename> peut être trouvé dans
+    <filename>web.xml</filename> se trouve dans
     <filename>src/main/webapp/WEB-INF</filename>.</para>
 
     <example>
-      <title>Mapper la Servlet</title>
+      <title>Configurer la Servlet</title>
 
       <programlisting language="xml">&lt;!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
