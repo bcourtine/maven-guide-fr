@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
@@ -87,7 +88,7 @@
       </indexterm>, exécutez la commande <command>mvn
     archetype:generate</command> en précisant un <varname>artifactId</varname>
     et un <varname>groupId</varname>. Paramétrez
-    l'<varname>archetypeArtifactId</varname> à 
+    l'<varname>archetypeArtifactId</varname> à 
     <varname>maven-archetype-webapp</varname>. Exécuter cette commande va
     créer la structure des répertoires appropriée et le <acronym>POM</acronym>
     Maven :</para>
@@ -250,7 +251,7 @@ package: org.sonatype.mavenbook.ch05
     pouvez utiliser le plugin Maven Jetty pour exécuter votre application web
     avec Maven. Pour ce faire, vous allez devoir configurer le plugin Maven
     Jetty dans le <filename>pom.xml</filename> de votre projet. Ajoutez
-    l'élement <literal>plugin</literal> à votre configuration de build comme
+    l'élément <literal>plugin</literal> à votre configuration de build comme
     le montre l'exemple ci-dessous :</para>
 
     <example>
@@ -272,7 +273,7 @@ package: org.sonatype.mavenbook.ch05
     </example>
 
     <para>Une fois que vous avez configuré le plugin Maven Jetty dans le
-    <filename>pom.xml</filename> de votre projet, vous pouvez invoquez le
+    <filename>pom.xml</filename> de votre projet, vous pouvez invoquer le
     goal run du plugin Jetty pour démarrer votre application web dans le
     conteneur de Servlet Jetty. Exécutez la commande <command>mvn jetty:run</command>
     comme suit :</para>
@@ -516,7 +517,7 @@ public class SimpleServlet extends HttpServlet {
 
     <para>Il est important de noter que nous utilisons le scope
     <literal>provided</literal> pour cette dépendance. Cela permet de préciser
-    à Maven que le jar est "provided" (fournit) par le conteneur et n'a ainsi
+    à Maven que le jar est "provided" (fourni) par le conteneur et n'a ainsi
     pas besoin d'être inclut dans le war. Si vous souhaitiez écrire votre
     propre tag <acronym>JSP</acronym><indexterm>
         <primary>JSP 2.0 specification, dependency on</primary>
