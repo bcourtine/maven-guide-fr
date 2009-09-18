@@ -9,21 +9,21 @@
 
     <para>Dans ce chapitre, nous allons créer un projet multi-module qui combine
       les<indexterm class="startofrange" id="multimod1a">
-        <primary>projet multimodules (exemple)</primary>
+        <primary>projet multimodule (exemple)</primary>
       </indexterm><indexterm class="startofrange" id="multimod1b">
         <primary>Applications Web</primary>
-        <secondary>Exemple de projet multimodules</secondary>
+        <secondary>Exemple de projet multimodule</secondary>
       </indexterm>
       <indexterm>
         <primary>project méteo (exemple)</primary>
-        <seealso>projet multimodules</seealso>
+        <seealso>projet multimodule</seealso>
       </indexterm> exemples des deux chapitres précédents.
       Le code du projet <literal>simple-weather</literal> développé dans le <xref
     linkend="customizing" /> sera combiné avec le projet 
     <literal>simple-webapp</literal> défini dans le <xref linkend="web" />
     pour créer une application web qui récupère et affiche des renseignements
     de météorologiques sur une page Web. À la fin de ce chapitre, vous serez 
-    capables d'utiliser Maven pour développer des projets multimodules complexes.
+    capables d'utiliser Maven pour développer des projets multimodule complexes.
     </para>
 
     <section id="multimodule-sect-downloading">
@@ -60,13 +60,13 @@
     <para>Un projet multi-module est défini par un
     <acronym>POM</acronym><indexterm class="startofrange" id="parent1a">
         <primary>projet parent simple (exemple)</primary>
-        <secondary>multimodules</secondary>
+        <secondary>multimodule</secondary>
       </indexterm><indexterm class="startofrange" id="parent1b">
-        <primary>projet multimodules project (exemple)</primary>
+        <primary>projet multimodule project (exemple)</primary>
         <secondary>projet parent simple</secondary>
       </indexterm><indexterm class="startofrange" id="parent1c">
         <primary>Applications Web</primary>
-        <secondary>exemple de projet multimodules</secondary>
+        <secondary>exemple de projet multimodule</secondary>
         <tertiary>projet parent simple</tertiary>
       </indexterm> parent référençant un ou plusieurs sous-modules. Dans le répertoire
     <filename>simple-parent/</filename>, vous trouverez le 
@@ -173,11 +173,11 @@
     <para>Commençons par regarder le sous-module <varname>simple-weather</varname>.
     Ce module contient toutes  
     <indexterm class="startofrange" id="multimod2a">
-        <primary>projet multimodules (exemple)</primary>
+        <primary>projet multimodule (exemple)</primary>
         <secondary>sous-module météorologiques simple</secondary>
       </indexterm><indexterm class="startofrange" id="multimod2b">
         <primary>Applications Web</primary>
-        <secondary>exemple de projet multimodules</secondary>
+        <secondary>exemple de projet multimodule</secondary>
         <tertiary>sous-module météorologiques simple</tertiary>
       </indexterm> les classes qui s'occupent des interactions et du parsing
       du flux RSS de Yahoo! Météo.</para>
@@ -322,7 +322,7 @@ public class WeatherService {
 
     <para>Le module <varname>simple-webapp</varname> est le second sous-module 
     <indexterm class="startofrange" id="multimod3a">
-        <primary>projet multimodules (exemple)</primary>
+        <primary>projet multimodule (exemple)</primary>
     <secondary>simple sous-module d'une application web</secondary>
       </indexterm><indexterm class="startofrange" id="multimod3b">
         <primary>Applications Web</primary>
@@ -460,18 +460,18 @@ public class WeatherServlet extends HttpServlet {
 
     <para>Nous venons de créer le projet <varname>simple-weather</varname> qui contient
     <indexterm class="startofrange" id="multimod4a">
-        <primary>projet multimodules (exemple)</primary>
+        <primary>projet multimodule (exemple)</primary>
         <secondary>build</secondary>
       </indexterm><indexterm class="startofrange" id="multimod4b">
         <primary>Applications Web</primary>
-        <secondary>exemple de projet multimodules</secondary>
+        <secondary>exemple de projet multimodule</secondary>
         <tertiary>build</tertiary>
       </indexterm> le code interagissant avec le service Yahoo! Météo
     et le projet <varname>simple-webapp</varname> qui contient une simple servlet 
     de présentation. C'est le moment de compiler et de packager notre application 
     sous la forme d'un fichier<indexterm>
         <primary>fichiers WAR</primary>
-        <secondary>compiler des projets multimodules en</secondary>
+        <secondary>compiler des projets multimodule en</secondary>
       </indexterm><indexterm>
         <primary>compiler des projects</primary>
         <seealso>fichier WAR files</seealso>
@@ -550,11 +550,11 @@ public class WeatherServlet extends HttpServlet {
 
     <para>Une fois que le projet multi-module a été installé via la commande <command>mvn
     <indexterm class="startofrange" id="multimod5a">
-        <primary>projet multimodules (exemple)</primary>
+        <primary>projet multimodule (exemple)</primary>
         <secondary>exécution</secondary>
       </indexterm><indexterm class="startofrange" id="multimod5b">
         <primary>Applications Web</primary>
-        <secondary>exemple de projet multimodules</secondary>
+        <secondary>exemple de projet multimodule</secondary>
         <tertiary>exécution</tertiary>
       </indexterm>clean install</command> depuis le projet parent,
     <varname>simple-project</varname>, vous pouvez vous rendre dans le répertoire de la <varname>simple-webapp</varname>

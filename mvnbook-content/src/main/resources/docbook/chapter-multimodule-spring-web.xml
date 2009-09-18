@@ -7,15 +7,15 @@
   <section id="multimodule-web-spring-sect-intro">
     <title>Introduction</title>
 
-    <para>Dans ce chapitre, nous allons créer un projet multimodules à partir de
+    <para>Dans ce chapitre, nous allons créer un projet multimodule à partir de
     <indexterm class="startofrange" id="enterprise1a">
-        <primary>projet multimodules (exemple)</primary>
-        <secondary>projet multimodules d'enterprise</secondary>
+        <primary>projet multimodule (exemple)</primary>
+        <secondary>projet multimodule d'enterprise</secondary>
       </indexterm><indexterm class="startofrange" id="enterprise1b">
         <primary>Applications Web</primary>
-        <secondary>exemple de projet multimodules d'enterprise</secondary>
+        <secondary>exemple de projet multimodule d'enterprise</secondary>
       </indexterm><indexterm class="startofrange" id="enterprise1c">
-        <primary>projet d'enterprise, multimodules (exemple)</primary>
+        <primary>projet d'enterprise, multimodule (exemple)</primary>
       </indexterm> des exemples du <xref linkend="multimodule" /> et du <xref
     linkend="web" />. Nous ferons évoluer ces exemples en un projet utilisant 
     les frameworks Spring et Hibernate pour créer deux applications :
@@ -23,14 +23,14 @@
     permettront de lire le flux provenant du service Yahoo! Météo. Le code du projet 
     <varname>simple-weather</varname> développé dans le <xref linkend="customizing" /> 
     sera donc combiné au code du projet <varname>simple-webapp</varname> du <xref linkend="web" />. 
-    Pour créer ce projet multimodules, nous allons explorer Maven et discuter des différentes façons
+    Pour créer ce projet multimodule, nous allons explorer Maven et discuter des différentes façons
     qu'il peut être utilisé pour créer des projets modulaires encourageant la réutilisation.
     </para>
 
     <section id="multimodule-web-spring-sect-downloading-example">
       <title>Télécharger les sources de ce chapitre</title>
 
-      <para>Le projet multimodules développé dans cet exemple se compose des versions modifiées 
+      <para>Le projet multimodule développé dans cet exemple se compose des versions modifiées 
       des projets développés dans les chapitres <xref linkend="customizing" /> et <xref linkend="web" />, 
       sans utiliser le plugin Maven Archetype pour le générer. Nous recommandons de télécharger le code 
       des exemples pour utiliser celui-ci comme code de référence lors de la lecture de ce chapitre.
@@ -40,7 +40,7 @@
       ou <ulink url="http://www.sonatype.com/book/mvn-examples-1.0.tar.gz">http://www.sonatype.com/book/mvn-examples-1.0.tar.gz</ulink>.
       Une fois téléchargée, dézippez l'archive dans n'importe quel répertoire et entrez dans le répertoire <filename>ch07/</filename>.
       Vous trouverez alors dans celui-ci un sous-répertoire <filename>simple-parent/</filename>      
-      qui contient le projet Maven multimodules que nous allons développer dans ce chapitre.
+      qui contient le projet Maven multimodule que nous allons développer dans ce chapitre.
       Dans le répertoire de ce projet, vous trouverez un <filename>pom.xml</filename> et cinq sous-modules :   
       <filename>simple-model/</filename>,
       <filename>simple-persist/</filename>,
@@ -65,7 +65,7 @@
       Enfin, en conclusion, au delà ce qui est présenté dans ce chapitre, nous explorerons quelques pistes pour rendre vos applications modulaires.
       </para>
 
-      <para>Dans ce chapitre, nous allons étudier un projet Maven multimodules qui produira deux applications :
+      <para>Dans ce chapitre, nous allons étudier un projet Maven multimodule qui produira deux applications :
       un outil en ligne de commande et une application web; chacune de ces applications permettra d'interroger le flux Yahoo! Météo.
       Ces deux applications conserveront les résultats des différentes requêtes dans une base de données embarquée
       et permettent de récupérer l'historique des prévisions météorologiques stockées dans celle-ci.
@@ -176,7 +176,7 @@
       Vous pourriez être tentés de regarder rapidement les exemples dans ce chapitre et penser que Maven 
       génère trop de complexité comparée à la taille du modèle d'objet.
       Bien que l'utilisation de Maven suggère un certain niveau de modularité, 
-      réalisez que nous avons compliqué ici nos exemples volontairement dans le but de montrer les fonctionnalités Maven pour des projets multimodules.</para>
+      réalisez que nous avons compliqué ici nos exemples volontairement dans le but de montrer les fonctionnalités Maven pour des projets multimodule.</para>
     </section>
 
     <section id="multimodule-web-spring-sect-example-tech">
@@ -211,17 +211,17 @@
     <para>Ce projet <varname>simple-parent</varname> contient<indexterm
         class="startofrange" id="enterprise2a">
         <primary>projet parent simple (exemple)</primary>
-        <secondary>projet d'entreprise multimodules</secondary>
+        <secondary>projet d'entreprise multimodule</secondary>
       </indexterm><indexterm class="startofrange" id="enterprise2b">
-        <primary>projet multimodules (exemple)</primary>
-        <secondary>projet d'entreprise multimodules</secondary>
+        <primary>projet multimodule (exemple)</primary>
+        <secondary>projet d'entreprise multimodule</secondary>
         <tertiary>projet parent simple</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise2c">
         <primary>Applications Web</primary>
-        <secondary>exemple de projet multimodules</secondary>
+        <secondary>exemple de projet multimodule</secondary>
         <tertiary>projet parent simple</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise2d">
-        <primary>projet d'enterprise, multimodules (exemple)</primary>
+        <primary>projet d'enterprise, multimodule (exemple)</primary>
         <secondary>projet parent simple</secondary>
       </indexterm> un fichier <filename>pom.xml</filename> qui références cinq sous-modules :
     <varname>simple-command</varname>,
@@ -549,15 +549,15 @@ public class Condition {
     <title>Le Module Météo Simple</title>
 
     <para>Le prochain module que nous allons examiner pourrait être considéré comme <indexterm class="startofrange" id="enterprise4a">
-        <primary>projet multimodules (exemple)</primary>
-        <secondary>projet d'entreprise multimodules</secondary>
+        <primary>projet multimodule (exemple)</primary>
+        <secondary>projet d'entreprise multimodule</secondary>
         <tertiary>Module Météo Simple</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise4b">
         <primary>Applications Web</primary>
-        <secondary>exemple de projet d'entreprise multimodules</secondary>
+        <secondary>exemple de projet d'entreprise multimodule</secondary>
         <tertiary>Module Météo Simple</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise4c">
-        <primary>projet d'enterprise, multimodules (exemple)</primary>
+        <primary>projet d'enterprise, multimodule (exemple)</primary>
         <secondary>Module Météo Simple</secondary>
       </indexterm> un “service.” 
     Ce module contient toute la logique nécessaire pour récupérer et parser les données provenant du flux <acronym>RSS</acronym> Yahoo! Météo
@@ -757,7 +757,7 @@ public class WeatherService {
     Le bean <varname>weatherService</varname> est une instance du service <classname>WeatherService</classname>. 
     Le <acronym>XML</acronym> configure également les propriétés <varname>yahooParser</varname> et <varname>yahooRetriever</varname> de ce bean.
     Elles référencent deux instances nommées des classes en question.  
-    Vous pouvez comparer ce fichier <filename>applicationContext-weather.xml</filename> à la définition de l'architecture d'un sous-système de ce projet multimodules. 
+    Vous pouvez comparer ce fichier <filename>applicationContext-weather.xml</filename> à la définition de l'architecture d'un sous-système de ce projet multimodule. 
     Certains projets comme <varname>simple-webapp</varname> et <varname>simple-command</varname> peuvent référencer ce contexte 
     et récupérer une instance du service <classname>WeatherService</classname> configurée avec des instances des classes <classname>YahooRetriever</classname> et <classname>YahooParser</classname> en propriété.</para>
 
@@ -769,15 +769,15 @@ public class WeatherService {
     <para>Ce module définit deux DAOs (Data Access Objects). Un DAO<indexterm>
         <primary>DAO (Data Access Objects)</primary>
       </indexterm><indexterm class="startofrange" id="enterprise5a">
-        <primary>projet multimodules (exemple)</primary>
-        <secondary>projet d'entreprise multimodules</secondary>
+        <primary>projet multimodule (exemple)</primary>
+        <secondary>projet d'entreprise multimodule</secondary>
         <tertiary>Module de Persistance Simple de</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise5b">
         <primary>Applications Web</primary>
-        <secondary>exemple de projet d'entreprise multimodules</secondary>
+        <secondary>exemple de projet d'entreprise multimodule</secondary>
         <tertiary>Module de Persistance Simple de</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise5c">
-        <primary>projet d'enterprise, multimodules (exemple)</primary>
+        <primary>projet d'enterprise, multimodule (exemple)</primary>
         <secondary>Module de Persistance Simple de</secondary>
       </indexterm> est un objet qui fournit une interface aux opérations de persistances.
     Dans une application qui utilise un framework de mapping ORM (Object-Relational Mapping) comme Hibernate, un DAO est défini autour d'un objet.
@@ -1167,15 +1167,15 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
 
     <para>L'application Web est définie dans le module <varname>simple-webapp</varname>.
     <indexterm class="startofrange" id="enterprise6a">
-        <primary>projet multimodules (exemple)</primary>
-        <secondary>projet d'entreprise multimodules</secondary>
+        <primary>projet multimodule (exemple)</primary>
+        <secondary>projet d'entreprise multimodule</secondary>
         <tertiary>Simple Application Web</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise6b">
         <primary>Applications Web</primary>
-        <secondary>exemple de projet d'entreprise multimodules</secondary>
+        <secondary>exemple de projet d'entreprise multimodule</secondary>
         <tertiary>Simple Application Web</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise6c">
-        <primary>projet d'enterprise, multimodules (exemple)</primary>
+        <primary>projet d'enterprise, multimodule (exemple)</primary>
         <secondary>Simple Application Web</secondary>
       </indexterm>Ce projet va définir deux contrôleurs Spring <acronym>MVC</acronym> : 
     <classname>WeatherController</classname> et <classname role="keep-together">HistoryController</classname>. 
@@ -1732,15 +1732,15 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
 
     <para>Pour exécuter l'application web, vous devez tout d'abord builder votre projet multi-modules 
     dans son intégralité et ensuite builder la base de données <indexterm class="startofrange" id="enterprise7a">
-        <primary>projet multimodules (exemple)</primary>
-        <secondary>projet d'entreprise multimodules</secondary>
+        <primary>projet multimodule (exemple)</primary>
+        <secondary>projet d'entreprise multimodule</secondary>
         <tertiary>Exécution de l'Application Web</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise7b">
         <primary>Applications Web</primary>
-        <secondary>exemple de projet d'entreprise multimodules</secondary>
+        <secondary>exemple de projet d'entreprise multimodule</secondary>
         <tertiary>Exécution de l'Application Web</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise7c">
-        <primary>projet d'enterprise, multimodules (exemple)</primary>
+        <primary>projet d'enterprise, multimodule (exemple)</primary>
         <secondary>Exécution de l'Application Web</secondary>
       </indexterm><indexterm>
         <primary>plugin Maven Hibernate3</primary>
@@ -2260,7 +2260,7 @@ Evanston, IL, US
     Pour arriver à ce résultat, nous n'avons pas eu besoin de prendre de raccourcis, ni de vous éblouir avec des effets de sorcelleries à la Ruby on Rails,
     ni de vous faire croire que vous pourrez créer une application Java d'entreprise en "10 minutes !".
     Beaucoup trop de personnes essayent de vous vendre le plus révolutionnaire des frameworks qui vous demandera zéro temps d'apprentissage.
-    Ce que nous avons essayé de faire dans ce chapitre est présenter l'intégralité du tableau, l'écosystème complet d'un build multimodules.
+    Ce que nous avons essayé de faire dans ce chapitre est présenter l'intégralité du tableau, l'écosystème complet d'un build multimodule.
     Nous vous avons présenté Maven dans le contexte d'une application qui ressemble à quelque chose que vous pourriez voir dans la vraie vie,  
     10 minutes de screencast essayent de vous donner l'envie d'adopter Apache Maven.</para>
 
@@ -2276,13 +2276,13 @@ Evanston, IL, US
     <para>Vous pouvez utiliser le squelette du projet de ce chapitre comme fondation pour votre propre projet, fondation à laquelle vous ajouterez des modules au fur et à mesure de vos besoins. 
     Par exemple, le projet sur lequel ce chapitre était basé comporte : deux projets modèles, deux modules de persistance qui permettent de stocker des objets dans différents type de base de données, plusieurs applications web et une application Java mobile.
     Au total, le système du monde réel sur lequel j'ai basé cet exemple contient au moins 15 modules interdépendants.
-    Vous avez vu l'exemple de projet multimodules le plus complet que nous allons présenter dans ce livre, 
+    Vous avez vu l'exemple de projet multimodule le plus complet que nous allons présenter dans ce livre, 
     notez cependant que cet exemple se contente d'aborder qu'une infime partie de ce qu'il est possible de faire avec Maven.</para> 
     
     <section id="multimodule-web-spring-sect-interface-projects">
       <title>Programmation avec des projets Intefaces</title>
 
-      <para>Ce chapitre a exploré un projet multimodules qui était plus complexe que l'exemple présenté dans le <xref linkend="multimodule" />,
+      <para>Ce chapitre a exploré un projet multimodule qui était plus complexe que l'exemple présenté dans le <xref linkend="multimodule" />,
       pourtant il s'agit encore d'une simplification par rapport à un vrai projet.
       Dans un plus grand projet, vous pourriez construire un système ressemblant à la <xref linkend="fig-multimodule-web-spring-projects-complex" />.</para>  
 
