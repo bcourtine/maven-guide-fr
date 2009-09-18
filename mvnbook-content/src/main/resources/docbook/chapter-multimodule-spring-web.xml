@@ -20,35 +20,35 @@
     linkend="web" />. Nous ferons évoluer ces exemples en un projet utilisant 
     les frameworks Spring et Hibernate pour créer deux applications :
     une application web et une application en ligne de commande. Ces deux applications
-    permettront de lire le flux provenant de Yahoo! Météo. The code du projet 
+    permettront de lire le flux provenant du service Yahoo! Météo. Le code du projet 
     <varname>simple-weather</varname> développé dans le <xref linkend="customizing" /> 
     sera donc combiné au code du projet <varname>simple-webapp</varname> du <xref linkend="web" />. 
-    Pour créer ce projet multimodules, nous explorerons Maven et discuterons des différentes façons
-    qu'il peut être utilisé pour créer des projets modulaires qui encouragent la réutilisation.
+    Pour créer ce projet multimodules, nous allons explorer Maven et discuter des différentes façons
+    qu'il peut être utilisé pour créer des projets modulaires encourageant la réutilisation.
     </para>
 
     <section id="multimodule-web-spring-sect-downloading-example">
-      <title>Téléchargez les sources de ce chapitre</title>
+      <title>Télécharger les sources de ce chapitre</title>
 
       <para>Le projet multimodules développé dans cet exemple se compose des versions modifiées 
       des projets développés dans les chapitres <xref linkend="customizing" /> et <xref linkend="web" />, 
       sans utiliser le plugin Maven Archetype pour le générer. Nous recommandons de télécharger le code 
-      des exemples pour utiliser celui-ci comme référence supplémentaire lors de la lecture de ce chapitre.
-      Sans ces exemples, vous ne serez pas capables de recréer la totalité du code de ce chapitre.
+      des exemples pour utiliser celui-ci comme code de référence lors de la lecture de ce chapitre.
+      Sans ces exemples, vous ne serez pas capables de recréer la totalité du projet produit dans ce chapitre.
       Le projet contenant les exemples de ce chapitre peut être téléchargé aux adresses suivantes : 
       <ulink url="http://www.sonatype.com/book/mvn-examples-1.0.zip">http://www.sonatype.com/book/mvn-examples-1.0.zip</ulink>
       ou <ulink url="http://www.sonatype.com/book/mvn-examples-1.0.tar.gz">http://www.sonatype.com/book/mvn-examples-1.0.tar.gz</ulink>.
-      Une fois téléchargée, dézippez l'archive dans n'importe quel répertoire et ouvrez le répertoire <filename>ch07/</filename>.
+      Une fois téléchargée, dézippez l'archive dans n'importe quel répertoire et entrez dans le répertoire <filename>ch07/</filename>.
       Vous trouverez alors dans celui-ci un sous-répertoire <filename>simple-parent/</filename>      
       qui contient le projet Maven multimodules que nous allons développer dans ce chapitre.
-      Dans le répertoire de ce projet, vous trouverez un <filename>pom.xml</filename> et cinq sous-modules:   
+      Dans le répertoire de ce projet, vous trouverez un <filename>pom.xml</filename> et cinq sous-modules :   
       <filename>simple-model/</filename>,
       <filename>simple-persist/</filename>,
       <filename>simple-command/</filename>,
       <filename>simple-weather/</filename> et
       <filename>simple-webapp/</filename>. 
       
-      Si vous préférez, vous pouvez également suivre cet exemple dans un navigateur Web. Pour cela, rendez-vous à l'adresse suivante :
+      Si vous préférez, vous pouvez également suivre cet exemple à partir de votre navigateur Web. Pour cela, rendez-vous à l'adresse suivante :
       <ulink url="http://www.sonatype.com/book/examples-1.0">http://www.sonatype.com/book/examples-1.0</ulink> 
       et cliquez sur le lien <filename>ch07/</filename> pour consulter le code source de ce chapitre.</para>
     </section>
@@ -56,22 +56,22 @@
     <section id="multimodule-web-spring-sect-project-description">
       <title>Projet Multimodules d'Enterprise</title>
 
-      <para>Présenter la compléxité d'un volumineux projet d'entreprise dépasse de loin la portée de ce livre.
+      <para>Présenter la compléxité d'un projet d'entreprise d'envergure dépasse de loin la portée de ce livre.
       De tels projets sont souvent caractérisés par des problématiques bien spécifiques : bases de données multiples,
       intégration avec des systèmes externes, sous-projets divisés par départements... 
-      Ce genre de projets comportent en général plusieurs milliers de lignes de codes et peuvent impliquer des dizaines voire des centaines de développeurs.
+      Ce genre de projets comportent en général plusieurs milliers de lignes de codes et peuvent impliquer des dizaines, voire des centaines, de développeurs.
       S'il est évident que nous ne traiterons pas ce genre de projet dans son intégralité dans ce livre,
-      nous pouvons tout de même vous fournir un exemple suggérant la complexité d'une application d'entreprise.
-      En conclusion, au delà ce qui est présenté dans ce chapitre, nous explorerons quelques pistes pour rendre vos applications modulaires.
+      nous allons tout de même vous fournir un exemple assez complet pour appréhender la complexité d'une application d'entreprise.
+      Enfin, en conclusion, au delà ce qui est présenté dans ce chapitre, nous explorerons quelques pistes pour rendre vos applications modulaires.
       </para>
 
-      <para>Dans ce chapitre, nous allons regarder projet Maven multimodules qui produira deux applications :
-      un outil en ligne de commande et une application Web qui permettent d'interroger le flux Yahoo! Météo.
+      <para>Dans ce chapitre, nous allons étudier un projet Maven multimodules qui produira deux applications :
+      un outil en ligne de commande et une application web; chacune de ces applications permettra d'interroger le flux Yahoo! Météo.
       Ces deux applications conserveront les résultats des différentes requêtes dans une base de données embarquée
-      et permettent de récupérer l'historique des données météorologiques stockées dans celle-ci.
-      Les deux applications réutiliseront le même code et partageront une bibliothèque de persistance.
-      L'exemple de ce chapitre est construit sur le code du parseur développé dans le <xref linkend="customizing" />.
-      Ce projet est divisé en cinq sous-modules comme le montre la <xref linkend = "fig-multimodule-web-spring-projects"/>.</para>
+      et permettent de récupérer l'historique des prévisions météorologiques stockées dans celle-ci.
+      Les deux applications réutiliseront le même code métier et partageront une bibliothèque de persistance.
+      L'exemple de ce chapitre est construit sur la base du code du parseur développé dans le <xref linkend="customizing" />.
+      Ce projet est divisé en cinq sous-modules, dont voici la présentation sur la <xref linkend = "fig-multimodule-web-spring-projects"/>.</para>
 
       <figure id="fig-multimodule-web-spring-projects">
         <title>Relations entre les modules de l'Application d'Enterprise</title>
@@ -103,9 +103,9 @@
             <classname>Location</classname>, et <classname>Wind</classname>.
             Lorsque notre application parse le flux Yahoo! Météo, 
             les parseurs définit dans le module <varname>simple-weather</varname> transforment le <acronym>XML</acronym>
-            et en une liste d'objets <classname>Weather</classname> qui sera ensuite utilisée dans l'application.
+            en une liste d'objets <classname>Weather</classname> qui sera ensuite utilisée dans les applications.
             Ce projet contient des objets du modèle annotés avec les annotations Hibernate 3. 
-            Le module simple-persist utilise ces objets pour mapper chaque d'entre eux à une table de la base de données.
+            Le module simple-persist utilise ces objets pour mapper chacun d'entre eux à une table de la base de données.
             </para>
           </listitem>
         </varlistentry>
@@ -115,7 +115,7 @@
 
           <listitem>
             <para>Ce module contient toute la logique nécessaire pour récupérer des données du flux Yahoo! Météo et parser le <acronym>XML</acronym> résultat. 
-            Cet <acronym>XML</acronym> est converti dans les objets du modèle définis dans le module <varname>simple-model</varname>. 
+            Cet <acronym>XML</acronym> est converti dans les objets du modèle du module <varname>simple-model</varname>. 
             Pour cela, le module <varname>simple-weather</varname> doit avoir comme dépendance le module <varname>simple-model</varname>.  
             <varname>simple-weather</varname> definit un service <classname>WeatherService</classname> qui est référencé par deux autres projets :  
             <varname>simple-command</varname> et <varname>simple-webapp</varname>.
@@ -130,7 +130,7 @@
             <para>Ce module contient les <acronym>DAO</acronym> (Data Access Objects) qui permettent 
             de stocker les objets <classname>Weather</classname> dans la base de données.
             Ces <acronym>DAO</acronym> seront utilisés par les deux applications de ce projet mutltimodules.
-            Ils permettent également de faire le lien avec les objets du modèle du module <varname>simple-model</varname>. 
+            Ils permettront également de faire le lien avec les objets du modèle du module <varname>simple-model</varname>. 
             Le module <varname>simple-persist</varname> à donc une dépendance directe avec le module <varname>simple-model</varname>
             et une dépendance avec <acronym>JAR</acronym> contenant les Annotations Hibernate. 
             </para>
@@ -141,7 +141,7 @@
           <term>simple-webapp</term>
 
           <listitem>
-            <para>L'application Web contient deux contrôleurs Spring <acronym>MVC</acronym> qui utilisent le service
+            <para>L'application web contient deux contrôleurs Spring <acronym>MVC</acronym> qui utilisent le service
             <classname>WeatherService</classname> défini dans le module <varname>simple-weather</varname> et les <acronym>DAO</acronym>s
             provenant du module <varname>simple-persist</varname>. 
             <varname>simple-webapp</varname> a une dépendance directe sur les modules 
@@ -164,7 +164,7 @@
         </varlistentry>
       </variablelist>
 
-      <para>Ce chapitre contient un exemple assez simple pour être décrit dans un livre, 
+      <para>Ce chapitre contient un exemple assez simple pour être décrit dans un livre et 
       assez complexe pour justifier la création de cinq sous-modules.
       Notre exemple est organisé autour d'un modèle contenant cinq classes, 
       une bibliothèque de persistance avec deux classes de service 
@@ -172,7 +172,7 @@
       Dans un cas réel, un projet peut avoir un modèle de plusieurs centaines de classes, 
       de plusieurs bibliothèques de persistance et des bibliothèques de services partagées.
       Bien que nous ayons essayé de garder un exemple assez simple pour comprendre rapidement,
-      nous vous proposons un projet bien plus complexe que le projet mutimodule du chapitre précédent. 
+      nous vous proposons un projet bien plus complexe que le projet mutimodules du chapitre précédent. 
       Vous pourriez être tentés de regarder rapidement les exemples dans ce chapitre et penser que Maven 
       génère trop de complexité comparée à la taille du modèle d'objet.
       Bien que l'utilisation de Maven suggère un certain niveau de modularité, 
@@ -186,8 +186,8 @@
       Ces technologies sont Spring et Hibernate.
       Spring est un conteneur <acronym>IoC</acronym> (Inversion of Control) accompagné par un ensemble de frameworks dont le but
       est de simplifier les interactions entre nombreuses bibilithèques <acronym>J2EE</acronym>.  
-      Utiliser Spring comme fondations pour le développement d'applications vous donne l'accès à un certain nombre d'abstractions pratiques 
-      qui permettent de faciliter l'intégration des framework de persistance comme Hibernate, iBatis ou de d'<acronym>API</acronym> d'entreprise
+      Utiliser Spring comme fondations pour le développement d'applications vous donne l'accès à un certain nombre d'abstractions très pratiques 
+      qui permettent, entre autres, de faciliter l'intégration des framework de persistance comme Hibernate, iBatis ou d'<acronym>API</acronym> d'entreprise
       comme <acronym>JDBC</acronym>, <acronym>JNDI</acronym>, and <acronym>JMS</acronym>. 
       La popularité de Spring n'a cessé d'augmenter ces dernières années, permettant d'offrir une solution alternative aux lourds standards proposés par Sun Microsystems.  
       Quant à Hibernate, il s'agit d'un framework d'<acronym>ORM</acronym> (Object-Relational Mapping) très largement utilisé
@@ -301,14 +301,14 @@
     <para>La première chose dont nécessitent la plupart des projets d'entreprise est un modèle d'objet.
     Un modèle d'objets capture la liste principale des objets du domaine d'un système.
     Par exemple, un système bancaire pourrait avoir un modèle d'objet qui se compose des objets suivants :
-    <classname>Account</classname>, <classname>Customer</classname>, aet <classname>Transaction</classname>.
+    <classname>Account</classname>, <classname>Customer</classname>, et <classname>Transaction</classname>.
     De la même manière, un système publiant des résultats sportifs pourrait contenir des objets <classname>Team</classname> et <classname>Game</classname>.  
     Quoi que vous fassiez, il y a une bonne chance que vous ayez intégré les concepts de votre système dans un modèle d'objet.
     C'est pratique courante dans les projets Maven de séparer ce type de projet et de le référencer largement.
     Dans notre système, nous capturons chaque requête du flux Yahoo! Météo dans un objet <classname>Weather</classname> qui référence quatre autres objets.
     La direction, la fraîcheur et la vitesse du vent sont stockées dans un objet <classname>Wind</classname>. 
-    Les données de localisation telles que le code postal, la ville, la région, et le pays sont stockées dans la classe <classname>Location</classname>. 
-    Les conditions atmosphériques telles que l'humidité, la visibilité, la pression barométrique et sa la tendance sont conservées dans une classe Atmosphère <classname>Atmosphere</classname>.         
+    Les données de localisation telles que le code postal, la ville, la région et le pays sont stockées dans la classe <classname>Location</classname>. 
+    Les conditions atmosphériques telles que l'humidité, la visibilité, la pression barométrique et sa la tendance sont conservées dans une classe <classname>Atmosphere</classname>.         
     Enfin, une description textuelle des conditions, la température et la date de l'observation sont conservées dans une classe <classname>Condition</classname>.</para>
 
     <figure>
@@ -332,9 +332,9 @@
       </indexterm><indexterm>
         <primary>annotations (Hibernate)</primary>
       </indexterm> annoté avec Hibernate Annotations. 
-    Celles-ci sont utilisées pour mapper ce modèle d'objets avec les tables de la base de données relationnelle. 
+    Celles-ci sont utilisées pour mapper ce modèle avec les tables de la base de données relationnelle. 
     Cette dépendance est <varname>org.hibernate:hibernate-annotations:3.3.0.ga</varname>. 
-    Regardez le <filename>pom.xml</filename> affiché dans l'<xref linkend="example_simple-model_pom.xml" />, 
+    Regardons le <filename>pom.xml</filename> affiché dans l'<xref linkend="example_simple-model_pom.xml" />, 
     ainsi que les quelques exemples d'utilisation de ces annotations.</para>
 
     <example id="example_simple-model_pom.xml">
@@ -370,12 +370,12 @@
 &lt;/project&gt;
 </programlisting>
 
-      <para>Dans le dossier  <filename>src/main/java/org/sonatype/mavenbook/weather/model</filename> se trouve le fichier <filename>Weather.java</filename>.
+      <para>Dans le dossier <filename>src/main/java/org/sonatype/mavenbook/weather/model</filename> se trouve le fichier <filename>Weather.java</filename>.
       Celui-ci contient l'objet <classname>Weather</classname> annoté. Il s'agit d'un simple bean Java.
       Cela veut dire qu'il contient des variables d'instances privées comme <varname>id</varname>,
       <varname>location</varname>, <varname>condition</varname>,
       <varname>wind</varname>, <varname>atmosphere</varname> et
-      <varname>date</varname> exposés par l'intermédiaire de getter et setter public en suivant ce pattern : 
+      <varname>date</varname>. Celles-ci sont exposées par l'intermédiaire de getter et setter public en suivant ce pattern : 
       une propriété est nommée <literal>name</literal> disposera d'un getter public sans argument nommé <methodname>getName()</methodname>,
       et d'un setter prenant en paramètre un argument nommé <methodname role="keep-together">setName(String name)</methodname>.
       Si nous montrons le getter et le setter de la propriété <varname>id</varname>, 
@@ -428,14 +428,16 @@ public class Weather {
 </programlisting>
     </example>
 
-    <para>La classe <classname>Weather</classname> utilise des annotations qui permettent de guider Hibernate à mapper cet objet vers l'une table de la base de données relationnelle.
-    Bien qu'une explication détaillée des annotations Hibernate dépasse les limites de ce chapitre, en voici quelques grandes lignes 
+    <para>La classe <classname>Weather</classname> utilise des annotations qui permettent de guider Hibernate pour mapper cet objet vers l'une table de la base de données relationnelle.
+    Bien qu'une explication détaillée des annotations Hibernate dépasse les limites de ce chapitre, en voici quelques grandes lignes. 
     <indexterm>
         <primary sortas="Entity annotation (Hibernate)">Annotation @Entity (Hibernate)</primary>
-      </indexterm>L'annotation  <classname>@Entity</classname> marque la classe comme entité persistante. 
-      Nous n'avons pas mis d'annotation <indexterm>
+      </indexterm> L'annotation <classname>@Entity</classname> marque la classe comme entité persistante.
+      Nous avons omis l'annotation <classname>@Table</classname> sur cette classe, 
+    <indexterm>
         <primary sortas="Table annotation (Hibernate)">Annotation @Table (Hibernate)</primary>
-      </indexterm> L'annotation <indexterm>
+      </indexterm> ainsi, Hibernate ainsi va utiliser le nom de la classe comme en nom de table. 
+      L'annotation <indexterm>
         <primary sortas="NamedQueries annotation (Hibernate)">Annotation @NamedQueries (Hibernate)</primary>
       </indexterm> <classname>@NamedQueries</classname> définit une requête qui sera utilisée par le <classname>WeatherDAO</classname> dans le module <varname>simple-persist</varname>.   
       Le langage utilisé dans la requête de l'annotation <indexterm>
