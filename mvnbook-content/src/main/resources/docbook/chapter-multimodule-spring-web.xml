@@ -468,10 +468,10 @@ public class Weather {
         <listitem>
           <para>Chaque instance de la classe <classname>Weather</classname> contient un objet <classname>Location</classname>.  
           Ce dernier représente un code postal. 
-          Son annotation <classname>@ManyToOne</classname> vous assure que tous les objets <classname>Weather</classname> possédant la même <classname>Location</classname>   
+          Son annotation <classname>@ManyToOne</classname> vous assure que tous les objets <classname>Weather</classname> qui possèdent la même <classname>Location</classname>   
           pointent effectivement vers les mêmes instances.
           L'attribut <varname>cascade</varname> de l'annotation 
-          The <varname>cascade</varname> attribute of the <classname>@ManyToOne</classname> permet d'assurer qu'à chaque objet <classname>Location</classname> persisté
+          <classname>@ManyToOne</classname> permet d'assurer qu'à chaque objet <classname>Location</classname> persisté
           corresponde un objet <classname>Weather</classname> également persisté.</para>
         </listitem>
       </varlistentry>
@@ -483,7 +483,7 @@ public class Weather {
         <listitem>
           <para>Chacun de ces objets est mappé avec une annotation <classname>@OneToOne</classname> dont la propriété <varname>cascade</varname> est à <classname>CascadeType</classname>.<varname>ALL</varname>
           Cette propriété signifie qu'à chaque sauvegarde d'un objet <classname>Weather</classname> une ligne sera créée dans chaque des tables suivantes :
-          <varname>Condition</varname> table, <varname>Wind</varname> et <varname>Atmosphere</varname>.</para>
+          <varname>Condition</varname>, <varname>Wind</varname> et <varname>Atmosphere</varname>.</para>
         </listitem>
       </varlistentry>
 
@@ -538,9 +538,9 @@ public class Condition {
 }</programlisting>
     </example>
 
-    <para>La classe <classname>Condition</classname> ressemble la classe <classname>Weather</classname>. 
+    <para>La classe <classname>Condition</classname> ressemble à la classe <classname>Weather</classname>. 
     Elle est annotée avec <classname>@Entity</classname> et possède les mêmes annotations sur la propriété <varname>id</varname>. 
-    Les champs <varname>text</varname>, <varname>code</varname>, <varname>temp</varname> et <varname>date</varname> sne possèdent pas d'annotation et reste donc mappés avec la configuration par défaut.
+    Les champs <varname>text</varname>, <varname>code</varname>, <varname>temp</varname> et <varname>date</varname> ne possèdent pas d'annotation et reste donc mappés avec la configuration par défaut.
     La propriété <varname>weather</varname> est annotée avec <classname>@OneToOne</classname> et <classname>@JoinColumn</classname> qui permettent de référencer
     l'objet <classname>Weather</classname> associé avec une clé étrangère nommée <varname>weather_id</varname>.</para>
   </section>
@@ -562,10 +562,10 @@ public class Condition {
       </indexterm> un “service.” 
     Ce module contient toute la logique nécessaire pour récupérer et parser les données provenant du flux <acronym>RSS</acronym> Yahoo! Météo
     Bien qu'il ne contienne que trois classes Java et un test JUnit, 
-    il permettra d'exposer un composant simple, <classname>WeatherService</classname>, qui sera utilisé dans l'application Web et l'application en ligne de commande.
+    il permet d'exposer un composant simple, <classname>WeatherService</classname>, qui sera utilisé dans l'application web et l'application en ligne de commande.
     Un projet d'entreprise contient très souvent plusieurs modules <acronym>API</acronym>
     permettant de centraliser la logique business et les interactions avec des systèmes externes.
-    Un système bancaire pourrait avoir un module qui récupère et analyse des données provenant d'un provider tiers,
+    Un système bancaire pourrait avoir un module qui récupère et analyse des données provenant d'un fournisseur tiers,
     et un système affichant des résultats sportifs pourrait interagir avec un flux <acronym>XML</acronym> qui présente les scores du basket ou du football en temps réel. 
     Dans l'<xref linkend="example_simple-weather_module_pom" />, ce module renferme toute l'activité réseau et le parsing du flux <acronym>XML</acronym> provenant du service Yahoo! Météo.
     Les autres modules peuvent dépendre de celui-ci et simplement appeler la méthode <methodname
@@ -631,7 +631,7 @@ public class Condition {
         <term><literal>org.sonatype.mavenbook.ch07:simple-model:1.0</literal></term>
 
         <listitem>
-          <para>Le module <varname>simple-weather</varname> parse et le transforme le flux  <acronym>RSS</acronym> Yahoo! Météo  en objet <classname>Weather</classname>.
+          <para>Le module <varname>simple-weather</varname> parse et le transforme le flux  <acronym>RSS</acronym> Yahoo! Météo en objet <classname>Weather</classname>.
           It a donc une dépendance directe sur le module <varname>simple-model</varname>.</para>
         </listitem>
       </varlistentry>
@@ -663,11 +663,11 @@ public class Condition {
     </variablelist>
 
     <para>Analysons maintenant le service <classname>WeatherService</classname> de l'<xref linkend="example_weatherservice_class" />.
-    Cette classe ressemble beaucoup à au service  <classname>WeatherService</classname> du <xref linkend="multimodule-weather-service" />.
-    Bien qu'ils aientt le même nom,  le service de cet exemple comporte quelques légères différences.
+    Cette classe ressemble beaucoup au service <classname>WeatherService</classname> du <xref linkend="multimodule-weather-service" />.
+    Bien qu'ils aient le même nom, le service de cet exemple comporte quelques légères différences.
     Dans cette version, la méthode <methodname>retrieveForecast()</methodname> retourne un objet <classname>Weather</classname>
-    et le formattage est délégué à l'application appelant le service  <classname>WeatherService</classname>.
-    L'autre modification majeure concerne les classes  <classname>YahooRetriever</classname> et <classname>YahooParser</classname>, 
+    et le formattage est délégué à l'application appelant le service <classname>WeatherService</classname>.
+    L'autre modification majeure concerne les classes <classname>YahooRetriever</classname> et <classname>YahooParser</classname>, 
     qui sont maintenant des propriétés du service <classname>WeatherService</classname>.</para> 
 
     <example id="example_weatherservice_class">
@@ -718,15 +718,15 @@ public class WeatherService {
     <para>Pour finir, ce projet contient un fichier <acronym>XML</acronym> utilisé par Spring pour créer quelque chose appelé 
     <indexterm>
         <primary>ApplicationContext (Spring Framework)</primary>
-      </indexterm> <classname>ApplicationContext</classname> dont voici quelques explications :  
-    nos applications Web et en ligne de commandes ont besoin d'interagir avec le service 
+      </indexterm> <classname>ApplicationContext</classname> dont voici le fonctionnement :  
+    nos applications web et en ligne de commandes ont besoin d'interagir avec le service 
     <classname>WeatherService</classname>, pour cela elles récupèrent une instance de cette classe par l'intermédiaire de 
     de l'<classname>ApplicationContext</classname> Spring en utilisant le nom de bean <varname>weatherService</varname>. 
-    Notre application Web utilise un contrôlleur Spring <acronym>MVC</acronym>, celui-ci est associé à une instance du service <classname>WeatherService</classname>.
-    L'application en ligne de commande charge ce même service à partir de la méthode static <methodname>main()</methodname> grâce à l'<classname>ApplicationContext</classname>. 
+    Notre application web utilise un contrôleur Spring <acronym>MVC</acronym>, celui-ci est associé à une instance du service <classname>WeatherService</classname>.
+    L'application en ligne de commande charge ce même service à partir de la méthode statique <methodname>main()</methodname> grâce à l'<classname>ApplicationContext</classname>. 
     Afin d'encourager la réutilisation du code, nous avons inclus le fichier <filename>applicationContext-weather.xml</filename> dans le répertoire <filename>src/main/resources</filename>, rendant ainsi accessible le fichier dans le classpath.
     Les projets qui dépendent du module <varname>simple-weather</varname> peuvent ainsi charger ce fichier en utilisant la classe <classname>ClasspathXmlApplicationContext</classname> fournie par Spring
-    et ainsi récupérer une instance du service <classname>WeatherService</classname> par l'intermédiaire de son nom <varname>weatherService</varname>.</para>
+    et ainsi récupérer une instance du service <classname>WeatherService</classname> par l'intermédiaire de son nom : <varname>weatherService</varname>.</para>
 
     <example>
       <title>Application Context Spring du Module simple-weather</title>
@@ -780,7 +780,7 @@ public class WeatherService {
         <primary>projet d'enterprise, multimodules (exemple)</primary>
         <secondary>Module de Persistance Simple de</secondary>
       </indexterm> est un objet qui fournit une interface aux opérations de persistances.
-    Dans une application qui utilise un framework de mapping ORM (Object-Relational Mapping) tel Hibernate, un DAO est défini autour d'un objet.
+    Dans une application qui utilise un framework de mapping ORM (Object-Relational Mapping) comme Hibernate, un DAO est défini autour d'un objet.
     Dans ce projet, nous définissons deux objets DAO :  <varname role="keep-together">WeatherDAO</varname> et <varname>LocationDAO</varname>.
     La classe <varname>WeatherDAO</varname> nous permet de sauvegarder un objet <varname>Weather</varname> dans la base de données,
     de le récupérer à partir de son <literal>id</literal> ou d'une <varname>Location</varname> spécifique.
@@ -848,7 +848,7 @@ public class WeatherService {
 </programlisting>
     </example>
 
-    <para>Ce <acronym>POM</acronym> références le <acronym>POM</acronym> du module <varname>simple-parent</varname> en <acronym>POM</acronym> parent et définit quelques dépendances. 
+    <para>Ce <acronym>POM</acronym> référence le <acronym>POM</acronym> du module <varname>simple-parent</varname> en <acronym>POM</acronym> parent et définit quelques dépendances. 
     Les dépendances listées dans le <acronym>POM</acronym> du module <varname>simple-persist</varname> sont :</para>
 
     <variablelist>
@@ -856,8 +856,8 @@ public class WeatherService {
         <term><literal>org.sonatype.mavenbook.ch07:simple-model:1.0</literal></term>
 
         <listitem>
-          <para>Tout comme le module <varname>simple-weather</varname> module, ce module de persistance 
-          référence les objets du modèle défini dans le projet <varname>simple-model</varname>.</para>
+          <para>Tout comme le module <varname>simple-weather</varname>, ce module de persistance 
+          référence les objets du modèle définis dans le projet <varname>simple-model</varname>.</para>
         </listitem>
       </varlistentry>
 
@@ -875,7 +875,7 @@ public class WeatherService {
               <primary>javax.transaction:javax dépendance (non disponible)</primary>
             </indexterm> qui n'est pas récupérable à partir du repository Maven public.
           Cette dépendance est l'une de ces dépendances Sun qui ne sont pas encore publiées dans le dépôt 'free central Maven'.
-          Afin d'éviter le message nous demandant d'aller téléchargement cette dépendance, nous excluons simplement celle-ci d'Hibernate.</para>
+          Afin d'éviter le message nous demandant d'aller télécharger cette dépendance, nous excluons simplement celle-ci d'Hibernate.</para>
         </listitem>
       </varlistentry>
 
@@ -883,7 +883,7 @@ public class WeatherService {
         <term><literal>javax.servlet:servlet-api:2.4</literal></term>
 
         <listitem>
-          <para>Comme le projet contient une Servlet, nous devons inclure Servlet API version 2.4.</para>
+          <para>Comme le projet contient une Servlet, nous devons inclure une version de Servlet API, ici en 2.4.</para>
         </listitem>
       </varlistentry>
 
@@ -896,8 +896,8 @@ public class WeatherService {
             </indexterm>.</para>
 
           <note>
-            <para>C'est généralement une bonne pratique de dépendre uniquement des composantes Spring que vous utilisez.
-            Spring nous dispose d'ailleurs d'artefacts spécifiques tels que <varname>spring-hibernate3</varname>.</para>
+            <para>C'est généralement une bonne pratique de dépendre uniquement des composants Spring que vous utilisez.
+            Spring dispose d'ailleurs d'artefacts spécifiques tels que <varname>spring-hibernate3</varname>.</para>
           </note>
         </listitem>
       </varlistentry>
@@ -952,7 +952,7 @@ public class WeatherDAO extends HibernateDaoSupport <co
 }</programlisting>
     </example>
 
-    <para>C'est tout. Pas vraiment, vous en avez marre d'écrire une classe qui peut insérer des nouvelles lignes, la récupérer par sa clé primaire
+    <para>C'est tout ? Pas vraiment, vous en avez marre d'écrire une classe qui permet d'insérer des nouvelles lignes, la récupérer par sa clé primaire
     et récupérer toutes les lignes <classname>Weather</classname> qui référent à un id de la table <classname>Location</classname>.
     Nous ne pouvons clairement pas arrêter ce livre et insérer les cinq cents pages qu'il faudrait à comprendre les subtilités d'Hibernate,
     contentons-nous de quelques rapides explications :</para>
@@ -969,8 +969,8 @@ public class WeatherDAO extends HibernateDaoSupport <co
 
       <callout arearefs="coDef-hibDao-2" id="coRef-hibDao-2">
         <para>La méthode <methodname>save()</methodname> prend une instance de la classe <classname>Weather</classname> et appelle la méthode <methodname>save()</methodname> de la l'<classname>HibernateTemplate</classname>. 
-        L'<classname>HibernateTemplate</classname> simplifie les appels aux opérations standards d'Hibernate et convertit les exceptions typées des différentes bases de données en  <classname>RuntimeException</classname>. 
-        Appelons la méthode <methodname>save()</methodname> qui une nouvelle ligne dans la table <classname>Weather</classname>.
+        L'<classname>HibernateTemplate</classname> simplifie les appels aux opérations standards d'Hibernate et convertit les exceptions typées des différentes bases de données en <classname>RuntimeException</classname>. 
+        Appelons la méthode <methodname>save()</methodname> qui insére une nouvelle ligne dans la table <classname>Weather</classname>.
         La mise un jour d'une entité déjà en base passe par la méthode <methodname>update()</methodname>.  
         La méthode <methodname>saveOrUpdate()</methodname> crée une nouvelle ligne ou la modifie en fonction de la présence d'une valeur non-null dans la propriété <varname>id</varname> de la classe.</para>
       </callout>
@@ -994,7 +994,7 @@ public class WeatherDAO extends HibernateDaoSupport <co
     <para>C'est maintenant le bon moment de clarifier certains points.
     Les classes <classname>HibernateDaoSupport</classname> et <classname>HibernateTemplate</classname> proviennent du framework Spring.
     Elles ont été créées par Spring pour permettre de faciliter l'écriture de <acronym>DAO</acronym>. 
-    Pour cela, nous avons besoin de modifier la configuration de l'<classname>ApplicationContext</classname> Spring du module <varname>simple-persist</varname>
+    Pour cela, nous avons besoin de modifier la configuration de l'<classname>ApplicationContext</classname> Spring du module <varname>simple-persist</varname>.
     Le fichier XML de l'<xref linkend="ex-persist-spring" /> se trouve dans le dossier <filename>src/main/resources</filename> dans un fichier nommé <filename
     role="keep-together">applicationContext-persist.xml</filename>.</para>  
 
@@ -1055,9 +1055,9 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
  &lt;/beans&gt;</programlisting>
     </example>
 
-    <para>Cet application context définit plusieurs choses. 
+    <para>Cet ApplicationContext définit plusieurs choses. 
     Le bean <varname>sessionFactory</varname> est le bean par lequel les <acronym>DAO</acronym>s pourront récupérer les <classname>Session</classname> Hibernate.   
-    Ce bean est une instance de la classe <classname>AnnotationSessionFactoryBean</classname> et founi une liste de <varname>annotatedClasses</varname>.
+    Ce bean est une instance de la classe <classname>AnnotationSessionFactoryBean</classname> et fournit une liste de <varname>annotatedClasses</varname>.
     Notez que cette liste de classes annotées est la liste des classes définit dans le module <varname>simple-model</varname>. 
     Ensuite, la <varname>sessionFactory</varname> est configurée par l'intermédiaire d'une liste de propriété Hibernate de configuration (<varname>hibernateProperties</varname>).
     Dans cet exemple, nous utilisons les propriétés Hibernate suivantes :</para>
@@ -1087,7 +1087,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
     <para>À la suite du fichier XML, sont définis les deux <acronym>DAO</acronym>s du module <varname>simple-persist</varname>.
     Chacun d'entre eux contient une référence vers la <varname>sessionFactory</varname> Hibernate que nous venons de définir.
     Comme l'application context du module <varname>simple-weather</varname>, ce fichier <filename>applicationContext-persist.xml</filename> définit l'architecture du sous-module. 
-    Si vous travailliez avec un plus grand nombre de classes persistantes, vous pourriez trouver utile de les externaliser dans un application contexte séparé.</para>
+    Si vous travailliez avec un plus grand nombre de classes persistantes, vous pourriez trouver utile de les externaliser dans un ApplicationContexte séparé.</para>
 
     <para>Il reste encore une dernière pièce du puzzle. Plus tard dans ce chapitre, nous verrons  
     <indexterm>
@@ -1154,7 +1154,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
     </example>
 
     <para>Les contenus de l'<xref linkend="ex-persist-spring" /> et <xref linkend="ex-multimodule-web-spring-parent" /> sont redondants.
-    Le <acronym>XML</acronym> de l'Application Context Spring sera utilisé par l'application web et l'application en ligne de commande,
+    Le <acronym>XML</acronym> de l'ApplicationContext Spring sera utilisé par l'application web et l'application en ligne de commande,
     le fichier <filename>hibernate.cfg.xml</filename> n'est présent que pour faire fonctionner le plugin Maven Hibernate3. 
     Plus tard dans ce chapitre, nous verrons comment utiliser ce fichier <filename>hibernate.cfg.xml</filename> et le plugin Maven Hibernate3
     pour générer le schéma de la base de données basé sur les objets annotés du projet <varname>simple-model</varname>.
@@ -1289,8 +1289,9 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
 </programlisting>
     </example>
 
-    <para>Au fur et à mesure que nous avançons dans ce livre, les exemples deviennent de plus en plus substantiels, vous avez d'ailleurs probablement noté que le fichier
-    <filename>pom.xml</filename> à commencé à devenir volumineux.
+    <para>Au fur et à mesure que nous avançons dans ce livre, les exemples deviennent de plus en plus substantiels.
+    Vous avez d'ailleurs probablement noté que le fichier
+    <filename>pom.xml</filename> commence à devenir volumineux.
     Dans ce POM, nous configurons quatre dépendances et deux plugins.
     Passons ce POM en détail et nous étendons nous sur certains des points de configuration importants :</para>
 
@@ -1307,10 +1308,10 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
             <primary>plugin Maven Jetty</primary>
           </indexterm><indexterm>
             <primary>Jetty plugin</primary>
-          </indexterm>projet.  
-          we simply add a <literal>plugin</literal>
-        element that references the appropriate <literal>groupId</literal> and
-        <literal>artifactId</literal>. Le fait que ce plugin soit facile à configurer veut dire que les développeurs du plugin ont fait un bon travail 
+          </indexterm> ce projet.  
+          Nous ajoutons simplment la balise <literal>plugin</literal> qui référence les bons 
+         <literal>groupId</literal> et <literal>artifactId</literal>. 
+         Le fait que ce plugin soit facile à configurer veut dire que les développeurs du plugin ont fait un bon travail 
         en fournissant les valeurs par défaut adéquates pour la plupart des cas. 
         Si vous avez besoin de surcharger cette configuration, vous pouvez le faire en ajoutant une balise <literal>configuration</literal>.</para>  
       </callout>
