@@ -13,8 +13,7 @@
       </indexterm><indexterm class="startofrange" id="multimod1b">
         <primary>Applications Web</primary>
         <secondary>Exemple de projet multimodule</secondary>
-      </indexterm>
-      <indexterm>
+      </indexterm><indexterm>
         <primary>project méteo (exemple)</primary>
         <seealso>projet multimodule</seealso>
       </indexterm> exemples des deux chapitres précédents.
@@ -171,8 +170,7 @@
     <title>Le Module simple-weather</title>
 
     <para>Commençons par regarder le sous-module <varname>simple-weather</varname>.
-    Ce module contient toutes  
-    <indexterm class="startofrange" id="multimod2a">
+    Ce module contient toutes<indexterm class="startofrange" id="multimod2a">
         <primary>projet multimodule (exemple)</primary>
         <secondary>sous-module météorologiques simple</secondary>
       </indexterm><indexterm class="startofrange" id="multimod2b">
@@ -320,8 +318,7 @@ public class WeatherService {
   <section id="multimodule-sect-simple-web">
     <title>Le Module de simple-web</title>
 
-    <para>Le module <varname>simple-webapp</varname> est le second sous-module 
-    <indexterm class="startofrange" id="multimod3a">
+    <para>Le module <varname>simple-webapp</varname> est le second sous-module<indexterm class="startofrange" id="multimod3a">
         <primary>projet multimodule (exemple)</primary>
     <secondary>simple sous-module d'une application web</secondary>
       </indexterm><indexterm class="startofrange" id="multimod3b">
@@ -420,7 +417,7 @@ public class WeatherServlet extends HttpServlet {
     Ce fichier se trouve dans le répertoire <filename>src/main/webapp/WEB-INF</filename>.
     Les balises <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag>
     du fichier <filename>web.xml</filename> associent l'uri <filename>/weather</filename>
-    à la <indexterm class="endofrange" startref="multimod3a"></indexterm><indexterm class="endofrange"
+    à la<indexterm class="endofrange" startref="multimod3a"></indexterm><indexterm class="endofrange"
     startref="multimod3b"></indexterm> servlet <classname>WeatherServlet</classname>.
     Consultez le code XML nécessaire pour effectuer cette configuration dans l'<xref linkend="ex-simple-webapp-web.xml" />.
     </para>
@@ -458,8 +455,7 @@ public class WeatherServlet extends HttpServlet {
   <section id="multimodule-sect-building-multimodule">
     <title>Build du Projet Multi-module</title>
 
-    <para>Nous venons de créer le projet <varname>simple-weather</varname> qui contient
-    <indexterm class="startofrange" id="multimod4a">
+    <para>Nous venons de créer le projet <varname>simple-weather</varname> qui contient<indexterm class="startofrange" id="multimod4a">
         <primary>projet multimodule (exemple)</primary>
         <secondary>build</secondary>
       </indexterm><indexterm class="startofrange" id="multimod4b">
@@ -548,8 +544,7 @@ public class WeatherServlet extends HttpServlet {
   <section id="multimodule-sect-running-web">
     <title>Exécution de l'Application Web</title>
 
-    <para>Une fois que le projet multi-module a été installé via la commande <command>mvn
-    <indexterm class="startofrange" id="multimod5a">
+    <para>Une fois que le projet multi-module a été installé via la commande <command>mvn<indexterm class="startofrange" id="multimod5a">
         <primary>projet multimodule (exemple)</primary>
         <secondary>exécution</secondary>
       </indexterm><indexterm class="startofrange" id="multimod5b">
