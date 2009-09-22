@@ -7,7 +7,7 @@
   <section id="multimodule-sect-intro">
     <title>Introduction</title>
 
-    <para>Dans ce chapitre, nous allons créer un projet multi-module qui combine
+    <para>Dans ce chapitre, nous allons créer un projet multimodule qui combine
       les<indexterm class="startofrange" id="multimod1a">
         <primary>projet multimodule (exemple)</primary>
       </indexterm><indexterm class="startofrange" id="multimod1b">
@@ -22,13 +22,13 @@
     <literal>simple-webapp</literal> défini dans le <xref linkend="web" />
     pour créer une application web qui récupère et affiche des renseignements
     de météorologiques sur une page Web. À la fin de ce chapitre, vous serez 
-    capables d'utiliser Maven pour développer des projets multimodule complexes.
+    capables d'utiliser Maven pour développer des projets multimodules complexes.
     </para>
 
     <section id="multimodule-sect-downloading">
       <title>Télécharger l'exemple de ce chapitre</title>
 
-      <para>Le projet multi-module de cet exemple consiste à développer une
+      <para>Le projet multimodule de cet exemple consiste à développer une
       version modifiée des projets des chapitres
       <xref linkend="customizing" xrefstyle="select: labelnumber" /> et <xref
       linkend="web" xrefstyle="select: labelnumber" /> sans utiliser le plugin 
@@ -56,7 +56,7 @@
   <section id="multimodule-sect-simple-parent">
     <title>Le Projet Parent</title>
 
-    <para>Un projet multi-module est défini par un
+    <para>Un projet multimodule est défini par un
     <acronym>POM</acronym><indexterm class="startofrange" id="parent1a">
         <primary>projet parent simple (exemple)</primary>
         <secondary>multimodule</secondary>
@@ -256,7 +256,7 @@
       </indexterm><indexterm>
         <primary>fichier pom.xml</primary>
         <secondary>parent (top-level)</secondary>
-      </indexterm>Le POM parent du module 
+      </indexterm> Le POM parent du module
     <varname>simple-weather</varname> est identifié par un
     <varname>groupId</varname> avec pour valeur
     <varname>org.sonatype.mavenbook.ch06</varname>, par l'
@@ -299,7 +299,7 @@ public class WeatherService {
     applications en ligne de commande. Souvent, vous voudrez extraire 
     certains éléments communs dans un service externalisé pour pouvoir les réutiliser
     sur plusieurs projets. C'est donc dans cette optique que nous créons la classe
-    <classname>WeatherService</classname>. Ainsi, nous verons comment le projet  
+    <classname>WeatherService</classname>. Ainsi, nous verrons comment le projet
     <varname>simple-webapp</varname> fait référence à un service défini dans module séparé : 
     <varname>simple-weather</varname>.</para>
 
@@ -309,7 +309,7 @@ public class WeatherService {
     <classname>YahooRetriever</classname> qui retournera un flux <acronym>XML</acronym>
     provenant de Yahoo! Météo. Ce même <acronym>XML</acronym> est ensuite passé 
     à la méthode <methodname>parse()</methodname> de la classe <classname>YahooParser</classname> 
-    qui transforme le flux et vous le retourne sous la forme d'un objet <classname>Weather</classname>.
+    qui transforme le flux et le retourne sous la forme d'un objet <classname>Weather</classname>.
     Ce dernier est ensuite formaté sous la forme d'une chaîne de caractère présentable 
     par la classe <classname>WeatherFormatter</classname>.</para> 
    
@@ -325,8 +325,8 @@ public class WeatherService {
         <primary>Applications Web</primary>
         <secondary>Exemple d'un projet multimodule</secondary>
         <tertiary>simple sous-module d'une application web</tertiary>
-      </indexterm>référençant le projet <varname>simple-parent</varname>.
-      Cette application web a pour dépendance le second module <varname>simple-weather</varname> car
+      </indexterm> référençant le projet <varname>simple-parent</varname>.
+      Cette application web a pour dépendance le sous-module <varname>simple-weather</varname> car
       elle contient des servlets qui permettent d'afficher le résultat de la 
       recherche sur Yahoo! Météo.</para>
 
@@ -416,7 +416,7 @@ public class WeatherServlet extends HttpServlet {
       </indexterm> le fichier <filename>web.xml</filename> du module <varname>simple-webapp</varname>.
     Ce fichier se trouve dans le répertoire <filename>src/main/webapp/WEB-INF</filename>.
     Les balises <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag>
-    du fichier <filename>web.xml</filename> associent l'uri <filename>/weather</filename>
+    du fichier <filename>web.xml</filename> associent l'URI <filename>/weather</filename>
     à la<indexterm class="endofrange" startref="multimod3a"></indexterm><indexterm class="endofrange"
     startref="multimod3b"></indexterm> servlet <classname>WeatherServlet</classname>.
     Consultez le code XML nécessaire pour effectuer cette configuration dans l'<xref linkend="ex-simple-webapp-web.xml" />.
@@ -453,7 +453,7 @@ public class WeatherServlet extends HttpServlet {
   </section>
 
   <section id="multimodule-sect-building-multimodule">
-    <title>Build du Projet Multi-module</title>
+    <title>Build du Projet Multimodule</title>
 
     <para>Nous venons de créer le projet <varname>simple-weather</varname> qui contient<indexterm class="startofrange" id="multimod4a">
         <primary>projet multimodule (exemple)</primary>
@@ -551,7 +551,7 @@ public class WeatherServlet extends HttpServlet {
         <primary>Applications Web</primary>
         <secondary>exemple de projet multimodule</secondary>
         <tertiary>exécution</tertiary>
-      </indexterm>clean install</command> depuis le projet parent,
+      </indexterm> clean install</command> depuis le projet parent,
     <varname>simple-project</varname>, vous pouvez vous rendre dans le répertoire de la <varname>simple-webapp</varname>
     et lancer le goal run du plugin Jetty :</para>
 
