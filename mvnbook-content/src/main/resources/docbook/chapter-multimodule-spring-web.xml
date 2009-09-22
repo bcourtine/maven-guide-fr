@@ -1307,24 +1307,24 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
 
       <callout arearefs="coDef-spring-web-3" id="coRef-spring-web-3">
         <para>Dans notre configuration de build, nous allons configurer le plugin Maven Hibernate3 pour qu'il utilise une instance de la base de données embarquée HSQLDB.
-        Pour que le plugin Maven Hibernate 3 arrive à se connecter à la base, le plugin doit référencer le driver JDBC d'HSQLDB du classpath.
+        Pour que le plugin Maven Hibernate 3 arrive à se connecter à la base, il doit référencer le driver JDBC d'HSQLDB du classpath.
         Pour rendre cette dépendance disponible au plugin, nous ajoutons sa déclaration directement dans la déclaration du <sgmltag>plugin</sgmltag>.  
         Ici, nous référençons hsqldb:hsqldb:1.8.0.7. 
         Le plugin Hibernate a également besoin des drivers JDBC pour créer cette base de données, nous avons donc ajouté cette dépendance dans sa configuration.</para>
       </callout>
 
       <callout arearefs="coDef-spring-web-4" id="coRef-spring-web-4">
-        <para>C'est à partir du plugin Hibernate Maven que ce POM devient le plus<indexterm>
+        <para>C'est à partir de l'utilisation du plugin Maven Hibernate que ce POM devient le plus<indexterm>
             <primary>plugin Hibernate Maven</primary>
           </indexterm><indexterm>
             <primary>plugin Hibernate</primary>
           </indexterm> intéressant. 
         Dans la section suivante, nous allons exécuter le goal <literal>hbm2ddl</literal> pour générer une base de données HSQLDB.
-        Nous avons inclus dans ce <filename>pom.xml</filename> une référence vers la version 2.0 du <literal>hibernate3-maven-plugin</literal> récupérable à partir du plugin Codehaus Mojo.</para>
+        Nous avons inclus dans ce <filename>pom.xml</filename> une référence vers la version 2.0 du <literal>hibernate3-maven-plugin</literal> récupérable à partir du dépôt Codehaus Mojo.</para>
       </callout>
 
       <callout arearefs="coDef-spring-web-5" id="coRef-spring-web-5">
-        <para>Le plugin Hibernate3 Maven dispose de plusieurs moyens pour récupérer le mapping Hibernate en fonction du cas d'utilisation.  
+        <para>Le plugin Maven Hibernate3 dispose de plusieurs moyens pour récupérer le mapping Hibernate en fonction du cas d'utilisation.
         Si vous utilisez des fichiers XML pour le Mapping Hibernate (<filename>.hbm.xml</filename>), 
         et que vous voulez générer les classes de votre modèle par l'intermédiaire du goal <literal>hbm2java</literal>,
         vous devez montrer votre implémentation à la configuration.
@@ -1333,18 +1333,18 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
         Dans notre exemple, nous utilisons simplement les objets annotés du modèle pour générer la base de données.        
         En d'autres mots, nous avons notre mapping Hibernate, mais nous n'avons pas encore de base de données. 
         Pour ce scénario, <literal>annotationconfiguration</literal> est l'implémentation la plus appropriée.
-        Le plugin Hibernate3 Maven sera présenté plus largement dans la section <xref linkend="multimodule-web-spring-sect-spring-running-web" />.</para>
+        Le plugin Maven Hibernate3 sera plus largement détaillé dans la <xref linkend="multimodule-web-spring-sect-spring-running-web" />.</para>
       </callout>
     </calloutlist>
 
     <note>
-      <para>Une erreur commune consiste à utiliser la balise <sgmltag>extensions</sgmltag> de la configuration pour ajouter des dépendances exigées par un plugin.
-      Il est fortement découragé d'effectuer ceci car les extensions peuvent polluer classpath de votre projet, et provoquer d'autres effets secondaires désagréables.
+      <para>Une erreur classique consiste à utiliser la balise <sgmltag>extensions</sgmltag> de la configuration pour ajouter des dépendances nécessaires à un plugin.
+      Il est fortement découragé de procéder de la sorte car les extensions peuvent polluer classpath de votre projet, et provoquer des effets de bord désagréables.
       De plus, le comportement des extensions a été modifié depuis la version 2.1 de Maven.
-      Le seul usage correct du tag <sgmltag>extensions</sgmltag> est l'ajout d'implémentations complémentaires.</para>
+      Le seul usage correct de la balise <sgmltag>extensions</sgmltag> est l'ajout d'implémentations complémentaires.</para>
     </note>
 
-    <para>Regardons maintenant les deux contrôleurs Spring MVC, chacun d'entre eux référence des beans déclarés dans les <varname>simple-weather</varname> et <varname>simple-persist</varname>.</para> 
+    <para>Regardons maintenant les deux contrôleurs Spring MVC, chacun d'entre eux référence des beans déclarés dans les <varname>simple-weather</varname> et <varname>simple-persist</varname>.</para>
 
     <example>
       <title>WeatherController du module simple-webapp</title>
@@ -1390,12 +1390,12 @@ public class WeatherController implements Controller {
 }</programlisting>
     </example>
 
-    <para><varname>WeatherController</varname> implémente l'interface <classname>Controller</classname> qui assure la présence de d'une méthode
+    <para><varname>WeatherController</varname> implémente l'interface <classname>Controller</classname> qui assure la présence d'une méthode
     <methodname>handleRequest()</methodname> dont la signature est montrée dans cet exemple.
     Si vous regardez le corps de cette méthode, vous constaterez que celle-ci invoque la méthode <methodname>retrieveForecast()</methodname> du service <varname>weatherService</varname>. 
     Contrairement au chapitre précédent, dans lequel une servlet instancie la classe <classname>WeatherService</classname>, 
     le <classname>WeatherController</classname> est un bean contenant une propriété <varname>weatherService</varname>.  
-    Le conteneur Spring IoC est responsable de charger le service <varname>weatherService</varname> dans le contrôleur.  
+    Le conteneur Spring IoC a la responsabilité de charger le service <varname>weatherService</varname> dans le contrôleur.
     Notez également que nous n'utilisons pas le <classname role="keep-together">WeatherFormatter</classname> dans ce contrôleur.
     Au lieu de cela, nous passons l'objet <classname>Weather</classname> retourné par la méthode <methodname>retrieveForecast()</methodname> au contructeur de la classe <classname>ModelAndView</classname>.    
     Cette classe <classname>ModelAndView</classname> est utilisée pour effectuer le rendu du<indexterm>
@@ -1426,12 +1426,12 @@ public class WeatherController implements Controller {
     </example>
 
     <para>La syntaxe de ce template Velocity est rapide à expliquer, les variables sont référencées par l'intermédiaire de la notation <code>\${}</code>.
-    L'expression entre les accolades réfère à une propriété, ou à une propriété d'une propriété de la variable <varname>weather</varname> qui a été passé à ce template par le <classname>WeatherController</classname>.</para>  
+    L'expression entre les accolades fait référence à une propriété, ou à une propriété d'une propriété de la variable <varname>weather</varname> passée à ce modèle par le <classname>WeatherController</classname>.</para>
 
     <para>Le contrôleur <classname>HistoryController</classname> est utilisé pour récupérer la liste 
     des prévisions météorologiques les plus récentes dernièrement demandées par le <classname>WeatherController</classname>.
     Chaque fois que nous récupérons une prévision dans le <classname>WeatherController</classname>, celui-ci enregistre l'objet <classname>Weather</classname> récupéré dans la base de données via le <classname>WeatherDAO</classname>.      
-    Ce DAO utilise ensuite Hibernate pour transformer l'objet <classname>Weather</classname> en une serie de lignes dans un ensemble de tables de la base de données.
+    Ce DAO utilise ensuite Hibernate pour transformer l'objet <classname>Weather</classname> en une série de lignes dans un ensemble de tables de la base de données.
     Le contrôleur <classname>HistoryController</classname> est affiché dans l'<xref linkend="ex-spring-history" />.</para>
 
     <example id="ex-spring-history">
@@ -1493,11 +1493,11 @@ public class HistoryController implements Controller {
     Pour cela, on invoque la méthode <methodname>findByZip()</methodname> du DAO <classname>LocationDAO</classname>.</para>       
 
     <para>Une fois cet objet <classname>Location</classname> récupéré, l'<classname>HistoryController</classname> essayera de récupérer les objets <classname>Weather</classname> les plus récents associés à cette <classname>Location</classname>.  
-    Une fois que la <classname>List&lt;Weather&gt;</classname> ait été récupéré, une <classname>HashMap</classname> est créée contenant les deux variables
+    Une fois la <classname>List&lt;Weather&gt;</classname> récupérée, une <classname>HashMap</classname> est créée contenant les deux variables
     du template Velocity <filename>history.vm</filename> de l'<xref linkend="ex-spring-history-velocity" />.</para>
 
     <example id="ex-spring-history-velocity">
-      <title>template history.vm rendu par l'HistoryController</title>
+      <title>Template history.vm rendu par l'HistoryController</title>
 
       <programlisting language="java">&lt;b&gt;
 Weather History for: \${location.city}, \${location.region}, \${location.country}
@@ -1524,11 +1524,11 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
 
     <para>Nous venons de voir les implémentations de nos deux <classname>Controller</classname>. 
     Nous venons également de voir comment ils référencent les beans des modules <varname>simple-weather</varname> et <varname>simple-persist</varname>.
-    Ces <classname>Controller</classname> répondent aux requêtes <acronym>HTTP</acronym> par l'intermédiaire de mistérieux systèmes qui savent comment effectuer le rendu de templates Velicity.
+    Ces <classname>Controller</classname> répondent aux requêtes <acronym>HTTP</acronym> par l'intermédiaire de mystérieux systèmes qui savent comment effectuer le rendu de templates Velocity.
     Toute la magie est configurée dans l'ApplicationContext Spring du fichier <filename>src/main/webapp/WEB-INF/weather-servlet.xml</filename>.
     Ce <acronym>XML</acronym> configure les contrôleurs et référence d'autres beans managés par Spring.
     Il est chargé par un <classname>ServletContextListener</classname> qui est configuré pour charger également les fichiers <filename>applicationContext-weather.xml</filename> et <filename>applicationContext-persist.xml</filename> à partir du classpath.
-    Regardons de plus pret le fichier <filename>weather-servlet.xml</filename> de l'<xref linkend="ex-spring-weather-servlet" />.</para>
+    Regardons de plus près le fichier <filename>weather-servlet.xml</filename> de l'<xref linkend="ex-spring-weather-servlet" />.</para>
 
     <example id="ex-spring-weather-servlet">
       <title>Configurations des contrôleurs Spring du fichier weather-servlet.xml</title>
@@ -1589,7 +1589,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
         <varname>historyController</varname> référence les beans <varname>weatherDAO</varname> et <varname>locationDAO</varname>. 
         Quand l'<classname>ApplicationContext</classname> est créé, il est créé dans un environnement qui donne accès aux 
         <classname>ApplicationContext</classname>s définit dans les fichiers <varname>simple-persist</varname> et <varname>simple-weather</varname>. 
-        Dans l'<xref linkend="ex-spring-webxml" /> vous pouvez voir comment Spring est configuré pour merger plusieurs composants contenant des fichiers de configuration Spring différents.</para>
+        Dans l'<xref linkend="ex-spring-web-xml" /> vous pouvez voir comment Spring est configuré pour fusionner plusieurs composants contenant des fichiers de configuration Spring différents.</para>
       </callout>
 
       <callout arearefs="coDef-weather-servlet-2" id="coRef-weather-servlet-2">
@@ -1688,9 +1688,9 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
       <callout arearefs="coDef-spring-webx-3" id="coRef-spring-webx-3">
         <para>Cela assure que le système Log4J est configuré lors du démarrage de l'application.
         Il est important de mettre ce <classname>Log4JConfigListener</classname> avant le <classname> ContextLoaderListener</classname>.
-        Dans le cas contraire, vous pourriez louper d'importants messages qui montreraient un éventuel problème survenu lors du démarrage d'application.
-        Si vous avez un ensemble particulièrement grand de beans managés par Spring et que l'un d'entre eux n'arrive pas à s'initialiser lors du démarrage de l'application, votre application échouera.
-        Si vous avez initialisé votre système de log avant le démarrage de Spring, vous aurez la chance de récupérer un warning ou un message d'erreur.
+        Dans le cas contraire, vous pourriez manquer d'importants messages indiquant un éventuel problème survenu lors du démarrage d'application.
+        Si vous avez un ensemble particulièrement grand de beans gérés par Spring et que l'un d'entre eux n'arrive pas à s'initialiser lors du démarrage de l'application, votre application échouera.
+        Si vous avez initialisé votre système de log avant le démarrage de Spring, vous aurez la chance de récupérer une alerte ou un message d'erreur.
         Au contraire, si vous n'avez pas initialisé le système de log avant le démarrage de Spring, préparez vous à naviguer dans le noir pour comprendre pourquoi votre application refuse de démarrer.</para>
       </callout>
 
@@ -1702,13 +1702,13 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
       <callout arearefs="coDef-spring-webx-5" id="coRef-spring-webx-5">
         <para>Nous définissons un <classname>DispatcherServlet</classname> de Spring <acronym>MVC</acronym> nommé <varname>weather</varname>.
         Cela forcera Spring à regarder dans le fichier <filename>/WEB-INF/weather-servlet.xml</filename>. 
-        Vous pouvez avoir autant de <classname>DispatcherServlet</classname>s que vous désirez, 
+        Vous pouvez avoir autant de <classname>DispatcherServlet</classname>s que vous le désirez,
         une <classname>DispatcherServlet</classname> peut contenir une ou plusieurs <classname>Controller</classname> Spring <acronym>MVC</acronym>.</para>
       </callout>
 
       <callout arearefs="coDef-spring-webx-6" id="coRef-spring-webx-6">
         <para>Toutes les requêtes terminant par <filename>.x</filename> seront routées vers la servlet <varname>weather</varname>. 
-        Notez que l'extension <filename>.x</filename> n'a pas de signification particulière, c'est un choix arbitraire, il vous est possible de choisir n'importe quel pattern pour vos<acronym>URL</acronym>.</para>  
+        Notez que l'extension <filename>.x</filename> n'a pas de signification particulière, c'est un choix arbitraire, il vous est possible de choisir n'importe quel format pour vos <acronym>URL</acronym>s.</para>
       </callout>
     </calloutlist>
   </section>
@@ -1716,8 +1716,8 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
   <section id="multimodule-web-spring-sect-spring-running-web">
     <title>Exécutez l'Application Web</title>
 
-    <para>Pour exécuter l'application web, vous devez tout d'abord builder votre projet multi-modules 
-    dans son intégralité et ensuite builder la base de données<indexterm class="startofrange" id="enterprise7a">
+    <para>Pour exécuter l'application web, vous devez tout d'abord builder votre projet multimodule 
+    dans son intégralité et ensuite construire la base de données<indexterm class="startofrange" id="enterprise7a">
         <primary>projet multimodule (exemple)</primary>
         <secondary>projet d'entreprise multimodule</secondary>
         <tertiary>Exécution de l'Application Web</tertiary>
@@ -1739,8 +1739,8 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
 
     <screen>$ <command>mvn clean install</command></screen>
 
-    <para>L'exécution de la commande <command>mvn clean install</command> dans le répartoire de plus haut niveau de votre projet instalera tous ces modules dans votre repository local.
-    Vous devez faire ceci avant de construire la base de données du projet <varname>simple-webapp</varname>. 
+    <para>L'exécution de la commande <command>mvn clean install</command> dans le répartoire de plus haut niveau de votre projet installera tous ces modules dans votre dépôt local.
+    Vous devez faire ceci avant de construire la base de données du projet <varname>simple-webapp</varname>.
     Pour construire la base de données à partir du projet <varname>simple-webapp</varname>, exécutez la commande suivante à partir du répertoire du projet <varname>simple-webapp</varname> : </para>  
 
     <screen>$ <command>mvn hibernate3:hbm2ddl</command>
