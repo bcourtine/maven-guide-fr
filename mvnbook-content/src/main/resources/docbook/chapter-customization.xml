@@ -1,12 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="customizing" lang="fr"><title>Personnalisation d'un Projet Maven</title>  <section id="customizing-sect-intro"><title>Introduction</title> <para>Ce chapitre va développer ce que nous avons appris dans le chapitre <xref linkend="simple-project" />. Nous allons créer un projet simple<indexterm class="startofrange" id="customproj1"> <primary>customizing projects</primary> </indexterm><indexterm class="startofrange" id="customproj2"> <primary>projects</primary> <secondary>customizing</secondary> </indexterm> grâce au plugin Maven Archetype, lui ajouter quelques dépendances, du code source et le personnaliser pour l'adapter à notre besoin. À la fin de ce chapitre, vous devriez être capable d'utiliser Maven pour créer de vrais projets. </para> <section id="customizing-sect-downloading"><title>Télécharger l'Exemple de ce Chapitre</title> <para>Nous allons développer un programme utile qui va interagir avec le service en ligne Yahoo! Météo. Bien que vous devriez être capable de suivre ce chapitre sans le code source d'exemple, nous vous recommandons d'en télécharger une copie et de l'utiliser comme référence. Le projet exemple de ce chapitre peut être téléchargé avec le code d'exemple de ce livre à l'adresse <ulink
+<chapter id="customizing" lang="fr">
+  <title>Personnalisation d'un Projet Maven</title>
+  <section id="customizing-sect-intro">
+    <title>Introduction</title>
+    <para>Ce chapitre va développer ce que nous avons appris dans le <xref linkend="simple-project" />. Nous allons créer
+    un projet simple<indexterm class="startofrange" id="customproj1"> <primary>customizing projects</primary>
+    </indexterm><indexterm class="startofrange" id="customproj2"> <primary>projects</primary> <secondary>customizing</secondary>
+    </indexterm> grâce au plugin Maven Archetype, lui ajouter quelques dépendances, du code source et le personnaliser
+    pour l'adapter à notre besoin. À la fin de ce chapitre, vous devriez être capable d'utiliser Maven pour créer de 
+    vrais projets.</para>
+    <section id="customizing-sect-downloading">
+      <title>Télécharger l'Exemple de ce Chapitre</title>
+      <para>Nous allons développer un programme utile qui va interagir avec le service en ligne Yahoo! Météo. Bien que
+      vous devriez être capable de suivre ce chapitre sans le code source d'exemple, nous vous recommandons d'en
+      télécharger une copie et de l'utiliser comme référence. Le projet exemple de ce chapitre peut être téléchargé avec
+      le code d'exemple de ce livre à l'adresse <ulink
       url="http://www.sonatype.com/book/mvn-examples-1.0.zip"></ulink> ou <ulink
-      url="http://www.sonatype.com/book/mvn-examples-1.0.tar.gz"></ulink>. Décompressez cette archive dans le répertoire de votre choix et allez dans le répertoire <filename>ch04/</filename>. Vous y trouverez un répertoire nommé <filename>simple-weather/</filename> qui contient le projet Maven qui sera développé dans ce chapitre. Si vous souhaitez suivre avec le code d'exemple affiché dans un navigateur web, allez à <ulink
-      url="http://www.sonatype.com/book/examples-1.0">http://www.sonatype.com/book/examples-1.0</ulink> et cliquez sur le répertoire <filename>ch04/</filename>. </para> </section> </section> <section id="customizing-sect-simple-weather"><title>Définir le Projet Simple Weather</title> <para>Avant de commencer à personnaliser ce projet, prenons un peu de recul et<indexterm> <primary>simple weather application</primary> <see>weather project (example)</see> </indexterm><indexterm class="startofrange" id="weather03a"> <primary>weather project (example)</primary> <secondary>defining</secondary> </indexterm><indexterm class="startofrange" id="weather03a1"> <primary>customizing projects</primary> <secondary>defining the project</secondary> </indexterm><indexterm class="startofrange" id="weather03a2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>defining the project</tertiary> </indexterm> discutons de ce projet simple weather. De quoi s'agit-il ? Il s'agit d'un exemple dont le but est de présenter certaines fonctions clés de Maven. C'est une application représentative de celles que vous pourriez avoir à réaliser. L'application simple weather est une application basique en ligne de commande qui prend en paramètre un code postal et va chercher des données depuis le flux <acronym>RSS</acronym> de Yahoo! Météo. Ensuite, elle parse la réponse et affiche le résultat sur la sortie standard.</para> <para>Nous avons choisi cet exemple pour un certain nombre de raisons. Premièrement, il est simple à comprendre. Un utilisateur fournit une donnée en entrée via la ligne de commande, l'application prend ce code postal, en fait une requête à Yahoo! Météo, parse la réponse, et formate les données avant de les afficher à l'écran. Cet exemple est une simple fonction <methodname>main()</methodname> avec quelques classes; il n'y a pas de framework d'entreprise à introduire ni à expliquer, juste un peu de parsing <acronym>XML</acronym> et quelques traces. Deuxièmement, il nous fournit une excellente excuse pour introduire des bibliothèques intéressantes telles que Velocity, Dom4J, et Log4J. Bien qu'il s'agisse d'un livre sur Maven, nous ne résistons pas à l'idée d'introduire des outils utiles. Enfin, un unique chapitre suffit à introduire, développer, et déployer cet exemple. </para> 
-      <section id="customizing-sect-yahoo-weather"><title>Yahoo! Météo RSS</title> <para>Avant de commencer à réaliser cette application, voici quelques informations concernant le<indexterm> <primary>Yahoo! Météo RSS feed, about</primary> </indexterm> flux <acronym>RSS</acronym> Yahoo! Météo. Pour commencer, ce service est accessible selon les termes suivants :</para> <blockquote> <para>Les flux sont fournis gratuitement pour une utilisation personnelle, non-commerciale par des individus ou des organisations à but non lucratif. Nous vous demandons d'attribuer les résultats à Yahoo! Météo dans votre utilisation de ces flux.</para> </blockquote> <para>En d'autres termes, si vous pensez intégrer ces flux dans votre site internet commercial, revoyez votre position&mdash;ce flux n'est utilisable qu'à titre personnel et non commercial. L'usage que nous allons en faire dans ce chapitre est personnel et à but d'apprentissage. Pour plus d'informations sur les termes de ce service, <indexterm class="endofrange" startref="weather03a"></indexterm><indexterm class="endofrange" startref="weather03a1"></indexterm><indexterm class="endofrange" startref="weather03a2"></indexterm>lisez la documentation de l'API Yahoo Weather! ici : <ulink
-      url="http://developer.yahoo.com/weather/"></ulink>. </para> </section> </section> <section id="customizing-sect-creating-simple-weather"><title>Créer le Projet Simple Weather</title> <para>Tout d'abord, utilisons le plugin Maven Archetype pour créer le squelette<indexterm class="startofrange" id="weather03b"> <primary>weather project (example)</primary> <secondary>creating</secondary> </indexterm><indexterm class="startofrange" id="weather03b1"> <primary>customizing projects</primary> <secondary>creating the project</secondary> </indexterm><indexterm class="startofrange" id="weather03b2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>creating the project</tertiary> </indexterm><indexterm> <primary>Archetype plugin</primary> <secondary>creating simple weather application with</secondary> </indexterm><indexterm> <primary>Maven Archetype plugin</primary> <secondary>creating simple weather application with</secondary> </indexterm> basique du projet simple weather. Exécutez la commande suivante pour créer un nouveau projet : </para><screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.ch04 \
+      url="http://www.sonatype.com/book/mvn-examples-1.0.tar.gz"></ulink>. Décompressez cette archive dans le répertoire
+      de votre choix et allez dans le répertoire <filename>ch04/</filename>. Vous y trouverez un répertoire
+      nommé <filename>simple-weather/</filename> qui contient le projet Maven qui sera développé dans ce chapitre. Si
+      vous souhaitez suivre avec le code d'exemple affiché dans un navigateur web, allez à <ulink
+      url="http://www.sonatype.com/book/examples-1.0">http://www.sonatype.com/book/examples-1.0</ulink> et cliquez sur
+      le répertoire <filename>ch04/</filename>.</para>
+    </section>
+  </section>
+  <section id="customizing-sect-simple-weather">
+    <title>Définir le Projet Simple Weather</title>
+    <para>Avant de commencer à personnaliser ce projet, prenons un peu de recul et<indexterm><primary>simple weather application</primary>
+    <see>weather project (example)</see> </indexterm><indexterm class="startofrange" id="weather03a">
+    <primary>weather project (example)</primary> <secondary>defining</secondary> </indexterm><indexterm class="startofrange" id="weather03a1">
+    <primary>customizing projects</primary> <secondary>defining the project</secondary> </indexterm><indexterm class="startofrange"
+    id="weather03a2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>defining the project</tertiary>
+    </indexterm> discutons de ce projet simple weather. De quoi s'agit-il ? Il s'agit d'un exemple dont le but est de
+    présenter certaines fonctions clés de Maven. C'est une application représentative de celles que vous pourriez avoir
+    à réaliser. L'application simple weather est une application basique en ligne de commande qui prend en paramètre un
+    code postal et va chercher des données depuis le flux <acronym>RSS</acronym> de Yahoo! Météo. Ensuite, elle parse la
+    réponse et affiche le résultat sur la sortie standard.</para>
+    <para>Nous avons choisi cet exemple pour un certain nombre de raisons. Premièrement, il est simple à comprendre.
+    Un utilisateur fournit une donnée en entrée via la ligne de commande, l'application prend ce code postal, en fait
+    une requête à Yahoo! Météo, parse la réponse, et formate les données avant de les afficher à l'écran. Cet exemple est
+    une simple fonction <methodname>main()</methodname> avec quelques classes; il n'y a pas de framework d'entreprise à
+    introduire ni à expliquer, juste un peu de parsing <acronym>XML</acronym> et quelques traces. Deuxièmement, il nous
+    fournit une excellente excuse pour introduire des bibliothèques intéressantes telles que Velocity, Dom4J, et Log4J.
+    Bien qu'il s'agisse d'un livre sur Maven, nous ne résistons pas à l'idée d'introduire des outils utiles. Enfin, un
+    unique chapitre suffit à introduire, développer, et déployer cet exemple.</para>
+      <section id="customizing-sect-yahoo-weather">
+        <title>Yahoo! Météo RSS</title>
+        <para>Avant de commencer à réaliser cette application, voici quelques informations concernant le<indexterm>
+        <primary>Yahoo! Météo RSS feed, about</primary> </indexterm> flux <acronym>RSS</acronym> Yahoo! Météo. Pour
+        commencer, ce service est accessible selon les termes suivants :</para>
+        <blockquote><para>Les flux sont fournis
+        gratuitement pour une utilisation personnelle, non-commerciale par des individus ou des organisations à but non
+        lucratif. Nous vous demandons d'attribuer les résultats à Yahoo! Météo dans votre utilisation de ces flux.</para></blockquote>
+        <para>En d'autres termes, si vous pensez intégrer ces flux dans votre site internet commercial, revoyez votre
+        position&mdash;ce flux n'est utilisable qu'à titre personnel et non commercial. L'usage que nous allons en faire
+        dans ce chapitre est personnel et à but d'apprentissage. Pour plus d'informations sur les termes de ce service,
+        <indexterm class="endofrange" startref="weather03a"></indexterm><indexterm class="endofrange" startref="weather03a1"></indexterm>
+        <indexterm class="endofrange" startref="weather03a2"></indexterm>lisez la documentation de l'API Yahoo Weather! ici : <ulink
+      url="http://developer.yahoo.com/weather/"></ulink>. </para>
+</section> 
+      </section>
+      <section id="customizing-sect-creating-simple-weather"><title>Créer le Projet Simple Weather</title> <para>Tout d'abord, utilisons le plugin Maven Archetype pour créer le squelette<indexterm class="startofrange" id="weather03b"> <primary>weather project (example)</primary> <secondary>creating</secondary> </indexterm><indexterm class="startofrange" id="weather03b1"> <primary>customizing projects</primary> <secondary>creating the project</secondary> </indexterm><indexterm class="startofrange" id="weather03b2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>creating the project</tertiary> </indexterm><indexterm> <primary>Archetype plugin</primary> <secondary>creating simple weather application with</secondary> </indexterm><indexterm> <primary>Maven Archetype plugin</primary> <secondary>creating simple weather application with</secondary> </indexterm> basique du projet simple weather. Exécutez la commande suivante pour créer un nouveau projet : </para><screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.ch04 \
                                          -DartifactId=simple-weather \
                                          -DpackageName=org.sonatype.mavenbook \
                                          -Dversion=1.0

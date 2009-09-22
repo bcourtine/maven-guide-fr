@@ -68,8 +68,8 @@
     (<acronym>JSF</acronym>), ou Waffle, et nous n'allons pas non plus
     intégrer un conteneur <acronym>IoC</acronym> (Inversion of Control) comme
     Plexus, Guice, ou le Framework Spring. Le but de ce chapitre est de vous
-    montrer les possibilités que Maven fournit pour développer des
-    applications web&mdash;ni plus, ni moins. Plus loin dans ce livre nous
+    montrer les possibilités fournies par Maven pour développer des
+    applications web&mdash;ni plus, ni moins. Plus tard dans ce livre nous
     développerons deux applications web : l'une basée sur Hibernate, Velocity,
     et le Framework Spring; l'autre utilisant Plexus.</para>
   </section>
@@ -94,7 +94,7 @@
     <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.ch05 \
                          -DartifactId=simple-webapp \
                          -DpackageName=org.sonatype.mavenbook \
-                          -Dversion=1.0-SNAPSHOT</command>
+                         -Dversion=1.0-SNAPSHOT</command>
 ...
 [INFO] [archetype:generate {execution: default-cli}]
 Choose archetype:
@@ -209,7 +209,7 @@ package: org.sonatype.mavenbook.ch05
     le packaging <literal>war</literal> va produire un fichier
     <acronym>WAR</acronym> dans le répertoire <filename>target/</filename>. Le
     nom par défaut de ce fichier est
-    <filename>${artifactId}-${version}.war</filename>. Dans ce projet, le
+    <filename>\${artifactId}-\${version}.war</filename>. Dans ce projet, le
     <acronym>WAR</acronym> par défaut serait donc
     <filename>target/simple-webapp-1.0-SNAPSHOT.war</filename>. Dans le projet
     <literal>simple-webapp</literal>, nous avons personnalisé le nom du
@@ -299,15 +299,15 @@ package: org.sonatype.mavenbook.ch05
 2007-11-17 22:11:51.057::INFO:  Started SelectChannelConnector@0.0.0.0:8080
 [INFO] Started Jetty Server</screen>
 
-    <para>Une fois que Maven a démarré le conteneur de Servlet Jetty, ouvrez
+    <para>Une fois que Maven a démarré le conteneur de servlet Jetty, ouvrez
     l'URL <ulink
     url="http://localhost:8080/simple-webapp/">http://localhost:8080/simple-webapp/</ulink>
     dans un navigateur web. La simple page <filename>index.jsp</filename>
     générée par l'Archetype est triviale; elle contient un titre de second
     niveau avec le texte "Hello World!". Maven s'attend à ce que la racine du site
     web soit dans <filename>src/main/webapp</filename>. C'est dans ce
-    répertoire que vous trouverez le fichier<filename> index.jsp</filename>
-    utilisé dans <xref linkend="web-example-index" />.</para>
+    répertoire que vous trouverez le fichier <filename>index.jsp</filename>
+    utilisé dans l'<xref linkend="web-example-index" />.</para>
 
     <example id="web-example-index">
       <title>Contenu de src/main/webapp/index.jsp</title>
@@ -352,9 +352,9 @@ package: org.sonatype.mavenbook.ch05
         <tertiary>adding simple servlet</tertiary>
       </indexterm><indexterm class="startofrange" id="webapp4b">
         <primary>servlets, adding to project</primary>
-      </indexterm> configurée est à peu près inutile. Ajoutons une simple
+      </indexterm> configurée est très peu utile. Ajoutons une simple
     servlet à cette application et modifions le <filename>pom.xml</filename>
-    et le <filename>web.xml</filename> pour supporter ce changement.
+    et le <filename>web.xml</filename> en conséquence.
     Premièrement, nous allons devoir créer un nouveau package dans
     <filename>src/main/java</filename> nommé
     <package>org.sonatype.mavenbook.web</package> :</para>
@@ -390,7 +390,7 @@ public class SimpleServlet extends HttpServlet {
     </example>
 
     <para>Notre classe <classname>SimpleServlet</classname> est très simple :
-    une servlet qui affiche un message simple sur le
+    une servlet qui écrit un message simple sur le
     <classname>Writer</classname> de la réponse. Pour ajouter cette servlet à
     votre application web, et la faire correspondre à une requête, ajoutez les éléments
     <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag> de l'exemple de <filename>web.xml</filename>
