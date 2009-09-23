@@ -19,7 +19,7 @@
       </affiliation>
     </editor>
 
-    <authorgroup role="Primary Authors">
+    <authorgroup role="Auteurs">
       <author>
         <firstname>Tim</firstname>
 
@@ -71,7 +71,7 @@
       </author>
     </authorgroup>
 
-    <authorgroup role="Contributing Authors">
+    <authorgroup role="Contributeurs">
       <author>
         <firstname>Eric</firstname>
 
@@ -84,13 +84,49 @@
         <surname>Shatzer</surname>
       </author>
     </authorgroup>
+    
+    <authorgroup role="Traducteurs">
+    
+      <author>
+        <firstname>Emmanuel</firstname>
+
+        <surname>Hugonnet</surname>
+
+        <affiliation>
+          <orgname>Silverpeas</orgname>
+        </affiliation>
+      </author>
+      
+      <author>
+        <firstname>Erwan</firstname>
+
+        <surname>Alliaume</surname>
+
+        <affiliation>
+          <orgname>Xebia IT Architects</orgname>
+        </affiliation>
+      </author>
+      
+      <author>
+        <firstname>Jérôme</firstname>
+
+        <surname>Van Der Linden</surname>
+
+        <affiliation>
+          <orgname>Octo Technology</orgname>
+        </affiliation>
+      </author>          
+      
+    </authorgroup>
+
+    
 
     <!--    <publisher>
       <publishername>O’Reilly</publishername>
     </publisher> -->
 
     <abstract role="description-short">
-      <para>Maven: The Definitive Guide is a book about Apache Maven.</para>
+      <para>Maven: The Definitive Guide est un livre à propos d'Apache Maven.</para>
     </abstract>
 
     <!--    <bibliomisc role="errata"><ulink
