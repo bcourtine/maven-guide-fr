@@ -9,7 +9,7 @@
   </para>
   <section id="installation-sect-java">
     <title>Vérification de votre Installation de Java</title>
-    <para>Même si Maven peut s'exécuter avec Java 1.4, dans ce livre nous supposerons que vous avez installé au minimum Java 5. Utilisez la version stable la plus récente du <acronym>JDK</acronym> (Java Development Kit) disponible pour votre système d'exploitation. Java 5 comme Java 6 permettront d'exécuter les exemples de ce livre.
+    <para>Même si Maven peut s'exécuter avec Java 1.4 (versions inférieures à la 2.1), dans ce livre nous supposerons que vous avez installé au minimum Java 5. Utilisez la version stable la plus récente du <acronym>JDK</acronym> (Java Development Kit) disponible pour votre système d'exploitation. Java 5 comme Java 6 permettront d'exécuter les exemples de ce livre.
     </para>
     <para><screen><prompt moreinfo="none">% </prompt><command moreinfo="none">java -version</command>
 java version "1.5.0_16"
@@ -17,7 +17,7 @@ Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_16-b06-284)
 Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)</screen></para>
     <para>Maven fonctionne avec tous les kits de développement Java
       <superscript>TM</superscript> certifiés compatibles, et également avec certaines implémentations de Java non certifiées. Les exemples fournis avec ce livre ont été écrits et testés avec les versions officielles du Java Development Kit téléchargées depuis le site internet de Sun Microsystems. Si vous êtes sous Linux, vous pouvez avoir besoin de télécharger le
-      <acronym>JDK</acronym> de Sun vous-même et vérifiez qu'il s'agit de la version que vous utilisez (en exécutant la commande
+      <acronym>JDK</acronym> de Sun vous-même et vérifier qu'il s'agit de la version que vous utilisez (en exécutant la commande
       <command>java
     -version
       </command>). Maintenant que Sun a mis Java en opensource, cela devrait s'améliorer et nous devrions rapidement trouver la
@@ -130,7 +130,7 @@ Password: ******
       </para>
       <screen>C:\Users\tobrien &gt;<command>set M2_HOME=c:\Program Files\apache-maven-${maven.version}</command>
 C:\Users\tobrien &gt;<command>set PATH=%PATH%;%M2_HOME%\bin</command></screen>
-      <para><!--TODO: Document process of setting environment variables in the window control panel system dialog.-->Définir ces variables d'environnement en ligne de commande vont vous permettre d'exécuter Maven dans la même console. Mais à moins de les définir comme des variables du Système avec le Panneau de Contrôle, vous devrez exécuter ces deux lignes à chaque fois que vous vous connecterez à votre système. Vous devriez modifier ces deux variables avec le Panneau de Contrôle de Microsoft Windows.
+      <para><!--TODO: Document process of setting environment variables in the window control panel system dialog.-->Définir ces variables d'environnement en ligne de commande vont vous permettre d'exécuter Maven dans la même console. Mais à moins de les définir comme des variables du Système avec le Panneau de Configuration, vous devrez exécuter ces deux lignes à chaque fois que vous vous connecterez à votre système. Vous devriez modifier ces deux variables avec le Panneau de Configuration de Microsoft Windows.
       </para>
     </section>
     <section id="installation-sect-maven-linux">
@@ -152,7 +152,7 @@ C:\Users\tobrien &gt;<command>set PATH=%PATH%;%M2_HOME%\bin</command></screen>
       <command>mvn -v</command> en ligne de commande. Si Maven a été correctement installé, vous devriez voir en sortie quelque chose ressemblant à cela.
     </para>
     <screen>$<command>mvn -v</command>
-Apache Maven 2.1.0 (r755702; 2009-03-18 14:10:27-0500)
+Apache Maven 2.2.1 (r801777; 2009-08-06 12:16:01-0700)
 Java version: 1.5.0_16
 Java home: /System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home
 Default locale: en_US, platform encoding: MacRoman
@@ -323,7 +323,7 @@ $ mvn one:convert</screen>
   </section>
   <section id="installation-sect-getting-help">
     <title>Obtenir de l'Aide avec Maven</title>
-    <para>Même si ce livre essaye de se rapprocher d’une référence compréhensible, nous oublierons certains sujets: nous ne couvrirons pas certaines situations particulières ainsi que certaines astuces. Le c&oelig;ur de Maven est très simple, cependant la véritable valeur ajoutée de Maven s'effectue par l'intermédiaire de ces plugins, et étant donné leur nombre nous n'arriverons pas à tous les couvrir en un seul ouvrage. Vous allez rencontrer des problèmes et des fonctionnalités qui ne sont pas traités dans ce livre; dans ce cas, nous vous suggérons ces différents points pour y chercher vos réponses: </para>
+    <para>Même si ce livre essaye de se rapprocher d’une référence compréhensible, nous oublierons certains sujets : nous ne couvrirons pas certaines situations particulières ainsi que certaines astuces. Le c&oelig;ur de Maven est très simple, cependant la véritable valeur ajoutée de Maven s'effectue par l'intermédiaire de ces plugins, et étant donné leur nombre nous n'arriverons pas à tous les couvrir en un seul ouvrage. Vous allez rencontrer des problèmes et des fonctionnalités qui ne sont pas traités dans ce livre; dans ce cas, nous vous suggérons ces différents points pour y chercher vos réponses: </para>
     <variablelist>
       <varlistentry>
         <term>
@@ -336,7 +336,7 @@ $ mvn one:convert</screen>
       <varlistentry>
         <term>La Liste de Diffusion des Utilisateurs de Maven</term>
         <listitem>
-          <para>La liste de diffusion Maven User est l'endroit où les utilisateurs peuvent poser leurs questions. Avant de poser votre question sur cette liste de diffusion, recherchez toute discussion antérieure qui pourrait avoir un rapport avec votre question. En effet, il est mal vu de poser une question qui a déjà été posée sans avoir vérifié auparavant les archives pour voir si quelqu'un y avait déjà répondu. Il y a un certain nombre de sites très utiles pour parcourir les archives des listes de diffusion. Nous avons trouvé, pour notre part, Nabble très pratique. Vous pouvez parcourir les archives de la liste de diffusion des Utilisateurs ici:
+          <para>La liste de diffusion Maven Users est l'endroit où les utilisateurs peuvent poser leurs questions. Avant de poser votre question sur cette liste de diffusion, recherchez toute discussion antérieure qui pourrait avoir un rapport avec votre question. En effet, il est mal vu de poser une question qui a déjà été posée sans avoir vérifié auparavant les archives pour voir si quelqu'un y avait déjà répondu. Il y a un certain nombre de sites très utiles pour parcourir les archives des listes de diffusion. Nous avons pour notre part trouver Nabble très pratique. Vous pouvez parcourir les archives de la liste de diffusion des utilisateurs ici:
             <ulink
           url="http://www.nabble.com/Maven---Users-f178.html">http://www.nabble.com/Maven---Users-f178.html
             </ulink>. Vous pouvez vous abonner à cette liste de diffusion en suivant les instructions disponibles ici:
@@ -356,14 +356,12 @@ $ mvn one:convert</screen>
       </varlistentry>
     </variablelist>
     <note>
-      <para>Malgré les efforts de nombreux contributeurs dévoués de Maven, le site internet de Maven est mal organisé et plein de  bouts de documentation incomplets (voir parfois incorrects). Partout dans la communauté Maven on sent un manque de standards pour la documentation des plugins, certains plugins ont une documentation très détaillée alors que d'autres n'ont même pas les instructions minimales pour les utiliser. Souvent, votre meilleure chance réside dans une recherche des archives de la liste de diffusion des utilisateurs.  Si vous voulez contribuer, il vous est possible de soumettre un patch sur site de Maven (ou sur ce livre). </para>
+      <para>Malgré les efforts de nombreux contributeurs dévoués de Maven, le site internet de Maven est mal organisé et plein de  bouts de documentation incomplets (voir parfois incorrects). Partout dans la communauté Maven on sent un manque de standards pour la documentation des plugins, certains plugins ont une documentation très détaillée alors que d'autres n'ont même pas les instructions minimales pour les utiliser. Souvent, votre meilleure chance réside dans une recherche des archives de la liste de diffusion des utilisateurs.  Si vous voulez contribuer, il vous est possible de soumettre un patch sur le site de Maven (ou sur ce livre). </para>
     </note>
   </section>
   <section id="installation-sect-help-plugin-install">
     <title>Utiliser le Maven Help Plugin</title>
-    <para>Tout au long de ce livre, nous allons introduire des plugins Maven, parler de fichiers Maven Project Object Model (
-      <acronym>POM</acronym>), de fichiers de settings, et de profils. Parfois vous aurez besoin d'un outil qui vous permettra de connaître les modèles utilisés par Maven et les goals disponibles pour un plugin donné. Le plugin Maven Help vous permet de lister tous les profils Maven actifs, d'afficher un
-      <acronym>POM</acronym> effectif, les settings effectifs, ou les attributs d'un plugin Maven.
+    <para>Tout au long de ce livre, nous allons introduire des plugins Maven, parler de fichiers Maven Project Object Model (<acronym>POM</acronym>), de fichiers de settings, et de profils. Parfois vous aurez besoin d'un outil qui vous permettra de connaître les modèles utilisés par Maven et les goals disponibles pour un plugin donné. Le plugin Maven Help vous permet de lister tous les profils Maven actifs, d'afficher un <acronym>POM</acronym> effectif, les settings effectifs, ou les attributs d'un plugin Maven.
     </para>
     <note>
       <para>Pour une vision plus conceptuelle du POM et des plugins, lisez le <xref linkend="simple-project" xrefstyle="style:title" />.
@@ -501,7 +499,7 @@ This mojo doesn't have any component requirements.
       </para>
       <screen>$<command>mvn help:describe -Dplugin=compiler -Dmojo=compile -Dfull</command></screen>
       <note>
-        <para>Quoi ? Un Mojo ? Chez Maven, le goal d'un Plugin goal s'appelle un "Mojo".</para>
+        <para>Quoi ? Un Mojo ? Chez Maven, le goal d'un Plugin s'appelle un "Mojo".</para>
       </note>
     </section>
   </section>
@@ -569,6 +567,6 @@ This mojo doesn't have any component requirements.
         </itemizedlist>
       </blockquote>
     </para>
-    <para>Ceci clôt le chapitre sur l'installation La suite du livre contient des exemples d'utilisation de Maven.</para>
+    <para>Ceci clôt le chapitre sur l'installation. La suite du livre contient des exemples d'utilisation de Maven.</para>
   </section>
 </chapter>
