@@ -9,7 +9,7 @@
   </para>
   <section id="installation-sect-java">
     <title>Vérification de votre Installation de Java</title>
-    <para>Même si Maven peut s'exécuter avec Java 1.4 (versions inférieures à la 2.1), dans ce livre nous supposerons que vous avez installé au minimum Java 5. Utilisez la version stable la plus récente du <acronym>JDK</acronym> (Java Development Kit) disponible pour votre système d'exploitation. Java 5 comme Java 6 permettront d'exécuter les exemples de ce livre.
+    <para>Même si Maven (pour les versions inférieures à la 2.1) peut s'exécuter avec Java 1.4, dans ce livre nous supposerons que vous avez installé au minimum Java 5. Utilisez la version stable la plus récente du <acronym>JDK</acronym> (Java Development Kit) disponible pour votre système d'exploitation. Java 5 comme Java 6 permettront d'exécuter les exemples de ce livre.
     </para>
     <para><screen><prompt moreinfo="none">% </prompt><command moreinfo="none">java -version</command>
 java version "1.5.0_16"
@@ -336,7 +336,7 @@ $ mvn one:convert</screen>
       <varlistentry>
         <term>La Liste de Diffusion des Utilisateurs de Maven</term>
         <listitem>
-          <para>La liste de diffusion Maven Users est l'endroit où les utilisateurs peuvent poser leurs questions. Avant de poser votre question sur cette liste de diffusion, recherchez toute discussion antérieure qui pourrait avoir un rapport avec votre question. En effet, il est mal vu de poser une question qui a déjà été posée sans avoir vérifié auparavant les archives pour voir si quelqu'un y avait déjà répondu. Il y a un certain nombre de sites très utiles pour parcourir les archives des listes de diffusion. Nous avons pour notre part trouver Nabble très pratique. Vous pouvez parcourir les archives de la liste de diffusion des utilisateurs ici:
+          <para>La liste de diffusion Maven Users est l'endroit où les utilisateurs peuvent poser leurs questions. Avant de poser votre question sur cette liste de diffusion, recherchez toute discussion antérieure qui pourrait avoir un rapport avec votre question. En effet, il est mal vu de poser une question qui a déjà été posée sans avoir vérifié auparavant les archives pour voir si quelqu'un y avait déjà répondu. Il y a un certain nombre de sites très utiles pour parcourir les archives des listes de diffusion. Nous avons pour notre part trouvé Nabble très pratique. Vous pouvez parcourir les archives de la liste de diffusion des utilisateurs ici :
             <ulink
           url="http://www.nabble.com/Maven---Users-f178.html">http://www.nabble.com/Maven---Users-f178.html
             </ulink>. Vous pouvez vous abonner à cette liste de diffusion en suivant les instructions disponibles ici:
