@@ -81,7 +81,7 @@
           </imageobject>
 
           <imageobject role="print">
-            <imagedata fileref="figs/print/multimodule-web-spring_projects.pdf" format="PDF"  align="center" scalefit="0" width="100%" />
+            <imagedata fileref="figs/print/multimodule-web-spring_projects.pdf" format="PDF" scalefit="0" width="100%" />
           </imageobject>
         </mediaobject>
       </figure>
@@ -104,7 +104,7 @@
             les parseurs définit dans le module <varname>simple-weather</varname> transforment le <acronym>XML</acronym>
             en une liste d'objets <classname>Weather</classname> qui sera ensuite utilisée dans les applications.
             Ce projet contient des objets du modèle annotés avec les annotations Hibernate 3. 
-            Le module simple-persist utilise ces objets pour mapper chacun d'entre eux à une table de la base de données.
+            Le module <varname>simple-persist</varname> utilise ces objets pour mapper chacun d'entre eux à une table de la base de données.
             </para>
           </listitem>
         </varlistentry>

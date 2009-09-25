@@ -318,7 +318,7 @@ public class WeatherService {
   <section id="multimodule-sect-simple-web">
     <title>Le Module de simple-web</title>
 
-    <para>Le module <varname>simple-webapp</varname> est le second sous-module <indexterm class="startofrange" id="multimod3a">
+    <para>Le module <varname>simple-webapp</varname> est le second sous-module<indexterm class="startofrange" id="multimod3a">
         <primary>projet multimodule (exemple)</primary>
     <secondary>simple sous-module d'une application web</secondary>
       </indexterm><indexterm class="startofrange" id="multimod3b">
@@ -532,7 +532,7 @@ public class WeatherServlet extends HttpServlet {
     en exécutant la commande <command>mvn clean install</command>.</para>
 
     <note>
-      <para>Quand vous exécutez Maven à partir de la ligne de commande vous serez amené à utiliser fréquemment la phase
+      <para>Quand vous exécutez Maven à partir de la ligne de commande vous serez amenés à utiliser fréquemment la phase
       <varname>clean</varname> avant l'exécution d'autres stades du cycle de vie.
       Lorsque vous précisez <varname>clean</varname> sur la ligne de commande, vous vous assurez
       que Maven enlève les fichiers générés lors des builds précédents avant qu'il ne compile et package votre application.
