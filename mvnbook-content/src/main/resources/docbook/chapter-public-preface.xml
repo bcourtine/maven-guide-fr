@@ -45,7 +45,7 @@
     <xref linkend="part-reference" /> est moins une introduction qu'une référence,
     chaque chapitre de  <xref linkend="part-reference" /> traite d'un sujet en
     particulier et en donne le maximum de détails possible. Par exemple, 
-    For example, le chapitre <xref linkend="writing-plugins" /> dans
+    le chapitre <xref linkend="writing-plugins" /> dans
     <xref linkend="part-reference" /> traite de la manière d'écrire des plugins
     au travers des quelques exemples associés à un ensemble de tableaux et de
     listes.</para>
