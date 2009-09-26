@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.sonatype.mavenbook</groupId>
   <artifactId>mvnbook-parent</artifactId>
-  <version>0.7.1-SNAPSHOT</version>
+  <version>0.8-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Maven: The Definitive Guide (Parent Project)</name>
   <description>A book about Apache Maven 2.x</description>
@@ -193,9 +193,9 @@
     </plugins>
   </build>
   <scm>
-    <connection>scm:git:git://github.com/ehsavoie/maven-guide-fr.git</connection>
-    <url>scm:git:git://github.com/ehsavoie/maven-guide-fr.git</url>
-    <developerConnection>scm:git:git://github.com/ehsavoie/maven-guide-fr.git</developerConnection>	
+    <connection>scm:git:git://github.com/sonatype/maven-guide-en.git</connection>
+    <url>scm:git:git://github.com/sonatype/maven-guide-en.git</url>
+    <developerConnection>scm:git:git://github.com/sonatype/maven-guide-en.git</developerConnection>	
   </scm>
   <distributionManagement>
     <repository>
