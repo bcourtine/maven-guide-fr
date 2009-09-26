@@ -161,7 +161,7 @@
     ainsi beaucoup plus faciles à voir lorsqu'ils sont dissociés de cette manière.
     La balise <sgmltag>dependencies</sgmltag> ajoute JUnit 3.8.1 comme une dépendance globale.
     La configuration du build comme les dépendances sont héritées dans tous les sous-modules.
-    L'utilisation l'héritage de POM vous permet d'ajouter des dépendances communes 
+    L'utilisation de l'héritage de POM vous permet d'ajouter des dépendances communes 
     pour les dépendances universelles comme JUnit ou Log4J.
     </para>
   </section>

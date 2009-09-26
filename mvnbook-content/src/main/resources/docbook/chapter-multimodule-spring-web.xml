@@ -106,7 +106,7 @@
             les parseurs définit dans le module <varname>simple-weather</varname> transforment le <acronym>XML</acronym>
             en une liste d'objets <classname>Weather</classname> qui sera ensuite utilisée dans les applications.
             Ce projet contient des objets du modèle annotés avec les annotations Hibernate 3. 
-            Le module simple-persist utilise ces objets pour mapper chacun d'entre eux à une table de la base de données.
+            Le module <varname>simple-persist</varname> utilise ces objets pour mapper chacun d'entre eux à une table de la base de données.
             </para>
           </listitem>
         </varlistentry>

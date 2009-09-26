@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="pom-relationships" lang="fr"><title>Le Modèle Objet de Projet</title>  <section id="pom-relationships-sect-intro"><title>Introduction</title> <para>Ce chapitre traite du oncept central de Maven&mdash;le Modèle Objet de Projet<indexterm class="startofrange" id="pom1"> <primary>POM (Project Object Model)</primary> </indexterm>. Le <acronym>POM</acronym> est l'endroit où l'identité et la structure d'un projet sont déclarées, où les builds sont configurés, et où sont définies les relations entre projets. L'existence d'un fichier<filename
-    moreinfo="none">pom.xml</filename> définit un projet Maven. </para> </section> <section id="pom-relationships-sect-pom"><title>Le POM</title> <para>Les projets Maven, les dépendances, les builds, les artéfacts: tous sont des objets qu'il a falloir modèliser et décrire. Ces objets sont décrits dans un fichier <acronym>XML</acronym> appelé Modèle Objet de Projet. Le <acronym>POM</acronym> indique à Maven de quel type de projet il va devoir traiter et comment il va devoir modifier son comportement par défaut pour produire le résultat attendu à partir des sources. Ainsi comme une application web Java avec son fichier <filename
+<chapter id="pom-relationships" lang="fr"><title>Le Modèle Objet de Projet</title>  <section id="pom-relationships-sect-intro"><title>Introduction</title> <para>Ce chapitre traite du concept central de Maven&mdash;le Modèle Objet de Projet<indexterm class="startofrange" id="pom1"> <primary>POM (Project Object Model)</primary> </indexterm>. Le <acronym>POM</acronym> est l'endroit où l'identité et la structure d'un projet sont déclarées, où les builds sont configurés, et où sont définies les relations entre projets. L'existence d'un fichier<filename
+    moreinfo="none">pom.xml</filename> définit un projet Maven. </para> </section> <section id="pom-relationships-sect-pom"><title>Le POM</title> <para>Les projets Maven, les dépendances, les builds, les artefacts : tous sont des objets qu'il a falloir modèliser et décrire. Ces objets sont décrits dans un fichier <acronym>XML</acronym> appelé Modèle Objet de Projet. Le <acronym>POM</acronym> indique à Maven de quel type de projet il va devoir traiter et comment il va devoir modifier son comportement par défaut pour produire le résultat attendu à partir des sources. Ainsi comme une application web Java avec son fichier <filename
     moreinfo="none">web.xml</filename> qui décrit, configure et personnalise l'application, un projet Maven se définit par la présence<indexterm> <primary>pom.xml file</primary> </indexterm><indexterm> <primary>pom.xml file</primary> <seealso>POM</seealso> </indexterm> d'un <filename moreinfo="none">pom.xml</filename>. Il s'agit d'une déclaration décriant un projet Maven; c'est un “plan” abstrait que Maven doit comprendre et suivre lorsqu'il va construirevotre projet.</para> <para>Vous pouvez aussi y voir une <filename
     moreinfo="none">pom.xml</filename> analogie à un fichier <filename
     moreinfo="none">Makefile</filename> ou un <filename
     moreinfo="none">build.xml</filename> pour Ant. Quand vous utilisez <acronym>GNU</acronym> <emphasis>make</emphasis> pour construire une application comme MySQL, vous aurez le plus souvent un fichier <filename
-    moreinfo="none">Makefile</filename> qui conteint les instructions explicites pour construire un binaire à partir des sources. Quand vous utilisez Apache Ant, vous avez très probablement un fichier <filename moreinfo="none">build.xml</filename> qui contient les instructions explicites pour nettoyer, compiler, packager et déployer une application. <emphasis>make</emphasis>, Ant, et Maven ont en commun le fait qu'ils dépendent de la présence d'un fichier avec toujours le même nom qu'il s'agisse de <filename moreinfo="none">Makefile</filename>, <filename
+    moreinfo="none">Makefile</filename> qui contient les instructions explicites pour construire un binaire à partir des sources. Quand vous utilisez Apache Ant, vous avez très probablement un fichier <filename moreinfo="none">build.xml</filename> qui contient les instructions explicites pour nettoyer, compiler, packager et déployer une application. <emphasis>make</emphasis>, Ant, et Maven ont en commun le fait qu'ils dépendent de la présence d'un fichier avec toujours le même nom qu'il s'agisse de <filename moreinfo="none">Makefile</filename>, <filename
     moreinfo="none">build.xml</filename>, ou <filename
     moreinfo="none">pom.xml</filename>, mais c'est là que les similarités s'arrêtent. Si vous regardez un <filename moreinfo="none">pom.xml</filename> Maven, la plus grande partie du <acronym>POM</acronym> se compose de descriptions. Où se trouve le code source? Où sont les ressources? Quel est le packaging? Si vous regardez un fichier <filename
     moreinfo="none">build.xml</filename> pour Ant, vous verrez quelquechose d'entièrement différent. Vous verrez des instructions explicites pour des tâches comme la compilation de classes Java. Le <acronym>POM</acronym> Maven est déclaratif, et bien que vous puissiez choisir d'y inclure des personnalisations procédurales via le plugin Maven Ant, dans l'ensemble vous n'aurez pas besoin de vous plonger dans les délicats détails procéduraux de la construction de votre projet.</para> <para>Le <acronym>POM</acronym> n'est pas sépcificque à la construction de projets Java. Même si la plupart des exemples de ce livre traitent d'applications Java, il n'y a rien de spécifique à Java dans la définition d'un Modèle Objet de Projet Maven. Si effectivementles plugins par défaut de Maven permettent de construiredes artéfacts sous forme de <acronym>JAR</acronym> à partir d'un ensemble de sources, de tests et de ressources, rien ne vous empêche de définir un <acronym>POM</acronym> pour un projet qui contient des sources C# et produit un binaire Microsoft propriétaire avec des outils Microsoft. De même, rien ne vous empêche d'utiliser un <acronym>POM</acronym> pour un livre technique. En effet, le source de ce livre et ses exemples sont répartis dans un projet Maven multi-module qui utilise l'un des nombreux plugins Maven pour Docbook pour appliquer un <acronym>XSL</acronym> standard Docbook à un ensemble de chapitres sous forme de fichiers <acronym>XML</acronym>. D'autres ont créé des plugins Maven pour transformer du code Adobe Flex en <acronym>SWC</acronym>s et <acronym>SWF</acronym>s, et enfin certains utilisent Maven pour contruire des projets écrits en C.</para> <para>Nous avons établi que le <acronym>POM</acronym> décrit et déclare,et qu'il se différencie de Ant ou de Make en ce qu'il de fournit pas d'instructions explicites,et nous avons vu que les concepts du <acronym>POM</acronym> ne sont pas propres à Java. Regardons plus en détails tout cela au travers de la <xref linkend="fig-pom" /> pour une analyse du contenu d'un <acronym>POM</acronym>. </para> <para><figure id="fig-pom"><title>Le Modèle Objet de Projet</title> <mediaobject> <imageobject role="web"> <imagedata fileref="figs/web/pom-relationships_pom-small.png" /> </imageobject> <imageobject role="print"> <imagedata fileref="figs/print/pom-relationships_pom-small.pdf"
-                       format="PDF"  align="center" scalefit="0" width="100%"/> </imageobject> </mediaobject> </figure></para> <para>Le <acronym>POM</acronym> se compose de quatre types de descritpion et de configuration: </para> <variablelist> <varlistentry><term>Informations générales sur le projet</term> <listitem> <para>Cett catégorie regroupe le nom du projet, l'<acronym>URL</acronym> du<indexterm> <primary>project information (in pom.xml)</primary> </indexterm><indexterm> <primary>licensing information (project information)</primary> </indexterm><indexterm> <primary>organizational information (project information)</primary> </indexterm><indexterm> <primary>developer information (project information)</primary> </indexterm><indexterm> <primary>pom.xml file</primary> <secondary>project information in</secondary> </indexterm> projet, l'organisation qui le produit, une liste de dvelopeurs et de contributeurs ainsi que sa license. </para> </listitem> </varlistentry> <varlistentry><term>Configuration du Build</term> <listitem> <para>Dans cette section, nous personnalisons le comportement du build Maven<indexterm> <primary>build information (in pom.xml)</primary> </indexterm><indexterm> <primary>pom.xml file</primary> <secondary>build information in</secondary> </indexterm> par défaut. Nous pouvons changer l'endroit où se trouvent les sources et les tests, ajouter de nouveaux plugins, lier des goals de plugins au cycle de vien et nous pouvons personnaliser les paramètres pour la génération du site web. </para> </listitem> </varlistentry> <varlistentry><term>Environnement du Build</term> <listitem> <para>L'environnement du build consiste en un ensemble de profils qui peuvent être<indexterm> <primary>build environment</primary> </indexterm><indexterm> <primary>pom.xml file</primary> <secondary>build environment</secondary> </indexterm> activés pour être utilisés dans différents environnements. Par exemple, au cours du développement vous pouvez vouloir déployer sur un serveur de développement, alors qu'en production vous allez vouloir déployer sur un serveur différent. L'environnement de build personnalise la configuration du build pour un environnement spécifique et il s'accompagne souvent d'un fichier<indexterm> <primary>settings.xml file</primary> </indexterm> <filename moreinfo="none">settings.xml personnalisé</filename> dans <filename moreinfo="none">~/.m2</filename>. Ce fichier settings.xml est détaillé dans le <xref linkend="profiles" /> et dans la section <xref linkend="appendix-settings-sect-details" />. </para> </listitem> </varlistentry> <varlistentry><term>Relations entre POM</term> <listitem> <para>Un projet est rarement isolé,; il dépend souvent d'autres projets, hérite d'une configuration de <acronym>POM</acronym> de projets parent, définit ses propres coordonnées, et peut inclure des sous-modules. </para> </listitem> </varlistentry> </variablelist> 
-                       <section id="pom-relationships-sect-super-pom" label=""><title>Le Super POM</title> <para>Avant de se plonger dans des exemples de <acronym>POM</acronym>s, jettons un rapide coup d'&oelig;il au Super <acronym>POM</acronym>. Tous les <acronym>POM</acronym>s de projet Maven étendent le Super <acronym>POM</acronym> qui définit un ensemble de valeurs par défaut partagé par tous les projets. Ce Super <acronym>POM</acronym> fait partie de l'installation de Maven, et se trouve dans le fichier <filename>maven-${maven.version}-uber.jar</filename> dans le répertoire <filename>\${M2_HOME}/lib</filename>. Si vous regardez ce fichier <acronym>JAR</acronym>, vous y trouverez un fichier <filename>pom-4.0.0.xml</filename> dans le package  <package>org.apache.maven.project </package>. The Super <acronym>POM</acronym> for Maven is shown in <xref linkend="ex-super-pom" />. </para> 
-<example id="ex-super-pom">
-        <title>The Super POM</title>
-
-        <programlisting>&lt;project&gt;
+                       format="PDF"  align="center" scalefit="0" width="100%"/> </imageobject> </mediaobject> </figure></para> <para>Le <acronym>POM</acronym> se compose de quatre types de descritpion et de configuration: </para> <variablelist> <varlistentry><term>Informations générales sur le projet</term> <listitem> <para>Cett catégorie regroupe le nom du projet, l'<acronym>URL</acronym> du<indexterm> <primary>project information (in pom.xml)</primary> </indexterm><indexterm> <primary>licensing information (project information)</primary> </indexterm><indexterm> <primary>organizational information (project information)</primary> </indexterm><indexterm> <primary>developer information (project information)</primary> </indexterm><indexterm> <primary>pom.xml file</primary> <secondary>project information in</secondary> </indexterm> projet, l'organisation qui le produit, une liste de dvelopeurs et de contributeurs ainsi que sa license. </para> </listitem> </varlistentry> <varlistentry><term>Configuration du Build</term> <listitem> <para>Dans cette section, nous personnalisons le comportement du build Maven<indexterm> <primary>build information (in pom.xml)</primary> </indexterm><indexterm> <primary>pom.xml file</primary> <secondary>build information in</secondary> </indexterm> par défaut. Nous pouvons changer l'endroit où se trouvent les sources et les tests, ajouter de nouveaux plugins, lier des goals de plugins au cycle de vien et nous pouvons personnaliser les paramètres pour la génération du site web. </para> </listitem> </varlistentry> <varlistentry><term>Environnement du Build</term> <listitem> <para>L'environnement du build consiste en un ensemble de profils qui peuvent être<indexterm> <primary>build environment</primary> </indexterm><indexterm> <primary>pom.xml file</primary> <secondary>build environment</secondary> </indexterm> activés pour être utilisés dans différents environnements. Par exemple, au cours du développement vous pouvez vouloir déployer sur un serveur de développement, alors qu'en production vous allez vouloir déployer sur un serveur différent. L'environnement de build personnalise la configuration du build pour un environnement spécifique et il s'accompagne souvent d'un fichier<indexterm> <primary>settings.xml file</primary> </indexterm> <filename moreinfo="none">settings.xml personnalisé</filename> dans <filename moreinfo="none">~/.m2</filename>. Ce fichier settings.xml est détaillé dans le <xref linkend="profiles" /> et dans la section <xref linkend="appendix-settings-sect-details" />. </para> </listitem> </varlistentry> <varlistentry><term>Relations entre POM</term> <listitem> <para>Un projet est rarement isolé,; il dépend souvent d'autres projets, hérite d'une configuration de <acronym>POM</acronym> de projets parent, définit ses propres coordonnées, et peut inclure des sous-modules. </para> </listitem> </varlistentry> </variablelist> <section id="pom-relationships-sect-super-pom"><title>Le Super POM</title> <para>Avant de se plonger dans des exemples de <acronym>POM</acronym>s, jettons un rapide coup d'&oelig;il au Super <acronym>POM</acronym>. Tous les <acronym>POM</acronym>s de projet Maven étendent le Super <acronym>POM</acronym> qui définit un ensemble de valeurs par défaut partagé par tous les projets. Ce Super <acronym>POM</acronym> fait partie de l'installation de Maven, et se trouve dans le fichier <filename>maven-${maven.version}-uber.jar</filename> dans le répertoire <filename>\${M2_HOME}/lib</filename>. Si vous regardez ce fichier <acronym>JAR</acronym>, vous y trouverez un fichier <filename>pom-4.0.0.xml</filename> dans le package  <package>org.apache.maven.project </package>. Le Super <acronym>POM</acronym> de  Maven est présenté dans l' <xref linkend="ex-super-pom" />. </para> <example id="ex-super-pom"><title>Le Super POM</title> <programlisting>&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
   &lt;name&gt;Maven Default Project&lt;/name&gt;
 
@@ -161,88 +156,9 @@
   &lt;reporting&gt;
     &lt;outputDirectory&gt;target/site&lt;/outputDirectory&gt;
   &lt;/reporting&gt;
-&lt;/project&gt;</programlisting>
-      </example>
-
-      <para>The Super <acronym>POM</acronym> defines some standard
-      configuration variables that are inherited by all projects. Those values
-      are captured in the annotated sections:</para>
-
-      <calloutlist>
-        <callout arearefs="coDef-super-1" id="coRef-super-1">
-          <para>The default Super <acronym>POM</acronym> defines a single
-          remote Maven repository with an ID of <literal>central</literal>.
-          This is the central Maven repository that all Maven clients are
-          configured to read from by default. This setting can be overridden
-          by a custom <filename moreinfo="none">settings.xml</filename> file.
-          Note that the default Super <acronym>POM</acronym> has disabled
-          snapshot artifacts on the central Maven repository. If you need to
-          use a snapshot repository, you will need to customize repository
-          settings in your <filename moreinfo="none">pom.xml</filename> or in
-          your <filename moreinfo="none">settings.xml</filename>. Settings and
-          profiles are covered in <xref linkend="profiles" /> and in <xref
-          linkend="appendix-settings-sect-details" />.</para>
-        </callout>
-
-        <callout arearefs="coDef-super-2" id="coRef-super-2">
-          <para>The central Maven repository also contains Maven plugins. The
-          default plugin repository is the central Maven repository. Snapshots
-          are disabled, and the update policy is set to “never,” which means
-          that Maven will never automatically update a plugin if a new version
-          is released.</para>
-        </callout>
-
-        <callout arearefs="coDef-super-3" id="coRef-super-3">
-          <para>The <sgmltag>build</sgmltag> element sets the default values
-          for directories in the Maven Standard Directory layout.</para>
-        </callout>
-
-        <callout arearefs="coDef-super-4" id="coRef-super-4">
-          <para>Starting in Maven 2.0.9, default versions of core plugins have
-          been provided in the Super <acronym>POM</acronym>. This was done to
-          provide some stability for users that are not specifying versions in
-          their <acronym>POM</acronym>s.</para>
-        </callout>
-      </calloutlist>
-
-      <figure id="fig-super-always-base">
-        <title>The Super POM is always the base Parent</title>
-
-        <mediaobject>
-          <imageobject role="web">
-            <imagedata fileref="figs/web/pom-relationships_pom-inherit-simple-super.png" />
-          </imageobject>
-
-          <imageobject role="print">
-            <imagedata align="center"
-                       fileref="figs/print/pom-relationships_pom-inherit-simple-super.pdf"
-                       format="PDF" scalefit="0" width="100%" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-    </section>
-
-    <section id="pom-relationships-sect-simplest-pom">
-      <title>The Simplest POM</title>
-
-      <para>All Maven <acronym>POM</acronym>s inherit defaults from the Super
-      <acronym>POM</acronym> (introduced earlier in the section <xref
-      linkend="pom-relationships-sect-super-pom" />). If you are just writing
-      a simple project that produces a <acronym>JAR</acronym> from some source
-      in <filename moreinfo="none">src/main/java</filename>, want to run your
-      JUnit tests in <filename moreinfo="none">src/test/java</filename>, and
-      want to build a project site using <command moreinfo="none">mvn
-      site</command>, you don’t have to customize anything. All you would
-      need, in this case, is the simplest possible <acronym>POM</acronym>
-      shown in <xref linkend="ex-simplest-pom" />. This <acronym>POM</acronym>
-      defines a <varname>groupId</varname>, <varname>artifactId</varname>, and
-      <varname>version</varname>: the three required coordinates for every
-      project.</para>
-
-      <example id="ex-simplest-pom">
-        <title>The Simplest POM</title>
-
-        <programlisting language="xml">&lt;project&gt;
+&lt;/project&gt;</programlisting> </example> <para>Le Super <acronym>POM</acronym> définit des variables de configuration standards qui seront héritées par tous les projets. Les valeurs de ces variables sont définies dans les sections numérotées :</para> <calloutlist> <callout arearefs="coDef-super-1" id="coRef-super-1"> <para>Le Super <acronym>POM</acronym> par défaut déclare un unique dépôt Maven distant ayant pour ID <literal>central</literal>. C'est ce dépôt central de Maven qui est configuré par défaut dans toutes les installations de Maven pour être interrogé. Cette configuration peut être surchargée par un fichier <filename moreinfo="none">settings.xml</filename> personnalisé. Attention, le Super <acronym>POM</acronym> par défaut a désactivé a récupération des artefacts snapshots depuis le dépôt centrel de Maven. Si vous avez besoin d'un dépôt snapshot, vous aurez à configurer vos dépôts dans votre <filename moreinfo="none">pom.xml</filename> ou votre <filename moreinfo="none">settings.xml</filename>. Settings and profiles are covered in <xref linkend="profiles" /> and in <xref linkend="appendix-settings-sect-details" />.</para> </callout> <callout arearefs="coDef-super-2" id="coRef-super-2"> <para>The central Maven repository also contains Maven plugins. The default plugin repository is the central Maven repository. Snapshots are disabled, and the update policy is set to “never,” which means that Maven will never automatically update a plugin if a new version is released.</para> </callout> <callout arearefs="coDef-super-3" id="coRef-super-3"> <para>The <sgmltag>build</sgmltag> element sets the default values for directories in the Maven Standard Directory layout.</para> </callout> <callout arearefs="coDef-super-4" id="coRef-super-4"> <para>Starting in Maven 2.0.9, default versions of core plugins have been provided in the Super <acronym>POM</acronym>. This was done to provide some stability for users that are not specifying versions in their <acronym>POM</acronym>s. </para> </callout> </calloutlist> <figure id="fig-super-always-base"><title>The Super POM is always the base Parent</title>  <mediaobject> <imageobject role="web"> <imagedata fileref="figs/web/pom-relationships_pom-inherit-simple-super.png" /> </imageobject> <imageobject role="print"> <imagedata fileref="figs/print/pom-relationships_pom-inherit-simple-super.pdf"
+                       format="PDF"  align="center" scalefit="0" width="100%"/> </imageobject> </mediaobject> </figure> </section> <section id="pom-relationships-sect-simplest-pom"><title>The Simplest POM</title> <para>All Maven <acronym>POM</acronym>s inherit defaults from the Super <acronym>POM</acronym> (introduced earlier in the section <xref linkend="pom-relationships-sect-super-pom" />). If you are just writing a simple project that produces a <acronym>JAR</acronym> from some source in <filename moreinfo="none">src/main/java</filename>, want to run your JUnit tests in <filename moreinfo="none">src/test/java</filename>, and want to build a project site using <command moreinfo="none">mvn
+      site</command>, you don’t have to customize anything. All you would need, in this case, is the simplest possible <acronym>POM</acronym> shown in <xref linkend="ex-simplest-pom" />. This <acronym>POM</acronym> defines a <varname>groupId</varname>, <varname>artifactId</varname>, and <varname>version</varname>: the three required coordinates for every project. </para> <example id="ex-simplest-pom"><title>The Simplest POM</title> <programlisting language="xml">&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
   &lt;groupId&gt;org.sonatype.mavenbook.ch08&lt;/groupId&gt;
   &lt;artifactId&gt;simplest-project&lt;/artifactId&gt;
