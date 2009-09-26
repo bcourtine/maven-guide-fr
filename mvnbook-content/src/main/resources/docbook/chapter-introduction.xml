@@ -72,8 +72,17 @@
       <command>mvn install</command> avec une installation de Maven vierge, elle récupère les plugins Maven de base du dépôt Central Maven Repository. C'est plus qu'une astuce pour réduire la taille de la distribution Maven à télécharger, c'est par ce moyen que vous pouvez mettre à jour un plugin pour apporter de nouvelles possibilités au build de votre projet. C'est parce que Maven récupère les dépendances et les plugins depuis des dépôts distants que vous pouvez réutiliser une logique de build universelle.
     </para>
     <para>Le plugin Maven Surefire est le plugin qui a en charge l'exécution des tests unitaires. À un moment donné, entre la version 1.0 et la version utilisée actuellement quelqu'un a décidé d'apporter le support du framework de tests unitaires TestNG en plus de celui de JUnit. Cette mise à jour s'est faite sans casser la compatibilité ascendante.  Si vous utilisez le plugin Surefire pour compiler et exécuter vos tests unitaires JUnit 3, et que vous le mettez à jour, vos tests continuent à s'exécuter sans erreur. Mais vous avez obtenu une nouvelle fonctionnalité, vous pouvez d'exécuter des tests avec TestNG. Et en plus, vous pouvez d'exécuter des tests unitaires JUnit 4 annotés. Tout cela sans avoir à mettre à jour votre installation de Maven ou à installer quoi que ce soit. Et plus  important encore, vous n'avez rien changé à votre projet si ce n'est le numéro de version d'un plugin dans un unique fichier de configuration de Maven, le Project Object Model (POM).</para>
-    <para>C'est ce même mécanisme que l'on retrouve dans tout Maven, les projets sont compilés par le plugin Compiler, ils sont packagés en fichiers
-      <acronym>JAR</acronym> avec le plugin Jar, on trouve des plugins pour produire des rapports, exécuter du code JRuby ou Groovy, ou publier des sites sur des serveurs distants. Maven a extrait les tâches de la construction d'un projet dans des plugins qui sont centralisés pour leur maintenance et partagés universellement. Si l'état de l'art change pour une étape quelconque du build, si un nouveau framework de tests unitaires sort, si de nouveaux outils deviennent disponibles, vous n'avez plus à ajouter une nouvelle verrue à votre système personnalisé de build pour en profiter.  Vous allez bénéficier du fait que les plugins sont téléchargés depuis un dépôt distant et maintenus centralement. C'est tout cela qu'implique la notion de réutilisation universelle par les plugins Maven.
+    <para>C'est ce même mécanisme que l'on retrouve dans tout Maven.
+    Maven dispose de plugins pour tout faire, de la compilation du code Jaava, à la génération de rapports 
+    et au déploiement sur un serveur d'applications.    
+    Maven a extrait les tâches de la construction d'un projet dans des plugins 
+    qui sont centralisés pour leur maintenance et partagés universellement. 
+    Si l'état de l'art change pour une étape quelconque du build, si un nouveau framework de tests unitaires sort, 
+    si de nouveaux outils deviennent disponibles, vous n'avez plus à ajouter une nouvelle verrue 
+    à votre système personnalisé de build pour en profiter.  
+    Vous allez bénéficier du fait que les plugins sont téléchargés depuis un dépôt distant 
+    et maintenus centralement. C'est tout cela qu'implique la notion de réutilisation universelle 
+    par les plugins Maven.
     </para>
   </section>
   <section id="installation-sect-conceptual">
@@ -97,8 +106,9 @@
       <varlistentry>
         <term>Réutilisation Universelle de la Logique de Build</term>
         <listitem>
-          <para>Les plugins sont codés de manière  à travailler avec le Project Object Model (
-            <acronym>POM</acronym>); ils ne sont pas conçus pour fonctionner avec des fichiers spécifiques à des endroits connus. Tout est externalisé dans le Model, la configuration et la personnalisation des plugins se font par et dans le modèle.
+          <para>Les plugins contiennent toute la logique de traitement. Ils s'appuient sur les données et 
+          paramètres de configuration définit dans le Project Object Model (<acronym>POM</acronym>) 
+          Ils ne sont pas conçus pour fonctionner avec des fichiers spécifiques à des endroits connus.</para>
           </para>
         </listitem>
       </varlistentry>
@@ -120,9 +130,6 @@
         </listitem>
       </varlistentry>
     </variablelist>
-    <para>Maven a posé les fondations pour le commencement d'une description sémantique cohérente d'un
-    projet logiciel. 
-    </para>
   </section>
   <section id="installation-sect-mavenAlternativeAnt">
     <title>Maven est il une alternative à XYZ ?</title>
@@ -131,17 +138,20 @@
     url="http://ant.apache.org">Apache Ant
       </ulink> continue à être un outil excellent, et largement utilisé. Il fut le champion des builds Java pendant des années, et vous pouvez intégrer vos scripts Ant au build Maven de votre projet très facilement. C'est une utilisation très commune dans un projet Maven. D'un autre coté, tandis que de plus en plus de projets open source migrent vers la plateforme de gestion de projet Maven, les développeurs se rendent compte que Maven ne fait pas que simplifier la gestion du build, il permet l'émergence d'une interface commune entre les développeurs et les projets logiciels. Maven est plus une plateforme qu'un outil, lorsque vous considérez Maven comme une alternative à Ant, vous comparez des pommes à des oranges. "Maven" est plus qu'un simple outil de build.
     </para>
-    <para>C'est cela qui rend les débats sur Maven ou Ant, Maven ou Buildr, Maven ou Gradle inintéressants. Maven ne se réduit pas aux seuls mécanismes de votre système de build, il ne se contente pas de scripter les différentes tâches de votre build, mais il encourage l'émergence d'un ensemble de standards, d'une interface commune, d'un cycle de vie, d'un format de dépôt, d'un standard d'organisation des répertoires, etc. Peu importe le format du
+    <para>C'est cela qui rend les débats sur Maven ou Ant, Maven ou Buildr, Maven ou Gradle inintéressants. Maven ne se réduit pas aux seuls mécanismes de votre système de build, il ne se contente pas de scripter les différentes tâches de votre build, mais il encourage l'émergence d'un ensemble de standards, d'une interface commune, d'un cycle de vie, d'un format de dépôt, d'un standard d'organisation des répertoires, etc. 
+    Peu importe le format du
       <acronym>POM</acronym>
       <acronym>(XML</acronym> ou
-      <acronym>YAML</acronym> ou Ruby). Maven est bien plus que tout cela, et Maven fait référence à bien plus que l'outil en lui-même. Quand ce livre parle de Maven, il fait référence à la constellation de logiciels, de systèmes, et de standards qui le supportent. Buildr, Ivy, Gradle, tous ces outils interagissent avec le format de dépôt que Maven a permis de créer, et vous pourriez tout aussi facilement utiliser un outil comme Nexus avec un build écrit entièrement avec Buildr. On reverra Nexus plus en détail dans le chapitre
-      <xref linkend="repository-manager" />.
+      <acronym>YAML</acronym> ou Ruby). Maven est bien plus que tout cela, et Maven fait référence à bien plus que l'outil en lui-même. Quand ce livre parle de Maven, il fait référence à la constellation de logiciels, de systèmes, et de standards qui le supportent. Buildr, Ivy, Gradle, tous ces outils interagissent avec le format de dépôt que Maven a permis de créer, et vous pourriez tout aussi facilement utiliser repository manager comme Nexus pour gérer des builds écrits entièrement avec Ant.
     </para>
     <para>Bien que Maven soit une alternative à ces outils, la communauté doit dépasser cette vision de la technologie comme d'une lutte au couteau pour s'approprier utilisateurs et développeurs. C'est peut-être ainsi que ça se passe entre grosses entreprises, mais cela ne correspond pas à la manière de faire des communautés opensource.  Les gros titres tels que "Qui sera le vainqueur ? Ant ou Maven ?" ne sont pas très constructifs. Si vous exigez de nous une réponse, bien sûr que nous dirons que Maven est une meilleure alternative que Ant comme technologie fondamentale pour un build; en même temps, les frontières de Maven changent tout le temps, et la communauté Maven cherche en permanence de nouvelles voies pour le rendre plus &oelig;cuménique, plus interopérable, plus coopératif. Les principes au c&oelig;ur de Maven sont le build déclaratif, la gestion des dépendances, les dépôts, la réutilisation universelle grâce aux plugins, cependant la concrétisation de ces idées n'a que peu d'importance par rapport au fait que la communauté opensource collabore pour améliorer l'efficacité des builds à "l'échelle de l'entreprise".</para>
   </section>
-  <section id="installation-sect-compare-ant-maven">
+  <section id="installation-sect-compare-ant-maven" label="">
     <title>Comparaison de Maven et de Ant</title>
-    <para>La section précédente devrait vous avoir convaincu que les auteurs de ce livre n'ont pas pour objectif de créer de l'animosité entre Apache Ant et Apache Maven, cependant nous sommes conscients que pour la plupart des organisations il faut faire un choix entre Apache Ant et Apache Maven. Dans cette section, nous allons comparer les deux outils.</para>
+    <para>Les auteurs de ce livre n'ont pas pour objectif de créer de l'animosité entre Apache Ant et Apache Maven.
+    cependant nous sommes conscients que pour la plupart des organisations il faut faire un choix entre Apache Ant et Apache Maven. 
+    Dans cette section, nous allons comparer ces deux outils.
+    </para>
     <para>Ant excelle dans le processus de build, c'est un système de build héritant de make avec des cibles et des dépendances. Chaque cible se compose d'un ensemble d'instructions codées en
       <acronym>XML</acronym>. Il existe une tâche
       <sgmltag>copy</sgmltag>, une tâche
@@ -226,8 +236,10 @@ le simple fichier Ant décrit dans
       <filename>index.html</filename> dans
       <filename>target/site</filename> contenant des liens vers la JavaDoc et quelques rapports sur votre code source.
     </para>
-    <para>Certes, c'est l'exemple de projet le plus simple possible. Un projet qui ne contient que du code source et qui produit un
-      <acronym>JAR</acronym>. Un projet qui suit les conventions de Maven et qui ne demande aucune dépendance ou personnalisation. Si nous voulons personnaliser le comportement, notre
+    <para>
+    Certes, c'est l'exemple de projet le plus simple possible. 
+    Il ne contient rien d'autre que du code source et produit un
+      <acronym>JAR</acronym>. C'est un projet qui suit les conventions de Maven et qui ne demande aucune dépendance ou personnalisation. Si nous voulons personnaliser le comportement, notre
       <filename>pom.xml</filename> va grossir, et dans les plus gros projets vous pouvez trouver une collection de
       <acronym>POM</acronym>s Maven très complexes qui contiennent beaucoup de configuration de plugins et de déclarations de dépendances. Mais, même lorsque les fichiers
       <acronym>POM</acronym> de votre projet grossissent, ils contiennent des informations d'une nature différente de celles du fichier de build Ant d'un projet de taille similaire. Les
@@ -247,15 +259,15 @@ le simple fichier Ant décrit dans
             <para>
               <itemizedlist>
                 <listitem>
-                  <para>Ant n'a aucune convention formelle, comme une structure de répertoires commune pour les projets, il vous faut indiquer à Ant
+                  <para>Ant de dispose d'aucune convention formelle ni comportement par défaut. Il vous faut indiquer à Ant
                     <emphasis>exactement</emphasis> où trouver le source et où mettre les résultats. Des conventions informelles ont émergé au cours du temps, mais elles n'ont pas été intégrées au produit.
                   </para>
                 </listitem>
                 <listitem>
-                  <para>Ant est procédural, il faut lui indiquer exactement ce qu'il doit faire et quand le faire. Il faut lui dire de compiler, puis de copier, puis de compresser.</para>
+                  <para>Ant est procédural. Il faut lui indiquer exactement ce qu'il doit faire et quand le faire. Il faut lui dire de compiler, puis de copier, puis de compresser.</para>
                 </listitem>
                 <listitem>
-                  <para>Ant n'a pas de cycle de vie, vous devez définir des fonctions et les dépendances de ces fonctions. Vous devez ensuite rattacher une série de tâches à chaque fonction manuellement. </para>
+                  <para>Ant n'a pas de cycle de vie. Vous devez définir des fonctions et les dépendances de ces fonctions. Vous devez ensuite rattacher une série de tâches à chaque fonction manuellement. </para>
                 </listitem>
               </itemizedlist>
             </para>
@@ -267,9 +279,10 @@ le simple fichier Ant décrit dans
             <para>
               <itemizedlist>
                 <listitem>
-                  <para>Maven possède ses conventions, il sait où se trouve le code source car vous suivez la convention. Il place bytecode dans
-                    <filename>target/classes</filename>, et il produit un fichier
-                    <acronym>JAR</acronym> dans target.
+                  <para>Maven possède ses conventions. Il sait où se trouve le code source car vous suivez une convention. 
+                  Le plugin Maven Compiler place le bytecode dans
+                    <filename>target/classes</filename> et produit un fichier
+                    <acronym>JAR</acronym> dans le répertoire target.
                   </para>
                 </listitem>
                 <listitem>
@@ -278,7 +291,8 @@ le simple fichier Ant décrit dans
                   </para>
                 </listitem>
                 <listitem>
-                  <para>Maven possède son propre cycle de vie que vous invoquez lorsque vous exécutez la commande mvn install. Cette commande demande à Maven d'exécuter une série d'étapes jusqu'à la fin du cycle de vie. Une des conséquences de ce parcours du cycle de vie, est que Maven exécute un certain nombre de goals de plugins par défaut qui vont réaliser certaines tâches comme de compiler et de créer un
+                  <para>Maven possède son propre cycle de vie que vous invoquez lorsque vous exécutez la 
+                  commande <command>mvn install</command>. Cette commande demande à Maven d'exécuter une série d'étapes jusqu'à la fin du cycle de vie. Une des conséquences de ce parcours du cycle de vie, est que Maven exécute un certain nombre de goals de plugins par défaut qui vont réaliser certaines tâches comme de compiler et de créer un
                     <acronym>JAR</acronym>.
                   </para>
                 </listitem>
@@ -288,11 +302,13 @@ le simple fichier Ant décrit dans
         </varlistentry>
       </variablelist>
     </para>
-    <para>Maven intègre une certaine intelligence sur les tâches communes sous la forme de plugins Maven. Si vous voulez écrire et exécuter des tests unitaires, tout ce que vous avez à faire est d'écrire ces tests et de les mettre dans
-      <filename>\${basedir}/src/test/java</filename>, ajouter une dépendance de type test sur TestNG ou JUnit, et exécuter
-      <command>mvn test</command>. Si vous voulez déployer une application web et non plus un
-      <acronym>JAR</acronym>, tout ce que vous avez à faire est de changer le type de votre projet en (war) et de positionner le
-docroot sur
+    <para>Maven intègre une certaine intelligence sur les tâches communes sous la forme de plugins Maven. 
+    Si vous voulez écrire et exécuter des tests unitaires, tout ce que vous avez à faire est d'écrire ces tests 
+    et de les mettre dans <filename>\${basedir}/src/test/java</filename>, ajouter une dépendance de type test sur TestNG ou JUnit, 
+      et exécuter la commande <command>mvn test</command>. 
+      Si vous voulez déployer une application web et non plus un <acronym>JAR</acronym>, 
+      tout ce que vous avez à faire est de changer le type de vot
+      re projet en <varname>war</varname> et de positionner le docroot sur
       <filename>\${basedir}/src/main/webapp</filename>. Bien sûr, vous pourriez faire tout cela avec Ant mais vous devriez tout écrire depuis le début Dans Ant, vous devriez commencer par définir où devrait se trouver le fichier
       <acronym>JAR</acronym> de JUnit, ensuite vous devriez créer un classpath qui contienne ce fichier
       <acronym>JAR</acronym> de JUnit, puis vous devriez indiquer à Ant où devrait se trouver le code source des tests, écrire une fonction pour compiler le code source des tests en bytecode, et pour exécuter ces tests unitaires avec JUnit.
@@ -303,9 +319,5 @@ docroot sur
       <acronym>POM</acronym> de votre projet.
     </para>
     <para>La décision d'utiliser Maven ou Ant n'est pas une décision binaire, et Ant a toujours sa place pour les builds complexes. Si votre build contient un traitement très spécifique, ou si vous avez écrit des scripts Ant pour remplir une tâche particulière de manière spécifique qui ne peut être adaptée aux standards Maven, vous pouvez toujours utiliser ces scripts dans Maven. Ant est disponible sous la forme d'un des principaux plugins de Maven. Des plugins personnalisés de Maven peuvent être écrits en utilisant Ant, et les projets Maven peuvent être configurés pour exécuter des scripts Ant durant le cycle de vie du projet Maven.</para>
-  </section>
-  <section id="installation-sect-introSummary">
-    <title>En résumé ...</title>
-    <para>Cette introduction reste courte volontairement. Nous avons couvert les grandes lignes de ce qui définit Maven, et comment il se compare et s'améliore dans le temps par rapport aux autres outils de build. Le chapitre suivant va nous plonger dans un projet simple et nous montrer comment Maven réalise des tâches phénoménales avec très peu de configuration.</para>
   </section>
 </chapter>

@@ -296,7 +296,7 @@ lib/</screen>
     </section>
     <section id="installation-sect-upgrade-detail">
       <title>Migrer de Maven 1.x à Maven 2.x</title>
-      <para>Si vous migrez de Maven 1 à Maven 2, vous allez utiliser un nouveau POM et une nouvelle structure de dépôt. Si vous avez déjà votre propre dépôt Maven 1 pour gérer vos artefacts, vous pouvez utiliser Nexus Repository Manager pour exposer un dépôt au format Maven 1 de manière à ce qu'il soit compris par des clients Maven 2. Pour plus d'informations sur le Nexus Repository Manager, nous vous encourageons à lire le livre <ulink url="http://www.sonatype.com/books/nexus-book/reference/">Repository Management with Nexus</ulink>. En plus d'outils comme Nexus, vous avez la possibilité de configurer des références à des dépôts utilisant la structure
+      <para>Si vous migrez de Maven 1 à Maven 2, vous allez utiliser un nouveau POM et une nouvelle structure de dépôt. Si vous avez déjà votre propre dépôt Maven 1 pour gérer vos artefacts, vous pouvez utiliser Nexus Repository Manager pour exposer un dépôt au format Maven 1 de manière à ce qu'il soit compris par des clients Maven 2. Pour plus d'informations sur le Nexus Repository Manager, nous vous encourageons à lire le livre <emphasis><literal><ulink url="http://www.sonatype.com/books/nexus-book/reference/">Repository Management with Nexus</ulink></literal></emphasis>. En plus d'outils comme Nexus, vous avez la possibilité de configurer des références à des dépôts utilisant la structure
         <varname>legacy</varname>. Pour plus d'informations sur la configuration de dépôt legacy, regardez la <xref linkend="appendix-settings-sect-settings-repository" />.
       </para>
       <para>Si vous avez tout un ensemble de projets Maven 1, le Maven One Plugin devrait vous intéresser. Le Maven One Plugin a été conçu pour faciliter la migration des projets de Maven 1 à Maven 2. Si vous avez un projet Maven 1, vous pouvez convertir son POM en exécutant le goal
@@ -508,12 +508,12 @@ This mojo doesn't have any component requirements.
   <section id="installation-sect-license">
     <title>À propos de l'Apache Software License</title>
     <para>Apache Maven est sous Apache Software License, Version 2.0. Si vous voulez lire cette licence, vous la trouverez dans
-      <filename>\${M2_HOME}/LICENSE.txt</filename> ou sur le site internet de l'Open Source Initiative ici
+      <filename>\${M2_HOME}/LICENSE.txt</filename> ou sur le site internet de l'Open Source Initiative ici :
       <ulink
     url="http://www.opensource.org/licenses/apache2.0.php">http://www.opensource.org/licenses/apache2.0.php
       </ulink>.
     </para>
-    <para>Il y a une forte probabilité, si vous lisez ce livre, que vous ne soyez pas un homme de loi. Si vous vous demandez ce que signifie Apache License, Version 2.0, l'Apache Software Foundation a écrit une Foire Aux Questions (FAQ) très utile sur cette licence ici
+    <para>Il y a une forte probabilité, si vous lisez ce livre, que vous ne soyez pas un homme de loi. Si vous vous demandez ce que signifie Apache License, Version 2.0, l'Apache Software Foundation a écrit une Foire Aux Questions (FAQ) très utile sur cette licence ici :
       <ulink
     url="http://www.apache.org/foundation/licence-FAQ.html">http://www.apache.org/foundation/licence-FAQ.html
       </ulink>. Voici la réponse à la question "Je ne suis pas un homme de loi. Que cela signifie t'il ?"

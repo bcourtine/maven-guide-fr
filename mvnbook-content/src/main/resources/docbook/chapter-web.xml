@@ -275,9 +275,9 @@ package: org.sonatype.mavenbook.ch05
     <filename>pom.xml</filename> de votre projet, vous pouvez invoquer le
     goal run du plugin Jetty pour démarrer votre application web dans le
     conteneur de Servlet Jetty. Exécutez la commande <command>mvn jetty:run</command>
-    comme suit :</para>
+    à partir du répertoire du projet <filename>simple-webapp/</filename> de la manière suivante :</para>
 
-    <screen>~/examples$ <command>mvn jetty:run</command>
+    <screen>~/examples/simple-webapp $ <command>mvn jetty:run</command>
 ...
 [INFO] [jetty:run]
 [INFO] Configuring Jetty for project: simple-webapp Maven Webapp
@@ -298,6 +298,17 @@ package: org.sonatype.mavenbook.ch05
 2007-11-17 22:11:50.846::INFO:  No Transaction manager found 
 2007-11-17 22:11:51.057::INFO:  Started SelectChannelConnector@0.0.0.0:8080
 [INFO] Started Jetty Server</screen>
+
+ <warning>
+      <para>Si vous utilisez le plugin Maven Jetty à partir d'un environnement Windows,
+      vous devrez probablement déplacer votre dépôt local dans un répertoire qui ne contient pas d'espaces.
+      Des lecteurs nous ont remonté des problèmes lors du démarrage de Jetty par ce que leur 
+      dépôt local était stocké dans le répertoire <filename>"C:\Documents and Settings\&lt;user&gt;"</filename>.
+      La solution pour régler ce problème est de déplacer votre repository local Maven dans un répertoire qui ne contient pas d'espaces
+      et de redéfinir l'emplacement de votre repository local dans le fichier <filename>~/.m2/settings.xml</filename> 
+      comme décrit dans l'<xref linkend="appendix-settings-sect-simpleval" />.</para>
+    </warning>  
+      
 
     <para>Une fois que Maven a démarré le conteneur de servlet Jetty, ouvrez
     l'URL <ulink

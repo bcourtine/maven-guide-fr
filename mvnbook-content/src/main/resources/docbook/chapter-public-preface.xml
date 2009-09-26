@@ -97,7 +97,7 @@
 
     <variablelist>
       <varlistentry>
-        <term><emphasis role="italic">Italique</emphasis></term>
+        <term><emphasis role="italic"><literal>Italic</literal></emphasis></term>
 
         <listitem>
           <para>Utilisée pour les fichiers, les extensions, les URLs, les noms des
@@ -169,13 +169,11 @@
       </varlistentry>
 
       <varlistentry>
-        <term>"plugin"</term>
+        <term>plugin</term>
 
         <listitem>
-          <para>Avec Maven, tout tourne autour de l'utilisation intensive
-          de greffons mais vous ne trouverez le terme plugin dans aucun
-          dictionnaire. Nous utilisons ce terme de "plugin" dans ce livre
-          car il est plus facile à lire et écrire et car c'est devenu un standard
+          <para>Alors que la réelle orthographe "plug-in" (avec un tiret) est probablement plus répandue,
+          ce livre utiliser le terme "plugin" pour deux raisons : il est plus facile à lire et écrire et c'est devenu le standard
           pour la communauté Maven.</para>
         </listitem>
       </varlistentry>
@@ -233,5 +231,6 @@
     vous voyez votre pseudo Get Satisfaction dans cette liste , et que vous
     souhaitiez le voir remplacé par votre véritable nom, envoyez nous un courriel
     à <ulink url="mailto:book@sonatype.com">book@sonatype.com</ulink>.</para>
+    
   </section>
 </preface>

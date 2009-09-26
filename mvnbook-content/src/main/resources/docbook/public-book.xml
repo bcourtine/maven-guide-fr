@@ -206,7 +206,7 @@
       d'apprendre Maven par l'exemple. Dans cette partie nous "introduisons en faisant", et dans
       la <xref linkend="part-reference" />, nous comblons les manques et nous nous plongeons dans
       les détails. Là où la <xref linkend="part-reference" /> pourrait utiliser un tableau de référence
-      et un listing de programme déconnecté d'un projet exemple, la Partie I est animée
+      et un listing de programme déconnecté d'un projet exemple, la Partie II est animée
       par de véritables exemples.</para>
 
       <para>Après avoir lu cette partie, vous devriez en savoir suffisamment pour commencer
@@ -244,6 +244,9 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
 
     <xi:include href="chapter-profiles.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+    <xi:include href="chapter-configuring.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
 
     <xi:include href="chapter-assemblies.xml"

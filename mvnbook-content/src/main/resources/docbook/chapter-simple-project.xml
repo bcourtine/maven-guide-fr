@@ -298,7 +298,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     </para>
   </section>
   <section id="simple-project-sect-simple-core">
-    <title>Les Principaux Concepts</title>
+    <title>Les Principaux Concepts</title> 
     <para>Maintenant que nous avons exécuté Maven pour la première fois, il est temps de s'intéresser aux concepts qui sont au c&oelig;ur de Maven. Dans l'exemple précédent, vous avez généré un projet qui consistait en un
       <acronym>POM</acronym> et un peu de code respectant la disposition Maven standard des répertoires. Puis vous avez exécuté Maven en lui passant une phase de son cycle de vie ce qui a demandé à Maven d'exécuter toute une série de goals de plugins Maven. Enfin, vous avez installé l'artefact Maven dans votre dépôt local. Une minute ? Qu'est ce que le "cycle de vie" ? Qu'est donc un "dépôt local" ? La section qui suit définit certains des concepts au c&oelig;ur de Maven.
     </para>

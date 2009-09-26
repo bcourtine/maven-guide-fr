@@ -81,7 +81,9 @@
           </imageobject>
 
           <imageobject role="print">
-            <imagedata fileref="figs/print/multimodule-web-spring_projects.pdf" format="PDF"  align="center" scalefit="0" width="100%" />
+            <imagedata align="center"
+                       fileref="figs/print/multimodule-web-spring_projects.pdf"
+                       format="PDF" scalefit="0" width="100%" />
           </imageobject>
         </mediaobject>
       </figure>
@@ -319,7 +321,9 @@
         </imageobject>
 
         <imageobject role="print">
-          <imagedata fileref="figs/print/multimodule-web-spring_object-model.pdf"  align="center" scalefit="0" width="100%" />
+           <imagedata align="center"
+                     fileref="figs/print/multimodule-web-spring_object-model.pdf"
+                     format="PDF" scalefit="0" width="100%" />
         </imageobject>
       </mediaobject>
     </figure>
