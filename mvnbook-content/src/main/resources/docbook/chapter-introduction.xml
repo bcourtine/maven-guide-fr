@@ -9,7 +9,7 @@
   faire ici est d'écrire un tel document avec son matériel de référence.</para>
 
   <section id="introduction-sect-whatIsMaven">
-    <title>Maven... De quoi s'agit il ?</title>
+    <title>Maven... De quoi s'agit-il ?</title>
 
     <para>La réponse à cette question dépend de votre point de vue. La plus grande partie des utilisateurs de Maven vont
     l'appeler un “outil de build” : c'est-à-dire un outil qui permet de produire des artefacts déployables à partir du
@@ -149,7 +149,7 @@
     <para>Avec Maven vous modélisez un projet. Vous ne faites plus simplement de la compilation de code en bytecode,
     vous décrivez un projet logiciel et vous lui assignez un ensemble unique de coordonnées. Vous définissez les
     attributs qui lui sont propres. Quelle est sa licence ? Quels sont ses développeurs et ses contributeurs ? De quels
-    autres projets dépend t-il ? Maven est plus qu'un simple "outil de build", c'est plus qu'une amélioration des outils
+    autres projets dépend-il ? Maven est plus qu'un simple "outil de build", c'est plus qu'une amélioration des outils
     tels que Ant et make, c'est une plateforme qui s'appuie sur de nouvelles sémantiques pour les projets logiciels et
     le développement. La définition d'un modèle pour tous les projets fait émerger de nouvelles caractéristiques telles
     que :</para>
@@ -208,7 +208,7 @@
   </section>
 
   <section id="installation-sect-mavenAlternativeAnt">
-    <title>Maven est il une alternative à XYZ ?</title>
+    <title>Maven est-il une alternative à XYZ ?</title>
 
     <para>Bien sûr, Maven est une alternative à Ant, mais <ulink url="http://ant.apache.org">Apache Ant </ulink>
     continue à être un outil excellent, et largement utilisé. Il fut le champion des builds Java pendant des années, et
