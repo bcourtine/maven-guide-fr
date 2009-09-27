@@ -76,9 +76,8 @@
     <para>Avant que Maven ne fournisse une interface commune pour construire un logiciel, chaque projet avait une
     personne dédiée pour gérer son système de build complètement personnalisé. Les développeurs devaient prendre du
     temps sur leurs développements pour apprendre les arcanes de chaque nouveau projet auquel ils voulaient contribuer.
-    En 2001, vous aviez une approche très différente pour construire un projet comme <ulink
-    url="http://turbine.apache.org/">Turbine </ulink> par rapport à un projet comme <ulink
-    url="http://tomcat.apache.org">Tomcat </ulink>. Si un nouvel outil d'analyse statique du code source de code
+    En 2001, vous aviez une approche très différente pour construire un projet comme <ulink url="http://turbine.apache.org/">Turbine</ulink> par
+    rapport à un projet comme <ulink url="http://tomcat.apache.org">Tomcat</ulink>. Si un nouvel outil d'analyse statique du code source de code
     sortait, ou si un nouveau framework de tests unitaires était développé, tout le monde devait s'arrêter de développer
     et voir comment l'intégrer dans l'environnement de build spécifique à chaque projet. Comment exécuter les tests
     unitaires ? Il existait des milliers de réponses à cette question. Cette époque se caractérisait par des discussions
@@ -114,7 +113,7 @@
     <acronym>XML</acronym> et garder les traces d'un cycle de vie et de quelques plugins. Maven a été conçu pour
     déléguer la responsabilité du build à un ensemble de Plugins Maven qui vont affecter le Cycle de Vie de Maven et
     fournir différentes actions : les goals. Avec Maven, tout se passe dans les goals des plugins, c'est là que le code
-    source est compilé, le bytecode est packagé, les sites sont publiés et que toute autre tâche nécessaire à vote build
+    source est compilé, le bytecode est packagé, les sites sont publiés et que toute autre tâche nécessaire à votre build
     se produit. Le Maven que vous téléchargez chez Apache n'y connaît rien en packaging de fichier
     <acronym>WAR</acronym> ou en exécution de tests JUnit; la plus grande partie de l'intelligence de Maven se trouve
     dans les plugins, plugins qui sont récupérés du dépôt Maven. En effet, la première fois que vous exécutez une
@@ -129,7 +128,7 @@
     tests unitaires TestNG en plus de celui de JUnit. Cette mise à jour s'est faite sans casser la compatibilité
     ascendante. Si vous utilisez le plugin Surefire pour compiler et exécuter vos tests unitaires JUnit 3, et que vous
     le mettez à jour, vos tests continuent à s'exécuter sans erreur. Mais vous avez obtenu une nouvelle fonctionnalité,
-    vous pouvez d'exécuter des tests avec TestNG. Et en plus, vous pouvez d'exécuter des tests unitaires JUnit 4
+    vous pouvez d'exécuter des tests avec TestNG. Et en plus, vous pouvez exécuter des tests unitaires JUnit 4
     annotés. Tout cela sans avoir à mettre à jour votre installation de Maven ou à installer quoi que ce soit. Et plus
     important encore, vous n'avez rien changé à votre projet si ce n'est le numéro de version d'un plugin dans un unique
     fichier de configuration de Maven, le Project Object Model (POM).</para>
