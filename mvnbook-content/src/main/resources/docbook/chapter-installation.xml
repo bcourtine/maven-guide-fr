@@ -2,7 +2,7 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="installation" lang="fr">
-  <title>Installation et Exécution de Maven</title>
+  <title>Installation de Maven</title>
 
   <para>Ce chapitre contient les instructions détaillées pour installer Maven sur de nombreuses plateformes. Plutôt que
   de supposer que vous sachiez comment installer un logiciel et définir des variables d'environnement, nous avons fait
