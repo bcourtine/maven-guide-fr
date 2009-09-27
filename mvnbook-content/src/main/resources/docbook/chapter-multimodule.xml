@@ -35,20 +35,16 @@
       Maven Archetype. Nous vous recommandons fortement de télécharger une copie
       du code exemple pour l'utiliser comme référence supplémentaire lors de 
       la lecture de ce chapitre. Le projet exemple de ce chapitre est téléchargeable
-      avec le reste des exemples du livre aux adresses suivantes : <ulink
-      url="http://www.sonatype.com/book/mvn-examples-1.0.zip"></ulink> ou
-      <ulink url="http://www.sonatype.com/book/mvn-examples-1.0.tar.gz"></ulink>.
-      Décompressez cette archive dans n'importe quel <phrase
-      role="keep-together">répertoire</phrase>, et ouvez le répertoire 
-      <filename>ch06/</filename>. Celui-ci inclut un répertoire 
-      <filename>simple-parent/</filename> qui contient le projet Maven multimodule
+      avec le reste des exemples du livre à l'adresse suivante :</para>
+      
+      <screen>${examples.download.url}</screen>
+      
+      <para>
+      Décompressez cette archive dans n'importe quel répertoire et ouvez le répertoire <filename>ch-multi/</filename>. 
+      Celui-ci inclut un répertoire <filename>simple-parent/</filename> qui contient le projet Maven multimodule
       développé dans ce chapitre. Dans ce dernier, vous trouverez un fichier 
       <filename>pom.xml</filename> et deux sous-modules, <filename>simple-weather/</filename> 
-      et <filename>simple-webapp/</filename>. Si vous préférez, vous pouvez également
-      consulter ce même code d'exemple à partir de votre navigateur. Pour cela, 
-      rendez-vous à l'adresse suivante <ulink 
-      url="http://www.sonatype.com/book/examples-1.0">http://www.sonatype.com/book/examples-1.0</ulink>
-      et cliquez sur le <phrase role="keep-together">répertoire</phrase> <filename>ch06/</filename>.</para> 
+      et <filename>simple-webapp/</filename>.</para> 
 
     </section>
   </section>
@@ -82,11 +78,11 @@
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
 
-  &lt;groupId&gt;org.sonatype.mavenbook.ch06&lt;/groupId&gt;
+  &lt;groupId&gt;org.sonatype.mavenbook.multi&lt;/groupId&gt;
   &lt;artifactId&gt;simple-parent&lt;/artifactId&gt;
   &lt;packaging&gt;pom&lt;/packaging&gt;
   &lt;version&gt;1.0&lt;/version&gt;
-  &lt;name&gt;Chapter 6 Simple Parent Project&lt;/name&gt;
+  &lt;name&gt;Multi Chapter Simple Parent Project&lt;/name&gt;
  
   &lt;modules&gt;
     &lt;module&gt;simple-weather&lt;/module&gt;
@@ -122,8 +118,9 @@
     </example>
 
     <para>Remarquez que le parent définit un ensemble de coordonnées Maven: le 
-    <varname>groupId</varname> avec pour valeur <varname>org.</varname><varname>sonatype.</varname>
-    <varname>mavenbook.ch06</varname>, l'<varname>artifactId</varname> <varname>simple-parent</varname>,
+    <varname>groupId</varname> avec pour valeur
+    <varname>org.</varname><varname>sonatype.</varname><varname>mavenbook.multi</varname>,     
+    l'<varname>artifactId</varname> <varname>simple-parent</varname>,
     et la <varname>version</varname> <varname>1.0</varname>. Le projet parent ne crée pas de <acronym>JAR</acronym>
     ni de <acronym>WAR</acronym> comme c'était le cas dans nos projets précédents.
     À la place, il s'agit simplement d'un <acronym>POM</acronym> qui fait 
@@ -189,14 +186,14 @@
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
   &lt;parent&gt;
-    &lt;groupId&gt;org.sonatype.mavenbook.ch06&lt;/groupId&gt;
+    &lt;groupId&gt;org.sonatype.mavenbook.multi&lt;/groupId&gt;
     &lt;artifactId&gt;simple-parent&lt;/artifactId&gt;
     &lt;version&gt;1.0&lt;/version&gt;
   &lt;/parent&gt;
   &lt;artifactId&gt;simple-weather&lt;/artifactId&gt;
   &lt;packaging&gt;jar&lt;/packaging&gt;
 
-  &lt;name&gt;Chapter 6 Simple Weather API&lt;/name&gt;
+  &lt;name&gt;Multi Chapter Simple Weather API&lt;/name&gt;
 
   &lt;build&gt;
     &lt;pluginManagement&gt;
@@ -259,7 +256,7 @@
       </indexterm> Le POM parent du module
     <varname>simple-weather</varname> est identifié par un
     <varname>groupId</varname> avec pour valeur
-    <varname>org.sonatype.mavenbook.ch06</varname>, par l'
+    <varname>org.sonatype.mavenbook.multi</varname>, par l'
     <varname>artifactId</varname> <varname>simple-parent</varname>, et par la 
     <varname>version</varname> <varname>1.0</varname>. Consultez l'<xref
     linkend="multimodule-weather-service" />.</para>
@@ -339,7 +336,7 @@ public class WeatherService {
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
   &lt;parent&gt;
-    &lt;groupId&gt;org.sonatype.mavenbook.ch06&lt;/groupId&gt;
+    &lt;groupId&gt;org.sonatype.mavenbook.multi&lt;/groupId&gt;
     &lt;artifactId&gt;simple-parent&lt;/artifactId&gt;
     &lt;version&gt;1.0&lt;/version&gt;
   &lt;/parent&gt;
@@ -355,7 +352,7 @@ public class WeatherService {
       &lt;scope&gt;provided&lt;/scope&gt;
     &lt;/dependency&gt;
     &lt;dependency&gt;
-      &lt;groupId&gt;org.sonatype.mavenbook.ch06&lt;/groupId&gt;
+      &lt;groupId&gt;org.sonatype.mavenbook.multi&lt;/groupId&gt;
       &lt;artifactId&gt;simple-weather&lt;/artifactId&gt;
       &lt;version&gt;1.0&lt;/version&gt;
     &lt;/dependency&gt;
@@ -479,7 +476,7 @@ public class WeatherServlet extends HttpServlet {
     utilisons la commande <command>mvn clean install</command> à partir du projet de plus haut niveau
     <varname>simple-parent</varname> :</para>
     
-    <screen>~/examples/ch06/simple-parent$ <command>mvn clean install</command>
+    <screen>~/examples/ch-multi/simple-parent$ <command>mvn clean install</command>
 [INFO] Scanning for projects...
 [INFO] Reactor build order: 
 [INFO]   Simple Parent Project
