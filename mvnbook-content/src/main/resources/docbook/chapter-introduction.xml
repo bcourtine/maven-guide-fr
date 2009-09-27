@@ -377,7 +377,7 @@
                 <listitem>
                   <para>Maven possède ses conventions. Il sait où se trouve le code source car vous suivez une
                   convention. Le plugin Maven Compiler place le bytecode dans <filename>target/classes</filename> et
-                  produit un fichier <acronym>JAR</acronym> dans le répertoire target.</para>
+                  produit un fichier <acronym>JAR</acronym> dans le répertoire <filename>target</filename>.</para>
                 </listitem>
 
                 <listitem>
