@@ -34,10 +34,11 @@
       sans utiliser le plugin Maven Archetype pour le générer. Nous recommandons de télécharger le code 
       des exemples pour utiliser celui-ci comme code de référence lors de la lecture de ce chapitre.
       Sans ces exemples, vous ne serez pas capables de recréer la totalité du projet produit dans ce chapitre.
-      Le projet contenant les exemples de ce chapitre peut être téléchargé aux adresses suivantes : 
-      <ulink url="http://www.sonatype.com/book/mvn-examples-1.0.zip">http://www.sonatype.com/book/mvn-examples-1.0.zip</ulink>
-      ou <ulink url="http://www.sonatype.com/book/mvn-examples-1.0.tar.gz">http://www.sonatype.com/book/mvn-examples-1.0.tar.gz</ulink>.
-      Une fois téléchargée, dézippez l'archive dans n'importe quel répertoire et entrez dans le répertoire <filename>ch07/</filename>.
+      Le projet contenant les exemples de ce chapitre peut être téléchargé à l'adresse suivante :</para>
+
+      <screen>${examples.download.url}</screen>       
+      
+      <para>Une fois téléchargée, dézippez l'archive dans n'importe quel répertoire et entrez dans le répertoire <filename>ch-multi-spring/</filename>.
       Vous trouverez alors dans celui-ci un sous-répertoire <filename>simple-parent/</filename>      
       qui contient le projet Maven multimodule que nous allons développer dans ce chapitre.
       Dans le répertoire de ce projet, vous trouverez un <filename>pom.xml</filename> et cinq sous-modules :   
@@ -45,11 +46,7 @@
       <filename>simple-persist/</filename>,
       <filename>simple-command/</filename>,
       <filename>simple-weather/</filename> et
-      <filename>simple-webapp/</filename>. 
-      
-      Si vous préférez, vous pouvez également suivre cet exemple à partir de votre navigateur Web. Pour cela, rendez-vous à l'adresse suivante :
-      <ulink url="http://www.sonatype.com/book/examples-1.0">http://www.sonatype.com/book/examples-1.0</ulink> 
-      et cliquez sur le lien <filename>ch07/</filename> pour consulter le code source de ce chapitre.</para>
+      <filename>simple-webapp/</filename>.</para>
     </section>
 
     <section id="multimodule-web-spring-sect-project-description">
@@ -239,11 +236,11 @@
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
 
-  &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+  &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
   &lt;artifactId&gt;simple-parent&lt;/artifactId&gt;
   &lt;packaging&gt;pom&lt;/packaging&gt;
   &lt;version&gt;1.0&lt;/version&gt;
-  &lt;name&gt;Chapter 7 Simple Parent Project&lt;/name&gt;
+  &lt;name&gt;Multi-Spring Chapter Simple Parent Project&lt;/name&gt;
  
   &lt;modules&gt;
     &lt;module&gt;simple-command&lt;/module&gt;
@@ -348,7 +345,7 @@
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
   &lt;parent&gt;
-    &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+    &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
     &lt;artifactId&gt;simple-parent&lt;/artifactId&gt;
     &lt;version&gt;1.0&lt;/version&gt;
   &lt;/parent&gt;
@@ -581,7 +578,7 @@ public class Condition {
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
   &lt;parent&gt;
-    &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+    &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
     &lt;artifactId&gt;simple-parent&lt;/artifactId&gt;
     &lt;version&gt;1.0&lt;/version&gt;
   &lt;/parent&gt;
@@ -592,7 +589,7 @@ public class Condition {
 
   &lt;dependencies&gt;
     &lt;dependency&gt;
-      &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+      &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
       &lt;artifactId&gt;simple-model&lt;/artifactId&gt;
       &lt;version&gt;1.0&lt;/version&gt;
     &lt;/dependency&gt;
@@ -628,7 +625,7 @@ public class Condition {
 
     <variablelist>
       <varlistentry>
-        <term><literal>org.sonatype.mavenbook.ch07:simple-model:1.0</literal></term>
+        <term><literal>org.sonatype.mavenbook.multispring:simple-model:1.0</literal></term>
 
         <listitem>
           <para>Le module <varname>simple-weather</varname> parse et le transforme le flux  <acronym>RSS</acronym> Yahoo! Météo en objet <classname>Weather</classname>.
@@ -795,7 +792,7 @@ public class WeatherService {
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
   &lt;parent&gt;
-    &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+    &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
     &lt;artifactId&gt;simple-parent&lt;/artifactId&gt;
     &lt;version&gt;1.0&lt;/version&gt;
   &lt;/parent&gt;
@@ -806,7 +803,7 @@ public class WeatherService {
 
   &lt;dependencies&gt;
     &lt;dependency&gt;
-      &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+      &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
       &lt;artifactId&gt;simple-model&lt;/artifactId&gt;
       &lt;version&gt;1.0&lt;/version&gt;
     &lt;/dependency&gt;
@@ -852,7 +849,7 @@ public class WeatherService {
 
     <variablelist>
       <varlistentry>
-        <term><literal>org.sonatype.mavenbook.ch07:simple-model:1.0</literal></term>
+        <term><literal>org.sonatype.mavenbook.multispring:simple-model:1.0</literal></term>
 
         <listitem>
           <para>Tout comme le module <varname>simple-weather</varname>, ce module de persistance 
@@ -1205,7 +1202,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
   &lt;parent&gt;
-    &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+    &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
     &lt;artifactId&gt;simple-parent&lt;/artifactId&gt;
     &lt;version&gt;1.0&lt;/version&gt;
   &lt;/parent&gt;
@@ -1221,12 +1218,12 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
       &lt;scope&gt;provided&lt;/scope&gt;
     &lt;/dependency&gt;
     &lt;dependency&gt;
-      &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+      &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
       &lt;artifactId&gt;simple-weather&lt;/artifactId&gt;
       &lt;version&gt;1.0&lt;/version&gt;
     &lt;/dependency&gt;
     &lt;dependency&gt;
-      &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+      &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
       &lt;artifactId&gt;simple-persist&lt;/artifactId&gt;
       &lt;version&gt;1.0&lt;/version&gt;
     &lt;/dependency&gt;
@@ -1752,7 +1749,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
 [INFO] Searching repository for plugin with prefix: 'hibernate3'.
 [INFO] org.codehaus.mojo: checking for updates from central
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Chapter 7 Simple Web Application
+[INFO] Building Multi-Spring Chapter Simple Web Application
 [INFO]    task-segment: [hibernate3:hbm2ddl]
 [INFO] ------------------------------------------------------------------------
 [INFO] Preparing hibernate3:hbm2ddl
@@ -1770,13 +1767,14 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
 [INFO] Scanning for projects...
 [INFO] Searching repository for plugin with prefix: 'jetty'.
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Chapter 7 Simple Web Application
+[INFO] Building Multi-Spring Chapter Simple Web Application
 [INFO]    task-segment: [jetty:run]
 [INFO] ------------------------------------------------------------------------
 [INFO] Preparing jetty:run
 ...
 [INFO] [jetty:run]
-[INFO] Configuring Jetty for project: Chapter 7 Simple Web Application
+[INFO] Configuring Jetty for project: 
+Multi-Spring Chapter Simple Web Application
 ...
 [INFO] Context path = /simple-webapp
 [INFO] Tmp directory =  determined at runtime
@@ -1836,7 +1834,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
   &lt;parent&gt;
-    &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+    &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
     &lt;artifactId&gt;simple-parent&lt;/artifactId&gt;
     &lt;version&gt;1.0&lt;/version&gt;
   &lt;/parent&gt;
@@ -1896,12 +1894,12 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
 
   &lt;dependencies&gt;
     &lt;dependency&gt;
-      &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+      &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
       &lt;artifactId&gt;simple-weather&lt;/artifactId&gt;
       &lt;version&gt;1.0&lt;/version&gt;
     &lt;/dependency&gt;
     &lt;dependency&gt;
-      &lt;groupId&gt;org.sonatype.mavenbook.ch07&lt;/groupId&gt;
+      &lt;groupId&gt;org.sonatype.mavenbook.multispring&lt;/groupId&gt;
       &lt;artifactId&gt;simple-persist&lt;/artifactId&gt;
       &lt;version&gt;1.0&lt;/version&gt;
     &lt;/dependency&gt;
@@ -2145,7 +2143,7 @@ Current Weather Conditions for:
 
     <screen>$ <command>mvn assembly:assembly</command>
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Chapter 7 Simple Command Line Tool
+[INFO] Building Multi-spring Chapter Simple Command Line Tool
 [INFO]    task-segment: [assembly:assembly] (aggregator-style)
 [INFO] ------------------------------------------------------------------------
 [INFO] [resources:resources]
@@ -2181,7 +2179,7 @@ Current Weather Conditions for:
 [INFO] Searching repository for plugin with prefix: 'hibernate3'.
 [INFO] org.codehaus.mojo: checking for updates from central
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Chapter 7 Simple Command Line Tool
+[INFO] Building Multi-spring Chapter Simple Command Line Tool
 [INFO]    task-segment: [hibernate3:hbm2ddl]
 [INFO] ------------------------------------------------------------------------
 [INFO] Preparing hibernate3:hbm2ddl
