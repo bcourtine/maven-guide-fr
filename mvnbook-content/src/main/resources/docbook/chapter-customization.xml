@@ -16,14 +16,16 @@
       <para>Nous allons développer un programme utile qui va interagir avec le service en ligne Yahoo! Météo. Bien que
       vous devriez être capable de suivre ce chapitre sans le code source d'exemple, nous vous recommandons d'en
       télécharger une copie et de l'utiliser comme référence. Le projet exemple de ce chapitre peut être téléchargé avec
-      le code d'exemple de ce livre à l'adresse <ulink
-      url="http://www.sonatype.com/book/mvn-examples-1.0.zip"></ulink> ou <ulink
-      url="http://www.sonatype.com/book/mvn-examples-1.0.tar.gz"></ulink>. Décompressez cette archive dans le répertoire
-      de votre choix et allez dans le répertoire <filename>ch04/</filename>. Vous y trouverez un répertoire
+      le code d'exemple de ce livre à l'adresse : </para>
+
+      <screen>${examples.download.url}</screen>
+
+      <para>Décompressez cette archive dans le répertoire
+      de votre choix et allez dans le répertoire <filename>custom/</filename>. Vous y trouverez un répertoire
       nommé <filename>simple-weather/</filename> qui contient le projet Maven qui sera développé dans ce chapitre. Si
       vous souhaitez suivre avec le code d'exemple affiché dans un navigateur web, allez à <ulink
       url="http://www.sonatype.com/book/examples-1.0">http://www.sonatype.com/book/examples-1.0</ulink> et cliquez sur
-      le répertoire <filename>ch04/</filename>.</para>
+      le répertoire <filename>custom/</filename>.</para>
     </section>
   </section>
   <section id="customizing-sect-simple-weather">
@@ -62,7 +64,7 @@
       url="http://developer.yahoo.com/weather/"></ulink>. </para>
 </section> 
       </section>
-      <section id="customizing-sect-creating-simple-weather"><title>Créer le Projet Simple Weather</title> <para>Tout d'abord, utilisons le plugin Maven Archetype pour créer le squelette<indexterm class="startofrange" id="weather03b"> <primary>weather project (example)</primary> <secondary>creating</secondary> </indexterm><indexterm class="startofrange" id="weather03b1"> <primary>customizing projects</primary> <secondary>creating the project</secondary> </indexterm><indexterm class="startofrange" id="weather03b2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>creating the project</tertiary> </indexterm><indexterm> <primary>Archetype plugin</primary> <secondary>creating simple weather application with</secondary> </indexterm><indexterm> <primary>Maven Archetype plugin</primary> <secondary>creating simple weather application with</secondary> </indexterm> basique du projet simple weather. Exécutez la commande suivante pour créer un nouveau projet : </para><screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.ch04 \
+      <section id="customizing-sect-creating-simple-weather"><title>Créer le Projet Simple Weather</title> <para>Tout d'abord, utilisons le plugin Maven Archetype pour créer le squelette<indexterm class="startofrange" id="weather03b"> <primary>weather project (example)</primary> <secondary>creating</secondary> </indexterm><indexterm class="startofrange" id="weather03b1"> <primary>customizing projects</primary> <secondary>creating the project</secondary> </indexterm><indexterm class="startofrange" id="weather03b2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>creating the project</tertiary> </indexterm><indexterm> <primary>Archetype plugin</primary> <secondary>creating simple weather application with</secondary> </indexterm><indexterm> <primary>Maven Archetype plugin</primary> <secondary>creating simple weather application with</secondary> </indexterm> basique du projet simple weather. Exécutez la commande suivante pour créer un nouveau projet : </para><screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.custom \
                                          -DartifactId=simple-weather \
                                          -DpackageName=org.sonatype.mavenbook \
                                          -Dversion=1.0
@@ -78,14 +80,14 @@ Choose archetype:
 ...
 Choose a number: (...) 15: : <emphasis>15</emphasis>
 Confirm properties configuration:
-groupId: org.sonatype.mavenbook.ch04
+groupId: org.sonatype.mavenbook.custom
 artifactId: simple-weather
 version: 1.0
-package: org.sonatype.mavenbook.ch04
+package: org.sonatype.mavenbook.custom
  Y: : Y
-[INFO] Parameter: groupId, Value: org.sonatype.mavenbook.ch04
-[INFO] Parameter: packageName, Value: org.sonatype.mavenbook.ch04
-[INFO] Parameter: package, Value: org.sonatype.mavenbook.ch04
+[INFO] Parameter: groupId, Value: org.sonatype.mavenbook.custom
+[INFO] Parameter: packageName, Value: org.sonatype.mavenbook.custom
+[INFO] Parameter: package, Value: org.sonatype.mavenbook.custom
 [INFO] Parameter: artifactId, Value: simple-weather
 [INFO] Parameter: basedir, Value: /private/tmp
 [INFO] Parameter: version, Value: 1.0
@@ -94,7 +96,7 @@ package: org.sonatype.mavenbook.ch04
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;org.sonatype.mavenbook.ch04&lt;/groupId&gt;
+  &lt;groupId&gt;org.sonatype.mavenbook.custom&lt;/groupId&gt;
   &lt;artifactId&gt;simple-weather&lt;/artifactId&gt;
   &lt;packaging&gt;jar&lt;/packaging&gt;
   &lt;version&gt;1.0&lt;/version&gt;
@@ -114,7 +116,7 @@ package: org.sonatype.mavenbook.ch04
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;org.sonatype.mavenbook.ch04&lt;/groupId&gt;
+  &lt;groupId&gt;org.sonatype.mavenbook.custom&lt;/groupId&gt;
   &lt;artifactId&gt;simple-weather&lt;/artifactId&gt;
   &lt;packaging&gt;jar&lt;/packaging&gt;
   &lt;version&gt;1.0&lt;/version&gt;
@@ -471,7 +473,7 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</progr
 </screen> <para>Comme vous pouvez vous en rendre compte, notre projet possède un grand nombre de dépendances. Alors que nous n'avons inclus que quatre bibliothèques comme dépendances directes, nous avons en fait 15 dépendances. Dom4J dépend de Xerces et des XML Parser <acronym>API</acronym>s, Jaxen dépend de la présence de Xalan dans le classpath. Le plugin Dependency va afficher la combinaison finale des dépendances utilisées pour compiler votre projet. Si vous voulez connaitre l'arbre complet des dépendances de votre projet, vous pouvez exécuter le goal <varname>dependency:</varname><varname>tree</varname>. </para><screen>$ <command>mvn dependency:tree</command>
 ...
 [INFO] [dependency:tree]
-[INFO] org.sonatype.mavenbook.ch04:simple-weather:jar:1.0
+[INFO] org.sonatype.mavenbook.custom:simple-weather:jar:1.0
 [INFO] +- log4j:log4j:jar:1.2.14:compile
 [INFO] +- dom4j:dom4j:jar:1.6.1:compile
 [INFO] |  \- xml-apis:xml-apis:jar:1.0.b2:compile
@@ -490,7 +492,7 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</progr
 [INFO] \- junit:junit:jar:3.8.1:test
 ...</screen> <para>Si vous êtes aventurier dans l'âme ou si vous voulez voir le chemin complet des dépendances, avec les artefacts qui ont été rejetés à cause d'un conflit ou pour toute autre raison, exécutez Maven avec le flag debug. </para><screen>$ <command>mvn install -X</command>
 ...
-[DEBUG] org.sonatype.mavenbook.ch04:simple-weather:jar:1.0 (selected for null)
+[DEBUG] org.sonatype.mavenbook.custom:simple-weather:jar:1.0 (selected for null)
 [DEBUG]   log4j:log4j:jar:1.2.14:compile (selected for compile)
 [DEBUG]   dom4j:dom4j:jar:1.6.1:compile (selected for compile)
 [DEBUG]     xml-apis:xml-apis:jar:1.0.b2:compile (selected for compile)
@@ -652,7 +654,7 @@ $ <command>cd resources</command></screen> <para>Une fois que vous avez créé l
 <section id="customizing-sect-executing-tests"><title>Exécuter les Test Unitaires</title> <para>Maintenant que votre projet possède ses tests unitaires, exécutons-les. Vous n'avez rien<indexterm class="startofrange" id="weather03l"> <primary>weather project (example)</primary> <secondary>unit tests, executing</secondary> </indexterm><indexterm class="startofrange" id="weather03l1"> <primary>customizing projects</primary> <secondary>unit tests, executing</secondary> </indexterm><indexterm class="startofrange" id="weather03l2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>unit tests, executing</tertiary> </indexterm><indexterm class="startofrange" id="weather03l3"> <primary>unit tests</primary> <secondary>executing</secondary> </indexterm> à faire de spécial pour exécuter un test unitaire; la phase <varname>test</varname> est une étape standard du cycle de vie de Maven. Vous lancez les tests avec Maven à chaque fois que vous exécutez <command>mvn package</command> ou <command>mvn install</command>. Si vous voulez lancer toutes les phases du cycle de vie jusqu'à la phase <varname>test</varname> incluse, exécutez <command>mvn test</command> : </para><screen>$ <command>mvn test</command>
 ...
 [INFO] [surefire:test]
-[INFO] Surefire report directory: ~/examples/simple-weather/target/\
+[INFO] Surefire report directory: ~/examples/ch-custom/simple-weather/target/\
                                   surefire-reports
 
 -------------------------------------------------------
@@ -733,7 +735,8 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 &lt;/project&gt;</programlisting> </example> <para>Une fois que vous avez ajouté cette configuration, vous pouvez construire l'assemblage en exécutant le goal <varname>assembly:</varname><varname>assembly</varname>. Dans les traces affichées à l'écran, le goal <varname>assembly:</varname><varname>assembly</varname> est exécuté une fois que le build Maven atteint la phase <varname>install</varname> du cycle de vie : </para><screen>$ <command>mvn install assembly:assembly</command>
 ...
 [INFO] [jar:jar]
-[INFO] Building jar: ~/examples/simple-weather/target/simple-weather-1.0.jar
+[INFO] Building jar:
+~/examples/ch-custom/simple-weather/target/simple-weather-1.0.jar
 [INFO] [assembly:assembly]
 [INFO] Processing DependencySet (output=)
 [INFO] Expanding: \
@@ -744,7 +747,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
        into /tmp/archived-file-set.305257225.tmp
 ... (Maven Expands all dependencies into a temporary directory) ...
 [INFO] Building jar: \
-       ~/examples/simple-weather/target/\
+       ~/examples/ch-custom/simple-weather/target/\
          simple-weather-1.0-jar-with-dependencies.jar
 </screen> <para>Une fois que notre application est assemblée dans <filename>target/</filename><filename>simple-weather-1.0-jar-with-</filename><filename>dependencies.jar</filename>, nous pouvons de nouveau lancer la classe <classname>Main</classname> depuis la ligne de commande. Pour lancer la classe <classname>Main</classname> de l'application simple weather, exécutez les commandes suivantes depuis le répertoire racine de votre projet. </para><screen>$ <command>cd target</command>
 $ <command>java -cp simple-weather-1.0-jar-with-dependencies.jar \
