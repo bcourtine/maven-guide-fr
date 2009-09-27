@@ -1,70 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="customizing" lang="fr">
   <title>Personnalisation d'un Projet Maven</title>
+
   <section id="customizing-sect-intro">
     <title>Introduction</title>
-    <para>Ce chapitre va développer ce que nous avons appris dans le <xref linkend="simple-project" />. Nous allons créer
-    un projet simple<indexterm class="startofrange" id="customproj1"> <primary>customizing projects</primary>
-    </indexterm><indexterm class="startofrange" id="customproj2"> <primary>projects</primary> <secondary>customizing</secondary>
-    </indexterm> grâce au plugin Maven Archetype, lui ajouter quelques dépendances, du code source et le personnaliser
-    pour l'adapter à notre besoin. À la fin de ce chapitre, vous devriez être capable d'utiliser Maven pour créer de 
+
+    <para>Ce chapitre va développer ce que nous avons appris dans le <xref linkend="simple-project" />. Nous allons
+    créer un projet simple<indexterm class="startofrange" id="customproj1">
+        <primary>customizing projects</primary>
+      </indexterm><indexterm class="startofrange" id="customproj2">
+        <primary>projects</primary>
+
+        <secondary>customizing</secondary>
+      </indexterm> grâce au plugin Maven Archetype, lui ajouter quelques dépendances, du code source et le personnaliser
+    pour l'adapter à notre besoin. À la fin de ce chapitre, vous devriez être capable d'utiliser Maven pour créer de
     vrais projets.</para>
+
     <section id="customizing-sect-downloading">
       <title>Télécharger l'Exemple de ce Chapitre</title>
+
       <para>Nous allons développer un programme utile qui va interagir avec le service en ligne Yahoo! Météo. Bien que
       vous devriez être capable de suivre ce chapitre sans le code source d'exemple, nous vous recommandons d'en
       télécharger une copie et de l'utiliser comme référence. Le projet exemple de ce chapitre peut être téléchargé avec
-      le code d'exemple de ce livre à l'adresse : </para>
+      le code d'exemple de ce livre à l'adresse :</para>
 
       <screen>${examples.download.url}</screen>
 
-      <para>Décompressez cette archive dans le répertoire
-      de votre choix et allez dans le répertoire <filename>custom/</filename>. Vous y trouverez un répertoire
-      nommé <filename>simple-weather/</filename> qui contient le projet Maven qui sera développé dans ce chapitre. Si
-      vous souhaitez suivre avec le code d'exemple affiché dans un navigateur web, allez à <ulink
+      <para>Décompressez cette archive dans le répertoire de votre choix et allez dans le répertoire
+      <filename>custom/</filename>. Vous y trouverez un répertoire nommé <filename>simple-weather/</filename> qui
+      contient le projet Maven qui sera développé dans ce chapitre. Si vous souhaitez suivre avec le code d'exemple
+      affiché dans un navigateur web, allez à <ulink
       url="http://www.sonatype.com/book/examples-1.0">http://www.sonatype.com/book/examples-1.0</ulink> et cliquez sur
       le répertoire <filename>custom/</filename>.</para>
     </section>
   </section>
+
   <section id="customizing-sect-simple-weather">
     <title>Définir le Projet Simple Weather</title>
-    <para>Avant de commencer à personnaliser ce projet, prenons un peu de recul et<indexterm><primary>Simple Weather application</primary>
-    <see>weather project (example)</see> </indexterm><indexterm class="startofrange" id="weather03a">
-    <primary>weather project (example)</primary> <secondary>defining</secondary> </indexterm><indexterm class="startofrange" id="weather03a1">
-    <primary>customizing projects</primary> <secondary>defining the project</secondary> </indexterm><indexterm class="startofrange"
-    id="weather03a2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>defining the project</tertiary>
-    </indexterm> discutons de ce projet simple weather. De quoi s'agit-il ? Il s'agit d'un exemple dont le but est de
+
+    <para>Avant de commencer à personnaliser ce projet, prenons un peu de recul et<indexterm>
+        <primary>Simple Weather application</primary>
+
+        <see>weather project (example)</see>
+      </indexterm><indexterm class="startofrange" id="weather03a">
+        <primary>weather project (example)</primary>
+
+        <secondary>defining</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03a1">
+        <primary>customizing projects</primary>
+
+        <secondary>defining the project</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03a2">
+        <primary>projects</primary>
+
+        <secondary>customizing</secondary>
+
+        <tertiary>defining the project</tertiary>
+      </indexterm> discutons de ce projet simple weather. De quoi s'agit-il ? Il s'agit d'un exemple dont le but est de
     présenter certaines fonctions clés de Maven. C'est une application représentative de celles que vous pourriez avoir
     à réaliser. L'application simple weather est une application basique en ligne de commande qui prend en paramètre un
     code postal et va chercher des données depuis le flux <acronym>RSS</acronym> de Yahoo! Météo. Ensuite, elle parse la
     réponse et affiche le résultat sur la sortie standard.</para>
-    <para>Nous avons choisi cet exemple pour un certain nombre de raisons. Premièrement, il est simple à comprendre.
-    Un utilisateur fournit une donnée en entrée via la ligne de commande, l'application prend ce code postal, en fait
-    une requête à Yahoo! Météo, parse la réponse, et formate les données avant de les afficher à l'écran. Cet exemple est
+
+    <para>Nous avons choisi cet exemple pour un certain nombre de raisons. Premièrement, il est simple à comprendre. Un
+    utilisateur fournit une donnée en entrée via la ligne de commande, l'application prend ce code postal, en fait une
+    requête à Yahoo! Météo, parse la réponse, et formate les données avant de les afficher à l'écran. Cet exemple est
     une simple fonction <methodname>main()</methodname> avec quelques classes; il n'y a pas de framework d'entreprise à
     introduire ni à expliquer, juste un peu de parsing <acronym>XML</acronym> et quelques traces. Deuxièmement, il nous
     fournit une excellente excuse pour introduire des bibliothèques intéressantes telles que Velocity, Dom4J, et Log4J.
     Bien qu'il s'agisse d'un livre sur Maven, nous ne résistons pas à l'idée d'introduire des outils utiles. Enfin, un
     unique chapitre suffit à introduire, développer, et déployer cet exemple.</para>
-      <section id="customizing-sect-yahoo-weather">
-        <title>Yahoo! Météo RSS</title>
-        <para>Avant de commencer à réaliser cette application, voici quelques informations concernant le<indexterm>
-        <primary>Yahoo! Météo RSS feed, about</primary> </indexterm> flux <acronym>RSS</acronym> Yahoo! Météo. Pour
-        commencer, ce service est accessible selon les termes suivants :</para>
-        <blockquote><para>Les flux sont fournis
-        gratuitement pour une utilisation personnelle, non-commerciale par des individus ou des organisations à but non
-        lucratif. Nous vous demandons d'attribuer les résultats à Yahoo! Météo dans votre utilisation de ces flux.</para></blockquote>
-        <para>En d'autres termes, si vous pensez intégrer ces flux dans votre site internet commercial, revoyez votre
-        position&mdash;ce flux n'est utilisable qu'à titre personnel et non commercial. L'usage que nous allons en faire
-        dans ce chapitre est personnel et à but d'apprentissage. Pour plus d'informations sur les termes de ce service,
-        <indexterm class="endofrange" startref="weather03a"></indexterm><indexterm class="endofrange" startref="weather03a1"></indexterm>
-        <indexterm class="endofrange" startref="weather03a2"></indexterm>lisez la documentation de l'API Yahoo Weather! ici : <ulink
-      url="http://developer.yahoo.com/weather/"></ulink>. </para>
-</section> 
-      </section>
-      <section id="customizing-sect-creating-simple-weather"><title>Créer le Projet Simple Weather</title> <para>Tout d'abord, utilisons le plugin Maven Archetype pour créer le squelette<indexterm class="startofrange" id="weather03b"> <primary>weather project (example)</primary> <secondary>creating</secondary> </indexterm><indexterm class="startofrange" id="weather03b1"> <primary>customizing projects</primary> <secondary>creating the project</secondary> </indexterm><indexterm class="startofrange" id="weather03b2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>creating the project</tertiary> </indexterm><indexterm> <primary>Archetype plugin</primary> <secondary>creating simple weather application with</secondary> </indexterm><indexterm> <primary>Maven Archetype plugin</primary> <secondary>creating simple weather application with</secondary> </indexterm> basique du projet simple weather. Exécutez la commande suivante pour créer un nouveau projet : </para><screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.custom \
+
+    <section id="customizing-sect-yahoo-weather">
+      <title>Yahoo! Météo RSS</title>
+
+      <para>Avant de commencer à réaliser cette application, voici quelques informations concernant le<indexterm>
+          <primary>Yahoo! Météo RSS feed, about</primary>
+        </indexterm> flux <acronym>RSS</acronym> Yahoo! Météo. Pour commencer, ce service est accessible selon les
+      termes suivants :</para>
+
+      <blockquote>
+        <para>Les flux sont fournis gratuitement pour une utilisation personnelle, non-commerciale par des individus ou
+        des organisations à but non lucratif. Nous vous demandons d'attribuer les résultats à Yahoo! Météo dans votre
+        utilisation de ces flux.</para>
+      </blockquote>
+
+      <para>En d'autres termes, si vous pensez intégrer ces flux dans votre site internet commercial, revoyez votre
+      position—ce flux n'est utilisable qu'à titre personnel et non commercial. L'usage que nous allons en faire dans ce
+      chapitre est personnel et à but d'apprentissage. Pour plus d'informations sur les termes de ce service, <indexterm
+      class="endofrange" startref="weather03a"></indexterm><indexterm class="endofrange"
+      startref="weather03a1"></indexterm> <indexterm class="endofrange" startref="weather03a2"></indexterm>lisez la
+      documentation de l'API Yahoo Weather! ici : <ulink url="http://developer.yahoo.com/weather/"></ulink>.</para>
+    </section>
+  </section>
+
+  <section id="customizing-sect-creating-simple-weather">
+    <title>Créer le Projet Simple Weather</title>
+
+    <para>Tout d'abord, utilisons le plugin Maven Archetype pour créer le squelette<indexterm class="startofrange"
+        id="weather03b">
+        <primary>weather project (example)</primary>
+
+        <secondary>creating</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03b1">
+        <primary>customizing projects</primary>
+
+        <secondary>creating the project</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03b2">
+        <primary>projects</primary>
+
+        <secondary>customizing</secondary>
+
+        <tertiary>creating the project</tertiary>
+      </indexterm><indexterm>
+        <primary>Archetype plugin</primary>
+
+        <secondary>creating simple weather application with</secondary>
+      </indexterm><indexterm>
+        <primary>Maven Archetype plugin</primary>
+
+        <secondary>creating simple weather application with</secondary>
+      </indexterm> basique du projet simple weather. Exécutez la commande suivante pour créer un nouveau projet :</para>
+
+    <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.custom \
                                          -DartifactId=simple-weather \
                                          -DpackageName=org.sonatype.mavenbook \
                                          -Dversion=1.0
@@ -91,7 +151,16 @@ package: org.sonatype.mavenbook.custom
 [INFO] Parameter: artifactId, Value: simple-weather
 [INFO] Parameter: basedir, Value: /private/tmp
 [INFO] Parameter: version, Value: 1.0
-[INFO] BUILD SUCCESSFUL</screen> <para>Une fois que le plugin Maven Archetype a créé le projet, allez dans le répertoire <filename>simple-weather</filename> et lisez le fichier <filename>pom.xml</filename>. Vous devriez voir le document <acronym>XML</acronym> présenté dans <xref linkend="ex-initial-pom-for-simple-weather" />. </para> <example id="ex-initial-pom-for-simple-weather"><title><acronym>POM</acronym> Initial pour le projet simple-weather</title> <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+[INFO] BUILD SUCCESSFUL</screen>
+
+    <para>Une fois que le plugin Maven Archetype a créé le projet, allez dans le répertoire
+    <filename>simple-weather</filename> et lisez le fichier <filename>pom.xml</filename>. Vous devriez voir le document
+    <acronym>XML</acronym> présenté dans <xref linkend="ex-initial-pom-for-simple-weather" />.</para>
+
+    <example id="ex-initial-pom-for-simple-weather">
+      <title><acronym>POM</acronym> Initial pour le projet simple-weather</title>
+
+      <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
@@ -111,7 +180,17 @@ package: org.sonatype.mavenbook.custom
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
 &lt;/project&gt;
-</programlisting> </example> <para>Puis, nous allons configurer le plugin Maven Compiler pour compiler du code Java 5. Pour cela, ajoutez la balise <sgmltag>build</sgmltag> au POM initial comme montré dans l'<xref linkend="ex-customization-initial-pom-with-compiler" />. </para> <example id="ex-customization-initial-pom-with-compiler"><title><acronym>POM</acronym> du projet simple-weather avec la configuration du compilateur</title> <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+</programlisting>
+    </example>
+
+    <para>Puis, nous allons configurer le plugin Maven Compiler pour compiler du code Java 5. Pour cela, ajoutez la
+    balise <sgmltag>build</sgmltag> au POM initial comme montré dans l'<xref
+    linkend="ex-customization-initial-pom-with-compiler" />.</para>
+
+    <example id="ex-customization-initial-pom-with-compiler">
+      <title><acronym>POM</acronym> du projet simple-weather avec la configuration du compilateur</title>
+
+      <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
@@ -142,7 +221,64 @@ package: org.sonatype.mavenbook.custom
     &lt;/plugins&gt;
   &lt;/build&gt;</emphasis>
 &lt;/project&gt;
-</programlisting> </example> <para>Remarquez que nous avons passé le paramètre <varname>version</varname> au goal <varname>archetype:generate</varname>. Ceci remplace la valeur par défaut <literal>1.0-SNAPSHOT</literal>. Dans ce projet, nous développons la version <literal>1.0</literal> du projet <varname>simple-weather</varname> comme vous pouvez le voir dans la balise <varname>version</varname> du <filename>pom.xml</filename>. </para> </section> <section id="customizing-sect-customizing-project-info"><title>Personnaliser les Informations du projet</title> <para>Avant de commencer à écrire du code, personnalisons un peu les informations<indexterm class="startofrange" id="weather03c"> <primary>weather project (example)</primary> <secondary>adding project information to pom.xml</secondary> </indexterm><indexterm class="startofrange" id="weather03c1"> <primary>customizing projects</primary> <secondary>adding project information to pom.xml</secondary> </indexterm><indexterm class="startofrange" id="weather03c2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>adding project information to pom.xml</tertiary> </indexterm><indexterm> <primary>project information (in pom.xml)</primary> <secondary>adding to project</secondary> </indexterm><indexterm> <primary>licensing information (project information)</primary> <secondary>adding to project</secondary> </indexterm><indexterm> <primary>organizational information (project information)</primary> <secondary>adding to project</secondary> </indexterm><indexterm> <primary>developer information (project information)</primary> <secondary>adding to project</secondary> </indexterm><indexterm> <primary>pom.xml file</primary> <secondary>project information in</secondary> <tertiary>adding</tertiary> </indexterm> du projet. Nous voulons ajouter des informations sur la licence du projet, l'organisation, et les quelques développeurs associés à ce projet. Il s'agit d'informations standards que vous attendriez de n'importe quel projet. L'<xref linkend="ex-custom-org-info" /> montre le <acronym>XML</acronym> qui fournit les informations sur l'organisation, la licence et les développeurs. </para> <example id="ex-custom-org-info"><title>Ajout des Informations Organisationnelles, Légales et sur les Développeurs au pom.xml</title> <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+</programlisting>
+    </example>
+
+    <para>Remarquez que nous avons passé le paramètre <varname>version</varname> au goal
+    <varname>archetype:generate</varname>. Ceci remplace la valeur par défaut <literal>1.0-SNAPSHOT</literal>. Dans ce
+    projet, nous développons la version <literal>1.0</literal> du projet <varname>simple-weather</varname> comme vous
+    pouvez le voir dans la balise <varname>version</varname> du <filename>pom.xml</filename>.</para>
+  </section>
+
+  <section id="customizing-sect-customizing-project-info">
+    <title>Personnaliser les Informations du projet</title>
+
+    <para>Avant de commencer à écrire du code, personnalisons un peu les informations<indexterm class="startofrange"
+        id="weather03c">
+        <primary>weather project (example)</primary>
+
+        <secondary>adding project information to pom.xml</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03c1">
+        <primary>customizing projects</primary>
+
+        <secondary>adding project information to pom.xml</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03c2">
+        <primary>projects</primary>
+
+        <secondary>customizing</secondary>
+
+        <tertiary>adding project information to pom.xml</tertiary>
+      </indexterm><indexterm>
+        <primary>project information (in pom.xml)</primary>
+
+        <secondary>adding to project</secondary>
+      </indexterm><indexterm>
+        <primary>licensing information (project information)</primary>
+
+        <secondary>adding to project</secondary>
+      </indexterm><indexterm>
+        <primary>organizational information (project information)</primary>
+
+        <secondary>adding to project</secondary>
+      </indexterm><indexterm>
+        <primary>developer information (project information)</primary>
+
+        <secondary>adding to project</secondary>
+      </indexterm><indexterm>
+        <primary>pom.xml file</primary>
+
+        <secondary>project information in</secondary>
+
+        <tertiary>adding</tertiary>
+      </indexterm> du projet. Nous voulons ajouter des informations sur la licence du projet, l'organisation, et les
+    quelques développeurs associés à ce projet. Il s'agit d'informations standards que vous attendriez de n'importe quel
+    projet. L'<xref linkend="ex-custom-org-info" /> montre le <acronym>XML</acronym> qui fournit les informations sur
+    l'organisation, la licence et les développeurs.</para>
+
+    <example id="ex-custom-org-info">
+      <title>Ajout des Informations Organisationnelles, Légales et sur les Développeurs au pom.xml</title>
+
+      <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
@@ -181,7 +317,32 @@ package: org.sonatype.mavenbook.custom
   &lt;/developers&gt;
 ...
 &lt;/project&gt;
-</programlisting> </example> <para>Les ellipses dans l'<xref linkend="ex-custom-org-info" /> sont un moyen pour que le listing soit plus court et plus lisible. Quand vos rencontrez un <filename>pom.xml</filename> avec des "..." suivant directement la balise ouvrante <varname>project</varname> et juste avant la balise fermante <varname>project</varname>, cela signifie que nous ne vous montrons pas le fichier <filename>pom.xml</filename> dans son intégralité. Dans notre cas, les balises  <varname>licenses</varname>, <varname>organization</varname>, et <varname>developers</varname> ont été ajoutées avant la balise <varname>dependencies</varname>. </para> </section> <section id="customizing-sect-add-depend"><title>Ajout de nouvelles Dépendances</title> <para>L'application Simple Weather va devoir accomplir les trois tâches suivantes : récupérer les données sous forme <acronym>XML</acronym> depuis Yahoo! Météo, parser le <acronym>XML</acronym> de Yahoo, et ensuite afficher proprement le résultat sur la sortie standard. Pour réaliser toutes ces tâches, nous devons introduire de nouvelles dépendances dans le <filename>pom.xml</filename> du projet. Pour parser la réponse <acronym>XML</acronym> de Yahoo!, nous allons utiliser Dom4J et Jaxen, pour formater le résultat de ce programme en ligne de commande nous utiliserons Velocity, et nous allons aussi devoir ajouter une dépendance vers Log4J qui sera utilisé pour les logs. Après avoir ajouté ces dépendances, notre balise <varname>dependencies</varname> va ressembler à l'exemple suivant. </para> <example><title>Ajout de Dom4J, Jaxen, Velocity, et Log4J comme Dépendances</title> <programlisting language="xml">&lt;project&gt;
+</programlisting>
+    </example>
+
+    <para>Les ellipses dans l'<xref linkend="ex-custom-org-info" /> sont un moyen pour que le listing soit plus court et
+    plus lisible. Quand vos rencontrez un <filename>pom.xml</filename> avec des "..." suivant directement la balise
+    ouvrante <varname>project</varname> et juste avant la balise fermante <varname>project</varname>, cela signifie que
+    nous ne vous montrons pas le fichier <filename>pom.xml</filename> dans son intégralité. Dans notre cas, les balises
+    <varname>licenses</varname>, <varname>organization</varname>, et <varname>developers</varname> ont été ajoutées
+    avant la balise <varname>dependencies</varname>.</para>
+  </section>
+
+  <section id="customizing-sect-add-depend">
+    <title>Ajout de nouvelles Dépendances</title>
+
+    <para>L'application Simple Weather va devoir accomplir les trois tâches suivantes : récupérer les données sous forme
+    <acronym>XML</acronym> depuis Yahoo! Météo, parser le <acronym>XML</acronym> de Yahoo, et ensuite afficher
+    proprement le résultat sur la sortie standard. Pour réaliser toutes ces tâches, nous devons introduire de nouvelles
+    dépendances dans le <filename>pom.xml</filename> du projet. Pour parser la réponse <acronym>XML</acronym> de Yahoo!,
+    nous allons utiliser Dom4J et Jaxen, pour formater le résultat de ce programme en ligne de commande nous utiliserons
+    Velocity, et nous allons aussi devoir ajouter une dépendance vers Log4J qui sera utilisé pour les logs. Après avoir
+    ajouté ces dépendances, notre balise <varname>dependencies</varname> va ressembler à l'exemple suivant.</para>
+
+    <example>
+      <title>Ajout de Dom4J, Jaxen, Velocity, et Log4J comme Dépendances</title>
+
+      <programlisting language="xml">&lt;project&gt;
   [...]
   &lt;dependencies&gt;
     &lt;dependency&gt;
@@ -212,24 +373,114 @@ package: org.sonatype.mavenbook.custom
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
   [...]
-&lt;/project&gt;</programlisting> </example> 
-<para>Comme vous pouvez le voir nous avons ajouté quatre balises de dépendance à celle existante qui référençait la dépendance de scope <varname>test</varname> sur JUnit. Si vous ajoutez ces dépendances au fichier <filename>pom.xml</filename> du projet et exécutez la commande <command>mvn install</command>, vous verrez Maven télécharger toutes ces dépendances et les dépendances transitives dans votre dépôt local Maven.</para> <para>Comment avons-nous trouvé ces dépendances ? "Connaissions" nous juste les bonnes valeurs pour le <varname>groupId</varname> et l'<varname>artifactId</varname> ? Certaines dépendances sont tellement utilisées (comme Log4J) que vous vous souviendrez du <varname>groupId</varname> et de l'<varname>artifactId</varname> à chaque fois que vous en aurez besoin. 
-Velocity, Dom4J, et Jaxen ont été localisés grâce au site internet très utile <ulink
-    url="http://repository.sonatype.org">http://repository.sonatype.org</ulink>.
-    Il s'agit d'une version publique du Nexus de Sonatype. 
-    Elle fournit une interface de permettant d'effectuer des recherches sur différents dépôts Maven, vous pouvez l'utiliser pour trouver vos dépendances.
-    Vous pouvez tester ceci par vous même, ouvrez <ulink
-    url="http://repository.sonatype.org">http://repository.sonatype.org</ulink>
-    et cherchez des bibliothèques très utilisées comme Hibernate ou le framework Spring. Quand vous recherchez un artefact sur ce site, il vous montrera un <varname>artifactId</varname> et toutes ses versions disponibles sur le dépôt central de Maven. Si vous cliquez sur une version spécifique, vous obtiendrez une page qui contient les balises de dépendance que vous aurez à copier puis coller dans le <filename>pom.xml</filename> de votre projet.
-    Si vous avez besoin de trouver d'une dépendance, vous vérifierez avec <ulink
-    url="http://repository.sonatype.org">repository.sonatype.org</ulink>, car vous allez rapidement vous rendre compte que certaines bibliothèques ont plus d'un <varname>groupId</varname>. Avec cet outil, vous pourrez utiliser le dépôt Maven. </para> </section> <section id="customizing-sect-simple-weather-source"><title>Code source de Simple Weather</title> <para>L'application en ligne de commande Simple Weather se compose de cinq classes Java. </para> <variablelist> <varlistentry><term><classname>org.sonatype.mavenbook.weather.Main</classname></term> <listitem> <para>La classe <literal>Main</literal> contient une méthode static  <methodname>main()</methodname>. Il s'agit du point d'entrée de votre système. </para> </listitem> </varlistentry> <varlistentry><term><classname>org.sonatype.mavenbook.weather.Weather</classname></term> <listitem> <para>La classe <classname>Weather</classname> est un simple Java bean qui contient la position du rapport météo et quelques éléments clef, comme la température et l'humidité. </para> </listitem> </varlistentry> <varlistentry><term><classname>org.sonatype.mavenbook.weather.YahooRetriever</classname></term> <listitem> <para>La classe <classname>YahooRetriever</classname> se connecte à Yahoo! Météo et renvoie un <classname
-          role="keep-together">InputStream</classname> des données du flux rss. </para> </listitem> </varlistentry> <varlistentry><term><classname>org.sonatype.mavenbook.weather.YahooParser</classname></term> <listitem> <para>La classe <classname>YahooParser</classname> parse le <acronym>XML</acronym> de Yahoo! Météo, et renvoie un objet de type <classname>Weather</classname>. </para> </listitem> </varlistentry> <varlistentry><term><classname>org.sonatype.mavenbook.weather.WeatherFormatter</classname></term> <listitem> <para>La classe <classname>WeatherFormatter</classname> prend un objet de type <classname>Weather</classname> en paramètre, construit un <classname>VelocityContext</classname>, et applique le template Velocity.</para> </listitem> </varlistentry> </variablelist> <para>Même si nous ne détaillerons pas le code ici, nous vous fournirrons tout le code nécessaire pour vous permettre d'exécuter cet exemple. Nous supposons que la plupart des lecteurs ont téléchargé les exemples qui accompagnent ce livre, mais nous prenons en compte ceux qui veulent suivre l'exemple de ce chapitre étape par étape. Les sections qui suivent listent les classes du projet <varname>simple-weather</varname>. Chacune de ces classes devrait être mise dans le même package : <package>org.sonatype.mavenbook.weather</package>.</para> <para>Supprimons les classes <classname>App</classname> et <classname>AppTest</classname> générées par <varname>archetype:generate</varname> et ajoutons notre nouveau package. Dans un projet Maven, tout le code source doit se trouver dans <filename>src/main/java</filename>. Depuis le répertoire racine de ce nouveau projet, exécutez les commandes suivantes : </para><screen>$ <command>cd src/test/java/org/sonatype/mavenbook</command>
+&lt;/project&gt;</programlisting>
+    </example>
+
+    <para>Comme vous pouvez le voir nous avons ajouté quatre balises de dépendance à celle existante qui référençait la
+    dépendance de scope <varname>test</varname> sur JUnit. Si vous ajoutez ces dépendances au fichier
+    <filename>pom.xml</filename> du projet et exécutez la commande <command>mvn install</command>, vous verrez Maven
+    télécharger toutes ces dépendances et les dépendances transitives dans votre dépôt local Maven.</para>
+
+    <para>Comment avons-nous trouvé ces dépendances ? "Connaissions" nous juste les bonnes valeurs pour le
+    <varname>groupId</varname> et l'<varname>artifactId</varname> ? Certaines dépendances sont tellement utilisées
+    (comme Log4J) que vous vous souviendrez du <varname>groupId</varname> et de l'<varname>artifactId</varname> à chaque
+    fois que vous en aurez besoin. Velocity, Dom4J, et Jaxen ont été localisés grâce au site internet très utile <ulink
+    url="http://repository.sonatype.org">http://repository.sonatype.org</ulink>. Il s'agit d'une version publique du
+    Nexus de Sonatype. Elle fournit une interface de permettant d'effectuer des recherches sur différents dépôts Maven,
+    vous pouvez l'utiliser pour trouver vos dépendances. Vous pouvez tester ceci par vous même, ouvrez <ulink
+    url="http://repository.sonatype.org">http://repository.sonatype.org</ulink> et cherchez des bibliothèques très
+    utilisées comme Hibernate ou le framework Spring. Quand vous recherchez un artefact sur ce site, il vous montrera un
+    <varname>artifactId</varname> et toutes ses versions disponibles sur le dépôt central de Maven. Si vous cliquez sur
+    une version spécifique, vous obtiendrez une page qui contient les balises de dépendance que vous aurez à copier puis
+    coller dans le <filename>pom.xml</filename> de votre projet. Si vous avez besoin de trouver d'une dépendance, vous
+    vérifierez avec <ulink url="http://repository.sonatype.org">repository.sonatype.org</ulink>, car vous allez
+    rapidement vous rendre compte que certaines bibliothèques ont plus d'un <varname>groupId</varname>. Avec cet outil,
+    vous pourrez utiliser le dépôt Maven.</para>
+  </section>
+
+  <section id="customizing-sect-simple-weather-source">
+    <title>Code source de Simple Weather</title>
+
+    <para>L'application en ligne de commande Simple Weather se compose de cinq classes Java.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term><classname>org.sonatype.mavenbook.weather.Main</classname></term>
+
+        <listitem>
+          <para>La classe <literal>Main</literal> contient une méthode static <methodname>main()</methodname>. Il s'agit
+          du point d'entrée de votre système.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><classname>org.sonatype.mavenbook.weather.Weather</classname></term>
+
+        <listitem>
+          <para>La classe <classname>Weather</classname> est un simple Java bean qui contient la position du rapport
+          météo et quelques éléments clef, comme la température et l'humidité.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><classname>org.sonatype.mavenbook.weather.YahooRetriever</classname></term>
+
+        <listitem>
+          <para>La classe <classname>YahooRetriever</classname> se connecte à Yahoo! Météo et renvoie un <classname
+          role="keep-together">InputStream</classname> des données du flux rss.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><classname>org.sonatype.mavenbook.weather.YahooParser</classname></term>
+
+        <listitem>
+          <para>La classe <classname>YahooParser</classname> parse le <acronym>XML</acronym> de Yahoo! Météo, et renvoie
+          un objet de type <classname>Weather</classname>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><classname>org.sonatype.mavenbook.weather.WeatherFormatter</classname></term>
+
+        <listitem>
+          <para>La classe <classname>WeatherFormatter</classname> prend un objet de type <classname>Weather</classname>
+          en paramètre, construit un <classname>VelocityContext</classname>, et applique le template Velocity.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Même si nous ne détaillerons pas le code ici, nous vous fournirrons tout le code nécessaire pour vous
+    permettre d'exécuter cet exemple. Nous supposons que la plupart des lecteurs ont téléchargé les exemples qui
+    accompagnent ce livre, mais nous prenons en compte ceux qui veulent suivre l'exemple de ce chapitre étape par étape.
+    Les sections qui suivent listent les classes du projet <varname>simple-weather</varname>. Chacune de ces classes
+    devrait être mise dans le même package : <package>org.sonatype.mavenbook.weather</package>.</para>
+
+    <para>Supprimons les classes <classname>App</classname> et <classname>AppTest</classname> générées par
+    <varname>archetype:generate</varname> et ajoutons notre nouveau package. Dans un projet Maven, tout le code source
+    doit se trouver dans <filename>src/main/java</filename>. Depuis le répertoire racine de ce nouveau projet, exécutez
+    les commandes suivantes :</para>
+
+    <screen>$ <command>cd src/test/java/org/sonatype/mavenbook</command>
 $ <command>rm AppTest.java</command>
 $ <command>cd ../../../../../..</command>
 $ <command>cd src/main/java/org/sonatype/mavenbook</command>
 $ <command>rm App.java</command>
 $ <command>mkdir weather</command>
-$ <command>cd weather</command></screen> <para>Ainsi, nous avons créé un nouveau package appelé <package>org.sonatype.mavenbook.weather</package>. Maintenant, il nous faut mettre nos classes dans ce répertoire. A l'aide de votre éditeur de texte favori, créez un nouveau fichier appelé <filename>Weather.java</filename> avec le contenu de<indexterm> <primary>classes</primary> <secondary>creating new</secondary> </indexterm> l'<xref linkend="ex-simple-weather-model-object" />. </para> <example id="ex-simple-weather-model-object"><title>Modèle Objet de la classe Weather du projet Simple Weather</title> <programlisting language="java">package org.sonatype.mavenbook.weather;
+$ <command>cd weather</command></screen>
+
+    <para>Ainsi, nous avons créé un nouveau package appelé <package>org.sonatype.mavenbook.weather</package>.
+    Maintenant, il nous faut mettre nos classes dans ce répertoire. A l'aide de votre éditeur de texte favori, créez un
+    nouveau fichier appelé <filename>Weather.java</filename> avec le contenu de<indexterm>
+        <primary>classes</primary>
+
+        <secondary>creating new</secondary>
+      </indexterm> l'<xref linkend="ex-simple-weather-model-object" />.</para>
+
+    <example id="ex-simple-weather-model-object">
+      <title>Modèle Objet de la classe Weather du projet Simple Weather</title>
+
+      <programlisting language="java">package org.sonatype.mavenbook.weather;
 
 public class Weather {
   private String city;
@@ -263,7 +514,23 @@ public class Weather {
   public String getHumidity() { return humidity; }
   public void setHumidity(String humidity) { this.humidity = humidity; }
 }
-</programlisting> </example> <para>La classe <classname>Weather</classname> définit un simple bean utilisé pour stocker les informations météo extraites du flux rss de Yahoo! Météo. Ce flux fournit un grand nombre d'informations, depuis les heures de lever et de coucher du soleil, à la vitesse et la direction des vents. Pour garder cet exemple relativement simple, le modèle objet de <classname>Weather</classname> ne garde que la température, le facteur vent, l'humidité et une description textuelle des conditions actuelles.</para> <para>Maintenant, dans le même répertoire, créez un fichier <filename>Main.java</filename>. Cette classe <classname>Main</classname> contiendra la méthode static <methodname>main()</methodname> &mdash;point d'entrée de cet exemple. </para> <example><title>Classe Main du projet Simple Weather</title> <programlisting language="java">package org.sonatype.mavenbook.weather;
+</programlisting>
+    </example>
+
+    <para>La classe <classname>Weather</classname> définit un simple bean utilisé pour stocker les informations météo
+    extraites du flux rss de Yahoo! Météo. Ce flux fournit un grand nombre d'informations, depuis les heures de lever et
+    de coucher du soleil, à la vitesse et la direction des vents. Pour garder cet exemple relativement simple, le modèle
+    objet de <classname>Weather</classname> ne garde que la température, le facteur vent, l'humidité et une description
+    textuelle des conditions actuelles.</para>
+
+    <para>Maintenant, dans le même répertoire, créez un fichier <filename>Main.java</filename>. Cette classe
+    <classname>Main</classname> contiendra la méthode static <methodname>main()</methodname> —point d'entrée de cet
+    exemple.</para>
+
+    <example>
+      <title>Classe Main du projet Simple Weather</title>
+
+      <programlisting language="java">package org.sonatype.mavenbook.weather;
 
 import java.io.InputStream;
 
@@ -304,7 +571,28 @@ public class Main {
     System.out.print( new WeatherFormatter().format( weather ) );
   }
 }
-</programlisting> </example> <para>La méthode <methodname>main()</methodname> ci-dessus configure Log4J en récupérant une ressource depuis le classpath, puis essaye de lire un code postal depuis la ligne de commande. Si une exception est lancée alors qu'il essaye de lire un code postal, le programme mettra par défaut la valeur 60202 pour le code postal. Une fois qu'il a un code postal, il instancie la classe <classname>Main</classname> et appele la méthode <methodname>start()</methodname> de cette instance. La méthode <methodname>start()</methodname> appelle le <classname>YahooRetriever</classname> pour qu'il récupère le <acronym>XML</acronym> représentant les prévisions météo. Le <classname>YahooRetriever</classname> renvoie un <classname>InputStream</classname> qui est ensuite passé en paramètre du <classname>YahooParser</classname>. Le <classname>YahooParser</classname> parse le <acronym>XML</acronym> de Yahoo! Météo et renvoie un objet de type <classname>Weather</classname>. Pour terminer, le <classname>WeatherFormatter</classname> prend en paramètre un objet de type <classname>Weather</classname> et retourne une <classname>String</classname> formatée qui est affichée sur la sortie standard.</para> <para>Créez un fichier <filename>YahooRetriever.java</filename> dans le même répertoire avec le contenu présenté dans l'<xref linkend="ex-simple-weather-yahoo-retriever-class" />. </para> <example id="ex-simple-weather-yahoo-retriever-class"><title>La classe YahooRetriever du projet Simple Weather</title> <programlisting language="java">package org.sonatype.mavenbook.weather;
+</programlisting>
+    </example>
+
+    <para>La méthode <methodname>main()</methodname> ci-dessus configure Log4J en récupérant une ressource depuis le
+    classpath, puis essaye de lire un code postal depuis la ligne de commande. Si une exception est lancée alors qu'il
+    essaye de lire un code postal, le programme mettra par défaut la valeur 60202 pour le code postal. Une fois qu'il a
+    un code postal, il instancie la classe <classname>Main</classname> et appele la méthode
+    <methodname>start()</methodname> de cette instance. La méthode <methodname>start()</methodname> appelle le
+    <classname>YahooRetriever</classname> pour qu'il récupère le <acronym>XML</acronym> représentant les prévisions
+    météo. Le <classname>YahooRetriever</classname> renvoie un <classname>InputStream</classname> qui est ensuite passé
+    en paramètre du <classname>YahooParser</classname>. Le <classname>YahooParser</classname> parse le
+    <acronym>XML</acronym> de Yahoo! Météo et renvoie un objet de type <classname>Weather</classname>. Pour terminer, le
+    <classname>WeatherFormatter</classname> prend en paramètre un objet de type <classname>Weather</classname> et
+    retourne une <classname>String</classname> formatée qui est affichée sur la sortie standard.</para>
+
+    <para>Créez un fichier <filename>YahooRetriever.java</filename> dans le même répertoire avec le contenu présenté
+    dans l'<xref linkend="ex-simple-weather-yahoo-retriever-class" />.</para>
+
+    <example id="ex-simple-weather-yahoo-retriever-class">
+      <title>La classe YahooRetriever du projet Simple Weather</title>
+
+      <programlisting language="java">package org.sonatype.mavenbook.weather;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -323,8 +611,18 @@ public class YahooRetriever {
     return conn.getInputStream();
   }
 }
-</programlisting> </example> <para>Cette classe très simple ouvre une <classname>URLConnection</classname> sur l'<acronym>API</acronym> de Yahoo! Météo et renvoie un <classname>InputStream</classname>. Pour créer quelquechose capable de parser ce flux, nous allons devoir créer le fichier <filename
-    role="keep-together">YahooParser.java</filename> dans le même répertoire. </para> <example><title>Classe YahooParser du projet Simple Weather</title> <programlisting language="java">package org.sonatype.mavenbook.weather;
+</programlisting>
+    </example>
+
+    <para>Cette classe très simple ouvre une <classname>URLConnection</classname> sur l'<acronym>API</acronym> de Yahoo!
+    Météo et renvoie un <classname>InputStream</classname>. Pour créer quelquechose capable de parser ce flux, nous
+    allons devoir créer le fichier <filename role="keep-together">YahooParser.java</filename> dans le même
+    répertoire.</para>
+
+    <example>
+      <title>Classe YahooParser du projet Simple Weather</title>
+
+      <programlisting language="java">package org.sonatype.mavenbook.weather;
 
 import java.io.InputStream;
 import java.util.HashMap;
@@ -370,7 +668,30 @@ public class YahooParser {
     return xmlReader;
   }
 }
-</programlisting> </example> <para>La classe <classname>YahooParser</classname> est la classe la plus complexe de cet exemple. Nous n'allons pas détailler l'utilisation de Dom4J ou de Jaxen ici, cependant cette classe mérite quelques explications. Dans la classe <classname>YahooParser</classname>, la méthode <methodname>parse()</methodname> prend un <classname>InputStream</classname> en paramètre et renvoie un objet de type <classname>Weather</classname>. Pour cela, elle doit parser un document <acronym>XML</acronym> avec Dom4J. Puisque nous nous intéressons aux éléments dans l'espace de nommage <acronym>XML</acronym> de Yahoo! Météo, nous avons besoin d'un <classname>SAXReader</classname> sensible aux espaces de nommage dans la méthode <methodname>createXmlReader()</methodname>. Une fois que nous avons créé ce parseur et que nous avons parsé le document, nous obtenons en retour un objet de type <classname>org.dom4j.</classname><classname>Document</classname>. Au lieu de parcourir tous ses élements fils, nous récupérons uniquement les informations qui nous intéressent en les sélectionnant avec des expressions XPath. Dom4J permet de parser le <acronym>XML</acronym> dans cet exemple, et Jaxen apporte ses capacités XPath.</para> <para>Une fois que nous avons créé un objet de type <classname>Weather</classname>, nous avons besoin de formater ce résultat pour qu'il soit lisible. Créez un fichier <filename>WeatherFormatter.java</filename> dans le même répertoire que les autres classes. </para> <example><title>Classe WeatherFormatter du projet Simple Weather</title> <programlisting language="java">package org.sonatype.mavenbook.weather;
+</programlisting>
+    </example>
+
+    <para>La classe <classname>YahooParser</classname> est la classe la plus complexe de cet exemple. Nous n'allons pas
+    détailler l'utilisation de Dom4J ou de Jaxen ici, cependant cette classe mérite quelques explications. Dans la
+    classe <classname>YahooParser</classname>, la méthode <methodname>parse()</methodname> prend un
+    <classname>InputStream</classname> en paramètre et renvoie un objet de type <classname>Weather</classname>. Pour
+    cela, elle doit parser un document <acronym>XML</acronym> avec Dom4J. Puisque nous nous intéressons aux éléments
+    dans l'espace de nommage <acronym>XML</acronym> de Yahoo! Météo, nous avons besoin d'un
+    <classname>SAXReader</classname> sensible aux espaces de nommage dans la méthode
+    <methodname>createXmlReader()</methodname>. Une fois que nous avons créé ce parseur et que nous avons parsé le
+    document, nous obtenons en retour un objet de type <classname>org.dom4j.</classname><classname>Document</classname>.
+    Au lieu de parcourir tous ses élements fils, nous récupérons uniquement les informations qui nous intéressent en les
+    sélectionnant avec des expressions XPath. Dom4J permet de parser le <acronym>XML</acronym> dans cet exemple, et
+    Jaxen apporte ses capacités XPath.</para>
+
+    <para>Une fois que nous avons créé un objet de type <classname>Weather</classname>, nous avons besoin de formater ce
+    résultat pour qu'il soit lisible. Créez un fichier <filename>WeatherFormatter.java</filename> dans le même
+    répertoire que les autres classes.</para>
+
+    <example>
+      <title>Classe WeatherFormatter du projet Simple Weather</title>
+
+      <programlisting language="java">package org.sonatype.mavenbook.weather;
 
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -396,17 +717,85 @@ public class WeatherFormatter {
     return writer.toString();
   }
 }
-</programlisting> </example> <para>La classe <classname>WeatherFormatter</classname> utilise Velocity pour appliquer un masque. La méthode <methodname>format()</methodname> prend un bean de type <classname>Weather</classname> en paramètre et renvoie une <classname>String</classname> formattée. La première chose que fait la méthode <methodname>format()</methodname> est de charger depuis le classpath un template Velocity appelé <filename>output.vm</filename>. Puis nous créons un <classname>VelocityContext</classname> qui contient un unique objet de type <classname>Weather</classname> appelé <varname>weather</varname>. Un objet de type <classname>StringWriter</classname> est créé pour contenir le résultat de l'application du masque. Le masque est évalué par un appel à  <methodname>Velocity.evaluate()</methodname> et le résultat est renvoyé sous la forme d'une <classname>String</classname>.</para> <para>Avant de pouvoir exécuter cet exemple, nous allons devoir ajouter des ressources à notre classpath. </para> </section> 
-<section id="customizing-sect-add-resources"><title>Ajouter des Ressources</title> <para>Ce projet nécessite deux ressources dans son classpath : la classe<indexterm class="startofrange" id="weather03f"> <primary>weather project (example)</primary> <secondary>adding resources</secondary> </indexterm><indexterm class="startofrange" id="weather03f1"> <primary>customizing projects</primary> <secondary>adding resources</secondary> </indexterm><indexterm class="startofrange" id="weather03f2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>adding resources</tertiary> </indexterm><indexterm class="startofrange" id="weather03f3"> <primary>resources</primary> <secondary>adding to packages</secondary> </indexterm> <classname>Main</classname> qui configure Log4J utilise une ressource du classpath appelée <filename>log4j.properties</filename>, et la classe <classname>WeatherFormatter</classname> à besoin du template Velocity appelé <filename>output.vm</filename> dans le classpath. Ces deux ressources doivent être dans le package par défaut (ou à la racine du classpath).</para> <para>Pour ajouter ces ressources, nous aurons besoin d'un nouveau répertoire dans le répertoire<indexterm> <primary>resources directory, creating</primary> </indexterm> racine du projet : <filename>src/main/resources</filename>. Puisque ce répertoire n'a pas été créé par la tâche <varname role="keep-together">archetype:generate</varname>, nous allons devoir le créer en exécutant les commandes suivantes à partir du répertoire racine du projet : </para><screen>$ <command>cd src/main</command>
+</programlisting>
+    </example>
+
+    <para>La classe <classname>WeatherFormatter</classname> utilise Velocity pour appliquer un masque. La méthode
+    <methodname>format()</methodname> prend un bean de type <classname>Weather</classname> en paramètre et renvoie une
+    <classname>String</classname> formattée. La première chose que fait la méthode <methodname>format()</methodname> est
+    de charger depuis le classpath un template Velocity appelé <filename>output.vm</filename>. Puis nous créons un
+    <classname>VelocityContext</classname> qui contient un unique objet de type <classname>Weather</classname> appelé
+    <varname>weather</varname>. Un objet de type <classname>StringWriter</classname> est créé pour contenir le résultat
+    de l'application du masque. Le masque est évalué par un appel à <methodname>Velocity.evaluate()</methodname> et le
+    résultat est renvoyé sous la forme d'une <classname>String</classname>.</para>
+
+    <para>Avant de pouvoir exécuter cet exemple, nous allons devoir ajouter des ressources à notre classpath.</para>
+  </section>
+
+  <section id="customizing-sect-add-resources">
+    <title>Ajouter des Ressources</title>
+
+    <para>Ce projet nécessite deux ressources dans son classpath : la classe<indexterm class="startofrange"
+        id="weather03f">
+        <primary>weather project (example)</primary>
+
+        <secondary>adding resources</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03f1">
+        <primary>customizing projects</primary>
+
+        <secondary>adding resources</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03f2">
+        <primary>projects</primary>
+
+        <secondary>customizing</secondary>
+
+        <tertiary>adding resources</tertiary>
+      </indexterm><indexterm class="startofrange" id="weather03f3">
+        <primary>resources</primary>
+
+        <secondary>adding to packages</secondary>
+      </indexterm> <classname>Main</classname> qui configure Log4J utilise une ressource du classpath appelée
+    <filename>log4j.properties</filename>, et la classe <classname>WeatherFormatter</classname> à besoin du template
+    Velocity appelé <filename>output.vm</filename> dans le classpath. Ces deux ressources doivent être dans le package
+    par défaut (ou à la racine du classpath).</para>
+
+    <para>Pour ajouter ces ressources, nous aurons besoin d'un nouveau répertoire dans le répertoire<indexterm>
+        <primary>resources directory, creating</primary>
+      </indexterm> racine du projet : <filename>src/main/resources</filename>. Puisque ce répertoire n'a pas été créé
+    par la tâche <varname role="keep-together">archetype:generate</varname>, nous allons devoir le créer en exécutant
+    les commandes suivantes à partir du répertoire racine du projet :</para>
+
+    <screen>$ <command>cd src/main</command>
 $ <command>mkdir resources</command>
-$ <command>cd resources</command></screen> <para>Une fois le répertoire resources créé, nous pouvons y ajouter ces deux ressources. Tout d'abord, ajoutez le fichier <filename>log4j.properties</filename> dans le répertoire <filename>resources</filename>, avec le contenu affiché dans l'<xref linkend="ex-simple-weather-log4j-config" />. </para> <example id="ex-simple-weather-log4j-config"><title>Fichier de configuration Log4J du projet Simple Weather</title> <programlisting language="java"># Set root category priority to INFO and its only appender to CONSOLE.
+$ <command>cd resources</command></screen>
+
+    <para>Une fois le répertoire resources créé, nous pouvons y ajouter ces deux ressources. Tout d'abord, ajoutez le
+    fichier <filename>log4j.properties</filename> dans le répertoire <filename>resources</filename>, avec le contenu
+    affiché dans l'<xref linkend="ex-simple-weather-log4j-config" />.</para>
+
+    <example id="ex-simple-weather-log4j-config">
+      <title>Fichier de configuration Log4J du projet Simple Weather</title>
+
+      <programlisting language="java"># Set root category priority to INFO and its only appender to CONSOLE.
 log4j.rootCategory=INFO, CONSOLE
 
 # CONSOLE is set to be a ConsoleAppender using a PatternLayout.
 log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
 log4j.appender.CONSOLE.Threshold=INFO
 log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
-log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</programlisting> </example> <para>Ce fichier <filename>log4j.properties</filename> configure Log4J pour qu'il affiche tous les messages de log sur la sortie standard en utilisant un <classname>PatternLayout</classname>. Enfin, nous avons besoin de créer <filename>output.vm</filename>, le template Velocity utilisé pour formater le résultat de notre programme en ligne de commande. Créez le fichier <filename>output.vm</filename> dans le répertoire <filename>resources/</filename>. </para> <example><title>Masque Velocity pour le projet Simple Weather</title> <programlisting>*********************************
+log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</programlisting>
+    </example>
+
+    <para>Ce fichier <filename>log4j.properties</filename> configure Log4J pour qu'il affiche tous les messages de log
+    sur la sortie standard en utilisant un <classname>PatternLayout</classname>. Enfin, nous avons besoin de créer
+    <filename>output.vm</filename>, le template Velocity utilisé pour formater le résultat de notre programme en ligne
+    de commande. Créez le fichier <filename>output.vm</filename> dans le répertoire
+    <filename>resources/</filename>.</para>
+
+    <example>
+      <title>Masque Velocity pour le projet Simple Weather</title>
+
+      <programlisting>*********************************
  Current Weather Conditions for:
   \${weather.city}, \${weather.region}, \${weather.country}
   
@@ -415,8 +804,40 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</progr
     Humidity: \${weather.humidity}
   Wind Chill: \${weather.chill}
 *********************************
-</programlisting> </example> <para>Ce template contient un certain nombre de références à une variable appelée <varname>weather</varname>, il s'agit du bean <classname>Weather</classname> qui est passé à la classe <classname>WeatherFormatter</classname>. La syntaxe <varname>\${weather.</varname><varname>temp}</varname> est un raccourci pour récupérer et afficher la valeur de la propriété <varname>temp</varname> du bean. Maintenant que nous avons tout le code de projet au bon endroit, nous pouvons utiliser <indexterm class="endofrange" startref="weather03f"></indexterm><indexterm class="endofrange" startref="weather03f1"></indexterm><indexterm class="endofrange" startref="weather03f2"></indexterm><indexterm class="endofrange" startref="weather03f3"></indexterm>Maven pour exécuter cet exemple. </para> </section> <section id="customizing-sect-custom-exec"><title>Exécuter le programme Simple Weather</title> <para>Avec le plugin Exec du <ulink
-    url="http://mojo.codehaus.org">projet Codehaus Mojo</ulink>, nous allons pouvoir<indexterm class="startofrange" id="weather03g"> <primary>weather project (example)</primary> <secondary>running (executing)</secondary> </indexterm><indexterm class="startofrange" id="weather03g1"> <primary>customizing projects</primary> <secondary>running (executing)</secondary> </indexterm><indexterm class="startofrange" id="weather03g2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>running (executing)</tertiary> </indexterm> exécuter ce programme. Pour lancer la classe <classname>Main</classname>, exécutez les commandes suivantes en ligne de commande depuis le répertoire racine du projet : </para><screen>$ <command>mvn install</command>
+</programlisting>
+    </example>
+
+    <para>Ce template contient un certain nombre de références à une variable appelée <varname>weather</varname>, il
+    s'agit du bean <classname>Weather</classname> qui est passé à la classe <classname>WeatherFormatter</classname>. La
+    syntaxe <varname>\${weather.</varname><varname>temp}</varname> est un raccourci pour récupérer et afficher la valeur
+    de la propriété <varname>temp</varname> du bean. Maintenant que nous avons tout le code de projet au bon endroit,
+    nous pouvons utiliser <indexterm class="endofrange" startref="weather03f"></indexterm><indexterm class="endofrange"
+    startref="weather03f1"></indexterm><indexterm class="endofrange" startref="weather03f2"></indexterm><indexterm
+    class="endofrange" startref="weather03f3"></indexterm>Maven pour exécuter cet exemple.</para>
+  </section>
+
+  <section id="customizing-sect-custom-exec">
+    <title>Exécuter le programme Simple Weather</title>
+
+    <para>Avec le plugin Exec du <ulink url="http://mojo.codehaus.org">projet Codehaus Mojo</ulink>, nous allons
+    pouvoir<indexterm class="startofrange" id="weather03g">
+        <primary>weather project (example)</primary>
+
+        <secondary>running (executing)</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03g1">
+        <primary>customizing projects</primary>
+
+        <secondary>running (executing)</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03g2">
+        <primary>projects</primary>
+
+        <secondary>customizing</secondary>
+
+        <tertiary>running (executing)</tertiary>
+      </indexterm> exécuter ce programme. Pour lancer la classe <classname>Main</classname>, exécutez les commandes
+    suivantes en ligne de commande depuis le répertoire racine du projet :</para>
+
+    <screen>$ <command>mvn install</command>
 /$ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</command>
 ...
 [INFO] [exec:java]
@@ -433,7 +854,13 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</progr
     Humidity: 76
   Wind Chill: 38
 *********************************
-...</screen> <para>Nous n'avons pas passé de paramètre en ligne de commande à la classe <classname>Main</classname>, aussi c'est le code postal par défaut, 60202, qui a été utilisé. Pour passer un code postal en paramètre, nous devrions utiliser l'argument <varname>-Dexec.args</varname> et lui passer un code postal : </para><screen>$ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main -Dexec.args="70112"</command>
+...</screen>
+
+    <para>Nous n'avons pas passé de paramètre en ligne de commande à la classe <classname>Main</classname>, aussi c'est
+    le code postal par défaut, 60202, qui a été utilisé. Pour passer un code postal en paramètre, nous devrions utiliser
+    l'argument <varname>-Dexec.args</varname> et lui passer un code postal :</para>
+
+    <screen>$ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main -Dexec.args="70112"</command>
 ...
 [INFO] [exec:java]
 0    INFO  YahooRetriever  - Retrieving Weather Data
@@ -450,7 +877,61 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</progr
   Wind Chill: 82
 *********************************
 [INFO] Finished at: Sun Aug 31 09:33:34 CDT 2008
-...</screen> <para>Comme vous pouvez le voir, nous avons exécuté avec succès notre programme Simple Weather. Nous avons récupéré des données depuis Yahoo! Météo, données que nous avons parsées et formattées avec Velocity. Nous avons réalisé tout cela sans faire grand chose d'autre que d'écrire le code source du projet et un peu de configuration dans le <filename>pom.xml</filename>. Remarquez l'absence du "processus de build". Nous n'avons pas eu à définir comment le compilateur Java devait compiler notre code source en bytecode, et nous n'avons pas eu besoin d'indiquer au système de build où se trouvait le bytecode pour qu'il puisse exécuter l'exemple. Tout ce que nous avons eu à faire pour ajouter quelques dépendances a été de trouver leurs coordonnées Maven. </para> <section id="customizing-sect-maven-exec"><title>Le plugin Maven Exec</title> <para>Le plugin Exec vous permet d'exécuter des classes Java ou des scripts. Ce n'est pas un plugin du c&oelig;ur de Maven, mais il est disponible depuis le projet <ulink url="http://mojo.codehaus.org">Mojo</ulink> hébergé chez <ulink url="http://www.codehaus.org">Codehaus</ulink>. Pour une description complète du plugin Exec, exécutez la commande suivante : </para><screen>$ <command>mvn help:describe -Dplugin=exec -Dfull</command></screen> <para>Vous listerez ainsi l'ensemble des goals disponibles pour le plugin Maven Exec. Le plugin Help vous fournira aussi les paramètres valides pour le plugin Exec. Si vous désirez personnaliser le comportement du plugin Exec, vous devriez utiliser la documentation fournie par <varname>help:</varname><varname>describe</varname> comme guide. Aussi utile que soit le plugin Exec, vous ne devriez pas l'utiliser pour exécuter votre application autrement que pour la tester en environnement de développement. Pour une solution plus robuste, utilisez le plugin Maven <phrase role="keep-together">Assembly</phrase> qui est présenté dans la <xref linkend="customizing-sect-custom-packaged" />, plus loin dans ce chapitre. </para> </section> <section id="customizing-sect-exploring-dependencies"><title>Explorer les Dépendances de votre projet</title> <para>Le plugin Exec nous permet d'exécuter le programme simple weather sans avoir à charger les dépendances requises dans le classpath. Avec un autre système de build, nous aurions dû copier toutes les dépendances du programme dans une espèce de répertoire fourre-tout <filename>lib/</filename> qui aurait contenu les fichiers <acronym>JAR</acronym>. Ensuite, nous aurions dû écrire un script basique qui aurait ajouté notre bytecode et nos dépendances dans un classpath. Seulement aprés cela, nous aurions pu exécuter <command>java org.sonatype.mavenbook.weather.Main</command>. Le plugin Exec profite du fait que Maven sait déjà comment créer et gérer votre classpath et vos dépendances.</para> <para>C'est très pratique, mais il est agréable de savoir de quoi se compose exactement le classpath de votre projet. Même si le projet ne dépend que de quelques bibliothèques dont Dom4J, Log4J, Jaxen, et Velocity, il dépend aussi de dépendances transitives. Si vous avez besoin de connaitre la composition de votre classpath, vous pouvez utiliser le plugin Maven Dependency pour afficher une<indexterm> <primary>Dependency plugin</primary> </indexterm><indexterm> <primary>Maven Dependency plugin</primary> </indexterm><indexterm> <primary>dependencies</primary> <secondary>exploring with Dependency plugin</secondary> </indexterm> liste des dépendances résolues. Afin d'afficher cette liste pour le projet simple weather, exécutez le goal <varname>dependency:</varname><varname>resolve</varname> : </para><screen>$ <command>mvn dependency:resolve</command>
+...</screen>
+
+    <para>Comme vous pouvez le voir, nous avons exécuté avec succès notre programme Simple Weather. Nous avons récupéré
+    des données depuis Yahoo! Météo, données que nous avons parsées et formattées avec Velocity. Nous avons réalisé tout
+    cela sans faire grand chose d'autre que d'écrire le code source du projet et un peu de configuration dans le
+    <filename>pom.xml</filename>. Remarquez l'absence du "processus de build". Nous n'avons pas eu à définir comment le
+    compilateur Java devait compiler notre code source en bytecode, et nous n'avons pas eu besoin d'indiquer au système
+    de build où se trouvait le bytecode pour qu'il puisse exécuter l'exemple. Tout ce que nous avons eu à faire pour
+    ajouter quelques dépendances a été de trouver leurs coordonnées Maven.</para>
+
+    <section id="customizing-sect-maven-exec">
+      <title>Le plugin Maven Exec</title>
+
+      <para>Le plugin Exec vous permet d'exécuter des classes Java ou des scripts. Ce n'est pas un plugin du cœur de
+      Maven, mais il est disponible depuis le projet <ulink url="http://mojo.codehaus.org">Mojo</ulink> hébergé chez
+      <ulink url="http://www.codehaus.org">Codehaus</ulink>. Pour une description complète du plugin Exec, exécutez la
+      commande suivante :</para>
+
+      <screen>$ <command>mvn help:describe -Dplugin=exec -Dfull</command></screen>
+
+      <para>Vous listerez ainsi l'ensemble des goals disponibles pour le plugin Maven Exec. Le plugin Help vous fournira
+      aussi les paramètres valides pour le plugin Exec. Si vous désirez personnaliser le comportement du plugin Exec,
+      vous devriez utiliser la documentation fournie par <varname>help:</varname><varname>describe</varname> comme
+      guide. Aussi utile que soit le plugin Exec, vous ne devriez pas l'utiliser pour exécuter votre application
+      autrement que pour la tester en environnement de développement. Pour une solution plus robuste, utilisez le plugin
+      Maven <phrase role="keep-together">Assembly</phrase> qui est présenté dans la <xref
+      linkend="customizing-sect-custom-packaged" />, plus loin dans ce chapitre.</para>
+    </section>
+
+    <section id="customizing-sect-exploring-dependencies">
+      <title>Explorer les Dépendances de votre projet</title>
+
+      <para>Le plugin Exec nous permet d'exécuter le programme simple weather sans avoir à charger les dépendances
+      requises dans le classpath. Avec un autre système de build, nous aurions dû copier toutes les dépendances du
+      programme dans une espèce de répertoire fourre-tout <filename>lib/</filename> qui aurait contenu les fichiers
+      <acronym>JAR</acronym>. Ensuite, nous aurions dû écrire un script basique qui aurait ajouté notre bytecode et nos
+      dépendances dans un classpath. Seulement aprés cela, nous aurions pu exécuter <command>java
+      org.sonatype.mavenbook.weather.Main</command>. Le plugin Exec profite du fait que Maven sait déjà comment créer et
+      gérer votre classpath et vos dépendances.</para>
+
+      <para>C'est très pratique, mais il est agréable de savoir de quoi se compose exactement le classpath de votre
+      projet. Même si le projet ne dépend que de quelques bibliothèques dont Dom4J, Log4J, Jaxen, et Velocity, il dépend
+      aussi de dépendances transitives. Si vous avez besoin de connaitre la composition de votre classpath, vous pouvez
+      utiliser le plugin Maven Dependency pour afficher une<indexterm>
+          <primary>Dependency plugin</primary>
+        </indexterm><indexterm>
+          <primary>Maven Dependency plugin</primary>
+        </indexterm><indexterm>
+          <primary>dependencies</primary>
+
+          <secondary>exploring with Dependency plugin</secondary>
+        </indexterm> liste des dépendances résolues. Afin d'afficher cette liste pour le projet simple weather, exécutez
+      le goal <varname>dependency:</varname><varname>resolve</varname> :</para>
+
+      <screen>$ <command>mvn dependency:resolve</command>
 ...
 [INFO] [dependency:resolve]
 [INFO] 
@@ -470,7 +951,16 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</progr
 [INFO]    xerces:xmlParserAPIs:jar:2.6.2 (scope = compile)
 [INFO]    xml-apis:xml-apis:jar:1.0.b2 (scope = compile)
 [INFO]    xom:xom:jar:1.0 (scope = compile)
-</screen> <para>Comme vous pouvez vous en rendre compte, notre projet possède un grand nombre de dépendances. Alors que nous n'avons inclus que quatre bibliothèques comme dépendances directes, nous avons en fait 15 dépendances. Dom4J dépend de Xerces et des XML Parser <acronym>API</acronym>s, Jaxen dépend de la présence de Xalan dans le classpath. Le plugin Dependency va afficher la combinaison finale des dépendances utilisées pour compiler votre projet. Si vous voulez connaitre l'arbre complet des dépendances de votre projet, vous pouvez exécuter le goal <varname>dependency:</varname><varname>tree</varname>. </para><screen>$ <command>mvn dependency:tree</command>
+</screen>
+
+      <para>Comme vous pouvez vous en rendre compte, notre projet possède un grand nombre de dépendances. Alors que nous
+      n'avons inclus que quatre bibliothèques comme dépendances directes, nous avons en fait 15 dépendances. Dom4J
+      dépend de Xerces et des XML Parser <acronym>API</acronym>s, Jaxen dépend de la présence de Xalan dans le
+      classpath. Le plugin Dependency va afficher la combinaison finale des dépendances utilisées pour compiler votre
+      projet. Si vous voulez connaitre l'arbre complet des dépendances de votre projet, vous pouvez exécuter le goal
+      <varname>dependency:</varname><varname>tree</varname>.</para>
+
+      <screen>$ <command>mvn dependency:tree</command>
 ...
 [INFO] [dependency:tree]
 [INFO] org.sonatype.mavenbook.custom:simple-weather:jar:1.0
@@ -490,7 +980,13 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</progr
 [INFO] |  \- oro:oro:jar:2.0.8:compile
 [INFO] +- org.apache.commons:commons-io:jar:1.3.2:test
 [INFO] \- junit:junit:jar:3.8.1:test
-...</screen> <para>Si vous êtes aventurier dans l'âme ou si vous voulez voir le chemin complet des dépendances, avec les artefacts qui ont été rejetés à cause d'un conflit ou pour toute autre raison, exécutez Maven avec le flag debug. </para><screen>$ <command>mvn install -X</command>
+...</screen>
+
+      <para>Si vous êtes aventurier dans l'âme ou si vous voulez voir le chemin complet des dépendances, avec les
+      artefacts qui ont été rejetés à cause d'un conflit ou pour toute autre raison, exécutez Maven avec le flag
+      debug.</para>
+
+      <screen>$ <command>mvn install -X</command>
 ...
 [DEBUG] org.sonatype.mavenbook.custom:simple-weather:jar:1.0 (selected for null)
 [DEBUG]   log4j:log4j:jar:1.2.14:compile (selected for compile)
@@ -512,11 +1008,73 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</progr
 [DEBUG]     commons-lang:commons-lang:jar:2.1:compile (selected for compile)
 [DEBUG]     oro:oro:jar:2.0.8:compile (selected for compile)
 [DEBUG]   junit:junit:jar:3.8.1:test (selected for test)
-</screen> <para>Dans la sortie de debug, vous voyez les rouages du mécanisme de gestion de dépendances. Ce que vous voyez ici c'est l'arbre des dépendances de ce projet. Maven affiche les coordonnées Maven complètes de toutes les dépendances de votre projet ainsi que les <phrase role="keep-together">dépendances</phrase> de vos dépendances (et les dépendances des dépendances de vos dépendances). Vous pouvez voir que le projet <varname>simple-weather</varname> dépend de <varname>jaxen</varname>, qui dépend de <varname>xom</varname>, qui à son tour dépend de <varname>icu4j</varname>. Vous pouvez voir aussi que Maven construit ce graphe de dépendances en supprimant les doublons et en résolvant les conflits entre différentes versions. Si vous avez un problème avec certaines dépendances, il est souvent utile d'aller plus loin que la simple liste produite par <varname>dependency:</varname><varname>resolve</varname>. Activer les traces en mode debug, vous permet de voir comment fonctionne le mécanisme de<indexterm class="endofrange" startref="weather03g"></indexterm><indexterm class="endofrange" startref="weather03g1"></indexterm><indexterm class="endofrange" startref="weather03g2"></indexterm> résolution des dépendances de Maven. </para> </section> </section> 
-<section id="customizing-sect-writing-tests"><title>Ecrire des Tests Unitaires</title> <para>Maven intègre le support des tests unitaires, et l'exécution de ces tests fait partie intégrante<indexterm class="startofrange" id="weather03h"> <primary>weather project (example)</primary> <secondary>writing unit tests</secondary> </indexterm><indexterm class="startofrange" id="weather03h1"> <primary>customizing projects</primary> <secondary>writing unit tests</secondary> </indexterm><indexterm class="startofrange" id="weather03h2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>writing unit tests</tertiary> </indexterm><indexterm class="startofrange" id="weather03h3"> <primary>unit tests</primary> <secondary>writing</secondary> </indexterm><indexterm> <primary>testing</primary> <secondary>unit tests</secondary> <see>unit tests</see> </indexterm><indexterm> <primary>testing</primary> <seealso>debugging</seealso> </indexterm> de son cycle de vie par défaut. Ajoutons quelques tests unitaires à notre projet simple weather. Tout d'abord, créons le package <package>org.sonatype.mavenbook.weather</package> dans le répertoire <filename>src/test/java</filename> : </para><screen>$ <command>cd src/test/java</command>
+</screen>
+
+      <para>Dans la sortie de debug, vous voyez les rouages du mécanisme de gestion de dépendances. Ce que vous voyez
+      ici c'est l'arbre des dépendances de ce projet. Maven affiche les coordonnées Maven complètes de toutes les
+      dépendances de votre projet ainsi que les <phrase role="keep-together">dépendances</phrase> de vos dépendances (et
+      les dépendances des dépendances de vos dépendances). Vous pouvez voir que le projet
+      <varname>simple-weather</varname> dépend de <varname>jaxen</varname>, qui dépend de <varname>xom</varname>, qui à
+      son tour dépend de <varname>icu4j</varname>. Vous pouvez voir aussi que Maven construit ce graphe de dépendances
+      en supprimant les doublons et en résolvant les conflits entre différentes versions. Si vous avez un problème avec
+      certaines dépendances, il est souvent utile d'aller plus loin que la simple liste produite par
+      <varname>dependency:</varname><varname>resolve</varname>. Activer les traces en mode debug, vous permet de voir
+      comment fonctionne le mécanisme de<indexterm class="endofrange" startref="weather03g"></indexterm><indexterm
+      class="endofrange" startref="weather03g1"></indexterm><indexterm class="endofrange"
+      startref="weather03g2"></indexterm> résolution des dépendances de Maven.</para>
+    </section>
+  </section>
+
+  <section id="customizing-sect-writing-tests">
+    <title>Ecrire des Tests Unitaires</title>
+
+    <para>Maven intègre le support des tests unitaires, et l'exécution de ces tests fait partie intégrante<indexterm
+        class="startofrange" id="weather03h">
+        <primary>weather project (example)</primary>
+
+        <secondary>writing unit tests</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03h1">
+        <primary>customizing projects</primary>
+
+        <secondary>writing unit tests</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03h2">
+        <primary>projects</primary>
+
+        <secondary>customizing</secondary>
+
+        <tertiary>writing unit tests</tertiary>
+      </indexterm><indexterm class="startofrange" id="weather03h3">
+        <primary>unit tests</primary>
+
+        <secondary>writing</secondary>
+      </indexterm><indexterm>
+        <primary>testing</primary>
+
+        <secondary>unit tests</secondary>
+
+        <see>unit tests</see>
+      </indexterm><indexterm>
+        <primary>testing</primary>
+
+        <seealso>debugging</seealso>
+      </indexterm> de son cycle de vie par défaut. Ajoutons quelques tests unitaires à notre projet simple weather. Tout
+    d'abord, créons le package <package>org.sonatype.mavenbook.weather</package> dans le répertoire
+    <filename>src/test/java</filename> :</para>
+
+    <screen>$ <command>cd src/test/java</command>
 $ <command>cd org/sonatype/mavenbook</command>
 $ <command>mkdir -p weather/yahoo</command>
-$ <command>cd weather/yahoo</command></screen> <para>Maintenant, nous allons créer deux tests unitaires. Le premier testera la classe <classname>YahooParser</classname>, et le second la classe <classname>WeatherFormatter</classname>. Dans le package <literal>weather</literal>, créez un fichier <filename>YahooParserTest.java</filename> avec le contenu présenté dans l'exemple qui suit. </para> <example><title>Test Unitaire YahooParserTest du projet Simple Weather</title> <programlisting language="java">package org.sonatype.mavenbook.weather.yahoo;
+$ <command>cd weather/yahoo</command></screen>
+
+    <para>Maintenant, nous allons créer deux tests unitaires. Le premier testera la classe
+    <classname>YahooParser</classname>, et le second la classe <classname>WeatherFormatter</classname>. Dans le package
+    <literal>weather</literal>, créez un fichier <filename>YahooParserTest.java</filename> avec le contenu présenté dans
+    l'exemple qui suit.</para>
+
+    <example>
+      <title>Test Unitaire YahooParserTest du projet Simple Weather</title>
+
+      <programlisting language="java">package org.sonatype.mavenbook.weather.yahoo;
 
 import java.io.InputStream;
 
@@ -544,7 +1102,31 @@ public class YahooParserTest extends TestCase {
     assertEquals( "67", weather.getHumidity() );
   }
 }
-</programlisting> </example> <para>Cette classe <classname>YahooParserTest</classname> étend la classe <classname>TestCase</classname> de JUnit. Elle respecte le modèle habituel d'un test JUnit : un constructeur qui prend un unique paramètre de type <classname>String</classname> et qui appelle le constructeur de la classe mère, et un ensemble de méthodes publiques dont les noms commencent par  “<literal>test</literal>” et qui sont invoquées en tant que tests unitaires. Nous avons une seule méthode de test, <methodname>testParser</methodname>, qui teste le <classname>YahooParser</classname> en parsant un document <acronym>XML</acronym> connu. Le document <acronym>XML</acronym> de test s'appelle <filename>ny-weather.xml</filename> et est chargé depuis le classpath. Nous ajouterons les ressources pour les tests dans la <xref linkend="customizing-sect-custom-test-resource" />. Dans la structure de répertoires Maven, le fichier <filename>ny-weather.xml</filename> se trouve dans le répertoire qui contient les ressources de test&mdash;<filename>\${basedir}/src/test/resources</filename> sous <filename>org/sonatype/mavenbook/weather/yahoo/ny-weather.xml</filename>. Ce fichier est lu sous la forme d'un <classname>InputStream</classname> et passé à la méthode <methodname>parse()</methodname> de <classname>YahooParser</classname>. La méthode <methodname>parse()</methodname> renvoie un objet de type <classname>Weather</classname>, qui est testé par une série d'appels à la méthode <methodname>assertEquals()</methodname>, une méthode définie par <classname>TestCase</classname>.</para> <para>Dans le même répertoire, créez un fichier <filename>WeatherFormatterTest.java</filename>. </para> <example><title>Test Unitaire WeatherFormatterTest du projet Simple Weather</title> <programlisting language="java">package org.sonatype.mavenbook.weather.yahoo;
+</programlisting>
+    </example>
+
+    <para>Cette classe <classname>YahooParserTest</classname> étend la classe <classname>TestCase</classname> de JUnit.
+    Elle respecte le modèle habituel d'un test JUnit : un constructeur qui prend un unique paramètre de type
+    <classname>String</classname> et qui appelle le constructeur de la classe mère, et un ensemble de méthodes publiques
+    dont les noms commencent par “<literal>test</literal>” et qui sont invoquées en tant que tests unitaires. Nous avons
+    une seule méthode de test, <methodname>testParser</methodname>, qui teste le <classname>YahooParser</classname> en
+    parsant un document <acronym>XML</acronym> connu. Le document <acronym>XML</acronym> de test s'appelle
+    <filename>ny-weather.xml</filename> et est chargé depuis le classpath. Nous ajouterons les ressources pour les tests
+    dans la <xref linkend="customizing-sect-custom-test-resource" />. Dans la structure de répertoires Maven, le fichier
+    <filename>ny-weather.xml</filename> se trouve dans le répertoire qui contient les ressources de
+    test—<filename>\${basedir}/src/test/resources</filename> sous
+    <filename>org/sonatype/mavenbook/weather/yahoo/ny-weather.xml</filename>. Ce fichier est lu sous la forme d'un
+    <classname>InputStream</classname> et passé à la méthode <methodname>parse()</methodname> de
+    <classname>YahooParser</classname>. La méthode <methodname>parse()</methodname> renvoie un objet de type
+    <classname>Weather</classname>, qui est testé par une série d'appels à la méthode
+    <methodname>assertEquals()</methodname>, une méthode définie par <classname>TestCase</classname>.</para>
+
+    <para>Dans le même répertoire, créez un fichier <filename>WeatherFormatterTest.java</filename>.</para>
+
+    <example>
+      <title>Test Unitaire WeatherFormatterTest du projet Simple Weather</title>
+
+      <programlisting language="java">package org.sonatype.mavenbook.weather.yahoo;
 
 import java.io.InputStream;
 
@@ -573,9 +1155,81 @@ public class WeatherFormatterTest extends TestCase {
                   formattedResult.trim() );
   }
 }
-</programlisting> </example> <para>Ce second test unitaire du projet teste la classe <classname>WeatherFormatter</classname>. Comme pour le test <classname>YahooParserTest</classname>, la classe <classname>WeatherFormatterTest</classname> étend elle aussi la classe <classname>TestCase</classname> de JUnit. L'unique méthode de test lit la même ressource depuis <filename>\${basedir}/src/test/resources</filename> dans le répertoire <filename>org/sonatype/mavenbook/weather/yahoo</filename> via le classpath des tests unitaires. Nous ajouterons les ressources de test dans la <xref linkend="customizing-sect-custom-test-resource" />. <classname>WeatherFormatterTest</classname> passe ce fichier d'exemple au <classname>YahooParser</classname> qui renvoie un objet de type <classname>Weather</classname>. Celui-ci est ensuite formatté par <classname>WeatherFormatter</classname>. Etant donné que <classname>WeatherFormatter</classname> affiche une <classname>String</classname>, nous allons devoir la tester par rapport à une valeur attendue. La valeur attendue a été mise dans un fichier texte <filename>format-expected.dat</filename> qui se trouve dans le même répertoire que <filename>ny-weather.xml</filename>. Pour comparer le résultat du test à la valeur attendue, nous lisons cette valeur attendue dans un <classname>InputStream</classname> et nous utilisons la classe <classname>IOUtils</classname> de Commons IO pour convertir ce fichier en  <classname>String</classname>. Cette <classname>String</classname> est ensuite comparée au résultat obtenu grâce à la méthode <methodname>assertEquals()</methodname>. </para> </section> 
-<section id="customizing-sect-test-scope"><title>Ajouter des Dépendances dans le scope Test</title> <para>Le test <classname>WeatherFormatterTest</classname> utilise une facilité<indexterm class="startofrange" id="weather03i"> <primary>weather project (example)</primary> <secondary>adding test-scoped dependencies</secondary> </indexterm><indexterm class="startofrange" id="weather03i1"> <primary>customizing projects</primary> <secondary>adding test-scoped dependencies</secondary> </indexterm><indexterm class="startofrange" id="weather03i2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>adding test-scoped dependencies</tertiary> </indexterm><indexterm class="startofrange" id="weather03i3"> <primary>dependencies</primary> <secondary>test-scoped</secondary> </indexterm><indexterm class="startofrange" id="weather03i6"> <primary>test-scoped dependencies</primary> </indexterm><indexterm class="startofrange" id="weather03i4"> <primary>unit tests</primary> <secondary>test-scoped dependencies</secondary> </indexterm><indexterm class="startofrange" id="weather03i5"> <primary>testing</primary> <secondary>using test-scoped dependencies</secondary> </indexterm> fournie par Apache Commons IO&mdash;la classe <classname>IOUtils</classname>. <classname>IOUtils</classname> apporte un certain nombre de fonctions static pratiques qui retirent la plus grande part du travail de la manipulation des entrées/sorties. Dans le cas particulier de ce test unitaire, nous avons utilisé <methodname
-    role="keep-together">IOUtils.toString()</methodname> pour copier la ressource <filename>format-expected.dat</filename> du classpath dans une <classname>String</classname>. Nous aurions pu faire cela sans Commons IO, mais nous aurions dû écrire six ou sept lignes de code supplémentaires avec différents objets de type <classname>InputStreamReader</classname> et <classname role="keep-together">StringWriter</classname>. La véritable raison pour laquelle nous avons utilisé Commons IO, c'est qu'elle nous fournit une excuse pour ajouter la dépendance Commons IO au le scope <literal>test</literal>.</para> <para>Une dépendance dans le scope <literal>test</literal> est une dépendance qui est disponible dans le classpath uniquement durant la compilation et l'exécution des tests. Si votre projet était un <varname>war</varname> ou un <varname>ear</varname>, une dépendance dans le scope <literal>test</literal> ne serait pas incluse dans l'archive résultant du projet. Pour ajouter une dépendance dans le scope <literal>test</literal>, ajoutez la balise <sgmltag>dependency</sgmltag> à la section<indexterm> <primary sortas="scope element">&lt;scope&gt; element (%lt;dependency&gt; element)</primary> </indexterm> <sgmltag>dependencies</sgmltag> de votre projet, comme cela est fait dans l'exemple qui suit : </para> <example><title>Ajout d'une Dépendance dans le scope Test</title> <programlisting language="xml">&lt;project&gt;
+</programlisting>
+    </example>
+
+    <para>Ce second test unitaire du projet teste la classe <classname>WeatherFormatter</classname>. Comme pour le test
+    <classname>YahooParserTest</classname>, la classe <classname>WeatherFormatterTest</classname> étend elle aussi la
+    classe <classname>TestCase</classname> de JUnit. L'unique méthode de test lit la même ressource depuis
+    <filename>\${basedir}/src/test/resources</filename> dans le répertoire
+    <filename>org/sonatype/mavenbook/weather/yahoo</filename> via le classpath des tests unitaires. Nous ajouterons les
+    ressources de test dans la <xref linkend="customizing-sect-custom-test-resource" />.
+    <classname>WeatherFormatterTest</classname> passe ce fichier d'exemple au <classname>YahooParser</classname> qui
+    renvoie un objet de type <classname>Weather</classname>. Celui-ci est ensuite formatté par
+    <classname>WeatherFormatter</classname>. Etant donné que <classname>WeatherFormatter</classname> affiche une
+    <classname>String</classname>, nous allons devoir la tester par rapport à une valeur attendue. La valeur attendue a
+    été mise dans un fichier texte <filename>format-expected.dat</filename> qui se trouve dans le même répertoire que
+    <filename>ny-weather.xml</filename>. Pour comparer le résultat du test à la valeur attendue, nous lisons cette
+    valeur attendue dans un <classname>InputStream</classname> et nous utilisons la classe
+    <classname>IOUtils</classname> de Commons IO pour convertir ce fichier en <classname>String</classname>. Cette
+    <classname>String</classname> est ensuite comparée au résultat obtenu grâce à la méthode
+    <methodname>assertEquals()</methodname>.</para>
+  </section>
+
+  <section id="customizing-sect-test-scope">
+    <title>Ajouter des Dépendances dans le scope Test</title>
+
+    <para>Le test <classname>WeatherFormatterTest</classname> utilise une facilité<indexterm class="startofrange"
+        id="weather03i">
+        <primary>weather project (example)</primary>
+
+        <secondary>adding test-scoped dependencies</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03i1">
+        <primary>customizing projects</primary>
+
+        <secondary>adding test-scoped dependencies</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03i2">
+        <primary>projects</primary>
+
+        <secondary>customizing</secondary>
+
+        <tertiary>adding test-scoped dependencies</tertiary>
+      </indexterm><indexterm class="startofrange" id="weather03i3">
+        <primary>dependencies</primary>
+
+        <secondary>test-scoped</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03i6">
+        <primary>test-scoped dependencies</primary>
+      </indexterm><indexterm class="startofrange" id="weather03i4">
+        <primary>unit tests</primary>
+
+        <secondary>test-scoped dependencies</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03i5">
+        <primary>testing</primary>
+
+        <secondary>using test-scoped dependencies</secondary>
+      </indexterm> fournie par Apache Commons IO—la classe <classname>IOUtils</classname>.
+    <classname>IOUtils</classname> apporte un certain nombre de fonctions static pratiques qui retirent la plus grande
+    part du travail de la manipulation des entrées/sorties. Dans le cas particulier de ce test unitaire, nous avons
+    utilisé <methodname role="keep-together">IOUtils.toString()</methodname> pour copier la ressource
+    <filename>format-expected.dat</filename> du classpath dans une <classname>String</classname>. Nous aurions pu faire
+    cela sans Commons IO, mais nous aurions dû écrire six ou sept lignes de code supplémentaires avec différents objets
+    de type <classname>InputStreamReader</classname> et <classname role="keep-together">StringWriter</classname>. La
+    véritable raison pour laquelle nous avons utilisé Commons IO, c'est qu'elle nous fournit une excuse pour ajouter la
+    dépendance Commons IO au le scope <literal>test</literal>.</para>
+
+    <para>Une dépendance dans le scope <literal>test</literal> est une dépendance qui est disponible dans le classpath
+    uniquement durant la compilation et l'exécution des tests. Si votre projet était un <varname>war</varname> ou un
+    <varname>ear</varname>, une dépendance dans le scope <literal>test</literal> ne serait pas incluse dans l'archive
+    résultant du projet. Pour ajouter une dépendance dans le scope <literal>test</literal>, ajoutez la balise
+    <sgmltag>dependency</sgmltag> à la section<indexterm>
+        <primary sortas="scope element">&lt;scope&gt; element (%lt;dependency&gt; element)</primary>
+      </indexterm> <sgmltag>dependencies</sgmltag> de votre projet, comme cela est fait dans l'exemple qui suit :</para>
+
+    <example>
+      <title>Ajout d'une Dépendance dans le scope Test</title>
+
+      <programlisting language="xml">&lt;project&gt;
   ...
   &lt;dependencies&gt;
     ...
@@ -587,10 +1241,42 @@ public class WeatherFormatterTest extends TestCase {
     &lt;/dependency&gt;
     ...
   &lt;/dependencies&gt;
-&lt;/project&gt;</programlisting> </example> <para>Après avoir ajouté cette dépendance au <filename>pom.xml</filename>, exécutez <command>mvn dependency:resolve</command> et vous devriez voir que <varname>commons-io</varname> fait maintenant partie des dépendances avec le scope <varname>test</varname>. Nous devons encore faire une chose avant de pouvoir exécuter les tests unitaires de ce projet. Nous devons créer dans le classpath les ressources dont ces tests unitaires ont besoin. Les différents scopes pour les dépendances sont expliqués en détail dans la <xref linkend="pom-relationships-sect-dependency-scope" />. </para> </section> 
-<section id="customizing-sect-custom-test-resource"><title>Ajouter des ressources pour les Tests Unitaires</title> <para>Les tests unitaires ont accès à des ressources qui leurs sont spécifiques. Souvent vous aurez des fichiers contenant les résultats attendus ou des données de test dans le classpath des tests. Dans ce projet, le fichier <acronym>XML</acronym> <filename>ny-weather.xml</filename> est utilisé dans le test <classname>YahooParserTest</classname>.  Le résultat attendu de la classe <classname>WeatherFormatter</classname> se trouve dans le fichier <filename>format-expected.dat</filename>.</para> <para>Pour ajouter ces ressources de test, vous allez devoir créer le répertoire <filename>src/test/resources</filename>. C'est le répertoire par défaut dans lequel Maven recherche les ressources de test. Pour créer ce répertoire, exécutez les commandes suivantes depuis le répertoire racine de votre projet. </para><screen>$ <command>cd src/test</command>
+&lt;/project&gt;</programlisting>
+    </example>
+
+    <para>Après avoir ajouté cette dépendance au <filename>pom.xml</filename>, exécutez <command>mvn
+    dependency:resolve</command> et vous devriez voir que <varname>commons-io</varname> fait maintenant partie des
+    dépendances avec le scope <varname>test</varname>. Nous devons encore faire une chose avant de pouvoir exécuter les
+    tests unitaires de ce projet. Nous devons créer dans le classpath les ressources dont ces tests unitaires ont
+    besoin. Les différents scopes pour les dépendances sont expliqués en détail dans la <xref
+    linkend="pom-relationships-sect-dependency-scope" />.</para>
+  </section>
+
+  <section id="customizing-sect-custom-test-resource">
+    <title>Ajouter des ressources pour les Tests Unitaires</title>
+
+    <para>Les tests unitaires ont accès à des ressources qui leurs sont spécifiques. Souvent vous aurez des fichiers
+    contenant les résultats attendus ou des données de test dans le classpath des tests. Dans ce projet, le fichier
+    <acronym>XML</acronym> <filename>ny-weather.xml</filename> est utilisé dans le test
+    <classname>YahooParserTest</classname>. Le résultat attendu de la classe <classname>WeatherFormatter</classname> se
+    trouve dans le fichier <filename>format-expected.dat</filename>.</para>
+
+    <para>Pour ajouter ces ressources de test, vous allez devoir créer le répertoire
+    <filename>src/test/resources</filename>. C'est le répertoire par défaut dans lequel Maven recherche les ressources
+    de test. Pour créer ce répertoire, exécutez les commandes suivantes depuis le répertoire racine de votre
+    projet.</para>
+
+    <screen>$ <command>cd src/test</command>
 $ <command>mkdir resources</command>
-$ <command>cd resources</command></screen> <para>Une fois que vous avez créé le répertoire de ressources, créez un fichier <filename>format-expected.dat</filename> dans le répertoire <filename>resources</filename>. </para> <example><title>Résultat attendu du WeatherFormatterTest du projet Simple Weather</title> <programlisting>*********************************
+$ <command>cd resources</command></screen>
+
+    <para>Une fois que vous avez créé le répertoire de ressources, créez un fichier
+    <filename>format-expected.dat</filename> dans le répertoire <filename>resources</filename>.</para>
+
+    <example>
+      <title>Résultat attendu du WeatherFormatterTest du projet Simple Weather</title>
+
+      <programlisting>*********************************
  Current Weather Conditions for:
   New York, NY, US
   
@@ -599,7 +1285,17 @@ $ <command>cd resources</command></screen> <para>Une fois que vous avez créé l
     Humidity: 67
   Wind Chill: 39
 *********************************
-</programlisting> </example> <para>Ce fichier devrait vous rappeler quelque chose. C'est le même résultat que celui que nous avions obtenu lorsque nous avions exécuté le projet simple weather project avec le plugin Maven Exec. Le deuxième fichier que vous devrez ajouter au répertoire de ressources est <filename>ny-weather.xml</filename>. </para> <example><title>Données XML en entrée de YahooParserTest du projet Simple Weather</title> <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes" ?&gt;
+</programlisting>
+    </example>
+
+    <para>Ce fichier devrait vous rappeler quelque chose. C'est le même résultat que celui que nous avions obtenu
+    lorsque nous avions exécuté le projet simple weather project avec le plugin Maven Exec. Le deuxième fichier que vous
+    devrez ajouter au répertoire de ressources est <filename>ny-weather.xml</filename>.</para>
+
+    <example>
+      <title>Données XML en entrée de YahooParserTest du projet Simple Weather</title>
+
+      <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes" ?&gt;
 &lt;rss version="2.0" xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" 
      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"&gt;
  &lt;channel&gt;
@@ -650,8 +1346,42 @@ $ <command>cd resources</command></screen> <para>Une fois que vous avez créé l
   &lt;guid isPermaLink="false"&gt;10002_2007_11_10_20_51_EDT&lt;/guid&gt;
  &lt;/item&gt;
 &lt;/channel&gt;
-&lt;/rss&gt;</programlisting> </example> <para>Ce fichier contient un document <acronym>XML</acronym> de test pour <classname>YahooParserTest</classname>. Nous utilisons ce fichier afin de tester le parseur <classname>YahooParser</classname> sans avoir à récupérer la réponse <acronym>XML</acronym> de Yahoo! Météo. </para> </section> 
-<section id="customizing-sect-executing-tests"><title>Exécuter les Test Unitaires</title> <para>Maintenant que votre projet possède ses tests unitaires, exécutons-les. Vous n'avez rien<indexterm class="startofrange" id="weather03l"> <primary>weather project (example)</primary> <secondary>unit tests, executing</secondary> </indexterm><indexterm class="startofrange" id="weather03l1"> <primary>customizing projects</primary> <secondary>unit tests, executing</secondary> </indexterm><indexterm class="startofrange" id="weather03l2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>unit tests, executing</tertiary> </indexterm><indexterm class="startofrange" id="weather03l3"> <primary>unit tests</primary> <secondary>executing</secondary> </indexterm> à faire de spécial pour exécuter un test unitaire; la phase <varname>test</varname> est une étape standard du cycle de vie de Maven. Vous lancez les tests avec Maven à chaque fois que vous exécutez <command>mvn package</command> ou <command>mvn install</command>. Si vous voulez lancer toutes les phases du cycle de vie jusqu'à la phase <varname>test</varname> incluse, exécutez <command>mvn test</command> : </para><screen>$ <command>mvn test</command>
+&lt;/rss&gt;</programlisting>
+    </example>
+
+    <para>Ce fichier contient un document <acronym>XML</acronym> de test pour <classname>YahooParserTest</classname>.
+    Nous utilisons ce fichier afin de tester le parseur <classname>YahooParser</classname> sans avoir à récupérer la
+    réponse <acronym>XML</acronym> de Yahoo! Météo.</para>
+  </section>
+
+  <section id="customizing-sect-executing-tests">
+    <title>Exécuter les Test Unitaires</title>
+
+    <para>Maintenant que votre projet possède ses tests unitaires, exécutons-les. Vous n'avez rien<indexterm
+        class="startofrange" id="weather03l">
+        <primary>weather project (example)</primary>
+
+        <secondary>unit tests, executing</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03l1">
+        <primary>customizing projects</primary>
+
+        <secondary>unit tests, executing</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03l2">
+        <primary>projects</primary>
+
+        <secondary>customizing</secondary>
+
+        <tertiary>unit tests, executing</tertiary>
+      </indexterm><indexterm class="startofrange" id="weather03l3">
+        <primary>unit tests</primary>
+
+        <secondary>executing</secondary>
+      </indexterm> à faire de spécial pour exécuter un test unitaire; la phase <varname>test</varname> est une étape
+    standard du cycle de vie de Maven. Vous lancez les tests avec Maven à chaque fois que vous exécutez <command>mvn
+    package</command> ou <command>mvn install</command>. Si vous voulez lancer toutes les phases du cycle de vie jusqu'à
+    la phase <varname>test</varname> incluse, exécutez <command>mvn test</command> :</para>
+
+    <screen>$ <command>mvn test</command>
 ...
 [INFO] [surefire:test]
 [INFO] Surefire report directory: ~/examples/ch-custom/simple-weather/target/\
@@ -673,8 +1403,49 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
 Results :
 
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
-</screen> <para>Exécuter <command>mvn test</command> depuis la ligne de commande, a demandé à Maven d'exécuter toutes les phases du cycle de vie jusqu’à la phase <literal>test</literal>. Le plugin Maven Surefire possède un goal <literal>test</literal> rattaché à la phase <literal>test</literal>. Ce goal <literal>test</literal> exécute tous les tests unitaires du projet qu'il peut trouver dans <filename>src/test/java</filename> avec un nom de fichier de la forme <filename>**/Test*.java</filename>, <filename>**/*Test.java</filename> ou <filename>**/*TestCase.java</filename>. Pour ce projet, vous pouvez vous rendre compte que le goal <literal>test</literal> du plugin Surefire a exécuté <classname>WeatherFormatterTest</classname> et <classname>YahooParserTest</classname>. Quand le plugin Maven Surefire lance les tests JUnit, il produit des rapports <acronym>XML</acronym> et texte dans le répertoire <filename>\${basedir}/target/surefire-reports</filename>. Si vos tests sont en échec, il vous faudra regarder dans ce répertoire pour trouver les messages d'erreurs et les traces de vos tests unitaires. </para> 
-<section id="customizing-sect-ignoring-failures"><title>Ignorer les tests en échec</title> <para>Souvent vous vous retrouverez à développer sur un système dont certains tests unitaires sont en échec. Si vous pratiquez le Développement Piloté par les Tests (<acronym>TDD</acronym>), vous pourriez utiliser ces échecs  comme indicateur du reste à faire sur votre projet. Si vous avez des tests en échec et que vous souhaitez construire votre projet tout de même, il va vous falloir indiquer à Maven de ne pas tenir compte des tests en échec. Quand Maven rencontre un échec lors du build, son comportement par défaut est d'arrêter le build. Pour continuer à construire un projet même lorsque le plugin Surefire plugin rencontre des tests en échec<indexterm> <primary>testFailureIgnore configuration property (Surefire plugin)</primary> </indexterm><indexterm> <primary>Surefire plugin</primary> <secondary>testFailureIgnore configuration property</secondary> </indexterm><indexterm> <primary>Maven Surefire plugin</primary> <secondary>testFailureIgnore configuration property</secondary> </indexterm><indexterm> <primary>unit tests</primary> <secondary>ignoring test failures</secondary> </indexterm>, vous allez devoir mettre la propriété de configuration de Surefire <varname>testFailureIgnore</varname> à <literal>true</literal>. </para> <example><title>Ignorer les tests unitaires en échec</title> <programlisting language="xml">&lt;project&gt;
+</screen>
+
+    <para>Exécuter <command>mvn test</command> depuis la ligne de commande, a demandé à Maven d'exécuter toutes les
+    phases du cycle de vie jusqu’à la phase <literal>test</literal>. Le plugin Maven Surefire possède un goal
+    <literal>test</literal> rattaché à la phase <literal>test</literal>. Ce goal <literal>test</literal> exécute tous
+    les tests unitaires du projet qu'il peut trouver dans <filename>src/test/java</filename> avec un nom de fichier de
+    la forme <filename>**/Test*.java</filename>, <filename>**/*Test.java</filename> ou
+    <filename>**/*TestCase.java</filename>. Pour ce projet, vous pouvez vous rendre compte que le goal
+    <literal>test</literal> du plugin Surefire a exécuté <classname>WeatherFormatterTest</classname> et
+    <classname>YahooParserTest</classname>. Quand le plugin Maven Surefire lance les tests JUnit, il produit des
+    rapports <acronym>XML</acronym> et texte dans le répertoire
+    <filename>\${basedir}/target/surefire-reports</filename>. Si vos tests sont en échec, il vous faudra regarder dans
+    ce répertoire pour trouver les messages d'erreurs et les traces de vos tests unitaires.</para>
+
+    <section id="customizing-sect-ignoring-failures">
+      <title>Ignorer les tests en échec</title>
+
+      <para>Souvent vous vous retrouverez à développer sur un système dont certains tests unitaires sont en échec. Si
+      vous pratiquez le Développement Piloté par les Tests (<acronym>TDD</acronym>), vous pourriez utiliser ces échecs
+      comme indicateur du reste à faire sur votre projet. Si vous avez des tests en échec et que vous souhaitez
+      construire votre projet tout de même, il va vous falloir indiquer à Maven de ne pas tenir compte des tests en
+      échec. Quand Maven rencontre un échec lors du build, son comportement par défaut est d'arrêter le build. Pour
+      continuer à construire un projet même lorsque le plugin Surefire plugin rencontre des tests en échec<indexterm>
+          <primary>testFailureIgnore configuration property (Surefire plugin)</primary>
+        </indexterm><indexterm>
+          <primary>Surefire plugin</primary>
+
+          <secondary>testFailureIgnore configuration property</secondary>
+        </indexterm><indexterm>
+          <primary>Maven Surefire plugin</primary>
+
+          <secondary>testFailureIgnore configuration property</secondary>
+        </indexterm><indexterm>
+          <primary>unit tests</primary>
+
+          <secondary>ignoring test failures</secondary>
+        </indexterm>, vous allez devoir mettre la propriété de configuration de Surefire
+      <varname>testFailureIgnore</varname> à <literal>true</literal>.</para>
+
+      <example>
+        <title>Ignorer les tests unitaires en échec</title>
+
+        <programlisting language="xml">&lt;project&gt;
   [...]
   &lt;build&gt;
     &lt;plugins&gt;
@@ -688,8 +1459,17 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
     &lt;/plugins&gt;
   &lt;/build&gt;
   [...]
-&lt;/project&gt;</programlisting> </example> <para>La documentation du plugin (<ulink
-      url="http://maven.apache.org/plugins/maven-surefire-plugin/test-mojo.html">http://maven.apache.org/plugins/maven-surefire-plugin/test-mojo.html</ulink>) indique que ce paramètre correspond à une expression : </para> <example><title>Expressions pour un paramètre de plugin</title> <programlisting>
+&lt;/project&gt;</programlisting>
+      </example>
+
+      <para>La documentation du plugin (<ulink
+      url="http://maven.apache.org/plugins/maven-surefire-plugin/test-mojo.html">http://maven.apache.org/plugins/maven-surefire-plugin/test-mojo.html</ulink>)
+      indique que ce paramètre correspond à une expression :</para>
+
+      <example>
+        <title>Expressions pour un paramètre de plugin</title>
+
+        <programlisting>
        testFailureIgnore  Set this to true to ignore a failure during \
                           testing. Its use is NOT RECOMMENDED, but quite \
                           convenient on occasion.
@@ -697,13 +1477,44 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
     * Type: boolean
     * Required: No
     * Expression: \${maven.test.failure.ignore}
-       </programlisting> </example> <para>Cette expression peut être configurée depuis la ligne de commande en utilisant le paramètre <varname>-D</varname> : </para><screen>$ <command>mvn test -Dmaven.test.failure.ignore=true</command></screen>  </section> <section id="customizing-sect-skipping-tests"><title>Court-circuiter les tests unitaires</title> <para>Il se peut que vous vouliez configurer Maven pour qu'il ne lance pas les tests unitaires. Peut-être que vous avez un énorme système pour lequel les tests unitaires prennent plusieurs minutes à s'exécuter et vous ne voulez pas attendre tout ce temps pour avoir le résultat de votre build. Vous pouvez aussi travailler sur un système avec un historique dont toute une série de tests unitaires sont en échec, et au lieu de corriger ces tests, vous voulez produire un <acronym>JAR</acronym>. Maven permet de court-circuiter les tests unitaires grâce au paramètre <varname>skip</varname> du plugin Surefire. Pour ne pas lancer les tests depuis la ligne de commande, ajoutez simplement la propriété <varname>maven.</varname><varname>test.skip</varname> à n'importe quel goal : </para><screen>$ mvn install -Dmaven.test.skip=true
+       </programlisting>
+      </example>
+
+      <para>Cette expression peut être configurée depuis la ligne de commande en utilisant le paramètre
+      <varname>-D</varname> :</para>
+
+      <screen>$ <command>mvn test -Dmaven.test.failure.ignore=true</command></screen>
+    </section>
+
+    <section id="customizing-sect-skipping-tests">
+      <title>Court-circuiter les tests unitaires</title>
+
+      <para>Il se peut que vous vouliez configurer Maven pour qu'il ne lance pas les tests unitaires. Peut-être que vous
+      avez un énorme système pour lequel les tests unitaires prennent plusieurs minutes à s'exécuter et vous ne voulez
+      pas attendre tout ce temps pour avoir le résultat de votre build. Vous pouvez aussi travailler sur un système avec
+      un historique dont toute une série de tests unitaires sont en échec, et au lieu de corriger ces tests, vous voulez
+      produire un <acronym>JAR</acronym>. Maven permet de court-circuiter les tests unitaires grâce au paramètre
+      <varname>skip</varname> du plugin Surefire. Pour ne pas lancer les tests depuis la ligne de commande, ajoutez
+      simplement la propriété <varname>maven.</varname><varname>test.skip</varname> à n'importe quel goal :</para>
+
+      <screen>$ mvn install -Dmaven.test.skip=true
 ...
 [INFO] [compiler:testCompile]
 [INFO] Not compiling test sources
 [INFO] [surefire:test]
 [INFO] Tests are skipped.
-...</screen> <para>Quand le plugin Surefire arrive au goal <varname>test</varname>, il ne va pas lancer les tests unitaires si la propriété <varname>maven.</varname><varname>test.skip</varname> est à <literal>true</literal>. Une autre façon de configurer Maven pour qu'il ne lance pas les tests unitaires est d'ajouter cette configuration au <filename>pom.xml</filename> de votre projet. Pour cela, vous devez ajouter une balise <sgmltag>plugin</sgmltag> à la configuration de votre <sgmltag>build</sgmltag>. </para> <example><title>Court-circuiter les tests unitaires</title> <programlisting language="xml">&lt;project&gt;
+...</screen>
+
+      <para>Quand le plugin Surefire arrive au goal <varname>test</varname>, il ne va pas lancer les tests unitaires si
+      la propriété <varname>maven.</varname><varname>test.skip</varname> est à <literal>true</literal>. Une autre façon
+      de configurer Maven pour qu'il ne lance pas les tests unitaires est d'ajouter cette configuration au
+      <filename>pom.xml</filename> de votre projet. Pour cela, vous devez ajouter une balise <sgmltag>plugin</sgmltag> à
+      la configuration de votre <sgmltag>build</sgmltag>.</para>
+
+      <example>
+        <title>Court-circuiter les tests unitaires</title>
+
+        <programlisting language="xml">&lt;project&gt;
   [...]
   &lt;build&gt;
     &lt;plugins&gt;
@@ -717,7 +1528,64 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
     &lt;/plugins&gt;
   &lt;/build&gt;
   [...]
-&lt;/project&gt;</programlisting>  </example> </section> </section> <section id="customizing-sect-custom-packaged"><title>Construire une application packagée et exécutable en ligne de commande</title> <para>Dans la section <xref linkend="customizing-sect-custom-exec" /> un peu plus tôt dans<indexterm class="startofrange" id="weather03m"> <primary>weather project (example)</primary> <secondary>building packaged command-line application</secondary> </indexterm><indexterm class="startofrange" id="weather03m1"> <primary>customizing projects</primary> <secondary>building packaged command-line application</secondary> </indexterm><indexterm class="startofrange" id="weather03m2"> <primary>projects</primary> <secondary>customizing</secondary> <tertiary>building packaged command-line application</tertiary> </indexterm><indexterm class="startofrange" id="weather03m3"> <primary>command-line application, packaging</primary> </indexterm><indexterm class="startofrange" id="weather03m4"> <primary>packaging applications</primary> <secondary>command-line applications</secondary> </indexterm><indexterm class="startofrange" id="weather03m5"> <primary>applications, building and packaging</primary> <secondary>command-line applications</secondary> </indexterm> ce chapitre, nous avons exécuté notre application avec le plugin Maven Exec. Même si ce plugin a permis d'exécuter le programme et d'obtenir des résultats, vous ne devriez pas voir Maven comme un moyen d'exécuter vos applications. Si vous distribuez cette application en ligne de commande, vous voudrez probablement distribuer un <acronym>JAR</acronym> ou une archive de type <acronym>ZIP</acronym>, ou d'un fichier <acronym>TAR</acronym> <acronym>GZIP</acronym>. Cette section décrit un processus d'utilisation d'un descripteur d'assemblage prédéfini<indexterm> <primary>Assembly plugin</primary> </indexterm><indexterm> <primary>Maven Assembly plugin</primary> </indexterm> avec le plugin Maven Assembly pour produire un fichier <acronym>JAR</acronym> distribuable, qui contienne le bytecode du projet ainsi que toutes ses dépendances.</para> <para>Le plugin Maven Assembly est un plugin qui vous permet de créer toutes les distributions que vous voulez pour vos applications. Vous pouvez utiliser le plugin Maven Assembly pour transformer votre projet dans n'importe quel format distribuable que vous voulez en définissant un descripteur d'assemblage personnalisé. Dans l'un des chapitres suivants, nous vous montrerons comment créer un descripteur d'assemblage personnalisé pour produire une archive plus complexe pour l'application Simple Weather. Dans ce chapitre, nous nous contenterons d'utiliser le format prédéfini <varname>jar-with-dependencies</varname>. Pour configurer le plugin Maven Assembly, nous devons ajouter le configuration de <sgmltag>plugin</sgmltag> suivante à notre configuration de build existante dans le <filename>pom.xml</filename>. </para> <example><title>Configurer le descripteur Maven Assembly</title> <programlisting language="xml">&lt;project&gt;
+&lt;/project&gt;</programlisting>
+      </example>
+    </section>
+  </section>
+
+  <section id="customizing-sect-custom-packaged">
+    <title>Construire une application packagée et exécutable en ligne de commande</title>
+
+    <para>Dans la section <xref linkend="customizing-sect-custom-exec" /> un peu plus tôt dans<indexterm
+        class="startofrange" id="weather03m">
+        <primary>weather project (example)</primary>
+
+        <secondary>building packaged command-line application</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03m1">
+        <primary>customizing projects</primary>
+
+        <secondary>building packaged command-line application</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03m2">
+        <primary>projects</primary>
+
+        <secondary>customizing</secondary>
+
+        <tertiary>building packaged command-line application</tertiary>
+      </indexterm><indexterm class="startofrange" id="weather03m3">
+        <primary>command-line application, packaging</primary>
+      </indexterm><indexterm class="startofrange" id="weather03m4">
+        <primary>packaging applications</primary>
+
+        <secondary>command-line applications</secondary>
+      </indexterm><indexterm class="startofrange" id="weather03m5">
+        <primary>applications, building and packaging</primary>
+
+        <secondary>command-line applications</secondary>
+      </indexterm> ce chapitre, nous avons exécuté notre application avec le plugin Maven Exec. Même si ce plugin a
+    permis d'exécuter le programme et d'obtenir des résultats, vous ne devriez pas voir Maven comme un moyen d'exécuter
+    vos applications. Si vous distribuez cette application en ligne de commande, vous voudrez probablement distribuer un
+    <acronym>JAR</acronym> ou une archive de type <acronym>ZIP</acronym>, ou d'un fichier <acronym>TAR</acronym>
+    <acronym>GZIP</acronym>. Cette section décrit un processus d'utilisation d'un descripteur d'assemblage
+    prédéfini<indexterm>
+        <primary>Assembly plugin</primary>
+      </indexterm><indexterm>
+        <primary>Maven Assembly plugin</primary>
+      </indexterm> avec le plugin Maven Assembly pour produire un fichier <acronym>JAR</acronym> distribuable, qui
+    contienne le bytecode du projet ainsi que toutes ses dépendances.</para>
+
+    <para>Le plugin Maven Assembly est un plugin qui vous permet de créer toutes les distributions que vous voulez pour
+    vos applications. Vous pouvez utiliser le plugin Maven Assembly pour transformer votre projet dans n'importe quel
+    format distribuable que vous voulez en définissant un descripteur d'assemblage personnalisé. Dans l'un des chapitres
+    suivants, nous vous montrerons comment créer un descripteur d'assemblage personnalisé pour produire une archive plus
+    complexe pour l'application Simple Weather. Dans ce chapitre, nous nous contenterons d'utiliser le format prédéfini
+    <varname>jar-with-dependencies</varname>. Pour configurer le plugin Maven Assembly, nous devons ajouter le
+    configuration de <sgmltag>plugin</sgmltag> suivante à notre configuration de build existante dans le
+    <filename>pom.xml</filename>.</para>
+
+    <example>
+      <title>Configurer le descripteur Maven Assembly</title>
+
+      <programlisting language="xml">&lt;project&gt;
   [...]
   &lt;build&gt;
     &lt;plugins&gt;
@@ -732,7 +1600,15 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
     &lt;/plugins&gt;
   &lt;/build&gt;
   [...]
-&lt;/project&gt;</programlisting> </example> <para>Une fois que vous avez ajouté cette configuration, vous pouvez construire l'assemblage en exécutant le goal <varname>assembly:</varname><varname>assembly</varname>. Dans les traces affichées à l'écran, le goal <varname>assembly:</varname><varname>assembly</varname> est exécuté une fois que le build Maven atteint la phase <varname>install</varname> du cycle de vie : </para><screen>$ <command>mvn install assembly:assembly</command>
+&lt;/project&gt;</programlisting>
+    </example>
+
+    <para>Une fois que vous avez ajouté cette configuration, vous pouvez construire l'assemblage en exécutant le goal
+    <varname>assembly:</varname><varname>assembly</varname>. Dans les traces affichées à l'écran, le goal
+    <varname>assembly:</varname><varname>assembly</varname> est exécuté une fois que le build Maven atteint la phase
+    <varname>install</varname> du cycle de vie :</para>
+
+    <screen>$ <command>mvn install assembly:assembly</command>
 ...
 [INFO] [jar:jar]
 [INFO] Building jar:
@@ -749,7 +1625,15 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Building jar: \
        ~/examples/ch-custom/simple-weather/target/\
          simple-weather-1.0-jar-with-dependencies.jar
-</screen> <para>Une fois que notre application est assemblée dans <filename>target/</filename><filename>simple-weather-1.0-jar-with-</filename><filename>dependencies.jar</filename>, nous pouvons de nouveau lancer la classe <classname>Main</classname> depuis la ligne de commande. Pour lancer la classe <classname>Main</classname> de l'application simple weather, exécutez les commandes suivantes depuis le répertoire racine de votre projet. </para><screen>$ <command>cd target</command>
+</screen>
+
+    <para>Une fois que notre application est assemblée dans
+    <filename>target/</filename><filename>simple-weather-1.0-jar-with-</filename><filename>dependencies.jar</filename>,
+    nous pouvons de nouveau lancer la classe <classname>Main</classname> depuis la ligne de commande. Pour lancer la
+    classe <classname>Main</classname> de l'application simple weather, exécutez les commandes suivantes depuis le
+    répertoire racine de votre projet.</para>
+
+    <screen>$ <command>cd target</command>
 $ <command>java -cp simple-weather-1.0-jar-with-dependencies.jar \
                     org.sonatype.mavenbook.weather.Main 10002</command>
 0    INFO  YahooRetriever  - Retrieving Weather Data
@@ -764,8 +1648,44 @@ $ <command>java -cp simple-weather-1.0-jar-with-dependencies.jar \
    Condition: Fair
     Humidity: 40
   Wind Chill: 40
-*********************************</screen> <para>Le format <varname>jar-with-dependencies</varname> crée un unique fichier <acronym>JAR</acronym> qui contient tout le bytecode du projet <varname>simple-weather</varname> ainsi que celui des dépendances désassemblées. Ce format assez original produit un fichier <acronym>JAR</acronym> de 9 MiB qui contient environ 5.290 classes, mais il facilite la distribution des applications développées avec Maven. Plus tard dans ce livre, nous vous montrerons comment créer votre propre descripteur d'assemblage pour produire une distribution plus <indexterm class="endofrange" startref="weather03m"></indexterm><indexterm class="endofrange" startref="weather03m1"></indexterm><indexterm class="endofrange" startref="weather03m2"></indexterm><indexterm class="endofrange" startref="weather03m3"></indexterm><indexterm class="endofrange" startref="weather03m4"></indexterm><indexterm class="endofrange" startref="weather03m5"></indexterm><indexterm class="endofrange" startref="customproj1"></indexterm><indexterm class="endofrange" startref="customproj2"></indexterm><phrase role="keep-together">standard</phrase>. </para> 
-<section id="customizing-sect-attaching-assembly"><title>Rattacher le goal Assembly à la phase Package</title> <para>Dans Maven 1, un build était personnalisé en chaînant à la suite les goals de plugin. Chaque goal de plugin avait des prérequis et définissait sa relation aux autres goals de plugin. Maven 2 a introduit le concept de cycle de vie. Maintenant, les goals de plugin sont liés à une série de phases d'un cycle de vie par défaut de Maven. Le cycle de vie pose les bases solides qui facilitent la gestion et la prédiction des goals de plugin qui seront exécutés lors d'un build. Dans Maven 1, les goals de plugin étaient reliés entre eux directement, avec Maven 2 les goals sont liés à des étapes communes du cycle de vie. Même s'il est certainement valide d'exécuter un goal depuis la ligne de commande comme nous l'avons déjà montré, configurer le plugin Assembly pour qu'il exécute le goal <varname>assembly:</varname><varname>assembly</varname> durant une phase du cycle de vie de Maven est plus cohérent.</para> <para>La configuration suivante configure le plugin Maven Asembly pour qu'il exécute le goal <varname>attached</varname> durant la phase <varname>package</varname> du cycle de vie par défaut de Maven. Le goal <varname>attached</varname> fait la même chose que le goal <varname>assembly</varname>. Pour rattacher le goal <varname>assembly:attached</varname> à la phase <varname>package</varname> nous utilisons la balise <sgmltag>executions</sgmltag> sous la balise <sgmltag>plugin</sgmltag> dans la section <sgmltag>build</sgmltag> du POM du projet. </para> <example floatstyle="" id="ex-customization-attach-assembly"><title>Configurer l'Exécution du Goal attached durant la Phase package du cycle de vie</title> <para><programlisting language="xml">&lt;project&gt;
+*********************************</screen>
+
+    <para>Le format <varname>jar-with-dependencies</varname> crée un unique fichier <acronym>JAR</acronym> qui contient
+    tout le bytecode du projet <varname>simple-weather</varname> ainsi que celui des dépendances désassemblées. Ce
+    format assez original produit un fichier <acronym>JAR</acronym> de 9 MiB qui contient environ 5.290 classes, mais il
+    facilite la distribution des applications développées avec Maven. Plus tard dans ce livre, nous vous montrerons
+    comment créer votre propre descripteur d'assemblage pour produire une distribution plus <indexterm
+    class="endofrange" startref="weather03m"></indexterm><indexterm class="endofrange"
+    startref="weather03m1"></indexterm><indexterm class="endofrange" startref="weather03m2"></indexterm><indexterm
+    class="endofrange" startref="weather03m3"></indexterm><indexterm class="endofrange"
+    startref="weather03m4"></indexterm><indexterm class="endofrange" startref="weather03m5"></indexterm><indexterm
+    class="endofrange" startref="customproj1"></indexterm><indexterm class="endofrange"
+    startref="customproj2"></indexterm><phrase role="keep-together">standard</phrase>.</para>
+
+    <section id="customizing-sect-attaching-assembly">
+      <title>Rattacher le goal Assembly à la phase Package</title>
+
+      <para>Dans Maven 1, un build était personnalisé en chaînant à la suite les goals de plugin. Chaque goal de plugin
+      avait des prérequis et définissait sa relation aux autres goals de plugin. Maven 2 a introduit le concept de cycle
+      de vie. Maintenant, les goals de plugin sont liés à une série de phases d'un cycle de vie par défaut de Maven. Le
+      cycle de vie pose les bases solides qui facilitent la gestion et la prédiction des goals de plugin qui seront
+      exécutés lors d'un build. Dans Maven 1, les goals de plugin étaient reliés entre eux directement, avec Maven 2 les
+      goals sont liés à des étapes communes du cycle de vie. Même s'il est certainement valide d'exécuter un goal depuis
+      la ligne de commande comme nous l'avons déjà montré, configurer le plugin Assembly pour qu'il exécute le goal
+      <varname>assembly:</varname><varname>assembly</varname> durant une phase du cycle de vie de Maven est plus
+      cohérent.</para>
+
+      <para>La configuration suivante configure le plugin Maven Asembly pour qu'il exécute le goal
+      <varname>attached</varname> durant la phase <varname>package</varname> du cycle de vie par défaut de Maven. Le
+      goal <varname>attached</varname> fait la même chose que le goal <varname>assembly</varname>. Pour rattacher le
+      goal <varname>assembly:attached</varname> à la phase <varname>package</varname> nous utilisons la balise
+      <sgmltag>executions</sgmltag> sous la balise <sgmltag>plugin</sgmltag> dans la section <sgmltag>build</sgmltag> du
+      POM du projet.</para>
+
+      <example floatstyle="" id="ex-customization-attach-assembly">
+        <title>Configurer l'Exécution du Goal attached durant la Phase package du cycle de vie</title>
+
+        <para><programlisting language="xml">&lt;project&gt;
   [...]
   &lt;build&gt;
     &lt;plugins&gt;
@@ -789,5 +1709,13 @@ $ <command>java -cp simple-weather-1.0-jar-with-dependencies.jar \
     &lt;/plugins&gt;
   &lt;/build&gt;
   [...]
-&lt;/project&gt;</programlisting></para> </example> <para>Une fois votre POM configuré, tout ce qu'il vous reste à faire pour produire l'assemblage est d'exécuter la commande <command>mvn package</command>. La configuration de l'exécution va s'assurer que le goal <varname>assembly:</varname><varname>attached</varname> est exécuté quand Maven atteint la phase <varname>package</varname> durant son parcours du cycle de vie.</para> </section> </section>
+&lt;/project&gt;</programlisting></para>
+      </example>
+
+      <para>Une fois votre POM configuré, tout ce qu'il vous reste à faire pour produire l'assemblage est d'exécuter la
+      commande <command>mvn package</command>. La configuration de l'exécution va s'assurer que le goal
+      <varname>assembly:</varname><varname>attached</varname> est exécuté quand Maven atteint la phase
+      <varname>package</varname> durant son parcours du cycle de vie.</para>
+    </section>
+  </section>
 </chapter>
