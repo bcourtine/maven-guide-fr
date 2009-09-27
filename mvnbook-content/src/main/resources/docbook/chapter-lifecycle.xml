@@ -961,7 +961,7 @@ jdbc.password=
       Cette fonctionnalité pourrait filtrer sans que vous le désiriez des fichiers contenant des éléments <varname>\${...}</varname>.</para> 
 
       <para><example>
-          <title>Filter Resources (Replacing Properties)</title>
+          <title>Filtrage des Ressources (Remplacer les Propriétés)</title>
 
           <programlisting language="xml">&lt;build&gt;
   &lt;filters&gt;
@@ -977,23 +977,18 @@ jdbc.password=
 </programlisting>
         </example></para>
 
-      <para>As with all directories in Maven, the resources directory does not
-      need to be in <filename>src/main/resources</filename>. This is just the
-      default value defined in the Super <acronym>POM</acronym>. You should
-      also note that you don't need to consolidate all of your resources into
-      a single directory. You can always separate resources into separate
-      directories under <filename>src/main</filename>. Assume that you have
-      project which contains hundreds of <acronym>XML</acronym> documents and
-      hundreds of images. Instead of mixing the resources in the
-      <filename>src/main/resources</filename> directory, you might want to
-      create two directories <filename>src/main/xml</filename> and
-      <filename>src/main/images</filename> to hold this content. To add
-      directories to the list of resource directories, you would add the
-      following <sgmltag>resource</sgmltag> elements to your build
-      configuration.</para>
+      <para>Comme pour tous les répertoires dans Maven, le répertoire contenant les ressources du projet ne se trouve pas forcément dans <filename>src/main/resources</filename>.   
+      Il ne s'agit que de la valeur par défaut définie dans le Super <acronym>POM</acronym>.
+      Notez également que vous n'avez pas besoin de centraliser toutes vos ressources dans un unique répertoire.
+      Vous pouvez les séparer dans plusieurs répertoires dans <filename>src/main</filename>.
+      Imaginez que votre projet contient des centaines de fichiers <acronym>XML</acronym> et des centaines d'images.
+      Au lieu de centraliser toutes vos ressources dans le répertoire <filename>src/main/resources</filename>,
+      il voudrez probablement créer deux répertoires <filename>src/main/xml</filename> et <filename>src/main/images</filename>.
+      Pour ajouter des répertoires à la liste des répertoires contenant les ressources,
+      ajoutez la balise <sgmltag>resource</sgmltag> suivante dans la configuration de votre build.</para>
 
       <example>
-        <title>Configuring Additional Resource Directories</title>
+        <title>Ajouter des Répertoire Ressources Complémentaires</title>
 
         <programlisting language="xml">&lt;build&gt;
   ...
@@ -1012,21 +1007,17 @@ jdbc.password=
 &lt;/build&gt;</programlisting>
       </example>
 
-      <para>When you are building a project that produces a console
-      application or a command-line tool, you'll often find yourself writing
-      simple shell scripts that need to reference the <acronym>JAR</acronym>
-      produced by a build. When you are using the assembly plugin to produce a
-      distribution for an application as a <acronym>ZIP</acronym> or
-      <acronym>TAR</acronym>, you might place all of you scripts in a
-      directory like <filename>src/main/command</filename>. In the following
-      <acronym>POM</acronym> resource configuration, you'll see how we can use
-      resource filtering and a reference to the project variable to capture
-      the final output name of the <acronym>JAR</acronym>. For more
-      information about the Maven Assembly plugin, see <xref
-      linkend="assemblies" />.</para>
+      <para>Lorsque vous construisez un projet qui produit une application en ligne de commandes ou console,
+      vous voudrez souvent écrite des scripts shell que vous voulez référencer dans le <acronym>JAR</acronym> produit par un build.
+      Quand vous utilisez le plugin Assembly pour distribuer votre application via un <acronym>ZIP</acronym> ou un <acronym>TAR</acronym>,
+      vous pouvez placer tous vos scripts dans un répertoire du type <filename>src/main/command</filename>.
+      Dans la configuration des ressources du <acronym>POM</acronym> suivant, 
+      vous verrez comment nous pouvons utiliser le filtrage des ressources et 
+      utiliser une référence vers une variable pour modifier le nom du <acronym>JAR</acronym>.  
+      Pour plus d'informations sur le plugin Maven Assembly, consultez le <xref linkend="assemblies" />.</para>      
 
       <para><example id="ex-filter-script">
-          <title>Filtering Script Resources</title>
+          <title>Fitrage de Resources Scripts</title>
 
           <programlisting language="xml">&lt;build&gt;
   &lt;groupId&gt;org.sonatype.mavenbook&lt;/groupId&gt;
@@ -1051,64 +1042,49 @@ jdbc.password=
 &lt;/build&gt;</programlisting>
         </example></para>
 
-      <para>If you run <filename>mvn process-resources</filename> in this
-      project, you will end up with two files, <filename>run.sh</filename> and
-      <filename>run.bat</filename>, in <varname>\${basedir}</varname>. We've
-      singled out these two files in a <sgmltag>resource</sgmltag> element,
-      configuring filtering, and set the <sgmltag>targetPath</sgmltag> to be
-      <varname>\${basedir}</varname>. In a second <sgmltag>resource</sgmltag>
-      element, we've configured the default resources path to be copied to the
-      default output directory without any filtering. <xref
-      linkend="ex-filter-script" /> shows you how to declare two resource
-      directories and supply them with different filtering and target
-      directory preferences. The project from <xref
-      linkend="ex-filter-script" /> would contain a
-      <filename>run.bat</filename> file in
-      <filename>src/main/command</filename> with the following content:</para>
+      <para>Si vous exécutez la commande <filename>mvn process-resources</filename> dans ce projet, 
+      vous vous retrouverez avec deux fichiers dans <varname>\${basedir}</varname> : <filename>run.sh</filename> et <filename>run.bat</filename>.
+      Nous avons inclus ces deux fichiers dans la balise <sgmltag>resource</sgmltag>, configuré le filtrage, 
+      et affecté le <sgmltag>targetPath</sgmltag> à la valeur <varname>\${basedir}</varname>.
+      Dans une deuxième balise <sgmltag>resource</sgmltag>, 
+      nous avons configuré le chemin des ressources par défaut pour être copié dans le répertoire destination dans filtrage.
+      L'<xref linkend="ex-filter-script" /> montre comment déclarer deux répertoires ressources et les configurer différemment.  
+      Le projet de l'<xref linkend="ex-filter-script" /> doit disposer un fichier <filename>run.bat</filename> dans le dossier
+      <filename>src/main/command</filename> qui contient le code suivant :</para>
 
       <programlisting>@echo off
 java -jar \${project.build.finalName}.jar %*
 </programlisting>
 
-      <para>After running <command>mvn process-resources</command>, a file
-      named <filename>run.bat</filename> would appear in
-      <varname>\${basedir}</varname> with the following content:</para>
+      <para>Après avoir exécuté la commande <command>mvn process-resources</command>, 
+      un fichier nommé <filename>run.bat</filename> devrait apparaître dans 
+      <varname>\${basedir}</varname>, en voici son contenu :</para>
 
       <programlisting>@echo off
 java -jar simple-cmd-2.3.1.jar %*
 </programlisting>
 
-      <para>The ability to customize filtering for specific subsets of
-      resources is another reason why complex projects with many different
-      kinds of resources often find it advantageous to separate resources into
-      multiple directories. The alternative to storing different kinds of
-      resources with different filtering requirements in different directories
-      is to use a more complex set of include and exclude patterns to match
-      all resource files which match a certain pattern.</para>
+      <para>La possibilité de personnaliser le filtrage pour un sous-ensemble spécifique de ressources 
+      est l'une des raisons de séparer vos ressources par type sur un projet. 
+      Plus un projet est complexe, plus il sera avantageux de séparer des ressources dans répertoires multiples.
+      L'alternative au fait de conserver différentes sortes de ressources nécessitant différentes configurations de filtre dans des répertoires différents
+      est d'utiliser un ensemble complexe de pattern 'include' et 'exclude' pour différencier les types de configuration.
+      Cette seconde solution est beaucoup plus complexe à maintenir et à mettre en place.</para>
     </section>
 
     <section id="lifecycle-sect-compile-phase">
-      <title>Compile</title>
+      <title>Compilation</title>
 
-      <para>Most lifecycles bind the Compiler plugin's
-      <varname>compile</varname> goal to the <varname>compile</varname> phase.
-      This phase calls out to <varname>compile:compile</varname> which is
-      configured to compile all of the source code and copy the bytecode to
-      the build output directory. If you haven't customized the values defined
-      in the Super <acronym>POM</acronym>, <varname>compile:compile</varname>
-      is going to compile everything from <filename>src/main/java</filename>
-      to <filename>target/classes</filename>. The Compiler plugin calls out to
-      <filename>javac</filename> and uses default source and target settings
-      of 1.3 and 1.1. In other words, the compiler plugin assumes that your
-      Java source conforms to Java 1.3 and that you are targeting a Java 1.1
-      JVM. If you would like to change these settings, you'll need to supply
-      the target and source configuration to the Compiler plugin in your
-      project's POM as shown in <xref
-      linkend="ex-compilesrc-target" />.</para>
+      <para>La plupart des cycles de vie rattachent le plugin le goals <varname>compile</varname> du plugin Compiler à la phase <varname>compile</varname>. 
+      Cette phase appelle <varname>compile:compile</varname> qui est configuré pour pour compiler tout le code source et copier le bytecode dans le répertoire destination du build.
+      Si vous n'avez pas personnalisé les valeurs définies dans le Super <acronym>POM</acronym>, <varname>compile:compile</varname>
+      compilera toutes les sources du répertoire <filename>src/main/java</filename> dans <filename>target/classes</filename>.
+      Le plugin Compiler appelle <filename>javac</filename> et utilise les paramétrages par défaut pour le code source, 1.3 et la destination, 1.1. 
+      Autrement dit, le plugin Compiler présume que le code source de votre projet est conforme Java 1.3 et qu'il doit tourner sur une JVM Java 1.1.
+      Si vous voulez modifier ce paramétrage, vous devez fournir la configuration suivante du plugin Compiler dans le POM de votre projet.</para> 
 
       <para><example id="ex-compilesrc-target">
-          <title>Setting the Source and Target Versions for the Compiler
-          Plugin</title>
+          <title>Modifier les versions du Code Source et du Bytecode pour le Plugin Compiler</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -1130,31 +1106,20 @@ java -jar simple-cmd-2.3.1.jar %*
 </programlisting>
         </example></para>
 
-      <para>Notice we are configuring the Compiler plugin, and not the
-      specific <varname>compile:compile</varname> goal. If we were going to
-      configure the source and target for just the
-      <varname>compile:compile</varname> goal, we would place the
-      <sgmltag>configuration</sgmltag> element below an
-      <sgmltag>execution</sgmltag> element for the
-      <varname>compile:compile</varname> goal. We've configured the target and
-      source for the plugin because <varname>compile:compile</varname> isn't
-      the only goal we're interested in configuring. The Compiler plugin is
-      reused when Maven compiles tests using the
-      <varname>compile:testCompile</varname> goal, and configuring target and
-      source at the plugin level allows us to define it once for all goals in
-      a plugin.</para>
+      <para>Notez que nous configurons le plugin Compiler, pas le goal <varname>compile:compile</varname>.
+      Si nous voulions configurer le source et le bytecode généré juste pour le goal <varname>compile:compile</varname>,
+      nous aurions placé la balise <sgmltag>configuration</sgmltag> sous la balise <sgmltag>execution</sgmltag> du goal <varname>compile:compile</varname>.
+      Nous avons effectué cette configuration au niveau du plugin, car <varname>compile:compile</varname> n'est pas le seul goal intéressé par cette configuration.
+      Le plugin Compiler est réutilisé pour la compilation des tests via le goal <varname>compile:testCompile</varname>,
+      cette configuration nous permet donc de faire d'une pierre deux coups.</para>
 
-      <para>If you need to customize the location of the source code, you can
-      do so by changing the build configuration. If you wanted to store your
-      project's source code in <filename>src/java</filename> instead of
-      <filename>src/main/java</filename> and if you wanted build output to go
-      to <filename>classes</filename> instead of
-      <filename>target/classes</filename>, you could always override the
-      default <sgmltag>sourceDirectory</sgmltag> defined by the Super
-      <acronym>POM</acronym>.</para>
+      <para>Si vous voulez personnaliser l'emplacement du code source, vous pouvez effectuer cela en modifiant la configuration du build.
+      Si vous désirez placer le code source de votre projet dans le répertoire <filename>src/java</filename> au lieu du répertoire <filename>src/main/java</filename>,
+      et si vous voulez que votre projet soit généré dans <filename>classes</filename> au lieu <filename>target/classes</filename>,
+      vous pouvez toujours modifier la configuration par défaut du <sgmltag>sourceDirectory</sgmltag> définie dans le Super <acronym>POM</acronym>.</para>
 
       <example>
-        <title>Overriding the Default Source Directory</title>
+        <title>Modifier le Répertoire du Code Source par Défaut</title>
 
         <programlisting language="xml">&lt;build&gt;
   ...
@@ -1165,56 +1130,41 @@ java -jar simple-cmd-2.3.1.jar %*
       </example>
 
       <warning>
-        <para>While it might seem necessary to bend Maven to your own idea of
-        project directory structure, we can't emphasize enough that you should
-        sacrifice your own ideas of directory structure in favor of the Maven
-        defaults. This isn't because we're trying to brainwash you into
-        accepting the Maven Way, but it will be easier for people to
-        understand your project if it adheres to the most basic conventions.
-        Just forget about this. Don't do it.</para>
+        <para>Alors qu'il pourrait vous sembler nécessaire de configurer Maven pour qu'il utilise votre propre structure de répertoires,
+        nous n'essayerons jamais assez d'essayer de vous disuader de modifier la configuration Maven par défaut.
+        Nous n'essayons pas ici de vous laver le cerveau pour vous forcer à utiliser la structure Maven,
+        mais il reste beaucoup simple de suivre quelques conventions pour que tout le monde puisse comprendre rapidement votre projet.</para>
       </warning>
     </section>
 
     <section id="lifecycle-sect-process-test-resources-phase">
-      <title>Process Test Resources</title>
+      <title>Traiter les Resources des Tests</title>
 
-      <para>The <varname>process-test-resources</varname> phase is almost
-      indistinguishable from the <varname>process-resources</varname> phase.
-      There are some trivial differences in the <acronym>POM</acronym>, but
-      most everything the same. You can filter test resources just as you
-      filter regular resources. The default location for test resources is
-      defined in the Super <acronym>POM</acronym> as
-      <filename>src/test/resources</filename>, and the default output
-      directory for test resources is <filename>target/test-classes</filename>
-      as defined in
+      <para>La phase <varname>process-test-resources</varname> est indiscernable de la phase <varname>process-resources</varname>.
+      Si le <acronym>POM</acronym> comporte quelques légères différences, le plus grand nombre de la configuration reste identique.
+      Vous pouvez filtrer les ressources de vos tests de la même manière que les ressources du projet.
+      L'emplacement par défaut des ressources pour les tests est définie dans le Super <acronym>POM</acronym> dans <filename>src/test/resources</filename>,
+      le répertoire destination est configuré par défaut dans <filename>target/test-classes</filename> comme défini dans la variable  
       <varname>\${project.build.testOutputDirectory}</varname>.</para>
     </section>
 
     <section id="lifecycle-sect-test-compile-phase">
-      <title>Test Compile</title>
+      <title>Compilation des tests</title>
 
-      <para>The <varname>test-compile</varname> phase is almost identical to
-      the <varname>compile</varname> phase. The only difference is that
-      <varname>test-compile</varname> is going to invoke
-      <varname>compile:testCompile</varname> to compile source from the test
-      source directory to the test build output directory. If you haven't
-      customized the default directories from the Super
-      <acronym>POM</acronym>, <varname>compile:testCompile</varname> is going
-      to compile the source in <filename>src/test/java</filename> to the
-      <filename>target/test-classes</filename> directory.</para>
+      <para>La phase <varname>test-compile</varname> est quasiment identique à la phase <varname>compile</varname>.
+      La seule différence est que <varname>test-compile</varname> appelle <varname>compile:testCompile</varname> pour compiler le source des tests.  
+      Si vous n'avez pas personnalisé les répertoires par défaut du Super <acronym>POM</acronym>,
+      <varname>compile:testCompile</varname> compilera sont le code source contenu dans le répertoire <filename>src/test/java</filename> dans le
+      répertoire <filename>target/test-classes</filename>.</para> 
 
-      <para>As with the source code directory, if you want to customize the
-      location of the test source code and the output of test compilation, you
-      can do so by overriding the <varname>testSourceDirectory</varname> and
-      the testOutputDirectory. If you wanted to store test source in
-      <filename>src-test/</filename> instead of
-      <filename>src/test/java</filename> and you wanted to save test bytecode
-      to <filename>classes-test/</filename> instead of
-      <filename>target/test-classes</filename>, you would use the following
-      configuration.</para>
+      <para>Comme pour le répertoire du code source, si vous désirez personnalisez l'emplacement du code source des tests our the répertoire destination de la compilation,
+      vous pouvez surcharger <varname>testSourceDirectory</varname> et <varname>testOutputDirectory</varname>.
+      Si vous voulez stocker le code source de vos tests dans <filename>src-test/</filename> au lieu du répertoire <filename>src/test/java</filename>
+      et que vous voulez enregistrer le bytecode dans le répertoire <filename>classes-test/</filename> au lieu <filename>target/test-classes</filename>,
+      utilisez la configuration suivante.</para> 
 
       <example>
-        <title>Overriding the Location of Test Source and Output</title>
+        <title>Modifier l'Emplacement du code Source et du Bytecode des Tests</title>
 
         <programlisting language="xml">&lt;build&gt;
   ...
@@ -1226,38 +1176,30 @@ java -jar simple-cmd-2.3.1.jar %*
     </section>
 
     <section id="lifecycle-sect-test-phase">
-      <title>Test</title>
+      <title>Tester</title>
 
-      <para>Most lifecycles bind the test goal of the Surefire plugin to the
-      test phase. The Surefire plugin is Maven's unit testing plugin, the
-      default behavior of Surefire is to look for all classes ending in *Test
-      in the test source directory and to run them as <ulink
-      url="http://www.junit.org">JUnit</ulink> tests. The Surefire plugin can
-      also be configured to run <ulink
-      url="http://www.testng.org">TestNG</ulink> unit tests.</para>
+      <para>La plupart des cycles de vie rattachent le goal test du plugin Surefire à leur phase test. 
+      Le plugin Surefire est un plugin Maven permettant d'exécuter des tests unitaires, le comportement par défaut du plugin Surefire est de rechercher toutes les class terminant par '*Test'
+      dans le répertoire source des tests, puis de les exécuter comme des tests <ulink url="http://www.junit.org">JUnit</ulink>.
+      Le plugin Surefire peut également être configuré pour exécuter des tests unitaires <ulink url="http://www.testng.org">TestNG</ulink>.</para> 
 
-      <para>After running <command>mvn test</command>, you should also notice
-      that the Surefire produces a number of reports in
-      <filename>target/surefire-reports</filename>. This reports directory
-      will have two files for each test executed by the Surefire plugin: an
-      <acronym>XML</acronym> document containing execution information for the
-      test, and a text file containing the output of the unit test. If there
-      is a problem during the test phase and a unit test has failed, you can
-      use the output of Maven and the contents of this directory to track down
-      the cause of a test failure. This <filename>surefire-reports/</filename>
-      directory is also used during site generation to create an easy to read
-      summary of all the unit tests in a project.</para>
+      <para>Après avoir exécuté la commande <command>mvn test</command>, 
+      vous aurez probablement noté que le plugin Surefire ait produit des rapports d'exécution dans le répertoire <filename>target/surefire-reports</filename>.  
+      Ce répertoire de rapports contiendra deux fichiers pour chaque test exécuté par le plugin :
+      un fichier <acronym>XML</acronym> qui contient les informations d'exécution du test,
+      un fichier texte qui contient la sortie des tests unitaires. 
+      Si un problème est survenu durant la phase de test et qu'un test unitaire a échoué,
+      vous pouvez utiliser la sortie standard de Maven et ce répertoire pour trouver la cause du problème.
+      Ce répertoire <filename>surefire-reports/</filename> est également utilisé durant la génération du site
+      pour créer un résumé 'facile à lire' du résultat des tests unitaires.</para>
 
-      <para>If you are working on a project that has some failing unit tests,
-      but you want the project to produce output, you'll need to configure the
-      Surefire plugin to continue a build even if it encounters a failure. The
-      default behavior is to stop a build whenever a unit test failure is
-      encountered. To override this behavior, you'll need to set the
-      <varname>testFailureIgnore</varname> configuration property on the
-      Surefire plugin to true.</para>
+      <para>Si vous travaillez sur un projet qui contient des tests unitaires qui échouent,
+      mais que vous voulez tout de même aboutir, vous devrez configurer le plugin Surefire pour qu'il continue le build même en cas d'échec.
+      Le comportement par défaut est d'arreter le build lorsqu'un test unitaire échoue.      
+      Pour modifier ce comportement, vous devez affecter la propriété <varname>testFailureIgnore</varname> à 'true' du plugin Surefire.</para>
 
       <example>
-        <title>Configuring Surefire to Ignore Test Failures</title>
+        <title>Configurez le plugin Surefire pour Ignorer les Tests en échec</title>
 
         <programlisting language="xml">&lt;build&gt;
   &lt;plugins&gt;
@@ -1273,53 +1215,39 @@ java -jar simple-cmd-2.3.1.jar %*
 &lt;/build&gt;</programlisting>
       </example>
 
-      <para>If you would like to skip tests altogether, you can do so by
-      executing the following command:</para>
+      <para>Si vous désirez passer les tests, vous pouvez exécuter la commande suivante :</para>
 
       <screen>$ mvn install -Dmaven.test.skip=true</screen>
 
-      <para>The <varname>maven.test.skip</varname> variable controls both the
-      Compiler and the Surefire plugin, if you pass in
-      <varname>maven.test.skip</varname> you've told Maven to ignore tests
-      altogether.</para>
+      <para>La variable <varname>maven.test.skip</varname> agit sur les plugins Compiler et Surefire,
+      en précisant cette variable, vous demandez à Maven d'ignorer les tests.</para>
+
     </section>
 
     <section id="lifecycle-sect-install-phase">
-      <title>Install</title>
+      <title>Installer l'artefact</title>
 
-      <para>The <varname>install</varname> goal of the Install plugin is
-      almost always bound to the <varname>install</varname> lifecycle phase.
-      This <varname>install:install</varname> goal simply installs a project's
-      main artifact to the local repository. If you have a project with a
-      <sgmltag>groupId</sgmltag> of <package>org.sonatype.mavenbook</package>,
-      an <sgmltag>artifactId</sgmltag> of <varname>simple-test</varname>, and
-      a <sgmltag>version</sgmltag> of 1.0.2, the
-      <varname>install:install</varname> goal is going to copy the
-      <acronym>JAR</acronym> file from
-      <filename>target/simple-test-1.0.2.jar</filename> to
-      <filename>~/.m2/repository/org/sonatype/mavenbook/simple-test/1.0.2/simple-test-1.0.2.jar</filename>.
-      If the project has <acronym>POM</acronym> packaging, this goal will copy
-      the <acronym>POM</acronym> to the local repository.</para>
+      <para>Le goal <varname>install</varname> du plugin Install est toujours rattaché à la phase <varname>install</varname> du cycle de vie.  
+      Ce goal <varname>install:install</varname> installe simplement les artefacts d'un projet dans le dépôt local.
+      Si vous avez un projet avec un <sgmltag>groupId</sgmltag> à <package>org.sonatype.mavenbook</package>,
+      un <sgmltag>artifactId</sgmltag> à <varname>simple-test</varname>, et une <sgmltag>version</sgmltag> à 1.0.2,
+      le goal <varname>install:install</varname> copiera le fichier <acronym>JAR</acronym> de <filename>target/simple-test-1.0.2.jar</filename>
+      vers <filename>~/.m2/repository/org/sonatype/mavenbook/simple-test/1.0.2/simple-test-1.0.2.jar</filename>.
+      Si le projet a un type de packaging <acronym>POM</acronym>, ce goal copiera le <acronym>POM</acronym> dans le dépôt local.</para>        
     </section>
 
     <section id="lifecycle-sect-deploy-phase">
-      <title>Deploy</title>
+      <title>Déploiement</title>
 
-      <para>The <varname>deploy</varname> goal of the Deploy plugin is usually
-      bound to the <varname>deploy</varname> lifecycle phase. This phase is
-      used to deploy an artifact to a remote Maven repository, this is usually
-      required to update a remote repository when you are performing a
-      release. The deployment procedure can be as simple as copying a file to
-      another directory or as complex as transferring a file over
-      <acronym>SCP</acronym> using a public key. Deployment settings usually
-      involve credentials to a remote repository, and, as such, deployment
-      settings are usually not stored in a <filename>pom.xml</filename>.
-      Instead, deployment settings are more frequently found in an individual
-      user's <filename>~/.m2/settings.xml</filename>. For now, all you need to
-      know is that the <varname>deploy:deploy</varname> goal is bound to the
-      <varname>deploy</varname> phase and it takes care of transporting an
-      artifact to a published repository and updating any repository
-      information which might be affected by such a deployment.</para>
+      <para>Le goal <varname>deploy</varname> du plugin Deploy est souvent rattaché à la phase <varname>deploy</varname> du cycle de vie.  
+      Cette phase est utilisée pour déployer un artefact sur un dépôt Maven distant,
+      c'est souvent nécessaire pour mettre à jour un dépôt distant quand vous effectuez une release.
+      La procédure de déploiement peut aller d'une simple copie de fichier d'un répertoire à un autre, à un ensemble complexe de transferts <acronym>SCP</acronym> de fichiers en utilisant une clé publique.
+      Les préférences de déploiement nécessitent souvent des accès à un dépôt distant, et, du coup, 
+      ces préférences sont souvent stockées en dehors du <filename>pom.xml</filename>.
+      À la place, ces préférences se trouvent souvent dans un fichier unique à chaque utilisateur : <filename>~/.m2/settings.xml</filename>. 
+      Tout ce que vous avez besoin de savoir pour le moment est que le goal <varname>deploy:deploy</varname> est rattaché à la phase <varname>deploy</varname>
+      et qu'il permet le transfert d'un artefact sur un dépôt de publication et la mise à jour des informations d'un dépôt qui peuvent être affectés par un tel déploiement.</para> 
     </section>
   </section>
 </chapter>
