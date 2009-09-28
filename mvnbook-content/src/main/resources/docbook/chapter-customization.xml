@@ -837,7 +837,7 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</progr
     suivantes en ligne de commande depuis le répertoire racine du projet :</para>
 
     <screen>$ <command>mvn install</command>
-/$ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</command>
+$ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</command>
 ...
 [INFO] [exec:java]
 0    INFO  YahooRetriever  - Retrieving Weather Data
