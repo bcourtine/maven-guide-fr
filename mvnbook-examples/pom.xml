@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <artifactId>examples</artifactId>
   <groupId>org.sonatype.mavenbook</groupId>
-  <version>0.8-SNAPSHOT</version>
+  <version>0.9-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Maven: The Definitive Guide Example Code</name>
   <description>Example Code for Maven: The Definitive Guide</description>
   
   <url>http://sonatype.com/book</url>
 
-  <modules>
+<!--  <modules>
     <module>ch-simple</module>
     <module>ch-custom</module>
     <module>ch-simple-web</module>
@@ -28,7 +25,7 @@
     <module>ch-sitegen</module>
     <module>ch-writing-plugins</module>
     <module>ch-alternate-plugins</module>
-  </modules>
+  </modules> -->
   
   <build>
     <finalName>mavenbook-examples-${project.version}</finalName>

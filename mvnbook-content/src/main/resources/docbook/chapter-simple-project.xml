@@ -112,10 +112,10 @@ package: org.sonatype.mavenbook.simple
     Virtuelle Java via la ligne de commande. Le but du goal <varname>archetype:generate</varname> est de créer
     rapidement un projet à partir d'un archétype. Dans ce contexte, un <indexterm>
         <primary sortas="archetypes">archétypes, définition</primary>
-      </indexterm> archétype se défini comme " un modèle original ou idéal d'après lequel sont bâtis un ouvrage, une
-    œuvre ; un prototype." <footnote id="foot-archetype-def">
+      </indexterm> archétype se défini comme "un modèle original ou idéal d'après lequel sont bâtis un ouvrage, une
+    œuvre ; un prototype<footnote id="foot-archetype-def">
         <para><emphasis>Selon l'American Heritage Dictionary of the English Language</emphasis>.</para>
-      </footnote>Il existe un grand nombre d'archétypes disponibles pour Maven, depuis une simple application Swing
+      </footnote>". Il existe un grand nombre d'archétypes disponibles pour Maven, depuis une simple application Swing
     jusqu'à une application web complexe, le goal <varname>archetype:generate</varname> propose de choisir parmi environ
     40 archétypes. Dans ce chapitre, nous allons utiliser l'archétype le plus basique pour créer un simple squelette
     projet de démarrage. Le préfixe <literal>archetype</literal> correspond au plugin, et <literal>generate</literal>
@@ -363,8 +363,8 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
        checking for updates from central
 ...</screen>
 
-      <para>Un Plugin Maven se compose d'un ou plusieurs goals. On peut prendre comme exemples de plugins Maven, de
-      simples plugins qui composent le cœur de Maven comme le plugin Jar dont les goals permettent de créer des fichiers
+      <para>Un Plugin Maven se compose d'un ou plusieurs goals. On peut prendre comme exemples de plugins Maven ceux 
+      qui constituent le cœur de Maven comme le plugin Jar dont les goals permettent de créer des fichiers
       <acronym>JAR</acronym>, le plugin Compiler avec ses goals pour compiler le code source et le code des tests
       unitaires, ou le plugin Surefire dont les goals permettent l'exécution des tests unitaires et la production des
       rapports. On trouve aussi d'autres plugins, plus spécialisés, comme le plugin Hibernate3 pour l'intégration de la
@@ -393,7 +393,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
           <secondary>defined</secondary>
         </indexterm> ou combinée à d'autres goals pour un build plus large. Un goal est une "tâche unitaire" dans Maven.
-      On peut prendre comme exemples de goals le goal <varname>compile</varname> du plugin Compiler, qui, comme son nom
+      On peut prendre comme exemples le goal <varname>compile</varname> du plugin Compiler, qui, comme son nom
       l'indique, compile tout le code source du projet, ou le goal <varname>test</varname> du plugin Surefire, qui
       exécute les tests unitaires. La configuration des goals s'effectue au travers de propriétés qui sont utilisées
       pour personnaliser le comportement. Par exemple, le goal <varname>compile</varname> du plugin Compiler définit un
@@ -491,7 +491,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         </indexterm> à une phase du cycle de vie. Pendant que Maven parcourt les phases du cycle de vie, il exécute les
       goals rattachés à chacune d'entre elles. Chaque phase peut avoir entre zéro et plusieurs goals rattachés. Dans la
       section précédente, quand vous avez exécuté <command>mvn install</command>, il se peut que vous ayez remarqué que
-      plus d'un goal était exécuté. Regardez la sortie après avoir exécuté <command>mvn install</command> et relevez les
+      plusieurs goals s'étaient exécutés. Regardez la sortie après avoir exécuté <command>mvn install</command> et relevez les
       différents goals qui ont été exécutés. Lorsque ce simple exemple atteint la phase <varname>package</varname>, il
       exécute le goal <varname>jar</varname> du plugin Jar. Puisque notre projet Quickstart a (par défaut) un packaging
       de type <varname>jar</varname>, le goal <varname>jar:</varname><varname>jar</varname> est rattaché à la phase
@@ -693,10 +693,10 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
       <para>Nous avons surligné les coordonnées Maven de ce projet : les <varname>groupId</varname>,
       <varname>artifactId</varname>, <varname>version</varname> et <varname>packaging</varname>. Ces identifiants
-      combinés forment ce qu'on appelle les coordonnées d'un projet. <footnote id="foot-simple-classify">
+      combinés forment ce qu'on appelle les coordonnées d'un projet<footnote id="foot-simple-classify">
           <para>Il existe une cinquième coordonnée, plus rarement utilisée, appelée <varname>classifier</varname> dont
-          nous parlerons plus tard dans le livre. Vous pouvez l'oublier pour l'instant.</para>
-        </footnote>Comme dans dans tout système à coordonnées, les coordonnées Maven permettent de définir un point
+          nous parlerons plus tard dans le livre. Vous pouvez l'oublier pour l'instant.</para></footnote>.
+          Comme dans dans tout système à coordonnées, les coordonnées Maven permettent de définir un point
       spécifique dans "l'espace". Maven identifie un projet via ses coordonnées lorsqu'un projet
       est relié à un autre en tant que dépendance, plugin ou comme projet parent. Les coordonnées Maven sont souvent
       écrites en utilisant les deux points comme séparateur selon le format suivant :
@@ -929,7 +929,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       un <acronym>WAR</acronym> ou un <acronym>EAR</acronym>, vous pouvez le configurer de manière à packager les
       dépendances avec l'artefact produit, et vous pouvez même configurer Maven pour exclure certaines dépendances du
       fichier <acronym>WAR</acronym> par l'utilisation de la portée <varname>provided</varname>. La portée
-      <varname>provided</varname>indique à Maven que la dépendance est nécessaire à la compilation, mais qu'elle ne doit
+      <varname>provided</varname> indique à Maven que la dépendance est nécessaire à la compilation, mais qu'elle ne doit
       pas être intégrée à l'artefact produit par le build. Cette portée est donc très pratique lorsque vous développez
       une application web. Vous aurez besoin du jar des spécifications Servlet pour compiler, mais vous ne voulez pas
       inclure le <acronym>JAR</acronym> de l'<acronym>API</acronym> Servlet dans le répertoire
