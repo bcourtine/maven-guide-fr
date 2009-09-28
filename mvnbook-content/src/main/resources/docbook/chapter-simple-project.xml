@@ -237,7 +237,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Building jar: /simple/target/simple-1.0-SNAPSHOT.jar
 [INFO] [install:install]
 [INFO] Installing /simple/target/simple-1.0-SNAPSHOT.jar to \
-  ~/.m2/repository/com/sonatype/maven/ch03/simple/1.0-SNAPSHOT/ \
+  ~/.m2/repository/com/sonatype/maven/simple/simple/1.0-SNAPSHOT/ \
   simple-1.0-SNAPSHOT.jar</screen>
 
     <para>Vous venez juste de créer, compiler, tester, packager et installer le projet Maven le plus simple possible.
@@ -272,7 +272,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;org.sonatype.mavenbook.ch03&lt;/groupId&gt;
+  &lt;groupId&gt;org.sonatype.mavenbook.simple&lt;/groupId&gt;
   &lt;artifactId&gt;simple&lt;/artifactId&gt;
   &lt;packaging&gt;jar&lt;/packaging&gt;
   &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
@@ -354,7 +354,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <varname>generate</varname> l'identifiant du goal. Lorsque Maven exécute le goal d'un plugin, il affiche
       l'identifiant du plugin et l'identifiant du goal sur la sortie standard :</para>
 
-      <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.ch03 \
+      <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.simple \
                                         -DartifactId=simple \
                                         -DpackageName=org.sonatype.mavenbook
 </command>...
@@ -401,11 +401,11 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       version du JDK cible ou les options d'optimisation du compilateur. Dans l'exemple précédent, nous avons passé les
       paramètres de configuration <varname>groupId</varname> et <varname>artifactId</varname> au goal
       <varname>generate</varname> du plugin Archetype via les paramètres de la ligne de commande
-      <command>-DgroupId=org.sonatype.mavenbook.ch03</command> et <command>-DartifactId=simple</command>. Nous avons
+      <command>-DgroupId=org.sonatype.mavenbook.simple</command> et <command>-DartifactId=simple</command>. Nous avons
       <phrase role="keep-together">aussi</phrase> passé le paramètre <varname>packageName</varname> au goal
       <literal>generate</literal> avec la valeur <package>org.sonatype.mavenbook</package>. Si nous n'avions pas précisé
       le paramètre <varname>packageName</varname>, le nom du package aurait été par défaut
-      <package>org.sonatype.mavenbook.ch03</package>.</para>
+      <package>org.sonatype.mavenbook.simple</package>.</para>
 
       <para><note>
           <para>Lorsque l'on fait référence au goal d'un plugin, il est courant d'utiliser le raccourci :
