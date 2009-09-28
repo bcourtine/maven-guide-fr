@@ -35,7 +35,7 @@
     <para>Vous pouvez aussi y voir une <filename moreinfo="none">pom.xml</filename> analogie à un fichier <filename
     moreinfo="none">Makefile</filename> ou un <filename moreinfo="none">build.xml</filename> pour Ant. Quand vous
     utilisez <acronym>GNU</acronym> <emphasis>make</emphasis> pour construire une application comme MySQL, vous aurez le
-    plus souvent un fichier <filename moreinfo="none">Makefile</filename> qui contient les instructions explicites pour
+    plus souvent un fichier <filename moreinfo="none">Makefile</filename> qui conteint les instructions explicites pour
     construire un binaire à partir des sources. Quand vous utilisez Apache Ant, vous avez très probablement un fichier
     <filename moreinfo="none">build.xml</filename> qui contient les instructions explicites pour nettoyer, compiler,
     packager et déployer une application. <emphasis>make</emphasis>, Ant, et Maven ont en commun le fait qu'ils
@@ -175,8 +175,7 @@
 
   &lt;repositories&gt;
     &lt;repository&gt;
-      &lt;id&gt;central&lt;/id&gt; <co id="coDef-super-1" linkends="coRef-super-1" />
-      &lt;name&gt;Maven Repository Switchboard&lt;/name&gt;
+      &lt;id&gt;central&lt;/id&gt;  <co id="coDef-super-1" linkends="coRef-super-1" />      &lt;name&gt;Maven Repository Switchboard&lt;/name&gt;
       &lt;layout&gt;default&lt;/layout&gt;
       &lt;url&gt;http://repo1.maven.org/maven2&lt;/url&gt;
       &lt;snapshots&gt;
@@ -187,8 +186,7 @@
 
   &lt;pluginRepositories&gt;
     &lt;pluginRepository&gt;
-      &lt;id&gt;central&lt;/id&gt; <co id="coDef-super-2" linkends="coRef-super-2" />
-      &lt;name&gt;Maven Plugin Repository&lt;/name&gt;
+      &lt;id&gt;central&lt;/id&gt;   <co id="coDef-super-2" linkends="coRef-super-2" />      &lt;name&gt;Maven Plugin Repository&lt;/name&gt;
       &lt;url&gt;http://repo1.maven.org/maven2&lt;/url&gt;
       &lt;layout&gt;default&lt;/layout&gt;
       &lt;snapshots&gt;
@@ -200,43 +198,32 @@
     &lt;/pluginRepository&gt;
   &lt;/pluginRepositories&gt;
 
-  &lt;build&gt; <co id="coDef-super-3" linkends="coRef-super-3" />
-    &lt;directory&gt;${project.basedir}/target&lt;/directory&gt;
-    &lt;outputDirectory&gt;
-      ${project.build.directory}/classes
-    &lt;/outputDirectory&gt;
-    &lt;finalName&gt;${project.artifactId}-${project.version}&lt;/finalName&gt;
-    &lt;testOutputDirectory&gt;
-      ${project.build.directory}/test-classes
-    &lt;/testOutputDirectory&gt;
-    &lt;sourceDirectory&gt;
-      ${project.basedir}/src/main/java
-    &lt;/sourceDirectory&gt;
+  &lt;build&gt;  <co id="coDef-super-3" linkends="coRef-super-3" />    &lt;directory&gt;target&lt;/directory&gt;
+    &lt;outputDirectory&gt;target/classes&lt;/outputDirectory&gt;
+    &lt;finalName&gt;\${pom.artifactId}-\${pom.version}&lt;/finalName&gt;
+    &lt;testOutputDirectory&gt;target/test-classes&lt;/testOutputDirectory&gt;
+    &lt;sourceDirectory&gt;src/main/java&lt;/sourceDirectory&gt;
     &lt;scriptSourceDirectory&gt;src/main/scripts&lt;/scriptSourceDirectory&gt;
-    &lt;testSourceDirectory&gt;
-      ${project.basedir}/src/test/java
-    &lt;/testSourceDirectory&gt;
+    &lt;testSourceDirectory&gt;src/test/java&lt;/testSourceDirectory&gt;
     &lt;resources&gt;
       &lt;resource&gt;
-        &lt;directory&gt;${project.basedir}/src/main/resources&lt;/directory&gt;
+        &lt;directory&gt;src/main/resources&lt;/directory&gt;
       &lt;/resource&gt;
     &lt;/resources&gt;
     &lt;testResources&gt;
       &lt;testResource&gt;
-        &lt;directory&gt;${project.basedir}/src/test/resources&lt;/directory&gt;
+        &lt;directory&gt;src/test/resources&lt;/directory&gt;
       &lt;/testResource&gt;
     &lt;/testResources&gt;
-
-
-      &lt;pluginManagement&gt;<co id="coDef-super-4" linkends="coRef-super-4" />
+  &lt;/build&gt; <co id="coDef-super-4" linkends="coRef-super-4" />     &lt;pluginManagement&gt;
        &lt;plugins&gt;
-                  &lt;plugin&gt;
+         &lt;plugin&gt;
            &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;
-           &lt;version&gt;1.3&lt;/version&gt;
-         &lt;/plugin&gt;
+           &lt;version&gt;1.1&lt;/version&gt;
+         &lt;/plugin&gt;       
          &lt;plugin&gt;
            &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;
-           &lt;version&gt;2.2-beta-2&lt;/version&gt;
+           &lt;version&gt;2.2-beta-1&lt;/version&gt;
          &lt;/plugin&gt;
          &lt;plugin&gt;
            &lt;artifactId&gt;maven-clean-plugin&lt;/artifactId&gt;
@@ -252,7 +239,7 @@
          &lt;/plugin&gt;
          &lt;plugin&gt;
            &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;
-           &lt;version&gt;2.4&lt;/version&gt;
+           &lt;version&gt;2.3&lt;/version&gt;
          &lt;/plugin&gt;
          &lt;plugin&gt;
            &lt;artifactId&gt;maven-ear-plugin&lt;/artifactId&gt;
@@ -272,39 +259,39 @@
          &lt;/plugin&gt;
          &lt;plugin&gt;
            &lt;artifactId&gt;maven-javadoc-plugin&lt;/artifactId&gt;
-           &lt;version&gt;2.5&lt;/version&gt;
+           &lt;version&gt;2.4&lt;/version&gt;
          &lt;/plugin&gt;
          &lt;plugin&gt;
            &lt;artifactId&gt;maven-plugin-plugin&lt;/artifactId&gt;
-           &lt;version&gt;2.4.3&lt;/version&gt;
+           &lt;version&gt;2.3&lt;/version&gt;
          &lt;/plugin&gt;
          &lt;plugin&gt;
            &lt;artifactId&gt;maven-rar-plugin&lt;/artifactId&gt;
            &lt;version&gt;2.2&lt;/version&gt;
          &lt;/plugin&gt;
-         &lt;plugin&gt;
+         &lt;plugin&gt;                
            &lt;artifactId&gt;maven-release-plugin&lt;/artifactId&gt;
-           &lt;version&gt;2.0-beta-8&lt;/version&gt;
+           &lt;version&gt;2.0-beta-7&lt;/version&gt;
          &lt;/plugin&gt;
-         &lt;plugin&gt;
+         &lt;plugin&gt;                
            &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
-           &lt;version&gt;2.3&lt;/version&gt;
+           &lt;version&gt;2.2&lt;/version&gt;
          &lt;/plugin&gt;
          &lt;plugin&gt;
            &lt;artifactId&gt;maven-site-plugin&lt;/artifactId&gt;
-           &lt;version&gt;2.0-beta-7&lt;/version&gt;
+           &lt;version&gt;2.0-beta-6&lt;/version&gt;
          &lt;/plugin&gt;
          &lt;plugin&gt;
            &lt;artifactId&gt;maven-source-plugin&lt;/artifactId&gt;
            &lt;version&gt;2.0.4&lt;/version&gt;
-         &lt;/plugin&gt;
+         &lt;/plugin&gt;         
          &lt;plugin&gt;
             &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
-            &lt;version&gt;2.4.3&lt;/version&gt;
+            &lt;version&gt;2.4.2&lt;/version&gt;
          &lt;/plugin&gt;
          &lt;plugin&gt;
            &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
-           &lt;version&gt;2.1-alpha-2&lt;/version&gt;
+           &lt;version&gt;2.1-alpha-1&lt;/version&gt;
          &lt;/plugin&gt;
        &lt;/plugins&gt;
      &lt;/pluginManagement&gt;
@@ -324,32 +311,34 @@
           <literal>central</literal>. C'est ce dépôt central de Maven qui est configuré par défaut dans toutes les
           installations de Maven pour être interrogé. Cette configuration peut être surchargée par un fichier <filename
           moreinfo="none">settings.xml</filename> personnalisé. Attention, le Super <acronym>POM</acronym> par défaut a
-          désactivé a récupération des artefacts snapshots depuis le dépôt centrel de Maven. Si vous avez besoin d'un
-          dépôt snapshot, vous aurez à configurer vos dépôts dans votre <filename moreinfo="none">pom.xml</filename> ou
-          votre <filename moreinfo="none">settings.xml</filename>. Settings and profiles are covered in <xref
-          linkend="profiles" /> and in <xref linkend="appendix-settings-sect-details" />.</para>
+          désactivé la récupération des artefacts snapshots depuis le dépôt central de Maven. Si vous avez besoin d'un
+          dépôt snapshot, vous devrez configurer vos dépôts dans votre <filename moreinfo="none">pom.xml</filename> ou
+          votre <filename moreinfo="none">settings.xml</filename>. Le fichier <filename>settings.xml</filename> et les
+          profils sont traités dans le <xref linkend="profiles" /> ainsi que dans <xref
+          linkend="appendix-settings-sect-details" />.</para>
         </callout>
 
         <callout arearefs="coDef-super-2" id="coRef-super-2">
-          <para>The central Maven repository also contains Maven plugins. The default plugin repository is the central
-          Maven repository. Snapshots are disabled, and the update policy is set to “never,” which means that Maven will
-          never automatically update a plugin if a new version is released.</para>
+          <para>Le dépôt central de Maven contient aussi des plugins Maven. Le dépôt de plugins est par défaut le dépôt
+          central de Maven. La récupération des snapshots est désactivée par défaut et la règle de gestion des mises à
+          jour indique "never", ce qui signifie que Maven ne met jamais automatiquement à jour un plugin si une nouvelle
+          version est publiée.</para>
         </callout>
 
         <callout arearefs="coDef-super-3" id="coRef-super-3">
-          <para>The <sgmltag>build</sgmltag> element sets the default values for directories in the Maven Standard
-          Directory layout.</para>
+          <para>L'élément <sgmltag>build</sgmltag> définit les positions par défaut des répertoires selon la Disposition
+          Maven Standard des Répertoires.</para>
         </callout>
 
         <callout arearefs="coDef-super-4" id="coRef-super-4">
-          <para>Starting in Maven 2.0.9, default versions of core plugins have been provided in the Super
-          <acronym>POM</acronym>. This was done to provide some stability for users that are not specifying versions in
-          their <acronym>POM</acronym>s.</para>
+          <para>Depuis la version 2.0.9 de Maven, les versions par défaut des plugins du cœursont définies dans le Super
+          <acronym>POM</acronym>. Cela a été mis en place pour apporter une certaine stabilité aux utilisateurs qui ne
+          précisent pas de version dans leurs <acronym>POM</acronym>s.</para>
         </callout>
       </calloutlist>
 
       <figure id="fig-super-always-base">
-        <title>The Super POM is always the base Parent</title>
+        <title>Le Super POM est toujours le parent racine</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -365,19 +354,20 @@
     </section>
 
     <section id="pom-relationships-sect-simplest-pom">
-      <title>The Simplest POM</title>
+      <title>Le POM le plus simple possible</title>
 
-      <para>All Maven <acronym>POM</acronym>s inherit defaults from the Super <acronym>POM</acronym> (introduced earlier
-      in the section <xref linkend="pom-relationships-sect-super-pom" />). If you are just writing a simple project that
-      produces a <acronym>JAR</acronym> from some source in <filename moreinfo="none">src/main/java</filename>, want to
-      run your JUnit tests in <filename moreinfo="none">src/test/java</filename>, and want to build a project site using
-      <command moreinfo="none">mvn site</command>, you don’t have to customize anything. All you would need, in this
-      case, is the simplest possible <acronym>POM</acronym> shown in <xref linkend="ex-simplest-pom" />. This
-      <acronym>POM</acronym> defines a <varname>groupId</varname>, <varname>artifactId</varname>, and
-      <varname>version</varname>: the three required coordinates for every project.</para>
+      <para>Tous les <acronym>POM</acronym>s Maven héritent leurs valeurs par défaut du Super <acronym>POM</acronym>
+      (dont nous avons parlé dans la section <xref linkend="pom-relationships-sect-super-pom" />). Si vous écrivez un
+      projet tout simple qui produit un <acronym>JAR</acronym> à partir de fichiers source se trouvant dans <filename
+      moreinfo="none">src/main/java</filename>, que vous voulez exécutez des tests JUnit qui sont dans <filename
+      moreinfo="none">src/test/java</filename>, et que vous voulez produire le site web de ce projet avec la commande
+      <command moreinfo="none">mvn site</command>, vous n'avez rien à configurer. Vous n'avez besoin, dans ce cas, que
+      du <acronym>POM</acronym> le plus simple possible, tel celui présenté dans <xref linkend="ex-simplest-pom" />. Ce
+      <acronym>POM</acronym> définit un <varname>groupId</varname>, un <varname>artifactId</varname>, et une
+      <varname>version</varname> : les trois coordonnées exégées pour tout projet.</para>
 
       <example id="ex-simplest-pom">
-        <title>The Simplest POM</title>
+        <title>Le POM le plus simple possible</title>
 
         <programlisting language="xml">&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -387,30 +377,31 @@
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>Such a simple <acronym>POM</acronym> would be more than adequate for a simple project—e.g., a Java library
-      that produces a <acronym>JAR</acronym> file. It isn’t related to any other projects, it has no dependencies, and
-      it lacks basic information such as a name and a <acronym>URL</acronym>. If you were to create this file and then
-      create the subdirectory <filename moreinfo="none">src/main/java</filename> with some source code, running <command
-      moreinfo="none">mvn package</command> would produce a <acronym>JAR</acronym> in <filename
+      <para>Un <acronym>POM</acronym> aussi simple serait plus qu'adéquat pour un projet très simple—par exempleg., une
+      bibliothèque Java qui produirait un fichier <acronym>JAR</acronym>. Ce <acronym>POM</acronym> ne fait aucune
+      référence à un autre projet, ne dépend de rien, et il lui manque des informations basiques comme un nom et une
+      <acronym>URL</acronym>. Si vous créiez un tel fichier et un sous-répertoire <filename
+      moreinfo="none">src/main/java</filename> contenant du code source, l'exécution de la commande <command
+      moreinfo="none">mvn package</command> produirait un <acronym>JAR</acronym> dans <filename
       moreinfo="none">target/simple-project-1.jar</filename>.</para>
     </section>
 
     <section id="pom-relationships-sect-effective-pom">
-      <title>The Effective POM</title>
+      <title>Le POM effectif</title>
 
-      <para>This simplest <acronym>POM</acronym> brings us to the concept of <indexterm>
+      <para>Ce <acronym>POM</acronym>, le plus simple qu'il soit, introduit le concept de <indexterm>
           <primary>effective POMs</primary>
-        </indexterm>the “effective <acronym>POM</acronym>.” Since <acronym>POM</acronym>s can inherit configuration from
-      other <acronym>POM</acronym>s, you must always think of a Maven <acronym>POM</acronym> in terms of the combination
-      of the Super <acronym>POM</acronym>, plus any parent <acronym>POM</acronym>s, and finally the current project’s
-      <acronym>POM</acronym>. Maven starts with the Super <acronym>POM</acronym> and then overrides default
-      configuration with one or more parent <acronym>POM</acronym>s. Then it overrides the resulting configuration with
-      the current project’s <acronym>POM</acronym>. You end up with an effective <acronym>POM</acronym> that is a
-      mixture of various <acronym>POM</acronym>s. If you want to see a project’s effective <acronym>POM</acronym>,
-      you’ll need to run the <varname>effective-pom</varname> goal in the Maven Help plugin, which was introduced
-      earlier in the section <xref linkend="installation-sect-help-plugin-install" />. To run the
-      <varname>effective-pom</varname> goal, execute the following in a directory with a <filename
-      moreinfo="none">pom.xml</filename> file:</para>
+        </indexterm> “<acronym>POM</acronym> effectif”. Comme les <acronym>POM</acronym>s héritent leur configuration
+      d'autres <acronym>POM</acronym>s, vous devez toujours voir un <acronym>POM</acronym> Maven comme la combinaison du
+      Super <acronym>POM</acronym>, plus tous les <acronym>POM</acronym>s parent intermédiaires, et enfin le
+      <acronym>POM</acronym> du projet en cours. Maven commence par le Super <acronym>POM</acronym> et surcharge la
+      configuration par défaut avec un ou plusieurs <acronym>POM</acronym>s parent. Puis il surcharge la configuration
+      résultante avec les velurs du <acronym>POM</acronym> du projet. Au final, vous obtenez un <acronym>POM</acronym>
+      effectif qui est le résultat du mélange de plusieurs <acronym>POM</acronym>s. Si vous voulez voir le
+      <acronym>POM</acronym> effectif d'un projet, vous allez devoir exécuter le goal <varname>effective-pom</varname>
+      du plugin Maven Help, dont nous avons parlé précédemment dans la section <xref
+      linkend="installation-sect-help-plugin-install" />. To run the <varname>effective-pom</varname> goal, execute the
+      following in a directory with a <filename moreinfo="none">pom.xml</filename> file:</para>
 
       <screen>$ <command>mvn help:effective-pom</command></screen>
 
@@ -488,11 +479,11 @@
       introduced in this section.</para>
 
       <para>If your version release number matches the format
-      <varname>&lt;major&gt;.&lt;minor&gt;.&lt;incremental&gt;-&lt;qualifier&gt;</varname> then your versions will be
-      compared properly; "1.2.3" will be evaluated as a more recent build than "1.0.2", and the comparison will be made
-      using the numeric values of the major, minor, and incremental versions. If your version release number does not
-      fit the standard introduced in this section, then your versions will be compared as strings; "1.0.1b" will be
-      compared to "1.2.0b" using a String comparison.</para>
+      <varname>&lt;major&gt;.</varname><varname>&lt;minor&gt;.</varname><varname>&lt;incremental&gt;-&lt;qualifier&gt;</varname>
+      then your versions will be compared properly; "1.2.3" will be evaluated as a more recent build than "1.0.2", and
+      the comparison will be made using the numeric values of the major, minor, and incremental versions. If your
+      version release number does not fit the standard introduced in this section, then your versions will be compared
+      as strings; "1.0.1b" will be compared to "1.2.0b" using a String comparison.</para>
 
       <section id="pom-relationships-sect-version-build-numbers">
         <title>Version Build Numbers</title>
@@ -534,14 +525,14 @@
         depends on a software component that is under active development, you can depend on a SNAPSHOT release, and
         Maven will periodically attempt to download the latest snapshot from a repository when you run a build.
         Similarly, if the next release of your system is going to have a version "1.4", your project would have a
-        version "1.4-SNAPSHOT" until it was formally released.</para>
+        version "1.4-SNAPSHOT" version until it was formally released.</para>
 
-        <para>As a default setting, Maven will not check for SNAPSHOT releases on remote repositories. To depend on
+        <para>As a default setting, Maven will not check for SNAPSHOT releases on remote repositories, to depend on
         SNAPSHOT releases, users must explicitly enable the ability to download snapshots using a
         <sgmltag>repository</sgmltag> or <sgmltag>pluginRepository</sgmltag> element in the
         <acronym>POM</acronym>.</para>
 
-        <para>When releasing a project, you should resolve all dependencies on SNAPSHOT versions to dependencies on
+        <para>When releasing a project you should resolve all dependencies on SNAPSHOT versions to dependencies on
         released versions. If a project depends on a SNAPSHOT, it is not stable as the dependencies may change over
         time. Artifacts published to non-snapshot Maven repositories such as <ulink
         url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2</ulink> cannot depend on SNAPSHOT versions, as
@@ -552,7 +543,7 @@
       <section id="pom-relationships-sect-latest-release">
         <title>LATEST and RELEASE Versions</title>
 
-        <para>When you depend on a plugin or a dependency, you can use the version value of LATEST or RELEASE. LATEST
+        <para>When you depend on a plugin or a dependency, you can use the a version value of LATEST or RELEASE. LATEST
         refers to the latest released or snapshot version of a particular artifact, the most recently deployed artifact
         in a particular repository. RELEASE refers to the last non-snapshot release in the repository. In general, it is
         not a best practice to design software which depends on a non-specific version of an artifact. If you are
@@ -566,7 +557,7 @@
         super POM to standardize a core set of Maven plugins for a particular version of Maven. This change was
         introduced to Maven 2.0.9 to bring stability and reproducibility to Maven builds. Before Maven 2.0.9, Maven
         would automatically update core Maven plugins using the LATEST version. This behavior led to a number of
-        surprises when bugs were introduced into core plugins or functionality changed in a core plugin which
+        surprises when bugs was introduced into core plugins or functionality changed in a core plugin which
         subsequently broke a build. When Maven automatically updated core plugins, it was noted that there was little
         guarantee that a build would be reproducible as plugins could be updated whenever a new version was pushed to
         the central repository. Starting with Maven 2.0.9, Maven, essentially, ships with a core set of locked down
@@ -609,8 +600,8 @@
       <para>When Maven reads a <acronym>POM</acronym>, it replaces references to properties when it loads the
       <acronym>POM</acronym> <acronym>XML</acronym>. Maven properties occur frequently in advanced Maven usage, and are
       similar to properties in other systems such as Ant or Velocity. They are simply variables delimited by
-      <varname>\${...}</varname>. Maven provides three implicit variables which can be used to access environment
-      variables, <acronym>POM</acronym> information, and Maven Settings:</para>
+      <varname>\${...</varname><varname>}</varname>. Maven provides three implicit variables which can be used to access
+      environment variables, <acronym>POM</acronym> information, and Maven Settings:</para>
 
       <variablelist>
         <varlistentry>
@@ -622,8 +613,8 @@
               </indexterm><indexterm>
                 <primary>implicit variables, list of</primary>
               </indexterm>variables exposed by your operating system or shell. For example, a reference to
-            <varname>\${env.PATH}</varname> in a Maven <acronym>POM</acronym> would be replaced by the
-            <varname>\${PATH}</varname> environment variable (or <varname>%PATH%</varname> in Windows).</para>
+            <varname>\${env.</varname><varname>PATH}</varname> in a Maven <acronym>POM</acronym> would be replaced by
+            the <varname>\${PATH}</varname> environment variable (or <varname>%PATH%</varname> in Windows).</para>
           </listitem>
         </varlistentry>
 
@@ -673,11 +664,12 @@
           <listitem>
             <para>All properties accessible via<indexterm>
                 <primary>Java system properties, referencing</primary>
-              </indexterm> <methodname>getProperties()</methodname> on <classname>java.lang.System</classname> are
-            exposed as <acronym>POM</acronym> properties. Some examples of system properties are:
-            <varname>\${user.name}</varname>, <varname role="keep-together">\${user.home}</varname>,
-            <varname>\${java.home}</varname>, and <varname>\${os.name}</varname>. A full list of system properties can
-            be found in the Javadoc for the <classname>java.lang.System</classname> class.</para>
+              </indexterm> <methodname>getProperties() </methodname>on
+            <classname>java.lang.</classname><classname>System</classname> are exposed as <acronym>POM</acronym>
+            properties. Some examples of system properties are: <varname>\${user.name}</varname>, <varname
+            role="keep-together">\${user.home}</varname>, <varname>\${java.home}</varname>, and
+            <varname>\${os.name}</varname>. A full list of system properties can be found in the Javadoc for the
+            <classname>java.lang.</classname><classname>System</classname> class.</para>
           </listitem>
         </varlistentry>
 
@@ -989,7 +981,7 @@
         </varlistentry>
       </variablelist>
 
-      <para>For example, if you wished to access any <code>JUnit</code> version greater than or equal to 3.8 but less
+      <para>For example, if you wished to access any <code>JUnit </code>version greater than or equal to 3.8 but less
       than 4.0, your dependency would be as shown in <xref linkend="ex-dep-range" />.</para>
 
       <para><example id="ex-dep-range">
@@ -1381,7 +1373,7 @@
     dependencies of dependencies) very easy. When a project depends on an artifact produced by another project we say
     that this artifact is a dependency. In the case of a Java project, this can be as simple as a project depending on
     an external dependency like Log4J or JUnit. While dependencies can model external dependencies, they can also manage
-    the dependencies between a set of related projects. If <varname>project-a</varname> depends on
+    the dependencies between a set of related projects, if <varname>project-a</varname> depends on
     <varname>project-b</varname>, Maven is smart enough to know that <varname>project-b</varname> must be built before
     <varname>project-a</varname>.</para>
 
@@ -1393,12 +1385,10 @@
     <section id="pom-relationships-sect-more-coordinates">
       <title>More on Coordinates</title>
 
-      <para>Coordinates define a unique location for a project. They were first introduced in <xref
-      linkend="simple-project" />. Projects are related to one another using Maven Coordinates.
-      <varname>project-a</varname> doesn't just depend on <varname>project-b</varname>; a project with a
-      <varname>groupId</varname>, <varname>artifactId</varname>, and <varname>version</varname> depends on another
-      project with a <varname>groupId</varname>, <varname>artifactId</varname>, and <varname>version</varname>. To
-      review, a Maven Coordinate is made up of three components:</para>
+      <para>Coordinates define a unique location for a project, they were first introduced in <xref
+      linkend="simple-project" />. Projects are related to one another using Maven Coordinates. project-a doesn't just
+      depend on project-b; a project with a groupId, artifactId, and version depends on another project with a groupId,
+      artifactId, and version. To review, a Maven Coordinate is made up of three components:</para>
 
       <variablelist>
         <varlistentry>
@@ -1406,10 +1396,10 @@
 
           <listitem>
             <para>A <varname>groupId</varname> groups a set of related artifacts. Group identifiers generally resemble a
-            Java package name. For example, the <varname>groupId</varname> <varname>org.apache.maven</varname> is the
-            base groupId for all artifacts produced by the Apache Maven project. Group identifiers are translated into
-            paths in the Maven Repository; for example, the org.apache.maven groupId can be found in
-            <filename>/maven2/org/apache/maven</filename> on <ulink
+            Java package name. For example, the <varname>groupId</varname>
+            <varname>org.</varname><varname>apache.maven</varname> is the base groupId for all artifacts produced by the
+            Apache Maven project. Group identifiers are translated into paths in the Maven Repository; for example, the
+            org.apache.maven groupId can be found in <filename>/maven2/org/apache/maven</filename> on <ulink
             url="http://repo1.maven.org/maven2/org/apache/maven">repo1.maven.org</ulink>.</para>
           </listitem>
         </varlistentry>
@@ -1466,9 +1456,90 @@
 
       <para>When we talk of dependencies in this book, we often use the following shorthand notation to describe a
       dependency: <varname>groupId</varname>:<varname>artifactId</varname>:<varname>version</varname>. To refer to the
-      2.5 release of the Spring Framework, we would refer to it as <varname>org.springframework:spring:2.5</varname>.
-      When you ask Maven to print out a list of dependencies with the Maven Dependency plugin, you will also see that
-      Maven tends to print out log messages with this shorthand dependency notation.</para>
+      2.5 release of the Spring Framework, we would refer to it as
+      <varname>org.</varname><varname>springframework:</varname><varname>spring:</varname><varname>2.5</varname>. When
+      you ask Maven to print out a list of dependencies with the Maven Dependency plugin, you will also see that Maven
+      tends to print out log messages with this shorthand dependency notation.</para>
+    </section>
+
+    <section id="pom-relationships-sect-multi-module">
+      <title>Multi-module Projects</title>
+
+      <para>Multi-module projects are projects which contain a list of modules to build. A multi-module project always
+      has a packaging of pom, and rarely produces an artifact. A multi-module project exists only to group projects
+      together in a build. <xref linkend="fig-multiproject" /> shows a project hierarchy which includes two parent
+      projects with packaging of <varname>pom</varname>, and three projects with packaging of
+      <varname>jar</varname>.</para>
+
+      <para><figure id="fig-multiproject">
+          <title>Multi-module Project Relationships</title>
+
+          <mediaobject>
+            <imageobject role="web">
+              <imagedata fileref="figs/web/pom_multimodule.png" />
+            </imageobject>
+
+            <imageobject role="print">
+              <imagedata align="center" fileref="figs/print/pom_multimodule.pdf" format="PDF" scalefit="0" width="100%" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>The directory structure on the file system would also mirror the module relationships. A set of projects
+      illustrated by <xref linkend="fig-multiproject" /> would have the following directory structure:</para>
+
+      <programlisting>top-parent-project/pom.xml
+top-parent-project/subparent-parent-project/pom.xml
+top-parent-project/subparent-parent-project/project-a/pom.xml
+top-parent-project/subparent-parent-project/project-b/pom.xml
+top-parent-project/project-c/pom.xml</programlisting>
+
+      <para>The projects are related to one another because <varname>top-parent-project</varname> and
+      <varname>subparent-parent-project</varname> are referencing <varname>sub-modules</varname> in a
+      <acronym>POM</acronym>. For example, the
+      <varname>org.sonatype.mavenbook:</varname><varname>top-parent-project</varname> project is a multi-module project
+      with packaging of type <varname>pom</varname>. <varname>top-parent-project</varname>'s
+      <filename>pom.xml</filename> would include the following modules element:</para>
+
+      <example>
+        <title>top-parent-project modules element</title>
+
+        <programlisting language="xml">&lt;project&gt;
+  &lt;groupId&gt;org.sonatype.mavenbook&lt;/groupId&gt;
+  &lt;artifactId&gt;top-parent-project&lt;/artifactId&gt;
+  ...
+  &lt;modules&gt;
+    &lt;module&gt;subparent-parent-project&lt;/module&gt;
+    &lt;module&gt;project-c&lt;/module&gt;
+  &lt;/modules&gt;
+  ...
+&lt;/project&gt;</programlisting>
+      </example>
+
+      <para>When Maven is reading <varname>top-parent-project</varname> <acronym>POM</acronym> it will look at the
+      modules element and see that <varname>top-parent-project</varname> references the projects
+      <varname>subparent-parent-project</varname> and <varname>project-c</varname>. Maven will then look for a
+      <filename>pom.xml</filename> in each of these subdirectories. Maven repeats this process for each of the
+      submodules: it will read the <filename>subparent-parent-project/pom.xml</filename> and see that the
+      <varname>subparent-parent-project</varname> project references two projects with the following modules
+      element:</para>
+
+      <example>
+        <title>subparent-parent-project modules element</title>
+
+        <programlisting language="xml">&lt;project&gt;
+  ...
+  &lt;modules&gt;
+    &lt;module&gt;project-a&lt;/module&gt;
+    &lt;module&gt;project-b&lt;/module&gt;
+  &lt;/modules&gt;
+  ...
+&lt;/project&gt;</programlisting>
+      </example>
+
+      <para>Note that we call the projects under the multi-module projects "modules" and not "children" or "child
+      projects". This is purposeful, so as not to confuse projects grouped by multi-module projects with projects that
+      inherit <acronym>POM</acronym> information from each other.</para>
     </section>
 
     <section id="pom-relationships-sect-project-inheritance">
@@ -1505,7 +1576,7 @@
       <acronym>POM</acronym> that is the result of merging the Super <acronym>POM</acronym> with the
       <acronym>POM</acronym> defined by <varname>a-parent</varname> and the <acronym>POM</acronym> defined in
       <varname>project-a</varname>. The implicit and explicit inheritance relationships for <varname>project-a</varname>
-      are shown in <xref linkend="fig-inheritance" />.<figure id="fig-inheritance">
+      are shown in <xref linkend="fig-inheritance" />. <figure id="fig-inheritance">
           <title>Project Inheritance for a-parent and project-a</title>
 
           <mediaobject>
@@ -1681,10 +1752,10 @@
 
       <para>If you later decide to switch to a different <acronym>JDBC</acronym> driver (for example,
       <acronym>JTDS</acronym>), just replace the dependencies in the <varname>persistence-deps</varname> project to use
-      <varname>net.</varname><varname>sourceforge.jtds:jtds</varname> instead of
-      <varname>mysql:mysql-java-connector</varname> and update the version number. All projects depending on
-      <varname>persistence-deps</varname> will use <acronym>JTDS</acronym> if they decide to update to the newer
-      version. Consolidating related dependencies is a good way to cut down on the length of
+      <varname>net.</varname><varname>sourceforge.</varname><varname>jtds:</varname><varname>jtds</varname> instead of
+      <varname>mysql:</varname><varname>mysql-java-connector</varname> and update the version number. All projects
+      depending on <varname>persistence-deps</varname> will use <acronym>JTDS</acronym> if they decide to update to the
+      newer version. Consolidating related dependencies is a good way to cut down on the length of
       <filename>pom.xml</filename> files that start having to depend on a large number of dependencies. If you need to
       share a large number of dependencies between projects, you could also just establish parent-child relationships
       between projects and refactor all common dependencies to the parent project, but the disadvantage of the
