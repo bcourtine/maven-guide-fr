@@ -614,7 +614,7 @@ public class YahooRetriever {
     </example>
 
     <para>Cette classe très simple ouvre une <classname>URLConnection</classname> sur l'<acronym>API</acronym> de Yahoo!
-    Météo et renvoie un <classname>InputStream</classname>. Pour créer quelquechose capable de parser ce flux, nous
+    Météo et renvoie un <classname>InputStream</classname>. Pour créer quelque chose capable de parser ce flux, nous
     allons devoir créer le fichier <filename role="keep-together">YahooParser.java</filename> dans le même
     répertoire.</para>
 
