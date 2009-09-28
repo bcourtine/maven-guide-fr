@@ -62,7 +62,7 @@
       </para>
 
       <para>Dans ce chapitre, nous allons étudier un projet Maven multimodule qui produira deux applications :
-      un outil en ligne de commande et une application web; chacune de ces applications permettra d'interroger le flux Yahoo! Météo.
+      un outil en ligne de commande et une application web ; chacune de ces applications permettra d'interroger le flux Yahoo! Météo.
       Ces deux applications conserveront les résultats des différentes requêtes dans une base de données embarquée
       et permettent de récupérer l'historique des prévisions météorologiques stockées dans celle-ci.
       Les deux applications réutiliseront le même code métier et partageront une bibliothèque de persistance.
@@ -157,7 +157,7 @@
             <classname>WeatherService</classname> défini dans le module <varname>simple-weather</varname> et les <acronym>DAO</acronym>s 
             du projet <varname>simple-persist</varname>. 
             Le module <varname>simple-command</varname> a une dépendance directe sur les modules <varname>simple-weather</varname> et
-            <varname>simple-persist</varname>; et une dépendance indirecte vers le module <varname>simple-model</varname>.</para>
+            <varname>simple-persist</varname> ; et une dépendance indirecte vers le module <varname>simple-model</varname>.</para>
           </listitem>
         </varlistentry>
       </variablelist>

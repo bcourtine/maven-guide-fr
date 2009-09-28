@@ -67,7 +67,7 @@
     <para>Nous avons choisi cet exemple pour un certain nombre de raisons. Premièrement, il est simple à comprendre. Un
     utilisateur fournit une donnée en entrée via la ligne de commande, l'application prend ce code postal, en fait une
     requête à Yahoo! Météo, parse la réponse, et formate les données avant de les afficher à l'écran. Cet exemple est
-    une simple fonction <methodname>main()</methodname> avec quelques classes; il n'y a pas de framework d'entreprise à
+    une simple fonction <methodname>main()</methodname> avec quelques classes ; il n'y a pas de framework d'entreprise à
     introduire ni à expliquer, juste un peu de parsing <acronym>XML</acronym> et quelques traces. Deuxièmement, il nous
     fournit une excellente excuse pour introduire des bibliothèques intéressantes telles que Velocity, Dom4J, et Log4J.
     Bien qu'il s'agisse d'un livre sur Maven, nous ne résistons pas à l'idée d'introduire des outils utiles. Enfin, un
@@ -1376,7 +1376,7 @@ $ <command>cd resources</command></screen>
         <primary>unit tests</primary>
 
         <secondary>executing</secondary>
-      </indexterm> à faire de spécial pour exécuter un test unitaire; la phase <varname>test</varname> est une étape
+      </indexterm> à faire de spécial pour exécuter un test unitaire ; la phase <varname>test</varname> est une étape
     standard du cycle de vie de Maven. Vous lancez les tests avec Maven à chaque fois que vous exécutez <command>mvn
     package</command> ou <command>mvn install</command>. Si vous voulez lancer toutes les phases du cycle de vie jusqu'à
     la phase <varname>test</varname> incluse, exécutez <command>mvn test</command> :</para>
