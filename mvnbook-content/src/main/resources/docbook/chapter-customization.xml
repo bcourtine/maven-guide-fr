@@ -721,7 +721,7 @@ public class WeatherFormatter {
 
     <para>La classe <classname>WeatherFormatter</classname> utilise Velocity pour appliquer un masque. La méthode
     <methodname>format()</methodname> prend un bean de type <classname>Weather</classname> en paramètre et renvoie une
-    <classname>String</classname> formattée. La première chose que fait la méthode <methodname>format()</methodname> est
+    <classname>String</classname> formatée. La première chose que fait la méthode <methodname>format()</methodname> est
     de charger depuis le classpath un template Velocity appelé <filename>output.vm</filename>. Puis nous créons un
     <classname>VelocityContext</classname> qui contient un unique objet de type <classname>Weather</classname> appelé
     <varname>weather</varname>. Un objet de type <classname>StringWriter</classname> est créé pour contenir le résultat
