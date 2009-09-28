@@ -333,7 +333,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     <section id="simple-project-sect-plugins-goals">
       <title>Plugins Maven et Goals</title>
 
-      <para>Dans la section précédente, nous avons exécuté Maven en ligne de commande avec deux types d'<indexterm>
+      <para>Dans la section précédente, nous avons exécuté Maven en ligne de commande avec deux types d'arguments différents.<indexterm>
           <primary>Maven plugins</primary>
 
           <see>plugins</see>
@@ -341,7 +341,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <primary>goals</primary>
 
           <seealso>plugins</seealso>
-        </indexterm><phrase role="keep-together">arguments</phrase> différents. La première commande appelait uniquement
+        </indexterm>La première commande appelait uniquement
       un goal d'un plugin, le goal <varname>generate</varname> du plugin Archetype. La deuxième exécution de Maven était
       une phase du cycle de vie, <varname>install</varname>. Pour<indexterm>
           <primary>executing goals</primary>
