@@ -417,7 +417,7 @@ package: org.sonatype.mavenbook.custom
 
         <listitem>
           <para>La classe <classname>Weather</classname> est un simple Java bean qui contient la position du rapport
-          météo et quelques éléments clef, comme la température et l'humidité.</para>
+          météo et quelques éléments clés, comme la température et l'humidité.</para>
         </listitem>
       </varlistentry>
 
