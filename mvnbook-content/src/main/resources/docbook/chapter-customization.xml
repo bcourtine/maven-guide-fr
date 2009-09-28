@@ -392,7 +392,7 @@ package: org.sonatype.mavenbook.custom
     utilisées comme Hibernate ou le framework Spring. Quand vous recherchez un artefact sur ce site, il vous montrera un
     <varname>artifactId</varname> et toutes ses versions disponibles sur le dépôt central de Maven. Si vous cliquez sur
     une version spécifique, vous obtiendrez une page qui contient les balises de dépendance que vous aurez à copier puis
-    coller dans le <filename>pom.xml</filename> de votre projet. Si vous avez besoin de trouver d'une dépendance, vous
+    coller dans le <filename>pom.xml</filename> de votre projet. Si vous avez besoin de trouver une dépendance, vous
     vérifierez avec <ulink url="http://repository.sonatype.org">repository.sonatype.org</ulink>, car vous allez
     rapidement vous rendre compte que certaines bibliothèques ont plus d'un <varname>groupId</varname>. Avec cet outil,
     vous pourrez utiliser le dépôt Maven.</para>
