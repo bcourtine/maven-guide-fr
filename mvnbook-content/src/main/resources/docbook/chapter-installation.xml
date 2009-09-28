@@ -373,7 +373,7 @@ $ mvn one:convert</screen>
     nous ne couvrirons pas certaines situations particulières ainsi que certaines astuces. Le cœur de Maven est très
     simple, cependant la véritable valeur ajoutée de Maven s'effectue par l'intermédiaire de ces plugins, et étant donné
     leur nombre nous n'arriverons pas à tous les couvrir en un seul ouvrage. Vous allez rencontrer des problèmes et des
-    fonctionnalités qui ne sont pas traités dans ce livre; dans ce cas, nous vous suggérons ces différents points pour y
+    fonctionnalités qui ne sont pas traités dans ce livre ; dans ce cas, nous vous suggérons ces différents points pour y
     chercher vos réponses :</para>
 
     <variablelist>

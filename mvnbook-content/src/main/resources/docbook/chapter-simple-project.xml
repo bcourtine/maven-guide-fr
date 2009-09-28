@@ -106,16 +106,16 @@ package: org.sonatype.mavenbook.simple
         <primary>racine POM</primary>
 
         <seealso>POM</seealso>
-      </indexterm>Apache Ant, un goal Maven est analogue à une target Ant; tous les deux décrivent une unité de tâche à
+      </indexterm>Apache Ant, un goal Maven est analogue à une target Ant ; tous les deux décrivent une unité de tâche à
     accomplir lors d'un build. La paire <varname>-Dname=value</varname> représente un argument passé au goal sous la
     forme de propriété <varname>-D</varname>, comme pour les propriétés système que vous pourriez passer à la Machine
     Virtuelle Java via la ligne de commande. Le but du goal <varname>archetype:generate</varname> est de créer
     rapidement un projet à partir d'un archétype. Dans ce contexte, un <indexterm>
         <primary sortas="archetypes">archétypes, définition</primary>
-      </indexterm> archétype se défini comme " un modèle original ou idéal d'après lequel sont bâtis un ouvrage, une
-    œuvre; un prototype." <footnote id="foot-archetype-def">
+      </indexterm> archétype se défini comme "un modèle original ou idéal d'après lequel sont bâtis un ouvrage, une
+    œuvre ; un prototype<footnote id="foot-archetype-def">
         <para><emphasis>Selon l'American Heritage Dictionary of the English Language</emphasis>.</para>
-      </footnote>Il existe un grand nombre d'archétypes disponibles pour Maven, depuis une simple application Swing
+      </footnote>". Il existe un grand nombre d'archétypes disponibles pour Maven, depuis une simple application Swing
     jusqu'à une application web complexe, le goal <varname>archetype:generate</varname> propose de choisir parmi environ
     40 archétypes. Dans ce chapitre, nous allons utiliser l'archétype le plus basique pour créer un simple squelette
     projet de démarrage. Le préfixe <literal>archetype</literal> correspond au plugin, et <literal>generate</literal>
@@ -237,7 +237,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Building jar: /simple/target/simple-1.0-SNAPSHOT.jar
 [INFO] [install:install]
 [INFO] Installing /simple/target/simple-1.0-SNAPSHOT.jar to \
-  ~/.m2/repository/com/sonatype/maven/ch03/simple/1.0-SNAPSHOT/ \
+  ~/.m2/repository/com/sonatype/maven/simple/simple/1.0-SNAPSHOT/ \
   simple-1.0-SNAPSHOT.jar</screen>
 
     <para>Vous venez juste de créer, compiler, tester, packager et installer le projet Maven le plus simple possible.
@@ -272,7 +272,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                       http://maven.apache.org/maven-v4_0_0.xsd"&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;org.sonatype.mavenbook.ch03&lt;/groupId&gt;
+  &lt;groupId&gt;org.sonatype.mavenbook.simple&lt;/groupId&gt;
   &lt;artifactId&gt;simple&lt;/artifactId&gt;
   &lt;packaging&gt;jar&lt;/packaging&gt;
   &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
@@ -354,7 +354,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <varname>generate</varname> l'identifiant du goal. Lorsque Maven exécute le goal d'un plugin, il affiche
       l'identifiant du plugin et l'identifiant du goal sur la sortie standard :</para>
 
-      <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.ch03 \
+      <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.simple \
                                         -DartifactId=simple \
                                         -DpackageName=org.sonatype.mavenbook
 </command>...
@@ -363,8 +363,8 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
        checking for updates from central
 ...</screen>
 
-      <para>Un Plugin Maven se compose d'un ou plusieurs goals. On peut prendre comme exemples de plugins Maven, de
-      simples plugins qui composent le cœur de Maven comme le plugin Jar dont les goals permettent de créer des fichiers
+      <para>Un Plugin Maven se compose d'un ou plusieurs goals. On peut prendre comme exemples de plugins Maven ceux 
+      qui constituent le cœur de Maven comme le plugin Jar dont les goals permettent de créer des fichiers
       <acronym>JAR</acronym>, le plugin Compiler avec ses goals pour compiler le code source et le code des tests
       unitaires, ou le plugin Surefire dont les goals permettent l'exécution des tests unitaires et la production des
       rapports. On trouve aussi d'autres plugins, plus spécialisés, comme le plugin Hibernate3 pour l'intégration de la
@@ -393,7 +393,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
           <secondary>defined</secondary>
         </indexterm> ou combinée à d'autres goals pour un build plus large. Un goal est une "tâche unitaire" dans Maven.
-      On peut prendre comme exemples de goals le goal <varname>compile</varname> du plugin Compiler, qui, comme son nom
+      On peut prendre comme exemples le goal <varname>compile</varname> du plugin Compiler, qui, comme son nom
       l'indique, compile tout le code source du projet, ou le goal <varname>test</varname> du plugin Surefire, qui
       exécute les tests unitaires. La configuration des goals s'effectue au travers de propriétés qui sont utilisées
       pour personnaliser le comportement. Par exemple, le goal <varname>compile</varname> du plugin Compiler définit un
@@ -401,11 +401,11 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       version du JDK cible ou les options d'optimisation du compilateur. Dans l'exemple précédent, nous avons passé les
       paramètres de configuration <varname>groupId</varname> et <varname>artifactId</varname> au goal
       <varname>generate</varname> du plugin Archetype via les paramètres de la ligne de commande
-      <command>-DgroupId=org.sonatype.mavenbook.ch03</command> et <command>-DartifactId=simple</command>. Nous avons
+      <command>-DgroupId=org.sonatype.mavenbook.simple</command> et <command>-DartifactId=simple</command>. Nous avons
       <phrase role="keep-together">aussi</phrase> passé le paramètre <varname>packageName</varname> au goal
       <literal>generate</literal> avec la valeur <package>org.sonatype.mavenbook</package>. Si nous n'avions pas précisé
       le paramètre <varname>packageName</varname>, le nom du package aurait été par défaut
-      <package>org.sonatype.mavenbook.ch03</package>.</para>
+      <package>org.sonatype.mavenbook.simple</package>.</para>
 
       <para><note>
           <para>Lorsque l'on fait référence au goal d'un plugin, il est courant d'utiliser le raccourci :
@@ -416,7 +416,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
       <para>Les goals ont des paramètres qui peuvent avoir des valeurs par défaut raisonnables. Dans l'exemple de
       <varname>archetype:generate</varname>, nous n'avons pas précisé, via la ligne de commande, quel type d'archétype
-      devait être utilisé pour créer le projet; nous avons simplement indiqué un <varname>groupId</varname> et un
+      devait être utilisé pour créer le projet ; nous avons simplement indiqué un <varname>groupId</varname> et un
       <varname>artifactId</varname>. Comme nous n'avons pas fourni le type d'archétype à créer, le goal
       <varname>generate</varname> nous a demandé d'intervenir, le goal generate s'est donc interrompu et nous a demandé
       de choisir dans une liste. Par contre, si nous avions utilisé le goal <varname>archetype:create</varname>, Maven
@@ -441,7 +441,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       fichier <acronym>POM</acronym>, et télécharger des plugins Maven selon les besoins. Les utilisateurs ont
       facilement accès aux dernières options du compilateur grâce à Maven qui maintient le plugin Compiler en dehors de
       son cœur et fournit un mécanisme de mise à jour. Ainsi, les plugins Maven apportent une logique de build
-      réutilisable universellement. Vous ne définissez pas la tâche de compilation dans un fichier de build; vous
+      réutilisable universellement. Vous ne définissez pas la tâche de compilation dans un fichier de build ; vous
       utilisez le plugin Compiler plugin qui est partagé par tous les utilisateurs de Maven. Si le plugin Compiler est
       amélioré, tout projet qui utilise Maven en bénéficie immédiatement. (Et, si vous n'aimez pas le plugin Compiler,
       vous pouvez le remplacer par votre propre implémentation.)</para>
@@ -477,7 +477,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       termine par une phase qui déploie le projet en production. Les phases du cycle de vie sont laissées vagues
       intentionnellement, définies comme validation, test, ou déploiement elles peuvent avoir un sens différent selon le
       contexte des projets. Par exemple, pour un projet qui produit une archive Java, la phase <varname>package</varname>
-      va construire un <acronym>JAR</acronym>; pour un projet qui produit une
+      va construire un <acronym>JAR</acronym> ; pour un projet qui produit une
       application web, elle pourra produire un fichier <acronym>WAR</acronym>.</para>
 
       <para>Les goals des plugins peuvent être rattachés<indexterm>
@@ -491,7 +491,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         </indexterm> à une phase du cycle de vie. Pendant que Maven parcourt les phases du cycle de vie, il exécute les
       goals rattachés à chacune d'entre elles. Chaque phase peut avoir entre zéro et plusieurs goals rattachés. Dans la
       section précédente, quand vous avez exécuté <command>mvn install</command>, il se peut que vous ayez remarqué que
-      plus d'un goal était exécuté. Regardez la sortie après avoir exécuté <command>mvn install</command> et relevez les
+      plusieurs goals s'étaient exécutés. Regardez la sortie après avoir exécuté <command>mvn install</command> et relevez les
       différents goals qui ont été exécutés. Lorsque ce simple exemple atteint la phase <varname>package</varname>, il
       exécute le goal <varname>jar</varname> du plugin Jar. Puisque notre projet Quickstart a (par défaut) un packaging
       de type <varname>jar</varname>, le goal <varname>jar:</varname><varname>jar</varname> est rattaché à la phase
@@ -518,7 +518,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       role="keep-together">surefire:</varname><varname role="keep-together">test</varname> ? Ces goals s'exécutent lors
       des phases qui précèdent la phase <varname>package</varname> selon le<indexterm>
           <primary>executing lifecycle phases</primary>
-        </indexterm> cycle de vie de Maven; exécuter une phase provoque l'exécution de l'ensemble des phases qui la
+        </indexterm> cycle de vie de Maven ; exécuter une phase provoque l'exécution de l'ensemble des phases qui la
       précèdent, le tout se terminant par la phase spécifiée sur la ligne de commande. Chaque phase se compose de zéro à
       plusieurs goals, et puisque nous n'avons configuré ou personnalisé aucun plugin, cet exemple rattache un ensemble
       de goals standards au cycle de vie par défaut. Les goals suivants ont été exécutés dans l'ordre pendant que Maven
@@ -693,10 +693,10 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
       <para>Nous avons surligné les coordonnées Maven de ce projet : les <varname>groupId</varname>,
       <varname>artifactId</varname>, <varname>version</varname> et <varname>packaging</varname>. Ces identifiants
-      combinés forment ce qu'on appelle les coordonnées d'un projet. <footnote id="foot-simple-classify">
+      combinés forment ce qu'on appelle les coordonnées d'un projet<footnote id="foot-simple-classify">
           <para>Il existe une cinquième coordonnée, plus rarement utilisée, appelée <varname>classifier</varname> dont
-          nous parlerons plus tard dans le livre. Vous pouvez l'oublier pour l'instant.</para>
-        </footnote>Comme dans dans tout système à coordonnées, les coordonnées Maven permettent de définir un point
+          nous parlerons plus tard dans le livre. Vous pouvez l'oublier pour l'instant.</para></footnote>.
+          Comme dans dans tout système à coordonnées, les coordonnées Maven permettent de définir un point
       spécifique dans "l'espace". Maven identifie un projet via ses coordonnées lorsqu'un projet
       est relié à un autre en tant que dépendance, plugin ou comme projet parent. Les coordonnées Maven sont souvent
       écrites en utilisant les deux points comme séparateur selon le format suivant :
@@ -744,7 +744,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <para>Le format de packaging est aussi un composant important des coordonnées Maven, mais il fait pas partie des
       identifiants uniques d'un projet. L'ensemble
       <varname>groupId:</varname><varname>artifactId:</varname><varname>version</varname> d'un projet identifie de
-      manière unique un projet; vous ne pouvez pas avoir un projet avec les mêmes trois identifiants
+      manière unique un projet ; vous ne pouvez pas avoir un projet avec les mêmes trois identifiants
       <varname>groupId</varname>, <varname>artifactId</varname>, et <varname>version</varname>.</para>
 
       <variablelist>
@@ -755,7 +755,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             <para>Le type du projet, <varname>jar</varname> par défaut,<indexterm>
                 <primary>packaging attribute (pom.xml)</primary>
               </indexterm> décrit le résultat packagé produit par le projet. Un projet avec un packaging
-            <varname>jar</varname> produit une archive <acronym>JAR</acronym>; un projet avec un packaging
+            <varname>jar</varname> produit une archive <acronym>JAR</acronym> ; un projet avec un packaging
             <varname>war</varname> produit, quant à lui, une application web.</para>
           </listitem>
         </varlistentry>
@@ -888,10 +888,10 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <acronym>POM</acronym> pour trouver les dépendances transitives. Ces dépendances transitives sont ensuite ajoutées
       à la liste des dépendances du projet.</para>
 
-      <para>Dans le monde de Maven, une dépendance n'est plus simplement un fichier <acronym>JAR</acronym>; c'est un
+      <para>Dans le monde de Maven, une dépendance n'est plus simplement un fichier <acronym>JAR</acronym> ; c'est un
       fichier <acronym>POM</acronym> qui à son tour peut déclarer de nouvelles dépendances. Ce sont ces dépendances de
       dépendances que l'on appelle dépendances transitives, et cela est rendu possible par le fait que les dépôts Maven
-      contiennent plus que du bytecode; ils contiennent des métadonnées sur les artefacts.</para>
+      contiennent plus que du bytecode ; ils contiennent des métadonnées sur les artefacts.</para>
 
       <figure id="fig-resolve-transitive">
         <title>Résolution des Dépendances Transitives par Maven</title>
@@ -925,11 +925,11 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <varname>surefire:</varname><varname>test</varname>.</para>
 
       <para>Durant la création du <acronym>JAR</acronym> d'un projet, les dépendances ne sont pas intégrées à l'artefact
-      produit; elles ne sont utilisées que lors de la compilation. Par contre lorsque vous utilisez Maven pour produire
+      produit ; elles ne sont utilisées que lors de la compilation. Par contre lorsque vous utilisez Maven pour produire
       un <acronym>WAR</acronym> ou un <acronym>EAR</acronym>, vous pouvez le configurer de manière à packager les
       dépendances avec l'artefact produit, et vous pouvez même configurer Maven pour exclure certaines dépendances du
       fichier <acronym>WAR</acronym> par l'utilisation de la portée <varname>provided</varname>. La portée
-      <varname>provided</varname>indique à Maven que la dépendance est nécessaire à la compilation, mais qu'elle ne doit
+      <varname>provided</varname> indique à Maven que la dépendance est nécessaire à la compilation, mais qu'elle ne doit
       pas être intégrée à l'artefact produit par le build. Cette portée est donc très pratique lorsque vous développez
       une application web. Vous aurez besoin du jar des spécifications Servlet pour compiler, mais vous ne voulez pas
       inclure le <acronym>JAR</acronym> de l'<acronym>API</acronym> Servlet dans le répertoire

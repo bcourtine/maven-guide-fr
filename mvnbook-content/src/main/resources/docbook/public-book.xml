@@ -197,12 +197,12 @@
       décourageant pour abandonner Maven. Assez souvent, les utilisateurs de Maven
       restent bloqués car ils ne trouvent pas de réponse.</para>
 
-      <para>Cette absence d'un manuel de référence et d'autorité (voir définitif)
+      <para>Cette absence d'un manuel de référence (voire ultime)
       a bloqué Maven pendant quelques années, et a été un frein à son adoption. Avec
       <emphasis>Maven: The Definitive Guide</emphasis>, nous avons
       l'intention de changer tout ça en fournissant une référence complète dans la
       <xref linkend="part-reference" />. Dans la Partie I, nous avons conservé la progression
-      narrative d'un Developer’s Notebook; elle est intéressante car elle permet
+      narrative d'un Developer’s Notebook ; elle est intéressante car elle permet
       d'apprendre Maven par l'exemple. Dans cette partie nous "introduisons en faisant", et dans
       la <xref linkend="part-reference" />, nous comblons les manques et nous nous plongeons dans
       les détails. Là où la <xref linkend="part-reference" /> pourrait utiliser un tableau de référence
