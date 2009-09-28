@@ -449,7 +449,7 @@ package: org.sonatype.mavenbook.custom
       </varlistentry>
     </variablelist>
 
-    <para>Même si nous ne détaillerons pas le code ici, nous vous fournirrons tout le code nécessaire pour vous
+    <para>Même si nous ne détaillerons pas le code ici, nous vous fournirons tout le code nécessaire pour vous
     permettre d'exécuter cet exemple. Nous supposons que la plupart des lecteurs ont téléchargé les exemples qui
     accompagnent ce livre, mais nous prenons en compte ceux qui veulent suivre l'exemple de ce chapitre étape par étape.
     Les sections qui suivent listent les classes du projet <varname>simple-weather</varname>. Chacune de ces classes
