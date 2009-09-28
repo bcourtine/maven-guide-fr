@@ -2,35 +2,28 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="configuring">
-  <title>Maven Configuration</title>
+  <title>Configuration Maven</title>
 
   <section>
-    <title>Configuring Maven Plugins</title>
+    <title>Configuration des Plugins Maven</title>
 
-    <para>To customize the behavior of a Maven Plugin, you will need to
-    configure the plugin in a project's POM. The following sections outline
-    the various methods available for customizing a Maven plugin's
-    configuration. </para>
+    <para>Pour personnaliser le comportement d'un plugin Maven, vous devez configurer celui-ci dans le POM du projet.
+    Les sections suivantes présentent les différents moyens à votre disposition pour personnaliser la configuration d'un plugin Maven.</para>
 
     <section>
-      <title>Plugin Configuration Parameters</title>
+      <title>Paramètres du Plugin Configuration</title>
 
-      <para>Maven plugins are configured using properties that are defined by
-      goals within a plugin. If you look at a goal like the
-      <varname>compile</varname> goal in the Maven Compiler Plugin you will
-      see a list of configuration parameters like <varname>source</varname>,
+      <para>Les plugins Maven sont configurés par l'intermédiaire de propriétés définies par goals.
+      Par exemple, si vous jetez un coup d'oeil au goal <varname>compile</varname> du plugin Maven Compiler, 
+      vous verrez une liste de paramètres de configuration, comme <varname>source</varname>,
       <varname>target</varname>, <varname>compilerArgument</varname>,
-      <varname>fork</varname>, <varname>optimize</varname>, and many others.
-      If you look at the <varname>testCompile</varname> goal you will see a
-      different list of configuration parameters for the
-      <varname>testCompile</varname> goal. If you are looking for details on
-      the available plugin goal configuration parameters, you can use the
-      Maven Help Plugin to describe a particular plugin or a particular plugin
-      goal.</para>
+      <varname>fork</varname>, <varname>optimize</varname>, ...  
+      Maintenant, si vous regardez le goal <varname>testCompile</varname>, vous trouverez une liste différente de paramètres. 
+      Pour trouver la liste des paramètres de configuration d'un goal d'un plugin, utilisez le plugin Maven Help.
+      Celui-ci permet d'afficher la description d'un plugin ou d'un goal en particulier.</para>      
 
-      <para>To describe a particular plugin, use the
-      <varname>help:describe</varname> goal from the command line as
-      follows:</para>
+      <para>Pour afficher la description d'un plugin en particulier, utilisez le goal <varname>help:describe</varname> de la manière suivante
+      à partir de la ligne de commande : </para> 
 
       <screen>$ <command>mvn help:describe -Dcmd=compiler:compile</command>
 [INFO] [help:describe {execution: default-cli}]
@@ -40,9 +33,8 @@ compiler:compile
   Description: Compiles application sources
   Deprecated. No reason given</screen>
 
-      <para>For more information about the available configuration parameters,
-      run the same command with the <varname>-Ddetail</varname>
-      argument:</para>
+      <para>Pour plus d'informations sur les paramètres de configuration disponibles, utilisez cette même commande en y ajoutant l'argument
+      <varname>-Ddetail</varname> :</para> 
 
       <screen>$ <command>mvn help:describe -Dcmd=compiler:compile -Ddetail</command>
 [INFO] [help:describe {execution: default-cli}]
@@ -158,11 +150,8 @@ compiler:compile
       Deprecated. No reason given
 </screen>
 
-      <para>If you need to get a list of plugin goals which are contained in a
-      plugin, you can run the help:describe goal and pass in the plugin
-      parameter. The plugin parameter accepts a plugin prefix or a
-      <varname>groupId</varname> and an <varname>artifactId</varname> for a
-      plugin as shown in the following examples:</para>
+      <para>Si vous désirez récupérer la liste des goals d'un plugin, vous pouvez exécuter le goal <varname>help:describe</varname> et lui passer un paramètre. 
+      Ce paramètre accepte soit un préfixe de plugin soit un <varname>groupId</varname> et un <varname>artifactId</varname> comme le montrent les exemples suivants :</para>
 
       <screen>$ <command>mvn help:describe -Dplugin=compiler</command>
 [INFO] [help:describe {execution: default-cli}]
@@ -186,32 +175,28 @@ compiler:testCompile
   Deprecated. No reason given
 </screen>
 
-      <para>You can use the <varname>groupId</varname> and the
-      <varname>artifactId</varname> of the plugin and get the same list of
-      plugin goals.</para>
+      <para>Vous pouvez utiliser le <varname>groupId</varname> et l'<varname>artifactId</varname> du plugin 
+      pour obtenir la même liste de goals.</para> 
 
       <screen>$ <command>mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin</command>
 </screen>
 
-      <para>Passing the <varname>-Ddetail</varname> argument to the
-      <varname>help:describe</varname> goal with the plugin parameter will
-      cause Maven to print out all of the goals and all of the goal parameters
-      for the entire plugin.</para>
+      <para>En passant l'argument <varname>-Ddetail</varname> au goal <varname>help:describe</varname>,
+      vous demandez à Maven d'afficher tous les goals ainsi que tous leurs paramètres d'un plugin.</para>   
+
     </section>
 
     <section>
-      <title>Adding Plugin Dependencies</title>
+      <title>Ajouter des Dépendances à un Plugin</title>
 
-      <para>If you need to configure a plugin to use specific versions of
-      dependencies, you can define these dependencies under a dependencies
-      element under plugin. When the plugin executes, it will execute with a
-      classpath that contains these dependencies. <xref
-      linkend="ex-plugin-dependencies" /> is an example of a plugin
-      configuration that overrides default dependency versions and adds new
-      dependencies to facilitate goal execution.</para>
+      <para>Si vous désirez configurer un plugin pour qu'il utilise des versions spécifiques de ces dépendances,
+      vous pouvez effectuer cela via la balise <varname>dependencies</varname>.
+      Quand le plugin s'exécute, il se lance avec un classpath contenant ces dépendances. 
+      L'<xref linkend="ex-plugin-dependencies" /> est un exemple de configuration plugin qui surcharge les
+      version de ses dépendances et en ajoute une nouvelle pour faciliter l'exécution du goal.</para>
 
       <example id="ex-plugin-dependencies">
-        <title>Adding Dependencies to a Plugin</title>
+        <title>Ajout d'une dépendance à un Plugin</title>
 
         <programlisting>&lt;plugin&gt;
   &lt;groupId&gt;com.agilejava.docbkx&lt;/groupId&gt;
@@ -246,17 +231,15 @@ compiler:testCompile
     </section>
 
     <section>
-      <title>Setting Global Plugin Parameters</title>
+      <title>Configurer les Paramètres Globaux d'un Plugin</title>
 
-      <para>To set a value for a plugin configuration parameter in a
-      particular project, use the XML shown in <xref
-      linkend="ex-config-global-plugin-param" />. Unless this configuration is
-      overridden by a more specific plugin parameter configuration, Maven will
-      use the values defined directly under the <sgmltag>plugin</sgmltag>
-      element for all goals which are executed in this plugin.</para>
+      <para>Pour affecter une valeur à un paramètre de configuration sur un projet,
+      utilisez le fichier XML de l'<xref linkend="ex-config-global-plugin-param" />. 
+      À moins que cette configuration ne soit surchargée par une configuration de paramètre de plugin plus spécifique,
+      Maven utilisera les valeurs définies dans la balise <sgmltag>plugin</sgmltag> pour tous les goals exécutés par ce plugin.</para>
 
       <example id="ex-config-global-plugin-param" label="">
-        <title>Configuring a Maven Plugin</title>
+        <title>Configurer un plugin Maven</title>
 
         <programlisting>&lt;plugin&gt;
   &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
@@ -270,18 +253,16 @@ compiler:testCompile
     </section>
 
     <section>
-      <title>Setting Execution Specific Parameters</title>
+      <title>Modifier les Paramètres Spécifiques à une Exécution</title>
 
-      <para>You can configure plugin parameters for specific executions of a
-      plugin goal. <xref linkend="ex-config-plugin-exec-params" /> shows an
-      example of configuration parameters being passed to the execution of the
-      run goal of the AntRun plugin during the validate phase. This specific
-      execution will inherit the configuration parameters from the plugin's
-      configuration element and merge them with the values defined for this
-      particular execution.</para>
+      <para>Vous pouvez configurer les paramètres d'un plugin spécifiquement pour l'exécution d'un goal Maven. 
+      L'<xref linkend="ex-config-plugin-exec-params" />  montre comment passer un paramètre de configuration au goal exécuté
+      par le plugin <varname>AntRun</varname> durant la phase de validation.
+      Cette exécution héritera ainsi des paramètres de la balise <varname>configuration</varname> du plugin dont les valeurs
+      seront mergées avec celles définies dans la l'exécution personnalisée.</para>
 
       <example id="ex-config-plugin-exec-params">
-        <title>Setting Configuration Parameters in an Execution</title>
+        <title>Surcharge des Paramètres de Configuration dans une Exécution</title>
 
         <programlisting>&lt;plugin&gt;
   &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;
@@ -306,24 +287,17 @@ compiler:testCompile
     </section>
 
     <section>
-      <title>Setting Default Command Line Execution Parameters</title>
+      <title>Configuration des Paramètres par Défaut pour une Exécution en Ligne de Commande</title>
 
-      <para>Starting with Maven 2.2.0, you can now supply configuration
-      parameters for goals which are executed from the command-line. To do
-      this, use the special execution id value of "default-cli". <xref
-      linkend="ex-configure-plugin-default-cli" /> shows an example that binds
-      the single goal to the package phase of the lifecycle which produces a
-      binary distribution. This example also configures the
-      <varname>default-cli</varname> execution for the assembly plugin to use
-      the <varname>jar-with-dependencies</varname> assembly descriptor. The
-      <filename>bin.xml</filename> descriptor will be used during the
-      lifecycle, and <varname>jar-with-dependencies</varname> will be used
-      when you execute <command>mvn assembly:assembly</command> from the
-      command line.</para>
+      <para>Depuis Maven 2.2.0, vous pouvez fournir des paramètres de configuration pour les goals qui sont exécutés à partir de la ligne de commande.
+      Pour cela, utilisez un id spécial pour l'exécution, "default-cli". 
+      L'<xref linkend="ex-configure-plugin-default-cli" /> montre comment rattacher un goal à la phase package du cycle de vie qui produit le binaire. 
+      Cet exemple configure également l'exécution <varname>default-cli</varname> du plugin Assembly pour qu'il utilise le descripteur <varname>jar-with-dependencies</varname>. 
+      Le descripteur <filename>bin.xml</filename> sera utilisé durant le cycle de vie,
+      et <varname>jar-with-dependencies</varname> sera utilisé lors de l'exécution de la commande <command>mvn assembly:assembly</command> à partir de la console.</para>
 
       <example id="ex-configure-plugin-default-cli" label="" lang="">
-        <title>Configuring Plugin Parameters for Command Line
-        Execution</title>
+        <title>Configuration des Paramètres d'un Plugin pour une Execution en Ligne de Commande</title>
 
         <programlisting>&lt;plugin&gt;
   &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;
@@ -358,18 +332,16 @@ compiler:testCompile
     </section>
 
     <section>
-      <title>Setting Parameters for Goals Bound to Default Lifecycle</title>
+      <title>Configuation des Paramètres pour les Goals rattachés au Cycle de vie par Défaut</title>
 
-      <para>Starting with Maven 2.2.0, if you need to customize the behavior
-      of a goal which is already bound to the default lifecycle, you can use
-      the execution id "default-&lt;goal&gt;". You can customize the behavior
-      of the Jar plugin's jar goal which is bound to the package phase in the
-      default lifecycle, and you can customize the configuration parameters of
-      a separate goal execution if you follow the example shown in <xref
-      linkend="ex-configure-default-param" />.</para>
+      <para>Depuis Maven 2.2.0, si vous désirez personnaliser le comportement d'un goal qui est déjà rattaché au cycle de vie par défaut,
+      vous pouvez utiliser un id spécial pour l'exécution, "default-&lt;goal&gt;".  
+      Ainsi, vous pouvez par exemple personnaliser le comportement du goal <varname>jar</varname> du plugin Jar qui est rattaché 
+      à la phase <varname>package</varname> du cycle de vie par défaut.
+      Vous pouvez personnaliser les paramètres de configuration d'une exécution comme le présente l'<xref linkend="ex-configure-default-param" />.</para>
 
       <example id="ex-configure-default-param" label="">
-        <title>Setting a Parameter for a Default Goal Execution</title>
+        <title>Configuration d'un Paramètres pour l'Execution d'un Goal par Défaut</title>
 
         <programlisting>&lt;plugin&gt;
   &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;
@@ -399,22 +371,18 @@ compiler:testCompile
 &lt;/plugin&gt;</programlisting>
       </example>
 
-      <para>In this example, the default jar goal is customized to exclude
-      contents in a specific package. Another jar goal is bound to the package
-      phase to create a JAR file which contains only the contents of a
-      particular package in a classified JAR file.</para>
+      <para>Dans cet exemple, le goal par défaut <varname>jar</varname> est personnalisé pour exclure le contenu d'un certain package. 
+      Un autre goal <varname>jar</varname> est rattaché à la phase <varname>package</varname> pour créer un fichier JAR
+      qui contient seulement que le contenu d'un package spécifique.</para> 
 
-      <para>Configuring the default goal execution parameters can also come in
-      handy if you need to configure two goals bound to the default lifecycle
-      with separate settings for the same configuration parameter. <xref
-      linkend="ex-configure-two-default-param" /> shows an example that
-      configures the default resources:resources goal to exclude empty
-      directories while configuring the default resources:testResources goal
-      to include empty directories.</para>
+      <para>Configurer les paramètres des goals par défaut peut aussi être intéressant si vous avez besoin de configurer deux goals 
+      rattachés au cycle de vie par défaut avec des valeurs de configuration différentes pour certains paramètres.   
+      L'<xref linkend="ex-configure-two-default-param" /> montre comment configurer le goal <varname>resources:resources</varname>
+      pour qu'il ne tienne pas compte des répertoires vides tout en configurant le goal <varname>resources:testResources</varname>
+      pour qu'il en tienne compte.</para>
 
       <example id="ex-configure-two-default-param">
-        <title>Setting Two Default Goal Plugin Configuration
-        Parameters</title>
+        <title>Configurer Deux Paramètres d'un Goal d'un Plugin</title>
 
         <programlisting>&lt;plugin&gt;
   &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
