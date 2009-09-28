@@ -754,7 +754,7 @@ public class WeatherFormatter {
 
         <secondary>adding to packages</secondary>
       </indexterm> <classname>Main</classname> qui configure Log4J utilise une ressource du classpath appelée
-    <filename>log4j.properties</filename>, et la classe <classname>WeatherFormatter</classname> à besoin du template
+    <filename>log4j.properties</filename>, et la classe <classname>WeatherFormatter</classname> a besoin du template
     Velocity appelé <filename>output.vm</filename> dans le classpath. Ces deux ressources doivent être dans le package
     par défaut (ou à la racine du classpath).</para>
 
