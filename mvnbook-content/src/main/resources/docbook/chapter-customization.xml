@@ -912,7 +912,7 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
       requises dans le classpath. Avec un autre système de build, nous aurions dû copier toutes les dépendances du
       programme dans une espèce de répertoire fourre-tout <filename>lib/</filename> qui aurait contenu les fichiers
       <acronym>JAR</acronym>. Ensuite, nous aurions dû écrire un script basique qui aurait ajouté notre bytecode et nos
-      dépendances dans un classpath. Seulement aprés cela, nous aurions pu exécuter <command>java
+      dépendances dans un classpath. Seulement après cela, nous aurions pu exécuter <command>java
       org.sonatype.mavenbook.weather.Main</command>. Le plugin Exec profite du fait que Maven sait déjà comment créer et
       gérer votre classpath et vos dépendances.</para>
 
