@@ -11,8 +11,8 @@
         id="pom1">
         <primary>POM (Project Object Model)</primary>
       </indexterm>. Le <acronym>POM</acronym> est l'endroit où l'identité et la structure d'un projet sont déclarées, où
-    les builds sont configurés, et où sont définies les relations entre projets. L'existence d'un fichier<filename
-    moreinfo="none"> pom.xml</filename> définit un projet Maven.</para>
+    les builds sont configurés, et où sont définies les relations entre projets. L'existence d'un fichier <filename
+    moreinfo="none">pom.xml</filename> définit un projet Maven.</para>
   </section>
 
   <section id="pom-relationships-sect-pom">
@@ -400,50 +400,52 @@
       effectif qui est le résultat du mélange de plusieurs <acronym>POM</acronym>s. Si vous voulez voir le
       <acronym>POM</acronym> effectif d'un projet, vous allez devoir exécuter le goal <varname>effective-pom</varname>
       du plugin Maven Help, dont nous avons parlé précédemment dans la section <xref
-      linkend="installation-sect-help-plugin-install" />. To run the <varname>effective-pom</varname> goal, execute the
-      following in a directory with a <filename moreinfo="none">pom.xml</filename> file:</para>
+      linkend="installation-sect-help-plugin-install" />. Pour lancer le goal <varname>effective-pom</varname>, exécutez
+      la commade suivante dans un répertoire contenant un fichier <filename moreinfo="none">pom.xml</filename> :</para>
 
       <screen>$ <command>mvn help:effective-pom</command></screen>
 
-      <para>Executing the <varname>effective-pom</varname> goal should print out an <acronym>XML</acronym> document
-      capturing the merge between the Super <acronym>POM</acronym> and the <acronym>POM</acronym> from <xref
+      <para>L'exécution du goal <varname>effective-pom</varname> devrait afficher un document <acronym>XML</acronym>
+      résultant de la fusion du Super <acronym>POM</acronym> et du <acronym>POM</acronym> de <xref
       linkend="ex-simplest-pom" />.</para>
     </section>
 
     <section id="pom-relationships-sect-real-poms">
-      <title>Real POMs</title>
+      <title>Véritables POMs</title>
 
-      <para>Instead of typing up a contrived set of <acronym>POM</acronym>s to <indexterm>
+      <para>Plutôt que de taper un ensemble de <acronym>POM</acronym>s convenus <indexterm>
           <primary>real POMs</primary>
-        </indexterm>walk you through step-by-step, you should take a look at the examples in <xref
-      linkend="part-example" />. Maven is something of a chameleon; you can pick and choose the features you want to
-      take advantage of. Some open source projects may value the ability to list developers and contributors, generate
-      clean project documentation, and manage releases automatically using the Maven Release plugin. On the other hand,
-      someone working in a corporate environment on a small team might not be interested in the distribution management
-      capabilities of Maven nor the ability to list developers. The remainder of this chapter is going to discuss
-      features of the <acronym>POM</acronym> in isolation. Instead of bombarding you with a 10-page listing of a set of
-      related <acronym>POM</acronym>s, we’re going to focus on creating a good reference for specific sections of the
-      <acronym>POM</acronym>. In this chapter, we discuss relationships between <acronym>POM</acronym>s, but we don’t
-      illustrate such a project here. If you are looking for such an illustration, refer to <xref
-      linkend="multimodule-web-spring" />.</para>
+        </indexterm> pour vous guider pas-à-pas, vous pouvez regarder les exemples fournis dans <xref
+      linkend="part-example" />. Maven est un véritable caméléon ; vous pouvez choisir et prendre ce dont vous voulez
+      profiter. Certains projets libres peuvent accorder de l'importance à la possibilité de lister les développeurs et
+      les contributeurs, de pouvoir produire une documentation claire pour un projet, et de pouvoir gérer
+      automatiquement les livraisons grâce au plugin Maven Release. D'un autre côté, pour quelqu'un qui travaille dans
+      le contexte d'une petite équipe dans une entreprise, les capacités de Maven pour gérer les distributions ou lister
+      les développeurs puvent avoir un intérêt moindre. La suite de ce chapitre va traiter les caractéristiques du
+      <acronym>POM</acronym> en lui même. Au lieu de vous bombarder avec un listing de 10 pages contenant tout un
+      ensemble de <acronym>POM</acronym>s , nous allons nous concentrer sur la création d'une bonne référence pour
+      chacune des sections spécifiques du<acronym>POM</acronym>. Dans ce chapitre, nous allons parler des relations
+      entre les <acronym>POM</acronym>s, mais nous n'allons pas illustrer cela par un projet exemple. Si vous rechercher
+      un tel exemple vous le trouverez dans le <xref linkend="multimodule-web-spring" />.</para>
     </section>
   </section>
 
   <section id="pom-relationships-sect-pom-syntax">
-    <title>POM Syntax</title>
+    <title>Syntaxe de POM</title>
 
-    <para>The <acronym>POM</acronym> is always <indexterm class="startofrange" id="pom2">
+    <para>Le <acronym>POM</acronym> se trouve toujours <indexterm class="startofrange" id="pom2">
         <primary>POM (Project Object Model)</primary>
 
         <secondary>syntax</secondary>
-      </indexterm>in a file named <filename moreinfo="none">pom.xml</filename> in the base directory of a Maven project.
-    This <acronym>XML</acronym> document can start with the <acronym>XML</acronym> declaration, or you can choose to
-    omit it. All values in a <acronym>POM</acronym> are captured as <acronym>XML</acronym> elements.</para>
+      </indexterm>dans un fichier <filename moreinfo="none">pom.xml</filename> dans le répertoire racine d'un projet
+    Maven. Ce document <acronym>XML</acronym> peut commencer par la déclaration <acronym>XML</acronym>, mais elle n'est
+    pas obligatoire. Toutes les valeurs dans un <acronym>POM</acronym> se présentent sous la forme d'éléments
+    <acronym>XML</acronym>.</para>
 
     <section id="pom-reationships-sect-versions">
-      <title>Project Versions</title>
+      <title>Les versions d'un projet</title>
 
-      <para>A Maven project’s <sgmltag>version</sgmltag> encodes a release<indexterm>
+      <para>La balise <sgmltag>version</sgmltag> d'un projet Maven contient le numéro de<indexterm>
           <primary>major versions (projects)</primary>
         </indexterm><indexterm>
           <primary>minor versions (projects)</primary>
@@ -459,53 +461,53 @@
           <primary>version attribute (pom.xml)</primary>
         </indexterm><indexterm>
           <primary>project versions, about</primary>
-        </indexterm> version number that is used to group and order releases. Maven versions contain the following
-      parts: major version, minor version, incremental version, and qualifier. In a version, these parts correspond to
-      the following format:</para>
+        </indexterm> version stable qui est utilisé pour regrouper et rdonner les distributions. Les versions dans Maven
+      se décomposent ainsi : version majeure, version mineure, version incrémentale et qualifieur. Dans un numéro de
+      version ces ifférents éléments se présentent selon le format suivant :</para>
 
-      <screen>&lt;major version&gt;.&lt;minor version&gt;.&lt;incremental version&gt;-&lt;qualifier&gt;
+      <screen>&lt;version majeure&gt;.&lt;version mineure&gt;.&lt;version incrémentale&gt;-&lt;qualifieur&gt;
 </screen>
 
-      <para>For example, the version "1.3.5" has a major version of 1, a minor version of 3, and an incremental version
-      of 5. The version "5" has a major version of 5 and no minor or incremental version. The qualifier exists to
-      capture milestone builds: alpha and beta releases, and the qualifier is separated from the major, minor, and
-      incremental versions by a hyphen. For example, the version "1.3-beta-01" has a major version of 1, a minor version
-      of 3, and a qualifier of "beta-01".</para>
+      <para>Par exemple, la version "1.3.5" correspond à la version majeure 1, de version mineure 3, et de version
+      incrémentale 5. La version "5" correspond à la version majeure 5 sans version mineure ou incrémentale. Le
+      qualifieur est utilisé pour les builds des étapes intermédiaires : distributions alpha ou beta, et il est séparé
+      des autres éléments de version par un tiret. Par exemple, la version "1.3-beta-01" a une version majeure de 1, un
+      version mineure de 3, et un qualifieur "beta-01".</para>
 
-      <para>Keeping your version numbers aligned with this standard will become very important when you want to start
-      using version ranges in your <acronym>POM</acronym>s. Version ranges, introduced in <xref
-      linkend="pom-relationships-sect-version-ranges" />, allow you to specify a dependency on a range of versions, and
-      they are only supported because Maven has the ability to sort versions based on the version release number format
-      introduced in this section.</para>
+      <para>Suivre ces précaunisations pour les numéros de version prend tout son lorsque vous commencez à utiliser des
+      intervalles pour vos versions dans les <acronym>POM</acronym>s. Les intervalles de versions, dont on parle dans la
+      <xref linkend="pom-relationships-sect-version-ranges" />, vous permettent de spécifier une dépendence dont la
+      version est comprise dans cet intervalle. Cela n'es possible que parce que Maven est capable de trier les versions
+      en se basant sur le format de numéro de version dont nous venons de parler.</para>
 
-      <para>If your version release number matches the format
-      <varname>&lt;major&gt;.</varname><varname>&lt;minor&gt;.</varname><varname>&lt;incremental&gt;-&lt;qualifier&gt;</varname>
-      then your versions will be compared properly; "1.2.3" will be evaluated as a more recent build than "1.0.2", and
-      the comparison will be made using the numeric values of the major, minor, and incremental versions. If your
-      version release number does not fit the standard introduced in this section, then your versions will be compared
-      as strings; "1.0.1b" will be compared to "1.2.0b" using a String comparison.</para>
+      <para>Si votre numéro de version respecte le format
+      <varname>&lt;majeure&gt;.</varname><varname>&lt;mineure&gt;.</varname><varname>&lt;incrémentale&gt;-&lt;qualifieur&gt;</varname>
+      alors vos versions seront ordonnées correctement, "1.2.3" sera donc bien considérée comme plus récente que
+      "1.0.2". La comparaison se fera en utilisant les valeurs numériques des versions majeure, mineure et incrémentale.
+      Si votre numéro de version ne respecte pas ce standard, alors vos versions seront comparées comme des chaînes de
+      caractères ; la chaîne "1.0.1b" sera comparée à la chaîne "1.2.0b".</para>
 
       <section id="pom-relationships-sect-version-build-numbers">
-        <title>Version Build Numbers</title>
+        <title>Numéro de version de build</title>
 
-        <para>One gotcha for release version numbers is the ordering of the <indexterm>
+        <para>Un des problèmes avec les numéros de version est l'ordonnancement des<indexterm>
             <primary>ordering of version qualifiers</primary>
           </indexterm><indexterm>
             <primary>qualifiers for project versions</primary>
 
             <secondary>ordering of</secondary>
-          </indexterm>qualifiers. Take the version release numbers “1.2.3-alpha-2” and “1.2.3-alpha-10,” where the
-        “<phrase role="keep-together">alpha-2</phrase>” build corresponds to the 2nd alpha build, and the “alpha-10”
-        build corresponds to the 10th alpha build. Even though “alpha-10” should be considered more recent than
-        “alpha-2,” Maven is going to sort “alpha-10” before “alpha-2” due to a known issue in the way Maven handles
-        version numbers.</para>
+          </indexterm> qualifieurs. Prenez, par exemple, les numéros de version “1.2.3-alpha-2” et “1.2.3-alpha-10,” ou
+        “<phrase role="keep-together">alpha-2</phrase>” correspond au second build alpha, et “alpha-10” au dixième build
+        alpha. Même si “alpha-10” devrait être considéré comme plus récent que “alpha-2,” Maven va mettre “alpha-10”
+        avant “alpha-2”. Ceci est du à un problème connu dans la façon dont Maven traite les numéros de version.</para>
 
-        <para>Maven is supposed to treat the number after the qualifier as a build number. In other words, the qualifier
-        should be "alpha", and the build number should be 2. Even though Maven has been designed to separate the build
-        number from the qualifier, this parsing is currently broken. As a result, "alpha-2" and "alpha-10" are compared
-        using a String comparison, and "alpha-10" comes before "alpha-2" alphabetically. To get around this limitation,
-        you will need to left-pad your qualified build numbers. If you use "alpha-02" and "alpha-10" this problem will
-        go away, and it will continue to work once Maven properly parses the version build number.</para>
+        <para>Maven doit en théorie considèrer le nombre après le qualifieur comme le numéro du build. En d'autres
+        termes, le qualifieur devrait être "alpha", et le numéro du build 2. Même si Maven a été conçu pour séparer le
+        numéro du build du qualifieur, cette fonctionnalité ne fonctionne pas actuellement. En conséquence, "alpha-2" et
+        "alpha-10" sont comparés en tant que chaînes, et donc "alpha-10" arrive avant "alpha-2" alphabétiquement. To get
+        around this limitation, you will need to left-pad your qualified build numbers. If you use "alpha-02" and
+        "alpha-10" this problem will go away, and it will continue to work once Maven properly parses the version build
+        number.</para>
       </section>
 
       <section id="pom-relationships-sect-snapshot-versions">
