@@ -241,7 +241,7 @@
     améliorer l'efficacité des builds à "l'échelle de l'entreprise".</para>
   </section>
 
-  <section id="installation-sect-compare-ant-maven" label="">
+  <section id="installation-sect-compare-ant-maven">
     <title>Comparaison de Maven et de Ant</title>
 
     <para>Les auteurs de ce livre n'ont pas pour objectif de créer de l'animosité entre Apache Ant et Apache Maven.

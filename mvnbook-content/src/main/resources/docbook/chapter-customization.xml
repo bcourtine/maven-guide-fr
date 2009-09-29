@@ -1563,7 +1563,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
       </indexterm> ce chapitre, nous avons exécuté notre application avec le plugin Maven Exec. Même si ce plugin a
     permis d'exécuter le programme et d'obtenir des résultats, vous ne devriez pas voir Maven comme un moyen d'exécuter
     vos applications. Si vous distribuez cette application en ligne de commande, vous voudrez probablement distribuer un
-    <acronym>JAR</acronym> ou une archive de type <acronym>ZIP</acronym>, ou d'un fichier <acronym>TAR</acronym>
+    <acronym>JAR</acronym>ou une archive de type <acronym>ZIP</acronym> ou <acronym>TAR</acronym>
     <acronym>GZIP</acronym>. Cette section décrit un processus d'utilisation d'un descripteur d'assemblage
     prédéfini<indexterm>
         <primary>Assembly plugin</primary>
