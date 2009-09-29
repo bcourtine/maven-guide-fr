@@ -68,7 +68,7 @@
   <section id="optimizing-sect-pom-cleanup">
     <title>Nettoyer le POM</title>
 
-    <para>L'optimisation du <acronym>POM</acronym> d'un projet multimodule est plus facile à faire <indexterm>
+    <para>L'optimisation du <acronym>POM</acronym> d'un projet multimodules est plus facile à faire <indexterm>
         <primary>multimodule projects, optimizing POMs for</primary>
       </indexterm><indexterm>
         <primary>POM (Project Object Model)</primary>
@@ -86,7 +86,7 @@
         <seealso>optimizing POMs</seealso>
       </indexterm>en plusieurs passes, car il y a plusieurs points à traiter. En général, nous recherchons des
     répétitions dans un <acronym>POM</acronym> et ses <acronym>POM</acronym>s frères. Quand vous commencez un projet ou
-    que celui-ci évolue fréquemment, il est tout fait acceptable de dupliquer des dépendances et des configurations de
+    que celui-ci évolue fréquemment, il est tout à fait acceptable de dupliquer des dépendances et des configurations de
     plugins. Mais au fur et à mesure que votre projet se stabilise et que le nombre de sous-modules augmente, vous
     devrez prendre le temps de remanier ces élements communs de configuration et de dépendances. Rendre vos
     <acronym>POM</acronym>s plus efficaces vous aidera énormément à gérer la complexité de votre projet durant sa
@@ -162,7 +162,7 @@
 
         <secondary>dependency duplication and</secondary>
       </indexterm> module. Les tests unitaires pourraient passer car ils sont exécutés avec une certaine version de la
-    dépendance, mais ils échoueraient lamentablement en en production là où le package (un WAR, dans ce cas) serait
+    dépendance, mais ils échoueraient lamentablement en production là où le package (un WAR, dans ce cas) serait
     réalisé avec une version différente. Si vous avez des dizaines de projets qui utilisent une même dépendance comme
     Hibernate Annotations, chaque recopie et duplication des dépendances et des exclusions vous rapproche du moment où
     un build échouera. Au fur et à mesure que la complexité de vos projets Maven augmente, la liste de vos dépendances
@@ -376,10 +376,9 @@
         projets frères</term>
 
         <listitem>
-          <para>Utiliser $<varname>{project.version}</varname> et <varname>\${project.groupId}</varname> pour faire
+          <para>Utiliser <varname>\${project.version}</varname> et <varname>\${project.groupId}</varname> pour faire
           référence à un projet frère. Les projets frères ont la plupart du temps le même <literal>groupId</literal>, et
-          presque toujours la même version. Utiliser <varname>\${project.version}</varname> vous aidera à éviter
-          <indexterm class="endofrange" startref="optref2a"></indexterm><indexterm class="endofrange"
+          presque toujours la même version. Utiliser <varname>\${project.version}</varname> vous aidera à éviter<indexterm class="endofrange" startref="optref2a"></indexterm><indexterm class="endofrange"
           startref="optref2b"></indexterm><indexterm class="endofrange" startref="optref2c"></indexterm>les incohérences
           de versions entre projets frères comme nous l'avons vu plus tôt.</para>
         </listitem>
@@ -682,7 +681,7 @@
   <section id="optimizing-sect-final-poms">
     <title>Les POMs finaux</title>
 
-    <para>En résumé, tous les fichiers des <acronym>POM</acronym>s finaux <indexterm>
+    <para>En résumé, tous les fichiers des <acronym>POM</acronym>s finaux<indexterm>
         <primary>simple-parent POM (for reference)</primary>
       </indexterm><indexterm>
         <primary>pom.xml file</primary>

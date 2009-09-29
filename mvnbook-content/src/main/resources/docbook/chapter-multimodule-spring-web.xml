@@ -2,12 +2,12 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="multimodule-web-spring" lang="fr">
-  <title>Un Projet Multimodules d'Enterprise</title>
+  <title>Un Projet Multimodules d'Entreprise</title>
 
   <section id="multimodule-web-spring-sect-intro">
     <title>Introduction</title>
 
-    <para>Dans ce chapitre, nous allons créer un projet multimodule à partir<indexterm class="startofrange" id="enterprise1a">
+    <para>Dans ce chapitre, nous allons créer un projet multimodules à partir<indexterm class="startofrange" id="enterprise1a">
         <primary>projet multimodule (exemple)</primary>
         <secondary>projet multimodule d'enterprise</secondary>
       </indexterm><indexterm class="startofrange" id="enterprise1b">
@@ -29,7 +29,7 @@
     <section id="multimodule-web-spring-sect-downloading-example">
       <title>Télécharger les sources de ce chapitre</title>
 
-      <para>Le projet multimodule développé dans cet exemple se compose des versions modifiées 
+      <para>Le projet multimodules développé dans cet exemple se compose des versions modifiées 
       des projets développés dans les chapitres <xref linkend="customizing" /> et <xref linkend="web" />, 
       sans utiliser le plugin Maven Archetype pour le générer. Nous recommandons de télécharger le code 
       des exemples pour utiliser celui-ci comme code de référence lors de la lecture de ce chapitre.
@@ -38,7 +38,7 @@
 
       <screen>${examples.download.url}</screen>       
       
-      <para>Une fois téléchargée, dézippez l'archive dans n'importe quel répertoire et entrez dans le répertoire <filename>ch-multi-spring/</filename>.
+      <para>Une fois téléchargée, décompressez l'archive dans n'importe quel répertoire et entrez dans le répertoire <filename>ch-multi-spring/</filename>.
       Vous trouverez alors dans celui-ci un sous-répertoire <filename>simple-parent/</filename>      
       qui contient le projet Maven multimodule que nous allons développer dans ce chapitre.
       Dans le répertoire de ce projet, vous trouverez un <filename>pom.xml</filename> et cinq sous-modules :   
@@ -58,10 +58,10 @@
       Ce genre de projets comporte en général plusieurs milliers de lignes de codes et peut impliquer des dizaines, voire des centaines, de développeurs.
       S'il est évident que nous ne traiterons pas d'un projet de ce type dans son intégralité dans ce livre,
       nous allons tout de même vous fournir un exemple assez complet pour appréhender la complexité d'une application d'entreprise.
-      Enfin, en conclusion, au delà ce qui est présenté dans ce chapitre, nous explorerons quelques pistes pour rendre vos applications modulaires.
+      Enfin, en conclusion, au delà de ce qui est présenté dans ce chapitre, nous explorerons quelques pistes pour rendre vos applications modulaires.
       </para>
 
-      <para>Dans ce chapitre, nous allons étudier un projet Maven multimodule qui produira deux applications :
+      <para>Dans ce chapitre, nous allons étudier un projet Maven multimodules qui produira deux applications :
       un outil en ligne de commande et une application web ; chacune de ces applications permettra d'interroger le flux Yahoo! Météo.
       Ces deux applications conserveront les résultats des différentes requêtes dans une base de données embarquée
       et permettent de récupérer l'historique des prévisions météorologiques stockées dans celle-ci.
@@ -174,13 +174,13 @@
       Vous pourriez être tentés de regarder rapidement les exemples dans ce chapitre et penser que Maven 
       génère trop de complexité comparée à la taille du modèle d'objet.
       Bien que l'utilisation de Maven suggère un certain niveau de modularité, 
-      réalisez que nous avons compliqué ici nos exemples volontairement dans le but de montrer les fonctionnalités Maven pour des projets multimodules.</para>
+      réalisez que nous avons volontairement compliqué ici nos exemples dans le but de montrer les fonctionnalités Maven pour des projets multimodules.</para>
     </section>
 
     <section id="multimodule-web-spring-sect-example-tech">
       <title>Technologies Utilisées dans cet Exemple</title>
 
-      <para>L'exemple de ce chapitre implique un peu de technologies qui, même s'elles sont populaire, ne sont pas directement liées à Maven.
+      <para>L'exemple de ce chapitre implique un peu de technologies qui, même si elles sont populaires, ne sont pas directement liées à Maven.
       Ces technologies sont Spring et Hibernate.
       Spring est un conteneur <acronym>IoC</acronym> (Inversion of Control) accompagné par un ensemble de frameworks dont le but
       est de simplifier les interactions entre nombreuses bibliothèques <acronym>J2EE</acronym>.
@@ -224,7 +224,7 @@
       </indexterm> un fichier <filename>pom.xml</filename> qui référencie cinq sous-modules :
     <varname>simple-command</varname>,
     <varname>simple-model</varname>, <varname>simple-weather</varname>,
-    <varname>simple-persist</varname>, and <varname>simple-webapp</varname>.
+    <varname>simple-persist</varname>, et <varname>simple-webapp</varname>.
     Le fichier <filename>pom.xml</filename> de plus haut niveau est affiché dans l'<xref linkend="ex-multimodule-web-spring-parent" />.</para>
 
     <example id="ex-multimodule-web-spring-parent">
@@ -431,10 +431,9 @@ public class Weather {
     Bien qu'une explication détaillée des annotations Hibernate dépasse les limites de ce chapitre, en voici quelques grandes lignes.<indexterm>
         <primary sortas="Entity annotation (Hibernate)">Annotation @Entity (Hibernate)</primary>
       </indexterm> L'annotation <classname>@Entity</classname> marque la classe comme entité persistante.
-      Nous avons omis l'annotation <classname>@Table</classname> sur cette classe, 
-    <indexterm>
+      Nous avons omis l'annotation <classname>@Table</classname> sur cette classe, <indexterm>
         <primary sortas="Table annotation (Hibernate)">Annotation @Table (Hibernate)</primary>
-      </indexterm> ainsi, Hibernate ainsi va utiliser le nom de la classe comme en nom de table. 
+      </indexterm> ainsi, Hibernate va utiliser le nom de la classe comme en nom de table. 
       L'annotation<indexterm>
         <primary sortas="NamedQueries annotation (Hibernate)">Annotation @NamedQueries (Hibernate)</primary>
       </indexterm> <classname>@NamedQueries</classname> définit une requête qui sera utilisée par le <classname>WeatherDAO</classname> dans le module <varname>simple-persist</varname>.   
@@ -537,7 +536,7 @@ public class Condition {
 
     <para>La classe <classname>Condition</classname> ressemble à la classe <classname>Weather</classname>. 
     Elle est annotée avec <classname>@Entity</classname> et possède les mêmes annotations sur la propriété <varname>id</varname>. 
-    Les champs <varname>text</varname>, <varname>code</varname>, <varname>temp</varname> et <varname>date</varname> ne possèdent pas d'annotation et reste donc mappés avec la configuration par défaut.
+    Les champs <varname>text</varname>, <varname>code</varname>, <varname>temp</varname> et <varname>date</varname> ne possèdent pas d'annotation et restent donc mappés avec la configuration par défaut.
     La propriété <varname>weather</varname> est annotée avec <classname>@OneToOne</classname> et <classname>@JoinColumn</classname> qui permettent de référencer
     l'objet <classname>Weather</classname> associé avec une clé étrangère nommée <varname>weather_id</varname>.</para>
   </section>
@@ -862,7 +861,7 @@ public class WeatherService {
 
         <listitem>
           <para>Nous définissions une dépendance sur la version 3.2.5.ga d'Hibernate. 
-          Notez l'exclusion d'une dépendances transitive d'Hibernate, nous effectuons cela à cause de la dépendance 
+          Notez l'exclusion d'une dépendance transitive d'Hibernate, nous effectuons cela à cause de la dépendance 
           <varname>javax.</varname><varname>transaction:</varname><varname>jta</varname><indexterm>
               <primary>dépendances</primary>
               <secondary>javax.transaction:javax (non disponible)</secondary>
@@ -886,7 +885,7 @@ public class WeatherService {
         <term><literal>org.springframework:spring:2.0.7</literal></term>
 
         <listitem>
-          <para>Cette dépendance inclut l'ingration du Spring Framework<indexterm>
+          <para>Cette dépendance inclut l'intégration du Spring Framework<indexterm>
               <primary>Spring Framework</primary>
             </indexterm>.</para>
 
@@ -963,9 +962,9 @@ public class WeatherDAO extends HibernateDaoSupport <co
       </callout>
 
       <callout arearefs="coDef-hibDao-2" id="coRef-hibDao-2">
-        <para>La méthode <methodname>save()</methodname> prend une instance de la classe <classname>Weather</classname> et appelle la méthode <methodname>save()</methodname> de la l'<classname>HibernateTemplate</classname>. 
+        <para>La méthode <methodname>save()</methodname> prend une instance de la classe <classname>Weather</classname> et appelle la méthode <methodname>save()</methodname> de la classe <classname>HibernateTemplate</classname>. 
         L'<classname>HibernateTemplate</classname> simplifie les appels aux opérations standards d'Hibernate et convertit les exceptions typées des différentes bases de données en <classname>RuntimeException</classname>. 
-        Appelons la méthode <methodname>save()</methodname> qui insére une nouvelle ligne dans la table <classname>Weather</classname>.
+        Appelons la méthode <methodname>save()</methodname> qui insère une nouvelle ligne dans la table <classname>Weather</classname>.
         La mise à jour d'une entité déjà en base passe par la méthode <methodname>update()</methodname>.
         La méthode <methodname>saveOrUpdate()</methodname> crée une nouvelle ligne ou la modifie en fonction de la présence d'une valeur non-nulle dans la propriété <varname>id</varname> de la classe.</para>
       </callout>
@@ -1062,7 +1061,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
         <term><literal>hibernate.dialect</literal></term>
 
         <listitem>
-          <para>Cette propriété permet de contrôler que le <acronym>SQL</acronym> sera généré pour notre base de données.
+          <para>Cette propriété permet de contrôler que le <acronym>SQL</acronym> qui sera généré pour notre base de données.
           Comme nous utilisons <acronym>HSQLDB</acronym>, nous choisissons le dialecte <classname>org.</classname><classname>hibernate.</classname><classname>dialect.</classname><classname>HSQLDialect</classname>. 
           Hibernate possède nativement des dialectes pour la majorité des bases de données comme Oracle, MySQL, Postgres, et SQL Server.</para>
         </listitem>
@@ -1285,7 +1284,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
     Vous avez d'ailleurs probablement noté que le fichier
     <filename>pom.xml</filename> commence à devenir volumineux.
     Dans ce POM, nous configurons quatre dépendances et deux plugins.
-    Regardons ce POM en détail et nous étendons nous sur certains des points de configuration importants :</para>
+    Regardons ce POM en détail et étendons-nous sur certains des points de configuration importants :</para>
 
     <calloutlist>
       <callout arearefs="co-springweb-1" id="coref-springweb-1">
@@ -1340,7 +1339,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
 
     <note>
       <para>Une erreur classique consiste à utiliser la balise <sgmltag>extensions</sgmltag> de la configuration pour ajouter des dépendances nécessaires à un plugin.
-      Il est fortement découragé de procéder de la sorte car les extensions peuvent polluer classpath de votre projet, et provoquer des effets de bord désagréables.
+      Il est fortement découragé de procéder de la sorte car les extensions peuvent polluer le classpath de votre projet, et provoquer des effets de bord désagréables.
       De plus, le comportement des extensions a été modifié depuis la version 2.1 de Maven.
       Le seul usage correct de la balise <sgmltag>extensions</sgmltag> est l'ajout d'implémentations complémentaires.</para>
     </note>
@@ -1717,7 +1716,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
   <section id="multimodule-web-spring-sect-spring-running-web">
     <title>Exécutez l'Application Web</title>
 
-    <para>Pour exécuter l'application web, vous devez tout d'abord builder votre projet multimodule 
+    <para>Pour exécuter l'application web, vous devez tout d'abord construire votre projet multimodule 
     dans son intégralité et ensuite construire la base de données<indexterm class="startofrange" id="enterprise7a">
         <primary>projet multimodule (exemple)</primary>
         <secondary>projet d'entreprise multimodule</secondary>
@@ -1731,10 +1730,10 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
         <secondary>Exécution de l'Application Web</secondary>
       </indexterm><indexterm>
         <primary>plugin Maven Hibernate3</primary>
-        <secondary>builder une base de données en utilisant</secondary>
+        <secondary>construire une base de données en utilisant</secondary>
       </indexterm><indexterm>
         <primary>plugin Hibernate3</primary>
-        <secondary>builder une base de données en utilisant</secondary>
+        <secondary>construire une base de données en utilisant</secondary>
       </indexterm> en utilisant le plugin Hibernate3. 
     D'abord, exécutez la commande <command>mvn clean install</command> à partir du répertoire du projet de plus haut niveau <filename>simple-parent</filename> :</para>
 
@@ -2256,7 +2255,7 @@ Evanston, IL, US
     Nous avons présenté un ensemble complexe de projets en utilisant des frameworks populaires que nous avons assemblés par des build déclaratifs.
     Le fait que plus de 60% de ce chapitre ait été consacré au fonctionnement de Spring et Hibernate doit montrer que Maven, pour sa plus grosse partie, n'est pas l'étape la plus compliquée d'un projet.
     Il nous a permis de nous concentrer sur l'application elle-même, et non sur le processus de build.
-    Au lieu de passer du temps à discuter du fonctionnement de Maven et le travail vous devriez faire pour builder un projet qui intègre Spring et Hibernate, 
+    Au lieu de passer du temps à discuter du fonctionnement de Maven et le travail que vous devriez faire pour builder un projet qui intègre Spring et Hibernate, 
     nous avons parlé presque exclusivement des technologies utilisées.
     Si vous commencez à utiliser Maven et que vous prenez du temps pour l'apprendre, vous commencez vraiment à profiter du fait que vous ne devez pas passer votre temps à écrire vos scripts de build.
     Vous ne devez pas perdre votre temps à vous inquiéter des aspects classques de votre build.</para>
