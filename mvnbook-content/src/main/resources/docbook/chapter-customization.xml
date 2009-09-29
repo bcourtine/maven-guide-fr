@@ -859,7 +859,8 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
     le code postal par défaut, 60202, qui a été utilisé. Pour passer un code postal en paramètre, nous devrions utiliser
     l'argument <varname>-Dexec.args</varname> et lui passer un code postal :</para>
 
-    <screen>$ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main -Dexec.args="70112"</command>
+    <screen>$ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main \
+                                     -Dexec.args="70112"</command>
 ...
 [INFO] [exec:java]
 0    INFO  YahooRetriever  - Retrieving Weather Data

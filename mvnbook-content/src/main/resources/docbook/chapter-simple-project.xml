@@ -47,9 +47,9 @@
     confirmer et produire le nouveau projet :</para>
 
     <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.simple \
-                                         -DartifactId=simple \
-                                         -DpackageName=org.sonatype.mavenbook \
-                                         -Dversion=1.0-SNAPSHOT
+                                      -DartifactId=simple \
+                                      -DpackageName=org.sonatype.mavenbook \
+                                      -Dversion=1.0-SNAPSHOT
 </command>[INFO] Scanning for projects...
 [INFO] Searching repository for plugin with prefix: 'archetype'.
 [INFO] ------------------------------------------------------------------------
