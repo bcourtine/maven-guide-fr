@@ -112,9 +112,10 @@
     <para>Le cœur de Maven est assez stupide, il ne sait pas faire grand-chose à part parser quelques documents
     <acronym>XML</acronym> et garder les traces d'un cycle de vie et de quelques plugins. Maven a été conçu pour
     déléguer la responsabilité du build à un ensemble de Plugins Maven qui vont affecter le Cycle de Vie de Maven et
-    fournir différentes actions : les goals. Avec Maven, tout se passe dans les goals des plugins, c'est là que le code
-    source est compilé, le bytecode est packagé, les sites sont publiés et que toute autre tâche nécessaire à votre build
-    se produit. Le Maven que vous téléchargez chez Apache n'y connaît rien en packaging de fichier
+    fournir différentes actions : les goals. Avec Maven, tout se passe dans les goals des plugins, 
+    c'est là que le code source est compilé, que le bytecode est packagé, 
+    que les sites sont publiés et que toute autre tâche nécessaire à votre build se produit.
+    Le Maven que vous téléchargez chez Apache n'y connaît rien en packaging de fichier
     <acronym>WAR</acronym> ou en exécution de tests JUnit ; la plus grande partie de l'intelligence de Maven se trouve
     dans les plugins, plugins qui sont récupérés du dépôt Maven. En effet, la première fois que vous exécutez une
     commande comme <command>mvn install</command> avec une installation de Maven vierge, elle récupère les plugins Maven
