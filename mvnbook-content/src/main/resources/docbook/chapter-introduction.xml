@@ -27,7 +27,7 @@
     peut alors lui appliquer la logique transverse d'un ensemble de plugins (partagés ou spécifiques).</para>
 
     <para>Ne vous laissez pas impressionner par le fait que Maven est un "outil de gestion de projet". Si vous cherchiez
-    juste un outil de build alors Maven restera l'homme de la situation. D'ailleurs, les premiers chapitres de ce livre
+    juste un outil de build alors Maven reste avant tout adapté à la situation.. D'ailleurs, les premiers chapitres de ce livre
     vont traiter le cas d'utilisation le plus courant : l'utilisation de Maven pour construire et distribuer votre
     projet.</para>
   </section>
