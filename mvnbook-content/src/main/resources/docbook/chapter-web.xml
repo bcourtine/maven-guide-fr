@@ -67,7 +67,7 @@
     montrer les possibilités fournies par Maven pour développer des
     applications web&mdash;ni plus, ni moins. Plus tard dans ce livre nous
     développerons deux applications web : l'une basée sur Hibernate, Velocity,
-    et le Framework Spring; l'autre utilisant Plexus.</para>
+    et le Framework Spring ; l'autre utilisant Plexus.</para>
   </section>
 
   <section id="web-sect-creating-project">
@@ -313,7 +313,7 @@ simple-webapp/target/classes
     l'URL <ulink
     url="http://localhost:8080/simple-webapp/">http://localhost:8080/simple-webapp/</ulink>
     dans un navigateur web. La simple page <filename>index.jsp</filename>
-    générée par l'Archetype est triviale; elle contient un titre de second
+    générée par l'Archetype est triviale ; elle contient un titre de second
     niveau avec le texte "Hello World!". Maven s'attend à ce que la racine du site
     web soit dans <filename>src/main/webapp</filename>. C'est dans ce
     répertoire que vous trouverez le fichier <filename>index.jsp</filename>
@@ -436,7 +436,7 @@ public class SimpleServlet extends HttpServlet {
 &lt;/web-app&gt;</programlisting>
     </example>
 
-    <para>Tout est en place pour tester la servlet; la classe est bien dans
+    <para>Tout est en place pour tester la servlet ; la classe est bien dans
     <filename>src/main/java</filename> et le <filename>web.xml</filename> a
     été mis à jour. Avant que vous lanciez le plugin Jetty, compilez votre
     projet en exécutant <command>mvn compile</command> :</para>
