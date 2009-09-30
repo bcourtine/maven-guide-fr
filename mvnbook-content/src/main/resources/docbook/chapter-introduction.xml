@@ -96,7 +96,7 @@
     fallait quelques minutes pour comprendre comment construire un logiciel, dans le pire (par exemple l'antique
     implémentation de l'API Servlet du projet Jakarta), construire le logiciel était si complexe qu'il fallait plusieurs
     heures à un nouveau contributeur pour pouvoir modifier le code source et compiler le projet. De nos jours, il suffit
-    de récupérer le source et d'exécuter la commande <command>mvn install </command>.</para>
+    de récupérer le source et d'exécuter la commande <command>mvn install</command>.</para>
 
     <para>Même si Maven fournit tout un ensemble d'avantages, dont la gestion des dépendances et la réutilisation de
     comportements communs de build par ses plugins, la raison principale de son succès vient de la création d'une
