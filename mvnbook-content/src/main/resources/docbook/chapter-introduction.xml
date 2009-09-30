@@ -53,7 +53,7 @@
     Maven suppose que vous voulez compiler en bytecode dans <filename>\${basedir}/target/classes</filename> et ensuite
     créer votre fichier <acronym>JAR</acronym> distribuable dans <filename>\${basedir}/target</filename>. Même si tout
     cela peut sembler trivial, n'oubliez pas que pour la plupart des scripts Ant vous devez définir les emplacements de
-    ces différents répertoires. Ant n'a pas la moindre idée d'où se trouve le code source et les différentes ressources;
+    ces différents répertoires. Ant n'a pas la moindre idée d'où se trouve le code source et les différentes ressources,
     vous devez le lui indiquer. L'adoption par Maven de ce principe de convention plutôt que configuration va plus loin
     que les répertoires, les plugins au cœur de Maven appliquent un ensemble de conventions pour compiler le code
     source, packager les éléments à distribuer, produire des sites web, et bien d'autres traitements. La force de Maven
