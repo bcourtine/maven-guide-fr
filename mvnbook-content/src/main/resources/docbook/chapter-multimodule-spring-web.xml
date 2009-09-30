@@ -157,7 +157,7 @@
             <classname>WeatherService</classname> défini dans le module <varname>simple-weather</varname> et les <acronym>DAO</acronym>s 
             du projet <varname>simple-persist</varname>. 
             Le module <varname>simple-command</varname> a une dépendance directe sur les modules <varname>simple-weather</varname> et
-            <varname>simple-persist</varname> ; et une dépendance indirecte vers le module <varname>simple-model</varname>.</para>
+            <varname>simple-persist</varname>, et a une dépendance indirecte vers le module <varname>simple-model</varname>.</para>
           </listitem>
         </varlistentry>
       </variablelist>
