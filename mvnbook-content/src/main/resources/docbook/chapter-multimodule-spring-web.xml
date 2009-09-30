@@ -125,9 +125,9 @@
           <term>simple-persist</term>
 
           <listitem>
-            <para>Ce module contient les <acronym>DAO</acronym> (Data Access Objects) qui permettent 
+            <para>Ce module contient les <acronym>DAO</acronym>s (Data Access Objects) qui permettent
             de stocker les objets <classname>Weather</classname> dans la base de données.
-            Ces <acronym>DAO</acronym> seront utilisés par les deux applications de ce projet mutltimodule.
+            Ces <acronym>DAO</acronym>s seront utilisés par les deux applications de ce projet mutltimodule.
             Ils permettront également de faire le lien avec les objets du modèle du module <varname>simple-model</varname>. 
             Le module <varname>simple-persist</varname> a donc une dépendance directe avec le module <varname>simple-model</varname>
             et une dépendance avec <acronym>JAR</acronym> contenant les Annotations Hibernate. 
@@ -776,7 +776,7 @@ public class WeatherService {
         <secondary>Module de Persistance Simple de</secondary>
       </indexterm> est un objet qui fournit une interface aux opérations de persistances.
     Dans une application qui utilise un framework de mapping ORM (Object-Relational Mapping) comme Hibernate, un DAO est défini autour d'un objet.
-    Dans ce projet, nous définissons deux objets DAO :  <varname role="keep-together">WeatherDAO</varname> et <varname>LocationDAO</varname>.
+    Dans ce projet, nous définissons deux objets DAOs :  <varname role="keep-together">WeatherDAO</varname> et <varname>LocationDAO</varname>.
     La classe <varname>WeatherDAO</varname> nous permet de sauvegarder un objet <varname>Weather</varname> dans la base de données,
     de le récupérer à partir de son <literal>id</literal> ou d'une <varname>Location</varname> spécifique.
     Le DAO <varname>LocationDAO</varname> contient une méthode qui permet la récupération d'un objet <varname>Location</varname> à partir d'un code postal. 
