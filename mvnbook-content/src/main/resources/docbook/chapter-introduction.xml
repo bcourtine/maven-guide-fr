@@ -180,7 +180,7 @@
 
         <listitem>
           <para>Les plugins contiennent toute la logique de traitement. Ils s'appuient sur les données et paramètres de
-          configuration définit dans le Project Object Model (<acronym>POM</acronym>) Ils ne sont pas conçus pour
+          configuration définit dans le Project Object Model (<acronym>POM</acronym>). Ils ne sont pas conçus pour
           fonctionner avec des fichiers spécifiques à des endroits connus.</para>
         </listitem>
       </varlistentry>
