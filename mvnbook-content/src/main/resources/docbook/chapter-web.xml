@@ -305,7 +305,7 @@ simple-webapp/target/classes
       dépôt local était stocké dans le répertoire <filename>"C:\Documents and Settings\&lt;user&gt;"</filename>.
       La solution pour régler ce problème est de déplacer votre repository local Maven dans un répertoire qui ne contient pas d'espaces
       et de redéfinir l'emplacement de votre repository local dans le fichier <filename>~/.m2/settings.xml</filename> 
-      comme décrit dans l'<xref linkend="appendix-settings-sect-simpleval" />.</para>
+      comme décrit dans la <xref linkend="appendix-settings-sect-simpleval" />.</para>
     </warning>  
       
 
