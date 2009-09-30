@@ -301,13 +301,13 @@ public class WeatherService {
     <varname>simple-weather</varname>.</para>
 
     <para>La méthode <methodname>retrieveForecast()</methodname> prend une 
-    chaîne de caractère contenant un code postal en paramètre. Celui-ci est 
+    chaîne de caractères contenant un code postal en paramètre. Celui-ci est 
     passé à la méthode <methodname>retrieve()</methodname> de la classe 
     <classname>YahooRetriever</classname> qui retournera un flux <acronym>XML</acronym>
     provenant de Yahoo! Météo. Ce même <acronym>XML</acronym> est ensuite passé 
     à la méthode <methodname>parse()</methodname> de la classe <classname>YahooParser</classname> 
     qui transforme le flux et le retourne sous la forme d'un objet <classname>Weather</classname>.
-    Ce dernier est ensuite formaté sous la forme d'une chaîne de caractère présentable 
+    Ce dernier est ensuite formaté sous la forme d'une chaîne de caractères présentable 
     par la classe <classname>WeatherFormatter</classname>.</para> 
    
   </section>
