@@ -221,7 +221,7 @@
       </indexterm><indexterm class="startofrange" id="enterprise2d">
         <primary>projet d'enterprise, multimodule (exemple)</primary>
         <secondary>projet parent simple</secondary>
-      </indexterm> un fichier <filename>pom.xml</filename> qui référencie cinq sous-modules :
+      </indexterm> un fichier <filename>pom.xml</filename> qui référence cinq sous-modules :
     <varname>simple-command</varname>,
     <varname>simple-model</varname>, <varname>simple-weather</varname>,
     <varname>simple-persist</varname>, et <varname>simple-webapp</varname>.
