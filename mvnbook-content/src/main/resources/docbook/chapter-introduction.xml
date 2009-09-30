@@ -92,7 +92,7 @@
     <ulink url="http://servicemix.apache.org">Apache ServiceMix</ulink> depuis Subversion et le construire à partir de
     ses sources, vous deviez passer plus d'une heure à essayer de comprendre comment fonctionnait le système de build de
     chacun de ces projets. De quoi a t'on besoin pour construire ce projet ? Quelles bibliothèques dois-je télécharger ?
-    Ensuite, où dois-je les mettre ? Quelles tâches dois je exécuter dans le build ? Dans le meilleur des cas, il
+    Ensuite, où dois-je les mettre ? Quelles tâches dois-je exécuter dans le build ? Dans le meilleur des cas, il
     fallait quelques minutes pour comprendre comment construire un logiciel, dans le pire (par exemple l'antique
     implémentation de l'API Servlet du projet Jakarta), construire le logiciel était si complexe qu'il fallait plusieurs
     heures à un nouveau contributeur pour pouvoir modifier le code source et compiler le projet. De nos jours, il suffit
