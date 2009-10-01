@@ -467,8 +467,8 @@ public class Weather {
           Son annotation <classname>@ManyToOne</classname> vous assure que tous les objets <classname>Weather</classname> qui possèdent la même <classname>Location</classname>   
           pointent effectivement vers les mêmes instances.
           L'attribut <varname>cascade</varname> de l'annotation 
-          <classname>@ManyToOne</classname> permet d'assurer qu'à chaque objet <classname>Location</classname> persisté
-          corresponde un objet <classname>Weather</classname> également persisté.</para>
+          <classname>@ManyToOne</classname> permet d'assurer qu'un objet <classname>Location</classname> est persisté 
+          chaque fois qu'un objet <classname>Weather</classname> est persisté.</para>
         </listitem>
       </varlistentry>
 
