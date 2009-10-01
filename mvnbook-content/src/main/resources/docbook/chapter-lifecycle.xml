@@ -1007,7 +1007,7 @@ jdbc.password=
 &lt;/build&gt;</programlisting>
       </example>
 
-      <para>Lorsque vous construisez un projet qui produit une application en ligne de commandes ou console,
+      <para>Lorsque vous construisez un projet qui produit une application en ligne de commande ou console,
       vous voudrez souvent écrite des scripts shell que vous voulez référencer dans le <acronym>JAR</acronym> produit par un build.
       Quand vous utilisez le plugin Assembly pour distribuer votre application via un <acronym>ZIP</acronym> ou un <acronym>TAR</acronym>,
       vous pouvez placer tous vos scripts dans un répertoire du type <filename>src/main/command</filename>.

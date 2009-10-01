@@ -714,7 +714,7 @@ public class WeatherService {
     <para>Pour finir, ce projet contient un fichier <acronym>XML</acronym> utilisé par Spring pour créer quelque chose appelé<indexterm>
         <primary>ApplicationContext (Spring Framework)</primary>
       </indexterm> <classname>ApplicationContext</classname> dont voici le fonctionnement :  
-    nos applications web et en ligne de commandes ont besoin d'interagir avec le service 
+    nos applications web et en ligne de commande ont besoin d'interagir avec le service 
     <classname>WeatherService</classname>, pour cela elles récupèrent une instance de cette classe par l'intermédiaire 
     de l'<classname>ApplicationContext</classname> Spring en utilisant le nom de bean <varname>weatherService</varname>. 
     Notre application web utilise un contrôleur Spring <acronym>MVC</acronym>, celui-ci est associé à une instance du service <classname>WeatherService</classname>.
