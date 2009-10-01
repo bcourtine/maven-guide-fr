@@ -972,7 +972,7 @@ public class WeatherDAO extends HibernateDaoSupport <co
 
       <callout arearefs="coDef-hibDao-3" id="coRef-hibDao-3">
         <para>De la même manière, la méthode <methodname>load()</methodname> se contente d'appeler la méthode du même nom de l'instance <classname>HibernateTemplate</classname>.
-        Cette méthode prent un objet <classname>Class</classname> et un <classname>Serializable</classname> en paramètre.
+        Cette méthode prend un objet <classname>Class</classname> et un <classname>Serializable</classname> en paramètres.
         Dans notre exemple, l'objet <classname>Serializable</classname> correspond à la valeur de <varname>id</varname> de l'objet <classname>Weather</classname> à charger.</para>
       </callout>
 
