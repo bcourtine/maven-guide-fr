@@ -964,8 +964,8 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       de test.</para>
 
       <para>Sur ce site, vous noterez que des rapports par défaut sont disponibles. Un rapport de test fournit les
-      succès et les échecs de l'ensemble des tests unitaires du projet. Un autre rapport produit la javadoc pour l'
-      <acronym>API</acronym> du projet. Maven fournit un ensemble de rapports configurables, comme le rapport Clover qui
+      succès et les échecs de l'ensemble des tests unitaires du projet. Un autre rapport produit la javadoc pour
+      l'<acronym>API</acronym> du projet. Maven fournit un ensemble de rapports configurables, comme le rapport Clover qui
       examine la couverture des tests unitaires, le rapport <acronym>JXR</acronym> qui produit des listings de source
       code en <acronym>HTML</acronym> avec des références croisées, utile pour les revues de code, le rapport
       <acronym>PMD</acronym> qui analyse le code source à la recherche de différentes erreurs de codage, et le rapport

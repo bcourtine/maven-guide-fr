@@ -213,8 +213,8 @@ OS name: "mac os x" version: "10.5.6" arch: "i386" Family: "unix"</screen>
         <para>Avez-vous déjà acheté un disque dur de 200 Go pour vous rendre compte qu'une fois installé il faisait
         moins de 200 GiB ? Les ordinateurs fonctionnent en Gibibytes, mais les boutiques vendent des produits en
         Gigaoctets. MiB représente des Mebibyte soit 2 <superscript>20</superscript> ou 1024
-        <superscript>2</superscript>. Ces mesures standardisées sont validées et reconnues par l'
-        <acronym>IEEE</acronym>, le <acronym>CIPM</acronym>, et l' <acronym>IEC</acronym>. Pour plus d'informations sur
+        <superscript>2</superscript>. Ces mesures standardisées sont validées et reconnues par 
+        l'<acronym>IEEE</acronym>, le <acronym>CIPM</acronym>, et l'<acronym>IEC</acronym>. Pour plus d'informations sur
         Kibibytes, Mebibytes, Gibibytes, et Tebibytes, lisez <ulink
         url="http://en.wikipedia.org/wiki/Mebibyte">http://en.wikipedia.org/wiki/Mebibyte </ulink>,</para>
       </footnote></para>
