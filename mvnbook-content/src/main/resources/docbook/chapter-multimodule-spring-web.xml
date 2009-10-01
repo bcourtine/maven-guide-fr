@@ -1169,7 +1169,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
       </indexterm><indexterm class="startofrange" id="enterprise6c">
         <primary>projet d'enterprise, multimodule (exemple)</primary>
         <secondary>Simple Application Web</secondary>
-      </indexterm>Ce projet va définir deux contrôleurs Spring <acronym>MVC</acronym> : 
+      </indexterm> Ce projet va définir deux contrôleurs Spring <acronym>MVC</acronym> : 
     <classname>WeatherController</classname> et <classname role="keep-together">HistoryController</classname>. 
     Ces deux contrôleurs vont référencer les composants des modules <varname>simple-weather</varname> et <varname>simple-persist</varname>.
     Le conteneur Spring est configuré dans le fichier <filename>web.xml</filename> de l'application web, celui-ci réfère le fichier
