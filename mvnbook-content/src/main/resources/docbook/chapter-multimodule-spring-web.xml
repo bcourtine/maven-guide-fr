@@ -1054,7 +1054,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
     Le bean <varname>sessionFactory</varname> est le bean par lequel les <acronym>DAO</acronym>s pourront récupérer les <classname>Session</classname> Hibernate.   
     Ce bean est une instance de la classe <classname>AnnotationSessionFactoryBean</classname> et fournit une liste d'<varname>annotatedClasses</varname>.
     Notez que cette liste de classes annotées est la liste des classes définies dans le module <varname>simple-model</varname>.
-    Ensuite, la <varname>sessionFactory</varname> est configurée par l'intermédiaire d'une liste de propriétés Hibernate de configuration (<varname>hibernateProperties</varname>).
+    Ensuite, la <varname>sessionFactory</varname> est configurée par l'intermédiaire d'une liste de propriétés de configuration Hibernate (<varname>hibernateProperties</varname>).
     Dans cet exemple, nous utilisons les propriétés Hibernate suivantes :</para>
 
     <variablelist>
