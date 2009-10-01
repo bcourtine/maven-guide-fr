@@ -164,7 +164,7 @@
       <filename>maven-${maven.version}-uber.jar</filename> dans le répertoire <filename>\${M2_HOME}/lib</filename>. Si
       vous regardez ce fichier <acronym>JAR</acronym>, vous y trouverez un fichier <filename>pom-4.0.0.xml</filename>
       dans le package <package>org.apache.maven.project </package>. Le Super <acronym>POM</acronym> de Maven est
-      présenté dans l' <xref linkend="ex-super-pom" />.</para>
+      présenté dans l'<xref linkend="ex-super-pom" />.</para>
 
       <example id="ex-super-pom">
         <title>Le Super POM</title>
@@ -364,7 +364,7 @@
       <command moreinfo="none">mvn site</command>, vous n'avez rien à configurer. Vous n'avez besoin, dans ce cas, que
       du <acronym>POM</acronym> le plus simple possible, tel celui présenté dans <xref linkend="ex-simplest-pom" />. Ce
       <acronym>POM</acronym> définit un <varname>groupId</varname>, un <varname>artifactId</varname>, et une
-      <varname>version</varname> : les trois coordonnées exégées pour tout projet.</para>
+      <varname>version</varname> : les trois coordonnées exigées pour tout projet.</para>
 
       <example id="ex-simplest-pom">
         <title>Le POM le plus simple possible</title>
@@ -504,82 +504,87 @@
         <para>Maven doit en théorie considèrer le nombre après le qualifieur comme le numéro du build. En d'autres
         termes, le qualifieur devrait être "alpha", et le numéro du build 2. Même si Maven a été conçu pour séparer le
         numéro du build du qualifieur, cette fonctionnalité ne fonctionne pas actuellement. En conséquence, "alpha-2" et
-        "alpha-10" sont comparés en tant que chaînes, et donc "alpha-10" arrive avant "alpha-2" alphabétiquement. To get
-        around this limitation, you will need to left-pad your qualified build numbers. If you use "alpha-02" and
-        "alpha-10" this problem will go away, and it will continue to work once Maven properly parses the version build
-        number.</para>
+        "alpha-10" sont comparés en tant que chaînes, et donc "alpha-10" arrive avant "alpha-2" alphabétiquement. Pour
+        contourner cette limitation, vous devez compléter à gauche vos numéros de version de build qualifiés. Si vous
+        utilisez "alpha-02" et "alpha-10" vous n'aurez plus ce problème, et tout contniuera à bien onctionner le jour où
+        Maven traitera correctement les numéros de version de build.</para>
       </section>
 
       <section id="pom-relationships-sect-snapshot-versions">
-        <title>SNAPSHOT Versions</title>
+        <title>Les version SNAPSHOT</title>
 
-        <para>Maven versions can contain a string literal to signify that a <indexterm>
+        <para>Les numéros de versions dans Maven peuvent contenir une chaîne de caractères pour indiquer que le
+        <indexterm>
             <primary>snapshot versions</primary>
-          </indexterm>project is currently under active development. If a version contains the string “SNAPSHOT,” then
-        Maven will expand this token to a date and time value converted to <acronym>UTC</acronym> (Coordinated Universal
-        Time) when you install or release this component. For example, if your project has a version of “1.0-SNAPSHOT”
-        and you deploy this project’s artifacts to a Maven repository, Maven would expand this version to
-        “1.0-20080207-230803-1” if you were to deploy a release at 11:08 PM on February 7th, 2008
-        <acronym>UTC</acronym>. In other words, when you deploy a snapshot, you are not making a release of a software
-        component; you are releasing a snapshot of a component at a specific time.</para>
+          </indexterm>projet est en cours de développement. Si une version contient la chaîne “SNAPSHOT”, alors Maven va
+        prendre en compte cette clef et la convertir en une valeur de type date et heure au format
+        <acronym>UTC</acronym> (Coordinated Universal Time) quand vous installez ou publiez ce composant. Par exemple,
+        si votre projet est en version “1.0-SNAPSHOT” et que vous déployez ses artefacts sur un dépôt Maven, Maven va
+        alors convertir cette version en “1.0-20080207-230803-1” si vous réaliser votre déploiement le 7 Février 2008 à
+        23:08 <acronym>UTC</acronym>. En d'autres mots, quand vous déployer un snapshot, vous ne livrez pas un composant
+        logiciel ; vous livrez une photo d'un composant à un instant donné.</para>
 
-        <para>Why would you use this? SNAPSHOT versions are used for projects under active development. If your project
-        depends on a software component that is under active development, you can depend on a SNAPSHOT release, and
-        Maven will periodically attempt to download the latest snapshot from a repository when you run a build.
-        Similarly, if the next release of your system is going to have a version "1.4", your project would have a
-        version "1.4-SNAPSHOT" version until it was formally released.</para>
+        <para>Pourquoi utiliser cette fontionnalité ? Les versions SNAPSHOT sont utilisées pour les projets en cours de
+        développement. Si votre projet dépend d'un composant logiciel en cours de développement, vous pouvez dépendre
+        d'une version SNAPSHOT, Maven essayera alors de télécharger périodiquement la dernière version snapshot du dépôt
+        lorsque vous lancerez votre build. De la même manière, si la prochaine livraison de votre système sera en
+        version "1.4", tant que votre projet n'est pas livré définitivement il devrait être en version
+        "1.4-SNAPSHOT".</para>
 
-        <para>As a default setting, Maven will not check for SNAPSHOT releases on remote repositories, to depend on
-        SNAPSHOT releases, users must explicitly enable the ability to download snapshots using a
-        <sgmltag>repository</sgmltag> or <sgmltag>pluginRepository</sgmltag> element in the
-        <acronym>POM</acronym>.</para>
+        <para>Par défaut, Maven ne va pas vérifier la présence de versions SNAPSHOT sur les dépôts distants, pour
+        pouvoir dépendre de versions SNAPSHOT les utilisateurs doivent donc activer explicitement le téléchargement des
+        snapshots au travers des balises XML <sgmltag>repository</sgmltag> ou <sgmltag>pluginRepository</sgmltag> dans
+        le <acronym>POM</acronym>.</para>
 
-        <para>When releasing a project you should resolve all dependencies on SNAPSHOT versions to dependencies on
-        released versions. If a project depends on a SNAPSHOT, it is not stable as the dependencies may change over
-        time. Artifacts published to non-snapshot Maven repositories such as <ulink
-        url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2</ulink> cannot depend on SNAPSHOT versions, as
-        Maven's Super <acronym>POM</acronym> has snapshot's disabled from the Central repository. SNAPSHOT versions are
-        for development only.</para>
+        <para>Lorsque vous livrez un projet vos devriez remplacer toutes vos dépendances sur des versions SNAPSHOT par
+        des dépendances vers des versions de projets livrés. Si un projet dépend d'un SNAPSHOT, il n'est pas stable car
+        ses dépendances peuvent évoluer dans le temps. Les artefcts publiés sur les dépôts Maven stables comme <ulink
+        url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2</ulink> ne peuvent pas dépendre de versions
+        SNAPSHOT, le Super <acronym>POM</acronym> de Maven désactive la publication de snapshots sur le dépôt Central.
+        Les versions SNAPSHOT sont utilisées uiquement pour le développement.</para>
       </section>
 
       <section id="pom-relationships-sect-latest-release">
-        <title>LATEST and RELEASE Versions</title>
+        <title>Les versions LATEST et RELEASE</title>
 
-        <para>When you depend on a plugin or a dependency, you can use the a version value of LATEST or RELEASE. LATEST
-        refers to the latest released or snapshot version of a particular artifact, the most recently deployed artifact
-        in a particular repository. RELEASE refers to the last non-snapshot release in the repository. In general, it is
-        not a best practice to design software which depends on a non-specific version of an artifact. If you are
-        developing software, you might want to use RELEASE or LATEST as a convenience so that you don't have to update
-        version numbers when a new release of a third-party library is released. When you release software, you should
-        always make sure that your project depends on specific versions to reduce the chances of your build or your
-        project being affected by a software release not under your control. Use LATEST and RELEASE with caution, if at
-        all.</para>
+        <para>Quand vous dépendez d'un plugin ou d'une bibliothèque, vous pouvez utiliser LATEST ou RELEASE comme
+        numéroe de version. LATEST indique que la version correspond à la dernière version déployée d'un artefact sur un
+        dépôt particulier, qu'il s'agisse d'une version stable ou d'une version snapshot. RELEASE indique la dernière
+        version stable déployée sur le dépôt. En général, dépendre d'une version explicitée d'un artefact n'est pas une
+        bonne pratique. Si vous êtes en train de développer un logiciel, vous pouvez être amené à utiliser RELEASE ou
+        LATEST comme une facilité pour ne pas à mettre à jour les numéros de version lorsqu'une bibliothèque tierce est
+        déployée. Quand vous livrer un logiciel, vous devriez toujours vous assurer que votre projet dépend de versions
+        spéciques pour limiter l'impact sur votre build d'un déploiement d'artefacts hors de votre controle. Utilisez
+        donc LATEST et RELEASE prudemment, voire pas du tout.</para>
 
-        <para>Starting with Maven 2.0.9, Maven locks down the version numbers of common and core Maven plugins in the
-        super POM to standardize a core set of Maven plugins for a particular version of Maven. This change was
-        introduced to Maven 2.0.9 to bring stability and reproducibility to Maven builds. Before Maven 2.0.9, Maven
-        would automatically update core Maven plugins using the LATEST version. This behavior led to a number of
-        surprises when bugs was introduced into core plugins or functionality changed in a core plugin which
-        subsequently broke a build. When Maven automatically updated core plugins, it was noted that there was little
-        guarantee that a build would be reproducible as plugins could be updated whenever a new version was pushed to
-        the central repository. Starting with Maven 2.0.9, Maven, essentially, ships with a core set of locked down
-        plugin versions. Non-core plugins, or plugins without versions assigned in the Super POM will still use the
-        LATEST version to retrieve a plugin artifact from the repository. It is for this reason that you should assign
-        explicit version numbers to any custom or non-core plugins used in your build.</para>
+        <para>Depuis la version 2.0.9 de Maven, les numéros de version des plugins qui constituent le cœur de Maven sont
+        fixés dans le super POM pour lier un ensemble des principaux plugins de Maven à une version de Maven. Ce
+        changement a été introduit à partir de la version 2.0.9 de Maven pour apporter de la stabilité et de la
+        reproductibilité aux builds Maven. Avant Maven 2.0.9, Maven mettait automatiqument à jour les principaux plugins
+        en utilisant la version LATEST. Ce comportement apportait son lot de surprises quand des bugs apparaissaient
+        dans les plugin du cœur ou que leurs fonctionnement avaient changé ce qui faisait échouer le build. Quand Maven
+        mettait automatiquement à jour ses plugins principaux, il n'y avait aucune garantie que les builds soient
+        reproductibles puisque des plugins pouvaient avoir changé suite àau déploiement d'une nouvelle version sur le
+        dépôt centrel. Depuis Maven 2.0.9, Maven, essentially, est livré avec des versions fixes des principaux plugins.
+        Les plugins qui ne constituent pas le cœur de Maven ou dont le numéro de version n'est pas défini dans le Super
+        POM, seront considérés comme utilisant la version LATEST lors de la récupération de leurs artefacts depuis le
+        dépôt. C'est pour cette raison que vous devriez explicitement définir les numéros de version pour tous les
+        plugins de votre build, qu'ils vous soient propres ou qu'ils ne fassent pas partie des principaux plugins de
+        Maven.</para>
       </section>
     </section>
 
     <section id="pom-relationships-sect-property-refs">
-      <title>Property References</title>
+      <title>Référence à une propriété</title>
 
-      <para>A <acronym>POM</acronym> can include references to properties <indexterm>
+      <para>Un <acronym>POM</acronym> peut contenir des références à des propriétés<indexterm>
           <primary>properties</primary>
 
           <secondary>referencing in pom.xml</secondary>
         </indexterm><indexterm>
           <primary>references to properties, in pom.xml</primary>
-        </indexterm>preceded by a dollar sign and surrounded by two curly braces. For example, consider the following
-      <acronym>POM</acronym>:</para>
+        </indexterm>, elles sont précédées par le signe dollar et entourées par des accolades. Par exemple, regardons le
+      <acronym>POM</acronym> suivant :</para>
 
       <programlisting language="xml">&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -592,18 +597,19 @@
   &lt;/build&gt;
 &lt;/project&gt;</programlisting>
 
-      <para>If you put this <acronym>XML</acronym> in a <filename>pom.xml</filename> and run <command>mvn
-      help:effective-pom</command>, you will see that the output contains the line:</para>
+      <para>Si vous écrivez ce <acronym>XML</acronym> dans un <filename>pom.xml</filename> et que vous exécutiez la
+      commande <command>mvn help:effective-pom</command>, vous verrez le message suivant sur la sortie standard :</para>
 
       <programlisting language="xml">...
 &lt;finalName&gt;org.sonatype.mavenbook-project-a&lt;/finalName&gt;
 ...</programlisting>
 
-      <para>When Maven reads a <acronym>POM</acronym>, it replaces references to properties when it loads the
-      <acronym>POM</acronym> <acronym>XML</acronym>. Maven properties occur frequently in advanced Maven usage, and are
-      similar to properties in other systems such as Ant or Velocity. They are simply variables delimited by
-      <varname>\${...</varname><varname>}</varname>. Maven provides three implicit variables which can be used to access
-      environment variables, <acronym>POM</acronym> information, and Maven Settings:</para>
+      <para>Quand Maven lit un <acronym>POM</acronym>, il remplace les références à des propriétés lorsqu'il charge le
+      <acronym>XML</acronym> du <acronym>POM</acronym> . On rencontre fréquemment des propriétés dans un usage avancé de
+      Maven. Ces propriétés sont similaires à celles que l'on trouve dans d'autres systèmes comme Ant ou Velocity. Il
+      s'agit tout simplement de variabls délimitées par <varname>\${...</varname><varname>}</varname>. Maven fournit
+      trois variables implicites qui peuvent être utilisées pour accéder aux variables d'environnement, aux informations
+      du<acronym>POM</acronym>, and Maven Settings:</para>
 
       <variablelist>
         <varlistentry>
