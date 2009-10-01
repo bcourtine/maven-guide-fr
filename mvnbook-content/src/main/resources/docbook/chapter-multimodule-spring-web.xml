@@ -843,7 +843,8 @@ public class WeatherService {
 </programlisting>
     </example>
 
-    <para>Ce <acronym>POM</acronym> référence le <acronym>POM</acronym> du module <varname>simple-parent</varname> en <acronym>POM</acronym> parent et définit quelques dépendances. 
+
+    <para>Ce <acronym>POM</acronym> référence celui du module <varname>simple-parent</varname> en <acronym>POM</acronym> parent et définit quelques dépendances. 
     Les dépendances listées dans le <acronym>POM</acronym> du module <varname>simple-persist</varname> sont :</para>
 
     <variablelist>
