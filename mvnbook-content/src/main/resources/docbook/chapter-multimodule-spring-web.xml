@@ -1088,7 +1088,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
         <primary>plugin Maven Hibernate3</primary>
       </indexterm><indexterm>
         <primary>plugin Hibernate3</primary>
-      </indexterm> comment nous pouvons utiliser le plugin Maven Hibernate3 pour générer notre schéma de base de données à partir des objets annotées du modèle.  
+      </indexterm> comment nous pouvons utiliser le plugin Maven Hibernate3 pour générer notre schéma de base de données à partir des objets annotés du modèle.  
     Pour cela, le plugin Maven Hibernate3 a besoin de récupérer les paramètres de connexion <acronym>JDBC</acronym>, 
     la liste des classes annotées et un autre fichier de configuration nommé<indexterm>
         <primary>fichier hibernate.cfg.xml</primary>
