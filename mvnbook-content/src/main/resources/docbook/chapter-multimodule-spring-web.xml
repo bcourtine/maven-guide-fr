@@ -619,7 +619,7 @@ public class Condition {
 </programlisting>
     </example>
 
-    <para>Le POM du module <varname>simple-weather</varname> <acronym>POM</acronym> étend
+    <para>Le POM du module <varname>simple-weather</varname> étend
     celui du  <varname>simple-parent</varname>, configure le type de packaging en <varname>jar</varname>, et ajoute les dépendances suivantes :</para>
 
     <variablelist>
