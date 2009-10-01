@@ -662,7 +662,7 @@ public class Condition {
     Cette classe ressemble beaucoup au service <classname>WeatherService</classname> du <xref linkend="multimodule-weather-service" />.
     Bien qu'ils aient le même nom, le service de cet exemple comporte quelques légères différences.
     Dans cette version, la méthode <methodname>retrieveForecast()</methodname> retourne un objet <classname>Weather</classname>
-    et le formattage est délégué à l'application appelant le service <classname>WeatherService</classname>.
+    et le formatage est délégué à l'application appelant le service <classname>WeatherService</classname>.
     L'autre modification majeure concerne les classes <classname>YahooRetriever</classname> et <classname>YahooParser</classname>, 
     qui sont maintenant des propriétés du service <classname>WeatherService</classname>.</para> 
 
