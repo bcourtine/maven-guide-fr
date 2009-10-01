@@ -256,8 +256,8 @@
       </indexterm> Le POM parent du module
     <varname>simple-weather</varname> est identifié par un
     <varname>groupId</varname> avec pour valeur
-    <varname>org.sonatype.mavenbook.multi</varname>, par l'
-    <varname>artifactId</varname> <varname>simple-parent</varname>, et par la 
+    <varname>org.sonatype.mavenbook.multi</varname>, par l'<varname>artifactId</varname>
+    <varname>simple-parent</varname>, et par la
     <varname>version</varname> <varname>1.0</varname>. Consultez l'<xref
     linkend="multimodule-weather-service" />.</para>
 

@@ -640,8 +640,8 @@
 
     <para>Comment fait le plugin Maven Dependency pour trouver ces problèmes ? Comment <varname
     role="keep-together">dependency:</varname><varname role="keep-together">analyze</varname> sait-il à quelles classes
-    et à quelles dépendances le bytecode de votre projet fait référence ? Le plugin Dependency utilise l'outil ASM d'
-    ObjectWeb (<ulink url="http://asm.objectweb.org/">http://asm.objectweb.org/</ulink>) <indexterm>
+    et à quelles dépendances le bytecode de votre projet fait référence ? Le plugin Dependency utilise l'outil ASM
+    d'ObjectWeb (<ulink url="http://asm.objectweb.org/">http://asm.objectweb.org/</ulink>) <indexterm>
         <primary>ObjectWeb ASM toolkit</primary>
       </indexterm><indexterm>
         <primary>bytecode analysis (Dependency plugin)</primary>
