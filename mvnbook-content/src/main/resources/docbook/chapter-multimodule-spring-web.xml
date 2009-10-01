@@ -1328,7 +1328,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
         <para>Le plugin Maven Hibernate3 dispose de plusieurs moyens pour récupérer le mapping Hibernate en fonction du cas d'utilisation.
         Si vous utilisez des fichiers XML pour le Mapping Hibernate (<filename>.hbm.xml</filename>), 
         et que vous voulez générer les classes de votre modèle par l'intermédiaire du goal <literal>hbm2java</literal>,
-        vous devez montrer votre implémentation à la configuration.
+        vous devez indiquer votre implémentation à la configuration.
         Si vous utilisez le plugin Hibernate3 en reverse engineering pour générer les fichiers <filename>.hbm.xml</filename> 
         et les objets du modèle à partir d'une base de données existante, vous voudrez utiliser l'implémentation <literal>jdbcconfiguration</literal>.   
         Dans notre exemple, nous utilisons simplement les objets annotés du modèle pour générer la base de données.        
