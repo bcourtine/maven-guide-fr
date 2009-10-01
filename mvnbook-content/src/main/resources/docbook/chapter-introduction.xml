@@ -27,7 +27,7 @@
     peut alors lui appliquer la logique transverse d'un ensemble de plugins (partagés ou spécifiques).</para>
 
     <para>Ne vous laissez pas impressionner par le fait que Maven est un "outil de gestion de projet". Si vous cherchiez
-    juste un outil de build alors Maven restera l'homme de la situation. D'ailleurs, les premiers chapitres de ce livre
+    juste un outil de build alors Maven reste avant tout adapté à la situation.. D'ailleurs, les premiers chapitres de ce livre
     vont traiter le cas d'utilisation le plus courant : l'utilisation de Maven pour construire et distribuer votre
     projet.</para>
   </section>
@@ -53,7 +53,7 @@
     Maven suppose que vous voulez compiler en bytecode dans <filename>\${basedir}/target/classes</filename> et ensuite
     créer votre fichier <acronym>JAR</acronym> distribuable dans <filename>\${basedir}/target</filename>. Même si tout
     cela peut sembler trivial, n'oubliez pas que pour la plupart des scripts Ant vous devez définir les emplacements de
-    ces différents répertoires. Ant n'a pas la moindre idée d'où se trouve le code source et les différentes ressources;
+    ces différents répertoires. Ant n'a pas la moindre idée d'où se trouve le code source et les différentes ressources,
     vous devez le lui indiquer. L'adoption par Maven de ce principe de convention plutôt que configuration va plus loin
     que les répertoires, les plugins au cœur de Maven appliquent un ensemble de conventions pour compiler le code
     source, packager les éléments à distribuer, produire des sites web, et bien d'autres traitements. La force de Maven
@@ -92,11 +92,11 @@
     <ulink url="http://servicemix.apache.org">Apache ServiceMix</ulink> depuis Subversion et le construire à partir de
     ses sources, vous deviez passer plus d'une heure à essayer de comprendre comment fonctionnait le système de build de
     chacun de ces projets. De quoi a t'on besoin pour construire ce projet ? Quelles bibliothèques dois-je télécharger ?
-    Ensuite, où dois-je les mettre ? Quelles tâches dois je exécuter dans le build ? Dans le meilleur des cas, il
+    Ensuite, où dois-je les mettre ? Quelles tâches dois-je exécuter dans le build ? Dans le meilleur des cas, il
     fallait quelques minutes pour comprendre comment construire un logiciel, dans le pire (par exemple l'antique
     implémentation de l'API Servlet du projet Jakarta), construire le logiciel était si complexe qu'il fallait plusieurs
     heures à un nouveau contributeur pour pouvoir modifier le code source et compiler le projet. De nos jours, il suffit
-    de récupérer le source et d'exécuter la commande <command>mvn install </command>.</para>
+    de récupérer le source et d'exécuter la commande <command>mvn install</command>.</para>
 
     <para>Même si Maven fournit tout un ensemble d'avantages, dont la gestion des dépendances et la réutilisation de
     comportements communs de build par ses plugins, la raison principale de son succès vient de la création d'une
@@ -112,9 +112,10 @@
     <para>Le cœur de Maven est assez stupide, il ne sait pas faire grand-chose à part parser quelques documents
     <acronym>XML</acronym> et garder les traces d'un cycle de vie et de quelques plugins. Maven a été conçu pour
     déléguer la responsabilité du build à un ensemble de Plugins Maven qui vont affecter le Cycle de Vie de Maven et
-    fournir différentes actions : les goals. Avec Maven, tout se passe dans les goals des plugins, c'est là que le code
-    source est compilé, le bytecode est packagé, les sites sont publiés et que toute autre tâche nécessaire à votre build
-    se produit. Le Maven que vous téléchargez chez Apache n'y connaît rien en packaging de fichier
+    fournir différentes actions : les goals. Avec Maven, tout se passe dans les goals des plugins, 
+    c'est là que le code source est compilé, que le bytecode est packagé, 
+    que les sites sont publiés et que toute autre tâche nécessaire à votre build se produit.
+    Le Maven que vous téléchargez chez Apache n'y connaît rien en packaging de fichier
     <acronym>WAR</acronym> ou en exécution de tests JUnit ; la plus grande partie de l'intelligence de Maven se trouve
     dans les plugins, plugins qui sont récupérés du dépôt Maven. En effet, la première fois que vous exécutez une
     commande comme <command>mvn install</command> avec une installation de Maven vierge, elle récupère les plugins Maven
@@ -179,7 +180,7 @@
 
         <listitem>
           <para>Les plugins contiennent toute la logique de traitement. Ils s'appuient sur les données et paramètres de
-          configuration définit dans le Project Object Model (<acronym>POM</acronym>) Ils ne sont pas conçus pour
+          configuration définit dans le Project Object Model (<acronym>POM</acronym>). Ils ne sont pas conçus pour
           fonctionner avec des fichiers spécifiques à des endroits connus.</para>
         </listitem>
       </varlistentry>

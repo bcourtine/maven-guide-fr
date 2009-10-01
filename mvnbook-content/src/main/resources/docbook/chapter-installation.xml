@@ -8,7 +8,7 @@
   de supposer que vous sachiez comment installer un logiciel et définir des variables d'environnement, nous avons fait
   le choix d'être aussi détaillés que possible afin de réduire le nombre de problèmes que vous pourriez rencontrer suite
   à une installation partielle. La seule chose que nous allons supposer dans ce chapitre est que vous avez déjà installé
-  un <acronym>JDK</acronym> (Java Development Kit) approprié. Si vous n'êtes intéressés que par l'installation
+  un <acronym>JDK</acronym> (Java Development Kit) approprié. Si vous n'êtes intéressé que par l'utilisation  
   elle-même, vous pouvez passer à la suite du livre après avoir lu <xref linkend="installation-sect-maven-download"
   xrefstyle="select: title" /> et <xref linkend="installation-sect-maven-install" xrefstyle="select: title" />. Si vous
   vous intéressez aux détails de votre installation de Maven, ce chapitre y est entièrement consacré, et vous donne une
