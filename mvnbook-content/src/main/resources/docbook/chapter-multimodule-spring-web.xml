@@ -1295,7 +1295,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
       </callout>
 
       <callout arearefs="coDef-spring-web-2" id="coRef-spring-web-2">
-        <para>Le plugin Maven Jetty est utilisé de la mnière la plus simple qu'il soit dans<indexterm>
+        <para>Le plugin Maven Jetty est utilisé de la manière la plus simple qui soit dans<indexterm>
             <primary>plugin Maven Jetty</primary>
           </indexterm><indexterm>
             <primary>Jetty plugin</primary>
