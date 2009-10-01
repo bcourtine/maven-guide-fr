@@ -30,11 +30,11 @@ Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)</screen></p
     <para>Maven fonctionne avec tous les kits de développement Java <superscript>TM</superscript> certifiés compatibles,
     et également avec certaines implémentations de Java non certifiées. Les exemples fournis avec ce livre ont été
     écrits et testés avec les versions officielles du Java Development Kit téléchargées depuis le site internet de Sun
-    Microsystems. Si vous êtes sous Linux, vous pouvez avoir besoin de télécharger le <acronym>JDK</acronym> de Sun
+    Microsystems. Si vous êtes sous GNU/Linux, vous pouvez avoir besoin de télécharger le <acronym>JDK</acronym> de Sun
     vous-même et vérifier qu'il s'agit de la version que vous utilisez (en exécutant la commande <command>java -version
     </command>). Maintenant que Sun a mis Java en opensource, cela devrait s'améliorer et nous devrions rapidement
     trouver la <acronym>JRE</acronym> et le <acronym>JDK</acronym> de Sun par défaut même dans les distributions
-    puristes de Linux. En attendant ce jour, vous pouvez avoir à le télécharger.</para>
+    puristes de GNU/Linux. En attendant ce jour, vous pouvez avoir à le télécharger.</para>
   </section>
 
   <section id="installation-sect-maven-download">
@@ -167,9 +167,9 @@ C:\Users\tobrien &gt;<command>set PATH=%PATH%;%M2_HOME%\bin</command></screen>
     </section>
 
     <section id="installation-sect-maven-linux">
-      <title>Installer Maven sur Linux</title>
+      <title>Installer Maven sur GNU/Linux</title>
 
-      <para>Pour installer Maven sur une machine Linux, suivez la même procédure que <xref
+      <para>Pour installer Maven sur une machine GNU/Linux, suivez la même procédure que <xref
       linkend="installation-sect-maven-osx" />.</para>
     </section>
 
