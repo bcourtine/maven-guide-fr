@@ -303,7 +303,7 @@
     De la même manière, un système publiant des résultats sportifs pourrait contenir des objets <classname>Equipe</classname> et <classname>Match</classname>.
     Quoique vous fassiez, il est probable que vous ayez intégré les concepts de votre système dans un modèle objet.
     C'est pratique courante dans les projets Maven de séparer ce type de projet et de le référencer largement.
-    Dans notre système, nous capturons chaque requête du flux Yahoo! Météo dans un objet <classname>Weather</classname> qui référencie quatre autres objets.
+    Dans notre système, nous capturons chaque requête du flux Yahoo! Météo dans un objet <classname>Weather</classname> qui référence quatre autres objets.
     La direction, l'effet de froid relatif et la vitesse du vent sont stockées dans un objet <classname>Wind</classname>.
     Les données de localisation telles que le code postal, la ville, la région et le pays sont stockées dans la classe <classname>Location</classname>. 
     Les conditions atmosphériques telles que l'humidité, la visibilité, la pression barométrique et la tendance sont conservées dans une classe <classname>Atmosphere</classname>.         
@@ -751,7 +751,7 @@ public class WeatherService {
     <para>Ce fichier déclare trois beans : <varname>yahooParser</varname>, <varname>yahooRetriever</varname>, et <varname>weatherService</varname>.
     Le bean <varname>weatherService</varname> est une instance du service <classname>WeatherService</classname>. 
     Le <acronym>XML</acronym> configure également les propriétés <varname>yahooParser</varname> et <varname>yahooRetriever</varname> de ce bean.
-    Elles référencient deux instances nommées des classes en question.
+    Elles réfèrent deux instances nommées des classes en question.
     Vous pouvez comparer ce fichier <filename>applicationContext-weather.xml</filename> à la définition de l'architecture d'un sous-système de ce projet multimodule. 
     Certains projets comme <varname>simple-webapp</varname> et <varname>simple-command</varname> peuvent référencer ce contexte 
     et récupérer une instance du service <classname>WeatherService</classname> configurée avec des instances des classes <classname>YahooRetriever</classname> et <classname>YahooParser</classname> en propriété.</para>
@@ -1300,7 +1300,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
           </indexterm><indexterm>
             <primary>Jetty plugin</primary>
           </indexterm> ce projet.  
-          Nous ajoutons simplement la balise <literal>plugin</literal> qui référencie les bons <literal>groupId</literal> et <literal>artifactId</literal>.
+          Nous ajoutons simplement la balise <literal>plugin</literal> qui fait référence aux bons <literal>groupId</literal> et <literal>artifactId</literal>.
          Le fait que ce plugin soit facile à configurer signifie que les développeurs du plugin ont fait du bon travail
         en fournissant les valeurs par défaut adéquates pour la plupart des cas. 
         Si vous avez besoin de surcharger cette configuration, vous pouvez le faire en ajoutant une balise <literal>configuration</literal>.</para>  
@@ -1812,7 +1812,7 @@ Multi-Spring Chapter Simple Web Application
     Au lieu d'interagir avec l'application par l'intermédiaire d'un navigateur web, vous pourrez exécuter cet utilitaire à partir de la ligne de commande.</para>  
 
     <figure id="fig-multi-spring-command">
-      <title>Application en ligne de commande référençant simple-weather et simple-persist</title>
+      <title>Application en ligne de commande référence simple-weather et simple-persist</title>
 
       <mediaobject>
         <imageobject role="web">
