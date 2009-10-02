@@ -759,7 +759,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       </variablelist>
 
       <para>Ces quatre éléments sont la clef pour trouver et utiliser un projet particulier dans le vaste monde des
-      projets "Mavenisés". Les dépôts Maven (publiques,<indexterm>
+      projets "Mavenisés". Les dépôts Maven (publics,<indexterm>
           <primary>repositories</primary>
         </indexterm> <indexterm>
           <primary>Maven repositories</primary>
