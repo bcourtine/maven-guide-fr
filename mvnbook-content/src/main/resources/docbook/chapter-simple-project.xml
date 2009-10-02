@@ -630,7 +630,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         </figure></para>
 
       <para>Pour résumer, lorsque nous avons exécuté <command>mvn install</command>, Maven exécute toutes les phases
-      jusqu'à la phase <varname>install</varnme>, et pour cela il parcourt toutes les phases du cycle de vie, exécutant tous les goals
+      jusqu'à la phase <varname>install</varname>, et pour cela il parcourt toutes les phases du cycle de vie, exécutant tous les goals
       liés à chacune de ces phases. Au lieu d'exécuter une des phases du cycle de vie de Maven, vous pourriez obtenir le
       même résultat en spécifiant une liste de goals de plugin de la manière suivante :</para>
 
@@ -705,7 +705,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <term><varname>groupId</varname></term>
 
           <listitem>
-            <para>Le groupe, l'entreprise, l'équipe, l'oraganisation, le projet ou autre<indexterm>
+            <para>Le groupe, l'entreprise, l'équipe, l'organisation, le projet ou autre<indexterm>
                 <primary>groupId attribute (pom.xml)</primary>
               </indexterm> groupe. La convention pour les identifiants du groupe est qu'ils commencent par le nom de
             domaine inversé de l'organisation qui crée le projet. Les projets de Sonatype devrait avoir un
