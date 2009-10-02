@@ -1703,8 +1703,8 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
       <callout arearefs="coDef-spring-webx-5" id="coRef-spring-webx-5">
         <para>Nous définissons un <classname>DispatcherServlet</classname> de Spring <acronym>MVC</acronym> nommé <varname>weather</varname>.
         Cela forcera Spring à regarder dans le fichier <filename>/WEB-INF/weather-servlet.xml</filename>. 
-        Vous pouvez avoir autant de <classname>DispatcherServlet</classname>s que vous le désirez,
-        une <classname>DispatcherServlet</classname> peut contenir une ou plusieurs <classname>Controller</classname> Spring <acronym>MVC</acronym>.</para>
+        Vous pouvez avoir autant de <classname>DispatcherServlet</classname> que vous le désirez,
+        une <classname>DispatcherServlet</classname> peut contenir un ou plusieurs <classname>Controller</classname> Spring <acronym>MVC</acronym>.</para>
       </callout>
 
       <callout arearefs="coDef-spring-webx-6" id="coRef-spring-webx-6">
