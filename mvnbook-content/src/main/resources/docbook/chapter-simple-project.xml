@@ -131,11 +131,11 @@ package: org.sonatype.mavenbook.simple
       <co id="coDef-simple-fs-test" linkends="coRef-simple-fs-test" />/test/java
     </screen>
 
-    <para>Ce répertoire suit les recommandations de Disposition Maven Standard des Répertoires<indexterm>
+    <para>Ce répertoire suit les recommandations de Disposition Maven Standard des Répertoires.<indexterm>
         <primary>Standard Directory Layout</primary>
       </indexterm> <indexterm>
         <primary>Maven Standard Directory Layout</primary>
-      </indexterm>. Nous détaillerons cela plus tard dans ce chapitre, pour l'instant essayons de comprendre ces
+      </indexterm> Nous détaillerons cela plus tard dans ce chapitre, pour l'instant essayons de comprendre ces
     quelques <phrase role="keep-together">répertoires</phrase> :</para>
 
     <calloutlist>
