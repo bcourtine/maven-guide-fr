@@ -403,7 +403,7 @@ public class SimpleServlet extends HttpServlet {
     une servlet qui écrit un message simple sur le
     <classname>Writer</classname> de la réponse. Pour ajouter cette servlet à
     votre application web, et la faire correspondre à une requête, ajoutez les éléments
-    <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag> de l'exemple de <filename>web.xml</filename>
+    <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag> de l'<xref linkend="web-example-configuring-servlet" />
     dans le fichier<indexterm>
         <primary>web.xml file</primary>
 
@@ -416,7 +416,7 @@ public class SimpleServlet extends HttpServlet {
     <filename>web.xml</filename> se trouve dans
     <filename>src/main/webapp/WEB-INF</filename>.</para>
 
-    <example>
+    <example id="web-example-configuring-servlet">
       <title>Configurer la Servlet</title>
 
       <programlisting language="xml">&lt;!DOCTYPE web-app PUBLIC
