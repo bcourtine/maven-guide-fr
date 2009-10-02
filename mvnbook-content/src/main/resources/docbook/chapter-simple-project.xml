@@ -262,7 +262,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       </indexterm>les informations sur le projet. Le <acronym>POM</acronym> répond aux questions telles que : De quel
     type de projet s'agit-il ? Quel est le nom du projet ? Ce projet a-t-il été personnalisé ? L'<xref
     linkend="example_simple-project-pom" /> montre le fichier <filename>pom.xml</filename> par défaut créé par le goal
-    generate du plugin Maven Archetype.</para>
+    <varname>generate</varname> du plugin Maven Archetype.</para>
 
     <example id="example_simple-project-pom">
       <title>Fichier <filename>pom.xml</filename> du projet Simple</title>
