@@ -738,7 +738,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         </varlistentry>
       </variablelist>
 
-      <para>Le format de packaging est aussi un composant important des coordonnées Maven, mais il fait pas partie des
+      <para>Le format de packaging est aussi un composant important des coordonnées Maven, mais il ne fait pas partie des
       identifiants uniques d'un projet. L'ensemble
       <varname>groupId:</varname><varname>artifactId:</varname><varname>version</varname> d'un projet identifie de
       manière unique un projet ; vous ne pouvez pas avoir un projet avec les mêmes trois identifiants
