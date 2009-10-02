@@ -141,13 +141,13 @@ package: org.sonatype.mavenbook.simple
     <calloutlist>
       <callout arearefs="coDef-simple-fs-root" id="coRef-simple-fs-root">
         <para>Le plugin Maven Archetype crée un répertoire <filename>simple/</filename> dont le nom correspond à
-        l'<varname>artifactId</varname>. C'est ce qu'on appele le répertoire racine<indexterm>
+        l'<varname>artifactId</varname>. C'est ce qu'on appelle le répertoire racine<indexterm>
             <primary>base directory</primary>
           </indexterm> du projet.</para>
       </callout>
 
       <callout arearefs="coDef-simple-fs-pom" id="coRef-simple-fs-pom">
-        <para>Chaque projet Maven possède ce qu'on appele un Project Object Model ( <acronym>POM</acronym>) dans un
+        <para>Chaque projet Maven possède ce qu'on appelle un Project Object Model (<acronym>POM</acronym>) dans un
         fichier <filename>pom.xml</filename>. Ce fichier décrit le projet, configure les plugins, et déclare les
         dépendances.</para>
       </callout>
@@ -293,7 +293,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     dans un projet Maven, la plupart du temps un fichier <acronym>POM</acronym> est considérablement plus complexe: il
     définit de nombreuses dépendances et personnalise le comportement des plugins. Les premiers éléments—
     <sgmltag>groupId</sgmltag>, <sgmltag>artifactId</sgmltag>, <sgmltag>packaging</sgmltag>,
-    <sgmltag>version</sgmltag>—sont ce que l'on appele les coordonnées Maven qui identifient de manière unique un
+    <sgmltag>version</sgmltag>—sont ce que l'on appelle les coordonnées Maven qui identifient de manière unique un
     projet. <sgmltag>name</sgmltag> et <sgmltag>url</sgmltag> sont des éléments descriptifs du <acronym>POM</acronym>
     donnant un nom compréhensible par un être humain et associant le projet à un site web. L'élément
     <sgmltag>dependencies</sgmltag> définit une dépendance unique, dans le scope test, sur un framework de test appelé
