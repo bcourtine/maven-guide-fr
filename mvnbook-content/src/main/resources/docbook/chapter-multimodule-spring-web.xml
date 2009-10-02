@@ -115,7 +115,7 @@
             <para>Ce module contient toute la logique nécessaire pour récupérer des données du flux Yahoo! Météo et parser le <acronym>XML</acronym> obtenu.
             Ce <acronym>XML</acronym> est converti dans les objets du modèle du module <varname>simple-model</varname>. 
             Pour cela, le module <varname>simple-weather</varname> doit avoir comme dépendance le module <varname>simple-model</varname>.  
-            <varname>simple-weather</varname> définit un service <classname>WeatherService</classname> qui est référencé par deux autres projets :
+            Enfin, <varname>simple-weather</varname> définit un service <classname>WeatherService</classname> qui est référencé par deux autres projets :
             <varname>simple-command</varname> et <varname>simple-webapp</varname>.
             </para>
           </listitem>
@@ -142,7 +142,7 @@
             <para>L'application web contient deux contrôleurs Spring <acronym>MVC</acronym> qui utilisent le service
             <classname>WeatherService</classname> défini dans le module <varname>simple-weather</varname> et les <acronym>DAO</acronym>s
             provenant du module <varname>simple-persist</varname>. 
-            <varname>simple-webapp</varname> a une dépendance directe sur les modules 
+            De plus, <varname>simple-webapp</varname> a une dépendance directe sur les modules 
             <varname>simple-weather</varname> et
             <varname>simple-persist</varname>. Il possède donc une dépendance transitive sur le module <varname>simple-model</varname>.</para>
           </listitem>
