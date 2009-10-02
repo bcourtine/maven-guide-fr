@@ -1740,7 +1740,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
 
     <screen>$ <command>mvn clean install</command></screen>
 
-    <para>L'exécution de la commande <command>mvn clean install</command> dans le répartoire de plus haut niveau de votre projet installera tous ces modules dans votre dépôt local.
+    <para>L'exécution de la commande <command>mvn clean install</command> dans le répertoire de plus haut niveau de votre projet installera tous ces modules dans votre dépôt local.
     Vous devez faire ceci avant de construire la base de données du projet <varname>simple-webapp</varname>.
     Pour construire la base de données à partir du projet <varname>simple-webapp</varname>, exécutez la commande suivante à partir du répertoire du projet <varname>simple-webapp</varname> : </para>  
 
