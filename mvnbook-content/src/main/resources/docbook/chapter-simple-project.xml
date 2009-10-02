@@ -293,7 +293,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     dans un projet Maven, la plupart du temps un fichier <acronym>POM</acronym> est considérablement plus complexe : il
     définit de nombreuses dépendances et personnalise le comportement des plugins. Les premiers éléments —
     <sgmltag>groupId</sgmltag>, <sgmltag>artifactId</sgmltag>, <sgmltag>packaging</sgmltag>,
-    <sgmltag>version</sgmltag>—sont ce que l'on appelle les coordonnées Maven qui identifient de manière unique un
+    <sgmltag>version</sgmltag> — sont ce que l'on appelle les coordonnées Maven qui identifient de manière unique un
     projet. <sgmltag>name</sgmltag> et <sgmltag>url</sgmltag> sont des éléments descriptifs du <acronym>POM</acronym>
     donnant un nom compréhensible par un être humain et associant le projet à un site web. L'élément
     <sgmltag>dependencies</sgmltag> définit une dépendance unique, dans le scope test, sur un framework de test appelé
@@ -841,7 +841,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
       <para>Comme le montrent les traces de cette commande, Maven a installé le fichier <acronym>JAR</acronym> de notre
       projet dans notre dépôt Maven local. Maven utilise le dépôt local pour partager les dépendances entre projets
-      locaux. Si vous développez deux projets—projet A et projet B—où le projet B dépend de l'artefact produit par le
+      locaux. Si vous développez deux projets — projet A et projet B — où le projet B dépend de l'artefact produit par le
       projet A. Maven récupérera l'artefact du projet A depuis votre dépôt local quand il construira le projet B. Les
       dépôts Maven sont à la fois un cache local des artefacts téléchargés depuis un dépôt distant et un mécanisme qui
       permet à vos projets de dépendre les uns des autres.</para>
@@ -850,13 +850,13 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     <section id="simple-project-sect-dep-management">
       <title>La Gestion des Dépendances de Maven</title>
 
-      <para>Dans l'exemple de ce chapitre, Maven a résolu les coordonnées de la dépendance JUnit—
-      <varname>junit:</varname><varname>junit:</varname><varname>3.8.1</varname>—sous la forme d'un chemin dans un dépôt
+      <para>Dans l'exemple de ce chapitre, Maven a résolu les coordonnées de la dépendance JUnit —
+      <varname>junit:</varname><varname>junit:</varname><varname>3.8.1</varname> — sous la forme d'un chemin dans un dépôt
       Maven <filename>/junit/junit/3.8.1/junit-3.8.1.jar</filename>. C'est cette capacité à trouver un artefact dans un
       dépôt à partir de ses coordonnées qui nous permet de définir les dépendances dans le <acronym>POM</acronym> du
       projet. Si vous examinez le fichier <filename>pom.xml</filename> du projet simple, vous verrez qu'il comporte une
       section <sgmltag>dependencies</sgmltag> pour traiter des dépendances, et que cette section contient une seule
-      dépendance—JUnit.</para>
+      dépendance — JUnit.</para>
 
       <para>Un projet plus complexe contiendrait sûrement plusieurs dépendances, ou pourrait avoir des dépendances qui
       dépendent elles-mêmes d'autres artefacts. L'une des principales forces de Maven<indexterm>
@@ -917,8 +917,8 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
       <para>Maven fournit enfin différentes portées pour les dépendances Le <indexterm>
           <primary>scope, dependency</primary>
-        </indexterm> <filename>pom.xml</filename> du projet simple contient une unique dépendance—
-      <varname>junit:</varname> <varname>junit:</varname> <varname>jar:</varname> <varname>3.8.1</varname>—ayant pour
+        </indexterm> <filename>pom.xml</filename> du projet simple contient une unique dépendance —
+      <varname>junit:</varname> <varname>junit:</varname> <varname>jar:</varname> <varname>3.8.1</varname> — ayant pour
       portée <varname>test</varname> indiquée dans la balise scope. Lorsqu'une dépendance Maven a une portée de type
       <varname>test</varname>, elle n'est pas disponible pour le goal <varname>compile</varname> du plugin Compiler.
       Cette dépendance sera ajoutée au classpath des goals <varname>compiler:</varname><varname>testCompile</varname> et
