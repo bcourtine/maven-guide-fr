@@ -807,7 +807,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <para>Qu'est ce qui fait d'un dépôt Maven un dépôt Maven ? Un dépôt Maven est un ensemble d'artefacts de projet
       rangés selon une structure de répertoires correspondant aux coordonnées Maven. Vous pouvez voir cette organisation
       en ouvrant un navigateur internet et en parcourant le dépôt central de Maven sur <ulink
-      url="http://repo1.maven.org/maven2/">http://repo1.maven.org/maven2/ </ulink>. Vous verrez qu'un artefact ayant
+      url="http://repo1.maven.org/maven2/">http://repo1.maven.org/maven2/</ulink>. Vous verrez qu'un artefact ayant
       pour coordonnées
       <varname>org.</varname><varname>apache.commons:</varname><varname>commons-email:</varname><varname>1.1</varname>
       se retrouve dans le répertoire <filename>/org/apache/commons/commons-email/1.1/</filename> dans le fichier qui
@@ -858,7 +858,6 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <para>Un projet plus complexe contiendrait sûrement plusieurs dépendances, ou pourrait avoir des dépendances qui
       dépendent elles-mêmes d'autres artefacts. L'une des principales forces de Maven<indexterm>
           <primary>transitive dependencies</primary>
-
           <secondary>support for</secondary>
         </indexterm> est sa gestion des dépendances transitives. Supposons que votre projet dépende d'une bibliothèque,
       qui à son tour dépend de 5 ou 10 autres bibliothèques (comme Spring ou Hibernate par exemple). Au lieu d'avoir à
@@ -963,8 +962,8 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <para>Sur ce site, vous noterez que des rapports par défaut sont disponibles. Un rapport de test fournit les
       succès et les échecs de l'ensemble des tests unitaires du projet. Un autre rapport produit la javadoc pour
       l'<acronym>API</acronym> du projet. Maven fournit un ensemble de rapports configurables, comme le rapport Clover qui
-      examine la couverture des tests unitaires, le rapport <acronym>JXR</acronym> qui produit des listings de source
-      code en <acronym>HTML</acronym> avec des références croisées, utile pour les revues de code, le rapport
+      examine la couverture des tests unitaires, le rapport <acronym>JXR</acronym> qui produit des listings de code
+      source en <acronym>HTML</acronym> avec des références croisées, utile pour les revues de code, le rapport
       <acronym>PMD</acronym> qui analyse le code source à la recherche de différentes erreurs de codage, et le rapport
       JDepend qui analyse les dépendances entre packages dans un code source. Vous pouvez personnaliser les rapports du
       site en configurant quels sont ceux qui seront inclus dans le build via le fichier
