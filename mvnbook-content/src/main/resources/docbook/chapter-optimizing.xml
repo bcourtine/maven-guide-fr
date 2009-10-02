@@ -41,11 +41,11 @@
     qui peut devenir simple ou complexe selon votre besoin. C'est pour cette raison qu'il existe des millions de
     manières différentes de configurer votre projet Maven pour réaliser une même tâche, dont aucune qui ne soit la “bonne”.</para>
 
-    <para>N'allez par voir dans cette dernière phrase une autorisation à faire faire à Maven des choses pour lesquelles
-    il n'a pas été conçu. Même si Maven permet des approches diverses et variées, il existe sûrement une approche "à la
-    Maven" vous permettant d'être plus efficace et utilisant Maven comme il a été conçu pour être utilisé. Dans ce
-    chapitre, nous allons vous montrer certaines optimisations que vous pouvez appliquer à un projet Maven existant.
-    Pourquoi n'avons nous pas commencé avec un <acronym>POM</acronym> optimisé en premier lieu ? Concevoir des
+    <para>N'allez par voir dans cette dernière phrase une autorisation à détourner à Maven pour lui faire réaliser des
+    choses pour lesquelles il n'a pas été conçu. Même si Maven permet des approches diverses et variées, il existe
+    sûrement une approche "à la Maven" qui utilise Maven comme il a été conçu pour être utilisé et vous rend ainsi plus
+    efficace. Dans ce chapitre, nous allons vous montrer certaines optimisations que vous pouvez appliquer à un projet
+    Maven existant. Pourquoi n'avons nous pas commencé avec un <acronym>POM</acronym> optimisé en premier lieu ? Concevoir des
     <acronym>POM</acronym>s avec une valeur pédagogique est bien différent de la conception de <acronym>POM</acronym>s
     efficaces. S'il est sûrement plus facile de définir certaines valeurs dans votre
     <filename>~/.m2/settings.xml</filename> que de déclarer un profil dans un <filename>pom.xml</filename>, l'écriture
