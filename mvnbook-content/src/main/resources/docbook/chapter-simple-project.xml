@@ -43,7 +43,7 @@
     <title>Création du Projet Simple</title>
 
     <para>Pour commencer un nouveau projet Maven, utilisez le plugin Maven Archetype depuis la ligne de commande.
-    Exécutez le goal <varname>archetype:generate</varname> et sélectionnez l'archétype numéro 15, en tapez "Y" pour
+    Exécutez le goal <varname>archetype:generate</varname> et sélectionnez l'archétype numéro 15, et tapez "Y" pour
     confirmer et produire le nouveau projet :</para>
 
     <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.simple \
