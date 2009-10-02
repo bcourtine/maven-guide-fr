@@ -162,7 +162,7 @@ package: org.sonatype.mavenbook.simple
       </callout>
 
       <callout arearefs="coDef-simple-fs-test" id="coRef-simple-fs-test">
-        <para>Les tests de notre projet vont dans <filename>src/test</filename>. Dans ce réperoire, les classes Java,
+        <para>Les tests de notre projet vont dans <filename>src/test</filename>. Dans ce répertoire, les classes Java,
         comme par exemple les tests JUnit ou TestNG, sont dans <filename>src/test/java</filename>, et les ressources du
         classpath pour les tests vont dans <filename>src/test/resources</filename>.</para>
       </callout>
@@ -955,7 +955,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <para>Ce qui exécute la phase <varname>site</varname> du cycle de vie. Contrairement au cycle de vie du build, qui
       gère la génération de code, la manipulation des ressources, la compilation, le packaging, etc., ce cycle de vie ne
       concerne que le traitement du contenu du site qui se trouve dans le répertoire <filename>src/site</filename> et la
-      production de rapports. Une fois la commande exécutée, vous devriez voir un site web du projet dans le réperoire
+      production de rapports. Une fois la commande exécutée, vous devriez voir un site web du projet dans le répertoire
       <filename>target/site</filename>. Ouvrez <filename>target/site/index.html</filename> et vous devriez voir le
       squelette du site du projet Simple. Ce squelette contient certains rapports sous le menu de navigation "Project
       Reports" à gauche, ainsi que des informations sur le projet, les dépendances, et les développeurs dans le menu
