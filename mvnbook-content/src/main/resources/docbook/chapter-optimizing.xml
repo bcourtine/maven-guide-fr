@@ -28,19 +28,18 @@
         <secondary>optimizing</secondary>
 
         <see>optimizing POMs</see>
-      </indexterm> d'éléments de Maven doivent intervenir de concert pour produire un un build multimodule complètement
-    fonctionnel. Bien que l'exemple du chapitre précédent représente une véritable application—une application qui
+      </indexterm> d'éléments de Maven doivent intervenir de concert pour produire un build multimodule complètement
+    fonctionnel. Bien que l'exemple du chapitre précédent représente une véritable application — une application qui
     intéragit avec une base de données, un web service, et qui elle-même présente deux interfaces : une au travers d'une
-    application web, et l'autre via la ligne de commande—cet exemple de projet reste convenu. Présenter la complexité
-    d'un véritable projet demanderait un livre bien plus épais que celui que vous avez entre les mains. Dans la vie
-    réelle les applications évoluent année après année et sont souvent maintenues par des équipes de développeurs
+    application web, et l'autre via la ligne de commande — cet exemple de projet reste convenu. Présenter la complexité
+    d'un véritable projet demanderait un livre bien plus épais que celui que vous avez entre les mains. Dans la réalité
+    les applications évoluent année après année et sont souvent maintenues par des équipes de développeurs
     nombreuses et variées, chacune se concentrant sur sa propre partie. Dans un véritable projet, vous devez souvent
     évaluer les décisions et la conception faites par d'autres. Dans ce chapitre, nous allons prendre du recul par
-    rapport aux exemples que que vous avez vus dans la <xref linkend="part-example" />, et nous allons nous demander
+    rapport aux exemples que vous avez vus dans la <xref linkend="part-example" />, et nous allons nous demander
     quelles sont les optimisations à réaliser avec ce que nous avons appris sur Maven. Maven est un outil très adaptable
     qui peut devenir simple ou complexe selon votre besoin. C'est pour cette raison qu'il existe des millions de
-    manières différentes de réaliser la même tâche, et donc il n'existe pas une “bonne” façon de configurer votre projet
-    Maven.</para>
+    manières différentes de configurer votre projet Maven pour réaliser une même tâche, dont aucune qui ne soit la “bonne”.</para>
 
     <para>N'allez par voir dans cette dernière phrase une autorisation à faire faire à Maven des choses pour lesquelles
     il n'a pas été conçu. Même si Maven permet des approches diverses et variées, il existe sûrement une approche "à la
@@ -197,7 +196,7 @@
     Même si la plupart des développeurs utilisent la version <varname>1.4-SNAPSHOT</varname>, le build fonctionne
     correctement si les versions <varname>1.3-SNAPSHOT</varname> et <varname>1.4-SNAPSHOT</varname> du Composant B sont
     compatibles. Maven continuera à construire le projet en utilisant la version <varname>1.3-SNAPSHOT</varname> du
-    Composant B depuis le dépôt local des développeurs. Tout semble bien se passer—le projet est construit,
+    Composant B depuis le dépôt local des développeurs. Tout semble bien se passer — le projet est construit,
     l'intégration continue est au vert, etc. Quelqu'un peut alors rencontrer un bug étrange en rapport avec le Composant
     B, mais il va se dire que c'est la faute à "pas de chance" et va poursuivre son développement. Pendant ce temps,
     dans la salle des machines la pression monte, jusqu'à ce qu'une des pièces explose ...</para>
@@ -327,7 +326,7 @@
         <see>plugins</see>
       </indexterm> et de définir les versions des projets frères dans le projet parent qui les contient. Cette approche
     est certainement valide, mais nous pouvons aussi résoudre ce problème de version en utilisant deux propriétés
-    prédéfinies —<varname>\${project.groupId}</varname> et <varname>\${project.version}</varname>. Puisqu'il s'agit de
+    prédéfinies — <varname>\${project.groupId}</varname> et <varname>\${project.version}</varname>. Puisqu'il s'agit de
     dépendances entre frères, il n'y a pas grand-chose à gagner à les lister dans le parent, aussi nous allons faire
     confiance à la propriété prédéfinie <varname>\${project.version}</varname>. Comme ces projets font tous partie du
     même groupe, nous pouvons sécuriser d'avantage ces déclarations en faisant référence au groupe du
