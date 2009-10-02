@@ -1062,7 +1062,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
         <term><literal>hibernate.dialect</literal></term>
 
         <listitem>
-          <para>Cette propriété permet de contrôler que le <acronym>SQL</acronym> qui sera généré pour notre base de données.
+          <para>Cette propriété permet de contrôler le <acronym>SQL</acronym> qui sera généré pour notre base de données.
           Comme nous utilisons <acronym>HSQLDB</acronym>, nous choisissons le dialecte <classname>org.</classname><classname>hibernate.</classname><classname>dialect.</classname><classname>HSQLDialect</classname>. 
           Hibernate possède nativement des dialectes pour la majorité des bases de données comme Oracle, MySQL, Postgres, et SQL Server.</para>
         </listitem>
