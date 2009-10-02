@@ -58,9 +58,9 @@
         <secondary>customizing</secondary>
 
         <tertiary>defining the project</tertiary>
-      </indexterm> discutons de ce projet simple weather. De quoi s'agit-il ? Il s'agit d'un exemple dont le but est de
+      </indexterm> discutons de ce projet Simple Weather. De quoi s'agit-il ? Il s'agit d'un exemple dont le but est de
     présenter certaines fonctions clés de Maven. C'est une application représentative de celles que vous pourriez avoir
-    à réaliser. L'application simple weather est une application basique en ligne de commande qui prend en paramètre un
+    à réaliser. L'application Simple Weather est une application basique en ligne de commande qui prend en paramètre un
     code postal et va chercher des données depuis le flux <acronym>RSS</acronym> de Yahoo! Météo. Ensuite, elle parse la
     réponse et affiche le résultat sur la sortie standard.</para>
 
@@ -122,7 +122,7 @@
         <primary>Maven Archetype plugin</primary>
 
         <secondary>creating simple weather application with</secondary>
-      </indexterm> basique du projet simple weather. Exécutez la commande suivante pour créer un nouveau projet :</para>
+      </indexterm> basique du projet Simple Weather. Exécutez la commande suivante pour créer un nouveau projet :</para>
 
     <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.custom \
                                          -DartifactId=simple-weather \
@@ -909,7 +909,7 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
     <section id="customizing-sect-exploring-dependencies">
       <title>Explorer les Dépendances de votre projet</title>
 
-      <para>Le plugin Exec nous permet d'exécuter le programme simple weather sans avoir à charger les dépendances
+      <para>Le plugin Exec nous permet d'exécuter le programme Simple Weather sans avoir à charger les dépendances
       requises dans le classpath. Avec un autre système de build, nous aurions dû copier toutes les dépendances du
       programme dans une espèce de répertoire fourre-tout <filename>lib/</filename> qui aurait contenu les fichiers
       <acronym>JAR</acronym>. Ensuite, nous aurions dû écrire un script basique qui aurait ajouté notre bytecode et nos
@@ -928,7 +928,7 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
           <primary>dependencies</primary>
 
           <secondary>exploring with Dependency plugin</secondary>
-        </indexterm> liste des dépendances résolues. Afin d'afficher cette liste pour le projet simple weather, exécutez
+        </indexterm> liste des dépendances résolues. Afin d'afficher cette liste pour le projet Simple Weather, exécutez
       le goal <varname>dependency:</varname><varname>resolve</varname> :</para>
 
       <screen>$ <command>mvn dependency:resolve</command>
@@ -1057,7 +1057,7 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
         <primary>testing</primary>
 
         <seealso>debugging</seealso>
-      </indexterm> de son cycle de vie par défaut. Ajoutons quelques tests unitaires à notre projet simple weather. Tout
+      </indexterm> de son cycle de vie par défaut. Ajoutons quelques tests unitaires à notre projet Simple Weather. Tout
     d'abord, créons le package <package>org.sonatype.mavenbook.weather</package> dans le répertoire
     <filename>src/test/java</filename> :</para>
 
@@ -1289,7 +1289,7 @@ $ <command>cd resources</command></screen>
     </example>
 
     <para>Ce fichier devrait vous rappeler quelque chose. C'est le même résultat que celui que nous avions obtenu
-    lorsque nous avions exécuté le projet simple weather project avec le plugin Maven Exec. Le deuxième fichier que vous
+    lorsque nous avions exécuté le projet Simple Weather project avec le plugin Maven Exec. Le deuxième fichier que vous
     devrez ajouter au répertoire de ressources est <filename>ny-weather.xml</filename>.</para>
 
     <example>
@@ -1630,7 +1630,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
     <para>Une fois que notre application est assemblée dans
     <filename>target/</filename><filename>simple-weather-1.0-jar-with-</filename><filename>dependencies.jar</filename>,
     nous pouvons de nouveau lancer la classe <classname>Main</classname> depuis la ligne de commande. Pour lancer la
-    classe <classname>Main</classname> de l'application simple weather, exécutez les commandes suivantes depuis le
+    classe <classname>Main</classname> de l'application Simple Weather, exécutez les commandes suivantes depuis le
     répertoire racine de votre projet.</para>
 
     <screen>$ <command>cd target</command>
