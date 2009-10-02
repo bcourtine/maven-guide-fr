@@ -630,7 +630,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         </figure></para>
 
       <para>Pour résumer, lorsque nous avons exécuté <command>mvn install</command>, Maven exécute toutes les phases
-      jusqu'à la phase install, et pour cela il parcourt toutes les phases du cycle de vie, exécutant tous les goals
+      jusqu'à la phase <varname>install</varnme>, et pour cela il parcourt toutes les phases du cycle de vie, exécutant tous les goals
       liés à chacune de ces phases. Au lieu d'exécuter une des phases du cycle de vie de Maven, vous pourriez obtenir le
       même résultat en spécifiant une liste de goals de plugin de la manière suivante :</para>
 
