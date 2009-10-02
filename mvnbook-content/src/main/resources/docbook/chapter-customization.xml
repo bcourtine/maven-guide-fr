@@ -1216,7 +1216,7 @@ public class WeatherFormatterTest extends TestCase {
     cela sans Commons IO, mais nous aurions dû écrire six ou sept lignes de code supplémentaires avec différents objets
     de type <classname>InputStreamReader</classname> et <classname role="keep-together">StringWriter</classname>. La
     véritable raison pour laquelle nous avons utilisé Commons IO, c'est qu'elle nous fournit une excuse pour ajouter la
-    dépendance Commons IO au le scope <literal>test</literal>.</para>
+    dépendance Commons IO au scope <literal>test</literal>.</para>
 
     <para>Une dépendance dans le scope <literal>test</literal> est une dépendance qui est disponible dans le classpath
     uniquement durant la compilation et l'exécution des tests. Si votre projet était un <varname>war</varname> ou un
