@@ -88,7 +88,7 @@
       </blockquote>
 
       <para>En d'autres termes, si vous pensez intégrer ces flux dans votre site internet commercial, revoyez votre
-      position—ce flux n'est utilisable qu'à titre personnel et non commercial. L'usage que nous allons en faire dans ce
+      position — ce flux n'est utilisable qu'à titre personnel et non commercial. L'usage que nous allons en faire dans ce
       chapitre est personnel et à but d'apprentissage. Pour plus d'informations sur les termes de ce service, <indexterm
       class="endofrange" startref="weather03a"></indexterm><indexterm class="endofrange"
       startref="weather03a1"></indexterm> <indexterm class="endofrange" startref="weather03a2"></indexterm>lisez la
@@ -523,7 +523,7 @@ public class Weather {
     textuelle des conditions actuelles.</para>
 
     <para>Maintenant, dans le même répertoire, créez un fichier <filename>Main.java</filename>. Cette classe
-    <classname>Main</classname> contiendra la méthode static <methodname>main()</methodname> —point d'entrée de cet
+    <classname>Main</classname> contiendra la méthode static <methodname>main()</methodname> — point d'entrée de cet
     exemple.</para>
 
     <example>
@@ -1114,7 +1114,7 @@ public class YahooParserTest extends TestCase {
     <filename>ny-weather.xml</filename> et est chargé depuis le classpath. Nous ajouterons les ressources pour les tests
     dans la <xref linkend="customizing-sect-custom-test-resource" />. Dans la structure de répertoires Maven, le fichier
     <filename>ny-weather.xml</filename> se trouve dans le répertoire qui contient les ressources de
-    test—<filename>\${basedir}/src/test/resources</filename> sous
+    test — <filename>\${basedir}/src/test/resources</filename> sous
     <filename>org/sonatype/mavenbook/weather/yahoo/ny-weather.xml</filename>. Ce fichier est lu sous la forme d'un
     <classname>InputStream</classname> et passé à la méthode <methodname>parse()</methodname> de
     <classname>YahooParser</classname>. La méthode <methodname>parse()</methodname> renvoie un objet de type
@@ -1208,7 +1208,7 @@ public class WeatherFormatterTest extends TestCase {
         <primary>testing</primary>
 
         <secondary>using test-scoped dependencies</secondary>
-      </indexterm> fournie par Apache Commons IO—la classe <classname>IOUtils</classname>.
+      </indexterm> fournie par Apache Commons IO — la classe <classname>IOUtils</classname>.
     <classname>IOUtils</classname> apporte un certain nombre de fonctions static pratiques qui retirent la plus grande
     part du travail de la manipulation des entrées/sorties. Dans le cas particulier de ce test unitaire, nous avons
     utilisé <methodname role="keep-together">IOUtils.toString()</methodname> pour copier la ressource
