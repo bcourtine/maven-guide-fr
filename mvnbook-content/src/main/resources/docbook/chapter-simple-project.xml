@@ -43,7 +43,7 @@
     <title>Création du Projet Simple</title>
 
     <para>Pour commencer un nouveau projet Maven, utilisez le plugin Maven Archetype depuis la ligne de commande.
-    Exécutez le goal <varname>archetype:generate</varname>, sélectionnez l'archétype numéro 15, et tapez "Y" pour
+    Exécutez le goal <varname>archetype:generate</varname>,/home/ehsavoie/dev/mavenbook/maven-guide-fr/translations sélectionnez l'archétype numéro 15, et tapez "Y" pour
     confirmer et produire le nouveau projet :</para>
 
     <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.simple \
@@ -546,7 +546,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
                 <primary>Compiler plugin</primary>
 
                 <secondary>compile goal</secondary>
-              </indexterm>est lié à la phase <varname>compile</varname>. Ce goal compile tout le source code du
+              </indexterm>est lié à la phase <varname>compile</varname>. Ce goal compile tout le code source  du
             répertoire <filename>src/main/java</filename> et des autres répertoires configurés comme contenant du code
             source dans le répertoire cible.</para>
           </listitem>
