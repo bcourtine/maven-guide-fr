@@ -1532,7 +1532,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
     Regardons de plus près le fichier <filename>weather-servlet.xml</filename> de l'<xref linkend="ex-spring-weather-servlet" />.</para>
 
     <example id="ex-spring-weather-servlet">
-      <title>Configurations des contrôleurs Spring du fichier weather-servlet.xml</title>
+      <title>Configuration des contrôleurs Spring du fichier weather-servlet.xml</title>
 
       <programlisting>&lt;beans&gt;  
      &lt;bean id="weatherController" <co id="coDef-weather-servlet-1"
