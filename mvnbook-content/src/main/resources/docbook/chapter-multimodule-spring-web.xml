@@ -1079,7 +1079,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
       </varlistentry>
     </variablelist>
 
-    <para>À la suite du fichier XML, sont définis les deux <acronym>DAO</acronym>s du module <varname>simple-persist</varname>.
+    <para>Dans la suite du fichier XML, sont définis les deux <acronym>DAO</acronym>s du module <varname>simple-persist</varname>.
     Chacun d'entre eux contient une référence vers la <varname>sessionFactory</varname> Hibernate que nous venons de définir.
     Comme l'ApplicationContext du module <varname>simple-weather</varname>, ce fichier <filename>applicationContext-persist.xml</filename> définit l'architecture du sous-module. 
     Si vous travailliez avec un plus grand nombre de classes persistantes, vous pourriez trouver utile de les externaliser dans un ApplicationContext séparé.</para>
