@@ -34,7 +34,7 @@
       <screen>${examples.download.url}</screen>
 
       <para>Décompressez cette archive dans le répertoire de votre choix, puis allez dans le répertoire
-      <filename>ch-simple/</filename>. Vous trouverez y un répertoire <filename>simple/</filename> qui contient le code
+      <filename>ch-simple/</filename>. Vous y trouverez un répertoire <filename>simple/</filename> qui contient le code
       source de ce chapitre.</para>
     </section>
   </section>
