@@ -1688,7 +1688,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
 
       <callout arearefs="coDef-spring-webx-3" id="coRef-spring-webx-3">
         <para>Cela assure que le système Log4J est configuré lors du démarrage de l'application.
-        Il est important de mettre ce <classname>Log4JConfigListener</classname> avant le <classname> ContextLoaderListener</classname>.
+        Il est important de mettre ce <classname>Log4JConfigListener</classname> avant le <classname>ContextLoaderListener</classname>.
         Dans le cas contraire, vous pourriez manquer d'importants messages indiquant un éventuel problème survenu lors du démarrage d'application.
         Si vous avez un ensemble particulièrement grand de beans gérés par Spring et que l'un d'entre eux n'arrive pas à s'initialiser lors du démarrage de l'application, votre application échouera.
         Si vous avez initialisé votre système de log avant le démarrage de Spring, vous aurez la chance de récupérer une alerte ou un message d'erreur.
