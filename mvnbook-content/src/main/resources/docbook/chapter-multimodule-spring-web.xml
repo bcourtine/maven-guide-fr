@@ -949,7 +949,7 @@ public class WeatherDAO extends HibernateDaoSupport <co
 
     <para>C'est tout ? Pas vraiment, vous en avez marre d'écrire une classe qui permet d'insérer des nouvelles lignes, la récupérer par sa clé primaire
     et récupérer toutes les lignes <classname>Weather</classname> qui référent à un id de la table <classname>Location</classname>.
-    Nous ne pouvons clairement pas arrêter ce livre et insérer les cinq cents pages qu'il faudrait à comprendre les subtilités d'Hibernate,
+    Nous ne pouvons clairement pas arrêter ce livre et insérer les cinq cents pages qu'il faudrait pour comprendre les subtilités d'Hibernate,
     contentons-nous de quelques rapides explications :</para>
 
     <calloutlist>
