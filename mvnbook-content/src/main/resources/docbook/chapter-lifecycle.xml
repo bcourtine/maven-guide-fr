@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="lifecycle">
+<chapter id="lifecycle" lang="fr">
   <title>Cycle de vie du Build</title>
 
   <section id="lifecycle-sect-structure">
     <title>Introduction</title>
 
     <para>
-    Maven modélise les projets en noms qui sont définis par un <acronym>POM</acronym>.
-    Le <acronym>POM</acronym> capture l'identité d'un projet : Que contient un projet ?
-    De quel genre de packaging a t-il besoin ? Le projet a-t-il un parent ? Quelles sont les dépendances ? 
-    Nous avons exploré les principes de description d'un projet dans les chapitres précédents,
-    mais nous n'avons pas introduit le mécanisme qui permet à Maven d'agir sur ces objets.
-    Dans Maven, les "verbes" sont des goals packagés dans des plugins Maven qui sont attachés à des phases du cycle de vie du build.
-    Le cycle de vie Maven se compose d'une séquence de phases nommées dont : prepare-resources, compile, package, install.
+    Maven modÃ©lise les projets en noms qui sont dÃ©finis par un <acronym>POM</acronym>.
+    Le <acronym>POM</acronym> capture l'identitÃ© d'un projet : Que contient un projet ?
+    De quel genre de packaging a t-il besoin ? Le projet a-t-il un parent ? Quelles sont les dÃ©pendances ? 
+    Nous avons explorÃ© les principes de description d'un projet dans les chapitres prÃ©cÃ©dents,
+    mais nous n'avons pas introduit le mÃ©canisme qui permet Ã  Maven d'agir sur ces objets.
+    Dans Maven, les "verbes" sont des goals packagÃ©s dans des plugins Maven qui sont attachÃ©s Ã  des phases du cycle de vie du build.
+    Le cycle de vie Maven se compose d'une sÃ©quence de phases nommÃ©es dont : prepare-resources, compile, package, install.
     Il y a une phase qui capture la compilation et une autre qui capture le packaging. 
-    Il existe également des phases pre- et post-. 
-    Celles-ci peuvent être utilisées, par exemple, pour enregistrer des goals devant être exécutés avant la compilation 
-    ou effectuer des tâches après l'exécution d'une phase bien précise.
-    Quand vous demandez à Maven de construire un projet, 
-    vous lui demandez de parcourir la liste des différentes phases du cycle de vie et  
-    d'exécuter chacun des goals associés à celles-ci.</para>
+    Il existe Ã©galement des phases pre- et post-. 
+    Celles-ci peuvent Ãªtre utilisÃ©es, par exemple, pour enregistrer des goals devant Ãªtre exÃ©cutÃ©s avant la compilation 
+    ou effectuer des tÃ¢ches aprÃ¨s l'exÃ©cution d'une phase bien prÃ©cise.
+    Quand vous demandez Ã  Maven de construire un projet, 
+    vous lui demandez de parcourir la liste des diffÃ©rentes phases du cycle de vie et  
+    d'exÃ©cuter chacun des goals associÃ©s Ã  celles-ci.</para>
 
-    <para>Le cycle de vie d'un build est organisé en une séquence de phases qui permettent d'ordonner des groupes de goals.
-    Ces goals sont choisis et rattachés par le type de packaging de leur projet. 
-    Il existe trois types de cycle de vie : clean, default (quelquefois appelé build) et site.
+    <para>Le cycle de vie d'un build est organisÃ© en une sÃ©quence de phases qui permettent d'ordonner des groupes de goals.
+    Ces goals sont choisis et rattachÃ©s par le type de packaging de leur projet. 
+    Il existe trois types de cycle de vie : clean, default (quelquefois appelÃ© build) et site.
     Dans ce chapitre, vous allez apprendre comment Maven rattache des goals aux phases du cycle de vie, et comment customiser un cycle de vie. 
-    Vous connaîtrez également les différentes phases du cycle de vie par défaut.</para>
+    Vous connaÃ®trez Ã©galement les diffÃ©rentes phases du cycle de vie par dÃ©faut.</para>
 
     <section id="lifecycle-sect-clean">
       <title>Cycle de vie Clean (clean)</title>
 
-      <para>Le premier cycle de vie auquel vous vous intéresserez est le cycle de vie le plus simple de Maven. 
-      Exécuter la commande <command>mvn clean</command> invoque le cycle de vie 'clean', celui-ci contient trois phases :</para>
+      <para>Le premier cycle de vie auquel vous vous intÃ©resserez est le cycle de vie le plus simple de Maven. 
+      ExÃ©cuter la commande <command>mvn clean</command> invoque le cycle de vie 'clean', celui-ci contient trois phases :</para>
 
       <itemizedlist>
         <listitem>
@@ -49,26 +49,26 @@
         </listitem>
       </itemizedlist>
 
-      <para>La phase la plus intéressante de ce cycle de vie est la phase <varname>clean</varname>.
-      Le goal 'clean' du plugin Clean (<varname>clean:clean</varname>) est attaché à la phase <varname>clean</varname> du cycle de vie <varname>clean</varname>.
-      Le goal <varname>clean:clean</varname> efface les traces de la dernière construction en supprimant le répertoire de build.
-      Si vous n'avez pas modifié l'emplacement du répertoire de build, celui-ci se trouve dans le répertoire <filename>\${basedir}/target</filename>.
-      Lorsque vous exécutez le goal <varname>clean:clean</varname>, vous ne l'exécutez pas directement avec <command>mvn clean:clean</command>, 
-      vous l'utilisez par l'intermédiaire de la phase <varname>clean</varname> du cycle de vie du même nom. 
-      Exécuter la phase <varname>clean</varname> donne à Maven l'opportunité d'exécuter les autres goals rattachés à la phase <varname>pre-clean</varname>.</para>
+      <para>La phase la plus intÃ©ressante de ce cycle de vie est la phase <varname>clean</varname>.
+      Le goal 'clean' du plugin Clean (<varname>clean:clean</varname>) est attachÃ© Ã  la phase <varname>clean</varname> du cycle de vie <varname>clean</varname>.
+      Le goal <varname>clean:clean</varname> efface les traces de la derniÃ¨re construction en supprimant le rÃ©pertoire de build.
+      Si vous n'avez pas modifiÃ© l'emplacement du rÃ©pertoire de build, celui-ci se trouve dans le rÃ©pertoire <filename>\${basedir}/target</filename>.
+      Lorsque vous exÃ©cutez le goal <varname>clean:clean</varname>, vous ne l'exÃ©cutez pas directement avec <command>mvn clean:clean</command>, 
+      vous l'utilisez par l'intermÃ©diaire de la phase <varname>clean</varname> du cycle de vie du mÃªme nom. 
+      ExÃ©cuter la phase <varname>clean</varname> donne Ã  Maven l'opportunitÃ© d'exÃ©cuter les autres goals rattachÃ©s Ã  la phase <varname>pre-clean</varname>.</para>
 
-      <para>Par exemple, supposez que vous voulez exécuter un goal <varname>antrun:run</varname> pour afficher une notification lors du <varname>pre-clean</varname>,
-      ou archiver le répertoire de build du projet avant qu'il ne soit supprime.      
-      Exécuter directement le goal <varname>clean:clean</varname> ne lancera pas le cycle de vie,
-      mais en spécifiant la phase <varname>clean</varname> vous utiliserez le cycle de vie <varname>clean</varname> 
-      et traverserez de ce fait les trois phases du cycle de vie de jusqu'à la phase <varname>clean</varname>.
+      <para>Par exemple, supposez que vous voulez exÃ©cuter un goal <varname>antrun:run</varname> pour afficher une notification lors du <varname>pre-clean</varname>,
+      ou archiver le rÃ©pertoire de build du projet avant qu'il ne soit supprime.      
+      ExÃ©cuter directement le goal <varname>clean:clean</varname> ne lancera pas le cycle de vie,
+      mais en spÃ©cifiant la phase <varname>clean</varname> vous utiliserez le cycle de vie <varname>clean</varname> 
+      et traverserez de ce fait les trois phases du cycle de vie de jusqu'Ã  la phase <varname>clean</varname>.
       L'<xref linkend="ex-trigger-pre-clean" /> montre un exemple de configuration de build qui permet de rattacher le goal <varname>antrun:run</varname>
-      à la phase <varname>pre-clean</varname> pour afficher une alerte avant la suppression de l'artefact en cours de nettoyage.  
-      Dans cet exemple, le goal <varname>antrun:run</varname> est utilisé pour exécuter des commandes Ant qui permettent de tester l'existence d'un artefact de projet.
-      Si l'artefact du projet est sur le point d'être effacé, il d'affichera à l'écran.</para>
+      Ã  la phase <varname>pre-clean</varname> pour afficher une alerte avant la suppression de l'artefact en cours de nettoyage.  
+      Dans cet exemple, le goal <varname>antrun:run</varname> est utilisÃ© pour exÃ©cuter des commandes Ant qui permettent de tester l'existence d'un artefact de projet.
+      Si l'artefact du projet est sur le point d'Ãªtre effacÃ©, il d'affichera Ã  l'Ã©cran.</para>
 
       <example id="ex-trigger-pre-clean">
-        <title>Exécuter un Goal lors du pre-clean</title>
+        <title>ExÃ©cuter un Goal lors du pre-clean</title>
 
         <programlisting language="xml">&lt;project&gt;
   ...
@@ -121,7 +121,7 @@
 &lt;/project&gt;
 </programlisting>
 
-        <para>Exécuter la commande <command>mvn clean</command> avec une telle configuration sur un projet produira un résultat ressemblant à celui-ci :</para>
+        <para>ExÃ©cuter la commande <command>mvn clean</command> avec une telle configuration sur un projet produira un rÃ©sultat ressemblant Ã  celui-ci :</para>
       </example>
 
       <screen>[INFO] Scanning for projects...
@@ -146,10 +146,10 @@
 [INFO] ------------------------------------------------------------------------
 </screen>
 
-      <para>En plus de configurer Maven pour exécuter un goal lors de la phase <varname>pre-clean</varname>,
-      vous pouvez personnaliser le plugin Clean pour effacer des dossiers en plus du répertoire contenant le build. 
+      <para>En plus de configurer Maven pour exÃ©cuter un goal lors de la phase <varname>pre-clean</varname>,
+      vous pouvez personnaliser le plugin Clean pour effacer des dossiers en plus du rÃ©pertoire contenant le build. 
       Vous pouvez configurer le plugin pour supprimer certains fichiers d'un <sgmltag>fileSet</sgmltag>.
-      L'exemple ci-dessous configure le plugin Clean pour supprimer tous les fichiers du répertoire <filename>target-other/</filename> en utilisant le wildcards standard Ant :   
+      L'exemple ci-dessous configure le plugin Clean pour supprimer tous les fichiers du rÃ©pertoire <filename>target-other/</filename> en utilisant le wildcards standard Ant :   
       <varname>*</varname> and <varname>**</varname>.</para>
       
 
@@ -183,10 +183,10 @@
     <section id="lifecycle-sect-default">
       <title>Default Lifecycle (default)</title>
 
-      <para>La Plupart des utilisateurs Maven seront familiers avec le cycle de vie par défaut. 
-      C'est un modèle général pour processus de build pour une application de logiciel.
+      <para>La Plupart des utilisateurs Maven seront familiers avec le cycle de vie par dÃ©faut. 
+      C'est un modÃ¨le gÃ©nÃ©ral pour processus de build pour une application de logiciel.
       Ce cycle de vie commence par la phase <varname>validate</varname> et se termine avec la phase <varname>deploy</varname>. 
-      Les phases du cycle de vie Maven par défaut sont présentés dans le <xref linkend="tbl-default-lifecycle" />.</para>
+      Les phases du cycle de vie Maven par dÃ©faut sont prÃ©sentÃ©s dans le <xref linkend="tbl-default-lifecycle" />.</para>
 
       <table id="tbl-default-lifecycle">
         <title>Phase du Cycle de vie Maven</title>
@@ -204,13 +204,13 @@
             <row>
               <entry>validate</entry>
 
-              <entry>Valide que le projet soit correct et que toutes les informations nécessaires au build soient disponibles</entry>
+              <entry>Valide que le projet soit correct et que toutes les informations nÃ©cessaires au build soient disponibles</entry>
             </row>
 
             <row>
               <entry>generate-sources</entry>
 
-              <entry>Génère le code source nécessaire pour l'inclure à la compilation</entry> 
+              <entry>GÃ©nÃ¨re le code source nÃ©cessaire pour l'inclure Ã  la compilation</entry> 
             </row>
 
             <row>
@@ -222,13 +222,13 @@
             <row>
               <entry>generate-resources</entry>
 
-              <entry>Génère les ressources à inclure dans le package</entry>
+              <entry>GÃ©nÃ¨re les ressources Ã  inclure dans le package</entry>
             </row>
 
             <row>
               <entry>process-resources</entry>
 
-              <entry>Copie et traite les ressources dans leur répertoire destination, pour les rendre prêtes pour le packaging</entry>
+              <entry>Copie et traite les ressources dans leur rÃ©pertoire destination, pour les rendre prÃªtes pour le packaging</entry>
             </row>
 
             <row>
@@ -240,13 +240,13 @@
             <row>
               <entry>process-classes</entry>
 
-              <entry>Traitre a posteriori les fichiers générés par la compilation, pour modifier du bytecode par exemple</entry>
+              <entry>Traitre a posteriori les fichiers gÃ©nÃ©rÃ©s par la compilation, pour modifier du bytecode par exemple</entry>
             </row>
 
             <row>
               <entry>generate-test-sources</entry>
 
-              <entry>Génère le code source des tests pour l'inclure à la compilation</entry>
+              <entry>GÃ©nÃ¨re le code source des tests pour l'inclure Ã  la compilation</entry>
             </row>
 
             <row>
@@ -258,76 +258,76 @@
             <row>
               <entry>generate-test-resources</entry>
 
-              <entry>Crée les ressources pour le test</entry>
+              <entry>CrÃ©e les ressources pour le test</entry>
             </row>
 
             <row>
               <entry>process-test-resources</entry>
 
-              <entry>Copie et traite les ressources dans le répertoire destination des tests</entry>
+              <entry>Copie et traite les ressources dans le rÃ©pertoire destination des tests</entry>
             </row>
 
             <row>
               <entry>test-compile</entry>
 
-              <entry>Compile le code source des tests dans le répertoire destination</entry>
+              <entry>Compile le code source des tests dans le rÃ©pertoire destination</entry>
             </row>
 
             <row>
               <entry>test</entry>
 
-              <entry>Exécute les tests en utilisant le framework de test approprié. 
-              Le code de ces tests ne doit pas être requis par le packaging ni le déploiement.</entry> 
+              <entry>ExÃ©cute les tests en utilisant le framework de test appropriÃ©. 
+              Le code de ces tests ne doit pas Ãªtre requis par le packaging ni le dÃ©ploiement.</entry> 
             </row>
 
             <row>
               <entry>prepare-package</entry>
 
-              <entry>Effectue les opérations nécessaires pour la préparation du package avant que celui-ci ne soit réellement créé.
-              Il en résulte souvent une version dézippée et prête à été packagée du futur package (Maven 2.1+)</entry>
+              <entry>Effectue les opÃ©rations nÃ©cessaires pour la prÃ©paration du package avant que celui-ci ne soit rÃ©ellement crÃ©Ã©.
+              Il en rÃ©sulte souvent une version dÃ©zippÃ©e et prÃªte Ã  Ã©tÃ© packagÃ©e du futur package (Maven 2.1+)</entry>
             </row>
 
             <row>
               <entry>package</entry>
 
-              <entry>Package le code compilé dans un format distribuable, tel que <acronym>JAR</acronym>, un
+              <entry>Package le code compilÃ© dans un format distribuable, tel que <acronym>JAR</acronym>, un
               <acronym>WAR</acronym>, un <acronym>EAR</acronym></entry>
             </row>
 
             <row>
               <entry>pre-integration-test</entry>
 
-              <entry>Effectue les actions nécessaires avant de lancer les tests d'intégration, comme configurer un environnement par exemple.</entry>
+              <entry>Effectue les actions nÃ©cessaires avant de lancer les tests d'intÃ©gration, comme configurer un environnement par exemple.</entry>
             </row>
 
             <row>
               <entry>integration-test</entry>
 
-              <entry>Traite et déploie si nécessaire le package dans l'environnement où les tests pourront être exécutés</entry>
+              <entry>Traite et dÃ©ploie si nÃ©cessaire le package dans l'environnement oÃ¹ les tests pourront Ãªtre exÃ©cutÃ©s</entry>
             </row>
 
             <row>
               <entry>post-integration-test</entry>
 
-              <entry>Effectue les actions nécessaires à la fin de l'exécution des tests d'intégration, comme nettoyer l'environnement par exemple</entry> 
+              <entry>Effectue les actions nÃ©cessaires Ã  la fin de l'exÃ©cution des tests d'intÃ©gration, comme nettoyer l'environnement par exemple</entry> 
             </row>
 
             <row>
               <entry>verify</entry>
 
-              <entry>Lance des points de contrôle pour vérifier que le package est valide et qu'il passe les critères qualité</entry>
+              <entry>Lance des points de contrÃ´le pour vÃ©rifier que le package est valide et qu'il passe les critÃ¨res qualitÃ©</entry>
             </row>
 
             <row>
               <entry>install</entry>
 
-              <entry>Installe le package dans le repository local, celui-ci pourra ainsi être utilisé comme dépendance par d'autres projets locaux</entry>
+              <entry>Installe le package dans le repository local, celui-ci pourra ainsi Ãªtre utilisÃ© comme dÃ©pendance par d'autres projets locaux</entry>
             </row>
 
             <row>
               <entry>deploy</entry>
 
-              <entry>Copie le package final sur le repository distant. Permet de partager le package à d'autres utilisateurs et projets (souvent pertinent pour une vraie release)</entry>
+              <entry>Copie le package final sur le repository distant. Permet de partager le package Ã  d'autres utilisateurs et projets (souvent pertinent pour une vraie release)</entry>
             </row>
           </tbody>
         </tgroup>
@@ -338,8 +338,8 @@
       <title>Cycle de vie Site (site)</title>
 
       <para>Maven est plus que construire les artefacts de votre projet,
-      il peut également générer de la documentation et différents rapports d'un ou plusieurs projets.
-      La documentation du projet et la génération du site web ont un cycle de vie séparé. 
+      il peut Ã©galement gÃ©nÃ©rer de la documentation et diffÃ©rents rapports d'un ou plusieurs projets.
+      La documentation du projet et la gÃ©nÃ©ration du site web ont un cycle de vie sÃ©parÃ©. 
       Celui-ci contient quatre phases :</para>
 
       <orderedlist>
@@ -360,7 +360,7 @@
         </listitem>
       </orderedlist>
 
-      <para>Les goals suivants sont rattachés par défaut à ce cycle de vie :</para>
+      <para>Les goals suivants sont rattachÃ©s par dÃ©faut Ã  ce cycle de vie :</para>
 
       <orderedlist>
         <listitem>
@@ -373,40 +373,40 @@
       </orderedlist>
 
       <para>Le type de packaging n'a aucune influence sur ce cycle de vie. 
-      Les types de packaging influent sur la création des artefacts, pas sur le type de site généré. 
-      Le plugin Site lance l'exécution de la génération d'un document <ulink url="http://maven.apache.org/doxia/">Doxia</ulink> et de différents plugins permettant de générer des rapports.
-      Vous pouvez générer un site à partir d'un projet Maven en exécutant la commande suivante :</para>
+      Les types de packaging influent sur la crÃ©ation des artefacts, pas sur le type de site gÃ©nÃ©rÃ©. 
+      Le plugin Site lance l'exÃ©cution de la gÃ©nÃ©ration d'un document <ulink url="http://maven.apache.org/doxia/">Doxia</ulink> et de diffÃ©rents plugins permettant de gÃ©nÃ©rer des rapports.
+      Vous pouvez gÃ©nÃ©rer un site Ã  partir d'un projet Maven en exÃ©cutant la commande suivante :</para>
 
       <screen>$ <command>mvn site</command>
 </screen>
 
-      <para>Pour plus d'informations à propose de la génération de Maven Site, consultez <xref linkend="site-generation" />.</para>
+      <para>Pour plus d'informations Ã  propose de la gÃ©nÃ©ration de Maven Site, consultez <xref linkend="site-generation" />.</para>
     </section>
   </section>
 
   <section id="lifecycle-sect-package-specific">
-    <title>Cycles de vie spécifiques par type de Package</title>
+    <title>Cycles de vie spÃ©cifiques par type de Package</title>
 
-    <para>Des goals spécifiques sont rattachés à chaque phase en fonction du packaging du projet.
-    Un projet du type <varname>jar</varname> ne dispose pas des mêmes goals par défaut qu'un projet du type <varname>war</varname>.  
-    La balise <sgmltag>packaging</sgmltag> influe donc sur les étapes requises pour construire un projet.      
+    <para>Des goals spÃ©cifiques sont rattachÃ©s Ã  chaque phase en fonction du packaging du projet.
+    Un projet du type <varname>jar</varname> ne dispose pas des mÃªmes goals par dÃ©faut qu'un projet du type <varname>war</varname>.  
+    La balise <sgmltag>packaging</sgmltag> influe donc sur les Ã©tapes requises pour construire un projet.      
     Pour illustrer cela, prenons en exemple avec deux projets :
     l'un avec un packaging du type <varname>pom</varname> et l'autre avec un packaging du type <varname>jar</varname>.   
     le projet avec le packaging de type <varname>pom</varname> lancera le goal <varname>site:attach-descriptor</varname> durant la phase <varname>package</varname>,
-    alors que le projet du type <varname>jar</varname> exécutera le goal <varname>jar:jar</varname>.</para>
+    alors que le projet du type <varname>jar</varname> exÃ©cutera le goal <varname>jar:jar</varname>.</para>
 
-    <para>Les paragraphes suivants décrivent le cycle de vie pour tous les types de packaging disponible dans Maven.
-    Ils vous permettront donc de trouver quels goals sont rattachés au cycle de vie par défaut.</para> 
+    <para>Les paragraphes suivants dÃ©crivent le cycle de vie pour tous les types de packaging disponible dans Maven.
+    Ils vous permettront donc de trouver quels goals sont rattachÃ©s au cycle de vie par dÃ©faut.</para> 
 
     <section id="lifecycle-sect-jar">
       <title>JAR</title>
 
-      <para><acronym>JAR</acronym> est le type de packaging par défaut, le plus commun, 
-      et le plus souvent rencontré. Les goals par défaut rattachés au cycle de vie pour un projet possédant ce type de packaging sont montrés dans le 
+      <para><acronym>JAR</acronym> est le type de packaging par dÃ©faut, le plus commun, 
+      et le plus souvent rencontrÃ©. Les goals par dÃ©faut rattachÃ©s au cycle de vie pour un projet possÃ©dant ce type de packaging sont montrÃ©s dans le 
       <xref linkend="tbl-jar-lifecycle" />.</para>
 
       <table id="tbl-jar-lifecycle">
-        <title>Goals par défaut pour le packaging du type JAR</title>
+        <title>Goals par dÃ©faut pour le packaging du type JAR</title>
 
         <tgroup cols="2">
           <thead>
@@ -474,12 +474,12 @@
       <title>POM</title>
 
       <para><acronym>POM</acronym> est le plus simple des types de packaging. 
-      L'artefact qu'il correspond à son propre contenu, rien de comparable à un <acronym>JAR</acronym>, <acronym>SAR</acronym> ou <acronym>EAR</acronym>. 
-      Il ne possède pas de code à tester ou à compiler, et n'a pas de ressources à traiter.
-      Les goals par défaut d'un projet du type POM sont affichés dans le <xref linkend="tbl-pom-lifecycle" />.</para>
+      L'artefact qu'il correspond Ã  son propre contenu, rien de comparable Ã  un <acronym>JAR</acronym>, <acronym>SAR</acronym> ou <acronym>EAR</acronym>. 
+      Il ne possÃ¨de pas de code Ã  tester ou Ã  compiler, et n'a pas de ressources Ã  traiter.
+      Les goals par dÃ©faut d'un projet du type POM sont affichÃ©s dans le <xref linkend="tbl-pom-lifecycle" />.</para>
 
       <table id="tbl-pom-lifecycle">
-        <title>Goals par défaut d'un projet du type POM</title>
+        <title>Goals par dÃ©faut d'un projet du type POM</title>
 
         <tgroup cols="2">
           <thead>
@@ -516,13 +516,13 @@
     <section id="lifecycle-sect-plugin-lifecycle">
       <title>Plugin Maven</title>
 
-      <para>Ce type de packaging ressemble au packaging <acronym>JAR</acronym> avec trois particularités : 
+      <para>Ce type de packaging ressemble au packaging <acronym>JAR</acronym> avec trois particularitÃ©s : 
       <varname>plugin:descriptor</varname>, <varname>plugin:addPluginArtifactMetadata</varname> et <varname>plugin:updateRegistry</varname>.
-      Ces goals génèrent un descripteur de fichier et effectuent quelques modifications sur les données. 
-      Les goals par défaut des projets possédant un packaging de type Plugin sont présentés sur le <xref linkend="tbl-plugin-lifecycle" />.</para>
+      Ces goals gÃ©nÃ¨rent un descripteur de fichier et effectuent quelques modifications sur les donnÃ©es. 
+      Les goals par dÃ©faut des projets possÃ©dant un packaging de type Plugin sont prÃ©sentÃ©s sur le <xref linkend="tbl-plugin-lifecycle" />.</para>
 
       <table id="tbl-plugin-lifecycle">
-        <title>Goals par défaut d'un projet du type Plugin</title>
+        <title>Goals par dÃ©faut d'un projet du type Plugin</title>
 
         <tgroup cols="2">
           <thead>
@@ -595,15 +595,15 @@
     <section id="lifecycle-sect-ejb">
       <title>EJB</title>
 
-      <para>Les <acronym>EJB</acronym>s (Enterprise Java Beans) proposent un mécanisme standard d'accès aux données.
-      Ils proposent une approche orientée modèle (model-driven development) pour le développement d'applications Java d'entreprise.   
+      <para>Les <acronym>EJB</acronym>s (Enterprise Java Beans) proposent un mÃ©canisme standard d'accÃ¨s aux donnÃ©es.
+      Ils proposent une approche orientÃ©e modÃ¨le (model-driven development) pour le dÃ©veloppement d'applications Java d'entreprise.   
       Maven fournit un support pour les <acronym>EJB</acronym> 2 et 3.
-      Si vous devez configurer le plugin <acronym>EJB</acronym> pour packager spécifiquement un <acronym>EJB3</acronym>,
-      les pamarètres par défaut du plugin recherchent la présence des fichiers de configuration <acronym>EJB</acronym> 2.1.
-      Les goals par défaut pour des projets du type <acronym>EJB</acronym> sont présentés dans le <xref linkend="tbl-ejb-lifecycle" />.</para>
+      Si vous devez configurer le plugin <acronym>EJB</acronym> pour packager spÃ©cifiquement un <acronym>EJB3</acronym>,
+      les pamarÃ¨tres par dÃ©faut du plugin recherchent la prÃ©sence des fichiers de configuration <acronym>EJB</acronym> 2.1.
+      Les goals par dÃ©faut pour des projets du type <acronym>EJB</acronym> sont prÃ©sentÃ©s dans le <xref linkend="tbl-ejb-lifecycle" />.</para>
 
       <table id="tbl-ejb-lifecycle">
-        <title>Goals par défaut d'un projet du type EJB</title>
+        <title>Goals par dÃ©faut d'un projet du type EJB</title>
 
         <tgroup cols="2">
           <thead>
@@ -670,13 +670,13 @@
     <section id="lifecycle-sect-war">
       <title>WAR</title>
 
-      <para>Le packaging de type <acronym>WAR</acronym> ressemble également aux types <acronym> JAR</acronym> et <acronym>EJB</acronym>,
+      <para>Le packaging de type <acronym>WAR</acronym> ressemble Ã©galement aux types <acronym> JAR</acronym> et <acronym>EJB</acronym>,
       a l'exception du goal de la phase <varname>package</varname> : <varname>war:war</varname>.
-      Notez que le plugin <varname>war:war</varname> nécessite la présence d'un fichier de configuration <filename>web.xml</filename> dans le répertoire <filename>src/main/webapp/WEB-INF</filename>.
-      Les goals par défaut d'un projet de type <acronym>WAR</acronym> sont présentés dans le <xref linkend="tbl-war-lifecycle" />.</para> 
+      Notez que le plugin <varname>war:war</varname> nÃ©cessite la prÃ©sence d'un fichier de configuration <filename>web.xml</filename> dans le rÃ©pertoire <filename>src/main/webapp/WEB-INF</filename>.
+      Les goals par dÃ©faut d'un projet de type <acronym>WAR</acronym> sont prÃ©sentÃ©s dans le <xref linkend="tbl-war-lifecycle" />.</para> 
 
       <table id="tbl-war-lifecycle">
-        <title>Goals par défaut d'un projet du type WAR</title>
+        <title>Goals par dÃ©faut d'un projet du type WAR</title>
 
         <tgroup cols="2">
           <thead>
@@ -744,13 +744,13 @@
       <title>EAR</title>
 
       <para>Les <acronym>EAR</acronym>s sont probablement les artefacts les plus simples d'une application Java <acronym>EE</acronym>. 
-      Ils sont constitués d'un descripteur de déploiement nommé <filename>application.xml</filename>, des ressources et de modules.  
-      Le plugin <acronym>EAR</acronym> possède un goal nommé <varname>generate-application-xml</varname>. 
-      Celui-ci génère le fichier <filename>application.xml</filename> à partir de la configuration définit dans le POM du projet <acronym>EAR</acronym>.   
-      Les goals par défaut d'un projet de type <acronym>EAR</acronym> sont présentés dans le <xref linkend="tbl-ear-lifecycle" />.</para>
+      Ils sont constituÃ©s d'un descripteur de dÃ©ploiement nommÃ© <filename>application.xml</filename>, des ressources et de modules.  
+      Le plugin <acronym>EAR</acronym> possÃ¨de un goal nommÃ© <varname>generate-application-xml</varname>. 
+      Celui-ci gÃ©nÃ¨re le fichier <filename>application.xml</filename> Ã  partir de la configuration dÃ©finit dans le POM du projet <acronym>EAR</acronym>.   
+      Les goals par dÃ©faut d'un projet de type <acronym>EAR</acronym> sont prÃ©sentÃ©s dans le <xref linkend="tbl-ear-lifecycle" />.</para>
 
       <table id="tbl-ear-lifecycle">
-        <title>Goals par défaut d'un projet du type EAR</title>
+        <title>Goals par dÃ©faut d'un projet du type EAR</title>
 
         <tgroup cols="2">
           <thead>
@@ -800,19 +800,19 @@
       <title>Autres Types de Packaging</title>
 
       <para>La liste que nous venons de parcourir n'est pas exhaustive.
-      Nombre d'autres types de packaging sont disponibles par l'intermédiaire de projets externes et de plugins, dont :
+      Nombre d'autres types de packaging sont disponibles par l'intermÃ©diaire de projets externes et de plugins, dont :
       le type de packaging <acronym>NAR</acronym> (native archive), les types <acronym>SWF</acronym> et <acronym>SWC</acronym>
       pour les projets qui produisent des contenus Adobe Flash et Flex.  
-      Vous pouvez également définir un type de packaging personnalisé et modifier le cycle de vie par défaut pour répondre à vos contraintes.</para> 
+      Vous pouvez Ã©galement dÃ©finir un type de packaging personnalisÃ© et modifier le cycle de vie par dÃ©faut pour rÃ©pondre Ã  vos contraintes.</para> 
 
-      <para>Pour utiliser l'un de ces types de packaging personnalisé, vous avez besoin de deux choses :
-      un plugin qui définit le cycle de vie d'un type de packaging personnalisé et un dépôt qui contient ce plugin.
-      Plusieurs types de packaging personnalisés sont définis dans des plugins disponibles à partir du Maven repository central.  
-      Voici l'exemple d'un projet qui référence le plugin Israfil Flex et qui utilise un type de packaging personnalisé 
-      <acronym>SWF</acronym> comme résultat de la construction du code source Adobe Flex.</para>
+      <para>Pour utiliser l'un de ces types de packaging personnalisÃ©, vous avez besoin de deux choses :
+      un plugin qui dÃ©finit le cycle de vie d'un type de packaging personnalisÃ© et un dÃ©pÃ´t qui contient ce plugin.
+      Plusieurs types de packaging personnalisÃ©s sont dÃ©finis dans des plugins disponibles Ã  partir du Maven repository central.  
+      Voici l'exemple d'un projet qui rÃ©fÃ©rence le plugin Israfil Flex et qui utilise un type de packaging personnalisÃ© 
+      <acronym>SWF</acronym> comme rÃ©sultat de la construction du code source Adobe Flex.</para>
 
       <para><example>
-          <title>Type de Packaging personnalisé pour Adobe Flex (SWF)</title>
+          <title>Type de Packaging personnalisÃ© pour Adobe Flex (SWF)</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -840,16 +840,16 @@
         </example></para>
 
       <para>Dans la <xref linkend="writing-plugins-sect-plugins-lifecycle" />, 
-      nous vous montrons comment créer votre propre type de packaging avec un cycle de vie personnalisé. 
-      Cet exemple devrait vous donner une idée de ce que vous avez à faire pour référencer un type de packaging personnalisé.
-      Tout ce dont vous avez besoin est de référencer le plugin qui fournit votre nouveau type de packaging. 
-      Le plugin Israfil Flex est un plugin Maven non officiel hébergé sur Google Code, 
-      pour plus d'information sur le fonctionnement et l'utilisation, rendez-vous à l'adresse <ulink
+      nous vous montrons comment crÃ©er votre propre type de packaging avec un cycle de vie personnalisÃ©. 
+      Cet exemple devrait vous donner une idÃ©e de ce que vous avez Ã  faire pour rÃ©fÃ©rencer un type de packaging personnalisÃ©.
+      Tout ce dont vous avez besoin est de rÃ©fÃ©rencer le plugin qui fournit votre nouveau type de packaging. 
+      Le plugin Israfil Flex est un plugin Maven non officiel hÃ©bergÃ© sur Google Code, 
+      pour plus d'information sur le fonctionnement et l'utilisation, rendez-vous Ã  l'adresse <ulink
       url="http://code.google.com/p/israfil-mojo">http://code.google.com/p/israfil-mojo</ulink>.
       Ce plugin fournit le cycle de vie suivant pour les projets du type <acronym>SWF</acronym> :</para>
 
       <table>
-        <title>Cycle de vie par défaut d'un projet du type SWF</title>
+        <title>Cycle de vie par dÃ©faut d'un projet du type SWF</title>
 
         <tgroup cols="2">
           <thead>
@@ -887,40 +887,40 @@
   <section id="lifecycle-sect-common-goals">
     <title>Goals Communs de Cycle de vie</title>
 
-    <para>La plupart des cycles de vie de packaging possèdent des goals en commun.
-    Si vous regarder les goals rattachés aux cycles de vie <acronym>WAR</acronym> et <acronym>JAR</acronym>,
-    vous remarquerez que seule la phase <varname>package</varname> diffère.
+    <para>La plupart des cycles de vie de packaging possÃ¨dent des goals en commun.
+    Si vous regarder les goals rattachÃ©s aux cycles de vie <acronym>WAR</acronym> et <acronym>JAR</acronym>,
+    vous remarquerez que seule la phase <varname>package</varname> diffÃ¨re.
     La phase <varname>package</varname> du cycle de vie <acronym>WAR</acronym> appelle <varname>war:war</varname> alors
-    que la cette même phase est appelle <varname>jar:jar</varname> pour le cycle de vie <acronym>JAR</acronym>. 
-    La plupart des cycles de vie que vous rencontrerez partageront certains goals pour gérer les ressources,
-    exécuter les tests et compiler votre code. 
-    Dans cette section, nous explorerons quelques-uns des goals utilisés sur plusieurs cycles de vie.</para>
+    que la cette mÃªme phase est appelle <varname>jar:jar</varname> pour le cycle de vie <acronym>JAR</acronym>. 
+    La plupart des cycles de vie que vous rencontrerez partageront certains goals pour gÃ©rer les ressources,
+    exÃ©cuter les tests et compiler votre code. 
+    Dans cette section, nous explorerons quelques-uns des goals utilisÃ©s sur plusieurs cycles de vie.</para>
 
     <section id="lifecycle-sect-process-resources-phase">
       <title>Traiter les Resources</title>
 
-      <para>La plupart des cycles de vie rattachent le goal <varname>resources:resources</varname> à la phase <varname>process-resources</varname>.
-      La phase <varname>process-resources</varname> "traite" les ressources et les copies dans le répertoire destination.
-      Si vous n'avez pas personnalisé les répertoires par défaut définis dans le Super <acronym>POM</acronym>,
-      Maven copiera les fichiers du répertoire <filename>\${basedir}/src/main/resources</filename> au répertoire
-      <filename>\${basedir}/target/classes</filename> ou au répertoire définit dans <filename>\${project.build.outputDirectory}</filename>.
-      En plus de les copier, Maven peut également appliquer des filtres aux ressources pour remplacer certains de leurs éléments.
-      Tout comme dans le <acronym>POM</acronym> où les variables étaient définies par la notation <varname>\${...}</varname>,
-      vous pouvez référencer des variables dans les ressources de votre projet en utilisant cette même syntaxe.
-      Couplée aux profils, cette fonctionnalité peut être utilisée pour construire des artefacts configurés pour différentes plateformes de déploiement. 
+      <para>La plupart des cycles de vie rattachent le goal <varname>resources:resources</varname> Ã  la phase <varname>process-resources</varname>.
+      La phase <varname>process-resources</varname> "traite" les ressources et les copies dans le rÃ©pertoire destination.
+      Si vous n'avez pas personnalisÃ© les rÃ©pertoires par dÃ©faut dÃ©finis dans le Super <acronym>POM</acronym>,
+      Maven copiera les fichiers du rÃ©pertoire <filename>\${basedir}/src/main/resources</filename> au rÃ©pertoire
+      <filename>\${basedir}/target/classes</filename> ou au rÃ©pertoire dÃ©finit dans <filename>\${project.build.outputDirectory}</filename>.
+      En plus de les copier, Maven peut Ã©galement appliquer des filtres aux ressources pour remplacer certains de leurs Ã©lÃ©ments.
+      Tout comme dans le <acronym>POM</acronym> oÃ¹ les variables Ã©taient dÃ©finies par la notation <varname>\${...}</varname>,
+      vous pouvez rÃ©fÃ©rencer des variables dans les ressources de votre projet en utilisant cette mÃªme syntaxe.
+      CouplÃ©e aux profils, cette fonctionnalitÃ© peut Ãªtre utilisÃ©e pour construire des artefacts configurÃ©s pour diffÃ©rentes plateformes de dÃ©ploiement. 
       C'est quelque chose de courant d'avoir besoin de construire des artefacts multi-environnement, 
-      un projet à souvent plusieurs cibles : développement, tests, recette, production.    
-      Pour plus d'informations à propos des profils, consultez le <xref linkend="profiles" />.</para>
+      un projet Ã  souvent plusieurs cibles : dÃ©veloppement, tests, recette, production.    
+      Pour plus d'informations Ã  propos des profils, consultez le <xref linkend="profiles" />.</para>
 
-      <para>Pour illustrer le filtering des ressources, prenons l'exemple d'un projet possédant un fichier <acronym>XML</acronym> 
-      dans le répertoire <filename>src/main/resources/META-INF/service.xml</filename>.  
+      <para>Pour illustrer le filtering des ressources, prenons l'exemple d'un projet possÃ©dant un fichier <acronym>XML</acronym> 
+      dans le rÃ©pertoire <filename>src/main/resources/META-INF/service.xml</filename>.  
       Vous voulez externaliser certaines variables de configuration dans un fichier properties. 
-      En d'autre terme, vous voulez référencer l'<acronym>URL</acronym> <acronym>JDBC</acronym>, l'utilisateur et le mot de passe de votre base de données,
+      En d'autre terme, vous voulez rÃ©fÃ©rencer l'<acronym>URL</acronym> <acronym>JDBC</acronym>, l'utilisateur et le mot de passe de votre base de donnÃ©es,
       sans directement mettre ces valeurs en dur dans le fichier <filename>service.xml</filename>.
-      À la place, vous désirez utiliser un fichier properties pour centraliser toutes les valeurs de configuration de votre programme.
+      Ã€ la place, vous dÃ©sirez utiliser un fichier properties pour centraliser toutes les valeurs de configuration de votre programme.
       Cela vous permet de consolider toute la configuration dans un seul fichier properties, 
-      et simplifie la mise à jour des valeurs de configuration lors de la configuration d'un nouvel environnement.        
-      Commençons par regarder le contenu du fichier <filename>service.xml</filename> du répertoire <filename>src/main/resources/META-INF</filename>.</para> 
+      et simplifie la mise Ã  jour des valeurs de configuration lors de la configuration d'un nouvel environnement.        
+      CommenÃ§ons par regarder le contenu du fichier <filename>service.xml</filename> du rÃ©pertoire <filename>src/main/resources/META-INF</filename>.</para> 
      
       <para><example>
           <title>Utilisation des Properties dans les Ressources du Projet</title>
@@ -934,12 +934,12 @@
 </programlisting>
         </example></para>
 
-      <para>Ce fichier <acronym>XML</acronym> utilise la même syntaxe pour gérer ses properties que le celle que du <acronym>POM</acronym>. 
-      La première variable référencée est la variable <varname>project</varname>, 
-      celle-ci est une variable implicite qui est également disponible dans le <acronym>POM</acronym>.   
-      La variable <varname>project</varname> propose un moyen d'accéder à certaines informations du <acronym>POM</acronym>. 
+      <para>Ce fichier <acronym>XML</acronym> utilise la mÃªme syntaxe pour gÃ©rer ses properties que le celle que du <acronym>POM</acronym>. 
+      La premiÃ¨re variable rÃ©fÃ©rencÃ©e est la variable <varname>project</varname>, 
+      celle-ci est une variable implicite qui est Ã©galement disponible dans le <acronym>POM</acronym>.   
+      La variable <varname>project</varname> propose un moyen d'accÃ©der Ã  certaines informations du <acronym>POM</acronym>. 
       Les trois variables suivantes sont <varname>jdbc.url</varname>, <varname>jdbc.username</varname> et <varname>jdbc.password</varname>.
-      Ces variables sont définies dans un fichier de properties <filename>src/main/filters/default.properties</filename>.</para>
+      Ces variables sont dÃ©finies dans un fichier de properties <filename>src/main/filters/default.properties</filename>.</para>
 
 
       <example>
@@ -952,16 +952,16 @@ jdbc.password=
       </example>
 
       <para>Pour configurer le filtre des ressources avec le fichier <filename>default.properties</filename>,
-      nous avons besoin de préciser deux choses dans le <acronym>POM</acronym> du projet :
-      une liste de fichier de propriétés dans la balise <sgmltag>filters</sgmltag> de la configuration du build,
-      et un flag qui permet à Maven de savoir si un répertoire doit être filtré. 
-      Le comportement par défaut de Maven est de ne pas effectuer de filtre mais de juste copier les ressources dans le répertoire destination :
+      nous avons besoin de prÃ©ciser deux choses dans le <acronym>POM</acronym> du projet :
+      une liste de fichier de propriÃ©tÃ©s dans la balise <sgmltag>filters</sgmltag> de la configuration du build,
+      et un flag qui permet Ã  Maven de savoir si un rÃ©pertoire doit Ãªtre filtrÃ©. 
+      Le comportement par dÃ©faut de Maven est de ne pas effectuer de filtre mais de juste copier les ressources dans le rÃ©pertoire destination :
       vous devez donc configurer explicitement le filtre des ressources. 
-      Ce comportement par défaut permet d'éviter les mauvaises surprises. 
-      Cette fonctionnalité pourrait filtrer sans que vous le désiriez des fichiers contenant des éléments <varname>\${...}</varname>.</para> 
+      Ce comportement par dÃ©faut permet d'Ã©viter les mauvaises surprises. 
+      Cette fonctionnalitÃ© pourrait filtrer sans que vous le dÃ©siriez des fichiers contenant des Ã©lÃ©ments <varname>\${...}</varname>.</para> 
 
       <para><example>
-          <title>Filtrage des Ressources (Remplacer les Propriétés)</title>
+          <title>Filtrage des Ressources (Remplacer les PropriÃ©tÃ©s)</title>
 
           <programlisting language="xml">&lt;build&gt;
   &lt;filters&gt;
@@ -977,18 +977,18 @@ jdbc.password=
 </programlisting>
         </example></para>
 
-      <para>Comme pour tous les répertoires dans Maven, le répertoire contenant les ressources du projet ne se trouve pas forcément dans <filename>src/main/resources</filename>.   
-      Il ne s'agit que de la valeur par défaut définie dans le Super <acronym>POM</acronym>.
-      Notez également que vous n'avez pas besoin de centraliser toutes vos ressources dans un unique répertoire.
-      Vous pouvez les séparer dans plusieurs répertoires dans <filename>src/main</filename>.
+      <para>Comme pour tous les rÃ©pertoires dans Maven, le rÃ©pertoire contenant les ressources du projet ne se trouve pas forcÃ©ment dans <filename>src/main/resources</filename>.   
+      Il ne s'agit que de la valeur par dÃ©faut dÃ©finie dans le Super <acronym>POM</acronym>.
+      Notez Ã©galement que vous n'avez pas besoin de centraliser toutes vos ressources dans un unique rÃ©pertoire.
+      Vous pouvez les sÃ©parer dans plusieurs rÃ©pertoires dans <filename>src/main</filename>.
       Imaginez que votre projet contient des centaines de fichiers <acronym>XML</acronym> et des centaines d'images.
-      Au lieu de centraliser toutes vos ressources dans le répertoire <filename>src/main/resources</filename>,
-      il voudrez probablement créer deux répertoires <filename>src/main/xml</filename> et <filename>src/main/images</filename>.
-      Pour ajouter des répertoires à la liste des répertoires contenant les ressources,
+      Au lieu de centraliser toutes vos ressources dans le rÃ©pertoire <filename>src/main/resources</filename>,
+      il voudrez probablement crÃ©er deux rÃ©pertoires <filename>src/main/xml</filename> et <filename>src/main/images</filename>.
+      Pour ajouter des rÃ©pertoires Ã  la liste des rÃ©pertoires contenant les ressources,
       ajoutez la balise <sgmltag>resource</sgmltag> suivante dans la configuration de votre build.</para>
 
       <example>
-        <title>Ajouter des Répertoire Ressources Complémentaires</title>
+        <title>Ajouter des RÃ©pertoire Ressources ComplÃ©mentaires</title>
 
         <programlisting language="xml">&lt;build&gt;
   ...
@@ -1008,12 +1008,12 @@ jdbc.password=
       </example>
 
       <para>Lorsque vous construisez un projet qui produit une application en ligne de commande ou console,
-      vous voudrez souvent écrite des scripts shell que vous voulez référencer dans le <acronym>JAR</acronym> produit par un build.
+      vous voudrez souvent Ã©crite des scripts shell que vous voulez rÃ©fÃ©rencer dans le <acronym>JAR</acronym> produit par un build.
       Quand vous utilisez le plugin Assembly pour distribuer votre application via un <acronym>ZIP</acronym> ou un <acronym>TAR</acronym>,
-      vous pouvez placer tous vos scripts dans un répertoire du type <filename>src/main/command</filename>.
+      vous pouvez placer tous vos scripts dans un rÃ©pertoire du type <filename>src/main/command</filename>.
       Dans la configuration des ressources du <acronym>POM</acronym> suivant, 
       vous verrez comment nous pouvons utiliser le filtrage des ressources et 
-      utiliser une référence vers une variable pour modifier le nom du <acronym>JAR</acronym>.  
+      utiliser une rÃ©fÃ©rence vers une variable pour modifier le nom du <acronym>JAR</acronym>.  
       Pour plus d'informations sur le plugin Maven Assembly, consultez le <xref linkend="assemblies" />.</para>      
 
       <para><example id="ex-filter-script">
@@ -1042,13 +1042,13 @@ jdbc.password=
 &lt;/build&gt;</programlisting>
         </example></para>
 
-      <para>Si vous exécutez la commande <filename>mvn process-resources</filename> dans ce projet, 
+      <para>Si vous exÃ©cutez la commande <filename>mvn process-resources</filename> dans ce projet, 
       vous vous retrouverez avec deux fichiers dans <varname>\${basedir}</varname> : <filename>run.sh</filename> et <filename>run.bat</filename>.
-      Nous avons inclus ces deux fichiers dans la balise <sgmltag>resource</sgmltag>, configuré le filtrage, 
-      et affecté le <sgmltag>targetPath</sgmltag> à la valeur <varname>\${basedir}</varname>.
-      Dans une deuxième balise <sgmltag>resource</sgmltag>, 
-      nous avons configuré le chemin des ressources par défaut pour être copié dans le répertoire destination dans filtrage.
-      L'<xref linkend="ex-filter-script" /> montre comment déclarer deux répertoires ressources et les configurer différemment.  
+      Nous avons inclus ces deux fichiers dans la balise <sgmltag>resource</sgmltag>, configurÃ© le filtrage, 
+      et affectÃ© le <sgmltag>targetPath</sgmltag> Ã  la valeur <varname>\${basedir}</varname>.
+      Dans une deuxiÃ¨me balise <sgmltag>resource</sgmltag>, 
+      nous avons configurÃ© le chemin des ressources par dÃ©faut pour Ãªtre copiÃ© dans le rÃ©pertoire destination dans filtrage.
+      L'<xref linkend="ex-filter-script" /> montre comment dÃ©clarer deux rÃ©pertoires ressources et les configurer diffÃ©remment.  
       Le projet de l'<xref linkend="ex-filter-script" /> doit disposer un fichier <filename>run.bat</filename> dans le dossier
       <filename>src/main/command</filename> qui contient le code suivant :</para>
 
@@ -1056,32 +1056,32 @@ jdbc.password=
 java -jar \${project.build.finalName}.jar %*
 </programlisting>
 
-      <para>Après avoir exécuté la commande <command>mvn process-resources</command>, 
-      un fichier nommé <filename>run.bat</filename> devrait apparaître dans 
+      <para>AprÃ¨s avoir exÃ©cutÃ© la commande <command>mvn process-resources</command>, 
+      un fichier nommÃ© <filename>run.bat</filename> devrait apparaÃ®tre dans 
       <varname>\${basedir}</varname>, en voici son contenu :</para>
 
       <programlisting>@echo off
 java -jar simple-cmd-2.3.1.jar %*
 </programlisting>
 
-      <para>La possibilité de personnaliser le filtrage pour un sous-ensemble spécifique de ressources 
-      est l'une des raisons de séparer vos ressources par type sur un projet. 
-      Plus un projet est complexe, plus il sera avantageux de séparer des ressources dans répertoires multiples.
-      L'alternative au fait de conserver différentes sortes de ressources nécessitant différentes configurations de filtre dans des répertoires différents
-      est d'utiliser un ensemble complexe de pattern 'include' et 'exclude' pour différencier les types de configuration.
-      Cette seconde solution est beaucoup plus complexe à maintenir et à mettre en place.</para>
+      <para>La possibilitÃ© de personnaliser le filtrage pour un sous-ensemble spÃ©cifique de ressources 
+      est l'une des raisons de sÃ©parer vos ressources par type sur un projet. 
+      Plus un projet est complexe, plus il sera avantageux de sÃ©parer des ressources dans rÃ©pertoires multiples.
+      L'alternative au fait de conserver diffÃ©rentes sortes de ressources nÃ©cessitant diffÃ©rentes configurations de filtre dans des rÃ©pertoires diffÃ©rents
+      est d'utiliser un ensemble complexe de pattern 'include' et 'exclude' pour diffÃ©rencier les types de configuration.
+      Cette seconde solution est beaucoup plus complexe Ã  maintenir et Ã  mettre en place.</para>
     </section>
 
     <section id="lifecycle-sect-compile-phase">
       <title>Compilation</title>
 
-      <para>La plupart des cycles de vie rattachent le plugin le goals <varname>compile</varname> du plugin Compiler à la phase <varname>compile</varname>. 
-      Cette phase appelle <varname>compile:compile</varname> qui est configuré pour pour compiler tout le code source et copier le bytecode dans le répertoire destination du build.
-      Si vous n'avez pas personnalisé les valeurs définies dans le Super <acronym>POM</acronym>, <varname>compile:compile</varname>
-      compilera toutes les sources du répertoire <filename>src/main/java</filename> dans <filename>target/classes</filename>.
-      Le plugin Compiler appelle <filename>javac</filename> et utilise les paramétrages par défaut pour le code source, 1.3 et la destination, 1.1. 
-      Autrement dit, le plugin Compiler présume que le code source de votre projet est conforme Java 1.3 et qu'il doit tourner sur une JVM Java 1.1.
-      Si vous voulez modifier ce paramétrage, vous devez fournir la configuration suivante du plugin Compiler dans le POM de votre projet.</para> 
+      <para>La plupart des cycles de vie rattachent le plugin le goals <varname>compile</varname> du plugin Compiler Ã  la phase <varname>compile</varname>. 
+      Cette phase appelle <varname>compile:compile</varname> qui est configurÃ© pour pour compiler tout le code source et copier le bytecode dans le rÃ©pertoire destination du build.
+      Si vous n'avez pas personnalisÃ© les valeurs dÃ©finies dans le Super <acronym>POM</acronym>, <varname>compile:compile</varname>
+      compilera toutes les sources du rÃ©pertoire <filename>src/main/java</filename> dans <filename>target/classes</filename>.
+      Le plugin Compiler appelle <filename>javac</filename> et utilise les paramÃ©trages par dÃ©faut pour le code source, 1.3 et la destination, 1.1. 
+      Autrement dit, le plugin Compiler prÃ©sume que le code source de votre projet est conforme Java 1.3 et qu'il doit tourner sur une JVM Java 1.1.
+      Si vous voulez modifier ce paramÃ©trage, vous devez fournir la configuration suivante du plugin Compiler dans le POM de votre projet.</para> 
 
       <para><example id="ex-compilesrc-target">
           <title>Modifier les versions du Code Source et du Bytecode pour le Plugin Compiler</title>
@@ -1107,19 +1107,19 @@ java -jar simple-cmd-2.3.1.jar %*
         </example></para>
 
       <para>Notez que nous configurons le plugin Compiler, pas le goal <varname>compile:compile</varname>.
-      Si nous voulions configurer le source et le bytecode généré juste pour le goal <varname>compile:compile</varname>,
-      nous aurions placé la balise <sgmltag>configuration</sgmltag> sous la balise <sgmltag>execution</sgmltag> du goal <varname>compile:compile</varname>.
-      Nous avons effectué cette configuration au niveau du plugin, car <varname>compile:compile</varname> n'est pas le seul goal intéressé par cette configuration.
-      Le plugin Compiler est réutilisé pour la compilation des tests via le goal <varname>compile:testCompile</varname>,
+      Si nous voulions configurer le source et le bytecode gÃ©nÃ©rÃ© juste pour le goal <varname>compile:compile</varname>,
+      nous aurions placÃ© la balise <sgmltag>configuration</sgmltag> sous la balise <sgmltag>execution</sgmltag> du goal <varname>compile:compile</varname>.
+      Nous avons effectuÃ© cette configuration au niveau du plugin, car <varname>compile:compile</varname> n'est pas le seul goal intÃ©ressÃ© par cette configuration.
+      Le plugin Compiler est rÃ©utilisÃ© pour la compilation des tests via le goal <varname>compile:testCompile</varname>,
       cette configuration nous permet donc de faire d'une pierre deux coups.</para>
 
       <para>Si vous voulez personnaliser l'emplacement du code source, vous pouvez effectuer cela en modifiant la configuration du build.
-      Si vous désirez placer le code source de votre projet dans le répertoire <filename>src/java</filename> au lieu du répertoire <filename>src/main/java</filename>,
-      et si vous voulez que votre projet soit généré dans <filename>classes</filename> au lieu <filename>target/classes</filename>,
-      vous pouvez toujours modifier la configuration par défaut du <sgmltag>sourceDirectory</sgmltag> définie dans le Super <acronym>POM</acronym>.</para>
+      Si vous dÃ©sirez placer le code source de votre projet dans le rÃ©pertoire <filename>src/java</filename> au lieu du rÃ©pertoire <filename>src/main/java</filename>,
+      et si vous voulez que votre projet soit gÃ©nÃ©rÃ© dans <filename>classes</filename> au lieu <filename>target/classes</filename>,
+      vous pouvez toujours modifier la configuration par dÃ©faut du <sgmltag>sourceDirectory</sgmltag> dÃ©finie dans le Super <acronym>POM</acronym>.</para>
 
       <example>
-        <title>Modifier le Répertoire du Code Source par Défaut</title>
+        <title>Modifier le RÃ©pertoire du Code Source par DÃ©faut</title>
 
         <programlisting language="xml">&lt;build&gt;
   ...
@@ -1130,9 +1130,9 @@ java -jar simple-cmd-2.3.1.jar %*
       </example>
 
       <warning>
-        <para>Alors qu'il pourrait vous sembler nécessaire de configurer Maven pour qu'il utilise votre propre structure de répertoires,
-        nous n'essayerons jamais assez d'essayer de vous disuader de modifier la configuration Maven par défaut.
-        Nous n'essayons pas ici de vous laver le cerveau pour vous forcer à utiliser la structure Maven,
+        <para>Alors qu'il pourrait vous sembler nÃ©cessaire de configurer Maven pour qu'il utilise votre propre structure de rÃ©pertoires,
+        nous n'essayerons jamais assez d'essayer de vous disuader de modifier la configuration Maven par dÃ©faut.
+        Nous n'essayons pas ici de vous laver le cerveau pour vous forcer Ã  utiliser la structure Maven,
         mais il reste beaucoup simple de suivre quelques conventions pour que tout le monde puisse comprendre rapidement votre projet.</para>
       </warning>
     </section>
@@ -1141,26 +1141,26 @@ java -jar simple-cmd-2.3.1.jar %*
       <title>Traiter les Resources des Tests</title>
 
       <para>La phase <varname>process-test-resources</varname> est indiscernable de la phase <varname>process-resources</varname>.
-      Si le <acronym>POM</acronym> comporte quelques légères différences, le plus grand nombre de la configuration reste identique.
-      Vous pouvez filtrer les ressources de vos tests de la même manière que les ressources du projet.
-      L'emplacement par défaut des ressources pour les tests est définie dans le Super <acronym>POM</acronym> dans <filename>src/test/resources</filename>,
-      le répertoire destination est configuré par défaut dans <filename>target/test-classes</filename> comme défini dans la variable  
+      Si le <acronym>POM</acronym> comporte quelques lÃ©gÃ¨res diffÃ©rences, le plus grand nombre de la configuration reste identique.
+      Vous pouvez filtrer les ressources de vos tests de la mÃªme maniÃ¨re que les ressources du projet.
+      L'emplacement par dÃ©faut des ressources pour les tests est dÃ©finie dans le Super <acronym>POM</acronym> dans <filename>src/test/resources</filename>,
+      le rÃ©pertoire destination est configurÃ© par dÃ©faut dans <filename>target/test-classes</filename> comme dÃ©fini dans la variable  
       <varname>\${project.build.testOutputDirectory}</varname>.</para>
     </section>
 
     <section id="lifecycle-sect-test-compile-phase">
       <title>Compilation des tests</title>
 
-      <para>La phase <varname>test-compile</varname> est quasiment identique à la phase <varname>compile</varname>.
-      La seule différence est que <varname>test-compile</varname> appelle <varname>compile:testCompile</varname> pour compiler le source des tests.  
-      Si vous n'avez pas personnalisé les répertoires par défaut du Super <acronym>POM</acronym>,
-      <varname>compile:testCompile</varname> compilera sont le code source contenu dans le répertoire <filename>src/test/java</filename> dans le
-      répertoire <filename>target/test-classes</filename>.</para> 
+      <para>La phase <varname>test-compile</varname> est quasiment identique Ã  la phase <varname>compile</varname>.
+      La seule diffÃ©rence est que <varname>test-compile</varname> appelle <varname>compile:testCompile</varname> pour compiler le source des tests.  
+      Si vous n'avez pas personnalisÃ© les rÃ©pertoires par dÃ©faut du Super <acronym>POM</acronym>,
+      <varname>compile:testCompile</varname> compilera sont le code source contenu dans le rÃ©pertoire <filename>src/test/java</filename> dans le
+      rÃ©pertoire <filename>target/test-classes</filename>.</para> 
 
-      <para>Comme pour le répertoire du code source, si vous désirez personnalisez l'emplacement du code source des tests our the répertoire destination de la compilation,
+      <para>Comme pour le rÃ©pertoire du code source, si vous dÃ©sirez personnalisez l'emplacement du code source des tests our the rÃ©pertoire destination de la compilation,
       vous pouvez surcharger <varname>testSourceDirectory</varname> et <varname>testOutputDirectory</varname>.
-      Si vous voulez stocker le code source de vos tests dans <filename>src-test/</filename> au lieu du répertoire <filename>src/test/java</filename>
-      et que vous voulez enregistrer le bytecode dans le répertoire <filename>classes-test/</filename> au lieu <filename>target/test-classes</filename>,
+      Si vous voulez stocker le code source de vos tests dans <filename>src-test/</filename> au lieu du rÃ©pertoire <filename>src/test/java</filename>
+      et que vous voulez enregistrer le bytecode dans le rÃ©pertoire <filename>classes-test/</filename> au lieu <filename>target/test-classes</filename>,
       utilisez la configuration suivante.</para> 
 
       <example>
@@ -1178,28 +1178,28 @@ java -jar simple-cmd-2.3.1.jar %*
     <section id="lifecycle-sect-test-phase">
       <title>Tester</title>
 
-      <para>La plupart des cycles de vie rattachent le goal test du plugin Surefire à leur phase test. 
-      Le plugin Surefire est un plugin Maven permettant d'exécuter des tests unitaires, le comportement par défaut du plugin Surefire est de rechercher toutes les class terminant par '*Test'
-      dans le répertoire source des tests, puis de les exécuter comme des tests <ulink url="http://www.junit.org">JUnit</ulink>.
-      Le plugin Surefire peut également être configuré pour exécuter des tests unitaires <ulink url="http://www.testng.org">TestNG</ulink>.</para> 
+      <para>La plupart des cycles de vie rattachent le goal test du plugin Surefire Ã  leur phase test. 
+      Le plugin Surefire est un plugin Maven permettant d'exÃ©cuter des tests unitaires, le comportement par dÃ©faut du plugin Surefire est de rechercher toutes les class terminant par '*Test'
+      dans le rÃ©pertoire source des tests, puis de les exÃ©cuter comme des tests <ulink url="http://www.junit.org">JUnit</ulink>.
+      Le plugin Surefire peut Ã©galement Ãªtre configurÃ© pour exÃ©cuter des tests unitaires <ulink url="http://www.testng.org">TestNG</ulink>.</para> 
 
-      <para>Après avoir exécuté la commande <command>mvn test</command>, 
-      vous aurez probablement noté que le plugin Surefire ait produit des rapports d'exécution dans le répertoire <filename>target/surefire-reports</filename>.  
-      Ce répertoire de rapports contiendra deux fichiers pour chaque test exécuté par le plugin :
-      un fichier <acronym>XML</acronym> qui contient les informations d'exécution du test,
+      <para>AprÃ¨s avoir exÃ©cutÃ© la commande <command>mvn test</command>, 
+      vous aurez probablement notÃ© que le plugin Surefire ait produit des rapports d'exÃ©cution dans le rÃ©pertoire <filename>target/surefire-reports</filename>.  
+      Ce rÃ©pertoire de rapports contiendra deux fichiers pour chaque test exÃ©cutÃ© par le plugin :
+      un fichier <acronym>XML</acronym> qui contient les informations d'exÃ©cution du test,
       un fichier texte qui contient la sortie des tests unitaires. 
-      Si un problème est survenu durant la phase de test et qu'un test unitaire a échoué,
-      vous pouvez utiliser la sortie standard de Maven et ce répertoire pour trouver la cause du problème.
-      Ce répertoire <filename>surefire-reports/</filename> est également utilisé durant la génération du site
-      pour créer un résumé 'facile à lire' du résultat des tests unitaires.</para>
+      Si un problÃ¨me est survenu durant la phase de test et qu'un test unitaire a Ã©chouÃ©,
+      vous pouvez utiliser la sortie standard de Maven et ce rÃ©pertoire pour trouver la cause du problÃ¨me.
+      Ce rÃ©pertoire <filename>surefire-reports/</filename> est Ã©galement utilisÃ© durant la gÃ©nÃ©ration du site
+      pour crÃ©er un rÃ©sumÃ© 'facile Ã  lire' du rÃ©sultat des tests unitaires.</para>
 
-      <para>Si vous travaillez sur un projet qui contient des tests unitaires qui échouent,
-      mais que vous voulez tout de même aboutir, vous devrez configurer le plugin Surefire pour qu'il continue le build même en cas d'échec.
-      Le comportement par défaut est d'arreter le build lorsqu'un test unitaire échoue.      
-      Pour modifier ce comportement, vous devez affecter la propriété <varname>testFailureIgnore</varname> à 'true' du plugin Surefire.</para>
+      <para>Si vous travaillez sur un projet qui contient des tests unitaires qui Ã©chouent,
+      mais que vous voulez tout de mÃªme aboutir, vous devrez configurer le plugin Surefire pour qu'il continue le build mÃªme en cas d'Ã©chec.
+      Le comportement par dÃ©faut est d'arreter le build lorsqu'un test unitaire Ã©choue.      
+      Pour modifier ce comportement, vous devez affecter la propriÃ©tÃ© <varname>testFailureIgnore</varname> Ã  'true' du plugin Surefire.</para>
 
       <example>
-        <title>Configurez le plugin Surefire pour Ignorer les Tests en échec</title>
+        <title>Configurez le plugin Surefire pour Ignorer les Tests en Ã©chec</title>
 
         <programlisting language="xml">&lt;build&gt;
   &lt;plugins&gt;
@@ -1215,39 +1215,39 @@ java -jar simple-cmd-2.3.1.jar %*
 &lt;/build&gt;</programlisting>
       </example>
 
-      <para>Si vous désirez passer les tests, vous pouvez exécuter la commande suivante :</para>
+      <para>Si vous dÃ©sirez passer les tests, vous pouvez exÃ©cuter la commande suivante :</para>
 
       <screen>$ mvn install -Dmaven.test.skip=true</screen>
 
       <para>La variable <varname>maven.test.skip</varname> agit sur les plugins Compiler et Surefire,
-      en précisant cette variable, vous demandez à Maven d'ignorer les tests.</para>
+      en prÃ©cisant cette variable, vous demandez Ã  Maven d'ignorer les tests.</para>
 
     </section>
 
     <section id="lifecycle-sect-install-phase">
       <title>Installer l'artefact</title>
 
-      <para>Le goal <varname>install</varname> du plugin Install est toujours rattaché à la phase <varname>install</varname> du cycle de vie.  
-      Ce goal <varname>install:install</varname> installe simplement les artefacts d'un projet dans le dépôt local.
-      Si vous avez un projet avec un <sgmltag>groupId</sgmltag> à <package>org.sonatype.mavenbook</package>,
-      un <sgmltag>artifactId</sgmltag> à <varname>simple-test</varname>, et une <sgmltag>version</sgmltag> à 1.0.2,
+      <para>Le goal <varname>install</varname> du plugin Install est toujours rattachÃ© Ã  la phase <varname>install</varname> du cycle de vie.  
+      Ce goal <varname>install:install</varname> installe simplement les artefacts d'un projet dans le dÃ©pÃ´t local.
+      Si vous avez un projet avec un <sgmltag>groupId</sgmltag> Ã  <package>org.sonatype.mavenbook</package>,
+      un <sgmltag>artifactId</sgmltag> Ã  <varname>simple-test</varname>, et une <sgmltag>version</sgmltag> Ã  1.0.2,
       le goal <varname>install:install</varname> copiera le fichier <acronym>JAR</acronym> de <filename>target/simple-test-1.0.2.jar</filename>
       vers <filename>~/.m2/repository/org/sonatype/mavenbook/simple-test/1.0.2/simple-test-1.0.2.jar</filename>.
-      Si le projet a un type de packaging <acronym>POM</acronym>, ce goal copiera le <acronym>POM</acronym> dans le dépôt local.</para>        
+      Si le projet a un type de packaging <acronym>POM</acronym>, ce goal copiera le <acronym>POM</acronym> dans le dÃ©pÃ´t local.</para>        
     </section>
 
     <section id="lifecycle-sect-deploy-phase">
-      <title>Déploiement</title>
+      <title>DÃ©ploiement</title>
 
-      <para>Le goal <varname>deploy</varname> du plugin Deploy est souvent rattaché à la phase <varname>deploy</varname> du cycle de vie.  
-      Cette phase est utilisée pour déployer un artefact sur un dépôt Maven distant,
-      c'est souvent nécessaire pour mettre à jour un dépôt distant quand vous effectuez une release.
-      La procédure de déploiement peut aller d'une simple copie de fichier d'un répertoire à un autre, à un ensemble complexe de transferts <acronym>SCP</acronym> de fichiers en utilisant une clé publique.
-      Les préférences de déploiement nécessitent souvent des accès à un dépôt distant, et, du coup, 
-      ces préférences sont souvent stockées en dehors du <filename>pom.xml</filename>.
-      À la place, ces préférences se trouvent souvent dans un fichier unique à chaque utilisateur : <filename>~/.m2/settings.xml</filename>. 
-      Tout ce que vous avez besoin de savoir pour le moment est que le goal <varname>deploy:deploy</varname> est rattaché à la phase <varname>deploy</varname>
-      et qu'il permet le transfert d'un artefact sur un dépôt de publication et la mise à jour des informations d'un dépôt qui peuvent être affectés par un tel déploiement.</para> 
+      <para>Le goal <varname>deploy</varname> du plugin Deploy est souvent rattachÃ© Ã  la phase <varname>deploy</varname> du cycle de vie.  
+      Cette phase est utilisÃ©e pour dÃ©ployer un artefact sur un dÃ©pÃ´t Maven distant,
+      c'est souvent nÃ©cessaire pour mettre Ã  jour un dÃ©pÃ´t distant quand vous effectuez une release.
+      La procÃ©dure de dÃ©ploiement peut aller d'une simple copie de fichier d'un rÃ©pertoire Ã  un autre, Ã  un ensemble complexe de transferts <acronym>SCP</acronym> de fichiers en utilisant une clÃ© publique.
+      Les prÃ©fÃ©rences de dÃ©ploiement nÃ©cessitent souvent des accÃ¨s Ã  un dÃ©pÃ´t distant, et, du coup, 
+      ces prÃ©fÃ©rences sont souvent stockÃ©es en dehors du <filename>pom.xml</filename>.
+      Ã€ la place, ces prÃ©fÃ©rences se trouvent souvent dans un fichier unique Ã  chaque utilisateur : <filename>~/.m2/settings.xml</filename>. 
+      Tout ce que vous avez besoin de savoir pour le moment est que le goal <varname>deploy:deploy</varname> est rattachÃ© Ã  la phase <varname>deploy</varname>
+      et qu'il permet le transfert d'un artefact sur un dÃ©pÃ´t de publication et la mise Ã  jour des informations d'un dÃ©pÃ´t qui peuvent Ãªtre affectÃ©s par un tel dÃ©ploiement.</para> 
     </section>
   </section>
 </chapter>
