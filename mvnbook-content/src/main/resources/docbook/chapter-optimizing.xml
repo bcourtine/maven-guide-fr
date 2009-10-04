@@ -148,17 +148,15 @@
         <tertiary>resolving dependency duplication</tertiary>
       </indexterm> duplications dans un <acronym>POM</acronym> parent.</para>
 
-    <para>Comme pour le code source de votre projet, à chaque fois que vous avez une duplication dans vos
-    <acronym>POM</acronym>s, vous laissez la porte ouverte à l'arrivée de problèmes. La cohérence des versions sur un
-    gros projet sera difficile à assurer si des déclarations de dépendance sont dupliquées. Tant que vous avez deux ou
-    trois modules, cela reste gérable, mais lorsque votre organisation utilise un énorme build multimodule pour gérer
-    des centaines de composants produits par plusieurs services, une seule erreur de dépendance peut entraîner chaos et
-    confusion. Une simple erreur de version dans un projet sur une dépendance permettant la manipulation <phrase
-    role="keep-together">de bytecode</phrase> comme <acronym>ASM</acronym> dans les profondeurs des dépendances d'un
-    projet peut devenir le grains de sable qui gripperait une application web, maintenue par une autre équipe de
-    développeurs, qui dépendrait de ce <indexterm>
+    <para>Comme pour le code source de votre projet, chaque duplication dans vos <acronym>POM</acronym>s, est une porte
+    ouverte pour de futurs problèmes . La cohérence des versions sur un gros projet sera difficile à assurer si des
+    déclarations de dépendance sont dupliquées. Tant que vous avez deux ou trois modules, cela reste gérable, mais lorsque 
+    votre organisation utilise un énorme build multimodule pour gérer des centaines de composants produits par plusieurs
+    services, une seule erreur de dépendance peut entraîner chaos et confusion. Une simple erreur de version sur une 
+    dépendance permettant la manipulation <phrase role="keep-together">de bytecode</phrase> comme <acronym>ASM</acronym>
+    dans les profondeurs des dépendances du projet peut devenir le grains de sable qui
+    gripperait une application web, maintenue par une autre équipe de développeurs, et qui dépendrait de ce <indexterm>
         <primary>unit tests</primary>
-
         <secondary>dependency duplication and</secondary>
       </indexterm> module. Les tests unitaires pourraient passer car ils sont exécutés avec une certaine version de la
     dépendance, mais ils échoueraient lamentablement en production là où le package (un WAR, dans ce cas) serait
