@@ -518,8 +518,8 @@ public class WeatherServlet extends HttpServlet {
       à moins que des changements ne soient nécessaires. Une bonne technique pour comprendre
       ce mécanisme consiste à imaginer que les modules avec les dépendances inter projets soient
       descendus dans une liste jusqu'à ce que l'ordre des dépendances soit satisfaisant. 
-      Dans quelques rares occasions, il peut être bon de réarranger manuellement l'ordre de vos modules --
-      par exemple si vous voulez qu'un module fréquemment instable soit remonté en début de build.
+      Dans quelques rares occasions, il peut être bon de réarranger manuellement l'ordre de vos modules 
+      &mdash; par exemple si vous voulez qu'un module fréquemment instable soit remonté en début de build.
       </para>
     </note>
     <para>Dès que le plugin Reactor a trouvé l'ordre dans lequel les projets doivent être construits,
