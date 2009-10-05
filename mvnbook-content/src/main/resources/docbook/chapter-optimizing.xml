@@ -168,7 +168,7 @@
 
     <para>La duplication des versions des modules frères peut produire un problème assez redoutable<indexterm>
         <primary>sibling module dependency duplication</primary>
-      </indexterm> qui ne résulte pas directement de Maven, et dont on ne se souvient qu'après l'avoir renconté
+      </indexterm> qui ne résulte pas directement de Maven, et dont on ne se souvient qu'après l'avoir rencontré
     plusieurs fois. Si vous utilisez le plugin Maven Release pour effectuer vos livraisons, toutes les versions de
     dépendance soeurs seront automatiquement mises à jour pour vous, aussi ce n'est pas là que réside le problème. Si
     <varname>simple-web</varname> version <varname>1.3-SNAPSHOT</varname> dépend de <varname>simple-persist</varname>
