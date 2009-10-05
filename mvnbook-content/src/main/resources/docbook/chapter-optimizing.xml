@@ -111,20 +111,20 @@
 
         <secondary>optimizing</secondary>
       </indexterm> créés dans le <xref linkend="multimodule-web-spring" />, vous remarquerez plusieurs types de
-    réplication. Le premier type que vous pouvez voir est la duplication de dépendances comme <varname>spring</varname>
+    répétition. Le premier type que vous pouvez voir est la duplication de dépendances comme <varname>spring</varname>
     et <varname>hibernate-annotations</varname> dans plusieurs modules. La dépendance <varname>hibernate</varname> a en
     outre l'exclusion de <package>javax.transaction </package>à chacune de ses définitions. Le<indexterm>
         <primary>duplicated dependency declarations</primary>
       </indexterm><indexterm>
         <primary>replicated dependencies</primary>
-      </indexterm> second type de réplication rencontré vient du fait que parfois plusieurs dépendances sont liées entre
+      </indexterm> second type de répétition rencontré vient du fait que parfois plusieurs dépendances sont liées entre
     elles et partagent la même version. C'est souvent le cas lorsqu'un projet livre plusieurs composants couplés entre
     eux. Par exemple, regardez les dépendances <varname>hibernate-</varname><varname>annotations</varname> et
     <varname>hibernate-commons-annotations</varname>. Toutes les deux ont la même version <varname>3.3.0.ga</varname>,
     et nous pouvons nous attendre à ce que les versions de ces deux dépendances évoluent de concert. Les deux artefacts
     <varname>hibernate-annotations</varname> et <varname>hibernate-commons-annotations</varname> sont des composants du
-    même projet livré par JBoss, et donc quand une nouvelle version de ce projet sort, ces deux dépendances changent. Le
-    troisième et dernier type de réplication est la<indexterm>
+    même projet mis à disposition par JBoss, et donc quand une nouvelle version de ce projet sort, ces deux dépendances
+    changent. Le troisième et dernier type de répétition est la<indexterm>
         <primary>sibling module dependency duplication</primary>
       </indexterm> duplication de dépendances et de version de modules frères. Maven fournit un mécanisme simple pour
     vous permettre de factoriser ces<indexterm>
