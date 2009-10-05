@@ -20,11 +20,12 @@
     ses fonctionnalités de build, sa capacité à produire des rapports, générer un site web et ainsi facilite la
     communication entre les différents membres de l'équipe.</para>
 
-    <para>La définition plus formelle d'<ulink url="http://maven.apache.org">Apache Maven </ulink> : Maven est un outil
-    de gestion de projet qui comprend un modèle objet de projet, un ensemble de standards, un cycle de vie, un système
-    de gestion des dépendances et la logique pour exécuter certaines fonctions de plugins à des étapes précises de ce
-    cycle de vie. Lorsque vous utilisez Maven, vous décrivez votre projet selon un modèle objet de projet clair, Maven
-    peut alors lui appliquer la logique transverse d'un ensemble de plugins (partagés ou spécifiques).</para>
+    <para>Voici une définition plus formelle d'<ulink url="http://maven.apache.org">Apache Maven </ulink> : Maven est un
+    outil de gestion de projet qui comprend un modèle objet pour définir un projet, un ensemble de standards, un cycle
+    de vie, et un système de gestion des dépendances. Il embarque aussi la logique nécessaire à l'exécution d'actions
+    pour des phases bien définies de ce cycle de vie, par le biais de plugins . Lorsque vous utilisez Maven, vous décrivez
+    votre projet selon un modèle objet de projet clair, Maven peut alors lui appliquer la logique transverse d'un
+    ensemble de plugins (partagés ou spécifiques).</para>
 
     <para>Ne vous laissez pas impressionner par le fait que Maven est un "outil de gestion de projet". Si vous cherchiez
     juste un outil de build alors Maven fera l'affaire. D'ailleurs, les premiers chapitres de
