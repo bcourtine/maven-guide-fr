@@ -18,12 +18,12 @@
   <section id="pom-relationships-sect-pom">
     <title>Le POM</title>
 
-    <para>Les projets Maven, les dépendances, les builds, les artefacts : tous sont des objets qu'il a falloir modèliser
-    et décrire. Ces objets sont décrits dans un fichier <acronym>XML</acronym> appelé Modèle Objet de Projet. Le
-    <acronym>POM</acronym> indique à Maven de quel type de projet il va devoir traiter et comment il va devoir modifier
-    son comportement par défaut pour produire le résultat attendu à partir des sources. Ainsi comme une application web
-    Java avec son fichier <filename moreinfo="none">web.xml</filename> qui décrit, configure et personnalise
-    l'application, un projet Maven se définit par la présence<indexterm>
+    <para>Les projets Maven, les dépendances, les builds, les artefacts : tous sont des objets qu'il va falloir
+    modèliser et décrire. Ces objets sont décrits dans un fichier <acronym>XML</acronym> appelé Modèle Objet de Projet.
+    Le <acronym>POM</acronym> indique à Maven de quel type de projet il va devoir traiter et comment il va devoir
+    modifier son comportement par défaut pour produire le résultat attendu à partir des sources. Ainsi comme une
+    application web Java avec son fichier <filename moreinfo="none">web.xml</filename> qui décrit, configure et
+    personnalise l'application, un projet Maven se définit par la présence<indexterm>
         <primary>pom.xml file</primary>
       </indexterm><indexterm>
         <primary>pom.xml file</primary>
