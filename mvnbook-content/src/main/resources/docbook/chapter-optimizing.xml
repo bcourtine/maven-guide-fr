@@ -375,7 +375,7 @@
         <listitem>
           <para>Utiliser <varname>\${project.version}</varname> et <varname>\${project.groupId}</varname> pour faire
           référence à un projet frère. Les projets frères ont la plupart du temps le même <literal>groupId</literal>, et
-          presque toujours la même version. Utiliser <varname>\${project.version}</varname> vous aidera à éviter<indexterm class="endofrange" startref="optref2a"></indexterm><indexterm class="endofrange"
+          presque toujours la même version. Utiliser <varname>\${project.version}</varname> vous aidera à éviter <indexterm class="endofrange" startref="optref2a"></indexterm><indexterm class="endofrange"
           startref="optref2b"></indexterm><indexterm class="endofrange" startref="optref2c"></indexterm>les incohérences
           de versions entre projets frères comme nous l'avons vu plus tôt.</para>
         </listitem>
