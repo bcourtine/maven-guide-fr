@@ -678,7 +678,7 @@
   <section id="optimizing-sect-final-poms">
     <title>Les POMs finaux</title>
 
-    <para>En résumé, tous les fichiers des <acronym>POM</acronym>s finaux<indexterm>
+    <para>En résumé, tous les fichiers des <acronym>POM</acronym>s finaux <indexterm>
         <primary>simple-parent POM (for reference)</primary>
       </indexterm><indexterm>
         <primary>pom.xml file</primary>
