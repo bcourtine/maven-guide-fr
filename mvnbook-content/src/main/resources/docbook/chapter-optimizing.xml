@@ -821,7 +821,7 @@
     commande de l'outil.</para>
 
     <example id="ex-final-pom-for-simple-command">
-      <title>POM Final POM de simple-command</title>
+      <title>POM Final de simple-command</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -909,7 +909,7 @@
     <varname>simple-model</varname> contient les objets métiers utilisés tout au long de l'application.</para>
 
     <example id="ex-final-pom-for-simple-model">
-      <title>POM Final POM de simple-model</title>
+      <title>POM Final de simple-model</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
