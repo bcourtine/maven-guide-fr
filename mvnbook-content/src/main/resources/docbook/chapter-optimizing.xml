@@ -38,8 +38,9 @@
     évaluer les décisions et la conception faites par d'autres. Dans ce chapitre, nous allons prendre du recul par
     rapport aux exemples que vous avez vus dans la <xref linkend="part-example" />, et nous allons nous demander
     quelles sont les optimisations à réaliser avec ce que nous avons appris sur Maven. Maven est un outil très adaptable
-    qui peut devenir simple ou complexe selon votre besoin. C'est pour cette raison qu'il existe des millions de
-    manières différentes de configurer votre projet Maven pour réaliser une même tâche, dont aucune qui ne soit la “bonne”.</para>
+    qui peut devenir simple ou complexe selon votre besoin. C'est pour cette raison qu'il existe des centaines de
+    manières différentes de configurer votre projet Maven pour réaliser une même tâche mais aucune qui ne saurait
+    prétendre être la “bonne”.</para>
 
     <para>N'allez par voir dans cette dernière phrase une autorisation à détourner à Maven pour lui faire réaliser des
     choses pour lesquelles il n'a pas été conçu. Même si Maven permet des approches diverses et variées, il existe
