@@ -1225,7 +1225,7 @@ $ <command>mkdir src/main/resources</command>
       Cette macro vous permet d'injecter un extrait de code dans le source d'un fichier disponible via <acronym>HTTP</acronym>.
       En utilisant cette macro, un petit morceau d'<acronym>APT</acronym> peut etre transformé en <acronym>XHTML</acronym>. 
       Le morceau de code <acronym>APT</acronym> suivant appelle la macro <varname>snipet</varname>.
-      Notez que ce code doit rester sur une seule ligne, un antislash peut tout de même être inséré pour faire des retours à la ligne lors de son affichage./<para>   
+      Notez que ce code doit rester sur une seule ligne, un antislash peut tout de même être inséré pour faire des retours à la ligne lors de son affichage.</para>   
 
       <screen>%{snippet|id=modello-model|url=http://svn.apache.org/repos/asf/maven/\
 archetype/trunk/maven-archetype/maven-archetype-model/src/main/\
@@ -1272,7 +1272,7 @@ mdo/archetype.mdo}
 
       <warning>
         <para>Les macros Doxia NE PEUVENT PAS être utilisées dans des documents <acronym>APT</acronym>. 
-        Dans le cas contraire, le parseur <acronym>APT</acronym> ignorera celles-ci.<para>
+        Dans le cas contraire, le parseur <acronym>APT</acronym> ignorera celles-ci.</para>
 
       </warning>
 
