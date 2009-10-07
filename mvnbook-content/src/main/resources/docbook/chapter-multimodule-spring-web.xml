@@ -183,7 +183,7 @@
       <para>L'exemple de ce chapitre implique un peu de technologies qui, même si elles sont populaires, ne sont pas directement liées à Maven.
       Ces technologies sont Spring et Hibernate.
       Spring est un conteneur <acronym>IoC</acronym> (Inversion of Control) accompagné par un ensemble de frameworks dont le but
-      est de simplifier les interactions entre nombreuses bibliothèques <acronym>J2EE</acronym>.
+      est de simplifier les interactions entre diverses bibliothèques <acronym>J2EE</acronym>.
       Utiliser Spring comme fondation pour le développement d'applications vous donne accès à un certain nombre d'abstractions très pratiques 
       qui permettent, entre autres, de faciliter l'intégration des framework de persistance comme Hibernate, iBatis ou d'<acronym>API</acronym> d'entreprise
       comme <acronym>JDBC</acronym>, <acronym>JNDI</acronym>, et <acronym>JMS</acronym>.
@@ -191,7 +191,7 @@
       Quant à Hibernate, il s'agit d'un framework d'<acronym>ORM</acronym> (Object-Relational Mapping) très largement utilisé
       qui permet d'interagir avec une base de données comme s'il s'agissait d'une liste d'objets Java.
       Cet exemple se concentre sur la construction d'une application web simple et d'une application en ligne de commande
-      qui utilisent Spring pour exposer un ensemble réutilisable de composants et Hibernate pour persister les données météo dans une base embarquée.
+      qui utilisent Spring pour exposer un ensemble réutilisable de composants et Hibernate pour sauvegarder les données météo dans une base embarquée.
       </para>
 
       <para>Nous avons décidé d'inclure des références à ces frameworks pour montrer comment on construirait des projets en utilisant ces mêmes technologies conjointement à Maven.
