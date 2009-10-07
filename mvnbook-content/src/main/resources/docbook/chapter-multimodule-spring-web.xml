@@ -2094,7 +2094,7 @@ public class WeatherFormatter {
 </programlisting>
     </example>
 
-    <para>Le template <filename>weather.vm</filename> affiche le code postal, la ville, le pays et les prévisions des températures.
+    <para>Le template <filename>weather.vm</filename> affiche le code postal, la ville, le pays et les prévisions de température.
     Le template <filename>history.vm</filename> affiche le lieu et itère sur la liste des prévisions stockées dans la base de données.  
     Ces deux templates se trouvent dans le dossier <filename>\${basedir}/src/main/resources</filename>.</para>
 
