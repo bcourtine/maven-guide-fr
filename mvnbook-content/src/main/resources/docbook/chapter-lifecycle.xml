@@ -934,7 +934,7 @@
 </programlisting>
         </example></para>
 
-      <para>Ce fichier <acronym>XML</acronym> utilise la même syntaxe pour gérer ses properties que le celle que du <acronym>POM</acronym>. 
+      <para>Ce fichier <acronym>XML</acronym> utilise la même syntaxe pour gérer ses propriétés que celle que du <acronym>POM</acronym>. 
       La première variable référencée est la variable <varname>project</varname>, 
       celle-ci est une variable implicite qui est également disponible dans le <acronym>POM</acronym>.   
       La variable <varname>project</varname> propose un moyen d'accéder à certaines informations du <acronym>POM</acronym>. 
