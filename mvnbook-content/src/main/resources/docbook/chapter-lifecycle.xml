@@ -671,7 +671,7 @@
       <title>WAR</title>
 
       <para>Le packaging de type <acronym>WAR</acronym> ressemble également aux types <acronym> JAR</acronym> et <acronym>EJB</acronym>,
-      a l'exception du goal de la phase <varname>package</varname> : <varname>war:war</varname>.
+      à l'exception du goal <varname>war:war</varname> de la phase <varname>package</varname>.
       Notez que le plugin <varname>war:war</varname> nécessite la présence d'un fichier de configuration <filename>web.xml</filename> dans le répertoire <filename>src/main/webapp/WEB-INF</filename>.
       Les goals par défaut d'un projet de type <acronym>WAR</acronym> sont présentés dans le <xref linkend="tbl-war-lifecycle" />.</para> 
 
