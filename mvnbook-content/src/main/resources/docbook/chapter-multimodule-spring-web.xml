@@ -498,7 +498,7 @@ public class Weather {
       </varlistentry>
     </variablelist>
 
-    <para>Ensuite, jettons un coup d'oeil à un second objet du modèle,
+    <para>Ensuite, jetons un coup d'oeil à un second objet du modèle,
     <classname>Condition</classname>, affiché dans l'<xref linkend="example_condition_model_object" />. 
     Cette classe se trouve également dans le dossier <filename>src/main/java/org/sonatype/mavenbook/weather/model</filename>.</para>
 
