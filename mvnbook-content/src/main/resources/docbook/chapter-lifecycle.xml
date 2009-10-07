@@ -150,7 +150,7 @@
       vous pouvez personnaliser le plugin Clean pour effacer des dossiers en plus du répertoire contenant le build. 
       Vous pouvez configurer le plugin pour supprimer certains fichiers d'un <sgmltag>fileSet</sgmltag>.
       L'exemple ci-dessous configure le plugin Clean pour supprimer tous les fichiers du répertoire <filename>target-other/</filename> en utilisant le wildcards standard Ant :   
-      <varname>*</varname> and <varname>**</varname>.</para>
+      <varname>*</varname> et <varname>**</varname>.</para>
       
 
       <para><example>
@@ -844,7 +844,7 @@
       Cet exemple devrait vous donner une idée de ce que vous avez à faire pour référencer un type de packaging personnalisé.
       Tout ce dont vous avez besoin est de référencer le plugin qui fournit votre nouveau type de packaging. 
       Le plugin Israfil Flex est un plugin Maven non officiel hébergé sur Google Code, 
-      pour plus d'information sur le fonctionnement et l'utilisation, rendez-vous à l'adresse <ulink
+      pour plus d'informations sur le fonctionnement et l'utilisation, rendez-vous à l'adresse <ulink
       url="http://code.google.com/p/israfil-mojo">http://code.google.com/p/israfil-mojo</ulink>.
       Ce plugin fournit le cycle de vie suivant pour les projets du type <acronym>SWF</acronym> :</para>
 
