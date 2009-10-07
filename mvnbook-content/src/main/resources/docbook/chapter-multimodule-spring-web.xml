@@ -337,7 +337,7 @@
     ainsi que les quelques exemples d'utilisation de ces annotations.</para>
 
     <example id="example_simple-model_pom.xml">
-      <title>pom.xml du module simple-model</title>
+      <title>POM du module simple-model</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
