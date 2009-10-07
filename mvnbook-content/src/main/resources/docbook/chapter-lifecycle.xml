@@ -1131,7 +1131,7 @@ java -jar simple-cmd-2.3.1.jar %*
 
       <warning>
         <para>Alors qu'il pourrait vous sembler nécessaire de configurer Maven pour qu'il utilise votre propre structure de répertoires,
-        nous n'essayerons jamais assez d'essayer de vous disuader de modifier la configuration Maven par défaut.
+        nous n'essayerons jamais assez de vous disuader de modifier la configuration Maven par défaut.
         Nous n'essayons pas ici de vous laver le cerveau pour vous forcer à utiliser la structure Maven,
         mais il reste beaucoup simple de suivre quelques conventions pour que tout le monde puisse comprendre rapidement votre projet.</para>
       </warning>
