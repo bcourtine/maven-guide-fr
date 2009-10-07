@@ -953,8 +953,8 @@ jdbc.password=
 
       <para>Pour configurer le filtre des ressources avec le fichier <filename>default.properties</filename>,
       nous avons besoin de préciser deux choses dans le <acronym>POM</acronym> du projet :
-      une liste de fichier de propriétés dans la balise <sgmltag>filters</sgmltag> de la configuration du build,
-      et un flag qui permet à Maven de savoir si un répertoire doit être filtré. 
+      une liste de fichier de propriétés dans la balise <sgmltag>filters</sgmltag> de la configuration du build
+      et un booléen qui permet à Maven de savoir si un répertoire doit être filtré. 
       Le comportement par défaut de Maven est de ne pas effectuer de filtre mais de juste copier les ressources dans le répertoire destination :
       vous devez donc configurer explicitement le filtre des ressources. 
       Ce comportement par défaut permet d'éviter les mauvaises surprises. 
