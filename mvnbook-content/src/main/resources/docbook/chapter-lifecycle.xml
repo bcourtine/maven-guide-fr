@@ -1076,7 +1076,7 @@ java -jar simple-cmd-2.3.1.jar %*
       <title>Compilation</title>
 
       <para>La plupart des cycles de vie rattachent le plugin le goals <varname>compile</varname> du plugin Compiler à la phase <varname>compile</varname>. 
-      Cette phase appelle <varname>compile:compile</varname> qui est configuré pour pour compiler tout le code source et copier le bytecode dans le répertoire destination du build.
+      Cette phase appelle <varname>compile:compile</varname> qui est configuré pour compiler tout le code source et copier le bytecode dans le répertoire destination du build.
       Si vous n'avez pas personnalisé les valeurs définies dans le Super <acronym>POM</acronym>, <varname>compile:compile</varname>
       compilera toutes les sources du répertoire <filename>src/main/java</filename> dans <filename>target/classes</filename>.
       Le plugin Compiler appelle <filename>javac</filename> et utilise les paramétrages par défaut pour le code source, 1.3 et la destination, 1.1. 
