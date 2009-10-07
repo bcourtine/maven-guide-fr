@@ -1399,7 +1399,7 @@ public class WeatherController implements Controller {
     le <classname>WeatherController</classname> est un bean contenant une propriété <varname>weatherService</varname>.  
     Le conteneur Spring IoC a la responsabilité de charger le service <varname>weatherService</varname> dans le contrôleur.
     Notez également que nous n'utilisons pas le <classname role="keep-together">WeatherFormatter</classname> dans ce contrôleur.
-    Au lieu de cela, nous passons l'objet <classname>Weather</classname> retourné par la méthode <methodname>retrieveForecast()</methodname> au contructeur de la classe <classname>ModelAndView</classname>.    
+    Au lieu de cela, nous passons l'objet <classname>Weather</classname> retourné par la méthode <methodname>retrieveForecast()</methodname> au constructeur de la classe <classname>ModelAndView</classname>.
     Cette classe <classname>ModelAndView</classname> est utilisée pour effectuer le rendu du<indexterm>
         <primary>template Velocity</primary>
       </indexterm> template Velocity. Ce template disposera d'une référence sur la variable <varname>\${weather}</varname> contenant ce même objet. 
