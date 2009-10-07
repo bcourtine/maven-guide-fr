@@ -170,7 +170,7 @@
       Dans un cas réel, un projet peut avoir un modèle de plusieurs centaines de classes, 
       plusieurs bibliothèques de persistance et des bibliothèques de services partagées.
       Bien que nous ayons essayé de garder un exemple suffisamment simple pour être compris rapidement,
-      nous vous proposons un projet bien plus complexe que le projet mutimodule du chapitre précédent. 
+      nous vous proposons un projet bien plus complexe que le projet multimodule du chapitre précédent.
       Vous pourriez être tentés de regarder rapidement les exemples dans ce chapitre et penser que Maven 
       génère trop de complexité comparée à la taille du modèle d'objet.
       Bien que l'utilisation de Maven suggère un certain niveau de modularité, 
