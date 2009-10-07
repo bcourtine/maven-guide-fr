@@ -96,7 +96,7 @@
   <section id="optimizing-sect-dependencies">
     <title>Optimiser les Dépendances</title>
 
-    <para>Si vous jettez un oeil aux différents <acronym>POM</acronym>s<indexterm class="startofrange" id="optref2a">
+    <para>Si vous jetez un oeil aux différents <acronym>POM</acronym>s<indexterm class="startofrange" id="optref2a">
         <primary>POM (Project Object Model)</primary>
 
         <secondary>optimizing and refactoring</secondary>
