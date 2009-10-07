@@ -1066,7 +1066,7 @@ java -jar simple-cmd-2.3.1.jar %*
 
       <para>La possibilité de personnaliser le filtrage pour un sous-ensemble spécifique de ressources 
       est l'une des raisons de séparer vos ressources par type sur un projet. 
-      Plus un projet est complexe, plus il sera avantageux de séparer des ressources dans répertoires multiples.
+      Plus un projet est complexe, plus il sera avantageux de séparer les ressources dans répertoires multiples.
       L'alternative au fait de conserver différentes sortes de ressources nécessitant différentes configurations de filtre dans des répertoires différents
       est d'utiliser un ensemble complexe de pattern 'include' et 'exclude' pour différencier les types de configuration.
       Cette seconde solution est beaucoup plus complexe à maintenir et à mettre en place.</para>
