@@ -433,7 +433,7 @@ public class Weather {
       </indexterm> L'annotation <classname>@Entity</classname> marque la classe comme entité persistante.
       Nous avons omis l'annotation <classname>@Table</classname> sur cette classe, <indexterm>
         <primary sortas="Table annotation (Hibernate)">Annotation @Table (Hibernate)</primary>
-      </indexterm> ainsi, Hibernate va utiliser le nom de la classe comme en nom de table. 
+      </indexterm> ainsi, Hibernate va utiliser le nom de la classe comme nom de table. 
       L'annotation<indexterm>
         <primary sortas="NamedQueries annotation (Hibernate)">Annotation @NamedQueries (Hibernate)</primary>
       </indexterm> <classname>@NamedQueries</classname> définit une requête qui sera utilisée par le <classname>WeatherDAO</classname> dans le module <varname>simple-persist</varname>.   
