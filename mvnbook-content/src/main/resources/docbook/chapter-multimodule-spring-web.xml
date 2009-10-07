@@ -384,7 +384,7 @@
     </example>
 
     <example id="example_weather_model_object">
-      <title>Object Weather Annotaté</title>
+      <title>Objet Weather annoté</title>
 
       <programlisting language="java">package org.sonatype.mavenbook.weather.model;
 
