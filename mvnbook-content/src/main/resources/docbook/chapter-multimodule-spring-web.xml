@@ -724,7 +724,7 @@ public class WeatherService {
     et ainsi récupérer une instance du service <classname>WeatherService</classname> par l'intermédiaire de son nom : <varname>weatherService</varname>.</para>
 
     <example>
-      <title>Application Context Spring du Module simple-weather</title>
+      <title>ApplicationContext Spring du Module simple-weather</title>
 
       <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 
@@ -994,7 +994,7 @@ public class WeatherDAO extends HibernateDaoSupport <co
     role="keep-together">applicationContext-persist.xml</filename>.</para>  
 
     <example id="ex-persist-spring">
-      <title>Application Context Spring du module simple-persist</title>
+      <title>ApplicationContext Spring du module simple-persist</title>
 
       <programlisting language="xml">&lt;beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1050,7 +1050,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
  &lt;/beans&gt;</programlisting>
     </example>
 
-    <para>Cet ApplicationContext définit plusieurs choses. 
+    <para>Cet <classname>ApplicationContext</classname> définit plusieurs choses.
     Le bean <varname>sessionFactory</varname> est le bean par lequel les <acronym>DAO</acronym>s pourront récupérer les <classname>Session</classname> Hibernate.   
     Ce bean est une instance de la classe <classname>AnnotationSessionFactoryBean</classname> et fournit une liste d'<varname>annotatedClasses</varname>.
     Notez que cette liste de classes annotées est la liste des classes définies dans le module <varname>simple-model</varname>.
@@ -1081,8 +1081,8 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
 
     <para>Dans la suite du fichier XML, sont définis les deux <acronym>DAO</acronym>s du module <varname>simple-persist</varname>.
     Chacun d'entre eux contient une référence vers la <varname>sessionFactory</varname> Hibernate que nous venons de définir.
-    Comme l'ApplicationContext du module <varname>simple-weather</varname>, ce fichier <filename>applicationContext-persist.xml</filename> définit l'architecture du sous-module. 
-    Si vous travailliez avec un plus grand nombre de classes persistantes, vous pourriez trouver utile de les externaliser dans un ApplicationContext séparé.</para>
+    Comme l'<classname>ApplicationContext</classname> du module <varname>simple-weather</varname>, ce fichier <filename>applicationContext-persist.xml</filename> définit l'architecture du sous-module.
+    Si vous travailliez avec un plus grand nombre de classes persistantes, vous pourriez trouver utile de les externaliser dans un <classname>ApplicationContext</classname> séparé.</para>
 
     <para>Il reste encore une dernière pièce du puzzle. Plus tard dans ce chapitre, nous verrons<indexterm>
         <primary>plugin Maven Hibernate3</primary>
@@ -1147,7 +1147,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
     </example>
 
     <para>Les contenus de l'<xref linkend="ex-persist-spring" /> et de l'<xref linkend="ex-multimodule-web-spring-parent" /> sont redondants.
-    Le <acronym>XML</acronym> de l'ApplicationContext Spring sera utilisé par l'application web et l'application en ligne de commande,
+    Le <acronym>XML</acronym> de l'<classname>ApplicationContext</classname> Spring sera utilisé par l'application web et l'application en ligne de commande,
     le fichier <filename>hibernate.cfg.xml</filename> n'est présent que pour faire fonctionner le plugin Maven Hibernate3. 
     Plus tard dans ce chapitre, nous verrons comment utiliser ce fichier <filename>hibernate.cfg.xml</filename> et le plugin Maven Hibernate3
     pour générer le schéma de la base de données basé sur les objets annotés du projet <varname>simple-model</varname>.
@@ -1526,7 +1526,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
     <para>Nous venons de voir les implémentations de nos deux <classname>Controller</classname>. 
     Nous venons également de voir comment ils référencent les beans des modules <varname>simple-weather</varname> et <varname>simple-persist</varname>.
     Ces <classname>Controller</classname> répondent aux requêtes <acronym>HTTP</acronym> par l'intermédiaire de mystérieux systèmes qui savent comment effectuer le rendu de templates Velocity.
-    Toute la magie est configurée dans l'ApplicationContext Spring du fichier <filename>src/main/webapp/WEB-INF/weather-servlet.xml</filename>.
+    Toute la magie est configurée dans l'<classname>ApplicationContext</classname> Spring du fichier <filename>src/main/webapp/WEB-INF/weather-servlet.xml</filename>.
     Ce <acronym>XML</acronym> configure les contrôleurs et référence d'autres beans managés par Spring.
     Il est chargé par un <classname>ServletContextListener</classname> qui est configuré pour charger également les fichiers <filename>applicationContext-weather.xml</filename> et <filename>applicationContext-persist.xml</filename> à partir du classpath.
     Regardons de plus près le fichier <filename>weather-servlet.xml</filename> de l'<xref linkend="ex-spring-weather-servlet" />.</para>
@@ -2292,7 +2292,7 @@ Evanston, IL, US
       Sur la <xref linkend="fig-multimodule-web-spring-projects-complex" />, deux des projets sont des projets d'interfaces : <varname>persist-api</varname> et <varname>parse-api</varname>.
       Si les projets <varname>big-command</varname> et <varname>big-webapp</varname> utilisent les interfaces définies dans <varname>persist-api</varname>, il sera facile de changer d'implémentations et de framework de persistance. 
       Ce diagramme en particulier montre deux implémentations du projet <varname>persist-api</varname> : une qui stocke ses données dans une base de données <acronym>XML</acronym> et l'autre qui stocke ses données dans une base de données relationnelle.
-      Si vous décidez de mettre en place certains des concepts de ce chapitre, vous pourriez réfléchir à comment passer un signal au programme pour permettre de changer d'ApplicationContext Spring et changer ainsi de base de données à la volée.
+      Si vous décidez de mettre en place certains des concepts de ce chapitre, vous pourriez réfléchir à comment passer un signal au programme pour permettre de changer d'<classname>ApplicationContext</classname> Spring et changer ainsi de base de données à la volée.
       Comme pour la conception OO de l'application elle-même, il est souvent prudent de séparer les interfaces d'une <acronym>API</acronym> de leurs implémentations en utilisant des projets Maven séparés.</para>
       
     </section>
