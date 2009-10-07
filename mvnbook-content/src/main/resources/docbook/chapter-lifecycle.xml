@@ -1243,9 +1243,9 @@ java -jar simple-cmd-2.3.1.jar %*
       Cette phase est utilisée pour déployer un artefact sur un dépôt Maven distant,
       c'est souvent nécessaire pour mettre à jour un dépôt distant quand vous effectuez une release.
       La procédure de déploiement peut aller d'une simple copie de fichier d'un répertoire à un autre, à un ensemble complexe de transferts <acronym>SCP</acronym> de fichiers en utilisant une clé publique.
-      Les préférences de déploiement nécessitent souvent des accès à un dépôt distant, et, du coup, 
+      Les préférences de déploiement nécessitent souvent des accès à un dépôt distant, et du coup, 
       ces préférences sont souvent stockées en dehors du <filename>pom.xml</filename>.
-      À la place, ces préférences se trouvent souvent dans un fichier unique à chaque utilisateur : <filename>~/.m2/settings.xml</filename>. 
+      À la place, ces préférences se trouvent souvent dans un fichier propre à chaque utilisateur : <filename>~/.m2/settings.xml</filename>. 
       Tout ce que vous avez besoin de savoir pour le moment est que le goal <varname>deploy:deploy</varname> est rattaché à la phase <varname>deploy</varname>
       et qu'il permet le transfert d'un artefact sur un dépôt de publication et la mise à jour des informations d'un dépôt qui peuvent être affectés par un tel déploiement.</para> 
     </section>
