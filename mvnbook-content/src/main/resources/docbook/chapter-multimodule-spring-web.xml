@@ -750,8 +750,9 @@ public class WeatherService {
 
     <para>Ce fichier déclare trois beans : <varname>yahooParser</varname>, <varname>yahooRetriever</varname>, et <varname>weatherService</varname>.
     Le bean <varname>weatherService</varname> est une instance du service <classname>WeatherService</classname>. 
-    Le <acronym>XML</acronym> configure également les propriétés <varname>yahooParser</varname> et <varname>yahooRetriever</varname> de ce bean.
-    Elles réfèrent deux instances nommées des classes en question.
+    Le fichier <acronym>XML</acronym> configure également les propriétés de ce bean
+    <varname>yahooParser</varname> et <varname>yahooRetriever</varname> qui référencent les noms des deux instances de
+    classes en question.
     Vous pouvez comparer ce fichier <filename>applicationContext-weather.xml</filename> à la définition de l'architecture d'un sous-système de ce projet multimodule. 
     Certains projets comme <varname>simple-webapp</varname> et <varname>simple-command</varname> peuvent référencer ce contexte 
     et récupérer une instance du service <classname>WeatherService</classname> configurée avec des instances des classes <classname>YahooRetriever</classname> et <classname>YahooParser</classname> en propriété.</para>
