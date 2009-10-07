@@ -1140,7 +1140,7 @@ java -jar simple-cmd-2.3.1.jar %*
     <section id="lifecycle-sect-process-test-resources-phase">
       <title>Traiter les Resources des Tests</title>
 
-      <para>La phase <varname>process-test-resources</varname> est indiscernable de la phase <varname>process-resources</varname>.
+      <para>La phase <varname>process-test-resources</varname> est quasi identique à la phase <varname>process-resources</varname>.
       Si le <acronym>POM</acronym> comporte quelques légères différences, le plus grand nombre de la configuration reste identique.
       Vous pouvez filtrer les ressources de vos tests de la même manière que les ressources du projet.
       L'emplacement par défaut des ressources pour les tests est définie dans le Super <acronym>POM</acronym> dans <filename>src/test/resources</filename>,
