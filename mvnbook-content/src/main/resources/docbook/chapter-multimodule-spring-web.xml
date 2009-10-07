@@ -1411,7 +1411,7 @@ public class WeatherController implements Controller {
     Plus tard, dans le contrôleur <classname>HistoryController</classname>, nous verrons comment récupérer l'historique de ces prévisions météorologiques.</para>
 
     <example id="ex-weather-vm">
-      <title>template weather.vm template interprété par le WeatherController</title>
+      <title>Template weather.vm interprété par le WeatherController</title>
 
       <programlisting language="xml">&lt;b&gt;Current Weather Conditions for:
   \${weather.location.city}, \${weather.location.region}, 
