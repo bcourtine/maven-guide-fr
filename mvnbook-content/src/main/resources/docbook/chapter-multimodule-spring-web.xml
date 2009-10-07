@@ -50,7 +50,7 @@
     </section>
 
     <section id="multimodule-web-spring-sect-project-description">
-      <title>Projet Multimodules d'Enterprise</title>
+      <title>Projet Multimodule d'Entreprise</title>
 
       <para>Présenter la complexité d'un projet d'entreprise d'envergure dépasse de loin la portée de ce livre.
       De tels projets sont souvent caractérisés par des problématiques bien spécifiques : bases de données multiples,
@@ -70,7 +70,7 @@
       Ce projet est divisé en cinq sous-modules, dont voici la présentation sur la <xref linkend = "fig-multimodule-web-spring-projects"/>.</para>
 
       <figure id="fig-multimodule-web-spring-projects">
-        <title>Relations entre les modules de l'Application d'Enterprise</title>
+        <title>Relations entre les modules de l'Application d'Entreprise</title>
 
         <mediaobject>
           <imageobject role="web">
