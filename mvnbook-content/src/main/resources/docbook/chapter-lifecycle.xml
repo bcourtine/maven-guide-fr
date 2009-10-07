@@ -337,7 +337,7 @@
     <section id="lifecycle-sect-site">
       <title>Cycle de vie Site (site)</title>
 
-      <para>Maven est plus que construire les artefacts de votre projet,
+      <para>Maven fait plus que construire les artefacts de votre projet,
       il peut également générer de la documentation et différents rapports d'un ou plusieurs projets.
       La documentation du projet et la génération du site web ont un cycle de vie séparé. 
       Celui-ci contient quatre phases :</para>
@@ -380,7 +380,7 @@
       <screen>$ <command>mvn site</command>
 </screen>
 
-      <para>Pour plus d'informations à propose de la génération de Maven Site, consultez <xref linkend="site-generation" />.</para>
+      <para>Pour plus d'informations à propos de la génération de site Maven, consultez le <xref linkend="site-generation" />.</para>
     </section>
   </section>
 
