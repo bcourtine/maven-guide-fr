@@ -981,7 +981,7 @@ jdbc.password=
       Il ne s'agit que de la valeur par défaut définie dans le Super <acronym>POM</acronym>.
       Notez également que vous n'avez pas besoin de centraliser toutes vos ressources dans un unique répertoire.
       Vous pouvez les séparer dans plusieurs répertoires dans <filename>src/main</filename>.
-      Imaginez que votre projet contient des centaines de fichiers <acronym>XML</acronym> et des centaines d'images.
+      Imaginez que votre projet contienne des centaines de fichiers <acronym>XML</acronym> et des centaines d'images.
       Au lieu de centraliser toutes vos ressources dans le répertoire <filename>src/main/resources</filename>,
       il voudrez probablement créer deux répertoires <filename>src/main/xml</filename> et <filename>src/main/images</filename>.
       Pour ajouter des répertoires à la liste des répertoires contenant les ressources,
