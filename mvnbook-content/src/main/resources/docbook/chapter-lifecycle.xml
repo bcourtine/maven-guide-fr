@@ -183,8 +183,8 @@
     <section id="lifecycle-sect-default">
       <title>Default Lifecycle (default)</title>
 
-      <para>La Plupart des utilisateurs Maven seront familiers avec le cycle de vie par défaut. 
-      C'est un modèle général pour processus de build pour une application de logiciel.
+      <para>La plupart des utilisateurs Maven seront familiers avec le cycle de vie par défaut. 
+      C'est un modèle général de process de build pour une application.
       Ce cycle de vie commence par la phase <varname>validate</varname> et se termine avec la phase <varname>deploy</varname>. 
       Les phases du cycle de vie Maven par défaut sont présentés dans le <xref linkend="tbl-default-lifecycle" />.</para>
 
