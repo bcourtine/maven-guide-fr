@@ -8,7 +8,7 @@
     <title>Introduction</title>
 
     <para>
-    Maven modélise les projets en noms qui sont définis par un <acronym>POM</acronym>.
+    Maven modélise les projets en entité qui sont définis par un <acronym>POM</acronym>.
     Le <acronym>POM</acronym> capture l'identité d'un projet : Que contient un projet ?
     De quel genre de packaging a t-il besoin ? Le projet a-t-il un parent ? Quelles sont les dépendances ? 
     Nous avons exploré les principes de description d'un projet dans les chapitres précédents,
