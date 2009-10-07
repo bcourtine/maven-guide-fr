@@ -40,7 +40,7 @@
       <screen>${examples.download.url}</screen>
       
       <para>
-      Décompressez cette archive dans n'importe quel répertoire et ouvez le répertoire <filename>ch-multi/</filename>. 
+      Décompressez cette archive dans n'importe quel répertoire et ouvrez le répertoire <filename>ch-multi/</filename>. 
       Celui-ci inclut un répertoire <filename>simple-parent/</filename> qui contient le projet Maven multimodule
       développé dans ce chapitre. Dans ce dernier, vous trouverez un fichier 
       <filename>pom.xml</filename> et deux sous-modules, <filename>simple-weather/</filename> 
