@@ -127,7 +127,7 @@
           <listitem>
             <para>Ce module contient les <acronym>DAO</acronym>s (Data Access Objects) qui permettent
             de stocker les objets <classname>Weather</classname> dans la base de données.
-            Ces <acronym>DAO</acronym>s seront utilisés par les deux applications de ce projet mutltimodule.
+            Ces <acronym>DAO</acronym>s seront utilisés par les deux applications de ce projet multimodule.
             Ils permettront également de faire le lien avec les objets du modèle du module <varname>simple-model</varname>. 
             Le module <varname>simple-persist</varname> a donc une dépendance directe avec le module <varname>simple-model</varname>
             et une dépendance avec <acronym>JAR</acronym> contenant les Annotations Hibernate. 
