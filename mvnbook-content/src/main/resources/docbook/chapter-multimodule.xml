@@ -523,7 +523,7 @@ public class WeatherServlet extends HttpServlet {
       </para>
     </note>
     <para>Dès que le plugin Reactor a trouvé l'ordre dans lequel les projets doivent être construits,
-    Maven exécute les goals indiqués pour chaque module afin d'effectuer le build du projet multi-module.
+    Maven exécute les goals indiqués pour chaque module afin d'effectuer le build du projet multimodule.
     Dans cet exemple, vous pouvez effectivement remarquer que Maven commence par construire 
     le module <varname>simple-weather</varname> avant l'application web <varname>simple-webapp</varname>
     en exécutant la commande <command>mvn clean install</command>.</para>
@@ -541,7 +541,7 @@ public class WeatherServlet extends HttpServlet {
   <section id="multimodule-sect-running-web">
     <title>Exécution de l'Application Web</title>
 
-    <para>Une fois que le projet multi-module a été installé via la commande <command>mvn<indexterm class="startofrange" id="multimod5a">
+    <para>Une fois que le projet multimodule a été installé via la commande <command>mvn<indexterm class="startofrange" id="multimod5a">
         <primary>projet multimodule (exemple)</primary>
         <secondary>exécution</secondary>
       </indexterm><indexterm class="startofrange" id="multimod5b">
