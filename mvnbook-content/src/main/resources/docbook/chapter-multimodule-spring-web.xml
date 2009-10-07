@@ -2042,7 +2042,7 @@ public class Main {
     <para>Dans l'application web, nous utilisions le <classname>VelocityViewResolver</classname> proposé par Spring pour effectuer le rendu d'un template Velocity.
     Dans l'implémentation en ligne de commande, nous avons besoin d'écrire manuellement une classe qui permet d'afficher les données météorologiques à partir d'un template Velocity.
     L'<xref linkend="ex-spring-weather-formatter" /> affiche la classe <classname>WeatherFormatter</classname>.
-    Cette classe possède donc deux méthodes qui permettent respectivement d'afficher les prévisions météorologiques et leur historique.</para>
+    Cette classe possède donc deux méthodes qui permettent d'afficher respectivement les prévisions météorologiques et leur historique.</para>
 
     <example id="ex-spring-weather-formatter">
       <title>WeatherFormatter affiche les prévisions météo en utilisant un template Velocity</title>
