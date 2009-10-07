@@ -102,7 +102,7 @@
             Lorsque notre application parse le flux Yahoo! Météo, 
             les parseurs définis dans le module <varname>simple-weather</varname> transforment le <acronym>XML</acronym>
             en une liste d'objets <classname>Weather</classname> qui sera ensuite utilisée dans les applications.
-            Ce projet contient des objets du modèle annotés avec les annotations Hibernate 3. 
+            Ce projet contient des objets du modèle annotés avec les annotations Hibernate3. 
             Le module <varname>simple-persist</varname> utilise ces objets pour mapper chacun d'entre eux à une table de la base de données.
             </para>
           </listitem>
@@ -1309,7 +1309,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
 
       <callout arearefs="coDef-spring-web-3" id="coRef-spring-web-3">
         <para>Dans notre configuration de build, nous allons configurer le plugin Maven Hibernate3 pour qu'il utilise une instance de la base de données embarquée HSQLDB.
-        Pour que le plugin Maven Hibernate 3 arrive à se connecter à la base, il doit référencer le driver JDBC d'HSQLDB du classpath.
+        Pour que le plugin Maven Hibernate3 arrive à se connecter à la base, il doit référencer le driver JDBC d'HSQLDB dans son classpath.
         Pour rendre cette dépendance disponible au plugin, nous ajoutons sa déclaration directement dans la déclaration du <sgmltag>plugin</sgmltag>.  
         Ici, nous référençons hsqldb:hsqldb:1.8.0.7. 
         Le plugin Hibernate a également besoin des drivers JDBC pour créer cette base de données, nous avons donc ajouté cette dépendance dans sa configuration.</para>
