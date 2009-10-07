@@ -2246,7 +2246,7 @@ Evanston, IL, US
  
     <para>Nous avons passé beaucoup de temps sur des sujets ne se rapportant pas directement à Maven pour parcourir tout ce chemin.
     Nous l'avons fait pour présenter un projet exemple aussi complet et significatif que possible pour que vous puissiez l'utiliser pour réaliser de véritables systèmes.
-    Pour arriver à ce résultat, nous n'avons pas eu besoin de prendre de raccourcis, ni de vous émmerveiller avec des tours de magie à la Ruby on Rails,
+    Pour arriver à ce résultat, nous n'avons pas eu besoin de prendre de raccourcis, ni de vous émerveiller avec des tours de magie à la Ruby on Rails,
     ni de vous laisser croire qu'on peut créer une application Java d'entreprise en "10 minutes ! ".
     Trop de monde essayent de vous vendre le framework révolutionnaire qui vous demanderait zéro temps d'apprentissage.
     Ce que nous avons essayé de faire dans ce chapitre est de présenter le tableau dans son intégralité, l'écosystème complet d'un build multimodule.
@@ -2257,10 +2257,10 @@ Evanston, IL, US
     Nous avons présenté un ensemble complexe de projets en utilisant des frameworks populaires que nous avons assemblés par des build déclaratifs.
     Le fait que plus de 60% de ce chapitre ait été consacré au fonctionnement de Spring et Hibernate doit montrer que Maven, pour sa plus grosse partie, n'est pas l'étape la plus compliquée d'un projet.
     Il nous a permis de nous concentrer sur l'application elle-même, et non sur le processus de build.
-    Au lieu de passer du temps à discuter du fonctionnement de Maven et le travail que vous devriez faire pour builder un projet qui intègre Spring et Hibernate, 
+    Au lieu de passer du temps à discuter du fonctionnement de Maven et le travail que vous devriez faire pour construire un projet qui intègre Spring et Hibernate,
     nous avons parlé presque exclusivement des technologies utilisées.
     Si vous commencez à utiliser Maven et que vous prenez du temps pour l'apprendre, vous commencez vraiment à profiter du fait que vous ne devez pas passer votre temps à écrire vos scripts de build.
-    Vous ne devez pas perdre votre temps à vous inquiéter des aspects classques de votre build.</para>
+    Vous ne devez pas perdre votre temps à vous inquiéter des aspects classiques de votre build.</para>
 
     <para>Vous pouvez utiliser le squelette du projet de ce chapitre comme fondation pour votre propre projet. Fondation à laquelle vous ajouterez des modules au fur et à mesure de vos besoins. 
     Par exemple, le véritable projet dont ce chapitre est tiré comporte deux projets modèles, deux modules de persistance qui permettent de stocker des objets dans différents type de base de données, plusieurs applications web et une application Java mobile.
