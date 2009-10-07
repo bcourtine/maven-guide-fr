@@ -502,7 +502,7 @@
     déclarées explicitement. Comme Maven 2.x inclut les dépendances transivites du scope compile, votre projet peut
     compiler correctement mais ne pas fonctionner en production. Prenons par exemple le cas d'un projet qui utilise les
     classes d'une librairie très utilisée comme Jakarta Commons BeanUtils. Au lieu de déclarer une dépendance explicite
-    sur <phrase role="keep-together">BeanUtils</phrase>, votre projet dépend d'un projet comme Hibernate qui référencie
+    sur <phrase role="keep-together">BeanUtils</phrase>, votre projet dépend d'un projet comme Hibernate qui référence
     BeanUtils comme dépendance transitive. Votre projet peut donc compiler et s'exécuter correctement. Mais si vous
     mettez à jour votre version d'Hibernate et que cette nouvelle version ne dépend plus de BeanUtils, vous allez
     commencer à rencontrer des erreurs de compilation et d'exécution, et il ne sera pas évident de trouver pourquoi
