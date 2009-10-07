@@ -474,7 +474,7 @@
       <title>POM</title>
 
       <para><acronym>POM</acronym> est le plus simple des types de packaging. 
-      L'artefact qu'il correspond à son propre contenu, rien de comparable à un <acronym>JAR</acronym>, <acronym>SAR</acronym> ou <acronym>EAR</acronym>. 
+      L'artefact généré est le pom lui-même plutôt qu'un fichier <acronym>JAR</acronym>, <acronym>SAR</acronym> ou <acronym>EAR</acronym>. 
       Il ne possède pas de code à tester ou à compiler, et n'a pas de ressources à traiter.
       Les goals par défaut d'un projet du type POM sont affichés dans le <xref linkend="tbl-pom-lifecycle" />.</para>
 
