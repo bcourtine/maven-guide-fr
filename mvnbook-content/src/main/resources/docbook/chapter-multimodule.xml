@@ -471,7 +471,7 @@ public class WeatherServlet extends HttpServlet {
       </indexterm> <acronym>WAR</acronym>. Pour cela, vous devez compiler et installer
       les deux projets précédemment créés dans un ordre précis. Comme le projet
       <varname>simple-webapp</varname> dépend du projet
-    <varname>simple-weather</varname>, nous devons transformer de dernier (<varname>simple-weather</varname>)
+    <varname>simple-weather</varname>, nous devons transformer ce dernier (<varname>simple-weather</varname>)
     en <acronym>JAR</acronym> avant de pouvoir compiler la webapp. Pour faire cela, 
     utilisons la commande <command>mvn clean install</command> à partir du projet de plus haut niveau
     <varname>simple-parent</varname> :</para>
