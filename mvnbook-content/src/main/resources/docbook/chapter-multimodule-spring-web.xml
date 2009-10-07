@@ -1333,7 +1333,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
         Si vous utilisez le plugin Hibernate3 en reverse engineering pour générer les fichiers <filename>.hbm.xml</filename> 
         et les objets du modèle à partir d'une base de données existante, vous voudrez utiliser l'implémentation <literal>jdbcconfiguration</literal>.   
         Dans notre exemple, nous utilisons simplement les objets annotés du modèle pour générer la base de données.        
-        En d'autres mots, nous avons notre mapping Hibernate, mais nous n'avons pas encore de base de données. 
+        En d'autres termes, nous avons notre mapping Hibernate, mais nous n'avons pas encore de base de données.
         Pour ce scénario, <literal>annotationconfiguration</literal> est l'implémentation la plus appropriée.
         Le plugin Maven Hibernate3 sera plus largement détaillé dans la <xref linkend="multimodule-web-spring-sect-spring-running-web" />.</para>
       </callout>
