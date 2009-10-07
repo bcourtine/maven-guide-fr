@@ -1100,7 +1100,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
     <acronym>DDL</acronym> (Data Definition Language) du schéma de la base de données. Consultez l'<xref linkend="ex-hibernate-cfg" />.</para>
 
     <example id="ex-hibernate-cfg">
-      <title>fichier hibernate.cfg.xml du simple-persist</title>
+      <title>Fichier hibernate.cfg.xml du module simple-persist</title>
 
       <programlisting language="xml">&lt;!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
@@ -1407,7 +1407,7 @@ public class WeatherController implements Controller {
 
     <para>Dans ce <classname>WeatherController</classname>, avant d'effectuer le rendu des prévisions météo, nous passons l'objet <classname>Weather</classname>
     retourné par le service <classname>WeatherService</classname> à la méthode <methodname>save()</methodname> de la classe <classname>WeatherDAO</classname>.
-    Cet objet est persisté par  Hibernate en base de données.      
+    Cet objet est sauvegardé par Hibernate en base de données.
     Plus tard, dans le contrôleur <classname>HistoryController</classname>, nous verrons comment récupérer l'historique de ces prévisions météorologiques.</para>
 
     <example id="ex-weather-vm">
