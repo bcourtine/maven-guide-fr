@@ -64,7 +64,7 @@
       <para>Dans ce chapitre, nous allons étudier un projet Maven multimodules qui produira deux applications :
       un outil en ligne de commande et une application web ; chacune de ces applications permettra d'interroger le flux Yahoo! Météo.
       Ces deux applications conserveront les résultats des différentes requêtes dans une base de données embarquée
-      et permettent de récupérer l'historique des prévisions météorologiques stockées dans celle-ci.
+      et permettront de récupérer l'historique des prévisions météorologiques stockées dans celle-ci.
       Les deux applications réutiliseront le même code métier et partageront une bibliothèque de persistance.
       L'exemple de ce chapitre est construit sur la base du code du parseur développé dans le <xref linkend="customizing" />.
       Ce projet est divisé en cinq sous-modules, dont voici la présentation sur la <xref linkend = "fig-multimodule-web-spring-projects"/>.</para>
