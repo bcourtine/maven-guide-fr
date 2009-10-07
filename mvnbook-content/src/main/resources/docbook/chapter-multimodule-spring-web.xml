@@ -52,7 +52,7 @@
     <section id="multimodule-web-spring-sect-project-description">
       <title>Projet Multimodules d'Enterprise</title>
 
-      <para>Présenter la compléxité d'un projet d'entreprise d'envergure dépasse de loin la portée de ce livre.
+      <para>Présenter la complexité d'un projet d'entreprise d'envergure dépasse de loin la portée de ce livre.
       De tels projets sont souvent caractérisés par des problématiques bien spécifiques : bases de données multiples,
       intégration avec des systèmes externes, sous-projets divisés par départements... 
       Ce genre de projets comporte en général plusieurs milliers de lignes de codes et peut impliquer des dizaines, voire des centaines, de développeurs.

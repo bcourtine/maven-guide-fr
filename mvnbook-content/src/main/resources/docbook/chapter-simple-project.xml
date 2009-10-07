@@ -795,7 +795,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       (1.5 MiB) est que cette version initiale ne vient qu'avec très peu de plugins. Maven est livré avec le strict
       minimum et récupère de dépôts distants ce dont il a besoin quand il en a besoin. Maven est livré avec
       l'emplacement d'un dépôt distant par défaut (<ulink
-      url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2 </ulink>) qu'il utilise pour télécharger les
+      url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2</ulink>) qu'il utilise pour télécharger les
       principaux plugins et les dépendances Maven.</para>
 
       <para>Souvent vous aurez des projets qui dépendent de bibliothèques propriétaires ou non disponibles publiquement.
