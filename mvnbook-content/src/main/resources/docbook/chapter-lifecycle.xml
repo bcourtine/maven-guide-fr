@@ -891,7 +891,7 @@
     Si vous regarder les goals rattachés aux cycles de vie <acronym>WAR</acronym> et <acronym>JAR</acronym>,
     vous remarquerez que seule la phase <varname>package</varname> diffère.
     La phase <varname>package</varname> du cycle de vie <acronym>WAR</acronym> appelle <varname>war:war</varname> alors
-    que la cette même phase est appelle <varname>jar:jar</varname> pour le cycle de vie <acronym>JAR</acronym>. 
+    que la cette même phase appelle <varname>jar:jar</varname> pour le cycle de vie <acronym>JAR</acronym>. 
     La plupart des cycles de vie que vous rencontrerez partageront certains goals pour gérer les ressources,
     exécuter les tests et compiler votre code. 
     Dans cette section, nous explorerons quelques-uns des goals utilisés sur plusieurs cycles de vie.</para>
