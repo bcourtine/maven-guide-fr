@@ -959,7 +959,7 @@ public class WeatherDAO extends HibernateDaoSupport <co
         Ce qui signifie que cette classe est associée à une <classname>SessionFactory</classname> Hibernate qui permet la création d'objets <classname>Session</classname> Hibernate.
         Avec Hibenate, chaque opération s'effectue par l'intermédiaire d'un objet <classname>Session</classname>, 
         celle-ci s'occupe des accès à la base de données et de la connexion via la <classname>DataSource</classname> JDBC.
-        Étendre <classname>HibernateDaoSupport</classname> vous permet également d'accéder à la template <classname>HibernateTemplate</classname> en utilisant la méthode <methodname>getHibernateTemplate()</methodname>.
+        Étendre <classname>HibernateDaoSupport</classname> vous permet également d'accéder au template <classname>HibernateTemplate</classname> en utilisant la méthode <methodname>getHibernateTemplate()</methodname>.
         </para> 
       </callout>
 
