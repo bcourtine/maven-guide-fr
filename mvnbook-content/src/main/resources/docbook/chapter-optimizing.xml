@@ -88,7 +88,7 @@
     répétitions dans un <acronym>POM</acronym> et ses <acronym>POM</acronym>s frères. Quand vous commencez un projet ou
     que celui-ci évolue fréquemment, il est tout à fait acceptable de dupliquer des dépendances et des configurations de
     plugins. Mais au fur et à mesure que votre projet se stabilise et que le nombre de sous-modules augmente, vous
-    devrez prendre le temps de remanier ces élements communs de configuration et de dépendances. Rendre vos
+    devrez prendre le temps de remanier ces éléments communs de configuration et de dépendances. Rendre vos
     <acronym>POM</acronym>s plus efficaces vous aidera énormément à gérer la complexité de votre projet durant sa
     croissance. À chaque fois qu'il y a duplication d'information, il existe une meilleure manière de faire.</para>
   </section>
