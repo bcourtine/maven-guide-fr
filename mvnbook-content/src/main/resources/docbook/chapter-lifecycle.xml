@@ -58,14 +58,14 @@
       Exécuter la phase <varname>clean</varname> donne à Maven l'opportunité d'exécuter les autres goals rattachés à la phase <varname>pre-clean</varname>.</para>
 
       <para>Par exemple, supposez que vous voulez exécuter un goal <varname>antrun:run</varname> pour afficher une notification lors du <varname>pre-clean</varname>,
-      ou archiver le répertoire de build du projet avant qu'il ne soit supprime.      
+      ou archiver le répertoire de build du projet avant qu'il ne soit supprimé.      
       Exécuter directement le goal <varname>clean:clean</varname> ne lancera pas le cycle de vie,
       mais en spécifiant la phase <varname>clean</varname> vous utiliserez le cycle de vie <varname>clean</varname> 
       et traverserez de ce fait les trois phases du cycle de vie de jusqu'à la phase <varname>clean</varname>.
       L'<xref linkend="ex-trigger-pre-clean" /> montre un exemple de configuration de build qui permet de rattacher le goal <varname>antrun:run</varname>
       à la phase <varname>pre-clean</varname> pour afficher une alerte avant la suppression de l'artefact en cours de nettoyage.  
       Dans cet exemple, le goal <varname>antrun:run</varname> est utilisé pour exécuter des commandes Ant qui permettent de tester l'existence d'un artefact de projet.
-      Si l'artefact du projet est sur le point d'être effacé, il d'affichera à l'écran.</para>
+      Si l'artefact du projet est sur le point d'être effacé, il s'affichera à l'écran.</para>
 
       <example id="ex-trigger-pre-clean">
         <title>Exécuter un Goal lors du pre-clean</title>
