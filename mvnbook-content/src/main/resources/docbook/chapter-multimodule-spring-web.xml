@@ -2289,7 +2289,7 @@ Evanston, IL, US
         </mediaobject>
       </figure>
 
-      <para>Quand nous utilisons le terme projet d'interfaces nous faisons allusion à un projet Maven qui contient uniquement des interfaces et des constantes.
+      <para>Quand nous utilisons le terme projet d'interfaces, nous faisons allusion à un projet Maven qui contient uniquement des interfaces et des constantes.
       Sur la <xref linkend="fig-multimodule-web-spring-projects-complex" />, deux des projets sont des projets d'interfaces : <varname>persist-api</varname> et <varname>parse-api</varname>.
       Si les projets <varname>big-command</varname> et <varname>big-webapp</varname> utilisent les interfaces définies dans <varname>persist-api</varname>, il sera facile de changer d'implémentations et de framework de persistance. 
       Ce diagramme en particulier montre deux implémentations du projet <varname>persist-api</varname> : une qui stocke ses données dans une base de données <acronym>XML</acronym> et l'autre qui stocke ses données dans une base de données relationnelle.
