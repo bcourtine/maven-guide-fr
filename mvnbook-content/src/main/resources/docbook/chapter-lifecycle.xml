@@ -1215,7 +1215,7 @@ java -jar simple-cmd-2.3.1.jar %*
 &lt;/build&gt;</programlisting>
       </example>
 
-      <para>Si vous désirez passer les tests, vous pouvez exécuter la commande suivante :</para>
+      <para>Si vous souhaitez ne pas exécuter l'ensemble des tests, vous pouvez exécuter la commande suivante :</para>
 
       <screen>$ mvn install -Dmaven.test.skip=true</screen>
 
