@@ -22,7 +22,7 @@
     <literal>simple-webapp</literal> défini dans le <xref linkend="web" />
     pour créer une application web qui récupère et affiche des renseignements
     météorologiques sur une page Web. À la fin de ce chapitre, vous serez 
-    capables d'utiliser Maven pour développer des projets multimodules complexes.
+    capable d'utiliser Maven pour développer des projets multimodules complexes.
     </para>
 
     <section id="multimodule-sect-downloading">
