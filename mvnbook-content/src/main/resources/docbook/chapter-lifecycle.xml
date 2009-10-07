@@ -1194,8 +1194,8 @@ java -jar simple-cmd-2.3.1.jar %*
       pour créer un résumé 'facile à lire' du résultat des tests unitaires.</para>
 
       <para>Si vous travaillez sur un projet qui contient des tests unitaires qui échouent,
-      mais que vous voulez tout de même aboutir, vous devrez configurer le plugin Surefire pour qu'il continue le build même en cas d'échec.
-      Le comportement par défaut est d'arreter le build lorsqu'un test unitaire échoue.      
+      mais que vous voulez tout de même générer votre artefact, vous devrez configurer le plugin Surefire pour qu'il continue le build même en cas d'échec.
+      Le comportement par défaut est d'arrêter le build lorsqu'un test unitaire échoue.      
       Pour modifier ce comportement, vous devez affecter la propriété <varname>testFailureIgnore</varname> à 'true' du plugin Surefire.</para>
 
       <example>
