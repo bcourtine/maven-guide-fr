@@ -1046,8 +1046,8 @@ jdbc.password=
       vous vous retrouverez avec deux fichiers dans <varname>\${basedir}</varname> : <filename>run.sh</filename> et <filename>run.bat</filename>.
       Nous avons inclus ces deux fichiers dans la balise <sgmltag>resource</sgmltag>, configuré le filtrage, 
       et affecté le <sgmltag>targetPath</sgmltag> à la valeur <varname>\${basedir}</varname>.
-      Dans une deuxième balise <sgmltag>resource</sgmltag>, 
-      nous avons configuré le chemin des ressources par défaut pour être copié dans le répertoire destination dans filtrage.
+      Dans une seconde balise <sgmltag>resource</sgmltag>, 
+      nous avons configuré le chemin par défaut des ressources pour qu'elles soient copiées sans filtrage dans le répertoire de destination.
       L'<xref linkend="ex-filter-script" /> montre comment déclarer deux répertoires ressources et les configurer différemment.  
       Le projet de l'<xref linkend="ex-filter-script" /> doit disposer un fichier <filename>run.bat</filename> dans le dossier
       <filename>src/main/command</filename> qui contient le code suivant :</para>
