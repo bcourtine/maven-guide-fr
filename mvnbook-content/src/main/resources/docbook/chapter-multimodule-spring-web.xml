@@ -9,12 +9,12 @@
 
     <para>Dans ce chapitre, nous allons créer un projet multimodules à partir<indexterm class="startofrange" id="enterprise1a">
         <primary>projet multimodule (exemple)</primary>
-        <secondary>projet multimodule d'enterprise</secondary>
+        <secondary>projet multimodule d'entreprise</secondary>
       </indexterm><indexterm class="startofrange" id="enterprise1b">
         <primary>Applications Web</primary>
-        <secondary>exemple de projet multimodule d'enterprise</secondary>
+        <secondary>exemple de projet multimodule d'entreprise</secondary>
       </indexterm><indexterm class="startofrange" id="enterprise1c">
-        <primary>projet d'enterprise, multimodule (exemple)</primary>
+        <primary>projet d'entreprise, multimodule (exemple)</primary>
       </indexterm> des exemples du <xref linkend="multimodule" /> et du <xref
     linkend="web" />. Nous ferons évoluer ces exemples en un projet utilisant 
     les frameworks Spring et Hibernate pour créer deux applications :
@@ -30,10 +30,10 @@
       <title>Télécharger les sources de ce chapitre</title>
 
       <para>Le projet multimodules développé dans cet exemple se compose des versions modifiées 
-      des projets développés dans les chapitres <xref linkend="customizing" /> et <xref linkend="web" />, 
+      des projets développés dans le <xref linkend="customizing" /> et le <xref linkend="web" />,
       sans utiliser le plugin Maven Archetype pour le générer. Nous recommandons de télécharger le code 
       des exemples pour utiliser celui-ci comme code de référence lors de la lecture de ce chapitre.
-      Sans ces exemples, vous ne serez pas capables de recréer la totalité du projet produit dans ce chapitre.
+      Sans ces exemples, vous ne serez pas capable de recréer la totalité du projet produit dans ce chapitre.
       Le projet contenant les exemples de ce chapitre peut être téléchargé à l'adresse suivante :</para>
 
       <screen>${examples.download.url}</screen>       
@@ -219,7 +219,7 @@
         <secondary>exemple de projet multimodule</secondary>
         <tertiary>projet parent simple</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise2d">
-        <primary>projet d'enterprise, multimodule (exemple)</primary>
+        <primary>projet d'entreprise, multimodule (exemple)</primary>
         <secondary>projet parent simple</secondary>
       </indexterm> un fichier <filename>pom.xml</filename> qui référence cinq sous-modules :
     <varname>simple-command</varname>,
@@ -553,7 +553,7 @@ public class Condition {
         <secondary>exemple de projet d'entreprise multimodule</secondary>
         <tertiary>Module Météo Simple</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise4c">
-        <primary>projet d'enterprise, multimodule (exemple)</primary>
+        <primary>projet d'entrerprise, multimodule (exemple)</primary>
         <secondary>Module Météo Simple</secondary>
       </indexterm> un “service”.
     Ce module contient toute la logique nécessaire pour récupérer et parser les données provenant du flux <acronym>RSS</acronym> Yahoo! Météo.
@@ -773,7 +773,7 @@ public class WeatherService {
         <secondary>exemple de projet d'entreprise multimodule</secondary>
         <tertiary>Module de Persistance Simple de</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise5c">
-        <primary>projet d'enterprise, multimodule (exemple)</primary>
+        <primary>projet d'entreprise, multimodule (exemple)</primary>
         <secondary>Module de Persistance Simple de</secondary>
       </indexterm> est un objet qui fournit une interface aux opérations de persistances.
     Dans une application qui utilise un framework de mapping ORM (Object-Relational Mapping) comme Hibernate, un DAO est défini autour d'un objet.
@@ -1168,7 +1168,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
         <secondary>exemple de projet d'entreprise multimodule</secondary>
         <tertiary>Simple Application Web</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise6c">
-        <primary>projet d'enterprise, multimodule (exemple)</primary>
+        <primary>projet d'entreprise, multimodule (exemple)</primary>
         <secondary>Simple Application Web</secondary>
       </indexterm>. Ce projet va définir deux contrôleurs Spring <acronym>MVC</acronym> : 
     <classname>WeatherController</classname> et <classname role="keep-together">HistoryController</classname>. 
@@ -1728,7 +1728,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
         <secondary>exemple de projet d'entreprise multimodule</secondary>
         <tertiary>Exécution de l'Application Web</tertiary>
       </indexterm><indexterm class="startofrange" id="enterprise7c">
-        <primary>projet d'enterprise, multimodule (exemple)</primary>
+        <primary>projet d'entreprise, multimodule (exemple)</primary>
         <secondary>Exécution de l'Application Web</secondary>
       </indexterm><indexterm>
         <primary>plugin Maven Hibernate3</primary>
