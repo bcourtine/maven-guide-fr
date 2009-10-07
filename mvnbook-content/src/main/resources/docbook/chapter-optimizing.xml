@@ -30,7 +30,7 @@
         <see>optimizing POMs</see>
       </indexterm> d'éléments de Maven doivent intervenir de concert pour produire un build multimodule complètement
     fonctionnel. Bien que l'exemple du chapitre précédent représente une véritable application — une application qui
-    intéragit avec une base de données, un web service, et qui elle-même présente deux interfaces : une au travers d'une
+    interagit avec une base de données, un web service, et qui elle-même présente deux interfaces : une au travers d'une
     application web, et l'autre via la ligne de commande — cet exemple de projet reste convenu. Présenter la complexité
     d'un véritable projet demanderait un livre bien plus épais que celui que vous avez entre les mains. Dans la réalité
     les applications évoluent année après année et sont souvent maintenues par des équipes de développeurs
