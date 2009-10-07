@@ -204,7 +204,7 @@
             <row>
               <entry>validate</entry>
 
-              <entry>Valide que le projet soit correct et que toutes les informations nécessaires au build soient disponibles</entry>
+              <entry>Valide le projet et la disponibilité de toutes les informations requises pour le build</entry>
             </row>
 
             <row>
@@ -290,8 +290,8 @@
             <row>
               <entry>package</entry>
 
-              <entry>Package le code compilé dans un format distribuable, tel que <acronym>JAR</acronym>, un
-              <acronym>WAR</acronym>, un <acronym>EAR</acronym></entry>
+              <entry>Package le code compilé dans un format distribuable tel que <acronym>JAR</acronym>, 
+              <acronym>WAR</acronym> ou <acronym>EAR</acronym></entry>
             </row>
 
             <row>
