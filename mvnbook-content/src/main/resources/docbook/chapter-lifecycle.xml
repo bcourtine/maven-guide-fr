@@ -395,8 +395,8 @@
     le projet avec le packaging de type <varname>pom</varname> lancera le goal <varname>site:attach-descriptor</varname> durant la phase <varname>package</varname>,
     alors que le projet du type <varname>jar</varname> exécutera le goal <varname>jar:jar</varname>.</para>
 
-    <para>Les paragraphes suivants décrivent le cycle de vie pour tous les types de packaging disponible dans Maven.
-    Ils vous permettront donc de trouver quels goals sont rattachés au cycle de vie par défaut.</para> 
+    <para>Les paragraphes suivants décrivent le cycle de vie pour tous les types de packaging disponibles dans Maven.
+    Ils vous permettront de trouver quels goals sont rattachés au cycle de vie par défaut.</para> 
 
     <section id="lifecycle-sect-jar">
       <title>JAR</title>
