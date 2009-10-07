@@ -200,7 +200,7 @@
     B, mais il va se dire que c'est la faute à "pas de chance" et va poursuivre son développement. Pendant ce temps,
     dans la salle des machines la pression monte, jusqu'à ce qu'une des pièces explose ...</para>
 
-    <para>Quelqu'un, appelons le Mr. Distrait, a rencontré un conflit lors de la fusion du Component A, et a
+    <para>Quelqu'un, appelons le Mr. Distrait, a rencontré un conflit lors de la fusion du Composant A, et a
     malencontreusement indiqué que le Composant A dépend de la version <varname>1.3-SNAPSHOT</varname> du Composant B
     alors que le projet continuait sa marche en avant. Une équipe de développeurs essaye de corriger un bug dans le
     Composant B depuis tout ce temps et ils ne comprennent pas pourquoi ils n'arrivent pas à le corriger en production.
