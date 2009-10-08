@@ -20,7 +20,7 @@
       Le code du projet <literal>simple-weather</literal> développé dans le <xref
     linkend="customizing" /> sera combiné avec le projet 
     <literal>simple-webapp</literal> défini dans le <xref linkend="web" />
-    pour créer une application web qui récupère et affiche des renseignements
+    pour créer une application web qui récupère et affiche des données
     météorologiques sur une page Web. À la fin de ce chapitre, vous serez 
     capable d'utiliser Maven pour développer des projets multimodules complexes.
     </para>
