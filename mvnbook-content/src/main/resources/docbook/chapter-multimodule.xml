@@ -323,9 +323,9 @@ public class WeatherService {
         <secondary>Exemple d'un projet multimodule</secondary>
         <tertiary>simple sous-module d'une application web</tertiary>
       </indexterm> référençant le projet <varname>simple-parent</varname>.
-      Cette application web a pour dépendance le sous-module <varname>simple-weather</varname> car
-      elle contient des servlets qui permettent d'afficher le résultat de la 
-      recherche sur Yahoo! Météo.</para>
+      Cette application web dépend du sous-module <varname>simple-weather</varname> car
+      elle contient des servlets mettant en forme les résultats de la recherche sur Yahoo!
+      Météo.</para>
 
     <example>
       <title>POM du Module simple-webapp</title>
