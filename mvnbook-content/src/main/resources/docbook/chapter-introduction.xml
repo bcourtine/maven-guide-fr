@@ -354,7 +354,7 @@
           <listitem>
             <para><itemizedlist>
                 <listitem>
-                  <para>Ant de dispose d'aucune convention formelle ni comportement par défaut. Il vous faut indiquer à
+                  <para>Ant ne dispose d'aucune convention formelle ni comportement par défaut. Il vous faut indiquer à
                   Ant <emphasis>exactement</emphasis> où trouver le source et où mettre les résultats. Des conventions
                   informelles ont émergé au cours du temps, mais elles n'ont pas été intégrées au produit.</para>
                 </listitem>
