@@ -2,12 +2,12 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="multimodule-web-spring" lang="fr">
-  <title>Un Projet Multimodules d'Entreprise</title>
+  <title>Un Projet Multimodule d'Entreprise</title>
 
   <section id="multimodule-web-spring-sect-intro">
     <title>Introduction</title>
 
-    <para>Dans ce chapitre, nous allons créer un projet multimodules à partir<indexterm class="startofrange" id="enterprise1a">
+    <para>Dans ce chapitre, nous allons créer un projet multimodule à partir<indexterm class="startofrange" id="enterprise1a">
         <primary>projet multimodule (exemple)</primary>
         <secondary>projet multimodule d'entreprise</secondary>
       </indexterm><indexterm class="startofrange" id="enterprise1b">
@@ -29,7 +29,7 @@
     <section id="multimodule-web-spring-sect-downloading-example">
       <title>Télécharger les sources de ce chapitre</title>
 
-      <para>Le projet multimodules développé dans cet exemple se compose des versions modifiées 
+      <para>Le projet multimodule développé dans cet exemple se compose des versions modifiées 
       des projets développés dans le <xref linkend="customizing" /> et le <xref linkend="web" />,
       sans utiliser le plugin Maven Archetype pour le générer. Nous recommandons de télécharger le code 
       des exemples pour utiliser celui-ci comme code de référence lors de la lecture de ce chapitre.
@@ -61,7 +61,7 @@
       Enfin, en conclusion, au delà de ce qui est présenté dans ce chapitre, nous explorerons quelques pistes pour rendre vos applications modulaires.
       </para>
 
-      <para>Dans ce chapitre, nous allons étudier un projet Maven multimodules qui produira deux applications :
+      <para>Dans ce chapitre, nous allons étudier un projet Maven multimodule qui produira deux applications :
       un outil en ligne de commande et une application web ; chacune de ces applications permettra d'interroger le flux Yahoo! Météo.
       Ces deux applications conserveront les résultats des différentes requêtes dans une base de données embarquée
       et permettront de récupérer l'historique des prévisions météorologiques stockées dans celle-ci.
@@ -174,7 +174,7 @@
       Vous pourriez être tentés de regarder rapidement les exemples dans ce chapitre et penser que Maven 
       génère trop de complexité comparée à la taille du modèle d'objet.
       Bien que l'utilisation de Maven suggère un certain niveau de modularité, 
-      comprenez bien que nous avons volontairement compliqué ici nos exemples dans le but de montrer les fonctionnalités Maven pour des projets multimodules.</para>
+      comprenez bien que nous avons volontairement compliqué ici nos exemples dans le but de montrer les fonctionnalités Maven pour des projets multimodule.</para>
     </section>
 
     <section id="multimodule-web-spring-sect-example-tech">
