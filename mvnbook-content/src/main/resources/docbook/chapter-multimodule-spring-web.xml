@@ -58,7 +58,7 @@
       Ce genre de projets comporte en général plusieurs milliers de lignes de codes et peut impliquer des dizaines, voire des centaines, de développeurs.
       S'il est évident que nous ne traiterons pas d'un projet de ce type dans son intégralité dans ce livre,
       nous allons tout de même vous fournir un exemple assez complet pour appréhender la complexité d'une application d'entreprise.
-      Enfin, en conclusion, au delà de ce qui est présenté dans ce chapitre, nous explorerons quelques pistes pour rendre vos applications modulaires.
+      Enfin, en conclusion, au-delà de ce qui est présenté dans ce chapitre, nous explorerons quelques pistes pour rendre vos applications modulaires.
       </para>
 
       <para>Dans ce chapitre, nous allons étudier un projet Maven multimodule qui produira deux applications :
