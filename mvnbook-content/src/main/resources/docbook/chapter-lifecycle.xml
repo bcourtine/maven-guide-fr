@@ -8,32 +8,31 @@
     <title>Introduction</title>
 
     <para>
-    Maven modélise les projets en entité qui sont définis par un <acronym>POM</acronym>.
-    Le <acronym>POM</acronym> capture l'identité d'un projet : Que contient un projet ?
-    De quel genre de packaging a t-il besoin ? Le projet a-t-il un parent ? Quelles sont les dépendances ? 
+    Maven modélise les projets en entités qui sont définies par un <acronym>POM</acronym>.
+    Le <acronym>POM</acronym> capture donc l'identité d'un projet : Quel est son contenu ?
+    De quel genre de packaging a t-il besoin ? Le projet a-t-il un parent ? Quelles sont ses dépendances ? 
     Nous avons exploré les principes de description d'un projet dans les chapitres précédents,
     mais nous n'avons pas introduit le mécanisme qui permet à Maven d'agir sur ces objets.
-    Dans Maven, les "verbes" sont des goals packagés dans des plugins Maven qui sont attachés à des phases du cycle de vie du build.
-    Le cycle de vie Maven se compose d'une séquence de phases nommées dont : prepare-resources, compile, package, install.
-    Il y a une phase qui capture la compilation et une autre qui capture le packaging. 
-    Il existe également des phases pre- et post-. 
+    Dans Maven, les "actions" (ou verbe) sont représentés par des goals. Ceux-ci sont packagés dans des plugins qui sont attachés à des phases du cycle de vie du build.
+    Le cycle de vie Maven se compose d'une séquence de phases nommées dont : <varname>prepare-resources</varname>, <varname>compile</varname>, <varname>package</varname>, <varname>install</varname>.
+    Il y a donc, entre autres, une phase qui capture la compilation et une autre le packaging. 
+    Il existe également des phases du type <varname>pre-</varname> et <varname>post-</varname>. 
     Celles-ci peuvent être utilisées, par exemple, pour enregistrer des goals devant être exécutés avant la compilation 
-    ou effectuer des tâches après l'exécution d'une phase bien précise.
+    ou effectuer certaines tâches après l'exécution d'une phase spécifique.
     Quand vous demandez à Maven de construire un projet, 
-    vous lui demandez de parcourir la liste des différentes phases du cycle de vie et  
-    d'exécuter chacun des goals associés à celles-ci.</para>
+    vous lui demandez de parcourir la liste des différentes phases du cycle de vie et d'exécuter chacun des goals associés à celles-ci.</para>
 
     <para>Le cycle de vie d'un build est organisé en une séquence de phases qui permettent d'ordonner des groupes de goals.
-    Ces goals sont choisis et rattachés par le type de packaging de leur projet. 
+    Ces goals sont choisis et rattachés en fonction du type de packaging de leur projet. 
     Il existe trois types de cycle de vie : clean, default (quelquefois appelé build) et site.
-    Dans ce chapitre, vous allez apprendre comment Maven rattache des goals aux phases du cycle de vie, et comment customiser un cycle de vie. 
+    Dans ce chapitre, vous allez apprendre comment Maven rattache des goals aux phases de ces cycles de vie et comment personnaliser un cycle de vie. 
     Vous connaîtrez également les différentes phases du cycle de vie par défaut.</para>
 
     <section id="lifecycle-sect-clean">
       <title>Cycle de vie Clean (clean)</title>
 
       <para>Le premier cycle de vie auquel vous vous intéresserez est le cycle de vie le plus simple de Maven. 
-      Exécuter la commande <command>mvn clean</command> invoque le cycle de vie 'clean', celui-ci contient trois phases :</para>
+      L'exécution de la commande <command>mvn clean</command> invoque le cycle de vie 'clean', celui-ci contient trois phases :</para>
 
       <itemizedlist>
         <listitem>
@@ -49,23 +48,23 @@
         </listitem>
       </itemizedlist>
 
-      <para>La phase la plus intéressante de ce cycle de vie est la phase <varname>clean</varname>.
+      <para>La phase la plus intéressante de ce cycle de vie est celle nommée <varname>clean</varname>.
       Le goal 'clean' du plugin Clean (<varname>clean:clean</varname>) est attaché à la phase <varname>clean</varname> du cycle de vie <varname>clean</varname>.
       Le goal <varname>clean:clean</varname> efface les traces de la dernière construction en supprimant le répertoire de build.
-      Si vous n'avez pas modifié l'emplacement du répertoire de build, celui-ci se trouve dans le répertoire <filename>\${basedir}/target</filename>.
+      Si vous n'avez pas modifié l'emplacement du répertoire de build, celui-ci se trouve par défaut dans le répertoire <filename>\${basedir}/target</filename>.
       Lorsque vous exécutez le goal <varname>clean:clean</varname>, vous ne l'exécutez pas directement avec <command>mvn clean:clean</command>, 
       vous l'utilisez par l'intermédiaire de la phase <varname>clean</varname> du cycle de vie du même nom. 
       Exécuter la phase <varname>clean</varname> donne à Maven l'opportunité d'exécuter les autres goals rattachés à la phase <varname>pre-clean</varname>.</para>
 
-      <para>Par exemple, supposez que vous voulez exécuter un goal <varname>antrun:run</varname> pour afficher une notification lors du <varname>pre-clean</varname>,
+      <para>Par exemple, supposez que vous vouliez exécuter un goal <varname>antrun:run</varname> pour afficher une notification lors du <varname>pre-clean</varname>,
       ou archiver le répertoire de build du projet avant qu'il ne soit supprimé.      
-      Exécuter directement le goal <varname>clean:clean</varname> ne lancera pas le cycle de vie,
-      mais en spécifiant la phase <varname>clean</varname> vous utiliserez le cycle de vie <varname>clean</varname> 
+      Exécuter directement le goal <varname>clean:clean</varname> ne lancera pas le cycle de vie, vos tâches annexes ne seront donc pas exécutées. 
+      Par contre, si vous utilisez la phase <varname>clean</varname>, vous utiliserez le cycle de vie du même nom (<varname>clean</varname>) 
       et traverserez de ce fait les trois phases du cycle de vie de jusqu'à la phase <varname>clean</varname>.
-      L'<xref linkend="ex-trigger-pre-clean" /> montre un exemple de configuration de build qui permet de rattacher le goal <varname>antrun:run</varname>
+      L'<xref linkend="ex-trigger-pre-clean" /> montre une configuration de build qui permet de rattacher le goal <varname>antrun:run</varname>
       à la phase <varname>pre-clean</varname> pour afficher une alerte avant la suppression de l'artefact en cours de nettoyage.  
       Dans cet exemple, le goal <varname>antrun:run</varname> est utilisé pour exécuter des commandes Ant qui permettent de tester l'existence d'un artefact de projet.
-      Si l'artefact du projet est sur le point d'être effacé, il s'affichera à l'écran.</para>
+      Ainsi, si l'artefact du projet est trouvé et est donc sur le point d'être effacé, une alerte s'affichera à l'écran.</para>
 
       <example id="ex-trigger-pre-clean">
         <title>Exécuter un Goal lors du pre-clean</title>
@@ -148,8 +147,8 @@
 
       <para>En plus de configurer Maven pour exécuter un goal lors de la phase <varname>pre-clean</varname>,
       vous pouvez personnaliser le plugin Clean pour effacer des dossiers en plus du répertoire contenant le build. 
-      Vous pouvez configurer le plugin pour supprimer certains fichiers d'un <sgmltag>fileSet</sgmltag>.
-      L'exemple ci-dessous configure le plugin Clean pour supprimer tous les fichiers du répertoire <filename>target-other/</filename> en utilisant le wildcards standard Ant :   
+      Vous pouvez configurer le plugin pour supprimer une liste de fichier en lui spécifiant un <sgmltag>fileSet</sgmltag>.
+      L'exemple ci-dessous configure le plugin Clean pour supprimer tous les fichiers du répertoire <filename>target-other/</filename> en utilisant des wildcards standard Ant :   
       <varname>*</varname> et <varname>**</varname>.</para>
       
 
@@ -181,12 +180,12 @@
     </section>
 
     <section id="lifecycle-sect-default">
-      <title>Default Lifecycle (default)</title>
+      <title>Lifecycle par Défaut(default)</title>
 
       <para>La plupart des utilisateurs Maven seront familiers avec le cycle de vie par défaut. 
       C'est un modèle général de process de build pour une application.
       Ce cycle de vie commence par la phase <varname>validate</varname> et se termine avec la phase <varname>deploy</varname>. 
-      Les phases du cycle de vie Maven par défaut sont présentés dans le <xref linkend="tbl-default-lifecycle" />.</para>
+      Les phases du cycle de vie Maven par défaut sont présentées dans le <xref linkend="tbl-default-lifecycle" />.</para>
 
       <table id="tbl-default-lifecycle">
         <title>Phase du Cycle de vie Maven</title>
