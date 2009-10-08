@@ -70,7 +70,7 @@
     linkend="ex-multimodule-parent-pom" />.</para>
 
     <example id="ex-multimodule-parent-pom">
-      <title>Projet POM simple-parent</title>
+      <title>POM du projet simple-parent</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
