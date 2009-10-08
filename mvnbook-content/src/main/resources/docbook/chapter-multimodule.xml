@@ -415,9 +415,8 @@ public class WeatherServlet extends HttpServlet {
     Les balises <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag>
     du fichier <filename>web.xml</filename> associent l'URI <filename>/weather</filename>
     à la<indexterm class="endofrange" startref="multimod3a"></indexterm><indexterm class="endofrange"
-    startref="multimod3b"></indexterm> servlet <classname>WeatherServlet</classname>.
-    Consultez le code XML nécessaire pour effectuer cette configuration dans l'<xref linkend="ex-simple-webapp-web.xml" />.
-    </para>
+    startref="multimod3b"></indexterm> servlet <classname>WeatherServlet</classname>, comme le montre
+    l'<xref linkend="ex-simple-webapp-web.xml" />.</para>
 
     <example id="ex-simple-webapp-web.xml">
       <title>Fichier web.xml du module simple-webapp</title>
