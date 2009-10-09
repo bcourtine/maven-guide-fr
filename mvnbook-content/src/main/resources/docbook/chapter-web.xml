@@ -237,7 +237,7 @@ package: org.sonatype.mavenbook.simpleweb
 
         <secondary>configuring in pom.xml</secondary>
       </indexterm> vous allez vouloir la déployer dans un conteneur de
-    Servlet et tester l'<filename>index.jsp</filename> qui a été créée par le
+    Servlet et tester la page <filename>index.jsp</filename> qui a été créée par le
     plugin Maven Archetype. Normalement, cela implique de télécharger un serveur
     comme Jetty ou Apache Tomcat, décompresser la distribution, copier
     votre fichier <acronym>WAR</acronym> dans un répertoire
