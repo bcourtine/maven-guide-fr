@@ -312,7 +312,7 @@ simple-webapp/target/classes
     <para>Une fois que Maven a démarré le conteneur de servlet Jetty, ouvrez
     l'URL <ulink
     url="http://localhost:8080/simple-webapp/">http://localhost:8080/simple-webapp/</ulink>
-    dans un navigateur web. La simple page <filename>index.jsp</filename>
+    dans un navigateur web. La page <filename>index.jsp</filename>
     générée par l'Archetype est triviale ; elle contient un titre de second
     niveau avec le texte "Hello World!". Maven s'attend à ce que la racine du site
     web soit dans <filename>src/main/webapp</filename>. C'est dans ce
