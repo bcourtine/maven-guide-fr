@@ -63,11 +63,11 @@
     développer une application Struts 2, Tapestry, Wicket, Java Server Faces
     (<acronym>JSF</acronym>), ou Waffle, et nous n'allons pas non plus
     intégrer un conteneur <acronym>IoC</acronym> (Inversion of Control) comme
-    Plexus, Guice, ou le Framework Spring. Le but de ce chapitre est de vous
+    Plexus, Guice, ou Spring. Le but de ce chapitre est de vous
     montrer les possibilités fournies par Maven pour développer des
     applications web&mdash;ni plus, ni moins. Plus tard dans ce livre nous
     développerons deux applications web : l'une basée sur Hibernate, Velocity,
-    et le Framework Spring ; l'autre utilisant Plexus.</para>
+    et Spring ; l'autre utilisant Plexus.</para>
   </section>
 
   <section id="web-sect-creating-project">
