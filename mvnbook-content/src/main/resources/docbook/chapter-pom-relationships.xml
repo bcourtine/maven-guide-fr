@@ -32,14 +32,14 @@
       </indexterm> d'un <filename moreinfo="none">pom.xml</filename>. Il s'agit d'une déclaration décriant un projet
     Maven; c'est un “plan” abstrait que Maven doit comprendre et suivre lorsqu'il va construirevotre projet.</para>
 
-    <para>Vous pouvez aussi y voir une <filename moreinfo="none">pom.xml</filename> analogie à un fichier <filename
-    moreinfo="none">Makefile</filename> ou un <filename moreinfo="none">build.xml</filename> pour Ant. Quand vous
-    utilisez <acronym>GNU</acronym> <emphasis>make</emphasis> pour construire une application comme MySQL, vous aurez le
-    plus souvent un fichier <filename moreinfo="none">Makefile</filename> qui conteint les instructions explicites pour
-    construire un binaire à partir des sources. Quand vous utilisez Apache Ant, vous avez très probablement un fichier
-    <filename moreinfo="none">build.xml</filename> qui contient les instructions explicites pour nettoyer, compiler,
-    packager et déployer une application. <emphasis>make</emphasis>, Ant, et Maven ont en commun le fait qu'ils
-    dépendent de la présence d'un fichier avec toujours le même nom qu'il s'agisse de <filename
+    <para>Vous pouvez aussi voir dans le <filename moreinfo="none">pom.xml</filename> une analogie à un fichier
+    <filename moreinfo="none">Makefile</filename> ou un <filename moreinfo="none">build.xml</filename> pour Ant. Quand
+    vous utilisez <acronym>GNU</acronym> <emphasis>make</emphasis> pour construire une application comme MySQL, vous
+    aurez le plus souvent un fichier <filename moreinfo="none">Makefile</filename> qui conteint les instructions
+    explicites pour construire un binaire à partir des sources. Quand vous utilisez Apache Ant, vous avez très
+    probablement un fichier <filename moreinfo="none">build.xml</filename> qui contient les instructions explicites pour
+    nettoyer, compiler, packager et déployer une application. <emphasis>make</emphasis>, Ant, et Maven ont en commun le
+    fait qu'ils dépendent de la présence d'un fichier avec toujours le même nom qu'il s'agisse de <filename
     moreinfo="none">Makefile</filename>, <filename moreinfo="none">build.xml</filename>, ou <filename
     moreinfo="none">pom.xml</filename>, mais c'est là que les similarités s'arrêtent. Si vous regardez un <filename
     moreinfo="none">pom.xml</filename> Maven, la plus grande partie du <acronym>POM</acronym> se compose de
@@ -609,20 +609,21 @@
       Maven. Ces propriétés sont similaires à celles que l'on trouve dans d'autres systèmes comme Ant ou Velocity. Il
       s'agit tout simplement de variabls délimitées par <varname>\${...</varname><varname>}</varname>. Maven fournit
       trois variables implicites qui peuvent être utilisées pour accéder aux variables d'environnement, aux informations
-      du<acronym>POM</acronym>, and Maven Settings:</para>
+      du<acronym>POM</acronym>, et à votre configuration de Maven :</para>
 
       <variablelist>
         <varlistentry>
           <term>env</term>
 
           <listitem>
-            <para>The <varname>env</varname> variable exposes environment <indexterm>
+            <para>La variable <varname>env</varname> permet d'accéder aux variables d'environnement <indexterm>
                 <primary>env variable</primary>
               </indexterm><indexterm>
                 <primary>implicit variables, list of</primary>
-              </indexterm>variables exposed by your operating system or shell. For example, a reference to
-            <varname>\${env.</varname><varname>PATH}</varname> in a Maven <acronym>POM</acronym> would be replaced by
-            the <varname>\${PATH}</varname> environment variable (or <varname>%PATH%</varname> in Windows).</para>
+              </indexterm> de votre système d'exploitation ou de votre shell. Par exemple, une référence à
+            <varname>\${env.</varname><varname>PATH}</varname> dans un <acronym>POM</acronym> Maven serait remplacée par
+            le contenu de la variable d'environnement <varname>\${PATH}</varname> (ou <varname>%PATH%</varname> sous
+            Windows).</para>
           </listitem>
         </varlistentry>
 
@@ -630,12 +631,12 @@
           <term>project</term>
 
           <listitem>
-            <para>The <varname>project</varname> variable exposes the<indexterm>
+            <para>La variable <varname>project</varname> permet d'accéder au <indexterm>
                 <primary>project variable</primary>
-              </indexterm> <acronym>POM</acronym>. You can use a dot-notated (.) path to reference the value of a
-            <acronym>POM</acronym> element. For example, in this section we used the <varname>groupId</varname> and
-            <varname>artifactId</varname> to set the <sgmltag>finalName</sgmltag> element in the build configuration.
-            The syntax for this property reference was:
+              </indexterm> <acronym>POM</acronym>. Vous pouvez utiliser un chemin pavé de points (.) pour référencer la
+            valeur d'un élément du <acronym>POM</acronym>. Par exemple, dans cette section nous avons utilisé le
+            <varname>groupId</varname> et l'<varname>artifactId</varname> pour définir la valeur de l'élément
+            <sgmltag>finalName</sgmltag> dans la configuation du build. La syntaxe pour cette référence était :
             <code>\${project.groupId}-\${project.</code><code>artifactId}</code>.</para>
           </listitem>
         </varlistentry>
@@ -644,20 +645,20 @@
           <term>settings</term>
 
           <listitem>
-            <para>The <varname>settings</varname> variable exposes Maven <indexterm>
+            <para>La variable <varname>settings</varname> permet d'accéder aux informations de <indexterm>
                 <primary>settings variable</primary>
-              </indexterm>settings information. You can use a dot-notated (.) path to reference the value of an element
-            in a <filename moreinfo="none">settings.xml</filename> file. For example,
-            <varname>\${settings.offline}</varname> would reference the value of the <sgmltag>offline</sgmltag> element
-            in <filename moreinfo="none">~/.m2/settings.xml</filename>.</para>
+              </indexterm>votre configuration de Maven. Là encore, vous pouvez utiliser un chemin pavé de points (.)
+            pour référencer la valeur d'un élément du fichier <filename moreinfo="none">settings.xml</filename>. Par
+            exemple, <varname>\${settings.offline}</varname> ferait référence à la valeur de l'élément
+            <sgmltag>offline</sgmltag> du fichier <filename moreinfo="none">~/.m2/settings.xml</filename>.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
       <note>
-        <para>You may see older builds that use <varname>\${pom.xxx}</varname> or just <varname>\${xxx}</varname> to
-        reference <acronym>POM</acronym> properties. These methods have been deprecated and only
-        <varname>\${project.xxx}</varname> should be used.</para>
+        <para>Vous pouvez rencontrer d'anciens builds qui utilisent <varname>\${pom.xxx}</varname> ou simplement
+        <varname>\${xxx}</varname> pour référencer des propriétés du <acronym>POM</acronym>. Ces méthodes ont été
+        marquées comme abandonées, et vous ne devriez n'utiliser que <varname>\${project.xxx}</varname>.</para>
       </note>
 
       <para>In addition to the three implicit variables, you can reference <indexterm>

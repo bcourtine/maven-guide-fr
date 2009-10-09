@@ -63,15 +63,15 @@
     développer une application Struts 2, Tapestry, Wicket, Java Server Faces
     (<acronym>JSF</acronym>), ou Waffle, et nous n'allons pas non plus
     intégrer un conteneur <acronym>IoC</acronym> (Inversion of Control) comme
-    Plexus, Guice, ou le Framework Spring. Le but de ce chapitre est de vous
+    Plexus, Guice, ou Spring. Le but de ce chapitre est de vous
     montrer les possibilités fournies par Maven pour développer des
     applications web&mdash;ni plus, ni moins. Plus tard dans ce livre nous
     développerons deux applications web : l'une basée sur Hibernate, Velocity,
-    et le Framework Spring ; l'autre utilisant Plexus.</para>
+    et Spring ; l'autre utilisant Plexus.</para>
   </section>
 
   <section id="web-sect-creating-project">
-    <title>Creation du Simple Projet Web</title>
+    <title>Création du Simple Projet Web</title>
 
     <para>Pour créer votre projet d'application web<indexterm
         class="startofrange" id="webapp2">
@@ -237,7 +237,7 @@ package: org.sonatype.mavenbook.simpleweb
 
         <secondary>configuring in pom.xml</secondary>
       </indexterm> vous allez vouloir la déployer dans un conteneur de
-    Servlet et tester l'<filename>index.jsp</filename> qui a été créée par le
+    Servlet et tester la page <filename>index.jsp</filename> qui a été créée par le
     plugin Maven Archetype. Normalement, cela implique de télécharger un serveur
     comme Jetty ou Apache Tomcat, décompresser la distribution, copier
     votre fichier <acronym>WAR</acronym> dans un répertoire
@@ -301,7 +301,7 @@ simple-webapp/target/classes
  <warning>
       <para>Si vous utilisez le plugin Maven Jetty à partir d'un environnement Windows,
       vous devrez probablement déplacer votre dépôt local dans un répertoire qui ne contient pas d'espaces.
-      Des lecteurs nous ont remonté des problèmes lors du démarrage de Jetty par ce que leur 
+      Des lecteurs nous ont remonté des problèmes lors du démarrage de Jetty car leur
       dépôt local était stocké dans le répertoire <filename>"C:\Documents and Settings\&lt;user&gt;"</filename>.
       La solution pour régler ce problème est de déplacer votre repository local Maven dans un répertoire qui ne contient pas d'espaces
       et de redéfinir l'emplacement de votre repository local dans le fichier <filename>~/.m2/settings.xml</filename> 
