@@ -363,9 +363,9 @@ simple-webapp/target/classes
       </indexterm><indexterm class="startofrange" id="webapp4b">
         <primary>servlets, adding to project</primary>
       </indexterm> configurée est très peu utile. Ajoutons une simple
-    servlet à cette application et modifions le <filename>pom.xml</filename>
-    et le <filename>web.xml</filename> en conséquence.
-    Premièrement, nous allons devoir créer un nouveau package dans
+    servlet à cette application et modifions les fichiers <filename>pom.xml</filename>
+    et <filename>web.xml</filename> en conséquence.
+    Pour commencer, nous allons devoir créer un nouveau package dans
     <filename>src/main/java</filename> nommé
     <package>org.sonatype.mavenbook.web</package> :</para>
 
