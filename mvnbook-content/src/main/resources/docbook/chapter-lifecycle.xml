@@ -336,7 +336,7 @@
     <section id="lifecycle-sect-site">
       <title>Cycle de vie Site (site)</title>
 
-      <para>Maven fait plus que construire les artefacts de votre projet,
+      <para>Maven fait plus que construire des artefacts,
       il peut également générer de la documentation et différents rapports d'un ou plusieurs projets.
       La documentation du projet et la génération du site web ont un cycle de vie séparé. 
       Celui-ci contient quatre phases :</para>
@@ -391,7 +391,7 @@
     La balise <sgmltag>packaging</sgmltag> influe donc sur les étapes requises pour construire un projet.      
     Pour illustrer cela, prenons en exemple avec deux projets :
     l'un avec un packaging du type <varname>pom</varname> et l'autre avec un packaging du type <varname>jar</varname>.   
-    le projet avec le packaging de type <varname>pom</varname> lancera le goal <varname>site:attach-descriptor</varname> durant la phase <varname>package</varname>,
+    Le projet avec le packaging de type <varname>pom</varname> lancera le goal <varname>site:attach-descriptor</varname> durant la phase <varname>package</varname>,
     alors que le projet du type <varname>jar</varname> exécutera le goal <varname>jar:jar</varname>.</para>
 
     <para>Les paragraphes suivants décrivent le cycle de vie pour tous les types de packaging disponibles dans Maven.
@@ -400,8 +400,8 @@
     <section id="lifecycle-sect-jar">
       <title>JAR</title>
 
-      <para><acronym>JAR</acronym> est le type de packaging par défaut, le plus commun, 
-      et le plus souvent rencontré. Les goals par défaut rattachés au cycle de vie pour un projet possédant ce type de packaging sont montrés dans le 
+      <para><acronym>JAR</acronym> est le type de packaging par défaut, c'est également le plus commun et le plus souvent rencontré. 
+      Les goals par défaut rattachés au cycle de vie pour un projet possédant ce type de packaging sont montrés dans le 
       <xref linkend="tbl-jar-lifecycle" />.</para>
 
       <table id="tbl-jar-lifecycle">
@@ -474,7 +474,7 @@
 
       <para><acronym>POM</acronym> est le plus simple des types de packaging. 
       L'artefact généré est le pom lui-même plutôt qu'un fichier <acronym>JAR</acronym>, <acronym>SAR</acronym> ou <acronym>EAR</acronym>. 
-      Il ne possède pas de code à tester ou à compiler, et n'a pas de ressources à traiter.
+      Il ne possède pas de code à tester ni même à compiler, et n'a pas de ressources à traiter.
       Les goals par défaut d'un projet du type POM sont affichés dans le <xref linkend="tbl-pom-lifecycle" />.</para>
 
       <table id="tbl-pom-lifecycle">
@@ -597,8 +597,8 @@
       <para>Les <acronym>EJB</acronym>s (Enterprise Java Beans) proposent un mécanisme standard d'accès aux données.
       Ils proposent une approche orientée modèle (model-driven development) pour le développement d'applications Java d'entreprise.   
       Maven fournit un support pour les <acronym>EJB</acronym> 2 et 3.
-      Si vous devez configurer le plugin <acronym>EJB</acronym> pour packager spécifiquement un <acronym>EJB3</acronym>,
-      les pamarètres par défaut du plugin recherchent la présence des fichiers de configuration <acronym>EJB</acronym> 2.1.
+      Les pamarètres par défaut du plugin recherchent la présence des fichiers de configuration <acronym>EJB</acronym> 2.1,
+      vous devez configurer le plugin <acronym>EJB</acronym> pour packager spécifiquement un <acronym>EJB3</acronym>,
       Les goals par défaut pour des projets du type <acronym>EJB</acronym> sont présentés dans le <xref linkend="tbl-ejb-lifecycle" />.</para>
 
       <table id="tbl-ejb-lifecycle">
@@ -670,7 +670,7 @@
       <title>WAR</title>
 
       <para>Le packaging de type <acronym>WAR</acronym> ressemble également aux types <acronym> JAR</acronym> et <acronym>EJB</acronym>,
-      à l'exception du goal <varname>war:war</varname> de la phase <varname>package</varname>.
+      à l'exception prête du goal <varname>war:war</varname> de la phase <varname>package</varname>.
       Notez que le plugin <varname>war:war</varname> nécessite la présence d'un fichier de configuration <filename>web.xml</filename> dans le répertoire <filename>src/main/webapp/WEB-INF</filename>.
       Les goals par défaut d'un projet de type <acronym>WAR</acronym> sont présentés dans le <xref linkend="tbl-war-lifecycle" />.</para> 
 
@@ -743,7 +743,7 @@
       <title>EAR</title>
 
       <para>Les <acronym>EAR</acronym>s sont probablement les artefacts les plus simples d'une application Java <acronym>EE</acronym>. 
-      Ils sont constitués d'un descripteur de déploiement nommé <filename>application.xml</filename>, des ressources et de modules.  
+      Ils sont constitués d'un descripteur de déploiement nommé <filename>application.xml</filename>, de ressources et de modules.  
       Le plugin <acronym>EAR</acronym> possède un goal nommé <varname>generate-application-xml</varname>. 
       Celui-ci génère le fichier <filename>application.xml</filename> à partir de la configuration définit dans le POM du projet <acronym>EAR</acronym>.   
       Les goals par défaut d'un projet de type <acronym>EAR</acronym> sont présentés dans le <xref linkend="tbl-ear-lifecycle" />.</para>
@@ -806,7 +806,7 @@
 
       <para>Pour utiliser l'un de ces types de packaging personnalisé, vous avez besoin de deux choses :
       un plugin qui définit le cycle de vie d'un type de packaging personnalisé et un dépôt qui contient ce plugin.
-      Plusieurs types de packaging personnalisés sont définis dans des plugins disponibles à partir du Maven repository central.  
+      Plusieurs types de packaging personnalisés sont définis dans des plugins téléchargeables à partir du Maven repository central.  
       Voici l'exemple d'un projet qui référence le plugin Israfil Flex et qui utilise un type de packaging personnalisé 
       <acronym>SWF</acronym> comme résultat de la construction du code source Adobe Flex.</para>
 
@@ -840,7 +840,7 @@
 
       <para>Dans la <xref linkend="writing-plugins-sect-plugins-lifecycle" />, 
       nous vous montrons comment créer votre propre type de packaging avec un cycle de vie personnalisé. 
-      Cet exemple devrait vous donner une idée de ce que vous avez à faire pour référencer un type de packaging personnalisé.
+      Cet exemple devrait vous donner une idée de ce que vous avez à faire pour référencer un nouveau type de packaging.
       Tout ce dont vous avez besoin est de référencer le plugin qui fournit votre nouveau type de packaging. 
       Le plugin Israfil Flex est un plugin Maven non officiel hébergé sur Google Code, 
       pour plus d'informations sur le fonctionnement et l'utilisation, rendez-vous à l'adresse <ulink
@@ -884,7 +884,7 @@
   </section>
 
   <section id="lifecycle-sect-common-goals">
-    <title>Goals Communs de Cycle de vie</title>
+    <title>Goals communs aux cycles de vie</title>
 
     <para>La plupart des cycles de vie de packaging possèdent des goals en commun.
     Si vous regarder les goals rattachés aux cycles de vie <acronym>WAR</acronym> et <acronym>JAR</acronym>,
@@ -914,7 +914,7 @@
       <para>Pour illustrer le filtering des ressources, prenons l'exemple d'un projet possédant un fichier <acronym>XML</acronym> 
       dans le répertoire <filename>src/main/resources/META-INF/service.xml</filename>.  
       Vous voulez externaliser certaines variables de configuration dans un fichier properties. 
-      En d'autre terme, vous voulez référencer l'<acronym>URL</acronym> <acronym>JDBC</acronym>, l'utilisateur et le mot de passe de votre base de données,
+      En d'autres termes, vous voulez référencer l'<acronym>URL</acronym> <acronym>JDBC</acronym>, l'utilisateur et le mot de passe de votre base de données,
       sans directement mettre ces valeurs en dur dans le fichier <filename>service.xml</filename>.
       À la place, vous désirez utiliser un fichier properties pour centraliser toutes les valeurs de configuration de votre programme.
       Cela vous permet de consolider toute la configuration dans un seul fichier properties, 
@@ -956,8 +956,7 @@ jdbc.password=
       et un booléen qui permet à Maven de savoir si un répertoire doit être filtré. 
       Le comportement par défaut de Maven est de ne pas effectuer de filtre mais de juste copier les ressources dans le répertoire destination :
       vous devez donc configurer explicitement le filtre des ressources. 
-      Ce comportement par défaut permet d'éviter les mauvaises surprises. 
-      Cette fonctionnalité pourrait filtrer sans que vous le désiriez des fichiers contenant des éléments <varname>\${...}</varname>.</para> 
+      Ce comportement par défaut permet d'éviter les mauvaises surprises comme, par exemple, le filtrer sans que vous le désiriez de fichiers contenant des éléments <varname>\${...}</varname>.</para> 
 
       <para><example>
           <title>Filtrage des Ressources (Remplacer les Propriétés)</title>
