@@ -150,7 +150,7 @@ Password: ******
       <para>Installer Maven sur Windows est très proche de l'installation sur Mac <acronym>OSX</acronym>. Les
       principales différences sont le répertoire d'installation et la définition des variables d'environnement. Dans ce
       livre, nous allons supposer que le répertoire d'installation de Maven est <filename>c:\Program
-      Files\apache-maven-${maven.version} </filename>, mais ça ne change pas grand-chose si vous installez Maven dans un
+      Files\apache-maven-${maven.version}</filename>. Cela ne change pas grand-chose si vous installez Maven dans un
       autre répertoire, tant que vous configurez correctement les variables d'environnement. Une fois que vous avez
       décompressé Maven dans le répertoire d'installation, il vous faut définir deux variables d'environnement :
       <envar>PATH</envar> et <envar>M2_HOME</envar>. En ligne de commande, vous pouvez définir ces variables
@@ -239,7 +239,7 @@ lib/</screen>
     répertoire <filename>bin/</filename> contient le script <filename>mvn</filename> <indexterm>
         <primary>mvn script</primary>
       </indexterm>qui permet l'exécution de Maven. Dans <filename>boot/</filename> se trouve le fichier JAR (
-    <filename>classwords-1.1.jar</filename>) qui a pour charge de créer <indexterm>
+    <filename>classwords-1.1.jar</filename>) qui a pour fonction de créer <indexterm>
         <primary>classwords-1.1.jar file</primary>
       </indexterm>le Class Loader dans lequel s'exécute Maven. <filename>conf/</filename> contient un <filename
     role="keep-together">settings.xml</filename> global qui permet <indexterm>
