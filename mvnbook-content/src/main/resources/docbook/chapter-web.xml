@@ -301,7 +301,7 @@ simple-webapp/target/classes
  <warning>
       <para>Si vous utilisez le plugin Maven Jetty à partir d'un environnement Windows,
       vous devrez probablement déplacer votre dépôt local dans un répertoire qui ne contient pas d'espaces.
-      Des lecteurs nous ont remonté des problèmes lors du démarrage de Jetty par ce que leur 
+      Des lecteurs nous ont remonté des problèmes lors du démarrage de Jetty car leur
       dépôt local était stocké dans le répertoire <filename>"C:\Documents and Settings\&lt;user&gt;"</filename>.
       La solution pour régler ce problème est de déplacer votre repository local Maven dans un répertoire qui ne contient pas d'espaces
       et de redéfinir l'emplacement de votre repository local dans le fichier <filename>~/.m2/settings.xml</filename> 
