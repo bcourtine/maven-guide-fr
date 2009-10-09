@@ -2,7 +2,7 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="lifecycle" lang="fr">
-  <title>Cycle de vie du Build</title>
+  <title>Cycle de vie du build</title>
 
   <section id="lifecycle-sect-structure">
     <title>Introduction</title>
@@ -67,7 +67,7 @@
       Ainsi, si l'artefact du projet est trouvé et est donc sur le point d'être effacé, une alerte s'affichera à l'écran.</para>
 
       <example id="ex-trigger-pre-clean">
-        <title>Exécuter un Goal lors du pre-clean</title>
+        <title>Exécuter un goal lors du pre-clean</title>
 
         <programlisting language="xml">&lt;project&gt;
   ...
@@ -153,7 +153,7 @@
       
 
       <para><example>
-          <title>Personaliser le Comportement du Plugin Clean</title>
+          <title>Personaliser le comportement du plugin Clean</title>
 
           <programlisting language="xml">&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -180,7 +180,7 @@
     </section>
 
     <section id="lifecycle-sect-default">
-      <title>Lifecycle par Défaut(default)</title>
+      <title>Lifecycle par défaut(default)</title>
 
       <para>La plupart des utilisateurs Maven seront familiers avec le cycle de vie par défaut. 
       C'est un modèle général de process de build pour une application.
@@ -188,7 +188,7 @@
       Les phases du cycle de vie Maven par défaut sont présentées dans le <xref linkend="tbl-default-lifecycle" />.</para>
 
       <table id="tbl-default-lifecycle">
-        <title>Phase du Cycle de vie Maven</title>
+        <title>Phase du cycle de vie Maven</title>
 
         <tgroup cols="2">
           <thead>
@@ -384,7 +384,7 @@
   </section>
 
   <section id="lifecycle-sect-package-specific">
-    <title>Cycles de vie spécifiques par type de Package</title>
+    <title>Cycles de vie spécifiques par type de package</title>
 
     <para>Des goals spécifiques sont rattachés à chaque phase en fonction du packaging du projet.
     Un projet du type <varname>jar</varname> ne dispose pas des mêmes goals par défaut qu'un projet du type <varname>war</varname>.  
@@ -796,7 +796,7 @@
     </section>
 
     <section id="lifecycle-sect-other-packaging">
-      <title>Autres Types de Packaging</title>
+      <title>Autres types de packaging</title>
 
       <para>La liste que nous venons de parcourir n'est pas exhaustive.
       Nombre d'autres types de packaging sont disponibles par l'intermédiaire de projets externes et de plugins, dont :
@@ -811,7 +811,7 @@
       <acronym>SWF</acronym> comme résultat de la construction du code source Adobe Flex.</para>
 
       <para><example>
-          <title>Type de Packaging personnalisé pour Adobe Flex (SWF)</title>
+          <title>Type de packaging personnalisé pour Adobe Flex (SWF)</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -896,7 +896,7 @@
     Dans cette section, nous explorerons quelques-uns des goals utilisés sur plusieurs cycles de vie.</para>
 
     <section id="lifecycle-sect-process-resources-phase">
-      <title>Traiter les Resources</title>
+      <title>Traiter les resources</title>
 
       <para>La plupart des cycles de vie rattachent le goal <varname>resources:resources</varname> à la phase <varname>process-resources</varname>.
       La phase <varname>process-resources</varname> "traite" les ressources et les copies dans le répertoire destination.
@@ -922,7 +922,7 @@
       Commençons par regarder le contenu du fichier <filename>service.xml</filename> du répertoire <filename>src/main/resources/META-INF</filename>.</para> 
      
       <para><example>
-          <title>Utilisation des Properties dans les Ressources du Projet</title>
+          <title>Utilisation des propriétés dans les ressources du projet</title>
 
           <programlisting language="xml">&lt;service&gt;
   &lt;!-- This URL was set by project version \${project.version} --&gt;
@@ -959,7 +959,7 @@ jdbc.password=
       Ce comportement par défaut permet d'éviter les mauvaises surprises comme, par exemple, le filtrer sans que vous le désiriez de fichiers contenant des éléments <varname>\${...}</varname>.</para> 
 
       <para><example>
-          <title>Filtrage des Ressources (Remplacer les Propriétés)</title>
+          <title>Filtrage des ressources (remplacer les propriétés)</title>
 
           <programlisting language="xml">&lt;build&gt;
   &lt;filters&gt;
@@ -975,10 +975,10 @@ jdbc.password=
 </programlisting>
         </example></para>
 
-      <para>Comme pour tous les répertoires dans Maven, le répertoire contenant les ressources du projet ne se trouve pas forcément dans <filename>src/main/resources</filename>.   
+      <para>Comme pour tous les répertoires dans Maven, celui contenant les ressources du projet ne se trouve pas forcément dans <filename>src/main/resources</filename>.   
       Il ne s'agit que de la valeur par défaut définie dans le Super <acronym>POM</acronym>.
       Notez également que vous n'avez pas besoin de centraliser toutes vos ressources dans un unique répertoire.
-      Vous pouvez les séparer dans plusieurs répertoires dans <filename>src/main</filename>.
+      Vous pouvez les séparer dans plusieurs sous-répertoires dans <filename>src/main</filename>.
       Imaginez que votre projet contienne des centaines de fichiers <acronym>XML</acronym> et des centaines d'images.
       Au lieu de centraliser toutes vos ressources dans le répertoire <filename>src/main/resources</filename>,
       il voudrez probablement créer deux répertoires <filename>src/main/xml</filename> et <filename>src/main/images</filename>.
@@ -986,7 +986,7 @@ jdbc.password=
       ajoutez la balise <sgmltag>resource</sgmltag> suivante dans la configuration de votre build.</para>
 
       <example>
-        <title>Ajouter des Répertoire Ressources Complémentaires</title>
+        <title>Ajouter des répertoire ressources complémentaires</title>
 
         <programlisting language="xml">&lt;build&gt;
   ...
@@ -1015,7 +1015,7 @@ jdbc.password=
       Pour plus d'informations sur le plugin Maven Assembly, consultez le <xref linkend="assemblies" />.</para>      
 
       <para><example id="ex-filter-script">
-          <title>Fitrage de Resources Scripts</title>
+          <title>Fitrage de resources Scripts</title>
 
           <programlisting language="xml">&lt;build&gt;
   &lt;groupId&gt;org.sonatype.mavenbook&lt;/groupId&gt;
@@ -1082,7 +1082,7 @@ java -jar simple-cmd-2.3.1.jar %*
       Si vous voulez modifier ce paramétrage, vous devez fournir la configuration suivante du plugin Compiler dans le POM de votre projet.</para> 
 
       <para><example id="ex-compilesrc-target">
-          <title>Modifier les versions du Code Source et du Bytecode pour le Plugin Compiler</title>
+          <title>Modifier les versions du code source et du bytecode pour le plugin Compiler</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -1104,20 +1104,20 @@ java -jar simple-cmd-2.3.1.jar %*
 </programlisting>
         </example></para>
 
-      <para>Notez que nous configurons le plugin Compiler, pas le goal <varname>compile:compile</varname>.
+      <para>Notez que nous avons configuré le plugin Compiler, pas le goal <varname>compile:compile</varname>.
       Si nous voulions configurer le source et le bytecode généré juste pour le goal <varname>compile:compile</varname>,
       nous aurions placé la balise <sgmltag>configuration</sgmltag> sous la balise <sgmltag>execution</sgmltag> du goal <varname>compile:compile</varname>.
       Nous avons effectué cette configuration au niveau du plugin, car <varname>compile:compile</varname> n'est pas le seul goal intéressé par cette configuration.
       Le plugin Compiler est réutilisé pour la compilation des tests via le goal <varname>compile:testCompile</varname>,
       cette configuration nous permet donc de faire d'une pierre deux coups.</para>
 
-      <para>Si vous voulez personnaliser l'emplacement du code source, vous pouvez effectuer cela en modifiant la configuration du build.
+      <para>Si vous voulez personnaliser l'emplacement du code source, vous pouvez modifier la configuration du build.
       Si vous désirez placer le code source de votre projet dans le répertoire <filename>src/java</filename> au lieu du répertoire <filename>src/main/java</filename>,
       et si vous voulez que votre projet soit généré dans <filename>classes</filename> au lieu <filename>target/classes</filename>,
       vous pouvez toujours modifier la configuration par défaut du <sgmltag>sourceDirectory</sgmltag> définie dans le Super <acronym>POM</acronym>.</para>
 
       <example>
-        <title>Modifier le Répertoire du Code Source par Défaut</title>
+        <title>Modifier le répertoire du code source par défaut</title>
 
         <programlisting language="xml">&lt;build&gt;
   ...
@@ -1136,7 +1136,7 @@ java -jar simple-cmd-2.3.1.jar %*
     </section>
 
     <section id="lifecycle-sect-process-test-resources-phase">
-      <title>Traiter les Resources des Tests</title>
+      <title>Traiter les ressources des tests</title>
 
       <para>La phase <varname>process-test-resources</varname> est quasi identique à la phase <varname>process-resources</varname>.
       Si le <acronym>POM</acronym> comporte quelques légères différences, le plus grand nombre de la configuration reste identique.
@@ -1152,8 +1152,7 @@ java -jar simple-cmd-2.3.1.jar %*
       <para>La phase <varname>test-compile</varname> est quasiment identique à la phase <varname>compile</varname>.
       La seule différence est que <varname>test-compile</varname> appelle <varname>compile:testCompile</varname> pour compiler le code source des tests.  
       Si vous n'avez pas personnalisé les répertoires par défaut du Super <acronym>POM</acronym>,
-      <varname>compile:testCompile</varname> compilera sont le code source contenu dans le répertoire <filename>src/test/java</filename> dans le
-      répertoire <filename>target/test-classes</filename>.</para> 
+      <varname>compile:testCompile</varname> compilera le code source contenu dans le répertoire <filename>src/test/java</filename> dans <filename>target/test-classes</filename>.</para> 
 
       <para>Comme pour le répertoire du code source, si vous désirez personnaliser l'emplacement du code source des tests ou du répertoire destination de la compilation,
       vous pouvez surcharger <varname>testSourceDirectory</varname> et <varname>testOutputDirectory</varname>.
@@ -1162,7 +1161,7 @@ java -jar simple-cmd-2.3.1.jar %*
       utilisez la configuration suivante.</para> 
 
       <example>
-        <title>Modifier l'Emplacement du code Source et du Bytecode des Tests</title>
+        <title>Modifier l'emplacement du code source et du bytecode des tests</title>
 
         <programlisting language="xml">&lt;build&gt;
   ...
@@ -1177,13 +1176,14 @@ java -jar simple-cmd-2.3.1.jar %*
       <title>Tester</title>
 
       <para>La plupart des cycles de vie rattachent le goal test du plugin Surefire à leur phase test. 
-      Le plugin Surefire est un plugin Maven permettant d'exécuter des tests unitaires, le comportement par défaut du plugin Surefire est de rechercher toutes les class terminant par '*Test'
+      Le plugin Surefire est un plugin Maven permettant d'exécuter des tests unitaires. 
+      Le comportement par défaut du plugin Surefire est de rechercher toutes les class terminant par '*Test'
       dans le répertoire source des tests, puis de les exécuter comme des tests <ulink url="http://www.junit.org">JUnit</ulink>.
       Le plugin Surefire peut également être configuré pour exécuter des tests unitaires <ulink url="http://www.testng.org">TestNG</ulink>.</para> 
 
       <para>Après avoir exécuté la commande <command>mvn test</command>, 
       vous aurez probablement noté que le plugin Surefire ait produit des rapports d'exécution dans le répertoire <filename>target/surefire-reports</filename>.  
-      Ce répertoire de rapports contiendra deux fichiers pour chaque test exécuté par le plugin :
+      Ce répertoire de rapports contient deux fichiers pour chaque test exécuté par le plugin :
       un fichier <acronym>XML</acronym> qui contient les informations d'exécution du test,
       un fichier texte qui contient la sortie des tests unitaires. 
       Si un problème est survenu durant la phase de test et qu'un test unitaire a échoué,
@@ -1192,12 +1192,12 @@ java -jar simple-cmd-2.3.1.jar %*
       pour créer un résumé 'facile à lire' du résultat des tests unitaires.</para>
 
       <para>Si vous travaillez sur un projet qui contient des tests unitaires qui échouent,
-      mais que vous voulez tout de même générer votre artefact, vous devrez configurer le plugin Surefire pour qu'il continue le build même en cas d'échec.
+      mais que vous voulez tout de même générer votre artefact, vous devez configurer le plugin Surefire pour qu'il continue le build même en cas d'échec.
       Le comportement par défaut est d'arrêter le build lorsqu'un test unitaire échoue.      
       Pour modifier ce comportement, vous devez affecter la propriété <varname>testFailureIgnore</varname> à 'true' du plugin Surefire.</para>
 
       <example>
-        <title>Configurez le plugin Surefire pour Ignorer les Tests en échec</title>
+        <title>Configurez le plugin Surefire pour ignorer les tests en échec</title>
 
         <programlisting language="xml">&lt;build&gt;
   &lt;plugins&gt;
