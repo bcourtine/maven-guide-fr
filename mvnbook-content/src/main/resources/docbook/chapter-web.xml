@@ -508,7 +508,7 @@ public class SimpleServlet extends HttpServlet {
     présenté dans l'exemple :</para>
 
     <example>
-      <title>Ajouter la dépendance Servlet 2.4 Specification</title>
+      <title>Ajouter la dépendance à la spécification Servlet 2.4</title>
 
       <programlisting language="xml">&lt;project&gt;
   [...]
