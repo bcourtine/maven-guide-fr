@@ -537,11 +537,11 @@ public class SimpleServlet extends HttpServlet {
         <secondary sortas="JSP 2.0 specification">on JSP 2.0
         specification</secondary>
       </indexterm> pour cette simple application web, vous devrez ajouter une
-    dépendance sur la specification <acronym>JSP</acronym> 2.0. Utilisez la
+    dépendance sur la spécification <acronym>JSP</acronym> 2.0. Utilisez la
     configuration présentée dans l'exemple :</para>
 
     <example>
-      <title>Ajouter la dépendance aux Specifications JSP 2.0</title>
+      <title>Ajouter la dépendance aux spécifications JSP 2.0</title>
 
       <programlisting language="xml">&lt;project&gt;
   [...]
