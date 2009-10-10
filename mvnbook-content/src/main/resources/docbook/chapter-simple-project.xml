@@ -694,9 +694,9 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <para>Il existe une cinquième coordonnée, plus rarement utilisée, appelée <varname>classifier</varname> dont
           nous parlerons plus tard dans le livre. Vous pouvez l'oublier pour l'instant.</para></footnote>.
           Comme dans tout système à coordonnées, les coordonnées Maven permettent de définir un point
-      spécifique dans "l'espace". Maven identifie un projet via ses coordonnées lorsqu'un projet
-      est relié à un autre en tant que dépendance, plugin ou comme projet parent. Les coordonnées Maven sont souvent
-      écrites en utilisant les deux points comme séparateur selon le format suivant :
+      spécifique dans "l'espace". 
+      Lorsqu'un projet est relié à un autre en tant que dépendance, plugin ou comme projet parent, Maven l'identifie via ses coordonnées.   
+      Les coordonnées Maven sont souvent écrites en utilisant les deux points comme séparateur selon le format suivant :
       <code>groupId:artifactId:packaging:version</code>. Dans le fichier <filename>pom.xml</filename> ci-dessus, les
       coordonnées de notre projet sont les suivantes : <code>mavenbook:my-app:jar:1.0-SNAPSHOT</code>.</para>
 
@@ -909,7 +909,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       projets B, C, D, et E, mais tout ce que le projet A doit faire, c'est de déclarer ses dépendances aux projets B et
       C. Les dépendances transitives sont pratiques lorsque votre projet dépend d'autres projets qui ont leurs propres
       dépendances (comme Hibernate, Apache Struts, ou Spring Framework). Maven vous permet d'exclure certaines
-      dépendances transtives du classpath du projet.</para>
+      dépendances transitives du classpath du projet.</para>
 
       <para>Maven fournit enfin différentes portées pour les dépendances Le <indexterm>
           <primary>scope, dependency</primary>
