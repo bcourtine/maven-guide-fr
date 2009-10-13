@@ -2,59 +2,46 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="resource-filtering">
-  <title>Properties and Resource Filtering</title>
+  <title>Propriétés et filtrage des ressources</title>
 
   <section id="resource-filtering-sect-intro">
     <title>Introduction</title>
 
-    <para>Throughout this book, you will notice references to properties which
-    can be used in a <acronym>POM</acronym> file. Sibling dependencies in a
-    multi-project build can be referenced using the
-    <varname>\${project.groupId}</varname> and
-    <varname>\${project.version}</varname> properties and any part of the
-    <acronym>POM</acronym> can be referenced by prefixing the variable name
-    with "project.". Environment variables and Java System properties can be
-    referenced, as well as values from your
-    <filename>~/.m2/settings.xml</filename> file. What you haven't seen yet is
-    an enumeration of the possible property values and some discussion about
-    how they can be used to help you create portable builds. This chapter
-    provides such an enumeration.</para>
+    <para>Au travers de ce livre, vous avez pu rencontrer des propriétés utilisées dans des fichiers <acronym>POM</acronym>.
+    Les dépendances d'un build multimodule peuvent être référencées par les propriétés <varname>\${project.groupId}</varname> et
+    <varname>\${project.version}</varname> et n'importe quelle partie du <acronym>POM</acronym> peut être référencé en préfixant la variable par "project.".   
+    Les variables d'environnement et propriétés Système Java peuvent également être référencées, tout comme les valeurs définies dans le fichier <filename>~/.m2/settings.xml</filename>.
+    Nous allons parcourir dans ce chapitre l'ensemble des valeurs possibles et nous verrons comment ces propriétés peuvent être utilisées pour créer des build portables.</para>     
 
-    <para>If you've been using property references in your
-    <acronym>POM</acronym>, you should also know that Maven has a feature
-    called Resource Filtering which allows you to replace property references
-    in any resource files stored under
-    <filename>src/main/resources</filename>. By default this feature is
-    disabled to prevent accidental replacement of property references. This
-    feature can be used to target builds toward a specific platform and to
-    externalize important build variables to properties files,
-    <acronym>POM</acronym>s, or profiles. This chapter introduces the resource
-    filtering feature and provides a brief discussion of how it can be used to
-    create portable enterprise builds.</para>
+    <para>Si vous avez déjà utilisé des références à des propriétés dans votre <acronym>POM</acronym>,  
+    vous devriez savoir que cette fonctionnalité est appelée 'filtrage des ressources'. 
+    Celle-ci permet de remplacer les références des propriétés dans n'importe quel fichier stocké dans <filename>src/main/resources</filename>. 
+    Par défaut, cette fonctionnalité est désactivée pour éviter un filtrage accidentel.
+    Cette fonctionnalité peut être utilisée pour effectuer des builds spécifiques à une certaine plateforme 
+    ou pour externaliser les variables de build dans des fichiers de propriétés, des <acronym>POM</acronym>s ou des profiles. 
+    Ce chapitre présente donc cette fonctionnalité de filtrage des ressources.</para>
+
   </section>
 
   <section id="resource-filtering-sect-properties">
-    <title>Maven Properties</title>
+    <title>Propriétés Maven</title>
 
-    <para>You can use Maven properties in a <filename>pom.xml</filename> file
-    or in any resource that is being processed by the Maven Resource plugin's
-    filtering features. A property is always surrounded by
-    <varname>\${</varname> and <varname>}</varname>. For example, to reference
-    the <varname>project.version</varname> property, one would write:</para>
+    <para>Vous pouvez utiliser les propriétés Maven dans des fichiers <filename>pom.xml</filename> ou dans n'importe quel fichier ressource contrôlé 
+    par la fonctionnalité de filtrage du plugin Maven Resource. 
+    Une propriété est toujours préfixée par <varname>\${</varname> et suffixée par <varname>}</varname>.
+    Par exemple, pour référencer la propriété <varname>project.version</varname>, vous devez utiliser la notation suivante :</para>
 
     <programlisting language="java">\${project.version}</programlisting>
 
-    <para>There some implicit properties available in any Maven project, these
-    implicit properties are:</para>
+    <para>Des propriétés implicites sont directement disponibles à partir de n'importe quel projet Maven, en voici la liste :</para>
 
     <variablelist>
       <varlistentry>
         <term><varname>project.*</varname></term>
 
         <listitem>
-          <para>Maven Project Object Model (<acronym>POM</acronym>). You can
-          use the <varname>project.*</varname> prefix to reference values in a
-          Maven <acronym>POM</acronym>.</para>
+          <para><acronym>POM</acronym> (Project Object Model) Maven. 
+          Vous pouvez utiliser le préfixe <varname>project.*</varname> pour référencer des valeurs du <acronym>POM</acronym>.</para>  
         </listitem>
       </varlistentry>
 
@@ -62,9 +49,8 @@
         <term><varname>settings.*</varname></term>
 
         <listitem>
-          <para>Maven Settings. You use the <varname>settings.*</varname>
-          prefix to reference values from your Maven Settings in
-          <filename>~/.m2/settings.xml</filename>.</para>
+          <para>Configuration Maven. 
+          Vous pouvez utilisez le préfixe <varname>settings.*</varname> pour référencer des valeurs du fichier <filename>~/.m2/settings.xml</filename>.</para> 
         </listitem>
       </varlistentry>
 
@@ -72,64 +58,50 @@
         <term><varname>env.*</varname></term>
 
         <listitem>
-          <para>Environment variables like <varname>PATH</varname> and
-          <varname>M2_HOME</varname> can be referenced using the
-          <varname>env.*</varname> prefix.</para>
+          <para>Les variables d'environement, comme <varname>PATH</varname> et <varname>M2_HOME</varname>,
+          peuvent être référencées en utilisant le préfixe <varname>env.*</varname> prefix.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>System Properties</term>
+        <term>Propriétés Système</term>
 
         <listitem>
-          <para>Any property which can be retrieved from the
-          <methodname>System.getProperty()</methodname> method can be
-          referenced as a Maven property.</para>
+          <para>Les propriétés pouvant être récupérées par la méthode <methodname>System.getProperty()</methodname>
+          peuvent être utilisées comme propriété Maven.</para> 
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para>In addition to the implicit properties listed above, a Maven
-    <acronym>POM</acronym>, Maven Settings, or a Maven Profile can define a
-    set of arbitrary, user-defined properties. The following sections provide
-    so detail on the various properties available in a Maven project.</para>
+    <para>En plus de ces propriétés implicites, l'utilisateur peut définir ses propres propriétés à partir du <acronym>POM</acronym>,  
+    du fichier de paramétrage <filename>~/.m2/settings.xml</filename> ou dans un profile Maven.
+    Les paragraphes qui suivent fournissent ainsi le détail des différentes propriétés disponibles dans un projet Maven.</para>
 
     <section id="resource-filtering-sect-project-properties">
-      <title>Maven Project Properties</title>
+      <title>Propriétés d'un projet Maven</title>
 
-      <para>When a Maven Project Property is referenced, the property name is
-      referencing a property of the Maven Project Object Model
-      (<acronym>POM</acronym>). Specifically, you are referencing a property
-      of the <classname>org.apache.maven.model.Model</classname> class which
-      is being exposed as the implicit variable project. When you reference a
-      property using this implicit variable, you are using simple dot notation
-      to reference a bean property of the <classname>Model</classname> object.
-      For example, when you reference <varname>\${project.version}</varname>,
-      you are really invoking the <methodname>getVersion()</methodname> method
-      on the instance of <classname>Model</classname> that is being exposed as
-      project.</para>
+      <para>Quand une propriété Maven est utilisée, son nom référence une propriété du <acronym>POM</acronym>.
+      Plus précisément, vous référencez une propriété de la classe <classname>org.apache.maven.model.Model</classname> qui est explosée implicitement comme variable du projet. 
+      Quand vous référencez une propriété en utilisant cette variable implicite,
+      vous utilisez la notation avec des 'points' pour référencer la propriété du bean <classname>Model</classname> correspondante.
+      Par exemple, lorsque nous utilisons <varname>\${project.version}</varname>,
+      dans les faits, vous invoquez la méthode <methodname>getVersion()</methodname> de l'instance du <classname>Model</classname> qui est exposé comme <varname>project</varname>.</para>
 
-      <para>The <acronym>POM</acronym> is also represented in the
-      <filename>pom.xml</filename> document present in all Maven projects.
-      Anything in a Maven <acronym>POM</acronym> can be referenced with a
-      property. A complete reference for the <acronym>POM</acronym> structure
-      is available at <ulink
+      <para>Le <acronym>POM</acronym> est également représenté dans le document <filename>pom.xml</filename> disponible dans tous les projets Maven.
+      Tout ce qui se trouve dans le <acronym>POM</acronym> peut donc être utilisé en propriété.
+      Pour une présentation compléte de la structure du <acronym>POM</acronym>, référez-vous à l'adresse <ulink
       url="http://maven.apache.org/ref/${maven.version}/maven-model/maven.html">http://maven.apache.org/ref/${maven.version}/maven-model/maven.html</ulink>.
-      The following list shows some common property references from the Maven
-      project.</para>
+      La liste ci-dessous récapitule quelques-unes des propriétés habituellement utilisées dans un projet Maven.</para>
 
       <variablelist>
         <varlistentry>
-          <term><varname>project.groupId</varname> and
+          <term><varname>project.groupId</varname> et
           <varname>project.version</varname></term>
 
           <listitem>
-            <para>Projects in a large, multi-module build often share the same
-            <varname>groupId</varname> and <varname>version</varname>
-            identifiers. When you are declaring interdependencies between two
-            modules which share the same <varname>groupId</varname> and
-            <varname>version</varname>, it is a good idea to use a property
-            reference for both:</para>
+            <para>La majorité des projets multimodule partagent les mêmes <varname>groupId</varname> et <varname>version</varname>.
+            Lorsque vous déclarez une interdépendance entre deux modules possédant les mêmes <varname>groupId</varname> et <varname>version</varname>,
+            c'est souvent une bonne idée d'utiliser des propriétés pour référencer ces valeurs :</para>
 
             <programlisting language="xml">&lt;dependencies&gt;
   &lt;dependency&gt;
@@ -145,12 +117,10 @@
           <term><varname>project.artifactId</varname></term>
 
           <listitem>
-            <para>A project's artifactId is often used as the name of a
-            deliverable. For example, in a project with <acronym>WAR</acronym>
-            packaging, you will want to generate a a <acronym>WAR</acronym>
-            file without the version identifiers. To do this, you would
-            reference the <varname>project.artifactId</varname> in your
-            <acronym>POM</acronym> file like this:</para>
+            <para>L'artefactId d'un projet est souvent utilisé pour le nom du package généré.
+            Par exemple, dans un projet avec un packaging du type <acronym>WAR</acronym>, 
+            vous voudrez peut-être générer un fichier <acronym>WAR</acronym> sans sa version. 
+            Pour cela, utilisez la propriété <varname>project.artifactId</varname> dans votre <acronym>POM</acronym> comme ceci :</para>
 
             <programlisting language="xml">&lt;build&gt;
   &lt;finalName&gt;\${project.artifactId}&lt;/finalName&gt;
@@ -159,14 +129,13 @@
         </varlistentry>
 
         <varlistentry>
-          <term><varname>project.name</varname> and
+          <term><varname>project.name</varname> et
           <varname>project.description</varname></term>
 
           <listitem>
-            <para>The name and project description can often be useful
-            properties to reference from documentation. Instead of having to
-            worry that all of your site documents maintain the same short
-            descriptions, you can just reference these properties.</para>
+            <para>Les nom et description du projet sont souvent utilisés dans la documentation.
+            Au lieu d'avoir à maintenir ce contenu à plusieurs endroits, vois pouvez utiliser ces propriétés.</para>
+
           </listitem>
         </varlistentry>
 
@@ -174,10 +143,8 @@
           <term><varname>project.build.*</varname></term>
 
           <listitem>
-            <para>If you are ever trying to reference output directories in
-            Maven, you should never use a literal value like
-            <filename>target/classes</filename>. Instead you should use
-            property references to refer to these directories.</para>
+            <para>Vous ne devez jamais utiliser la valeur en dur <filename>target/classes</filename> pour référencer le répertoire destination de Maven.
+            Une bonne pratique consiste à utiliser des propriétés pour références ce genre de répertoire.</para>
 
             <itemizedlist>
               <listitem>
@@ -205,43 +172,37 @@
               </listitem>
             </itemizedlist>
 
-            <para><varname>sourceDirectory</varname>,
-            <varname>scriptSourceDirectory</varname>, and
-            <varname>testSourceDirectory</varname> provide access to the
-            source directories for the project.
-            <varname>outputDirectory</varname> and
-            <varname>testOutputDirectory</varname> provide access to the
-            directories where Maven is going to put bytecode or other build
-            output. <varname>directory</varname> refers to the directory which
-            contains all of these output directories.</para>
+            <para>Les propriétés <varname>sourceDirectory</varname>, <varname>scriptSourceDirectory</varname> et <varname>testSourceDirectory</varname> 
+            fournissent un accès aux répertoires source du projet.
+            Les propriétés <varname>outputDirectory</varname> et <varname>testOutputDirectory</varname> 
+            fournissent un accès aux répertoires utilisés par Maven pour produire le bytecode et le résultat de son buil.
+            La propriété <varname>directory</varname> désigne le répertoire qui contient tous ces répertoires destination.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Other Project Property references</term>
+          <term>Autres propriétés d'un projet</term>
 
           <listitem>
-            <para>There are hundreds of properties to reference in a
-            <acronym>POM</acronym>. A complete reference for the
-            <acronym>POM</acronym> structure is available at <ulink
+            <para>Des centaines de propriétés sont utilisables à partir <acronym>POM</acronym>.
+            La présentation complète de la structure du <acronym>POM</acronym> est disponible à l'adresse <ulink
             url="http://maven.apache.org/ref/${maven.version}/maven-model/maven.html">http://maven.apache.org/ref/${maven.version}/maven-model/maven.html</ulink>.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <para>For a full list of properties available on the Maven
-      <classname>Model</classname> object, take a look at the JavaDoc for the
-      <varname>maven-model</varname> project here <ulink
+      <para>
+      
+      For a full list of properties available on the Maven <classname>Model</classname> object, 
+      take a look at the JavaDoc for the <varname>maven-model</varname> project here <ulink
       url="http://maven.apache.org/ref/${maven.version}/maven-model/apidocs/index.html">http://maven.apache.org/ref/${maven.version}/maven-model/apidocs/index.html</ulink>.
-      Once you load this JavaDoc, take a look at the
-      <classname>Model</classname> class. From this
-      <classname>Model</classname> class JavaDoc, you should be able to
-      navigate to the <acronym>POM</acronym> property you wish to reference.
-      If you needed to reference the output directory of the build, you can
-      use the Maven Model JavaDoc to see that the output directory is
-      referenced via
-      <methodname>model.getBuild().getOutputDirectory()</methodname>; this
-      method call would be translated to the Maven property reference
+      Once you load this JavaDoc, take a look at the <classname>Model</classname> class. 
+      From this <classname>Model</classname> class JavaDoc, 
+      you should be able to navigate to the <acronym>POM</acronym> property you wish to reference.
+      If you needed to reference the output directory of the build, 
+      you can use the Maven Model JavaDoc to see that the output directory is referenced via
+      <methodname>model.getBuild().getOutputDirectory()</methodname>; 
+      this method call would be translated to the Maven property reference
       <varname>\${project.build.outputDirectory}</varname>.</para>
 
       <para>For more information about the Maven Model module, the module
