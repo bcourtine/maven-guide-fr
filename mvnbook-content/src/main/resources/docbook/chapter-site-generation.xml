@@ -2,50 +2,50 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="site-generation">
-  <title>Génération du Site</title>
+  <title>GÃ©nÃ©ration du Site</title>
 
   <section id="site-generation-sect-intro">
     <title>Introduction</title>
 
-    <para>Les applications réussies sont rarement produites par une équipe d'un seul individu.
-    Les équipes sont souvent découpées en cellules pouvant aller d'une poignée de personnes dans un bureau 
-    à des équipes de plusieurs centaines de personnes réparties dans un environnement distribué. 
-    La plupart des projets Open Source (comme Maven) réussissent ou échouent en fonction de la présence d'une documentation bien écrite et largement distribuée,  
+    <para>Les applications rÃ©ussies sont rarement produites par une Ã©quipe d'un seul individu.
+    Les Ã©quipes sont souvent dÃ©coupÃ©es en cellules pouvant aller d'une poignÃ©e de personnes dans un bureau 
+    Ã  des Ã©quipes de plusieurs centaines de personnes rÃ©parties dans un environnement distribuÃ©. 
+    La plupart des projets Open Source (comme Maven) rÃ©ussissent ou Ã©chouent en fonction de la prÃ©sence d'une documentation bien Ã©crite et largement distribuÃ©e,  
     Dans chaque environnement, il est important que les projets disposent d'un moyen simple pour publier et maintenir leur documentation en ligne.      
-    Le développement d'applications est avant tout un exercice de collaboration et de communication,
+    Le dÃ©veloppement d'applications est avant tout un exercice de collaboration et de communication,
     la publication d'un site Maven est l'un des chemins qui permet de s'assurer que votre projet communique avec ses utilisateurs.</para>
  
 
-    <para>Pour un projet Open Source, un site Internet est souvent le point de départ tant pour les communautés de développeurs que pour les utilisateurs finaux.
-    Là où les utilisateurs finaux recherchent sur le site du projet des tutoriaux, des guides utilisateurs, la documentation de <acronym>API</acronym> et les archives de la mailing-list,
-    les développeurs y recherchent des documents de conception, des rapports de code, un gestionnaire d'anomalies ou les release notes.      
-    Les plus larges des projets Open Sources peuvent intégrer des wikis, des gestionnaires d'anomalies et des systèmes d'intégration continue
-    qui permettent d'élargir le scope de la documentation en ligne avec des éléments qui reflètent l'état présent du développement.
-    Si un nouveau projet Open Source a un site non suffisant pour transmettre des renseignements fondamentaux à ces utilisateurs potentiels,
-    c'est souvent le premier signe d'un échec, il aura probablement du mal à être adopté.
-    En d'autres termes, pour un projet Open Source, le site et la documentation sont primordiaux autant pour la formation de la communauté que pour le code lui-même.</para>    
+    <para>Pour un projet Open Source, un site Internet est souvent le point de dÃ©part tant pour les communautÃ©s de dÃ©veloppeurs que pour les utilisateurs finaux.
+    LÃ  oÃ¹ les utilisateurs finaux recherchent sur le site du projet des tutoriaux, des guides utilisateurs, la documentation de <acronym>API</acronym> et les archives de la mailing-list,
+    les dÃ©veloppeurs y recherchent des documents de conception, des rapports de code, un gestionnaire d'anomalies ou les release notes.      
+    Les plus larges des projets Open Sources peuvent intÃ©grer des wikis, des gestionnaires d'anomalies et des systÃ¨mes d'intÃ©gration continue
+    qui permettent d'Ã©largir le scope de la documentation en ligne avec des Ã©lÃ©ments qui reflÃ¨tent l'Ã©tat prÃ©sent du dÃ©veloppement.
+    Si un nouveau projet Open Source a un site non suffisant pour transmettre des renseignements fondamentaux Ã  ces utilisateurs potentiels,
+    c'est souvent le premier signe d'un Ã©chec, il aura probablement du mal Ã  Ãªtre adoptÃ©.
+    En d'autres termes, pour un projet Open Source, le site et la documentation sont primordiaux autant pour la formation de la communautÃ© que pour le code lui-mÃªme.</para>    
 
-    <para>Maven peut être utilisé pour créer des sites web de projet qui contiennent des informations aussi bien pour les utilisateurs finaux que les développeurs. 
-    Maven peut générer une multitude de rapports : résultat des tests unitaires, dépendances inter-package, et rapport qualité.      
-    Maven vous donne la possibilité d'écrire de simples pages web et de rendre ces pages au sein d'un template projet élaboré.
+    <para>Maven peut Ãªtre utilisÃ© pour crÃ©er des sites web de projet qui contiennent des informations aussi bien pour les utilisateurs finaux que les dÃ©veloppeurs. 
+    Maven peut gÃ©nÃ©rer une multitude de rapports : rÃ©sultat des tests unitaires, dÃ©pendances inter-package, et rapport qualitÃ©.      
+    Maven vous donne la possibilitÃ© d'Ã©crire de simples pages web et de rendre ces pages au sein d'un template projet Ã©laborÃ©.
     Maven peut publier le contenu d'un site sous plusieurs formats : <acronym>XHTML</acronym> et <acronym>PDF</acronym>.
-    Maven peut être utilisé pour générer la documentation de l'API de votre projet mais aussi pour embarquer la Javadoc et le code source dans l'archive binaire de votre projet.     
-    Une fois que vous avez généré toute la documentation de votre projet, Maven vous permet également de publier votre site sur un serveur distant.</para>  
+    Maven peut Ãªtre utilisÃ© pour gÃ©nÃ©rer la documentation de l'API de votre projet mais aussi pour embarquer la Javadoc et le code source dans l'archive binaire de votre projet.     
+    Une fois que vous avez gÃ©nÃ©rÃ© toute la documentation de votre projet, Maven vous permet Ã©galement de publier votre site sur un serveur distant.</para>  
 
   </section>
 
   <section id="site-generation-sect-building">
     <title>Contruire un Site Projet avec Maven</title>
 
-    <para>Pour illustrer le processus de construction du site web d'un projet, créons un projet en utilisant le plugin Archetype :</para>
+    <para>Pour illustrer le processus de construction du site web d'un projet, crÃ©ons un projet en utilisant le plugin Archetype :</para>
 
     <screen>$ mvn archetype:create -DgroupId=org.sonatype.mavenbook -DartifactId=sample-project
 </screen>
 
-    <para>Cette commande crée un projet Maven minimaliste qui contient une classe Java dans le répertoire <filename>src/main/java</filename> et un simple <acronym>POM</acronym>.  
-    Ensuite, vous pouvez construire le site en exécutant la commande <commande>mvn site</commande>. 
-    Pour construire le site et afficher le résultat dans un navigateur web, vous pouvez utiliser la commande <commande>mvn site:run</commande>.
-    Celle-ci construira le site et démarrera une instance de Jetty.</para>
+    <para>Cette commande crÃ©e un projet Maven minimaliste qui contient une classe Java dans le rÃ©pertoire <filename>src/main/java</filename> et un simple <acronym>POM</acronym>.  
+    Ensuite, vous pouvez construire le site en exÃ©cutant la commande <commande>mvn site</commande>. 
+    Pour construire le site et afficher le rÃ©sultat dans un navigateur web, vous pouvez utiliser la commande <commande>mvn site:run</commande>.
+    Celle-ci construira le site et dÃ©marrera une instance de Jetty.</para>
 
     <screen>$ <command>cd sample-project</command>
 $ <command>mvn site:run</command>
@@ -69,13 +69,13 @@ $ <command>mvn site:run</command>
 2008-04-26 11:52:26.244::INFO:  Started SelectChannelConnector@0.0.0.0:8080
 </screen>
 
-    <para>Une fois Jetty démarré sur le port 8080, le site du projet est disponible à l'adresse  
-    <ulink url="http://localhost:8080/">http://localhost:8080/</ulink> à partir de votre navigateur web.
-    Vous devriez y découvrir un résultat similaire à la <xref
+    <para>Une fois Jetty dÃ©marrÃ© sur le port 8080, le site du projet est disponible Ã  l'adresse  
+    <ulink url="http://localhost:8080/">http://localhost:8080/</ulink> Ã  partir de votre navigateur web.
+    Vous devriez y dÃ©couvrir un rÃ©sultat similaire Ã  la <xref
     linkend="fig-simple-site" />.</para>
 
     <figure id="fig-simple-site">
-      <title>Site Généré par Maven</title>
+      <title>Site GÃ©nÃ©rÃ© par Maven</title>
 
       <screenshot>
         <mediaobject>
@@ -91,27 +91,27 @@ $ <command>mvn site:run</command>
       </screenshot>
     </figure>
 
-    <para>Si vous cliquez sur ce site web, vous constaterez qu'il n'est pas très pratique pour un vrai site de projet.
-    Il ne contient juste rien (et n'est pas très joli).
-    Tant que le projet <varname>sample-project</varname> n'a pas été configuré pour afficher la liste des développeurs, le gestionnaire d'anomalies ou le code source,
-    toutes les pages du projet ne contiendront aucune information intéressante.
-    Même la page d'index du site est vide de contenu, elle affiche un message indiquant qu'aucune description n'a été associée à ce projet. 
-    Pour personnaliser ce site, vous devez commencer par ajouter du contenu à votre projet et dans votre <acronym>POM</acronym>.</para>
+    <para>Si vous cliquez sur ce site web, vous constaterez qu'il n'est pas trÃ¨s pratique pour un vrai site de projet.
+    Il ne contient juste rien (et n'est pas trÃ¨s joli).
+    Tant que le projet <varname>sample-project</varname> n'a pas Ã©tÃ© configurÃ© pour afficher la liste des dÃ©veloppeurs, le gestionnaire d'anomalies ou le code source,
+    toutes les pages du projet ne contiendront aucune information intÃ©ressante.
+    MÃªme la page d'index du site est vide de contenu, elle affiche un message indiquant qu'aucune description n'a Ã©tÃ© associÃ©e Ã  ce projet. 
+    Pour personnaliser ce site, vous devez commencer par ajouter du contenu Ã  votre projet et dans votre <acronym>POM</acronym>.</para>
 
-    <para>Si vous décidez d'utiliser le plugin Maven Site pour construire le site de votre projet, vous voudrez le personnaliser.
+    <para>Si vous dÃ©cidez d'utiliser le plugin Maven Site pour construire le site de votre projet, vous voudrez le personnaliser.
     Vous voudrez renseigner les champs du <acronym>POM</acronym> qui permettent de lister les personnes participant au projet. 
-    Vous voudrez personnaliser également le menu à gauche du site et les liens visible en haut de la page. 
-    Pour personnaliser le contenu du site, dont le menu de navigation, vous devez éditer le descripteur de site.</para>
+    Vous voudrez personnaliser Ã©galement le menu Ã  gauche du site et les liens visible en haut de la page. 
+    Pour personnaliser le contenu du site, dont le menu de navigation, vous devez Ã©diter le descripteur de site.</para>
 
   </section>
 
   <section id="site-generation-sect-custom-descript">
     <title>Personnaliser le Descripteur de Site</title>
 
-    <para>Quand vous ajoutez du contenu à votre site, vous voudrez modifier le menu gauche de navigation qui est généré avec votre site.
-    Le descripteur suivant personnalise le logo affiché dans le coin haut-gauche de votre site. 
-    En plus de personnalisez l'entête de votre site,
-    ce même descripteur ajoute une entrée dans le menu de navigation : un simple lien vers une page de présentation générale.</para>   
+    <para>Quand vous ajoutez du contenu Ã  votre site, vous voudrez modifier le menu gauche de navigation qui est gÃ©nÃ©rÃ© avec votre site.
+    Le descripteur suivant personnalise le logo affichÃ© dans le coin haut-gauche de votre site. 
+    En plus de personnalisez l'entÃªte de votre site,
+    ce mÃªme descripteur ajoute une entrÃ©e dans le menu de navigation : un simple lien vers une page de prÃ©sentation gÃ©nÃ©rale.</para>   
 
     <para><example>
         <title>Un Descripteur de Site Initial</title>
@@ -132,11 +132,11 @@ $ <command>mvn site:run</command>
 </programlisting>
       </example></para>
 
-    <para>Ce descripteur référence une image, <filename>logo.png</filename>. 
-    Celle-ci doit être placée dans le répertoire <filename>\${basedir}/src/site/resources/images</filename>.  
-    En plus des changements du descripteur de site, vous voudrez créer une page <filename>index.apt</filename> à placer dans le répertoire <filename>\${basedir}/src/site/apt</filename>.
-    Éditez ce fichier pour lui donner le contenu suivant. Ce fichier sera transformé en <filename>index.html</filename>
-    et servira de page d'accueil à votre site.</para>
+    <para>Ce descripteur rÃ©fÃ©rence une image, <filename>logo.png</filename>. 
+    Celle-ci doit Ãªtre placÃ©e dans le rÃ©pertoire <filename>\${basedir}/src/site/resources/images</filename>.  
+    En plus des changements du descripteur de site, vous voudrez crÃ©er une page <filename>index.apt</filename> Ã  placer dans le rÃ©pertoire <filename>\${basedir}/src/site/apt</filename>.
+    Ã‰ditez ce fichier pour lui donner le contenu suivant. Ce fichier sera transformÃ© en <filename>index.html</filename>
+    et servira de page d'accueil Ã  votre site.</para>
 
     <programlisting>  Welcome to the Sample Project, we hope you enjoy your time
   on this project site.  We've tried to assemble some 
@@ -152,18 +152,18 @@ What is Sample Project
   help maintain this sample site, and so on and so forth.
 </programlisting>
 
-    <para>Pour visualiser votre site, exécutez les commandes <command>mvn clean site</command> et <command>mvn site:run</command> :</para>  
+    <para>Pour visualiser votre site, exÃ©cutez les commandes <command>mvn clean site</command> et <command>mvn site:run</command> :</para>  
     
     <screen>$ mvn clean site
 $ mvn site:run</screen>
 
-    <para>Une fois cela fait, ouvez un navigateur et rendez-vous à l'adresse <ulink
+    <para>Une fois cela fait, ouvez un navigateur et rendez-vous Ã  l'adresse <ulink
     url="http://localhost:8080">http://localhost:8080</ulink>.
-    La page affichée devrait ressembler à la caputure d'écran de la <xref
+    La page affichÃ©e devrait ressembler Ã  la caputure d'Ã©cran de la <xref
     linkend="fig-custom-simple" />.</para>
 
     <figure id="fig-custom-simple">
-      <title>Site Web Personnalisé du Projet d'Exemple</title>
+      <title>Site Web PersonnalisÃ© du Projet d'Exemple</title>
 
       <screenshot>
         <mediaobject>
@@ -182,9 +182,9 @@ $ mvn site:run</screen>
     </figure>
 
     <section id="site-generation-sect-custom-header">
-      <title>Personnaliser les Images des Entêtes du Site</title>
+      <title>Personnaliser les Images des EntÃªtes du Site</title>
 
-      <para>Pour personnaliser les éléments graphiques qui apparaissent dans les coins haut-gauche et haut-droit de la page, 
+      <para>Pour personnaliser les Ã©lÃ©ments graphiques qui apparaissent dans les coins haut-gauche et haut-droit de la page, 
       vous pouvez utiliser les balises <sgmltag>bannerLeft</sgmltag> et <sgmltag>bannerRight</sgmltag> du descripteur de site.</para>
 
       <para><example>
@@ -208,11 +208,11 @@ $ mvn site:run</screen>
 </programlisting>
         </example></para>
 
-      <para>Les deux balises <sgmltag>bannerLeft</sgmltag> et <sgmltag>bannerRight</sgmltag> sont configurées avec :
+      <para>Les deux balises <sgmltag>bannerLeft</sgmltag> et <sgmltag>bannerRight</sgmltag> sont configurÃ©es avec :
       un nom (<sgmltag>name</sgmltag>), un empacement d'image (<sgmltag>src</sgmltag>) et un lien (<sgmltag>href</sgmltag>).  
       Dans le descripteur de site ci-dessus, le plugin Maven Site utilisera les images 
       <filename>banner-left.png</filename> et <filename>banner-right.png</filename> pour le coins haut-gauche et haut-droit du site.
-      Maven recherchera ces images dans le répertoire <filename>\${basedir}/src/site/resources/images</filename>.</para>
+      Maven recherchera ces images dans le rÃ©pertoire <filename>\${basedir}/src/site/resources/images</filename>.</para>
     </section>
 
     <section id="site-generation-sect-custom-nav">
@@ -220,10 +220,10 @@ $ mvn site:run</screen>
 
       <para>Pour personnalisez le contenu du menu navigation, utilisez la balise <sgmltag>menu</sgmltag> avec une sous-balise <sgmltag>item</sgmltag>.
       La balise <sgmltag>menu</sgmltag> ajoute une section au menu gauche de navigation.
-      Chaque <sgmltag>item</sgmltag> représente un lien dans ce menu.</para>
+      Chaque <sgmltag>item</sgmltag> reprÃ©sente un lien dans ce menu.</para>
 
       <para><example>
-          <title>Création d'Items de Menu dans le Descripteur de Site</title>
+          <title>CrÃ©ation d'Items de Menu dans le Descripteur de Site</title>
 
           <programlisting language="xml">&lt;project name="Sample Project"&gt;
   ...
@@ -243,10 +243,10 @@ $ mvn site:run</screen>
 </programlisting>
         </example></para>
 
-      <para>Les balises <sgmltag>item</sgmltag> peuvent également être imbriquées.
-      En imbriquant vos items, vous créez un sous-menu pliant dans le menu navigation. 
+      <para>Les balises <sgmltag>item</sgmltag> peuvent Ã©galement Ãªtre imbriquÃ©es.
+      En imbriquant vos items, vous crÃ©ez un sous-menu pliant dans le menu navigation. 
       L'exemple suivant ajoute un lien "Developer Resources" qui pointe vers la page <filename>/developer/index.html</filename>.
-      Quand un utilisateur regardera cette page, les menus au dessus de l'item sélectionné seront développés.</para>
+      Quand un utilisateur regardera cette page, les menus au dessus de l'item sÃ©lectionnÃ© seront dÃ©veloppÃ©s.</para>
 
       <para><example>
           <title>Ajouter un Lien au Menu du Site</title>
@@ -269,33 +269,33 @@ $ mvn site:run</screen>
 </programlisting>
         </example></para>
 
-      <para>Lorsqu’un item a son attribut <sgmltag>collapse</sgmltag> affecté à <varname>true</varname>, 
-      Maven pliera celui-ci jusqu'à ce qu'un utilisateur consulte une page spécifique.
-      Dans l'exemple précédent, lorsque l'utilisateur ne regarde pas la page "Developer Resources",
+      <para>LorsquÂ’un item a son attribut <sgmltag>collapse</sgmltag> affectÃ© Ã  <varname>true</varname>, 
+      Maven pliera celui-ci jusqu'Ã  ce qu'un utilisateur consulte une page spÃ©cifique.
+      Dans l'exemple prÃ©cÃ©dent, lorsque l'utilisateur ne regarde pas la page "Developer Resources",
       Maven n'affiche pas les liens "System Architecture" et "Embedder's Guide" links.
-      À la place, il affichera une flèche pointant sur le lien "Developer Resources".
-      Quand l'utilisateur regardera cette page, ces liens s'afficheront avec une flèche pointée vers le bas.</para>
+      Ã€ la place, il affichera une flÃ¨che pointant sur le lien "Developer Resources".
+      Quand l'utilisateur regardera cette page, ces liens s'afficheront avec une flÃ¨che pointÃ©e vers le bas.</para>
 
     </section>
   </section>
 
   <section id="site-generation-sect-dir-struct">
-    <title>Structure de Répertoire d'un Site</title>
+    <title>Structure de RÃ©pertoire d'un Site</title>
 
-    <para>Maven place tous les documents du site dans le répertoire <filename>src/site</filename>. 
-    Les documents avec des formats similaires sont regroupés dans des sous répertoires de celui-ci. 
-    Ainsi, les fichiers <acronym>APT</acronym> se trouvent dans le répertoire <filename>src/site/apt</filename>,
+    <para>Maven place tous les documents du site dans le rÃ©pertoire <filename>src/site</filename>. 
+    Les documents avec des formats similaires sont regroupÃ©s dans des sous rÃ©pertoires de celui-ci. 
+    Ainsi, les fichiers <acronym>APT</acronym> se trouvent dans le rÃ©pertoire <filename>src/site/apt</filename>,
     les fichiers <acronym>FML</acronym> dans <filename>src/site/fml</filename> et les documenta XDoc dans <filename>src/site/xdoc</filename>.   
-    Le descripteur de site se trouve à l'emplacement <filename>src/site/site.xml</filename> 
-    et toutes les références sont stockées dans le répertoire <filename>src/site/resources</filename>.
-    Lorsque le plugin Maven Site construit un site web, it copie tout le contenu de ce répertoire à la racine du site.     
+    Le descripteur de site se trouve Ã  l'emplacement <filename>src/site/site.xml</filename> 
+    et toutes les rÃ©fÃ©rences sont stockÃ©es dans le rÃ©pertoire <filename>src/site/resources</filename>.
+    Lorsque le plugin Maven Site construit un site web, it copie tout le contenu de ce rÃ©pertoire Ã  la racine du site.     
     Si vous stockez une image dans <filename>src/site/resources/images/test.png</filename>,
     vous pouvez l'utiliser dans votre site en utilisant le chemin relatif <filename>images/test.png</filename>.</para>
 
-    <para>L'exemple suivant récapitule l'emplacement dans un projet de tous les fichiers <acronym>APT</acronym>, <acronym>FML</acronym>,
+    <para>L'exemple suivant rÃ©capitule l'emplacement dans un projet de tous les fichiers <acronym>APT</acronym>, <acronym>FML</acronym>,
     <acronym>HTML</acronym>, <acronym>XHTML</acronym>, et XDoc.  
-    Notez que le contenu <acronym>XHTML</acronym> est simplement stocké dans le répertoire dédié aux ressources.     
-    Le fichier <filename>architecture.html</filename> ne sera donc pas traité par Doxia, mais simplement copié dans le répertoire destination.
+    Notez que le contenu <acronym>XHTML</acronym> est simplement stockÃ© dans le rÃ©pertoire dÃ©diÃ© aux ressources.     
+    Le fichier <filename>architecture.html</filename> ne sera donc pas traitÃ© par Doxia, mais simplement copiÃ© dans le rÃ©pertoire destination.
     Vous pouvez utiliser ce principe pour inclure du contenu <acronym>HTML</acronym> brut que vous ne voulez pas templatiser ou formater par Doxia ni par le plugin Maven Site.</para>  
     
     <screen>sample-project
@@ -325,44 +325,44 @@ $ mvn site:run</screen>
       +- site.xml
 </screen>
 
-    <para>Notez que la documentation développeurs est stockée dans le fichier <filename>src/site/apt/developer/embedding.apt</filename>.
-    Celui-ci se trouve dans un sous répertoire d'<filename>apt</filename>, il en sera de même pour sa page <acronym>HTML</acronym> correspondante.  
-    Quand le plugin Site effectue le rendu du répertoire <filename>src/site/apt</filename>, 
-    il génère les fichiers <acronym>HTML</acronym> dans des répertoires relatifs à la racine du site. 
-    Si un fichier se trouve dans le répertoire <filename>apt</filename>, son fichier généré se trouvera à la racine du site web.
-    Si un fichier se trouve dans le répertoire <filename>apt/developer</filename>, son fichier généré se trouvera dans le répertoire <filename>developer/</filename> du site web.</para>
+    <para>Notez que la documentation dÃ©veloppeurs est stockÃ©e dans le fichier <filename>src/site/apt/developer/embedding.apt</filename>.
+    Celui-ci se trouve dans un sous rÃ©pertoire d'<filename>apt</filename>, il en sera de mÃªme pour sa page <acronym>HTML</acronym> correspondante.  
+    Quand le plugin Site effectue le rendu du rÃ©pertoire <filename>src/site/apt</filename>, 
+    il gÃ©nÃ¨re les fichiers <acronym>HTML</acronym> dans des rÃ©pertoires relatifs Ã  la racine du site. 
+    Si un fichier se trouve dans le rÃ©pertoire <filename>apt</filename>, son fichier gÃ©nÃ©rÃ© se trouvera Ã  la racine du site web.
+    Si un fichier se trouve dans le rÃ©pertoire <filename>apt/developer</filename>, son fichier gÃ©nÃ©rÃ© se trouvera dans le rÃ©pertoire <filename>developer/</filename> du site web.</para>
      
   </section>
 
   <section id="site-generation-sect-proj-doc">
-    <title>Écrire la documentation d'un Projet</title>
+    <title>Ã‰crire la documentation d'un Projet</title>
 
-    <para>Maven utilise en moteur de traitement de documentation appelé Doxia. 
-    Doxia peut transformer plusieurs formats de fichiers dans un même modèle de document, 
-    manipuler ces modèles et effectuer le rendu dans plusieurs formats de sorties dont
+    <para>Maven utilise en moteur de traitement de documentation appelÃ© Doxia. 
+    Doxia peut transformer plusieurs formats de fichiers dans un mÃªme modÃ¨le de document, 
+    manipuler ces modÃ¨les et effectuer le rendu dans plusieurs formats de sorties dont
     <acronym>PDF</acronym> ou <acronym>XHTML</acronym>.
-    Pour écrire un document pour votre projet, vous devez écrire votre contenu dans un format reconnu par Doxia. 
-    À ce jour, Doxia supporte la plupart des formats "plain text" (autrement dit "Almost Plain Text", ou <acronym>APT</acronym>), 
+    Pour Ã©crire un document pour votre projet, vous devez Ã©crire votre contenu dans un format reconnu par Doxia. 
+    Ã€ ce jour, Doxia supporte la plupart des formats "plain text" (autrement dit "Almost Plain Text", ou <acronym>APT</acronym>), 
     XDoc (format de la documentation de Maven 1.x), <acronym>XHTML</acronym> 
-    et <acronym>FML</acronym> (utilisé pour écrire des <acronym>FAQ</acronym>).</para>
+    et <acronym>FML</acronym> (utilisÃ© pour Ã©crire des <acronym>FAQ</acronym>).</para>
 
-    <para>Ce chapitre effectue une présentation succincte du format <acronym>APT</acronym>.
-    Pour une plus de préciser sur ce format, pour une introduction à XDoc ou à <acronym>FML</acronym>, 
+    <para>Ce chapitre effectue une prÃ©sentation succincte du format <acronym>APT</acronym>.
+    Pour une plus de prÃ©ciser sur ce format, pour une introduction Ã  XDoc ou Ã  <acronym>FML</acronym>, 
     consultez les ressources suivantes :</para>
 
     <itemizedlist>
       <listitem>
-        <para>Référence <acronym>APT</acronym> : <ulink
+        <para>RÃ©fÃ©rence <acronym>APT</acronym> : <ulink
         url="http://maven.apache.org/doxia/format.html">http://maven.apache.org/doxia/format.html</ulink></para>
       </listitem>
 
       <listitem>
-        <para>Référence XDoc : <ulink
+        <para>RÃ©fÃ©rence XDoc : <ulink
         url="http://jakarta.apache.org/site/jakarta-site2.html">http://jakarta.apache.org/site/jakarta-site2.html</ulink></para>
       </listitem>
 
       <listitem>
-        <para>Référence <acronym>FML</acronym> : <ulink
+        <para>RÃ©fÃ©rence <acronym>FML</acronym> : <ulink
         url="http://maven.apache.org/doxia/references/fml-format.html">http://maven.apache.org/doxia/references/fml-format.html</ulink></para>
       </listitem>
     </itemizedlist>
@@ -371,8 +371,8 @@ $ mvn site:run</screen>
       <title>Exemple de fichier APT</title>
 
       <para>L'<xref linkend="ex-apt" /> affiche un document <acronym>APT</acronym> simple 
-      dont le contenu est composé d'un paragraphe d'introduction et d'une liste.
-      Notez que la liste se termine par le pseudo élément "[]".</para>
+      dont le contenu est composÃ© d'un paragraphe d'introduction et d'une liste.
+      Notez que la liste se termine par le pseudo Ã©lÃ©ment "[]".</para>
 
       <example id="ex-apt">
         <title>Document APT</title>
@@ -403,7 +403,7 @@ Welcome to Sample Project
 </programlisting>
       </example>
 
-      <para>Si le document <acronym>APT</acronym> de l'<xref linkend="ex-apt" /> est placé dans  
+      <para>Si le document <acronym>APT</acronym> de l'<xref linkend="ex-apt" /> est placÃ© dans  
       <filename>src/site/apt/index.apt</filename>, le plugin Maven Site parserait l'<acronym>APT</acronym> en utilisant Doxia 
       et produirait du contenu <acronym>XHTML</acronym> : le fichier <filename>index.html</filename>.</para>
     </section>
@@ -456,18 +456,18 @@ Welcome to Sample Project
   </section>
 
   <section id="site-generation-sect-deploy-site">
-    <title>Déployez le site de votre projet</title>
+    <title>DÃ©ployez le site de votre projet</title>
 
-    <para>Une fois que la documentation de votre projet est écrite et que vous êtes fier du site que vous avez créé,
-    vous désirerez le déployer sur un serveur.     
-    Pour déployer un site, vous pouvez utiliser le plugin Maven Site qui propose différentes méthodes 
+    <para>Une fois que la documentation de votre projet est Ã©crite et que vous Ãªtes fier du site que vous avez crÃ©Ã©,
+    vous dÃ©sirerez le dÃ©ployer sur un serveur.     
+    Pour dÃ©ployer un site, vous pouvez utiliser le plugin Maven Site qui propose diffÃ©rentes mÃ©thodes 
     pour envoyer votre site sur un serveur distant, dont
     <acronym>FTP</acronym>, <acronym>SCP</acronym> et  <acronym>DAV</acronym>.
-    Par exemple, pour déployer votre site via <acronym>DAV</acronym>, configurez la balise <sgmltag>distributionManagement</sgmltag>
+    Par exemple, pour dÃ©ployer votre site via <acronym>DAV</acronym>, configurez la balise <sgmltag>distributionManagement</sgmltag>
     dans votre <acronym>POM</acronym> comme ceci : </para>
 
     <para><example>
-        <title>Configurer le déploiement d'un Site</title>
+        <title>Configurer le dÃ©ploiement d'un Site</title>
 
         <programlisting language="xml">&lt;project&gt;
   ...
@@ -482,30 +482,30 @@ Welcome to Sample Project
 </programlisting>
       </example></para>
 
-    <para>L'url contenue dans une sous balise de la section <sgmltag>distributionManagement</sgmltag> est préfixée 
-    par un indicateur <varname>dav</varname>. Celui-ci indique au plugin Maven Site d'effectuer le déploiement du site vers
+    <para>L'url contenue dans une sous balise de la section <sgmltag>distributionManagement</sgmltag> est prÃ©fixÃ©e 
+    par un indicateur <varname>dav</varname>. Celui-ci indique au plugin Maven Site d'effectuer le dÃ©ploiement du site vers
     une <acronym>URL</acronym> qui est capable de comprendre le protocole <acronym>WebDAV</acronym>.  
-    Une fois la configuration effectuée dans le <acronym>POM</acronym> de votre projet <varname>sample-project</varname>,
-    vous pouvez lancer le déploiement via la commande suivante :</para> 
+    Une fois la configuration effectuÃ©e dans le <acronym>POM</acronym> de votre projet <varname>sample-project</varname>,
+    vous pouvez lancer le dÃ©ploiement via la commande suivante :</para> 
 
     <screen>$ mvn clean site-deploy
 </screen>
 
-    <para>Si vous disposez d'un serveur configuré pour comprendre le protocole <acronym>WebDAV</acronym>,
-    Maven déploiera le site de votre projet sur ce serveur distant.
-    Si vous déployez ce site sur un serveur visible par le public, 
-    vous devrez probablement ajouter à la configuration votre authentification pour l'accès sécurisé. 
+    <para>Si vous disposez d'un serveur configurÃ© pour comprendre le protocole <acronym>WebDAV</acronym>,
+    Maven dÃ©ploiera le site de votre projet sur ce serveur distant.
+    Si vous dÃ©ployez ce site sur un serveur visible par le public, 
+    vous devrez probablement ajouter Ã  la configuration votre authentification pour l'accÃ¨s sÃ©curisÃ©. 
     Si votre serveur serveur vous demande un identifiant et un mot de passe (ou tout autre moyen d'authentification),
     vous pouvez configurer ses valeurs dans votre fichier <filename>~/.m2/settings.xml</filename>).</para>
 
     <section id="site-generation-sect-server-auth">
       <title>Configurer l'Authentification de votre Serveur</title>
 
-      <para>Pour configurer votre indetifiants et mot de passe au déploiement du site dans le fichier <filename>$HOME/.m2/settings.xml</filename>, 
+      <para>Pour configurer votre indetifiants et mot de passe au dÃ©ploiement du site dans le fichier <filename>$HOME/.m2/settings.xml</filename>, 
       inspirez vous de l'<xref linkend="ex-site-authetification" /> :</para>
 
       <para><example id="ex-site-authetification">
-          <title>Authentification Serveur dans les Préférences Utilisateur</title>
+          <title>Authentification Serveur dans les PrÃ©fÃ©rences Utilisateur</title>
 
           <programlisting language="xml">&lt;settings&gt;
   ...
@@ -522,21 +522,21 @@ Welcome to Sample Project
 </programlisting>
         </example></para>
 
-      <para>La section authentification peut contenir différents types d'éléments.
-      Par exemple, si vous utilisez un déploiement par <acronym>SCP</acronym>, vous voudrez peut-être utiliser une authentification par clé publique.  
-      Pour cela, vous disposez de balises spécifiques  : <sgmltag>publicKey</sgmltag> et <sgmltag>passphrase</sgmltag>.
+      <para>La section authentification peut contenir diffÃ©rents types d'Ã©lÃ©ments.
+      Par exemple, si vous utilisez un dÃ©ploiement par <acronym>SCP</acronym>, vous voudrez peut-Ãªtre utiliser une authentification par clÃ© publique.  
+      Pour cela, vous disposez de balises spÃ©cifiques  : <sgmltag>publicKey</sgmltag> et <sgmltag>passphrase</sgmltag>.
       Il vous est toujours possible de configurer la balise 'indentifiant', en fonction de la configuration de votre serveur.</para>  
     </section>
 
     <section id="site-generation-sect-modes">
       <title>Configurer les droits des Fichiers et Dossiers</title>
 
-      <para>Si vous travaillez dans un groupe conséquent de développeur,
-      vous voudrez vous assurer que les dossiers de votre site Internet se retrouvent avec des droits utilisateur et des permissions de groupe convenables après leur déploiement.
-      Pour configurer ces modes lors du déploiement, inspirez-vous du fichier <filename>$HOME/.m2/settings.xml</filename> suivant :</para>
+      <para>Si vous travaillez dans un groupe consÃ©quent de dÃ©veloppeur,
+      vous voudrez vous assurer que les dossiers de votre site Internet se retrouvent avec des droits utilisateur et des permissions de groupe convenables aprÃ¨s leur dÃ©ploiement.
+      Pour configurer ces modes lors du dÃ©ploiement, inspirez-vous du fichier <filename>$HOME/.m2/settings.xml</filename> suivant :</para>
 
       <para><example>
-          <title>Configurer les droits des File et Répertoires sur un Serveur Distant</title>
+          <title>Configurer les droits des File et RÃ©pertoires sur un Serveur Distant</title>
 
           <programlisting language="xml">&lt;settings&gt;
   ...
@@ -554,31 +554,31 @@ Welcome to Sample Project
 </programlisting>
         </example></para>
 
-      <para>Les préférences ci-dessus rendent les répertoires lisibles et modifiables par son créateur et les membres de son groupe.
-      Les utilisateurs anonymes pourront quant à eux lire et lister le contenu du répertoire. 
-      De la même manière, le créateur et les membres de son groupe disposeront d'un accès en lecture et écriture sur n'importe quel fichier,
-      alors que les utilisateurs anonymes disposeront d'un accès en lecture.</para>
+      <para>Les prÃ©fÃ©rences ci-dessus rendent les rÃ©pertoires lisibles et modifiables par son crÃ©ateur et les membres de son groupe.
+      Les utilisateurs anonymes pourront quant Ã  eux lire et lister le contenu du rÃ©pertoire. 
+      De la mÃªme maniÃ¨re, le crÃ©ateur et les membres de son groupe disposeront d'un accÃ¨s en lecture et Ã©criture sur n'importe quel fichier,
+      alors que les utilisateurs anonymes disposeront d'un accÃ¨s en lecture.</para>
     </section>
   </section>
 
   <section id="site-generation-sect-site-appearance">
     <title>Personnaliser l'Apparence de votre Site</title>
 
-    <para>Le template Maven par défaut laisse beaucoup à désirer. 
-    Si vous voulez personnaliser votre site de projet au delà de l'ajout de contenu, d'options dans le menu navigation et de modification des logos,
-    Maven offre plusieurs mécanismes qui le permettent. Il est ainsi possible de modifier plus en profondeur la structure et la décoration du site web.
+    <para>Le template Maven par dÃ©faut laisse beaucoup Ã  dÃ©sirer. 
+    Si vous voulez personnaliser votre site de projet au delÃ  de l'ajout de contenu, d'options dans le menu navigation et de modification des logos,
+    Maven offre plusieurs mÃ©canismes qui le permettent. Il est ainsi possible de modifier plus en profondeur la structure et la dÃ©coration du site web.
     Pour effectuer de petites modifications, l'ajout d'une <acronym>CSS</acronym> <filename>site.css</filename> est souvent suffiante.
-    Cependant, si vous voulez que ces modifications soient réutilisables, ou si vous désirez modifier le <acronym>XHTML</acronym> généré, 
-    la création d'un 'skin' Maven est souvent nécessaire.</para>
+    Cependant, si vous voulez que ces modifications soient rÃ©utilisables, ou si vous dÃ©sirez modifier le <acronym>XHTML</acronym> gÃ©nÃ©rÃ©, 
+    la crÃ©ation d'un 'skin' Maven est souvent nÃ©cessaire.</para>
 
     <section id="site-generation-sect-site-css">
       <title>Personnalisez la CSS du Site</title>
 
-      <para>Le moyen le plus simple pour personnaliser l'apparence de votre site est de fournir à votre projet une <acronym>CSS</acronym> <filename>site.css</filename>.
-      Tout comme pour les images ou pour le contenu <acronym>XHTML</acronym>, ce fichier <acronym>CSS</acronym> doit se trouver dans le répertoire <filename>src/site/resources/css</filename>.   
+      <para>Le moyen le plus simple pour personnaliser l'apparence de votre site est de fournir Ã  votre projet une <acronym>CSS</acronym> <filename>site.css</filename>.
+      Tout comme pour les images ou pour le contenu <acronym>XHTML</acronym>, ce fichier <acronym>CSS</acronym> doit se trouver dans le rÃ©pertoire <filename>src/site/resources/css</filename>.   
       Avec cette <acronym>CSS</acronym>, il vous est possible de modifier la disposition et le style des textes de votre site; 
-      il vous est également possible d'ajouter une image de fond ou de personnaliser les images de vos listes.   
-      Par exemple, si vous décidez de faire ressortir davantage le titre du menu, vous pourriez utiliser le style suivant dans le fichier 
+      il vous est Ã©galement possible d'ajouter une image de fond ou de personnaliser les images de vos listes.   
+      Par exemple, si vous dÃ©cidez de faire ressortir davantage le titre du menu, vous pourriez utiliser le style suivant dans le fichier 
       <filename>src/site/resources/css/site.css</filename> : </para>
 
       <screen>#navcolumn h5 {
@@ -593,43 +593,43 @@ Welcome to Sample Project
 }
 </screen>
 
-      <para>Après la régénération de votre site,
-      le titre de votre menu sera ainsi tramé par un fond gris et séparé du reste du menu par un peu plus d'espace. 
-      En utilisant ce fichier, n'importe quel élément de la structure d'un site Maven peut être décoré par l'intermédiaire de styles personnalisés.
+      <para>AprÃ¨s la rÃ©gÃ©nÃ©ration de votre site,
+      le titre de votre menu sera ainsi tramÃ© par un fond gris et sÃ©parÃ© du reste du menu par un peu plus d'espace. 
+      En utilisant ce fichier, n'importe quel Ã©lÃ©ment de la structure d'un site Maven peut Ãªtre dÃ©corÃ© par l'intermÃ©diaire de styles personnalisÃ©s.
       Lorsque vous modifiez le fichier <filename>site.css</filename> d'un projet Maven, les modifications impacteront son site uniquement.
-      Si vous désirez effectuer des modifications à appliquer sur plusieurs projets, vous pouvez créer un skin personnalisé.</para> 
+      Si vous dÃ©sirez effectuer des modifications Ã  appliquer sur plusieurs projets, vous pouvez crÃ©er un skin personnalisÃ©.</para> 
 
       <tip>
-        <para>Il n'existe pas de bonne documentation sur la structure du template par défaut d'un site Maven. 
+        <para>Il n'existe pas de bonne documentation sur la structure du template par dÃ©faut d'un site Maven. 
         Si vous essayez de personnaliser le style de votre projet Maven, le mieux est d'utiliser une extension Firefox comme Firebug 
-        pour vous aider à naviguer dans le <acronym>DOM</acronym> de vos pages web.</para>
+        pour vous aider Ã  naviguer dans le <acronym>DOM</acronym> de vos pages web.</para>
       </tip>
     </section>
 
     <section id="site-generation-sect-custom-template">
-      <title>Créer un Template de Site Personnalisé</title>
+      <title>CrÃ©er un Template de Site PersonnalisÃ©</title>
 
-      <para>Si la structure du Site Maven par défaut ne vous convient pas, vous pouvez toujours personnaliser son template. 
-      Grâce à cela, il est possible d'avoir le contrôle complet de la sortie du plugin Maven.
-      Il est également possible de personnaliser le template du site de telle sorte que vous ne reconnaissiez pas la structure du template par défaut.</para>
+      <para>Si la structure du Site Maven par dÃ©faut ne vous convient pas, vous pouvez toujours personnaliser son template. 
+      GrÃ¢ce Ã  cela, il est possible d'avoir le contrÃ´le complet de la sortie du plugin Maven.
+      Il est Ã©galement possible de personnaliser le template du site de telle sorte que vous ne reconnaissiez pas la structure du template par dÃ©faut.</para>
 
-      <para>Le plugin Maven Site utilise le moteur de rendering Doxia, qui utilise à son tour en interne un template Velocity pour effectuer le rendu de chaque page.
-      Pour changer la structure d'une page, il est possible de configurer le plugin Site à partir du <acronym>POM</acronym> pour utiliser un template personnalisé.  
-      Comme le template du site est relativement complexe, il est préférable de disposer d'un bon point de départ pour effectuer votre personnalisation. 
-      Commencez par copier le template Velocity, fournit par défaut à partir du fichier
+      <para>Le plugin Maven Site utilise le moteur de rendering Doxia, qui utilise Ã  son tour en interne un template Velocity pour effectuer le rendu de chaque page.
+      Pour changer la structure d'une page, il est possible de configurer le plugin Site Ã  partir du <acronym>POM</acronym> pour utiliser un template personnalisÃ©.  
+      Comme le template du site est relativement complexe, il est prÃ©fÃ©rable de disposer d'un bon point de dÃ©part pour effectuer votre personnalisation. 
+      Commencez par copier le template Velocity, fournit par dÃ©faut Ã  partir du fichier
       <ulink url="http://svn.apache.org/viewvc/maven/doxia/doxia-sitetools/trunk/doxia-site-renderer/src/main/resources/org/apache/maven/doxia/siterenderer/resources/default-site.vm?revision=595592">default-site.vm</ulink>
-      du répository Subversion Doxia, dans le fichier <filename>src/site/site.vm</filename>.   
+      du rÃ©pository Subversion Doxia, dans le fichier <filename>src/site/site.vm</filename>.   
       Ce fichier s'appuie donc une syntaxe Velocity.
       Velocity est un simple language de templating. 
-      Il supporte la définition de macros et qui permet l'accès aux méthodes des objets et propriétés en utilisant une notation simple.
-      La présentation en profondeur de la notation utilisée par ce framework ne sera pas effectuée dans ce livre, 
-      pour plus d'informations sur Velocity, référez-vous au site officiel du projet à l'adresse suivante  
+      Il supporte la dÃ©finition de macros et qui permet l'accÃ¨s aux mÃ©thodes des objets et propriÃ©tÃ©s en utilisant une notation simple.
+      La prÃ©sentation en profondeur de la notation utilisÃ©e par ce framework ne sera pas effectuÃ©e dans ce livre, 
+      pour plus d'informations sur Velocity, rÃ©fÃ©rez-vous au site officiel du projet Ã  l'adresse suivante  
       <ulink url="http://velocity.apache.org">http://velocity.apache.org</ulink>.</para>
 
       <para>Si le template <filename>default-site.xml</filename> est assez complexe, 
-      les modifications nécessaires à la personnalisation du menu gauche sont relativement simples.
-      Si vous voulez modifier l'apparence d'un <sgmltag>menuItem</sgmltag>, rechercher la macro Velocity du même nom.
-      Elle se trouve dans une section qui ressemble à cela :</para>  
+      les modifications nÃ©cessaires Ã  la personnalisation du menu gauche sont relativement simples.
+      Si vous voulez modifier l'apparence d'un <sgmltag>menuItem</sgmltag>, rechercher la macro Velocity du mÃªme nom.
+      Elle se trouve dans une section qui ressemble Ã  cela :</para>  
 
       <screen>#macro ( menuItem $item )
 
@@ -638,8 +638,8 @@ Welcome to Sample Project
 #end
 </screen>
 
-      <para>Si vous replacez la définition de la macro par celle affiche ci-dessous, 
-      vous injecterez du javascript dans chaque élément du menu qui permet de fermer et d'ouvrir l'arbre sans avoir à recharger entièrement la page :</para> 
+      <para>Si vous replacez la dÃ©finition de la macro par celle affiche ci-dessous, 
+      vous injecterez du javascript dans chaque Ã©lÃ©ment du menu qui permet de fermer et d'ouvrir l'arbre sans avoir Ã  recharger entiÃ¨rement la page :</para> 
 
       <screen>#macro ( menuItem $item $listCount )
   #set ( $collapse = "none" )
@@ -699,18 +699,18 @@ Welcome to Sample Project
 #end
 </screen>
 
-      <para>Cette modification rajoute un nouveau paramètre à la macro <varname>menuItem</varname>. 
-      Pour que cette modification fonctionne, vous devez donc mettre à jour toutes les références à cette macro; 
-      dans le cas contraire, le <acronym>XHTML</acronym> généré sera erroné.
-      Pour effectuer ces mises à jour, propagez la même modification que celle de la macro <varname>mainMenu</varname>.
-      Trouvez la macro en recherchant quelque chose ressemble à cela :</para>
+      <para>Cette modification rajoute un nouveau paramÃ¨tre Ã  la macro <varname>menuItem</varname>. 
+      Pour que cette modification fonctionne, vous devez donc mettre Ã  jour toutes les rÃ©fÃ©rences Ã  cette macro; 
+      dans le cas contraire, le <acronym>XHTML</acronym> gÃ©nÃ©rÃ© sera erronÃ©.
+      Pour effectuer ces mises Ã  jour, propagez la mÃªme modification que celle de la macro <varname>mainMenu</varname>.
+      Trouvez la macro en recherchant quelque chose ressemble Ã  cela :</para>
 
       <screen>#macro ( mainMenu $menus )
   ...
 #end
 </screen>
 
-      <para>Replacez maintenant la macro <varname>mainMenu</varname> avec cette implémentation :</para>
+      <para>Replacez maintenant la macro <varname>mainMenu</varname> avec cette implÃ©mentation :</para>
 
       <screen>#macro ( mainMenu $menus )
   #set ( $counter = 0 )
@@ -730,13 +730,13 @@ Welcome to Sample Project
 #end
 </screen>
 
-      <para>Cette nouvelle macro <varname>mainMenu</varname> est entièrement compatible avec la version précédente,
-      elle fournit un support javascript aux éléments racines du menu. 
-      Un clic sur un de ces éléments racines permet aux utilisateurs d'afficher l'arbre complet dans devoir attendre le chargement de la page.</para>   
+      <para>Cette nouvelle macro <varname>mainMenu</varname> est entiÃ¨rement compatible avec la version prÃ©cÃ©dente,
+      elle fournit un support javascript aux Ã©lÃ©ments racines du menu. 
+      Un clic sur un de ces Ã©lÃ©ments racines permet aux utilisateurs d'afficher l'arbre complet dans devoir attendre le chargement de la page.</para>   
 
-      <para>La mise à jour de la macro <varname>menuItem</varname> rajoute un appel à une fonction javascript <methodname>expand()</methodname>.
-      Cette fonction doit donc être ajoutée au template <acronym>XHTML</acronym> principal, par exemple en bas de la base.
-      Recherchez la section avec un contenu ressemblant à ceci :</para>  
+      <para>La mise Ã  jour de la macro <varname>menuItem</varname> rajoute un appel Ã  une fonction javascript <methodname>expand()</methodname>.
+      Cette fonction doit donc Ãªtre ajoutÃ©e au template <acronym>XHTML</acronym> principal, par exemple en bas de la base.
+      Recherchez la section avec un contenu ressemblant Ã  ceci :</para>  
 
       <screen>  &lt;head&gt;
     ...
@@ -776,8 +776,8 @@ Welcome to Sample Project
   &lt;/head&gt;
 </screen>
 
-      <para>Après avoir modifié le template du site, vous devez mettre à jour le <acronym>POM</acronym> de votre projet pour qu'il utilise votre nouveau template. 
-      Pour personnaliser le template du site, vous devez utiliser la balise <sgmltag>templateDirectory</sgmltag> dans les propriétés de configuration du plugin Maven Site.</para>
+      <para>AprÃ¨s avoir modifiÃ© le template du site, vous devez mettre Ã  jour le <acronym>POM</acronym> de votre projet pour qu'il utilise votre nouveau template. 
+      Pour personnaliser le template du site, vous devez utiliser la balise <sgmltag>templateDirectory</sgmltag> dans les propriÃ©tÃ©s de configuration du plugin Maven Site.</para>
 
       <para><example>
           <title>Personnaliser le Template d'une PAge dans le POM du Projet</title>
@@ -800,11 +800,11 @@ Welcome to Sample Project
 </programlisting>
         </example></para>
 
-      <para>Vous devriez pouvoir maintenant regénérer le site de votre projet.
+      <para>Vous devriez pouvoir maintenant regÃ©nÃ©rer le site de votre projet.
       En effectuant cela, vous pourez remarquer que les ressources et <acronym>CSS</acronym> du site Maven manquent. 
       Lorsqu'un projet Maven personnalise le template du site, le plugin Maven Site s'attend que le projet fournisse toutes les images et <acronym>CSS</acronym>.
-      Pour rassembler les ressources de votre projet, le plus simple reste de les copier à partir du site Doxia utilisé par défaut.
-      Cela peut se faire en exécutant les commandes suivantes :</para>
+      Pour rassembler les ressources de votre projet, le plus simple reste de les copier Ã  partir du site Doxia utilisÃ© par dÃ©faut.
+      Cela peut se faire en exÃ©cutant les commandes suivantes :</para>
 
       <screen>$ <command>svn co \
         http://svn.apache.org/repos/asf/maven/doxia/doxia-sitetools/\
@@ -818,10 +818,10 @@ $ <command>cp -rf \
       sample-project/src/site/resources</command>
 </screen>
 
-      <para>Récupérer le projet <varname>doxia-site-renderer</varname> et copiez toutes les ressources dans le répertoire <filename>src/site/resources</filename> de votre projet.</para>  
+      <para>RÃ©cupÃ©rer le projet <varname>doxia-site-renderer</varname> et copiez toutes les ressources dans le rÃ©pertoire <filename>src/site/resources</filename> de votre projet.</para>  
       
-      <para>Lorsque vous regénérez un site, vous noterez également que certains éléments du menu ne posséderont pas de style CSS.
-      Cela est dû à une mauvaise intégration entre la <acronym>CSS</acronym> du site et votre template personnalisé.
+      <para>Lorsque vous regÃ©nÃ©rez un site, vous noterez Ã©galement que certains Ã©lÃ©ments du menu ne possÃ©deront pas de style CSS.
+      Cela est dÃ» Ã  une mauvaise intÃ©gration entre la <acronym>CSS</acronym> du site et votre template personnalisÃ©.
       Pour corriger cel, modifiez votre fichier <filename>site.css</filename> pour modifier la couleur de vos liens dans le menu en ajoutant les lignes suivantes :</para>
 
       <screen>li.collapsed, li.expanded, a:link {
@@ -829,16 +829,16 @@ $ <command>cp -rf \
 }
 </screen>
 
-      <para>Après avoir regénéré le site, la couleur du lien du menu devrait être réparée.
+      <para>AprÃ¨s avoir regÃ©nÃ©rÃ© le site, la couleur du lien du menu devrait Ãªtre rÃ©parÃ©e.
       Si vous appliquez le nouveau template au projet <varname>sample-project</varname> de ce chapitre,
       vous noterez que le menu s'affiche maintenant sous la forme d'un arbre.
-      Un clic sur "Developer Resources" ne vous emmène plus sur la page du même nom; à la place, son sous-menu est affiché.   
-      Du coup, tant que vous l'avez pas modifié l'élément "Developer Resources" en un sous-menu dynamique,
-      vous ne pouvez plus accéder à la page <filename>developer/index.apt</filename>.
-      Le plus simple reste donc d'ajouter au sous-menu un élément "Overview" qui pointe sur cette même page :</para>
+      Un clic sur "Developer Resources" ne vous emmÃ¨ne plus sur la page du mÃªme nom; Ã  la place, son sous-menu est affichÃ©.   
+      Du coup, tant que vous l'avez pas modifiÃ© l'Ã©lÃ©ment "Developer Resources" en un sous-menu dynamique,
+      vous ne pouvez plus accÃ©der Ã  la page <filename>developer/index.apt</filename>.
+      Le plus simple reste donc d'ajouter au sous-menu un Ã©lÃ©ment "Overview" qui pointe sur cette mÃªme page :</para>
 
       <para><example>
-          <title>Ajouter un Elément du Menu dans le Descripteur de Site</title>
+          <title>Ajouter un ElÃ©ment du Menu dans le Descripteur de Site</title>
 
           <programlisting language="xml">&lt;project name="Hello World"&gt;
   ...
@@ -857,15 +857,15 @@ $ <command>cp -rf \
     </section>
 
     <section id="site-generation-sect-reusable-skin">
-      <title>Réutilisation des Skins</title>
+      <title>RÃ©utilisation des Skins</title>
 
-      <para>Si votre entreprise créé de nombreux sites Maven,
-      vous voudrez probablement réutiliser vos templates et <acronym>CSS</acronym> personnalisés sur plusieurs projets.
-      Pour cela, Maven vous propose un mécanisme vous permettant de créer des skins.
-      Les skins du plugin Maven Site permettent de packager les ressources et les templates pour les réunitiser sur plusieurs projets.
-      Ils vous permettent ainsi d'éviter de dupliquer ces ressources à chaque utilisation.</para> 
+      <para>Si votre entreprise crÃ©Ã© de nombreux sites Maven,
+      vous voudrez probablement rÃ©utiliser vos templates et <acronym>CSS</acronym> personnalisÃ©s sur plusieurs projets.
+      Pour cela, Maven vous propose un mÃ©canisme vous permettant de crÃ©er des skins.
+      Les skins du plugin Maven Site permettent de packager les ressources et les templates pour les rÃ©unitiser sur plusieurs projets.
+      Ils vous permettent ainsi d'Ã©viter de dupliquer ces ressources Ã  chaque utilisation.</para> 
 
-      <para>Plus rapide que de définir votre propre skin, vous pouvez également utiliser l'un des skins alternatifs fournis par Maven.
+      <para>Plus rapide que de dÃ©finir votre propre skin, vous pouvez Ã©galement utiliser l'un des skins alternatifs fournis par Maven.
       Chaque skin propose son propre layout pour la navigation, le contenu, les logos et les templates :</para>
 
       <itemizedlist>
@@ -885,28 +885,28 @@ $ <command>cp -rf \
         </listitem>
       </itemizedlist>
 
-      <para>Pour obtenir la liste complète des skins disponibles, rendez-vous à l'adresse suivante : <ulink
+      <para>Pour obtenir la liste complÃ¨te des skins disponibles, rendez-vous Ã  l'adresse suivante : <ulink
       url="http://repo1.maven.org/maven2/org/apache/maven/skins/">http://repo1.maven.org/maven2/org/apache/maven/skins/</ulink>.</para>
 
-      <para>La création de skin passe par la simple personnalisation du fichier <filename>maven-theme.css</filename> dans un projet Maven.
-      Ainsi, il peut être identifié par un <varname>groupId</varname>, un <varname>artifactId</varname> et une <varname>version</varname>.
-      Il peut également contenir des ressources (comme des images) et replacer le template du site par défaut (template écrit en Velocity).
-      Cela permet de générer des structures de page <acronym>XHTML</acronym> complètement différentes de celle proposée par défaut.
-      Dans la plupart des cas, la personnalisation de la <acronym>CSS</acronym> peut s'avérer suffisante.  
-      Pour illustrer cela, créons un skin pour le projet <varname>sample-project</varname>, dont l'une des premières étapes sera de personnaliser le fichier <filename>maven-theme.css</filename>.</para> 
+      <para>La crÃ©ation de skin passe par la simple personnalisation du fichier <filename>maven-theme.css</filename> dans un projet Maven.
+      Ainsi, il peut Ãªtre identifiÃ© par un <varname>groupId</varname>, un <varname>artifactId</varname> et une <varname>version</varname>.
+      Il peut Ã©galement contenir des ressources (comme des images) et replacer le template du site par dÃ©faut (template Ã©crit en Velocity).
+      Cela permet de gÃ©nÃ©rer des structures de page <acronym>XHTML</acronym> complÃ¨tement diffÃ©rentes de celle proposÃ©e par dÃ©faut.
+      Dans la plupart des cas, la personnalisation de la <acronym>CSS</acronym> peut s'avÃ©rer suffisante.  
+      Pour illustrer cela, crÃ©ons un skin pour le projet <varname>sample-project</varname>, dont l'une des premiÃ¨res Ã©tapes sera de personnaliser le fichier <filename>maven-theme.css</filename>.</para> 
 
-      <para>Avant de commencer à écrire cette <acronym>CSS</acronym>, nous devons créer un projet Maven séparé.
-      Celui-ci sera référencé par le descripteur de site du projet <varname>sample-project</varname>.
-      Utilisons donc le plugin Maven Achetype pour créer un projet vide.
-      Pour cela, exécuter la commande suivante à partir du répertoire parent du projet <varname>sample-project</varname> :</para>
+      <para>Avant de commencer Ã  Ã©crire cette <acronym>CSS</acronym>, nous devons crÃ©er un projet Maven sÃ©parÃ©.
+      Celui-ci sera rÃ©fÃ©rencÃ© par le descripteur de site du projet <varname>sample-project</varname>.
+      Utilisons donc le plugin Maven Achetype pour crÃ©er un projet vide.
+      Pour cela, exÃ©cuter la commande suivante Ã  partir du rÃ©pertoire parent du projet <varname>sample-project</varname> :</para>
 
       <screen>$ <command>mvn archetype:create -DartifactId=sample-site-skin 
         -DgroupId=org.sonatype.mavenbook</command>
 </screen>
 
-      <para>Cette commande créée un projet (et un répertoire) appelé <varname>sample-site-skin</varname>.
-      Rendez-vous dans celui-ci et supprimez tout le code source et les tests qui y ont été générés.
-      Créez-y ensuite un répertoire pour stoker vos ressources (du skin) :</para>
+      <para>Cette commande crÃ©Ã©e un projet (et un rÃ©pertoire) appelÃ© <varname>sample-site-skin</varname>.
+      Rendez-vous dans celui-ci et supprimez tout le code source et les tests qui y ont Ã©tÃ© gÃ©nÃ©rÃ©s.
+      CrÃ©ez-y ensuite un rÃ©pertoire pour stoker vos ressources (du skin) :</para>
 
       <screen>$ <command>cd sample-site-skin</command>
 $ <command>rm -rf src/main/java src/test</command>
@@ -915,22 +915,22 @@ $ <command>mkdir src/main/resources</command>
     </section>
 
     <section id="site-generation-sect-custom-theme-css">
-      <title>Création d'un Theme CSS Personnalisé</title>
+      <title>CrÃ©ation d'un Theme CSS PersonnalisÃ©</title>
 
-      <para>Ensuite, écrivons une <acronym>CSS</acronym> personnalisée pour notre skin.
-      Celle-ci doit se trouver à l'emplacement suivant : <filename>src/main/resources/css/maven-theme.css</filename>.
+      <para>Ensuite, Ã©crivons une <acronym>CSS</acronym> personnalisÃ©e pour notre skin.
+      Celle-ci doit se trouver Ã  l'emplacement suivant : <filename>src/main/resources/css/maven-theme.css</filename>.
       Contrairement au fichier <filename>site.css</filename> qui se retrouvera au coeur des sources du projet, 
-      le fichier <filename>maven-theme.css</filename> sera empaqueté dans un <acronym>JAR</acronym> stocké dans votre dépôt local. 
+      le fichier <filename>maven-theme.css</filename> sera empaquetÃ© dans un <acronym>JAR</acronym> stockÃ© dans votre dÃ©pÃ´t local. 
       Pour que ce fichier soit inclus dans le <acronym>JAR</acronym> du skin,
-      il doit se trouver dans le répertoire principal des ressources du projet : <filename>src/main/resources</filename>.</para>
+      il doit se trouver dans le rÃ©pertoire principal des ressources du projet : <filename>src/main/resources</filename>.</para>
 
-      <para>Comme avec le template par défaut, démarrez votre skin en personnalisant la <acronym>CSS</acronym> existante est un bon point de départ.
-      Copiez donc cette <acronym>CSS</acronym> du skin par défaut dans le fichier <filename>maven-theme.css</filename> de votre projet.  
-      Pour récupérer une copie de ce fichier, enregistrez le contenu du fichier <ulink
+      <para>Comme avec le template par dÃ©faut, dÃ©marrez votre skin en personnalisant la <acronym>CSS</acronym> existante est un bon point de dÃ©part.
+      Copiez donc cette <acronym>CSS</acronym> du skin par dÃ©faut dans le fichier <filename>maven-theme.css</filename> de votre projet.  
+      Pour rÃ©cupÃ©rer une copie de ce fichier, enregistrez le contenu du fichier <ulink
       url="http://svn.apache.org/viewvc/maven/skins/trunk/maven-default-skin/src/main/resources/css/maven-theme.css?view=co">maven-theme.css</ulink>
-      dans votre répertoire <filename>src/main/resources/css/</filename> de votre projet skin.</para> 
+      dans votre rÃ©pertoire <filename>src/main/resources/css/</filename> de votre projet skin.</para> 
 
-      <para>Une fois ce fichier récupéré, personnalisez-le en utilisant la <acronym>CSS</acronym> de votre ancien fichier <filename>site.css</filename>.
+      <para>Une fois ce fichier rÃ©cupÃ©rÃ©, personnalisez-le en utilisant la <acronym>CSS</acronym> de votre ancien fichier <filename>site.css</filename>.
       Remplacez le bloc <varname>#navcolumn h5</varname> par le code ci-dessous :</para>       
 
       <screen>#navcolumn h5 {
@@ -945,25 +945,25 @@ $ <command>mkdir src/main/resources</command>
 }
 </screen>
 
-      <para>Ceci effectué, construisez l'artefact de votre projet <varname>sample-site-skin</varname> et installez le <acronym>JAR</acronym> produit dans votre dépôt local.
-      Pour cela, exécutez la commande suivante :</para>  
+      <para>Ceci effectuÃ©, construisez l'artefact de votre projet <varname>sample-site-skin</varname> et installez le <acronym>JAR</acronym> produit dans votre dÃ©pÃ´t local.
+      Pour cela, exÃ©cutez la commande suivante :</para>  
       
       <screen>$ mvn clean install
 </screen>
 
-      <para>Revenez ensuite dans le répertoire du projet <filename>sample-project</filename>.
-      Si vous avez déjà personnalisé le fichier <filename>site.css</filename> en début de ce chapitre, 
-      renommez-le en <filename>site.css.bak</filename> plus ne plus qu'il soit utilisé par le plugin Maven Site :</para> 
+      <para>Revenez ensuite dans le rÃ©pertoire du projet <filename>sample-project</filename>.
+      Si vous avez dÃ©jÃ  personnalisÃ© le fichier <filename>site.css</filename> en dÃ©but de ce chapitre, 
+      renommez-le en <filename>site.css.bak</filename> plus ne plus qu'il soit utilisÃ© par le plugin Maven Site :</para> 
       
       <screen>$ mv src/site/resources/css/site.css src/site/resources/css/site.css.bak
 </screen>
 
       <para>Pour utilisez votre skin <varname>sample-site-skin</varname> dans le site du projet <varname>sample-project</varname>,
-      ajoutez la référence à cet artefact (<varname>sample-site-skin</varname>) dans le descripteur de site de votre projet (<varname>sample-project</varname>).        
-      Pour référencer une skin dans votre site, utilisez la balise du même nom :</para>
+      ajoutez la rÃ©fÃ©rence Ã  cet artefact (<varname>sample-site-skin</varname>) dans le descripteur de site de votre projet (<varname>sample-project</varname>).        
+      Pour rÃ©fÃ©rencer une skin dans votre site, utilisez la balise du mÃªme nom :</para>
 
       <para><example>
-          <title>Configurer un Skin Personnalisé dans le Descripteur de Site</title>
+          <title>Configurer un Skin PersonnalisÃ© dans le Descripteur de Site</title>
 
           <programlisting language="xml">&lt;project name="Sample Project"&gt;
   ...
@@ -976,10 +976,10 @@ $ <command>mkdir src/main/resources</command>
 </programlisting>
         </example></para>
 
-      <para>Vous pouvez comparer le skin de votre site à une dépendance.
+      <para>Vous pouvez comparer le skin de votre site Ã  une dÃ©pendance.
       Les skins sont par un groupId et un artifactId comme n'importe quel artefact.
       Utiliser un skin pour votre site vous permet de consolider les personnalisations d'un projet
-      pour réutiliser ses <acronym>CSS</acronym> et template aussi facilement que n'importe quel autre artefact.</para>  
+      pour rÃ©utiliser ses <acronym>CSS</acronym> et template aussi facilement que n'importe quel autre artefact.</para>  
 
     </section>
   </section>
@@ -987,13 +987,13 @@ $ <command>mkdir src/main/resources</command>
   <section id="site-generation-sect-tips-tricks">
     <title>Trucs et Astuces</title>
 
-    <para>Dans cette section, nous allons passer en revue quelques trucs et astuces à utiliser pour création de votre site Maven.</para>
+    <para>Dans cette section, nous allons passer en revue quelques trucs et astuces Ã  utiliser pour crÃ©ation de votre site Maven.</para>
 
     <section id="site-generation-sect-inject-xhtml">
       <title>Intecter du XHTML dans le HEAD</title>
 
       <para>Pour injecter du <acronym>XHTML</acronym> dans la balise <sgmltag>HEAD</sgmltag>, 
-      ajoutez une balise <sgmltag>head</sgmltag> à la balise <sgmltag>body</sgmltag> dans votre descripteur de site.
+      ajoutez une balise <sgmltag>head</sgmltag> Ã  la balise <sgmltag>body</sgmltag> dans votre descripteur de site.
       L'exemple suivant ajoute un lien vers un flux RSS sur toutes les pages du site du projet <varname>sample-project</varname>.</para>
 
       <para><example>
@@ -1019,13 +1019,13 @@ $ <command>mkdir src/main/resources</command>
     <section id="site-generation-sect-add-links">
       <title>Ajouter des Liens sous le Logo de votre Site</title>
 
-      <para>Si vous travaillez sur un projet développé par une entreprise, vous voudrez probablement ajouter des liens en dessous du logo de votre projet.
-      Supposons que votre projet appartienne à l'Apache Software Foundation. 
+      <para>Si vous travaillez sur un projet dÃ©veloppÃ© par une entreprise, vous voudrez probablement ajouter des liens en dessous du logo de votre projet.
+      Supposons que votre projet appartienne Ã  l'Apache Software Foundation. 
       Par exemple, vous voudrez ajouter un lien vers le site web officiel juste en dessous de votre logo, 
-      mais également un lien vers le site de votre projet Parent.
-      Pour ajouter des liens en dessous du logo d'un site, ajoutez une balise <sgmltag>links</sgmltag> à la balise <sgmltag>body</sgmltag> du descripteur de site.
-      Ensuite, à chaque balise <sgmltag>item</sgmltag> correspond un lien dans la barre juste en dessous du logo du projet.      
-      Dans l'exemple suivant, nous désirons créer un lien vers l'Apache Software Foundation et un lien vers le projet Apache Maven.</para>
+      mais Ã©galement un lien vers le site de votre projet Parent.
+      Pour ajouter des liens en dessous du logo d'un site, ajoutez une balise <sgmltag>links</sgmltag> Ã  la balise <sgmltag>body</sgmltag> du descripteur de site.
+      Ensuite, Ã  chaque balise <sgmltag>item</sgmltag> correspond un lien dans la barre juste en dessous du logo du projet.      
+      Dans l'exemple suivant, nous dÃ©sirons crÃ©er un lien vers l'Apache Software Foundation et un lien vers le projet Apache Maven.</para>
 
       <para><example>
           <title>Ajouter des Liens sous le Logo de votre Site</title>
@@ -1046,15 +1046,15 @@ $ <command>mkdir src/main/resources</command>
     </section>
 
     <section id="site-generation-add-breadcumbs">
-      <title>Ajouter un Chemin de Navigation à votre Site</title>
+      <title>Ajouter un Chemin de Navigation Ã  votre Site</title>
 
-      <para>Si vos pages sont liées par une hiérarchie, vous voudrez probablement mettre en place un chemin de navigation
-      pour ajouter un contexte à vos utilisateurs et leur donner un moyen de naviguer facilement dans les pages et catégories parentes. 
-      Pour configurer un chemin de navigation, ajoutez la balise <sgmltag>breadcrumbs</sgmltag> à la balise <sgmltag>body</sgmltag> dans votre descripteur de site.  
+      <para>Si vos pages sont liÃ©es par une hiÃ©rarchie, vous voudrez probablement mettre en place un chemin de navigation
+      pour ajouter un contexte Ã  vos utilisateurs et leur donner un moyen de naviguer facilement dans les pages et catÃ©gories parentes. 
+      Pour configurer un chemin de navigation, ajoutez la balise <sgmltag>breadcrumbs</sgmltag> Ã  la balise <sgmltag>body</sgmltag> dans votre descripteur de site.  
       Ainsi, chaque balise <sgmltag>item</sgmltag> qu'elle contient affichera un lien dans le menu de navigation. 
-      Au fur et à mesure que l'on plonge dans la hiérarchie, le chemin se met à jour avec les différentes balises <sgmltag>item</sgmltag>.   
-      Les éléments du chemin de navigation sont affichés en fonction du niveau dans la hiérarchie de pages, du niveau le plus haut à celui le plus bas.
-      Dans l'exemple suivant, dans le descripteur de site, l'élément Codehaus contiendra un élément Mojo.</para> 
+      Au fur et Ã  mesure que l'on plonge dans la hiÃ©rarchie, le chemin se met Ã  jour avec les diffÃ©rentes balises <sgmltag>item</sgmltag>.   
+      Les Ã©lÃ©ments du chemin de navigation sont affichÃ©s en fonction du niveau dans la hiÃ©rarchie de pages, du niveau le plus haut Ã  celui le plus bas.
+      Dans l'exemple suivant, dans le descripteur de site, l'Ã©lÃ©ment Codehaus contiendra un Ã©lÃ©ment Mojo.</para> 
 
       <para><example>
           <title>Configurer le Chemin de Navigation de votre Site</title>
@@ -1078,7 +1078,7 @@ $ <command>mkdir src/main/resources</command>
       <title>Ajoutez la Version de votre Projet</title>
 
       <para>Lorsque vous documentez un projet qui propose plusieurs versions, c'est souvent important de lister les versions du projet sur toutes les pages du site.
-      Pour afficher la version de votre projet sur le site web, ajoutez simplement la balise <sgmltag>version</sgmltag> à votre descripteur de site :</para> 
+      Pour afficher la version de votre projet sur le site web, ajoutez simplement la balise <sgmltag>version</sgmltag> Ã  votre descripteur de site :</para> 
 
       <para><example>
           <title>Afficher la Version de votre Projet</title>
@@ -1093,7 +1093,7 @@ $ <command>mkdir src/main/resources</command>
 
       <para>Ce morceau de code XML permet d'afficher la version 
       (dans le cas du projet <varname>sample-project</varname>, on affichera "Version: 1.0-SNAPSHOT")
-      dans le coin haut-gauche de votre site, juste à côté de la dernière date de publication.
+      dans le coin haut-gauche de votre site, juste Ã  cÃ´tÃ© de la derniÃ¨re date de publication.
       Il est possible d'afficher la version de votre projet aux positions suivantes :</para>      
 
       <variablelist>
@@ -1101,7 +1101,7 @@ $ <command>mkdir src/main/resources</command>
           <term>left</term>
 
           <listitem>
-            <para>Dans la barre en haut à gauche, juste en dessous du logo</para>
+            <para>Dans la barre en haut Ã  gauche, juste en dessous du logo</para>
           </listitem>
         </varlistentry>
 
@@ -1109,7 +1109,7 @@ $ <command>mkdir src/main/resources</command>
           <term>right</term>
 
           <listitem>
-            <para>Dans la barre en haut à droite, juste en dessous du logo</para>
+            <para>Dans la barre en haut Ã  droite, juste en dessous du logo</para>
           </listitem>
         </varlistentry>
 
@@ -1133,7 +1133,7 @@ $ <command>mkdir src/main/resources</command>
           <term>none</term>
 
           <listitem>
-            <para>Supprime complétement l'affichage de la version</para>
+            <para>Supprime complÃ©tement l'affichage de la version</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1142,8 +1142,8 @@ $ <command>mkdir src/main/resources</command>
     <section id="site-generation-sect-mod-pubdate">
       <title>Modifier le Format et l'Emplacement de la Date de Publication</title>
 
-      <para>Vous voudrez peut-être modifier le format ou repositionner la date "Last Published" affiché sur votre projet.
-      Comme nous venons de le faire pour la version dans l'astuce précédente, 
+      <para>Vous voudrez peut-Ãªtre modifier le format ou repositionner la date "Last Published" affichÃ© sur votre projet.
+      Comme nous venons de le faire pour la version dans l'astuce prÃ©cÃ©dente, 
       vous pouvez choisir l'emplacement de la date de publication en utilisant l'une de ces positions :</para>
 
       <variablelist>
@@ -1151,7 +1151,7 @@ $ <command>mkdir src/main/resources</command>
           <term>left</term>
 
           <listitem>
-            <para>Dans la barre en haut à gauche, juste en dessous du logo</para>
+            <para>Dans la barre en haut Ã  gauche, juste en dessous du logo</para>
           </listitem>
         </varlistentry>
 
@@ -1159,7 +1159,7 @@ $ <command>mkdir src/main/resources</command>
           <term>right</term>
 
           <listitem>
-            <para>Dans la barre en haut à droite, juste en dessous du logo</para>
+            <para>Dans la barre en haut Ã  droite, juste en dessous du logo</para>
           </listitem>
         </varlistentry>
 
@@ -1183,7 +1183,7 @@ $ <command>mkdir src/main/resources</command>
           <term>none</term>
 
           <listitem>
-            <para>Masque complétement la date de publication</para>
+            <para>Masque complÃ©tement la date de publication</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1199,8 +1199,8 @@ $ <command>mkdir src/main/resources</command>
 </programlisting>
         </example></para>
 
-      <para>Par défaut, la date de publication sera affichée au format <varname>MM/dd/yyyy</varname>.
-      Il est possible de modifier celui-ci en utilisant la notation standard présentée dans la Javadoc de la classe <classname>java.text.SimpleDateFormat</classname>
+      <para>Par dÃ©faut, la date de publication sera affichÃ©e au format <varname>MM/dd/yyyy</varname>.
+      Il est possible de modifier celui-ci en utilisant la notation standard prÃ©sentÃ©e dans la Javadoc de la classe <classname>java.text.SimpleDateFormat</classname>
       (pour plus d'informations, consultez la Javadoc de la classe <ulink url="http://java.sun.com/j2se/1.5.0/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</ulink>)   
       Par exemple, pour modifier le format de la date pour qu'il utilise le masque <varname>yyyy-MM-dd</varname>, utilisez la balise <sgmltag>publishDate</sgmltag> suivante.</para>       
 
@@ -1219,13 +1219,13 @@ $ <command>mkdir src/main/resources</command>
     <section id="site-generation-sect-doxia-macros">
       <title>Utilisez des Macros Doxia</title>
 
-      <para>En plus de ces fonctionnalités avancée de templating, Doxia fournit également un moteur de macros.
-      Celui-ci permet de déclender l'injection de contenu dynamique pour chaque entrée.
+      <para>En plus de ces fonctionnalitÃ©s avancÃ©e de templating, Doxia fournit Ã©galement un moteur de macros.
+      Celui-ci permet de dÃ©clender l'injection de contenu dynamique pour chaque entrÃ©e.
       Prenons un exemple pour illuster l'utilisation de ce moteur, la macro <varname>snipet</varname>. 
       Cette macro vous permet d'injecter un extrait de code dans le source d'un fichier disponible via <acronym>HTTP</acronym>.
-      En utilisant cette macro, un petit morceau d'<acronym>APT</acronym> peut etre transformé en <acronym>XHTML</acronym>. 
+      En utilisant cette macro, un petit morceau d'<acronym>APT</acronym> peut etre transformÃ© en <acronym>XHTML</acronym>. 
       Le morceau de code <acronym>APT</acronym> suivant appelle la macro <varname>snipet</varname>.
-      Notez que ce code doit rester sur une seule ligne, un antislash peut tout de même être inséré pour faire des retours à la ligne lors de son affichage.</para>   
+      Notez que ce code doit rester sur une seule ligne, un antislash peut tout de mÃªme Ãªtre insÃ©rÃ© pour faire des retours Ã  la ligne lors de son affichage.</para>   
 
       <screen>%{snippet|id=modello-model|url=http://svn.apache.org/repos/asf/maven/\
 archetype/trunk/maven-archetype/maven-archetype-model/src/main/\
@@ -1271,13 +1271,13 @@ mdo/archetype.mdo}
         </example></para>
 
       <warning>
-        <para>Les macros Doxia NE PEUVENT PAS être utilisées dans des documents <acronym>APT</acronym>. 
+        <para>Les macros Doxia NE PEUVENT PAS Ãªtre utilisÃ©es dans des documents <acronym>APT</acronym>. 
         Dans le cas contraire, le parseur <acronym>APT</acronym> ignorera celles-ci.</para>
 
       </warning>
 
       <para>Pour plus d'information sur l'utilisation de la macro <varname>snipet</varname>,
-      référez-vous au Guide de cette macro sur le Site Maven à l'adresse suivante <ulink
+      rÃ©fÃ©rez-vous au Guide de cette macro sur le Site Maven Ã  l'adresse suivante <ulink
       url="http://maven.apache.org/guides/mini/guide-snippet-macro.html">http://maven.apache.org/guides/mini/guide-snippet-macro.html</ulink>.</para>
 
     </section>
