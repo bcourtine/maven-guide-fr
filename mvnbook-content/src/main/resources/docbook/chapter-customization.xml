@@ -426,7 +426,7 @@ package: org.sonatype.mavenbook.custom
 
         <listitem>
           <para>La classe <classname>YahooRetriever</classname> se connecte à Yahoo! Météo et renvoie un <classname
-          role="keep-together">InputStream</classname> des données du flux rss.</para>
+          role="keep-together">InputStream</classname> des données du flux RSS.</para>
         </listitem>
       </varlistentry>
 
