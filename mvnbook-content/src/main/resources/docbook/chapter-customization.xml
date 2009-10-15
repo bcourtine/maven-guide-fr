@@ -787,7 +787,7 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%-4r %-5p %c{1} %x - %m%n</progr
     <filename>resources/</filename>.</para>
 
     <example>
-      <title>Masque Velocity pour le projet Simple Weather</title>
+      <title>Template Velocity pour le projet Simple Weather</title>
 
       <programlisting>*********************************
  Current Weather Conditions for:
