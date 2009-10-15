@@ -679,7 +679,7 @@ public class YahooParser {
     <classname>SAXReader</classname> sensible aux espaces de nommage dans la méthode
     <methodname>createXmlReader()</methodname>. Une fois que nous avons créé ce parseur et que nous avons parsé le
     document, nous obtenons en retour un objet de type <classname>org.dom4j.</classname><classname>Document</classname>.
-    Au lieu de parcourir tous ses élements fils, nous récupérons uniquement les informations qui nous intéressent en les
+    Au lieu de parcourir tous ses éléments fils, nous récupérons uniquement les informations qui nous intéressent en les
     sélectionnant avec des expressions XPath. Dom4J permet de parser le <acronym>XML</acronym> dans cet exemple, et
     Jaxen apporte ses capacités XPath.</para>
 
