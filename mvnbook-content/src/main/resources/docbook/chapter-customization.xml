@@ -321,7 +321,7 @@ package: org.sonatype.mavenbook.custom
     </example>
 
     <para>Les ellipses dans l'<xref linkend="ex-custom-org-info" /> sont un moyen pour que le listing soit plus court et
-    plus lisible. Lorsque vous rencontrez dans un fichier <filename>pom.xml</filename> des "..." juste après la balise
+    plus lisible. Lorsque vous rencontrez dans un <filename>pom.xml</filename> des "..." juste après la balise
     ouvrante <varname>project</varname> et juste avant la balise fermante <varname>project</varname>, cela signifie que
     nous ne vous montrons pas le fichier <filename>pom.xml</filename> dans son intégralité. Dans notre cas, les balises
     <varname>licenses</varname>, <varname>organization</varname>, et <varname>developers</varname> ont été ajoutées
@@ -472,7 +472,6 @@ $ <command>cd weather</command></screen>
     Maintenant, il nous faut mettre nos classes dans ce répertoire. A l'aide de votre éditeur de texte favori, créez un
     nouveau fichier appelé <filename>Weather.java</filename> avec le contenu de<indexterm>
         <primary>classes</primary>
-
         <secondary>creating new</secondary>
       </indexterm> l'<xref linkend="ex-simple-weather-model-object" />.</para>
 
@@ -576,7 +575,7 @@ public class Main {
     <para>La méthode <methodname>main()</methodname> ci-dessus configure Log4J en récupérant une ressource depuis le
     classpath, puis essaye de lire un code postal depuis la ligne de commande. Si une exception surviet lors de la
     lecture du code postal, le programme mettra par défaut la valeur 60202 pour le code postal. Une fois qu'il a
-    un code postal, il instancie la classe <classname>Main</classname> et appele la méthode
+    un code postal, il instancie la classe <classname>Main</classname> et appelle la méthode
     <methodname>start()</methodname> de cette instance. La méthode <methodname>start()</methodname> appelle le
     <classname>YahooRetriever</classname> pour qu'il récupère le <acronym>XML</acronym> représentant les prévisions
     météo. Le <classname>YahooRetriever</classname> renvoie un <classname>InputStream</classname> qui est ensuite passé
@@ -1500,7 +1499,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Tests are skipped.
 ...</screen>
 
-      <para>Quand le plugin Surefire arrive au goal <varname>test</varname>, il ne va pas lancer les tests unitaires si
+      <para>Quand le plugin Surefire atteint le goal <varname>test</varname>, il ne va pas lancer les tests unitaires si
       la propriété <varname>maven.</varname><varname>test.skip</varname> est à <literal>true</literal>. Une autre façon
       de configurer Maven pour qu'il ne lance pas les tests unitaires est d'ajouter cette configuration au
       <filename>pom.xml</filename> de votre projet. Pour cela, vous devez ajouter une balise <sgmltag>plugin</sgmltag> à

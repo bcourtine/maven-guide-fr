@@ -84,7 +84,7 @@
     archetype:generate</command> en précisant un <varname>artifactId</varname>
     et un <varname>groupId</varname>. Paramétrez
     l'<varname>archetypeArtifactId</varname> à 
-    <varname>maven-archetype-webapp</varname>. Exécuter cette commande va
+    <varname>maven-archetype-webapp</varname>. L'exécution de cette commande va
     créer la structure des répertoires appropriée et le <acronym>POM</acronym>
     Maven :</para>
     <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.simpleweb \
@@ -351,7 +351,7 @@ simple-webapp/target/classes
   </section>
 
   <section id="web-sect-adding-simple-servlet">
-    <title>Ajouter une simple Servlet</title>
+    <title>Ajouter une Servlet simple</title>
 
     <para>Une application web avec une seule page JSP et sans
     servlet<indexterm class="startofrange" id="webapp4a">
@@ -438,7 +438,7 @@ public class SimpleServlet extends HttpServlet {
 
     <para>Tout est en place pour tester la servlet ; la classe est bien dans
     <filename>src/main/java</filename> et le <filename>web.xml</filename> a
-    été mis à jour. Avant que vous lanciez le plugin Jetty, compilez votre
+    été mis à jour. Avant que vous ne lanciez le plugin Jetty, compilez votre
     projet en exécutant <command>mvn compile</command> :</para>
 
     <screen>~/examples/ch-simple-web/simple-webapp $ <command>mvn compile</command>

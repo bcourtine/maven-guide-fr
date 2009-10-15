@@ -22,7 +22,7 @@
     permettront de lire le flux provenant du service Yahoo! Météo. Le code du projet 
     <varname>simple-weather</varname> développé dans le <xref linkend="customizing" /> 
     sera donc combiné au code du projet <varname>simple-webapp</varname> du <xref linkend="web" />. 
-    Pour créer ce projet multimodule, nous allons explorer Maven et discuter des différentes façons
+    Pour créer ce projet multimodule, nous allons explorer Maven et discuter des différentes manières
     de l'utiliser pour créer des projets modulaires encourageant la réutilisation.
     </para>
 
