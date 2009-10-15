@@ -516,8 +516,8 @@ public class Weather {
 </programlisting>
     </example>
 
-    <para>La classe <classname>Weather</classname> définit un simple bean utilisé pour stocker les informations météo
-    extraites du flux rss de Yahoo! Météo. Ce flux fournit un grand nombre d'informations, depuis les heures de lever et
+    <para>La classe <classname>Weather</classname> définit un simple bean utilisé pour stocker les données météo
+    extraites du flux RSS de Yahoo! Météo. Ce flux fournit un grand nombre d'informations, depuis les heures de lever et
     de coucher du soleil, à la vitesse et la direction des vents. Pour garder cet exemple relativement simple, le modèle
     objet de <classname>Weather</classname> ne garde que la température, le facteur vent, l'humidité et une description
     textuelle des conditions actuelles.</para>
