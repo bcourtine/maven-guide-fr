@@ -574,8 +574,8 @@ public class Main {
     </example>
 
     <para>La méthode <methodname>main()</methodname> ci-dessus configure Log4J en récupérant une ressource depuis le
-    classpath, puis essaye de lire un code postal depuis la ligne de commande. Si une exception est lancée alors qu'il
-    essaye de lire un code postal, le programme mettra par défaut la valeur 60202 pour le code postal. Une fois qu'il a
+    classpath, puis essaye de lire un code postal depuis la ligne de commande. Si une exception surviet lors de la
+    lecture du code postal, le programme mettra par défaut la valeur 60202 pour le code postal. Une fois qu'il a
     un code postal, il instancie la classe <classname>Main</classname> et appele la méthode
     <methodname>start()</methodname> de cette instance. La méthode <methodname>start()</methodname> appelle le
     <classname>YahooRetriever</classname> pour qu'il récupère le <acronym>XML</acronym> représentant les prévisions
