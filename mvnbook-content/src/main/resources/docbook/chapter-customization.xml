@@ -737,25 +737,20 @@ public class WeatherFormatter {
     <para>Ce projet nécessite deux ressources dans son classpath : la classe<indexterm class="startofrange"
         id="weather03f">
         <primary>weather project (example)</primary>
-
         <secondary>adding resources</secondary>
       </indexterm><indexterm class="startofrange" id="weather03f1">
         <primary>customizing projects</primary>
-
         <secondary>adding resources</secondary>
       </indexterm><indexterm class="startofrange" id="weather03f2">
         <primary>projects</primary>
-
         <secondary>customizing</secondary>
-
         <tertiary>adding resources</tertiary>
       </indexterm><indexterm class="startofrange" id="weather03f3">
         <primary>resources</primary>
-
         <secondary>adding to packages</secondary>
-      </indexterm> <classname>Main</classname> qui configure Log4J utilise une ressource du classpath appelée
-    <filename>log4j.properties</filename>, et la classe <classname>WeatherFormatter</classname> a besoin du template
-    Velocity appelé <filename>output.vm</filename> dans le classpath. Ces deux ressources doivent être dans le package
+      </indexterm> <classname>Main</classname> nécessite une ressource appelée <filename>log4j.properties</filename>
+      pour configurer Log4J, et la classe <classname>WeatherFormatter</classname> utilise le template
+    Velocity <filename>output.vm</filename>. Ces deux ressources doivent être dans le package
     par défaut (ou à la racine du classpath).</para>
 
     <para>Pour ajouter ces ressources, nous aurons besoin d'un nouveau répertoire dans le répertoire<indexterm>
