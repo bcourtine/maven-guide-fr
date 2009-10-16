@@ -476,8 +476,8 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       termine par une phase qui déploie le projet en production. Les phases du cycle de vie sont laissées vagues
       intentionnellement, définies comme validation, test, ou déploiement elles peuvent avoir un sens différent selon le
       contexte des projets. Par exemple, pour un projet qui produit une archive Java, la phase <varname>package</varname>
-      va construire un <acronym>JAR</acronym> ; pour un projet qui produit une
-      application web, elle pourra produire un fichier <acronym>WAR</acronym>.</para>
+      va construire un <acronym>JAR</acronym> ; pour un projet qui produit une application web, elle produira un fichier
+      <acronym>WAR</acronym>.</para>
 
       <para>Les goals des plugins peuvent être rattachés<indexterm>
           <primary>plugin goals</primary>
