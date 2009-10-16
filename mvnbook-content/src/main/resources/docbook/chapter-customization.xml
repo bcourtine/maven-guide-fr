@@ -1415,7 +1415,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
       <title>Ignorer les tests en échec</title>
 
       <para>Souvent vous vous retrouverez à développer sur un système dont certains tests unitaires sont en échec. Si
-      vous pratiquez le Développement Piloté par les Tests (<acronym>TDD</acronym>), vous pourriez utiliser ces échecs
+      vous pratiquez le développement piloté par les tests (Test Driven Development ou <acronym>TDD</acronym>), vous pourriez utiliser ces échecs
       comme indicateur du reste à faire sur votre projet. Si vous avez des tests en échec et que vous souhaitez
       construire votre projet tout de même, il va vous falloir indiquer à Maven de ne pas tenir compte des tests en
       échec. Quand Maven rencontre un échec lors du build, son comportement par défaut est d'arrêter le build. Pour
