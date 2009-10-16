@@ -876,7 +876,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       dépendances transitives par Maven.</para>
 
       <para>Quand vous installez l'artefact produit par votre projet dans le dépôt local, vous noterez que Maven publie
-      une version légèrement modifiée du <filename>pom.xml</filename> de votre projet dans le répertoire contenant le
+      une version légèrement modifiée du fichier <filename>pom.xml</filename> de votre projet dans le répertoire contenant le
       fichier <acronym>JAR</acronym>. Ce fichier <acronym>POM</acronym> enregistré dans le dépôt fournit aux autres
       projets des informations sur ce projet, dont notamment ses dépendances. Si le Projet B dépend du Projet A, il
       dépend aussi des dépendances du Projet A. Quand Maven résout une dépendance à partir de ses coordonnées, il
