@@ -874,7 +874,7 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
 ...</screen>
 
     <para>Comme vous pouvez le voir, nous avons exécuté avec succès notre programme Simple Weather. Nous avons récupéré
-    des données depuis Yahoo! Météo, données que nous avons parsées et formattées avec Velocity. Nous avons réalisé tout
+    des données depuis Yahoo! Météo, données que nous avons parsées et formatées avec Velocity. Nous avons réalisé tout
     cela sans faire grand chose d'autre que d'écrire le code source du projet et un peu de configuration dans le
     <filename>pom.xml</filename>. Remarquez l'absence du "processus de build". Nous n'avons pas eu à définir comment le
     compilateur Java devait compiler notre code source en bytecode, et nous n'avons pas eu besoin d'indiquer au système
@@ -1159,7 +1159,7 @@ public class WeatherFormatterTest extends TestCase {
     <filename>org/sonatype/mavenbook/weather/yahoo</filename> via le classpath des tests unitaires. Nous ajouterons les
     ressources de test dans la <xref linkend="customizing-sect-custom-test-resource" />.
     <classname>WeatherFormatterTest</classname> passe ce fichier d'exemple au <classname>YahooParser</classname> qui
-    renvoie un objet de type <classname>Weather</classname>. Celui-ci est ensuite formatté par
+    renvoie un objet de type <classname>Weather</classname>. Celui-ci est ensuite formaté par
     <classname>WeatherFormatter</classname>. Etant donné que <classname>WeatherFormatter</classname> affiche une
     <classname>String</classname>, nous allons devoir la tester par rapport à une valeur attendue. La valeur attendue a
     été mise dans un fichier texte <filename>format-expected.dat</filename> qui se trouve dans le même répertoire que
