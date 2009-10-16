@@ -35,7 +35,7 @@
     <para>Vous pouvez aussi voir dans le<filename moreinfo="none">pom.xml</filename> une analogie à un fichier <filename
     moreinfo="none">Makefile</filename> ou un <filename moreinfo="none">build.xml</filename> pour Ant. Quand vous
     utilisez <acronym>GNU</acronym> <emphasis>make</emphasis> pour construire une application comme MySQL, vous aurez le
-    plus souvent un fichier <filename moreinfo="none">Makefile</filename> qui conteint les instructions explicites pour
+    plus souvent un fichier <filename moreinfo="none">Makefile</filename> qui contient les instructions explicites pour
     construire un binaire à partir des sources. Quand vous utilisez Apache Ant, vous avez très probablement un fichier
     <filename moreinfo="none">build.xml</filename> qui contient les instructions explicites pour nettoyer, compiler,
     packager et déployer une application. <emphasis>make</emphasis>, Ant, et Maven ont en commun le fait qu'ils
@@ -1176,27 +1176,28 @@
           </table></para>
 
         <para>Pour illustrer la relation entre le scope d'une dépendance transitive et le scope d'une dépendance
-        directe, voici quelques exemples. If <varname>project-a</varname> contains a test scoped dependency on
-        <varname>project-b</varname> which contains a compile scoped dependency on <varname>project-c</varname>.
-        <varname>project-c</varname> would be a test-scoped transitive dependency of
-        <varname>project-a</varname>.</para>
+        directe, voici quelques exemples. Si le <varname>projet-a</varname> possède une dépendance dans le scope test
+        vers le <varname>projet-b</varname> qui a une dépendance dans le scope compile vers le
+        <varname>projet-c</varname>. Le <varname>projet-c</varname> sera donc une dépendance trasitive du
+        <varname>projet-a</varname> dans le scope test.</para>
 
-        <para>You can think of this as a transitive boundary which acts as a filter on dependency scope. Transitive
-        dependencies which are provided and test scope usually do not affect a project. The exception to this rule is
-        that a provided scoped transitive dependency to a provided scope direct dependency is still a provided
-        dependency of a project. Transitive dependencies which are compile and runtime scoped usually affect a project
-        regardless of the scope of a direct dependency. Transitive dependencies which are compile scoped will have the
-        same scope regardless of the scope of the direct dependency. Transitive dependencies which are runtime scoped
-        will generally have the same scope of the direct dependency except when the direct dependency has a scope of
-        compile. When a transitive dependency is runtime scoped and a direct is compile scoped the direct dependency the
-        transitive dependency will have an effective scope of runtime.</para>
+        <para>Vous pouvez voir celà comme une ligne de transitivité qui agit comme un filtre sur le scope de dépendnace.
+        Les dépendances transitives qui sont dans les scopes test et provided n'ont en général pas d'effet sur un
+        projet. L'exception à cette règle concerne les dépendances transitives dans le scope provided de dépendances
+        elles aussi dans le scope provided qui serot donc des dépendances dans le scope provided du projet. Les
+        dépendances transitives qui sont dans les scopes compile et runtime affectent le projet quelque soit le scope de
+        la dépendance directe. Les dépendances transitives qui sont dans le scope compile resteront dans ce scope
+        quelque soit le scope de la dépendance directe. Les dépendances transitives qui sont dans le scope runtime
+        seront en général dans le même scope que la dépendance directe sauf lorsque cette dernière est dans le scope
+        compile. Quand une dépendance transitive est dans le scope runtime et que la dépendance directe est dans le
+        scope compile alors la dépendance transitive sera dans le scope effectif runtime.</para>
       </section>
     </section>
 
     <section id="pom-relationships-sect-conflict">
-      <title>Conflict Resolution</title>
+      <title>Résolution des conflits</title>
 
-      <para>There will be times when you need to exclude a transitive<indexterm>
+      <para>A certians moments il vous faudra exclure une dépendance<indexterm>
           <primary>conflict, dependency</primary>
         </indexterm><indexterm>
           <primary>resolving dependency conflicts</primary>
@@ -1212,14 +1213,13 @@
           <primary>excluding transitive dependencies</primary>
         </indexterm><indexterm>
           <primary>replacing transitive dependencies</primary>
-        </indexterm> dependency, such as when you are depending on a project that depends on another project, but you
-      would like to either exclude the dependency altogether or replace the transitive dependency with another
-      dependency that provides the same functionality. <xref linkend="ex-exclude" /> shows an example of a dependency
-      element that adds a dependency on <varname>project-a</varname>, but excludes the transitive dependency
-      <varname>project-b</varname>.</para>
+        </indexterm> transitive lorsque votre projet dépend d'un autre projet et que vous voulez retirer complètement la
+      dépendance transitive ou que vous souhaitez la remplacer par une autre qui apporte la même fonctionnalité. L'<xref
+      linkend="ex-exclude" /> présente une dépendance vers le <varname>projet-a</varname> qui exclut la dépendance
+      transitive vers le <varname>projet-b</varname>.</para>
 
       <para><example id="ex-exclude">
-          <title>Excluding a Transitive Dependency</title>
+          <title>Exclusion d'une dépendance transitive</title>
 
           <programlisting language="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.sonatype.mavenbook&lt;/groupId&gt;
@@ -1234,17 +1234,18 @@
 &lt;/dependency&gt;</programlisting>
         </example></para>
 
-      <para>Often, you will want to replace a transitive dependency with another implementation. For example, if you are
-      depending on a library that depends on the Sun <acronym>JTA</acronym> <acronym>API</acronym>, you may want to
-      replace the declared transitive dependency. Hibernate is one example. Hibernate depends on the Sun
-      <acronym>JTA</acronym> <acronym>API</acronym> <acronym>JAR</acronym>, which is not available in the central Maven
-      repository because it cannot be freely redistributed. Fortunately, the Apache Geronimo project has created an
-      independent implementation of this library that can be freely redistributed. To replace a transitive dependency
-      with another dependency, you would exclude the transitive dependency and declare a dependency on the project you
-      wanted instead. <xref linkend="ex-exclude-replace" /> shows an example of a such replacement.</para>
+      <para>Souvent, vous svoudrez remplacer une dépendance transitive par une autre implémentation de la
+      fonctionnalité. Par exemple, si vous dépendez d'une bibliothèque qui elle-même dépend de l'<acronym>API</acronym>
+      <acronym>JTA</acronym> de Sun, vous pouvez vouloir remplacer cette dépendance transitive. Hibernate en est un bon
+      exemple. Hibernate dépend du <acronym>JAR</acronym> de l'<acronym>API</acronym> <acronym>JTA</acronym> de Sun qui
+      n'est pas disponible sur le dépôt central de Maven car il n'est pas librement distribuable. Heureusement le projet
+      Apache Geronimo a créé une implémentation indépendante de cette bibliothèque qui est librement redistribuable.
+      Pour remplacer une dépendance transitive par une autre, vous devrez exclure la dépendance transitive et ajouter
+      l'autre dépendance à votre projet. L'<xref linkend="ex-exclude-replace" /> donne un exemple d'un tel
+      remplacement.</para>
 
       <example id="ex-exclude-replace">
-        <title>Excluding and Replacing a Transitive Dependency</title>
+        <title>Exclusion et remplacement d'une dépendance transitive</title>
 
         <programlisting language="xml">&lt;dependencies&gt;
   &lt;dependency&gt;
@@ -1266,58 +1267,59 @@
 &lt;/dependencies&gt;</programlisting>
       </example>
 
-      <para>In <xref linkend="ex-exclude-replace" />, there is nothing marking the dependency on
-      <varname>geronimo-jta_1.1_spec</varname> as a replacement, it just happens to be a library which provides the same
-      <acronym>API</acronym> as the original <acronym>JTA</acronym> dependency. Here are some other reasons you might
-      want to exclude or replace transitive dependencies:</para>
+      <para>Dans l'<xref linkend="ex-exclude-replace" />, rien n'indique que la dépendance
+      <varname>geronimo-jta_1.1_spec</varname> en remplace une autre, il se trouve juste que c'est une bibliothèque qui
+      présente la même <acronym>API</acronym> que la dépendance <acronym>JTA</acronym> originale. Voici d'autres raisons
+      pour lesquelles vous voudriez exclure ou remplacer des dépendances transitives :</para>
 
       <orderedlist>
         <listitem>
-          <para>The <varname>groupId</varname> or <varname>artifactId</varname> of the artifact has changed, where the
-          current project requires an alternately named version from a dependency's version - resulting in 2 copies of
-          the same project in the classpath. Normally Maven would capture this conflict and use a single version of the
-          project, but when <varname>groupId</varname> or <varname>artifactId</varname> are different, Maven will
-          consider this to be two different libraries.</para>
+          <para>Le <varname>groupId</varname> ou l'<varname>artifactId</varname> de l'artefact a changé alors que le
+          projet nécessite une version avec l'autre nom de cet artefact, ce qui fait que vous vous retrouvez avec deux
+          copies du même projet dans votre classpath. Normalement, Maven trouve ce genre de conflit et utilise une
+          unique version du projet, mais quand les <varname>groupId</varname> et <varname>artifactId</varname> sont
+          différents, Maven les considère comme deux bibliothèques distinctes.</para>
         </listitem>
 
         <listitem>
-          <para>An artifact is not used in your project and the transitive dependency has not been marked as an optional
-          dependency. In this case, you might want to exclude a dependency because it isn't something your system needs
-          and you are trying to cut down on the number of libraries distributed with an application.</para>
+          <para>Un artefact n'est pas utilisé dans votre projet et la dépendance transitive n'a pas été rendue
+          optionnelle. Dans ce cas, vous voulez exclure cette dépendance car elle n'est pas nécessaire à votre projet et
+          que vous essayez de réduire le nombre de bibliothèques que vous redistribuez avec votre application.</para>
         </listitem>
 
         <listitem>
-          <para>An artifact which is provided by your runtime container thus should not be included with your build. An
-          example of this is if a dependency depends on something like the Servlet API and you want to make sure that
-          the dependency is not included in a web application's <filename>WEB-INF/lib</filename> directory.</para>
+          <para>Un artefact est fourni par votre conteneur à l'exécution et donc il ne doit pas être inclus par votre
+          build. Par exemple, si une dépendance dépend de l'API Servlet et que vous voulez être sûr que cete dépendance
+          transitive ne se retrouve pas dans le répertoire <filename>WEB-INF/lib</filename> de l'application web.</para>
         </listitem>
 
         <listitem>
-          <para>To exclude a dependency which might be an <acronym>API</acronym> with multiple implementations. This is
-          the situation illustrated by <xref linkend="ex-exclude-replace" />; there is a Sun <acronym>API</acronym>
-          which requires click-wrap licensing and a time-consuming manual install into a custom repository (Sun's
-          <acronym>JTA</acronym> <acronym>JAR</acronym>) versus a freely distributed version of the same
-          <acronym>API</acronym> available in the central Maven repository (Geronimo's <acronym>JTA</acronym>
-          implementation).</para>
+          <para>Pour exclure une dépendance qui peut être une <acronym>API</acronym> avec plusieurs implémentations.
+          C'est le cas présenté dans l'<xref linkend="ex-exclude-replace" /> ; où une <acronym>API</acronym> de Sun qui
+          demande une acceptation d'une license et une installation manuelle dans un dépôt personnel (le
+          <acronym>JAR</acronym> <acronym>JTA</acronym> de Sun) peut être remplacée par une version librement
+          redistribuable de la même <acronym>API</acronym> disponible sur le dépôt central de Maven (l'implémentation
+          <acronym>JTA</acronym> de Geronimo).</para>
         </listitem>
       </orderedlist>
     </section>
 
     <section id="pom-relationships-sect-dep-manage">
-      <title>Dependency Management</title>
+      <title>Gestion des dépendances</title>
 
-      <para>Once you've adopted Maven at your super complex enterprise and you have two hundred and twenty inter-related
-      Maven projects, you are going to start wondering if there is a better way to get a handle on dependency versions.
-      If every single project that uses a dependency like the MySQL Java connector needs to independently list the
-      version number of the dependency, you are going to run into problems when you need to upgrade to a new version.
-      Because the version numbers are distributed throughout your project tree, you are going to have to manually edit
-      each of the <filename>pom.xml</filename> files that reference a dependency to make sure that you are changing the
-      version number everywhere. Even with <command>find</command>, <command>xargs</command>, and
-      <command>awk</command>, you are still running the risk of missing a single <acronym>POM</acronym>.</para>
+      <para>Une fois que vous vez adopté Maven dans votre entreprise extrèemement complexe, vous allez vous demander
+      s'il n'existe pas une meilleure manière de gérer les versiosn des dépendances dans vos deux cent vingt projets
+      Maven inter-dépendants. Si chaque projet qui utilise une dépendance comme le connecteur Java de MySQL doity gérer
+      dans son coin le numéro de version de cette dépendance, vous allez au devant de graves problèmes lorsque vous
+      allez devoir changer cette version. Puisque les numéros de version sont répartis sur l'ensemble d'arbre du projet,
+      vous allez devoir éditer à la main chacun des fichiers <filename>pom.xml</filename> qui fait référence à une
+      dépendance pour être sûr de mettre à jour ce numéro de version partout. Même avec des commandes comme
+      <command>find</command>, <command>xargs</command>, et <command>awk</command>, vous risquez d'oublier un
+      <acronym>POM</acronym>.</para>
 
-      <para>Luckily, Maven provides a way for you to consolidate dependency version numbers in the
-      <sgmltag>dependencyManagement</sgmltag> element. You'll usually see the <sgmltag>dependencyManagement</sgmltag>
-      element in a top-level parent <acronym>POM</acronym> for an organization or project. Using the
+      <para>Heureusement, Maven fournit un moyen de consolider le numéro de version d'une dépendance grâce à la balise
+      <sgmltag>dependencyManagement</sgmltag>. You'll usually see the <sgmltag>dependencyManagement</sgmltag> element in
+      a top-level parent <acronym>POM</acronym> for an organization or project. Using the
       <sgmltag>dependencyManagement</sgmltag> element in a <filename>pom.xml</filename> allows you to reference a
       dependency in a child project without having to explicitly list the version. Maven will walk up the parent-child
       hierarchy until it finds a project with a <sgmltag>dependencyManagement</sgmltag> element, it will then use the
