@@ -477,7 +477,7 @@ public class Weather {
         <varname>Wind</varname>, <varname>Atmosphere</varname></term>
 
         <listitem>
-          <para>Chacun de ces objets est mappé avec une annotation <classname>@OneToOne</classname> dont la propriété <varname>cascade</varname> est à <classname>CascadeType</classname>.<varname>ALL</varname>
+          <para>Chacun de ces objets est mappé avec une annotation <classname>@OneToOne</classname> dont la propriété <varname>cascade</varname> est à <classname>CascadeType</classname>.<varname>ALL</varname>.
           Cette propriété signifie qu'à chaque sauvegarde d'un objet <classname>Weather</classname> une ligne sera créée dans chacune des tables suivantes :
           <varname>Condition</varname>, <varname>Wind</varname> et <varname>Atmosphere</varname>.</para>
         </listitem>
