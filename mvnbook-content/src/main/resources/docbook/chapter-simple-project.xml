@@ -870,7 +870,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       dépôt local le répertoire <filename>~/.m2/repository/junit/junit/3.8.1/</filename>. Si vous avez suivi les
       instructions de ce chapitre vous trouverez un fichier <filename>junit-3.8.1.jar</filename> et un fichier
       <filename>junit-3.8.1.pom</filename> avec quelques fichiers de checksum que Maven utilise pour vérifier
-      l'authentiticité des artefacts téléchargés. Remarquez que Maven n'a pas juste téléchargé le <acronym>
+      l'intégrité des artefacts téléchargés. Remarquez que Maven n'a pas juste téléchargé le <acronym>
       JAR</acronym> de JUnit, mais aussi un fichier <acronym>POM</acronym> pour les dépendances de JUnit. C'est le
       téléchargement des fichiers <acronym>POM</acronym> en plus des artefacts qui est au cœur de la gestion des
       dépendances transitives par Maven.</para>
