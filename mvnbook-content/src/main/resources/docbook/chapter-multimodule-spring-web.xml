@@ -371,7 +371,7 @@
 
       <para>Dans le dossier <filename>src/main/java/org/sonatype/mavenbook/weather/model</filename> se trouve le fichier <filename>Weather.java</filename>.
       Celui-ci contient l'objet <classname>Weather</classname> annoté. Il s'agit d'un simple Java bean.
-      Cela veut dire qu'il contient des variables d'instances privées comme <varname>id</varname>,
+      Cela veut dire qu'il contient des variables d'instance privées comme <varname>id</varname>,
       <varname>location</varname>, <varname>condition</varname>,
       <varname>wind</varname>, <varname>atmosphere</varname> et
       <varname>date</varname>. Celles-ci sont exposées par l'intermédiaire d'accesseurs publiques en suivant ce pattern :
