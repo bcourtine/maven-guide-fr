@@ -659,7 +659,7 @@ public class Condition {
     </variablelist>
 
     <para>Analysons maintenant le service <classname>WeatherService</classname> de l'<xref linkend="example_weatherservice_class" />.
-    Cette classe ressemble beaucoup au service <classname>WeatherService</classname> du <xref linkend="multimodule-weather-service" />.
+    Cette classe ressemble beaucoup au service <classname>WeatherService</classname> de l'<xref linkend="multimodule-weather-service" />.
     Bien qu'ils aient le même nom, le service de cet exemple comporte quelques légères différences.
     Dans cette version, la méthode <methodname>retrieveForecast()</methodname> retourne un objet <classname>Weather</classname>
     et le formatage est délégué à l'application appelant le service <classname>WeatherService</classname>.
