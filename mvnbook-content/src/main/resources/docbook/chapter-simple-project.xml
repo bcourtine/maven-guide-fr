@@ -121,14 +121,16 @@ package: org.sonatype.mavenbook.simple
     <para>Une fois ce projet généré, allons regarder la structure de répertoire Maven qui a été créée sous le répertoire
     simple.</para>
 
-    <screen>simple/
-      <co id="coDef-simple-fs-root" linkends="coRef-simple-fs-root" />simple/pom.xml 
-      <co id="coDef-simple-fs-pom" linkends="coRef-simple-fs-pom" />/src/ /src/main/
-      <co id="coDef-simple-fs-main" linkends="coRef-simple-fs-main" />/main/java /src/test/
-      <co id="coDef-simple-fs-test" linkends="coRef-simple-fs-test" />/test/java
-    </screen>
+    <screen>simple/<co id="coDef-simple-fs-root"
+        linkends="coRef-simple-fs-root" />
+simple/pom.xml<co id="coDef-simple-fs-pom" linkends="coRef-simple-fs-pom" />
+      /src/
+      /src/main/<co id="coDef-simple-fs-main" linkends="coRef-simple-fs-main" />
+          /main/java
+      /src/test/<co id="coDef-simple-fs-test" linkends="coRef-simple-fs-test" />
+          /test/java</screen>
 
-    <para>Ce répertoire suit les recommandations de Disposition Maven Standard des Répertoires.<indexterm>
+    <para>Ce répertoire suit les recommandations de la disposition Maven standard des répertoires.<indexterm>
         <primary>Standard Directory Layout</primary>
       </indexterm> <indexterm>
         <primary>Maven Standard Directory Layout</primary>
