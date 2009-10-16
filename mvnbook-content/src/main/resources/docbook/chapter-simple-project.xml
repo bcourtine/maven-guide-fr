@@ -690,7 +690,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           </mediaobject>
         </figure></para>
 
-      <para>Nous avons surligné les coordonnées Maven de ce projet : les <varname>groupId</varname>,
+      <para>Nous avons mis en évidence les coordonnées Maven de ce projet : les <varname>groupId</varname>,
       <varname>artifactId</varname>, <varname>version</varname> et <varname>packaging</varname>. Ces identifiants
       combinés forment ce qu'on appelle les coordonnées d'un projet<footnote id="foot-simple-classify">
           <para>Il existe une cinquième coordonnée, plus rarement utilisée, appelée <varname>classifier</varname> dont
