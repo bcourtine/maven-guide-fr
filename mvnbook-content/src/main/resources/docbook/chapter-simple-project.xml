@@ -911,7 +911,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       dépendances (comme Hibernate, Apache Struts, ou Spring Framework). Maven vous permet d'exclure certaines
       dépendances transitives du classpath du projet.</para>
 
-      <para>Maven fournit enfin différentes portées pour les dépendances Le <indexterm>
+      <para>Maven fournit enfin différentes portées pour les dépendances. Le fichier <indexterm>
           <primary>scope, dependency</primary>
         </indexterm> <filename>pom.xml</filename> du projet simple contient une unique dépendance —
       <varname>junit:</varname> <varname>junit:</varname> <varname>jar:</varname> <varname>3.8.1</varname> — ayant pour
