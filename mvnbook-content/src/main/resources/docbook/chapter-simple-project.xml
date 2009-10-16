@@ -672,7 +672,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       le comportement d'un plugin, et de fournir des informations sur la communauté et les développeurs du
       projet.</para>
 
-      <para>Les Coordonnées Maven définissent un ensemble d'identifiants qui permet d'identifier de manière unique un
+      <para>Les coordonnées Maven définissent un ensemble d'identifiants qui permet d'identifier de manière unique un
       projet, une dépendance, ou un plugin dans un <acronym>POM</acronym> Maven. Regardez le <acronym>POM</acronym> qui
       va suivre.</para>
 
