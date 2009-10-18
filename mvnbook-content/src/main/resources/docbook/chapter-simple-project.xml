@@ -250,7 +250,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
   <section id="simple-project-sect-pom">
     <title>Modèle Objet du Projet Simple</title>
 
-    <para>Lors de son exécution, Maven lit dans le Project Object Model<indexterm>
+    <para>Lors de son exécution, Maven lit les informations du projet dans le Project Object Model<indexterm>
         <primary>POM (Project Object Model)</primary>
       </indexterm> <indexterm>
         <primary>Project Object Model</primary>
@@ -258,7 +258,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         <see>POM; pom.xml file</see>
       </indexterm> <indexterm>
         <primary>pom.xml file</primary>
-      </indexterm>les informations sur le projet. Le <acronym>POM</acronym> répond aux questions telles que : De quel
+      </indexterm>. Le <acronym>POM</acronym> répond aux questions telles que : De quel
     type de projet s'agit-il ? Quel est le nom du projet ? Ce projet a-t-il été personnalisé ? L'<xref
     linkend="example_simple-project-pom" /> montre le fichier <filename>pom.xml</filename> par défaut créé par le goal
     <varname>generate</varname> du plugin Maven Archetype.</para>
