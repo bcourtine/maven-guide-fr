@@ -298,7 +298,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     <sgmltag>dependencies</sgmltag> définit une dépendance unique, dans le scope <varname>test</varname>, sur un 
     framework de test appelé JUnit. Nous reverrons ces sujets par la suite dans
     la <xref linkend="simple-project-sect-simple-core" />. Tout ce que vous devez savoir, pour le moment, c'est que
-    le <filename>pom.xml</filename> est le fichier qui permet l'exécution de Maven.</para>
+    c'est le fichier <filename>pom.xml</filename> qui permet à Maven de s'exécuter.</para>
 
     <para>Maven s'exécute toujours selon un <acronym>POM</acronym> effectif, une combinaison de la configuration du
     <filename>pom.xml</filename> du projet, de l'ensemble des <acronym>POM</acronym>s parents, d'un
