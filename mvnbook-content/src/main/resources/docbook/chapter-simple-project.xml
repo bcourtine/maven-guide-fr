@@ -392,7 +392,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
           <secondary>defined</secondary>
         </indexterm> ou combinée à d'autres goals pour un build plus large. Un goal est une "tâche unitaire" dans Maven.
-      On peut prendre comme exemples le goal <varname>compile</varname> du plugin Compiler, qui, comme son nom
+      On peut prendre comme exemple le goal <varname>compile</varname> du plugin Compiler, qui, comme son nom
       l'indique, compile tout le code source du projet, ou le goal <varname>test</varname> du plugin Surefire, qui
       exécute les tests unitaires. La configuration des goals s'effectue au travers de propriétés qui sont utilisées
       pour personnaliser le comportement. Par exemple, le goal <varname>compile</varname> du plugin Compiler définit un
