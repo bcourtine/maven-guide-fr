@@ -169,7 +169,7 @@ simple/pom.xml<co id="coDef-simple-fs-pom" linkends="coRef-simple-fs-pom" />
 
     <para>Le plugin Maven Archetype a produit une classe unique
     <classname>org.sonatype.mavenbook.</classname><classname>App</classname>, qui contient 13 lignes de Java avec une
-    fonction statique main qui affiche le message :</para>
+    fonction statique main qui affiche un message :</para>
 
     <programlisting language="java">package org.sonatype.mavenbook;
 
