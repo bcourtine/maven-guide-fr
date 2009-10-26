@@ -464,24 +464,24 @@
           <primary>version attribute (pom.xml)</primary>
         </indexterm><indexterm>
           <primary>project versions, about</primary>
-        </indexterm> version stable qui est utilisé pour regrouper et rdonner les distributions. Les versions dans Maven
+        </indexterm> version stable qui est utilisé pour regrouper et ordonner les distributions. Les versions dans Maven
       se décomposent ainsi : version majeure, version mineure, version incrémentale et qualifieur. Dans un numéro de
-      version ces ifférents éléments se présentent selon le format suivant :</para>
+      version ces différents éléments se présentent selon le format suivant :</para>
 
       <screen>&lt;version majeure&gt;.&lt;version mineure&gt;.&lt;version incrémentale&gt;-&lt;qualifieur&gt;
 </screen>
 
-      <para>Par exemple, la version "1.3.5" correspond à la version majeure 1, de version mineure 3, et de version
-      incrémentale 5. La version "5" correspond à la version majeure 5 sans version mineure ou incrémentale. Le
-      qualifieur est utilisé pour les builds des étapes intermédiaires : distributions alpha ou beta, et il est séparé
-      des autres éléments de version par un tiret. Par exemple, la version "1.3-beta-01" a une version majeure de 1, un
-      version mineure de 3, et un qualifieur "beta-01".</para>
+      <para>Par exemple, la version "1.3.5" correspond à la version majeure 1, mineure 3 et incrémentale 5. La version 
+      "5" correspond à la version majeure 5 sans version mineure ou incrémentale. Le qualifieur est utilisé pour les
+      builds des étapes intermédiaires : distributions alpha ou beta, et il est séparé des autres éléments de version
+      par un tiret. Par exemple, la version "1.3-beta-01" a une version majeure 1, mineure 3 et un qualifieur
+      "beta-01".</para>
 
-      <para>Suivre ces précaunisations pour les numéros de version prend tout son lorsque vous commencez à utiliser des
-      intervalles pour vos versions dans les <acronym>POM</acronym>s. Les intervalles de versions, dont on parle dans la
-      <xref linkend="pom-relationships-sect-version-ranges" />, vous permettent de spécifier une dépendence dont la
-      version est comprise dans cet intervalle. Cela n'es possible que parce que Maven est capable de trier les versions
-      en se basant sur le format de numéro de version dont nous venons de parler.</para>
+      <para>Suivre ces préconisations pour les numéros de version prend tout son sens lorsque vous commencez à utiliser
+      des intervalles pour vos versions dans les <acronym>POM</acronym>s. Les intervalles de versions qui sont abordés
+      dans la <xref linkend="pom-relationships-sect-version-ranges" />, vous permettent de spécifier une dépendence dont
+      la version est comprise dans cet intervalle. Cela n'est possible que parce que Maven est capable de trier les
+      versions en se basant sur le format de numéro de version dont nous venons de parler.</para>
 
       <para>Si votre numéro de version respecte le format
       <varname>&lt;majeure&gt;.</varname><varname>&lt;mineure&gt;.</varname><varname>&lt;incrémentale&gt;-&lt;qualifieur&gt;</varname>
