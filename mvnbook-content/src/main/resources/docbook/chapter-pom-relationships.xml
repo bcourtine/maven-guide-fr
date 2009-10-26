@@ -7,12 +7,12 @@
   <section id="pom-relationships-sect-intro">
     <title>Introduction</title>
 
-    <para>Ce chapitre traite du concept central de Maven—le Modèle Objet de Projet<indexterm class="startofrange"
+    <para>Ce chapitre traite du concept au cœur de Maven —le Project Object Model (Modèle Objet de Projet)<indexterm class="startofrange"
         id="pom1">
         <primary>POM (Project Object Model)</primary>
-      </indexterm>. Le <acronym>POM</acronym> est l'endroit où l'identité et la structure d'un projet sont déclarées, où
-    les builds sont configurés, et où sont définies les relations entre projets. L'existence d'un fichier <filename
-    moreinfo="none">pom.xml</filename> définit un projet Maven.</para>
+      </indexterm>. C'est dans ce <acronym>POM</acronym> que sont déclarées l'identité et la structure d'un projet, que
+      sont configurés les builds et où sont définies les relations entre projets. C'est l'existence d'un fichier <filename
+    moreinfo="none">pom.xml</filename> qui définit un projet Maven.</para>
   </section>
 
   <section id="pom-relationships-sect-pom">
@@ -20,51 +20,50 @@
 
     <para>Les projets Maven, les dépendances, les builds, les artefacts : tous sont des objets qu'il va falloir
     modèliser et décrire. Ces objets sont décrits dans un fichier <acronym>XML</acronym> appelé Modèle Objet de Projet.
-    Le <acronym>POM</acronym> indique à Maven de quel type de projet il va devoir traiter et comment il va devoir
-    modifier son comportement par défaut pour produire le résultat attendu à partir des sources. Ainsi comme une
-    application web Java avec son fichier <filename moreinfo="none">web.xml</filename> qui décrit, configure et
-    personnalise l'application, un projet Maven se définit par la présence<indexterm>
+    Le <acronym>POM</acronym> indique à Maven quel type de projet il va devoir traiter et comment il va devoir
+    s'adapter pour transformer les sources pour produire le résultat attendu. Ainsi comme le fichier 
+    <filename moreinfo="none">web.xml</filename> décrit, configure et personnalise une application web Java, c'est
+     la présence d'un fichier<indexterm>
         <primary>pom.xml file</primary>
       </indexterm><indexterm>
         <primary>pom.xml file</primary>
-
         <seealso>POM</seealso>
-      </indexterm> d'un <filename moreinfo="none">pom.xml</filename>. Il s'agit d'une déclaration décriant un projet
-    Maven; c'est un “plan” abstrait que Maven doit comprendre et suivre lorsqu'il va construirevotre projet.</para>
+      </indexterm> <filename moreinfo="none">pom.xml</filename> qui définit un projet Maven. Il s'agit d'une déclaration
+      décrivant un projet Maven; c'est le “plan” abstrait que Maven doit comprendre et suivre pour construire votre projet.</para>
 
-    <para>Vous pouvez aussi voir dans le<filename moreinfo="none">pom.xml</filename> une analogie à un fichier <filename
-    moreinfo="none">Makefile</filename> ou un <filename moreinfo="none">build.xml</filename> pour Ant. Quand vous
-    utilisez <acronym>GNU</acronym> <emphasis>make</emphasis> pour construire une application comme MySQL, vous aurez le
-    plus souvent un fichier <filename moreinfo="none">Makefile</filename> qui contient les instructions explicites pour
-    construire un binaire à partir des sources. Quand vous utilisez Apache Ant, vous avez très probablement un fichier
-    <filename moreinfo="none">build.xml</filename> qui contient les instructions explicites pour nettoyer, compiler,
-    packager et déployer une application. <emphasis>make</emphasis>, Ant, et Maven ont en commun le fait qu'ils
-    dépendent de la présence d'un fichier avec toujours le même nom qu'il s'agisse de <filename
+    <para>Vous pouvez aussi voir dans ce fichier <filename moreinfo="none">pom.xml</filename> un équivalent à un fichier <filename
+    moreinfo="none">Makefile</filename> ou à un fichier <filename moreinfo="none">build.xml</filename> pour Ant. Quand vous
+    utilisez <acronym>GNU</acronym> <emphasis>make</emphasis> pour construire une application comme par exemple MySQL,
+    vous aurez le plus souvent un fichier <filename moreinfo="none">Makefile</filename> contenant toutes les instructions
+    explicites pour produire un binaire à partir des sources. Quand vous utilisez Apache Ant, vous avez très probablement 
+    un fichier <filename moreinfo="none">build.xml</filename> qui contient les instructions explicites pour nettoyer,
+    compiler, packager et déployer une application. <emphasis>make</emphasis>, Ant, et Maven ont en commun le fait qu'ils
+    leur faut un fichier avec un nom pré-déterminé, qu'il s'agisse de <filename
     moreinfo="none">Makefile</filename>, <filename moreinfo="none">build.xml</filename>, ou <filename
     moreinfo="none">pom.xml</filename>, mais c'est là que les similarités s'arrêtent. Si vous regardez un <filename
     moreinfo="none">pom.xml</filename> Maven, la plus grande partie du <acronym>POM</acronym> se compose de
-    descriptions. Où se trouve le code source? Où sont les ressources? Quel est le packaging? Si vous regardez un
+    descriptions. Où se trouve le code source ? Où sont les ressources ? Quel est le packaging ? Si vous regardez un
     fichier <filename moreinfo="none">build.xml</filename> pour Ant, vous verrez quelquechose d'entièrement différent.
     Vous verrez des instructions explicites pour des tâches comme la compilation de classes Java. Le
-    <acronym>POM</acronym> Maven est déclaratif, et bien que vous puissiez choisir d'y inclure des personnalisations
-    procédurales via le plugin Maven Ant, dans l'ensemble vous n'aurez pas besoin de vous plonger dans les délicats
+    <acronym>POM</acronym> Maven est déclaratif, et même si vous pouvez y inclure des personnalisations
+    procédurales via le plugin Maven Ant, en général vous n'aurez pas besoin de vous plonger dans les délicats
     détails procéduraux de la construction de votre projet.</para>
 
-    <para>Le <acronym>POM</acronym> n'est pas sépcificque à la construction de projets Java. Même si la plupart des
-    exemples de ce livre traitent d'applications Java, il n'y a rien de spécifique à Java dans la définition d'un Modèle
-    Objet de Projet Maven. Si effectivementles plugins par défaut de Maven permettent de construiredes artéfacts sous
+    <para>Le <acronym>POM</acronym> n'est pas spécifique à la construction de projets Java. Même si la plupart des
+    exemples de ce livre sont desapplications Java, il n'y a rien de spécifique à Java dans la définition d'un Modèle
+    Objet de Projet Maven. Si effectivement les plugins par défaut de Maven permettent de construire des artéfacts sous
     forme de <acronym>JAR</acronym> à partir d'un ensemble de sources, de tests et de ressources, rien ne vous empêche
     de définir un <acronym>POM</acronym> pour un projet qui contient des sources C# et produit un binaire Microsoft
     propriétaire avec des outils Microsoft. De même, rien ne vous empêche d'utiliser un <acronym>POM</acronym> pour un
-    livre technique. En effet, le source de ce livre et ses exemples sont répartis dans un projet Maven multi-module qui
-    utilise l'un des nombreux plugins Maven pour Docbook pour appliquer un <acronym>XSL</acronym> standard Docbook à un
-    ensemble de chapitres sous forme de fichiers <acronym>XML</acronym>. D'autres ont créé des plugins Maven pour
-    transformer du code Adobe Flex en <acronym>SWC</acronym>s et <acronym>SWF</acronym>s, et enfin certains utilisent
-    Maven pour contruire des projets écrits en C.</para>
+    livre technique. En effet, le source de ce livre et ses exemples sont répartis dans un projet Maven multimodule qui
+    utilise l'un des nombreux plugins Maven pour Docbook afin d'appliquer une feuille <acronym>XSL</acronym> Docbook
+    standard à un ensemble de chapitres présents sous la forme de fichiers <acronym>XML</acronym>. Certains ont créé des
+    plugins Maven pour transformer du code Adobe Flex en <acronym>SWC</acronym>s et <acronym>SWF</acronym>s. Enfin,
+    certains utilisent Maven pour contruire des projets écrits en C.</para>
 
-    <para>Nous avons établi que le <acronym>POM</acronym> décrit et déclare,et qu'il se différencie de Ant ou de Make en
-    ce qu'il de fournit pas d'instructions explicites,et nous avons vu que les concepts du <acronym>POM</acronym> ne
-    sont pas propres à Java. Regardons plus en détails tout cela au travers de la <xref linkend="fig-pom" /> pour une
+    <para>Nous avons donc établi que le <acronym>POM</acronym> décrit et déclare, et qu'il se différencie de Ant ou de
+    Make en ce qu'il de fournit pas d'instructions explicites. Nous avons vu que les concepts du <acronym>POM</acronym>
+    ne sont pas propres à Java. Regardons tout cela plus en détails au travers de la <xref linkend="fig-pom" /> pour une
     analyse du contenu d'un <acronym>POM</acronym>.</para>
 
     <para><figure id="fig-pom">
@@ -82,14 +81,14 @@
         </mediaobject>
       </figure></para>
 
-    <para>Le <acronym>POM</acronym> se compose de quatre types de descritpion et de configuration:</para>
+    <para>Le <acronym>POM</acronym> se compose de quatre catégories de description et de configuration :</para>
 
     <variablelist>
       <varlistentry>
         <term>Informations générales sur le projet</term>
 
         <listitem>
-          <para>Cett catégorie regroupe le nom du projet, l'<acronym>URL</acronym> du<indexterm>
+          <para>Cette catégorie regroupe le nom l'<acronym>URL</acronym> et la license du<indexterm>
               <primary>project information (in pom.xml)</primary>
             </indexterm><indexterm>
               <primary>licensing information (project information)</primary>
@@ -101,8 +100,8 @@
               <primary>pom.xml file</primary>
 
               <secondary>project information in</secondary>
-            </indexterm> projet, l'organisation qui le produit, une liste de dvelopeurs et de contributeurs ainsi que sa
-          license.</para>
+            </indexterm> projet, l'organisation qui le produit ce projet, et  une liste de développeurs et de
+            contributeurs.</para>
         </listitem>
       </varlistentry>
 
@@ -110,15 +109,15 @@
         <term>Configuration du Build</term>
 
         <listitem>
-          <para>Dans cette section, nous personnalisons le comportement du build Maven<indexterm>
+          <para>Dans cette section, nous configurons le build Maven<indexterm>
               <primary>build information (in pom.xml)</primary>
             </indexterm><indexterm>
               <primary>pom.xml file</primary>
 
               <secondary>build information in</secondary>
-            </indexterm> par défaut. Nous pouvons changer l'endroit où se trouvent les sources et les tests, ajouter de
-          nouveaux plugins, lier des goals de plugins au cycle de vien et nous pouvons personnaliser les paramètres pour
-          la génération du site web.</para>
+            </indexterm> en personnalisant le comportement par défaut. Nous pouvons changer l'endroit où se trouvent 
+            les sources et les tests, ajouter de nouveaux plugins, lier des goals de plugins au cycle de vie et
+            personnaliser les paramètres de génération du site web.</para>
         </listitem>
       </varlistentry>
 
@@ -133,13 +132,13 @@
 
               <secondary>build environment</secondary>
             </indexterm> activés pour être utilisés dans différents environnements. Par exemple, au cours du
-          développement vous pouvez vouloir déployer sur un serveur de développement, alors qu'en production vous allez
-          vouloir déployer sur un serveur différent. L'environnement de build personnalise la configuration du build
+          développement vous pouvez vouloir déployer sur un serveur qui sera différent de celui sur lequel vous déployerez
+          en production. L'environnement de build adapte la configuration du build
           pour un environnement spécifique et il s'accompagne souvent d'un fichier<indexterm>
               <primary>settings.xml file</primary>
             </indexterm> <filename moreinfo="none">settings.xml personnalisé</filename> dans <filename
           moreinfo="none">~/.m2</filename>. Ce fichier settings.xml est détaillé dans le <xref linkend="profiles" /> et
-          dans la section <xref linkend="appendix-settings-sect-details" />.</para>
+          dans la <xref linkend="appendix-settings-sect-details" />.</para>
         </listitem>
       </varlistentry>
 
@@ -147,8 +146,8 @@
         <term>Relations entre POM</term>
 
         <listitem>
-          <para>Un projet est rarement isolé,; il dépend souvent d'autres projets, hérite d'une configuration de
-          <acronym>POM</acronym> de projets parent, définit ses propres coordonnées, et peut inclure des
+          <para>Un projet est rarement isolé; il dépend souvent d'autres projets, hérite d'une configuration de
+          <acronym>POM</acronym> de projets parent, définit ses propres coordonnées, et peut comporter des
           sous-modules.</para>
         </listitem>
       </varlistentry>
@@ -543,7 +542,7 @@
         SNAPSHOT, le Super <acronym>POM</acronym> de Maven désactive la publication de snapshots sur le dépôt Central.
         Les versions SNAPSHOT sont utilisées uniquement pour le développement.</para>
       </section>
-
+<!--
       <section id="pom-relationships-sect-latest-release">
         <title>Les versions LATEST et RELEASE</title>
 
@@ -572,6 +571,7 @@
         plugins de votre build, qu'ils vous soient propres ou qu'ils ne fassent pas partie des principaux plugins de
         Maven.</para>
       </section>
+  -->
     </section>
 
     <section id="pom-relationships-sect-property-refs">
