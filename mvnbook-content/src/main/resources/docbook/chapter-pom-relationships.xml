@@ -50,7 +50,7 @@
     détails procéduraux de la construction de votre projet.</para>
 
     <para>Le <acronym>POM</acronym> n'est pas spécifique à la construction de projets Java. Même si la plupart des
-    exemples de ce livre sont desapplications Java, il n'y a rien de spécifique à Java dans la définition d'un Modèle
+    exemples de ce livre sont des applications Java, il n'y a rien de spécifique à Java dans la définition d'un Modèle
     Objet de Projet Maven. Si effectivement les plugins par défaut de Maven permettent de construire des artéfacts sous
     forme de <acronym>JAR</acronym> à partir d'un ensemble de sources, de tests et de ressources, rien ne vous empêche
     de définir un <acronym>POM</acronym> pour un projet qui contient des sources C# et produit un binaire Microsoft
@@ -160,7 +160,7 @@
       <acronym>POM</acronym>. Tous les <acronym>POM</acronym>s de projet Maven étendent le Super <acronym>POM</acronym>
       qui définit un ensemble de valeurs par défaut partagé par tous les projets. Ce Super <acronym>POM</acronym> fait
       partie de l'installation de Maven, et se trouve dans le fichier
-      <filename>maven-${maven.version}-uber.jar</filename> dans le répertoire <filename>\${M2_HOME}/lib</filename>. Si
+      <filename>maven-${maven.version}-uber.jar</filename> du répertoire <filename>\${M2_HOME}/lib</filename>. Si
       vous regardez ce fichier <acronym>JAR</acronym>, vous y trouverez un fichier <filename>pom-4.0.0.xml</filename>
       dans le package <package>org.apache.maven.project </package>. Le Super <acronym>POM</acronym> de Maven est
       présenté dans l'<xref linkend="ex-super-pom" />.</para>
@@ -174,7 +174,8 @@
 
   &lt;repositories&gt;
     &lt;repository&gt;
-      &lt;id&gt;central&lt;/id&gt;  <co id="coDef-super-1" linkends="coRef-super-1" />      &lt;name&gt;Maven Repository Switchboard&lt;/name&gt;
+      &lt;id&gt;central&lt;/id&gt;  <co id="coDef-super-1" linkends="coRef-super-1" />
+      &lt;name&gt;Maven Repository Switchboard&lt;/name&gt;
       &lt;layout&gt;default&lt;/layout&gt;
       &lt;url&gt;http://repo1.maven.org/maven2&lt;/url&gt;
       &lt;snapshots&gt;
@@ -185,7 +186,8 @@
 
   &lt;pluginRepositories&gt;
     &lt;pluginRepository&gt;
-      &lt;id&gt;central&lt;/id&gt;   <co id="coDef-super-2" linkends="coRef-super-2" />      &lt;name&gt;Maven Plugin Repository&lt;/name&gt;
+      &lt;id&gt;central&lt;/id&gt;   <co id="coDef-super-2" linkends="coRef-super-2" />
+      &lt;name&gt;Maven Plugin Repository&lt;/name&gt;
       &lt;url&gt;http://repo1.maven.org/maven2&lt;/url&gt;
       &lt;layout&gt;default&lt;/layout&gt;
       &lt;snapshots&gt;
@@ -197,7 +199,8 @@
     &lt;/pluginRepository&gt;
   &lt;/pluginRepositories&gt;
 
-  &lt;build&gt;  <co id="coDef-super-3" linkends="coRef-super-3" />    &lt;directory&gt;target&lt;/directory&gt;
+  &lt;build&gt;  <co id="coDef-super-3" linkends="coRef-super-3" />
+    &lt;directory&gt;target&lt;/directory&gt;
     &lt;outputDirectory&gt;target/classes&lt;/outputDirectory&gt;
     &lt;finalName&gt;\${pom.artifactId}-\${pom.version}&lt;/finalName&gt;
     &lt;testOutputDirectory&gt;target/test-classes&lt;/testOutputDirectory&gt;
@@ -214,7 +217,8 @@
         &lt;directory&gt;src/test/resources&lt;/directory&gt;
       &lt;/testResource&gt;
     &lt;/testResources&gt;
-  &lt;/build&gt; <co id="coDef-super-4" linkends="coRef-super-4" />     &lt;pluginManagement&gt;
+  &lt;/build&gt; <co id="coDef-super-4" linkends="coRef-super-4" />
+  &lt;pluginManagement&gt;
        &lt;plugins&gt;
          &lt;plugin&gt;
            &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;
@@ -311,8 +315,8 @@
           installations de Maven pour être interrogé. Cette configuration peut être surchargée par un fichier <filename
           moreinfo="none">settings.xml</filename> personnalisé. Attention, le Super <acronym>POM</acronym> par défaut a
           désactivé la récupération des artefacts snapshots depuis le dépôt central de Maven. Si vous avez besoin d'un
-          dépôt snapshot, vous devrez configurer vos dépôts dans votre <filename moreinfo="none">pom.xml</filename> ou
-          votre <filename moreinfo="none">settings.xml</filename>. Le fichier <filename>settings.xml</filename> et les
+          dépôt snapshot, vous devrez configurer vos dépôts dans votre fichier <filename moreinfo="none">pom.xml</filename> ou
+          votre fichier <filename moreinfo="none">settings.xml</filename>. Le fichier <filename>settings.xml</filename> et les
           profils sont traités dans le <xref linkend="profiles" /> ainsi que dans <xref
           linkend="appendix-settings-sect-details" />.</para>
         </callout>
@@ -325,19 +329,19 @@
         </callout>
 
         <callout arearefs="coDef-super-3" id="coRef-super-3">
-          <para>L'élément <sgmltag>build</sgmltag> définit les positions par défaut des répertoires selon la Disposition
-          Maven Standard des Répertoires.</para>
+          <para>L'élément <sgmltag>build</sgmltag> définit les positions par défaut des répertoires selon la disposition
+          Maven standard des répertoires.</para>
         </callout>
 
         <callout arearefs="coDef-super-4" id="coRef-super-4">
-          <para>Depuis la version 2.0.9 de Maven, les versions par défaut des plugins du cœursont définies dans le Super
+          <para>Depuis la version 2.0.9 de Maven les versions par défaut des plugins du cœur sont définies dans le Super
           <acronym>POM</acronym>. Cela a été mis en place pour apporter une certaine stabilité aux utilisateurs qui ne
           précisent pas de version dans leurs <acronym>POM</acronym>s.</para>
         </callout>
       </calloutlist>
 
       <figure id="fig-super-always-base">
-        <title>Le Super POM est toujours le parent racine</title>
+        <title>Le Super POM est toujours le parent de plus haut niveau</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -356,7 +360,7 @@
       <title>Le POM le plus simple possible</title>
 
       <para>Tous les <acronym>POM</acronym>s Maven héritent leurs valeurs par défaut du Super <acronym>POM</acronym>
-      (dont nous avons parlé dans la section <xref linkend="pom-relationships-sect-super-pom" />). Si vous écrivez un
+      (dont nous avons parlé dans la <xref linkend="pom-relationships-sect-super-pom" />). Si vous écrivez un
       projet tout simple qui produit un <acronym>JAR</acronym> à partir de fichiers source se trouvant dans <filename
       moreinfo="none">src/main/java</filename>, que vous voulez exécutez des tests JUnit qui sont dans <filename
       moreinfo="none">src/test/java</filename>, et que vous voulez produire le site web de ce projet avec la commande
