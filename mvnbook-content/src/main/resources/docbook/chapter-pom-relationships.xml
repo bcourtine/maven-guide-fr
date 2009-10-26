@@ -362,11 +362,11 @@
       <para>Tous les <acronym>POM</acronym>s Maven héritent leurs valeurs par défaut du Super <acronym>POM</acronym>
       (dont nous avons parlé dans la <xref linkend="pom-relationships-sect-super-pom" />). Si vous écrivez un
       projet tout simple qui produit un <acronym>JAR</acronym> à partir de fichiers source se trouvant dans <filename
-      moreinfo="none">src/main/java</filename>, que vous voulez exécutez des tests JUnit qui sont dans <filename
-      moreinfo="none">src/test/java</filename>, et que vous voulez produire le site web de ce projet avec la commande
+      moreinfo="none">src/main/java</filename> dont les tests JUnit à exécuter sont dans <filename
+      moreinfo="none">src/test/java</filename> et que vous voulez produire le site web de ce projet avec la commande
       <command moreinfo="none">mvn site</command>, vous n'avez rien à configurer. Vous n'avez besoin, dans ce cas, que
-      du <acronym>POM</acronym> le plus simple possible, tel celui présenté dans <xref linkend="ex-simplest-pom" />. Ce
-      <acronym>POM</acronym> définit un <varname>groupId</varname>, un <varname>artifactId</varname>, et une
+      du <acronym>POM</acronym> le plus simple possible, tel celui présenté dans l'<xref linkend="ex-simplest-pom" />. Ce
+      <acronym>POM</acronym> définit un <varname>groupId</varname>, un <varname>artifactId</varname> et une
       <varname>version</varname> : les trois coordonnées exigées pour tout projet.</para>
 
       <example id="ex-simplest-pom">
@@ -380,36 +380,36 @@
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>Un <acronym>POM</acronym> aussi simple serait plus qu'adéquat pour un projet très simple—par exempleg., une
+      <para>Un <acronym>POM</acronym> aussi simple serait plus qu'adéquat pour un projet très simple—par exemple, une
       bibliothèque Java qui produirait un fichier <acronym>JAR</acronym>. Ce <acronym>POM</acronym> ne fait aucune
-      référence à un autre projet, ne dépend de rien, et il lui manque des informations basiques comme un nom et une
+      référence à un autre projet, ne dépend de rien et il lui manque des informations basiques comme son nom et une
       <acronym>URL</acronym>. Si vous créiez un tel fichier et un sous-répertoire <filename
       moreinfo="none">src/main/java</filename> contenant du code source, l'exécution de la commande <command
-      moreinfo="none">mvn package</command> produirait un <acronym>JAR</acronym> dans <filename
+      moreinfo="none">mvn package</command> produirait le <acronym>JAR</acronym> <filename
       moreinfo="none">target/simple-project-1.jar</filename>.</para>
     </section>
 
     <section id="pom-relationships-sect-effective-pom">
       <title>Le POM effectif</title>
 
-      <para>Ce <acronym>POM</acronym>, le plus simple qu'il soit, introduit le concept de <indexterm>
+      <para>Ce <acronym>POM</acronym>, le plus simple soit-il, introduit le concept de <indexterm>
           <primary>effective POMs</primary>
         </indexterm> “<acronym>POM</acronym> effectif”. Comme les <acronym>POM</acronym>s héritent leur configuration
       d'autres <acronym>POM</acronym>s, vous devez toujours voir un <acronym>POM</acronym> Maven comme la combinaison du
-      Super <acronym>POM</acronym>, plus tous les <acronym>POM</acronym>s parent intermédiaires, et enfin le
+      Super <acronym>POM</acronym>, plus tous les <acronym>POM</acronym>s parents intermédiaires et enfin le
       <acronym>POM</acronym> du projet en cours. Maven commence par le Super <acronym>POM</acronym> et surcharge la
-      configuration par défaut avec un ou plusieurs <acronym>POM</acronym>s parent. Puis il surcharge la configuration
-      résultante avec les velurs du <acronym>POM</acronym> du projet. Au final, vous obtenez un <acronym>POM</acronym>
+      configuration par défaut avec un ou plusieurs <acronym>POM</acronym>s parents. Puis il surcharge la configuration
+      résultante avec les valeurs du <acronym>POM</acronym> du projet. Au final, vous obtenez un <acronym>POM</acronym>
       effectif qui est le résultat du mélange de plusieurs <acronym>POM</acronym>s. Si vous voulez voir le
       <acronym>POM</acronym> effectif d'un projet, vous allez devoir exécuter le goal <varname>effective-pom</varname>
-      du plugin Maven Help, dont nous avons parlé précédemment dans la section <xref
+      du plugin Maven Help dont nous avons parlé précédemment dans la <xref
       linkend="installation-sect-help-plugin-install" />. Pour lancer le goal <varname>effective-pom</varname>, exécutez
-      la commade suivante dans un répertoire contenant un fichier <filename moreinfo="none">pom.xml</filename> :</para>
+      la commande suivante dans un répertoire contenant un fichier <filename moreinfo="none">pom.xml</filename> :</para>
 
       <screen>$ <command>mvn help:effective-pom</command></screen>
 
       <para>L'exécution du goal <varname>effective-pom</varname> devrait afficher un document <acronym>XML</acronym>
-      résultant de la fusion du Super <acronym>POM</acronym> et du <acronym>POM</acronym> de <xref
+      résultant de la fusion du Super <acronym>POM</acronym> et du <acronym>POM</acronym> de l'<xref
       linkend="ex-simplest-pom" />.</para>
     </section>
 
@@ -419,17 +419,17 @@
       <para>Plutôt que de taper un ensemble de <acronym>POM</acronym>s convenus <indexterm>
           <primary>real POMs</primary>
         </indexterm> pour vous guider pas-à-pas, vous pouvez regarder les exemples fournis dans <xref
-      linkend="part-example" />. Maven est un véritable caméléon ; vous pouvez choisir et prendre ce dont vous voulez
+      linkend="part-example" />. Maven est un véritable caméléon ; vous pouvez choisir et utiliser ce dont vous voulez
       profiter. Certains projets libres peuvent accorder de l'importance à la possibilité de lister les développeurs et
-      les contributeurs, de pouvoir produire une documentation claire pour un projet, et de pouvoir gérer
-      automatiquement les livraisons grâce au plugin Maven Release. D'un autre côté, pour quelqu'un qui travaille dans
-      le contexte d'une petite équipe dans une entreprise, les capacités de Maven pour gérer les distributions ou lister
-      les développeurs puvent avoir un intérêt moindre. La suite de ce chapitre va traiter les caractéristiques du
+      les contributeurs, de pouvoir produire une documentation claire pour un projet et de pouvoir gérer
+      automatiquement les livraisons grâce au plugin Maven Release. Par contre, pour quelqu'un qui travaille dans
+      le contexte d'une petite équipe au sein d'une entreprise, les capacités de Maven pour gérer les distributions ou lister
+      les développeurs peuvent avoir un moindre intérêt. La suite de ce chapitre va traiter les caractéristiques du
       <acronym>POM</acronym> en lui même. Au lieu de vous bombarder avec un listing de 10 pages contenant tout un
       ensemble de <acronym>POM</acronym>s , nous allons nous concentrer sur la création d'une bonne référence pour
-      chacune des sections spécifiques du<acronym>POM</acronym>. Dans ce chapitre, nous allons parler des relations
-      entre les <acronym>POM</acronym>s, mais nous n'allons pas illustrer cela par un projet exemple. Si vous rechercher
-      un tel exemple vous le trouverez dans le <xref linkend="multimodule-web-spring" />.</para>
+      chacune des sections spécifiques du <acronym>POM</acronym>. Dans ce chapitre, nous allons parler des relations
+      entre les <acronym>POM</acronym>s mais sans ajouter un nouvel exemple pour l'illustrer. Si vous voulez un tel
+      exemple vous le trouverez dans le <xref linkend="multimodule-web-spring" />.</para>
     </section>
   </section>
 
