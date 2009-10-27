@@ -63,7 +63,7 @@
 
     <para>Nous avons donc établi que le <acronym>POM</acronym> décrit et déclare, et qu'il se différencie de Ant ou de
     Make en ce qu'il de fournit pas d'instructions explicites. Nous avons vu que les concepts du <acronym>POM</acronym>
-    ne sont pas propres à Java. Regardons tout cela plus en détails au travers de la <xref linkend="fig-pom" /> pour une
+    ne sont pas propres à Java. Regardons tout celà plus en détails au travers de la <xref linkend="fig-pom" /> pour une
     analyse du contenu d'un <acronym>POM</acronym>.</para>
 
     <para><figure id="fig-pom">
@@ -335,7 +335,7 @@
 
         <callout arearefs="coDef-super-4" id="coRef-super-4">
           <para>Depuis la version 2.0.9 de Maven les versions par défaut des plugins du cœur sont définies dans le Super
-          <acronym>POM</acronym>. Cela a été mis en place pour apporter une certaine stabilité aux utilisateurs qui ne
+          <acronym>POM</acronym>. celà a été mis en place pour apporter une certaine stabilité aux utilisateurs qui ne
           précisent pas de version dans leurs <acronym>POM</acronym>s.</para>
         </callout>
       </calloutlist>
@@ -479,7 +479,7 @@
       <para>Suivre ces préconisations pour les numéros de version prend tout son sens lorsque vous commencez à utiliser
       des intervalles pour vos versions dans les <acronym>POM</acronym>s. Les intervalles de versions qui sont abordés
       dans la <xref linkend="pom-relationships-sect-version-ranges" />, vous permettent de spécifier une dépendance dont
-      la version est comprise dans cet intervalle. Cela n'est possible que parce que Maven est capable de trier les
+      la version est comprise dans cet intervalle. celà n'est possible que parce que Maven est capable de trier les
       versions en se basant sur le format de numéro de version dont nous venons de parler.</para>
 
       <para>Si votre numéro de version respecte le format
@@ -900,11 +900,11 @@
       fichiers, et pour le cache distribué <phrase role="keep-together"> en mémoire</phrase>, vous voulez utiliser
       SwarmCache (<ulink url="http://swarmcache.sourceforge.net/">http://swarmcache.sourceforge.net/</ulink>), une autre
       bibliothèque libre. Vous allez écrire une interface et créer une bibliothèque qui pourra être configurée pour
-      utiliser EHCache ou SwarmCache, cependant vous ne voulez pas ajouter ne dépendance vers ces deux bibliothèques de
+      utiliser EHCache ou SwarmCache, cependant vous ne voulez pas ajouter une dépendance vers ces deux bibliothèques de
       cache dans chaque projet qui dépendrait de votre bibliothèque.</para>
 
       <para>En d'autres termes, vous avez besoin de ces deux bibliothèques à la compilation de votre projet, mais vous
-      ne les voulez pas que toutes les deux apparaissent comme dépendances transivites nécessaires à l'exécution dans un
+      ne voulez pas que toutes les deux apparaissent comme des dépendances transitives nécessaires à l'exécution dans un
       projet qui utiliserait votre bibliothèque. Vous pouvez réaliser celà en utilisant des dépendances optionnelles
       comme dans l'<xref linkend="ex-optional-depend" />.</para>
 
@@ -940,8 +940,8 @@
 
       <para>Une fois que vous avez déclaré ces dépendances comme optionnelles, vous devrez les ajouter de manière
       explicite dans les projets qui dépendront de <varname>my-project</varname>. Par exemple, si vous écrivez une
-      application qui dépend de <varname>my-project</varname> et ue vous voulez utiliser l'implémentation EHCache, vous
-      devrez ajouter la balise<sgmltag>dependency</sgmltag> suivante à votre projet.</para>
+      application qui dépend de <varname>my-project</varname> et que vous voulez utiliser l'implémentation EHCache, vous
+      devrez ajouter la balise <sgmltag>dependency</sgmltag> suivante à votre projet.</para>
 
       <programlisting language="xml">&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -966,9 +966,9 @@
       projet avec un ensemble de dépendances optionnelles, vous devriez isoler le code <phrase
       role="keep-together">spécifique à EHCache</phrase> dans un sous-module <varname>my-project-ehcache</varname> et le
       code <phrase role="keep-together">spécifique à SwarmCache</phrase> dans un autre sous-module
-      <varname>my-project-swarmcache</varname>. Ainsi, au lieu que les projets qui référencient
-      <varname>my-project</varname> ajoutent spécialement une dépendance, ceux-ci pourraient référencer une dépendance
-      vers une implémentation spécifique du projet et bénéficieraient ainsi des dépendances transitives.</para>
+      <varname>my-project-swarmcache</varname>. Ainsi, les projets qui référencent <varname>my-project</varname> et qui
+      doivent ajouter une dépendance spécifique, pourraient référencer une dépendance vers une implémentation spécifique
+      et bénéficieraient ainsi des dépendances transitives.</para>
     </section>
 
     <section id="pom-relationships-sect-version-ranges">
@@ -986,29 +986,24 @@
           <primary>ranges for dependency versions</primary>
         </indexterm>dépendance, vous pouvez définir un ensemble de versions acceptables pour une dépendance donnée. Par
       exemple, vous pouvez configurer votre projet pour qu'il dépende de JUnit 3.8 ou supérieure, ou toutes les versions
-      de JUnit comprises entre 1.2.10 et 1.2.14. Pour faire cela vous devez entourer les numéros de versions avec les
+      de JUnit comprises entre 1.2.10 et 1.2.14. Pour celà vous devez entourer les numéros de versions avec les
       caractères suivantes :</para>
-
       <variablelist>
         <varlistentry>
           <term role="plain">(, )</term>
-
           <listitem>
             <para>pour définir un intervalle ouvert</para>
           </listitem>
         </varlistentry>
-
         <varlistentry>
           <term role="plain">[, ]</term>
-
           <listitem>
             <para>pour définir un intervalle fermé</para>
           </listitem>
         </varlistentry>
       </variablelist>
-
       <para>Par exemple si vous voulez accéder aux versions de <code>JUnit </code>supérieures ou égales à 3.8 mais
-      inférieures à 4.0, votre dépendance serait déclarée comme dans l'<xref linkend="ex-dep-range" />.</para>
+      inférieures à 4.0, vous déclareriez votre dépendance comme dans l'<xref linkend="ex-dep-range" />.</para>
 
       <para><example id="ex-dep-range">
           <title>Définition d'un intervalle de versions : JUnit 3.8 - JUnit 4.0</title>
@@ -1052,14 +1047,14 @@
       "[1.2]" signifie uniquement la version 1.2, et rien d'autre.</para>
 
       <note>
-        <para>Quand vous déclarez une version "normale" telle que la version 3.8.2 de Junit, cela est pris en compte par
-        Maven comme "accepter toute version, mais avec une preferrance pour la version 3.8.2". Ce qui signifie que
+        <para>Quand vous déclarez une version "normale" telle que la version 3.8.2 de Junit, Maven voit cette déclaration
+        comme comme "accepter toute version, mais en préferrant la version 3.8.2". Ce qui signifie que
         lorsqu'un conflit est détecté, Maven s'autorise l'utilisation des algorithmes de résolution de conflit pour
-        choisir la meilleure version. Si vous spécifiez [3.8.2], cela indique que seule la version 3.8.2 sera utilisée
+        choisir la meilleure version. Si vous spécifiez [3.8.2], celà indique que seule la version 3.8.2 sera utilisée
         et aucune autre. Si ailleurs il se trouve une dépendance qui spécifie [3.8.1], le build va échouer en vous
-        indiquant le conflit en question. Nous vous précisons tout cela pour que vous soyez au courant de cette option,
-        mais utilisez là que lorsque c'est véritablement nécessaire. Pour résoudre ces conflits de version il est
-        preferrable de passer par la balise <sgmltag>dependencyManagement</sgmltag>.</para>
+        indiquant le conflit en question. Nous vous précisons tout celà pour que vous soyez au courant de cette option,
+        mais n'utilisez là que lorsque c'est véritablement nécessaire. Pour résoudre ces conflits de version il est
+        préferrable de passer par la balise <sgmltag>dependencyManagement</sgmltag>.</para>
       </note>
     </section>
 
@@ -1078,14 +1073,14 @@
       du <varname>projet-c</varname>, alors le <varname>projet-c</varname> est une dépendance transitive du
       <varname>projet-a</varname>. Si le <varname>projet-c</varname> dépendait du <varname>projet-d</varname>, alors le
       <varname>projet-d</varname> serait lui aussi une dépendance transitive du <varname>projet-a</varname>. Un des
-      grands intérêts de Maven et qu'il sait gérer les dépendances transitives et protège ainsi le développeur d'avoir à
+      grands intérêts de Maven et qu'il sait gérer les dépendances transitives et il évite ainsi au développeur d'avoir à
       gérer l'ensemble des dépendances nécessaires pour compiler et exécuter une application. Vous pouvez ainsi dépendre
       uniquement de Spring sans avoir à gérer toutes les dépendances de Spring.</para>
 
       <para>Maven réalise cette opération en construisant un graphe des dépendances et en gérant les conflits et les
       recouvrements qui pourraient arriver. Par exemple, si Maven s'aperçoit que deux projets dépendent des mêmes
       <varname>groupId</varname> et <varname>artifactId</varname>, il va automatiquement trouver la dépendance à
-      utiliser, en faorisant toujours la version la plus récente. Même si tout cela semble fort pratique, il existe un
+      utiliser, en favorisant toujours la version la plus récente. Même si tout celà semble fort pratique, il existe un
       certain nombre de cas où les dépendances transitives peuvent entrainer des problèmes de configuration. Dans ce
       cas, vous pouvez utiliser l'exclusion de dépendance.</para>
 
@@ -1097,8 +1092,8 @@
             <primary>scope, dependency</primary>
 
             <secondary>transitive dependencies and</secondary>
-          </indexterm>dépendance dans le projet, amsi aussi comment elle va se comporter en tant que dépendance
-        transitive. La manière la plus simple de présenter tout cela est sous la forme d'un tableau, comme celui de
+          </indexterm>dépendance dans le projet, mais aussi le comportement transitif de cette dépendance.
+          La manière la plus simple de présenter tout celà est sous la forme d'un tableau, comme celui de
         l'<xref linkend="table-transitive-dep-and-scope" />. Les scopes dans la première ligne représentent le scope
         d'une dépendance transitive. Les scopes dans la colonne de gauche représentent le scope de la dépendance
         directe. L'intersection des lignes et des colonnes donne le scope de la dépendance transitive. Une cellule vide
@@ -1111,7 +1106,7 @@
               <thead>
                 <row>
                   <entry>Scope Direct</entry>
-
+                  
                   <entry>Scope Transitif</entry>
                 </row>
               </thead>
@@ -1183,26 +1178,26 @@
         <para>Pour illustrer la relation entre le scope d'une dépendance transitive et le scope d'une dépendance
         directe, voici quelques exemples. Si le <varname>projet-a</varname> possède une dépendance dans le scope test
         vers le <varname>projet-b</varname> qui a une dépendance dans le scope compile vers le
-        <varname>projet-c</varname>. Le <varname>projet-c</varname> sera donc une dépendance trasitive du
+        <varname>projet-c</varname>. Le <varname>projet-c</varname> sera donc une dépendance transitive du
         <varname>projet-a</varname> dans le scope test.</para>
 
-        <para>Vous pouvez voir celà comme une ligne de transitivité qui agit comme un filtre sur le scope de dépendnace.
+        <para>Vous pouvez voir celà comme une ligne de transitivité qui agit comme un filtre sur le scope de dépendance.
         Les dépendances transitives qui sont dans les scopes test et provided n'ont en général pas d'effet sur un
-        projet. L'exception à cette règle concerne les dépendances transitives dans le scope provided de dépendances
-        elles aussi dans le scope provided qui serot donc des dépendances dans le scope provided du projet. Les
-        dépendances transitives qui sont dans les scopes compile et runtime affectent le projet quelque soit le scope de
-        la dépendance directe. Les dépendances transitives qui sont dans le scope compile resteront dans ce scope
-        quelque soit le scope de la dépendance directe. Les dépendances transitives qui sont dans le scope runtime
-        seront en général dans le même scope que la dépendance directe sauf lorsque cette dernière est dans le scope
-        compile. Quand une dépendance transitive est dans le scope runtime et que la dépendance directe est dans le
-        scope compile alors la dépendance transitive sera dans le scope effectif runtime.</para>
+        projet. L'exception à cette règle concerne les dépendances transitives provided de dépendances elles-aussi
+        provided qui seront donc des dépendances dans le scope provided du projet. Les dépendances transitives qui sont
+        dans les scopes compile et runtime affectent le projet quelque soit le scope de la dépendance directe. Les
+        dépendances transitives qui sont dans le scope compile resteront dans ce scope quelque soit le scope de la
+        dépendance directe. Les dépendances transitives qui sont dans le scope runtime seront en général dans le même
+        scope que la dépendance directe sauf lorsque cette dernière est dans le scope compile. Quand une dépendance
+        transitive est dans le scope runtime et que la dépendance directe est dans le scope compile alors la dépendance
+        transitive sera dans le scope effectif runtime.</para>
       </section>
     </section>
 
     <section id="pom-relationships-sect-conflict">
       <title>Résolution des conflits</title>
 
-      <para>A certians moments il vous faudra exclure une dépendance<indexterm>
+      <para>A certains moments vous aurez besoin d'exclure une dépendance<indexterm>
           <primary>conflict, dependency</primary>
         </indexterm><indexterm>
           <primary>resolving dependency conflicts</primary>
@@ -1239,7 +1234,7 @@
 &lt;/dependency&gt;</programlisting>
         </example></para>
 
-      <para>Souvent, vous svoudrez remplacer une dépendance transitive par une autre implémentation de la
+      <para>Souvent, vous voudrez remplacer une dépendance transitive par une autre implémentation de la
       fonctionnalité. Par exemple, si vous dépendez d'une bibliothèque qui elle-même dépend de l'<acronym>API</acronym>
       <acronym>JTA</acronym> de Sun, vous pouvez vouloir remplacer cette dépendance transitive. Hibernate en est un bon
       exemple. Hibernate dépend du <acronym>JAR</acronym> de l'<acronym>API</acronym> <acronym>JTA</acronym> de Sun qui
@@ -1281,7 +1276,7 @@
         <listitem>
           <para>Le <varname>groupId</varname> ou l'<varname>artifactId</varname> de l'artefact a changé alors que le
           projet nécessite une version avec l'autre nom de cet artefact, ce qui fait que vous vous retrouvez avec deux
-          copies du même projet dans votre classpath. Normalement, Maven trouve ce genre de conflit et utilise une
+          copies du même projet dans votre classpath. Normalement, Maven détecte ce genre de conflit et utilise une
           unique version du projet, mais quand les <varname>groupId</varname> et <varname>artifactId</varname> sont
           différents, Maven les considère comme deux bibliothèques distinctes.</para>
         </listitem>
@@ -1294,7 +1289,7 @@
 
         <listitem>
           <para>Un artefact est fourni par votre conteneur à l'exécution et donc il ne doit pas être inclus par votre
-          build. Par exemple, si une dépendance dépend de l'API Servlet et que vous voulez être sûr que cete dépendance
+          build. Par exemple, si une dépendance dépend de l'API Servlet et que vous voulez être sûr que cette dépendance
           transitive ne se retrouve pas dans le répertoire <filename>WEB-INF/lib</filename> de l'application web.</para>
         </listitem>
 
@@ -1381,7 +1376,7 @@
           <sgmltag>dependencyManagement</sgmltag> du <acronym>POM</acronym> de plus haut niveau,, le numéro de version
           va se rpopager jusqu'à la dépendance <varname>mysql-connector-java</varname> du projet fils. Attention, si le
           projet fils avait défini une version, celle-ci aurait pris le pas sur la version définie dans la section
-          <sgmltag>dependencyManagement</sgmltag> du <acronym>POM</acronym> de plus haut niveau. Tout cela signifie que
+          <sgmltag>dependencyManagement</sgmltag> du <acronym>POM</acronym> de plus haut niveau. Tout celà signifie que
           la version déclarée dans <sgmltag>dependencyManagement</sgmltag> n'est utilisée que lorsque le projet fils ne
           déclare pas de version.</para>
 
@@ -1403,7 +1398,7 @@
 
     <para>Une des raisons par lesquelles nous utilisons Maven est qu'il facilite le suivi des dépendances (et des
     dépendances de dépendances). Quand un projet dépend d'un artefact produit par un autre projet alors cet artefact est
-    une dépendance. Dans le cas d'un projet Java, cela peut aller jusqu'à dépendre d'une dépendance externe comme Log4J
+    une dépendance. Dans le cas d'un projet Java, celà peut aller jusqu'à dépendre d'une dépendance externe comme Log4J
     ou JUnit. Les dépendances peuvent donc représenter des dépendances externes, mais elles permettent aussi de gérer
     les dépendances entre projets. Si le <varname>projet-a</varname> dépend du <varname>projet-b</varname>, Maven est
     suffisamment intelligent pour savoir que le <varname>projet-b</varname> doit être construit avant le
@@ -1451,7 +1446,7 @@
 
             <note>
               <para>Si l'utilisation des '.'s est très courante pour les <varname>groupId</varname>s, vous devriez
-              éviter d'en utiliser pour les <varname>artifactId</varname>s. En effet, cela peut provoquer des problèmes
+              éviter d'en utiliser pour les <varname>artifactId</varname>s. En effet, celà peut provoquer des problèmes
               lors de l'interprétation d'un nom complet jusqu'aux sous-composants.</para>
             </note>
           </listitem>
@@ -1631,7 +1626,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <varname>projet-a</varname> ne spécifie aucun des deux, le <varname>groupId</varname> et la
       <varname>version</varname> sont tous les deux hérités du projet <varname>a-parent</varname>. Lorsqu'une balise
       paren est présente, tout ce qu'un <acronym>POM</acronym> a besoin de définir est l'<varname>artifactId</varname>.
-      Cela 'est pas obligatoire, le <varname>projet-a</varname> peut avoir un <varname>groupId</varname> et une
+      celà 'est pas obligatoire, le <varname>projet-a</varname> peut avoir un <varname>groupId</varname> et une
       <varname>version</varname> différents de ceux du parent, mais s'ils ne sont pas définis alors Maven utilisera ceux
       du <acronym>POM</acronym> parent. Si vous commencez à utiliser Maven pour gérer et construire de gros projets
       multimodules, vous aurez souvent à créer des projets qui auront un même <varname>groupId</varname> et une même
