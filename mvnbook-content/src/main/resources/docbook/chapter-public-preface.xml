@@ -60,7 +60,7 @@
     <xref linkend="part-reference" /> si vous avez lu <xref
     linkend="part-example" />. Maven s'apprend mieux par l'exemple, mais une fois
     ceux-ci faits, vous aurez besoin d'éléments de référence pour commencer à
-    adpter Maven à votre environnement.</para>
+    adapter Maven à votre environnement.</para>
   </section>
 
   <section id="preface-1-sect-feedback">
@@ -71,11 +71,11 @@
     en nous autocongratulant pour un travail terminé. Ce livre n'est pas "terminé";
     en fait, ce livre ne le sera jamais complètement. Le sujet qu'il couvre
     est en perpétuelle évolution et expansion, aussi nous considérons ce travail
-    comme une discussion vivante avec la communité. Publier ce livre signifie juste
+    comme une discussion vivante avec la communauté. Publier ce livre signifie juste
     que le véritable travail vient de commencer, et vous, notre lecteur, vous avez
     un rôle essentiel pour nous aider à maintenir et améliorer ce livre. Si vous
     voyez une erreur quelconque dans ce livre, une faute d'orthographe, du code de
-    mauvaise qualité, un mensonge éhonté, vous devriez nous le dire et nous envoyer
+    mauvaise qualité, un mensonge éhonté, envoyez-nous
     un e-mail à: <ulink url="mailto:tobrien@sonatype.com">book@sonatype.com</ulink>.</para>
 
     <!--TODO: Change this to mavenbook@sonatype.com when it is available.-->
@@ -213,9 +213,9 @@
 
     <para>Sonatype souhaite remercier les contributeurs suivants. Les personnes
     citées ci-dessous ont fourni des retours qui ont permis l'amélioration de la
-    qualité de cet ouvrage. Meci donc à Raymond Toal, Steve Daly, Paul Strack, Paul
+    qualité de cet ouvrage. Merci donc à Raymond Toal, Steve Daly, Paul Strack, Paul
     Reinerfelt, Chad Gorshing, Marcus Biel, Brian Dols, Mangalaganesh
-    Balasubramanian, Marius Kruger, and Mark Stewart. Et plus spécifiquement, 
+    Balasubramanian, Marius Kruger et Mark Stewart. Et plus spécifiquement, 
     merci à Joel Costigliola pour son aide à débogger et corriger le chapitre sur
     Spring web. Stan Guillory était pratiquement un contributeur au vu du nombre
     de corrections qu'il a posté sur le site Get Satisfaction pour ce livre. Merci

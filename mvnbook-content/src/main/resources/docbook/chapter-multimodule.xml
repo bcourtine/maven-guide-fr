@@ -20,9 +20,9 @@
       Le code du projet <literal>simple-weather</literal> développé dans le <xref
     linkend="customizing" /> sera combiné avec le projet 
     <literal>simple-webapp</literal> défini dans le <xref linkend="web" />
-    pour créer une application web qui récupère et affiche des renseignements
+    pour créer une application web qui récupère et affiche des données
     météorologiques sur une page Web. À la fin de ce chapitre, vous serez 
-    capables d'utiliser Maven pour développer des projets multimodules complexes.
+    capable d'utiliser Maven pour développer des projets multimodules complexes.
     </para>
 
     <section id="multimodule-sect-downloading">
@@ -40,7 +40,7 @@
       <screen>${examples.download.url}</screen>
       
       <para>
-      Décompressez cette archive dans n'importe quel répertoire et ouvez le répertoire <filename>ch-multi/</filename>. 
+      Décompressez cette archive dans n'importe quel répertoire et ouvrez le répertoire <filename>ch-multi/</filename>. 
       Celui-ci inclut un répertoire <filename>simple-parent/</filename> qui contient le projet Maven multimodule
       développé dans ce chapitre. Dans ce dernier, vous trouverez un fichier 
       <filename>pom.xml</filename> et deux sous-modules, <filename>simple-weather/</filename> 
@@ -70,7 +70,7 @@
     linkend="ex-multimodule-parent-pom" />.</para>
 
     <example id="ex-multimodule-parent-pom">
-      <title>Projet POM simple-parent</title>
+      <title>POM du projet simple-parent</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -256,8 +256,8 @@
       </indexterm> Le POM parent du module
     <varname>simple-weather</varname> est identifié par un
     <varname>groupId</varname> avec pour valeur
-    <varname>org.sonatype.mavenbook.multi</varname>, par l'
-    <varname>artifactId</varname> <varname>simple-parent</varname>, et par la 
+    <varname>org.sonatype.mavenbook.multi</varname>, par l'<varname>artifactId</varname>
+    <varname>simple-parent</varname>, et par la
     <varname>version</varname> <varname>1.0</varname>. Consultez l'<xref
     linkend="multimodule-weather-service" />.</para>
 
@@ -323,9 +323,9 @@ public class WeatherService {
         <secondary>Exemple d'un projet multimodule</secondary>
         <tertiary>simple sous-module d'une application web</tertiary>
       </indexterm> référençant le projet <varname>simple-parent</varname>.
-      Cette application web a pour dépendance le sous-module <varname>simple-weather</varname> car
-      elle contient des servlets qui permettent d'afficher le résultat de la 
-      recherche sur Yahoo! Météo.</para>
+      Cette application web dépend du sous-module <varname>simple-weather</varname> car
+      elle contient des servlets mettant en forme les résultats de la recherche sur Yahoo!
+      Météo.</para>
 
     <example>
       <title>POM du Module simple-webapp</title>
@@ -415,9 +415,8 @@ public class WeatherServlet extends HttpServlet {
     Les balises <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag>
     du fichier <filename>web.xml</filename> associent l'URI <filename>/weather</filename>
     à la<indexterm class="endofrange" startref="multimod3a"></indexterm><indexterm class="endofrange"
-    startref="multimod3b"></indexterm> servlet <classname>WeatherServlet</classname>.
-    Consultez le code XML nécessaire pour effectuer cette configuration dans l'<xref linkend="ex-simple-webapp-web.xml" />.
-    </para>
+    startref="multimod3b"></indexterm> servlet <classname>WeatherServlet</classname>, comme le montre
+    l'<xref linkend="ex-simple-webapp-web.xml" />.</para>
 
     <example id="ex-simple-webapp-web.xml">
       <title>Fichier web.xml du module simple-webapp</title>
@@ -471,7 +470,7 @@ public class WeatherServlet extends HttpServlet {
       </indexterm> <acronym>WAR</acronym>. Pour cela, vous devez compiler et installer
       les deux projets précédemment créés dans un ordre précis. Comme le projet
       <varname>simple-webapp</varname> dépend du projet
-    <varname>simple-weather</varname>, nous devons transformer de dernier (<varname>simple-weather</varname>)
+    <varname>simple-weather</varname>, nous devons transformer ce dernier (<varname>simple-weather</varname>)
     en <acronym>JAR</acronym> avant de pouvoir compiler la webapp. Pour faire cela, 
     utilisons la commande <command>mvn clean install</command> à partir du projet de plus haut niveau
     <varname>simple-parent</varname> :</para>
@@ -518,12 +517,12 @@ public class WeatherServlet extends HttpServlet {
       à moins que des changements ne soient nécessaires. Une bonne technique pour comprendre
       ce mécanisme consiste à imaginer que les modules avec les dépendances inter projets soient
       descendus dans une liste jusqu'à ce que l'ordre des dépendances soit satisfaisant. 
-      Dans quelques rares occasions, il peut être bon de réarranger manuellement l'ordre de vos modules --
-      par exemple si vous voulez qu'un module fréquemment instable soit remonté en début de build.
+      Dans quelques rares occasions, il peut être bon de réarranger manuellement l'ordre de vos modules 
+      &mdash; par exemple si vous voulez qu'un module fréquemment instable soit remonté en début de build.
       </para>
     </note>
     <para>Dès que le plugin Reactor a trouvé l'ordre dans lequel les projets doivent être construits,
-    Maven exécute les goals indiqués pour chaque module afin d'effectuer le build du projet multi-module.
+    Maven exécute les goals indiqués pour chaque module afin d'effectuer le build du projet multimodule.
     Dans cet exemple, vous pouvez effectivement remarquer que Maven commence par construire 
     le module <varname>simple-weather</varname> avant l'application web <varname>simple-webapp</varname>
     en exécutant la commande <command>mvn clean install</command>.</para>
@@ -541,7 +540,7 @@ public class WeatherServlet extends HttpServlet {
   <section id="multimodule-sect-running-web">
     <title>Exécution de l'Application Web</title>
 
-    <para>Une fois que le projet multi-module a été installé via la commande <command>mvn<indexterm class="startofrange" id="multimod5a">
+    <para>Une fois que le projet multimodule a été installé via la commande <command>mvn<indexterm class="startofrange" id="multimod5a">
         <primary>projet multimodule (exemple)</primary>
         <secondary>exécution</secondary>
       </indexterm><indexterm class="startofrange" id="multimod5b">

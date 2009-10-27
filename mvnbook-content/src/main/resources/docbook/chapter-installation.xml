@@ -8,7 +8,7 @@
   de supposer que vous sachiez comment installer un logiciel et définir des variables d'environnement, nous avons fait
   le choix d'être aussi détaillés que possible afin de réduire le nombre de problèmes que vous pourriez rencontrer suite
   à une installation partielle. La seule chose que nous allons supposer dans ce chapitre est que vous avez déjà installé
-  un <acronym>JDK</acronym> (Java Development Kit) approprié. Si vous n'êtes intéressés que par l'installation
+  un <acronym>JDK</acronym> (Java Development Kit) approprié. Si vous n'êtes intéressé que par l'utilisation  
   elle-même, vous pouvez passer à la suite du livre après avoir lu <xref linkend="installation-sect-maven-download"
   xrefstyle="select: title" /> et <xref linkend="installation-sect-maven-install" xrefstyle="select: title" />. Si vous
   vous intéressez aux détails de votre installation de Maven, ce chapitre y est entièrement consacré, et vous donne une
@@ -30,11 +30,11 @@ Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)</screen></p
     <para>Maven fonctionne avec tous les kits de développement Java <superscript>TM</superscript> certifiés compatibles,
     et également avec certaines implémentations de Java non certifiées. Les exemples fournis avec ce livre ont été
     écrits et testés avec les versions officielles du Java Development Kit téléchargées depuis le site internet de Sun
-    Microsystems. Si vous êtes sous Linux, vous pouvez avoir besoin de télécharger le <acronym>JDK</acronym> de Sun
+    Microsystems. Si vous êtes sous GNU/Linux, vous pouvez avoir besoin de télécharger le <acronym>JDK</acronym> de Sun
     vous-même et vérifier qu'il s'agit de la version que vous utilisez (en exécutant la commande <command>java -version
     </command>). Maintenant que Sun a mis Java en opensource, cela devrait s'améliorer et nous devrions rapidement
     trouver la <acronym>JRE</acronym> et le <acronym>JDK</acronym> de Sun par défaut même dans les distributions
-    puristes de Linux. En attendant ce jour, vous pouvez avoir à le télécharger.</para>
+    puristes de GNU/Linux. En attendant ce jour, vous pouvez avoir à le télécharger.</para>
   </section>
 
   <section id="installation-sect-maven-download">
@@ -150,7 +150,7 @@ Password: ******
       <para>Installer Maven sur Windows est très proche de l'installation sur Mac <acronym>OSX</acronym>. Les
       principales différences sont le répertoire d'installation et la définition des variables d'environnement. Dans ce
       livre, nous allons supposer que le répertoire d'installation de Maven est <filename>c:\Program
-      Files\apache-maven-${maven.version} </filename>, mais ça ne change pas grand-chose si vous installez Maven dans un
+      Files\apache-maven-${maven.version}</filename>. Cela ne change pas grand-chose si vous installez Maven dans un
       autre répertoire, tant que vous configurez correctement les variables d'environnement. Une fois que vous avez
       décompressé Maven dans le répertoire d'installation, il vous faut définir deux variables d'environnement :
       <envar>PATH</envar> et <envar>M2_HOME</envar>. En ligne de commande, vous pouvez définir ces variables
@@ -167,9 +167,9 @@ C:\Users\tobrien &gt;<command>set PATH=%PATH%;%M2_HOME%\bin</command></screen>
     </section>
 
     <section id="installation-sect-maven-linux">
-      <title>Installer Maven sur Linux</title>
+      <title>Installer Maven sur GNU/Linux</title>
 
-      <para>Pour installer Maven sur une machine Linux, suivez la même procédure que <xref
+      <para>Pour installer Maven sur une machine GNU/Linux, suivez la même procédure que <xref
       linkend="installation-sect-maven-osx" />.</para>
     </section>
 
@@ -213,8 +213,8 @@ OS name: "mac os x" version: "10.5.6" arch: "i386" Family: "unix"</screen>
         <para>Avez-vous déjà acheté un disque dur de 200 Go pour vous rendre compte qu'une fois installé il faisait
         moins de 200 GiB ? Les ordinateurs fonctionnent en Gibibytes, mais les boutiques vendent des produits en
         Gigaoctets. MiB représente des Mebibyte soit 2 <superscript>20</superscript> ou 1024
-        <superscript>2</superscript>. Ces mesures standardisées sont validées et reconnues par l'
-        <acronym>IEEE</acronym>, le <acronym>CIPM</acronym>, et l' <acronym>IEC</acronym>. Pour plus d'informations sur
+        <superscript>2</superscript>. Ces mesures standardisées sont validées et reconnues par 
+        l'<acronym>IEEE</acronym>, le <acronym>CIPM</acronym>, et l'<acronym>IEC</acronym>. Pour plus d'informations sur
         Kibibytes, Mebibytes, Gibibytes, et Tebibytes, lisez <ulink
         url="http://en.wikipedia.org/wiki/Mebibyte">http://en.wikipedia.org/wiki/Mebibyte </ulink>,</para>
       </footnote></para>
@@ -239,7 +239,7 @@ lib/</screen>
     répertoire <filename>bin/</filename> contient le script <filename>mvn</filename> <indexterm>
         <primary>mvn script</primary>
       </indexterm>qui permet l'exécution de Maven. Dans <filename>boot/</filename> se trouve le fichier JAR (
-    <filename>classwords-1.1.jar</filename>) qui a pour charge de créer <indexterm>
+    <filename>classwords-1.1.jar</filename>) qui a pour fonction de créer <indexterm>
         <primary>classwords-1.1.jar file</primary>
       </indexterm>le Class Loader dans lequel s'exécute Maven. <filename>conf/</filename> contient un <filename
     role="keep-together">settings.xml</filename> global qui permet <indexterm>

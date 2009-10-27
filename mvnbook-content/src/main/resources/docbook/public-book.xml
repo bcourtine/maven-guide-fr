@@ -176,7 +176,7 @@
       était que les développeurs apprennent mieux lorsqu'ils sont assis à coté d'autres
       développeurs et qu'ils passent par les mêmes schémas de pensée, apprenant à coder
       en réalisant et en expérimentant. Même si cette série fut un succès, le format
-      Notebook avait des limitations. Les Notebooks sont, par essence, des livres
+      Cahier avait des limitations. Les Cahiers du Développeur sont, par essence, des livres
       "avec un but précis" qui vous font passer par une série d'étapes pour atteindre
       des buts très spécifiques. Au contraire, les gros livres de reférence
       (les livres avec un animal chez O’Reilly) apportent un matériel de référence qui
@@ -202,7 +202,7 @@
       <emphasis>Maven: The Definitive Guide</emphasis>, nous avons
       l'intention de changer tout ça en fournissant une référence complète dans la
       <xref linkend="part-reference" />. Dans la Partie I, nous avons conservé la progression
-      narrative d'un Developer’s Notebook ; elle est intéressante car elle permet
+      narrative d'un Chahier du Développeur ; elle est intéressante car elle permet
       d'apprendre Maven par l'exemple. Dans cette partie nous "introduisons en faisant", et dans
       la <xref linkend="part-reference" />, nous comblons les manques et nous nous plongeons dans
       les détails. Là où la <xref linkend="part-reference" /> pourrait utiliser un tableau de référence

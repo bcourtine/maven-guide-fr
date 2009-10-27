@@ -63,15 +63,15 @@
     développer une application Struts 2, Tapestry, Wicket, Java Server Faces
     (<acronym>JSF</acronym>), ou Waffle, et nous n'allons pas non plus
     intégrer un conteneur <acronym>IoC</acronym> (Inversion of Control) comme
-    Plexus, Guice, ou le Framework Spring. Le but de ce chapitre est de vous
+    Plexus, Guice, ou Spring. Le but de ce chapitre est de vous
     montrer les possibilités fournies par Maven pour développer des
     applications web&mdash;ni plus, ni moins. Plus tard dans ce livre nous
     développerons deux applications web : l'une basée sur Hibernate, Velocity,
-    et le Framework Spring ; l'autre utilisant Plexus.</para>
+    et Spring ; l'autre utilisant Plexus.</para>
   </section>
 
   <section id="web-sect-creating-project">
-    <title>Creation du Simple Projet Web</title>
+    <title>Création du Simple Projet Web</title>
 
     <para>Pour créer votre projet d'application web<indexterm
         class="startofrange" id="webapp2">
@@ -84,7 +84,7 @@
     archetype:generate</command> en précisant un <varname>artifactId</varname>
     et un <varname>groupId</varname>. Paramétrez
     l'<varname>archetypeArtifactId</varname> à 
-    <varname>maven-archetype-webapp</varname>. Exécuter cette commande va
+    <varname>maven-archetype-webapp</varname>. L'exécution de cette commande va
     créer la structure des répertoires appropriée et le <acronym>POM</acronym>
     Maven :</para>
     <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.simpleweb \
@@ -237,7 +237,7 @@ package: org.sonatype.mavenbook.simpleweb
 
         <secondary>configuring in pom.xml</secondary>
       </indexterm> vous allez vouloir la déployer dans un conteneur de
-    Servlet et tester l'<filename>index.jsp</filename> qui a été créée par le
+    Servlet et tester la page <filename>index.jsp</filename> qui a été créée par le
     plugin Maven Archetype. Normalement, cela implique de télécharger un serveur
     comme Jetty ou Apache Tomcat, décompresser la distribution, copier
     votre fichier <acronym>WAR</acronym> dans un répertoire
@@ -301,7 +301,7 @@ simple-webapp/target/classes
  <warning>
       <para>Si vous utilisez le plugin Maven Jetty à partir d'un environnement Windows,
       vous devrez probablement déplacer votre dépôt local dans un répertoire qui ne contient pas d'espaces.
-      Des lecteurs nous ont remonté des problèmes lors du démarrage de Jetty par ce que leur 
+      Des lecteurs nous ont remonté des problèmes lors du démarrage de Jetty car leur
       dépôt local était stocké dans le répertoire <filename>"C:\Documents and Settings\&lt;user&gt;"</filename>.
       La solution pour régler ce problème est de déplacer votre repository local Maven dans un répertoire qui ne contient pas d'espaces
       et de redéfinir l'emplacement de votre repository local dans le fichier <filename>~/.m2/settings.xml</filename> 
@@ -312,7 +312,7 @@ simple-webapp/target/classes
     <para>Une fois que Maven a démarré le conteneur de servlet Jetty, ouvrez
     l'URL <ulink
     url="http://localhost:8080/simple-webapp/">http://localhost:8080/simple-webapp/</ulink>
-    dans un navigateur web. La simple page <filename>index.jsp</filename>
+    dans un navigateur web. La page <filename>index.jsp</filename>
     générée par l'Archetype est triviale ; elle contient un titre de second
     niveau avec le texte "Hello World!". Maven s'attend à ce que la racine du site
     web soit dans <filename>src/main/webapp</filename>. C'est dans ce
@@ -351,7 +351,7 @@ simple-webapp/target/classes
   </section>
 
   <section id="web-sect-adding-simple-servlet">
-    <title>Ajouter une simple Servlet</title>
+    <title>Ajouter une Servlet simple</title>
 
     <para>Une application web avec une seule page JSP et sans
     servlet<indexterm class="startofrange" id="webapp4a">
@@ -363,9 +363,9 @@ simple-webapp/target/classes
       </indexterm><indexterm class="startofrange" id="webapp4b">
         <primary>servlets, adding to project</primary>
       </indexterm> configurée est très peu utile. Ajoutons une simple
-    servlet à cette application et modifions le <filename>pom.xml</filename>
-    et le <filename>web.xml</filename> en conséquence.
-    Premièrement, nous allons devoir créer un nouveau package dans
+    servlet à cette application et modifions les fichiers <filename>pom.xml</filename>
+    et <filename>web.xml</filename> en conséquence.
+    Pour commencer, nous allons devoir créer un nouveau package dans
     <filename>src/main/java</filename> nommé
     <package>org.sonatype.mavenbook.web</package> :</para>
 
@@ -401,9 +401,9 @@ public class SimpleServlet extends HttpServlet {
 
     <para>Notre classe <classname>SimpleServlet</classname> est très simple :
     une servlet qui écrit un message simple sur le
-    <classname>Writer</classname> de la réponse. Pour ajouter cette servlet à
-    votre application web, et la faire correspondre à une requête, ajoutez les éléments
-    <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag> de l'exemple de <filename>web.xml</filename>
+    <classname>Writer</classname> de la réponse. 
+    Pour ajouter cette servlet à votre application web et la mapper à l'URL d'une requête,
+    ajoutez les balises <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag> de l'<xref linkend="web-example-configuring-servlet" />
     dans le fichier<indexterm>
         <primary>web.xml file</primary>
 
@@ -416,7 +416,7 @@ public class SimpleServlet extends HttpServlet {
     <filename>web.xml</filename> se trouve dans
     <filename>src/main/webapp/WEB-INF</filename>.</para>
 
-    <example>
+    <example id="web-example-configuring-servlet">
       <title>Configurer la Servlet</title>
 
       <programlisting language="xml">&lt;!DOCTYPE web-app PUBLIC
@@ -438,7 +438,7 @@ public class SimpleServlet extends HttpServlet {
 
     <para>Tout est en place pour tester la servlet ; la classe est bien dans
     <filename>src/main/java</filename> et le <filename>web.xml</filename> a
-    été mis à jour. Avant que vous lanciez le plugin Jetty, compilez votre
+    été mis à jour. Avant que vous ne lanciez le plugin Jetty, compilez votre
     projet en exécutant <command>mvn compile</command> :</para>
 
     <screen>~/examples/ch-simple-web/simple-webapp $ <command>mvn compile</command>
@@ -508,7 +508,7 @@ public class SimpleServlet extends HttpServlet {
     présenté dans l'exemple :</para>
 
     <example>
-      <title>Ajouter la dépendance Servlet 2.4 Specification</title>
+      <title>Ajouter la dépendance à la spécification Servlet 2.4</title>
 
       <programlisting language="xml">&lt;project&gt;
   [...]
@@ -537,11 +537,11 @@ public class SimpleServlet extends HttpServlet {
         <secondary sortas="JSP 2.0 specification">on JSP 2.0
         specification</secondary>
       </indexterm> pour cette simple application web, vous devrez ajouter une
-    dépendance sur la specification <acronym>JSP</acronym> 2.0. Utilisez la
+    dépendance sur la spécification <acronym>JSP</acronym> 2.0. Utilisez la
     configuration présentée dans l'exemple :</para>
 
     <example>
-      <title>Ajouter la dépendance aux Specifications JSP 2.0</title>
+      <title>Ajouter la dépendance aux spécifications JSP 2.0</title>
 
       <programlisting language="xml">&lt;project&gt;
   [...]
@@ -588,7 +588,6 @@ SimpleServlet Executed</screen>
     rapidement une application web. Ce chapitre ne s'est pas étendu sur les
     millions de façons différentes de créer une application web complète,
     d'autres chapitres fourniront plus de détails sur des projets qui mettent
-    en &oelig;uvre quelques uns des frameworks web et technologies les plus
-    populaires.</para>
+    en &oelig;uvre quelques-uns des frameworks web et autres technologies parmi les plus populaires.</para>
   </section>
 </chapter>

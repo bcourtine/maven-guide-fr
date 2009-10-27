@@ -28,25 +28,25 @@
         <secondary>optimizing</secondary>
 
         <see>optimizing POMs</see>
-      </indexterm> d'éléments de Maven doivent intervenir de concert pour produire un un build multimodule complètement
-    fonctionnel. Bien que l'exemple du chapitre précédent représente une véritable application—une application qui
-    intéragit avec une base de données, un web service, et qui elle-même présente deux interfaces : une au travers d'une
-    application web, et l'autre via la ligne de commande—cet exemple de projet reste convenu. Présenter la complexité
-    d'un véritable projet demanderait un livre bien plus épais que celui que vous avez entre les mains. Dans la vie
-    réelle les applications évoluent année après année et sont souvent maintenues par des équipes de développeurs
+      </indexterm> d'éléments de Maven doivent intervenir de concert pour produire un build multimodule complètement
+    fonctionnel. Bien que l'exemple du chapitre précédent représente une véritable application — une application qui
+    interagit avec une base de données, un web service, et qui elle-même présente deux interfaces : une au travers d'une
+    application web, et l'autre via la ligne de commande — cet exemple de projet reste convenu. Présenter la complexité
+    d'un véritable projet demanderait un livre bien plus épais que celui que vous avez entre les mains. Dans la réalité
+    les applications évoluent année après année et sont souvent maintenues par des équipes de développeurs
     nombreuses et variées, chacune se concentrant sur sa propre partie. Dans un véritable projet, vous devez souvent
     évaluer les décisions et la conception faites par d'autres. Dans ce chapitre, nous allons prendre du recul par
-    rapport aux exemples que que vous avez vus dans la <xref linkend="part-example" />, et nous allons nous demander
+    rapport aux exemples que vous avez vus dans la <xref linkend="part-example" />, et nous allons nous demander
     quelles sont les optimisations à réaliser avec ce que nous avons appris sur Maven. Maven est un outil très adaptable
-    qui peut devenir simple ou complexe selon votre besoin. C'est pour cette raison qu'il existe des millions de
-    manières différentes de réaliser la même tâche, et donc il n'existe pas une “bonne” façon de configurer votre projet
-    Maven.</para>
+    qui peut devenir simple ou complexe selon votre besoin. C'est pour cette raison qu'il existe des centaines de
+    manières différentes de configurer votre projet Maven pour réaliser une même tâche mais aucune qui ne saurait
+    prétendre être la “bonne”.</para>
 
-    <para>N'allez par voir dans cette dernière phrase une autorisation à faire faire à Maven des choses pour lesquelles
-    il n'a pas été conçu. Même si Maven permet des approches diverses et variées, il existe sûrement une approche "à la
-    Maven" vous permettant d'être plus efficace et utilisant Maven comme il a été conçu pour être utilisé. Dans ce
-    chapitre, nous allons vous montrer certaines optimisations que vous pouvez appliquer à un projet Maven existant.
-    Pourquoi n'avons nous pas commencé avec un <acronym>POM</acronym> optimisé en premier lieu ? Concevoir des
+    <para>N'allez par voir dans cette dernière phrase une autorisation à détourner à Maven pour lui faire réaliser des
+    choses pour lesquelles il n'a pas été conçu. Même si Maven permet des approches diverses et variées, il existe
+    sûrement une approche "à la Maven" qui utilise Maven comme il a été conçu pour être utilisé et vous rend ainsi plus
+    efficace. Dans ce chapitre, nous allons vous montrer certaines optimisations que vous pouvez appliquer à un projet
+    Maven existant. Pourquoi n'avons nous pas commencé avec un <acronym>POM</acronym> optimisé en premier lieu ? Concevoir des
     <acronym>POM</acronym>s avec une valeur pédagogique est bien différent de la conception de <acronym>POM</acronym>s
     efficaces. S'il est sûrement plus facile de définir certaines valeurs dans votre
     <filename>~/.m2/settings.xml</filename> que de déclarer un profil dans un <filename>pom.xml</filename>, l'écriture
@@ -88,7 +88,7 @@
     répétitions dans un <acronym>POM</acronym> et ses <acronym>POM</acronym>s frères. Quand vous commencez un projet ou
     que celui-ci évolue fréquemment, il est tout à fait acceptable de dupliquer des dépendances et des configurations de
     plugins. Mais au fur et à mesure que votre projet se stabilise et que le nombre de sous-modules augmente, vous
-    devrez prendre le temps de remanier ces élements communs de configuration et de dépendances. Rendre vos
+    devrez prendre le temps de remanier ces éléments communs de configuration et de dépendances. Rendre vos
     <acronym>POM</acronym>s plus efficaces vous aidera énormément à gérer la complexité de votre projet durant sa
     croissance. À chaque fois qu'il y a duplication d'information, il existe une meilleure manière de faire.</para>
   </section>
@@ -96,7 +96,7 @@
   <section id="optimizing-sect-dependencies">
     <title>Optimiser les Dépendances</title>
 
-    <para>Si vous jettez un oeil aux différents <acronym>POM</acronym>s<indexterm class="startofrange" id="optref2a">
+    <para>Si vous jetez un oeil aux différents <acronym>POM</acronym>s<indexterm class="startofrange" id="optref2a">
         <primary>POM (Project Object Model)</primary>
 
         <secondary>optimizing and refactoring</secondary>
@@ -111,20 +111,20 @@
 
         <secondary>optimizing</secondary>
       </indexterm> créés dans le <xref linkend="multimodule-web-spring" />, vous remarquerez plusieurs types de
-    réplication. Le premier type que vous pouvez voir est la duplication de dépendances comme <varname>spring</varname>
+    répétition. Le premier type que vous pouvez voir est la duplication de dépendances comme <varname>spring</varname>
     et <varname>hibernate-annotations</varname> dans plusieurs modules. La dépendance <varname>hibernate</varname> a en
     outre l'exclusion de <package>javax.transaction </package>à chacune de ses définitions. Le<indexterm>
         <primary>duplicated dependency declarations</primary>
       </indexterm><indexterm>
         <primary>replicated dependencies</primary>
-      </indexterm> second type de réplication rencontré vient du fait que parfois plusieurs dépendances sont liées entre
+      </indexterm> second type de répétition rencontré vient du fait que parfois plusieurs dépendances sont liées entre
     elles et partagent la même version. C'est souvent le cas lorsqu'un projet livre plusieurs composants couplés entre
     eux. Par exemple, regardez les dépendances <varname>hibernate-</varname><varname>annotations</varname> et
     <varname>hibernate-commons-annotations</varname>. Toutes les deux ont la même version <varname>3.3.0.ga</varname>,
     et nous pouvons nous attendre à ce que les versions de ces deux dépendances évoluent de concert. Les deux artefacts
     <varname>hibernate-annotations</varname> et <varname>hibernate-commons-annotations</varname> sont des composants du
-    même projet livré par JBoss, et donc quand une nouvelle version de ce projet sort, ces deux dépendances changent. Le
-    troisième et dernier type de réplication est la<indexterm>
+    même projet mis à disposition par JBoss, et donc quand une nouvelle version de ce projet sort, ces deux dépendances
+    changent. Le troisième et dernier type de répétition est la<indexterm>
         <primary>sibling module dependency duplication</primary>
       </indexterm> duplication de dépendances et de version de modules frères. Maven fournit un mécanisme simple pour
     vous permettre de factoriser ces<indexterm>
@@ -149,17 +149,15 @@
         <tertiary>resolving dependency duplication</tertiary>
       </indexterm> duplications dans un <acronym>POM</acronym> parent.</para>
 
-    <para>Comme pour le code source de votre projet, à chaque fois que vous avez une duplication dans vos
-    <acronym>POM</acronym>s, vous laissez la porte ouverte à l'arrivée de problèmes. La cohérence des versions sur un
-    gros projet sera difficile à assurer si des déclarations de dépendance sont dupliquées. Tant que vous avez deux ou
-    trois modules, cela reste gérable, mais lorsque votre organisation utilise un énorme build multimodule pour gérer
-    des centaines de composants produits par plusieurs services, une seule erreur de dépendance peut entraîner chaos et
-    confusion. Une simple erreur de version dans un projet sur une dépendance permettant la manipulation <phrase
-    role="keep-together">de bytecode</phrase> comme <acronym>ASM</acronym> dans les profondeurs des dépendances d'un
-    projet peut devenir le grains de sable qui gripperait une application web, maintenue par une autre équipe de
-    développeurs, qui dépendrait de ce <indexterm>
+    <para>Comme pour le code source de votre projet, chaque duplication dans vos <acronym>POM</acronym>s, est une porte
+    ouverte pour de futurs problèmes . La cohérence des versions sur un gros projet sera difficile à assurer si des
+    déclarations de dépendance sont dupliquées. Tant que vous avez deux ou trois modules, cela reste gérable, mais lorsque 
+    votre organisation utilise un énorme build multimodule pour gérer des centaines de composants produits par plusieurs
+    services, une seule erreur de dépendance peut entraîner chaos et confusion. Une simple erreur de version sur une 
+    dépendance permettant la manipulation <phrase role="keep-together">de bytecode</phrase> comme <acronym>ASM</acronym>
+    dans les profondeurs des dépendances du projet peut devenir le grains de sable qui
+    gripperait une application web, maintenue par une autre équipe de développeurs, et qui dépendrait de ce <indexterm>
         <primary>unit tests</primary>
-
         <secondary>dependency duplication and</secondary>
       </indexterm> module. Les tests unitaires pourraient passer car ils sont exécutés avec une certaine version de la
     dépendance, mais ils échoueraient lamentablement en production là où le package (un WAR, dans ce cas) serait
@@ -171,7 +169,7 @@
 
     <para>La duplication des versions des modules frères peut produire un problème assez redoutable<indexterm>
         <primary>sibling module dependency duplication</primary>
-      </indexterm> qui ne résulte pas directement de Maven, et dont on ne se souvient qu'après l'avoir renconté
+      </indexterm> qui ne résulte pas directement de Maven, et dont on ne se souvient qu'après l'avoir rencontré
     plusieurs fois. Si vous utilisez le plugin Maven Release pour effectuer vos livraisons, toutes les versions de
     dépendance soeurs seront automatiquement mises à jour pour vous, aussi ce n'est pas là que réside le problème. Si
     <varname>simple-web</varname> version <varname>1.3-SNAPSHOT</varname> dépend de <varname>simple-persist</varname>
@@ -197,12 +195,12 @@
     Même si la plupart des développeurs utilisent la version <varname>1.4-SNAPSHOT</varname>, le build fonctionne
     correctement si les versions <varname>1.3-SNAPSHOT</varname> et <varname>1.4-SNAPSHOT</varname> du Composant B sont
     compatibles. Maven continuera à construire le projet en utilisant la version <varname>1.3-SNAPSHOT</varname> du
-    Composant B depuis le dépôt local des développeurs. Tout semble bien se passer—le projet est construit,
+    Composant B depuis le dépôt local des développeurs. Tout semble bien se passer — le projet est construit,
     l'intégration continue est au vert, etc. Quelqu'un peut alors rencontrer un bug étrange en rapport avec le Composant
     B, mais il va se dire que c'est la faute à "pas de chance" et va poursuivre son développement. Pendant ce temps,
     dans la salle des machines la pression monte, jusqu'à ce qu'une des pièces explose ...</para>
 
-    <para>Quelqu'un, appelons le Mr. Distrait, a rencontré un conflit lors de la fusion du Component A, et a
+    <para>Quelqu'un, appelons le Mr. Distrait, a rencontré un conflit lors de la fusion du Composant A, et a
     malencontreusement indiqué que le Composant A dépend de la version <varname>1.3-SNAPSHOT</varname> du Composant B
     alors que le projet continuait sa marche en avant. Une équipe de développeurs essaye de corriger un bug dans le
     Composant B depuis tout ce temps et ils ne comprennent pas pourquoi ils n'arrivent pas à le corriger en production.
@@ -327,7 +325,7 @@
         <see>plugins</see>
       </indexterm> et de définir les versions des projets frères dans le projet parent qui les contient. Cette approche
     est certainement valide, mais nous pouvons aussi résoudre ce problème de version en utilisant deux propriétés
-    prédéfinies —<varname>\${project.groupId}</varname> et <varname>\${project.version}</varname>. Puisqu'il s'agit de
+    prédéfinies — <varname>\${project.groupId}</varname> et <varname>\${project.version}</varname>. Puisqu'il s'agit de
     dépendances entre frères, il n'y a pas grand-chose à gagner à les lister dans le parent, aussi nous allons faire
     confiance à la propriété prédéfinie <varname>\${project.version}</varname>. Comme ces projets font tous partie du
     même groupe, nous pouvons sécuriser d'avantage ces déclarations en faisant référence au groupe du
@@ -378,7 +376,7 @@
         <listitem>
           <para>Utiliser <varname>\${project.version}</varname> et <varname>\${project.groupId}</varname> pour faire
           référence à un projet frère. Les projets frères ont la plupart du temps le même <literal>groupId</literal>, et
-          presque toujours la même version. Utiliser <varname>\${project.version}</varname> vous aidera à éviter<indexterm class="endofrange" startref="optref2a"></indexterm><indexterm class="endofrange"
+          presque toujours la même version. Utiliser <varname>\${project.version}</varname> vous aidera à éviter <indexterm class="endofrange" startref="optref2a"></indexterm><indexterm class="endofrange"
           startref="optref2b"></indexterm><indexterm class="endofrange" startref="optref2c"></indexterm>les incohérences
           de versions entre projets frères comme nous l'avons vu plus tôt.</para>
         </listitem>
@@ -504,7 +502,7 @@
     déclarées explicitement. Comme Maven 2.x inclut les dépendances transivites du scope compile, votre projet peut
     compiler correctement mais ne pas fonctionner en production. Prenons par exemple le cas d'un projet qui utilise les
     classes d'une librairie très utilisée comme Jakarta Commons BeanUtils. Au lieu de déclarer une dépendance explicite
-    sur <phrase role="keep-together">BeanUtils</phrase>, votre projet dépend d'un projet comme Hibernate qui référencie
+    sur <phrase role="keep-together">BeanUtils</phrase>, votre projet dépend d'un projet comme Hibernate qui référence
     BeanUtils comme dépendance transitive. Votre projet peut donc compiler et s'exécuter correctement. Mais si vous
     mettez à jour votre version d'Hibernate et que cette nouvelle version ne dépend plus de BeanUtils, vous allez
     commencer à rencontrer des erreurs de compilation et d'exécution, et il ne sera pas évident de trouver pourquoi
@@ -640,8 +638,8 @@
 
     <para>Comment fait le plugin Maven Dependency pour trouver ces problèmes ? Comment <varname
     role="keep-together">dependency:</varname><varname role="keep-together">analyze</varname> sait-il à quelles classes
-    et à quelles dépendances le bytecode de votre projet fait référence ? Le plugin Dependency utilise l'outil ASM d'
-    ObjectWeb (<ulink url="http://asm.objectweb.org/">http://asm.objectweb.org/</ulink>) <indexterm>
+    et à quelles dépendances le bytecode de votre projet fait référence ? Le plugin Dependency utilise l'outil ASM
+    d'ObjectWeb (<ulink url="http://asm.objectweb.org/">http://asm.objectweb.org/</ulink>) <indexterm>
         <primary>ObjectWeb ASM toolkit</primary>
       </indexterm><indexterm>
         <primary>bytecode analysis (Dependency plugin)</primary>
@@ -681,7 +679,7 @@
   <section id="optimizing-sect-final-poms">
     <title>Les POMs finaux</title>
 
-    <para>En résumé, tous les fichiers des <acronym>POM</acronym>s finaux<indexterm>
+    <para>En résumé, tous les fichiers des <acronym>POM</acronym>s finaux <indexterm>
         <primary>simple-parent POM (for reference)</primary>
       </indexterm><indexterm>
         <primary>pom.xml file</primary>
@@ -824,7 +822,7 @@
     commande de l'outil.</para>
 
     <example id="ex-final-pom-for-simple-command">
-      <title>POM Final POM de simple-command</title>
+      <title>POM Final de simple-command</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -912,7 +910,7 @@
     <varname>simple-model</varname> contient les objets métiers utilisés tout au long de l'application.</para>
 
     <example id="ex-final-pom-for-simple-model">
-      <title>POM Final POM de simple-model</title>
+      <title>POM Final de simple-model</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
