@@ -478,7 +478,7 @@
 
       <para>Suivre ces préconisations pour les numéros de version prend tout son sens lorsque vous commencez à utiliser
       des intervalles pour vos versions dans les <acronym>POM</acronym>s. Les intervalles de versions qui sont abordés
-      dans la <xref linkend="pom-relationships-sect-version-ranges" />, vous permettent de spécifier une dépendence dont
+      dans la <xref linkend="pom-relationships-sect-version-ranges" />, vous permettent de spécifier une dépendance dont
       la version est comprise dans cet intervalle. Cela n'est possible que parce que Maven est capable de trier les
       versions en se basant sur le format de numéro de version dont nous venons de parler.</para>
 
@@ -792,8 +792,8 @@
           <primary>dependencies</primary>
 
           <secondary>scope of</secondary>
-        </indexterm>cinq scopes de dépendance : <literal>compile</literal>, <literal>test</literal>, et
-      <literal>provided</literal>. Le scope controle dans quel classpath vont se retrouver les dépendances, et quelles
+        </indexterm>cinq scopes de dépendance : <literal>compile</literal>, <literal>test</literal> et
+      <literal>provided</literal>. Le scope contrôle dans quel classpath vont se retrouver les dépendances et quelles
       seront celles qui seront intégrées à l'application. Regardons ces scopes plus en détails :</para>
 
       <variablelist>
@@ -804,8 +804,8 @@
             <para><literal>compile</literal> est le scope par défaut ; toutes les dépendances sont dans ce scope
             <indexterm>
                 <primary>compile dependencies</primary>
-              </indexterm><literal>compile</literal>si auncun scope n'est précisé. supplied. Les dépendances du scope
-            <literal>compile</literal> se retrouvent dans tous les classpaths, et sont packagées.</para>
+              </indexterm><literal>compile</literal> si aucun scope n'est précisé. Les dépendances du scope
+            <literal>compile</literal> se retrouvent dans tous les classpaths et sont packagées avec l'application.</para>
           </listitem>
         </varlistentry>
 
@@ -813,7 +813,7 @@
           <term>provided</term>
 
           <listitem>
-            <para>Les dépendances du scope <literal>provided</literal> sont utilisées lorsqu'elels doivent être fournies
+            <para>Les dépendances du scope <literal>provided</literal> sont utilisées lorsqu'elles doivent être fournies
             par le <acronym>JDK</acronym> ou un conteneur. Par <indexterm>
                 <primary>provided dependencies</primary>
               </indexterm>exemple, si vous développez une application web, vous aurez besoin de l'<acronym>API</acronym>
@@ -831,7 +831,7 @@
 
           <listitem>
             <para>Les dépendances du scope <literal>runtime</literal> sont des dépendances nécessaires à l'exécution de
-            l'application et des tests <indexterm>
+            l'application et des tests<indexterm>
                 <primary>runtime dependencies</primary>
               </indexterm>, mais qui sont inutiles à la compilation. Par exemple, vous pouvez avoir besoin d'un
             <acronym>JAR</acronym> pour l'<acronym>API</acronym> <acronym>JDBC</acronym> à la compilation et uniquement
@@ -871,9 +871,9 @@
             <para>Le scope <literal>system</literal> est assez proche du scope <literal>provided</literal> sauf que vous
             devez <indexterm>
                 <primary>system-scope dependencies</primary>
-              </indexterm>fournir un hemin explicite vers le <acronym>JAR</acronym> sur le système de fichiers local. Il
-            permet la compilation utilisant des objets natifs faisant partie des bibliothèques système.. On suppose que
-            cet artéfact est toujours présent et donc il ne sera pas cherché dans un dépôt. Si vous utilisez le scope
+              </indexterm>fournir un chemin explicite vers le <acronym>JAR</acronym> sur le système de fichiers local. Il
+            permet la compilation utilisant des objets natifs faisant partie des bibliothèques système. On suppose que
+            cet artefact est toujours présent et donc il ne sera pas cherché dans un dépôt. Si vous utilisez le scope
             <literal>system</literal>, vous devez automatiquement lui adjoindre une balise
             <sgmltag>systemPath</sgmltag>. Il est important de noter que l'utilisation de ce scope n'est pas recommandée
             (vous devriez toujours essayer de référencer des dépendances qui se trouvent dans un dépôt Maven publique ou
