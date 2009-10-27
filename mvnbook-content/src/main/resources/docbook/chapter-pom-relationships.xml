@@ -468,8 +468,7 @@
       se décomposent ainsi : version majeure, version mineure, version incrémentale et qualifieur. Dans un numéro de
       version ces différents éléments se présentent selon le format suivant :</para>
 
-      <screen>&lt;version majeure&gt;.&lt;version mineure&gt;.&lt;version incrémentale&gt;-&lt;qualifieur&gt;
-</screen>
+      <screen>&lt;version majeure&gt;.&lt;version mineure&gt;.&lt;version incrémentale&gt;-&lt;qualifieur&gt;</screen>
 
       <para>Par exemple, la version "1.3.5" correspond à la version majeure 1, mineure 3 et incrémentale 5. La version 
       "5" correspond à la version majeure 5 sans version mineure ou incrémentale. Le qualifieur est utilisé pour les
@@ -499,18 +498,19 @@
             <primary>qualifiers for project versions</primary>
 
             <secondary>ordering of</secondary>
-          </indexterm> qualifieurs. Prenez, par exemple, les numéros de version “1.2.3-alpha-2” et “1.2.3-alpha-10,” ou
-        “<phrase role="keep-together">alpha-2</phrase>” correspond au second build alpha, et “alpha-10” au dixième build
-        alpha. Même si “alpha-10” devrait être considéré comme plus récent que “alpha-2,” Maven va mettre “alpha-10”
-        avant “alpha-2”. Ceci est du à un problème connu dans la façon dont Maven traite les numéros de version.</para>
+          </indexterm> qualifieurs. Prenez par exemple, les numéros de version “1.2.3-alpha-2” et “1.2.3-alpha-10” où
+        “<phrase role="keep-together">alpha-2</phrase>” correspond au second build alpha et “alpha-10” au dixième build
+        alpha. Alors que le build “alpha-10” devrait être considéré comme plus récent que le build “alpha-2”, Maven va
+        mettre “alpha-10” avant “alpha-2”. Ceci est dû à un problème connu dans la façon dont Maven traite les numéros
+        de version.</para>
 
         <para>Maven doit en théorie considèrer le nombre après le qualifieur comme le numéro du build. En d'autres
         termes, le qualifieur devrait être "alpha", et le numéro du build 2. Même si Maven a été conçu pour séparer le
         numéro du build du qualifieur, cette fonctionnalité ne fonctionne pas actuellement. En conséquence, "alpha-2" et
-        "alpha-10" sont comparés en tant que chaînes, et donc "alpha-10" arrive avant "alpha-2" alphabétiquement. Pour
-        contourner cette limitation, vous devez compléter à gauche vos numéros de version de build qualifiés. Si vous
-        utilisez "alpha-02" et "alpha-10" vous n'aurez plus ce problème, et tout contniuera à bien onctionner le jour où
-        Maven traitera correctement les numéros de version de build.</para>
+        "alpha-10" sont comparés comme des chaînes de caractères, ce qui positionne "alpha-10" avant "alpha-2"
+        alphabétiquement. Pour contourner cette limitation, vous devez compléter à gauche vos numéros de version de build
+        qualifiés. Si vous utilisez "alpha-02" et "alpha-10" vous n'aurez plus ce problème, et tout continuera à bien 
+        fonctionner le jour où Maven traitera correctement les numéros de version de build.</para>
       </section>
 
       <section id="pom-relationships-sect-snapshot-versions">
@@ -521,29 +521,29 @@
             <primary>snapshot versions</primary>
           </indexterm>projet est en cours de développement. Si une version contient la chaîne “SNAPSHOT”, alors Maven va
         prendre en compte cette clef et la convertir en une valeur de type date et heure au format
-        <acronym>UTC</acronym> (Coordinated Universal Time) quand vous installez ou publiez ce composant. Par exemple,
+        <acronym>UTC</acronym> (Coordinated Universal Time) quand vous installerez ou publierez ce composant. Par exemple,
         si votre projet est en version “1.0-SNAPSHOT” et que vous déployez ses artefacts sur un dépôt Maven, Maven va
-        alors convertir cette version en “1.0-20080207-230803-1” si vous réaliser votre déploiement le 7 Février 2008 à
-        23:08 <acronym>UTC</acronym>. En d'autres mots, quand vous déployer un snapshot, vous ne livrez pas un composant
-        logiciel ; vous livrez une photo d'un composant à un instant donné.</para>
+        alors convertir cette version en “1.0-20080207-230803-1” si vous réalisez votre déploiement le 7 Février 2008 à
+        23:08 <acronym>UTC</acronym>. En d'autres termes, quand vous déployez un snapshot, vous ne livrez pas un composant
+        logiciel ; vous livrez un instantané d'un composant.</para>
 
         <para>Pourquoi utiliser cette fontionnalité ? Les versions SNAPSHOT sont utilisées pour les projets en cours de
         développement. Si votre projet dépend d'un composant logiciel en cours de développement, vous pouvez dépendre
         d'une version SNAPSHOT, Maven essayera alors de télécharger périodiquement la dernière version snapshot du dépôt
-        lorsque vous lancerez votre build. De la même manière, si la prochaine livraison de votre système sera en
+        lorsque vous lancerez votre build. De même, si la prochaine livraison de votre système sera la
         version "1.4", tant que votre projet n'est pas livré définitivement il devrait être en version
         "1.4-SNAPSHOT".</para>
 
-        <para>Par défaut, Maven ne va pas vérifier la présence de versions SNAPSHOT sur les dépôts distants, pour
+        <para>Par défaut, Maven ne va pas vérifier la présence de versions SNAPSHOT sur les dépôts distants. Pour
         pouvoir dépendre de versions SNAPSHOT les utilisateurs doivent donc activer explicitement le téléchargement des
         snapshots au travers des balises XML <sgmltag>repository</sgmltag> ou <sgmltag>pluginRepository</sgmltag> dans
         le <acronym>POM</acronym>.</para>
 
         <para>Lorsque vous livrez un projet vos devriez remplacer toutes vos dépendances sur des versions SNAPSHOT par
-        des dépendances vers des versions de projets livrés. Si un projet dépend d'un SNAPSHOT, il n'est pas stable car
-        ses dépendances peuvent évoluer dans le temps. Les artefcts publiés sur les dépôts Maven stables comme <ulink
+        des dépendances vers des versions stables. Si un projet dépend d'un SNAPSHOT, il n'est pas stable car
+        ses dépendances peuvent évoluer dans le temps. Les artefacts publiés sur les dépôts Maven stables comme <ulink
         url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2</ulink> ne peuvent pas dépendre de versions
-        SNAPSHOT, le Super <acronym>POM</acronym> de Maven désactive la publication de snapshots sur le dépôt Central.
+        SNAPSHOT. Le Super <acronym>POM</acronym> de Maven désactive la publication de snapshots sur le dépôt Central.
         Les versions SNAPSHOT sont utilisées uniquement pour le développement.</para>
       </section>
 <!--
@@ -601,19 +601,20 @@
   &lt;/build&gt;
 &lt;/project&gt;</programlisting>
 
-      <para>Si vous écrivez ce <acronym>XML</acronym> dans un <filename>pom.xml</filename> et que vous exécutiez la
-      commande <command>mvn help:effective-pom</command>, vous verrez le message suivant sur la sortie standard :</para>
+      <para>Si vous écrivez ce <acronym>XML</acronym> dans un fichier <filename>pom.xml</filename> et que vous exécutez 
+      la commande <command>mvn help:effective-pom</command>, vous verrez le message suivant s'afficher sur la sortie
+      standard :</para>
 
       <programlisting language="xml">...
 &lt;finalName&gt;org.sonatype.mavenbook-project-a&lt;/finalName&gt;
 ...</programlisting>
 
-      <para>Quand Maven lit un <acronym>POM</acronym>, il remplace les références à des propriétés lorsqu'il charge le
-      <acronym>XML</acronym> du <acronym>POM</acronym> . On rencontre fréquemment des propriétés dans un usage avancé de
+      <para>Quand Maven lit un <acronym>POM</acronym>, il remplace les références vers des propriétés lorsqu'il charge le
+      <acronym>XML</acronym> du <acronym>POM</acronym>. On rencontre fréquemment des propriétés dans un usage avancé de
       Maven. Ces propriétés sont similaires à celles que l'on trouve dans d'autres systèmes comme Ant ou Velocity. Il
-      s'agit tout simplement de variabls délimitées par <varname>\${...</varname><varname>}</varname>. Maven fournit
+      s'agit tout simplement de variables délimitées par <varname>\${...</varname><varname>}</varname>. Maven fournit
       trois variables implicites qui peuvent être utilisées pour accéder aux variables d'environnement, aux informations
-      du<acronym>POM</acronym>, et à votre configuration de Maven :</para>
+      du <acronym>POM</acronym> et à votre configuration de Maven :</para>
 
       <variablelist>
         <varlistentry>
@@ -635,7 +636,7 @@
           <term>project</term>
 
           <listitem>
-            <para>La variable <varname>project</varname> permet d'accéder au <indexterm>
+            <para>La variable <varname>project</varname> permet d'accéder au<indexterm>
                 <primary>project variable</primary>
               </indexterm> <acronym>POM</acronym>. Vous pouvez utiliser un chemin pavé de points (.) pour référencer la
             valeur d'un élément du <acronym>POM</acronym>. Par exemple, dans cette section nous avons utilisé le
@@ -677,9 +678,9 @@
           <listitem>
             <para>Toutes les propriétés accessibles via la méthode<indexterm>
                 <primary>Java system properties, referencing</primary>
-              </indexterm> <methodname>getProperties() </methodname>de la classe
+              </indexterm> <methodname>getProperties()</methodname> de la classe
             <classname>java.lang.</classname><classname>System</classname> sont visibles comme propriétés du
-            <acronym>POM</acronym> properties. Voici quelques exemples de propriétés système :
+            <acronym>POM</acronym>. Voici quelques exemples de propriétés système :
             <varname>\${user.name}</varname>, <varname role="keep-together">\${user.home}</varname>,
             <varname>\${java.home}</varname>, et <varname>\${os.name}</varname>. Une liste complète des propriétés
             système se trouve dans la Javadoc de la classe
@@ -691,14 +692,14 @@
           <term>x</term>
 
           <listitem>
-            <para>Il est possible de définir des propriétés supplémentaires grâce à la balise <indexterm>
+            <para>Il est possible de définir des propriétés supplémentaires grâce à la balise<indexterm>
                 <primary>arbitrary properties, referencing</primary>
-              </indexterm> <varname>properties</varname> dans un <filename moreinfo="none">pom.xml</filename>, dans le
-            fichier <filename moreinfo="none" role="keep-together">settings.xml</filename>, ou enfin en les chargeant
-            depuis des fichiers externes. Si vous définissez une propriété <varname>fooBar</varname> dans votre fichier
-            <filename moreinfo="none">pom.xml</filename>, cette propriété est référencée par
+              </indexterm> <varname>properties</varname>, soit dans un fichier <filename moreinfo="none">pom.xml</filename>,
+              dans le fichier <filename moreinfo="none" role="keep-together">settings.xml</filename>, ou enfin en les
+              chargeant depuis des fichiers externes. Si vous définissez une propriété <varname>fooBar</varname>
+              dans votre fichier <filename moreinfo="none">pom.xml</filename>, cette propriété est référencée par
             <varname>\${fooBar}</varname>. Ces propriétés de configuration sont très pratiques lorsque pour construire
-            votre système vous devez filtrer des ressources que qu vous déployez sur différentes plateformes. Voici la
+            votre système vous devez filtrer des ressources que vous déployez sur différentes plateformes. Voici la
             syntaxe pour déclarer <literal>\${foo}=bar</literal> dans un <acronym>POM</acronym>:</para>
 
             <programlisting language="xml">&lt;properties&gt;
@@ -708,7 +709,7 @@
         </varlistentry>
       </variablelist>
 
-      <para>Pour une liste plus dtaillée des propriétés disponibles, lisez le <xref
+      <para>Pour une liste plus détaillée des propriétés disponibles, lisez le <xref
       linkend="resource-filtering" />.</para>
     </section>
   </section>
@@ -716,7 +717,7 @@
   <section id="pom-relationships-sect-project-dependencies">
     <title>Dépendances d'un projet</title>
 
-    <para>Maven sait gérer des dépendances internes et externes. Une<indexterm class="startofrange" id="pom3a">
+    <para>Maven sait gérer des dépendances internes et externes. Pour un projet Java, une<indexterm class="startofrange" id="pom3a">
         <primary>dependencies</primary>
       </indexterm><indexterm>
         <primary>POM (Project Object Model)</primary>
@@ -738,9 +739,9 @@
         <primary>internal dependencies</primary>
 
         <seealso>dependencies</seealso>
-      </indexterm> dépendance externe pour un projet Java est un bibliothèque telle que Plexus, Spring, ou Log4J. Un
-    exemple de dépendance interne est un projet d'application web qui dépend d'un autre projetcontenant les classes des
-    services, des objets du domaine, ou assurant la persistance. <xref linkend="ex-dependency" /> montre un exemple des
+      </indexterm> dépendance externe est une bibliothèque comme Plexus, Spring ou Log4J. Un
+    exemple de dépendance interne est un projet d'application web qui dépend d'un autre projet contenant les classes des
+    services, des objets du domaine ou assurant la persistance. L'<xref linkend="ex-dependency" /> donne un exemple des
     dépendances d'un projet.</para>
 
     <para><example id="ex-dependency">
@@ -774,13 +775,13 @@
 
     <para>La première dépendance est une dépendance de compilation vers la bibliothèque XFire <acronym>SOAP</acronym> de
     chez Codehaus. Vous pouvez utiliser une dépendance de ce type dans votre projet lorsque celui-ci dépend d'une
-    bibliothèque pour compiler, exécuter les tests, et à l'exécution. La deuxième dépendance est une dépendance sur
+    bibliothèque pour compiler, exécuter les tests et s'exécuter. La deuxième dépendance est une dépendance sur
     JUnit avec la portée (scope) <literal>test</literal>. Vous pouvez utiliser une dépendance dans le scope
     <literal>test</literal> lorsque vous n'avez besoin de cette bibliothèque que pour compiler et exécuter les tests. La
     dernière dépendance de l'<xref linkend="ex-dependency" /> est une dépendance sur l'<acronym>API</acronym> Servlet
-    2.4 . Cette dernière dépendance se trouve dans le scope provided. Vous opuvez utiliser le scope provided quand votre
-    application a besoin d'une bibliothèques à la compilation, ainsi que pour les tests, et que cette bibliothèque est
-    fournie par un conteneur à l'exécution.</para>
+    2.4. Cette dernière dépendance se trouve dans le scope <literal>provided</literal>. Vous pouvez utiliser le scope
+    <literal>provided</literal> quand votre application a besoin d'une bibliothèques à la compilation ainsi que pour les
+    tests et que cette bibliothèque est fournie par un conteneur à l'exécution.</para>
 
     <section id="pom-relationships-sect-dependency-scope">
       <title>Scope de dépendance</title>
