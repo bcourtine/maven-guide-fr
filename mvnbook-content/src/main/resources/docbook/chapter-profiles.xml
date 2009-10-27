@@ -2,87 +2,52 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="profiles">
-  <title>Build Profiles</title>
+  <title>Profils de Build</title>
 
   <section id="profiles-sect-what">
-    <title>What Are They For?</title>
+    <title>À quoi servent-ils ?</title>
 
-    <para>Profiles allow for the ability to customize a particular build for a
-    particular environment; profiles enable portability between different
-    build environments.</para>
+    <para>Les profils permettent de personnaliser un build particulier pour un environnement particulietr; les profils assurent la portabilité entre différents environnements de build.</para>
 
-    <para>What do we mean by different build environments? Two example build
-    environments are production and development. When you are working in a
-    development environment, your system might be configured to read from a
-    development database instance running on your local machine while in
-    production, your system is configured to read from the production
-    database. Maven allows you to define any number of build environments
-    (build profiles) which can override any of the settings in the
-    <filename>pom.xml</filename>. You could configure your application to read
-    from your local, development instance of a database in your "development"
-    profile, and you can configure it to read from the production database in
-    the "production" profile. Profiles can also be activated by the
-    environment and platform, you can customize a build to run differently
-    depending the Operating System or the installed <acronym>JDK</acronym>
-    version. Before we talk about using and configuring Maven profiles, we
-    need to define the concept of Build Portability.</para>
+    <para>Qu'entendons-nous par différents environnements de build ? La production et le développement sont deux environnements typiques. 
+Quand vous travaillez dans l'environnement de développement, votre système est certainement configuré pour travailler sur une base de donnée de développement installée sur le poste local tandis qu'en production, votre système est configuré pour lire dans une base de donnée de production. 
+Maven permet de définir un nombre quelconque d'environnements de build (profils de build) qui peuvent remplacer n'importe quel paramètre dans le <filename>pom.xml</filename>. Vous pourriez configurer votre application pour lire dans votre base de donnée de développement locale dans un profil "development", 
+et la configurer pour lire dans la base de donnée de production dans le profil "production". 
+Les profils peuvent également être activés en fonction de l'environnement et de la plateforme, vous pouvez personnaliser un build pour s'exécuter différemment en fonction du système d'exploitation ou de la version du <acronym>JDK</acronym> installé. 
+Avant que nous parlions de l'utilisation et la configuration des profils Maven, nous devons définir le concept de Portabilité du Buidl.</para>
 
     <section id="profiles-sect-portability">
-      <title>What is Build Portability</title>
+      <title>Qu'est ce que la Portabilité du Build ?</title>
 
-      <para>A build's "portability" is a measure of how easy it is to take a
-      particular project and build it in different environments. A build which
-      works without any custom configuration or customization of properties
-      files is more portable than a build which requires a great deal of work
-      to build from scratch. The most portable projects tend to be widely used
-      open source projects like Apache Commons of Apache Velocity which ship
-      with Maven builds which require little or no customization. Put simply,
-      the most portable project builds tend to just work, out of the box, and
-      the least portable builds require you to jump through hoops and
-      configure platform specific paths to locate build tools. Before we show
-      you how to achieve build portability, let's survey the different kinds
-      of portability we are talking about.</para>
+      <para>La "portabilité" du build est la mesure de la facilité avec laquelle on peut prendre un projet particulier et le construire sur différents environnements. 
+Un build qui fonctionne sans aucune configuration particulière ni personnalisation des fichiers properties est plus portable qu'un build qui nécessite une quantité de travail pour construire un projet depuis 0. Les projets les plus portables sont bien souvent des projets open source très utilisés comme Apache Commons ou Apache Velocity qui fonctionnent avec Maven sans personnalisation ou presque. 
+Pour faire simple, les builds les plus portables fonctionnent, et les moins portables vous demander de jongler et configurer les chemins vers les outils de build en fonction des plateformes. 
+Avant que nousvous dévoilions comment obtenir un build portable, étudions les différents types de portabilité dont nous allons parler.</para>
 
       <section id="profiles-sect-non-portable">
-        <title>Non-Portable Builds</title>
+        <title>Builds non portables</title>
 
-        <para>The lack of portability is exactly what all build tools are made
-        to prevent - however, any tool can be configured to be non-portable
-        (even Maven). A non-portable project is buildable only under a
-        specific set of circumstances and criteria (e.g., your local machine).
-        Unless you are working by yourself and you have no plans on ever
-        deploying your application to another machine, it is best to avoid
-        non-portability entirely. A non-portable build only runs on a single
-        machine, it is a "one-off". Maven is designed to discourage
-        non-portable builds by offering the ability to customize builds using
-        profiles.</para>
-
-        <para>When a new developer gets the source for a non-portable project,
-        they will not be able to build the project without rewriting large
-        portions of a build script.</para>
+        <para>Le manque de portabilité est exactement ce que les outils de build essayent d'éviter - cependant, n'importe quel outil peut être configuré pour être non-portable
+        (même Maven). Un projet non-portable peut être construit seulement dans certaines circonstances spécifiques (ex : votre machine locale).
+        A moins que vous travailliez seul et que vous n'envisagiez pas de déployer votre application sur une autre machine, il vaut mieux éviter complètement la non-portabilité.
+        Un build non-portable fonctionne seulement sur une machine, c'est un build "à usage unique". Maven est conçu pour décourager les buids non-portable en offrant la possibilité de personnaliser les builds en utilisant les profils.</para>
+        <para>Quand un développeur récupère le code source d'un projet non-portable,
+        il ne sera pas en mesure de construire le projet sans remanier une grosse partie du script de build.</para>
       </section>
 
       <section id="profiles-sect-environment-portability">
-        <title>Environment Portability</title>
+        <title>Portabilité sur l'environnement</title>
 
-        <para>A build exhibits environment portability if it has a mechanism
-        for customizing behavior and configuration when targeting different
-        environments. A project that contains a reference to a test database
-        in a test environment, for example, and a production database in a
-        production environment, is environmentally portable. It is likely that
-        this build has a different set of properties for each environment.
-        When you move to a different environment, one that is not defined and
-        has no profile created for it, the project will not work. Hence, it is
-        only portable between defined environments.</para>
+        <para>Un build est qualifié de portable d'un environnement à l'autre s'il possède un mécanisme pour personnaliser le comportement et la configuration en fonction de l'environnement.
+Un projet qui contient une référence à une base de donnée de test dans un environnement de test, par exemple, et à une base de donnée de production dans un environnement de production, est portable sur des environnements. 
+Il est probable que ce build ait différentes propriétés pour chaque environnement.
+Quand vous changez d'environnement, un qui n'est pas défini et qui ne possède pas de profile associé, le projet ne fonctionnera pas. Donc ce n'est portable que sur des environnements bien définis.</para>
 
-        <para>When a new developer gets the source for an environmentally
-        portable project, they will have to run the build within a defined
-        environment or they will have to create a custom environment to
-        successfully build the project.</para>
+        <para>Quand un nouveau développeur récupère le code source d'un projet dépendant de l'environnement, il devra exécuter le build dans cet environnement ou créer un environnement adequat pour pouvoir construire le projet avec succès.</para>
       </section>
 
       <section id="profiles-sect-org-portability">
-        <title>Organizational (In-House) Portability</title>
+        <title>Portabilité interne à une organisation</title>
 
         <para>The center of this level of portability is a project's
         requirement that only a select few may access internal resources such
@@ -177,18 +142,13 @@
   <section id="profiles-sect-maven-profiles">
     <title>Portability through Maven Profiles</title>
 
-    <para>A profile in Maven is an alternative set of configuration values
-    which set or override default values. Using a profile, you can customize a
-    build for different environments. Profiles are configured in the
-    <filename>pom.xml</filename> and are given an identifier. Then you can run
-    Maven with a command-line flag that tells Maven to execute goals in a
-    specific profile. The following <filename>pom.xml</filename> uses a
-    <literal>production</literal> profile to override the default settings of
-    the Compiler plugin.</para>
+    <para>Un profil dans Maven est un ensemble alternatif de valeurs qui définissent ou écrasent les valeurs par défaut.
+    En utilisant un profil, vous pouvez personnaliser un build pour différents environnements. Les profils sont configurés dans le
+    <filename>pom.xml</filename> et possèdent un identifiant. Vous pouez ensuite exécuter Maven en précisant dans la ligne de commande le profil à utiliser.
+Le <filename>pom.xml</filename> suivant utilise un profil <literal>production</literal> pour écraser les paramètres par défaut du plugin Compiler.</para>
 
     <example>
-      <title>Using a Maven Profile to Override Production Compiler
-      Settings</title>
+      <title>Utilisation d'un profil Maven pour écraser les paramètres du compilateur pour la production</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -234,44 +194,35 @@
 </programlisting>
     </example>
 
-    <para>In this example, we've added a profile named
-    <literal>production</literal> that overrides the default configuration of
-    the Maven Compiler plugin. Let's examine the syntax of this profile in
-    detail.</para>
+    <para>Dans cet exemple, nous avons ajouté un profil nommé <literal>production</literal> 
+pour écraser la configuration par défaut du plugin Maven. Examinons la syntaxe de ce profil en détail.</para>
 
     <calloutlist>
       <callout arearefs="coDef-profiles-compile-1"
                id="coRef-profiles-compile-1">
-        <para>The <sgmltag>profiles</sgmltag> element is in the
-        <filename>pom.xml</filename>, it contains one or more
-        <sgmltag>profile</sgmltag> elements. Since profiles override the
-        default settings in a <filename>pom.xml</filename>, the
-        <sgmltag>profiles</sgmltag> element is usually listed as the last
-        element in a <filename>pom.xml</filename>.</para>
+        <para>L'élément <sgmltag>profiles</sgmltag> est dans le 
+        <filename>pom.xml</filename>, il contient un ou plusieurs éléments
+        <sgmltag>profile</sgmltag>. Puisque les profils écrasent les paramètres par défaut dans le <filename>pom.xml</filename>, l'élément
+        <sgmltag>profiles</sgmltag> est habituellement positionné en fin de <filename>pom.xml</filename>.</para>
       </callout>
 
       <callout arearefs="coDef-profiles-compile-2"
                id="coRef-profiles-compile-2">
-        <para>Each profile has to have an <sgmltag>id</sgmltag> element. This
-        <sgmltag>id</sgmltag> element contains the name which is used to
-        invoke this profile from the command-line. A profile is invoked by
-        passing the <command>-P&lt;profile_id&gt;</command> command-line
-        argument to Maven.</para>
+        <para>Chaque profil doit avoir un élément <sgmltag>id</sgmltag>. Cet element
+        <sgmltag>id</sgmltag> contient le nom qui est utilisé pour invoquer ce profil sur la ligne de commande.
+Un profil est invoqué en passant l'argument <command>-P&lt;profile_id&gt;</command> à la ligne de commande Maven.</para>
       </callout>
 
       <callout arearefs="coDef-profiles-compile-3"
                id="coRef-profiles-compile-3">
-        <para>A <sgmltag>profile</sgmltag> element can contain many of the
-        elements which can appear under the <sgmltag>project</sgmltag> element
-        of a POM XML Document. In this example, we're overriding the behavior
-        of the Compiler plugin and we have to override the plugin
-        configuration which is normally enclosed in a <sgmltag>build</sgmltag>
-        and a <sgmltag>plugins</sgmltag> element.</para>
+        <para>Un élément <sgmltag>profile</sgmltag> peut contenir de nombreux éléments contenus dans l'élément <sgmltag>project</sgmltag>
+        d'un POM. Dans cet exemple, nous écrasons le comportement du plugin Compiler et nous devons écraser la configuration du plugin qui se trouve normalement
+dans l'élément <sgmltag>build</sgmltag> et <sgmltag>plugins</sgmltag>.</para>
       </callout>
 
       <callout arearefs="coDef-profiles-compile-4"
                id="coRef-profiles-compile-4">
-        <para>We're overriding the configuration of the Maven Compiler plugin.
+        <para>Nous écrasons We're overriding the configuration of the Maven Compiler plugin.
         We're making sure that the bytecode produced by the production profile
         doesn't contain debug information and that the bytecode has gone
         through the compiler's optimization routines.</para>
