@@ -1759,7 +1759,7 @@ top-parent-project/project-c/pom.xml</programlisting>
         </example></para>
 
       <para>Si vous créez ce projet dans un répertoire <varname>persistence-deps</varname>, tout ce que vous avez à fair
-      ensuite est d'écrire ce fichier <filename>pomxml</filename> et d'exécuter la commande <command>mvn
+      ensuite est d'écrire ce fichier <filename>pom.xml</filename> et d'exécuter la commande <command>mvn
       install</command>. Comme c'est un projet dont le packaging est de type <varname>pom</varname>, ce
       <acronym>POM</acronym> s'installe dans votre dépôt local. Vous pouvez maintenant ajouter ce projet comme
       dépendance de votre projet et toutes ses dépendances seront automatiquement ajoutées à votre projet. Quand vous
@@ -1792,18 +1792,19 @@ top-parent-project/project-c/pom.xml</programlisting>
       <varname>mysql:</varname><varname>mysql-java-connector</varname> puis mettre à jour le numéro de version. Tous les
       projets qui dépendent de <varname>persistence-deps</varname> utiliseront <acronym>JTDS</acronym> s'ils décident
       d'utiliser la nouvelle version. La consolidation des dépendances est une bonne pratique qui permet de réduire la
-      taille des fichiers <filename>pom.xml</filename> qui dépendent d'un grand nombre de dépendances. Si vous devez
+      taille des fichiers <filename>pom.xml</filename> qui ont d'un grand nombre de dépendances. Si vous devez
       partager un grand nombre de dépendances entre plusieurs projets, vous pouvez aussi établir des relations
       parent-enfant entre ceux-ci et extraire toutes les dépendances communes dans le projet parent. La limite de cette
       approche parent-enfant est qu'un projet peut n'avoir qu'un seul parent. Parfois, il est donc plus simple de
       regrouper ces dépendances et de référencer une dépendance de type <literal>pom</literal>. Ainsi, votre projet peut
-      référencer autant de <acronym>POM</acronym> de dépendance selon ce qui est nécessaire.</para>
+      référencer autant de <acronym>POM</acronym> de dépendance selon ses besoins.</para>
 
       <note>
         <para>Maven utilise le niveau d'une dépendance dans l'arbre lorsqu'il résoud un conflit, ne retenant que la
         dépendance la plus proche. Cette technique de regroupement de dépendances les fait descendre d'un niveau dans
-        l'arbre. Ne l'oubliez pas lorsque vous devez choisir entre regrouper des dépendances dans un pom ou utiliser la
-        balise<sgmltag>dependencyManagement</sgmltag> dans un <acronym>POM</acronym> parent.</para>
+        l'arbre. Ne l'oubliez pas lorsque vous devez choisir entre regrouper des dépendances dans un fichier 
+        <filename>pom.xml</filename> ou utiliser la balise<sgmltag>dependencyManagement</sgmltag> dans un
+        <acronym>POM</acronym> parent.</para>
       </note>
     </section>
 
@@ -1826,16 +1827,16 @@ top-parent-project/project-c/pom.xml</programlisting>
           <primary>module inheritance</primary>
 
           <secondary>choosing multimodule projects instead of</secondary>
-        </indexterm> être géré dans un projet multimodule. Un projet parent donne sa configuration à ses enfants. Un
+        </indexterm> être géré dans un projet multimodule. Un projet parent trasfert sa configuration à ses enfants. Un
       projet multimodule gère un ensemble de sous-projets ou modules. Les relations dans un projet multimodule vont du
-      haut vers le bas. Quad vous configurez un projet multimodule, vous indiquez tout simplement que votre build doit
+      haut vers le bas. Quand vous configurez un projet multimodule, vous indiquez tout simplement que votre build doit
       intégrer les modules spécifiés. Les builds multimodules servent à regrouper un ensemble de modules dans un même
       build. La relation parent-enfant va du noeud feuille vers le haut. La relation parent-enfant concerne plutôt la
-      définition d'un projet particulier. Quand vous associez un enfant à son parent, vous indiquez à Maven que le
+      définition d'un projet particulier. Quand vous associez un projet fils à son parent, vous indiquez à Maven que le
       <acronym>POM</acronym> d'un projet dérive d'un autre.</para>
 
       <para>Pour illustrer la prise de décision entre une approche par héritage et une approche multimodule regardez les
-      deux exemples qui vont suivre : le projet Maven utilisé pour produire ce livre, et un projet hypothétique qui
+      deux exemples qui vont suivre : le projet Maven utilisé pour produire ce livre et un projet hypothétique qui
       contient un ensemble logique de modules.</para>
 
       <section id="pom-relationships-sect-simple-project">
@@ -1845,7 +1846,7 @@ top-parent-project/project-c/pom.xml</programlisting>
         présentées dans la <xref linkend="fig-maven-book" />.</para>
 
         <figure id="fig-maven-book">
-          <title>Le projet multimodule maven-book et l'héritage</title>
+          <title>Héritage dans le projet multimodule maven-book</title>
 
           <mediaobject>
             <imageobject role="web">
@@ -1861,22 +1862,22 @@ top-parent-project/project-c/pom.xml</programlisting>
         <para>Quand nous construisons ce livre sur Maven que vous êtes en train de lire, nous exécutons la commande
         <command>mvn package</command> dans un projet multimodule qui s'appelle <varname>maven-book</varname>. Ce projet
         multimodule se compose de deux sous-modules : <varname>book-examples</varname> et
-        <varname>book-chapters</varname>. Aucun de ces projets ne partage le même parent, is ne sont liés que par le
+        <varname>book-chapters</varname>. Aucun de ces projets ne partage le même parent, ils ne sont liés que par le
         fait qu'ils sont tous les deux des modules du projet <varname>maven-book</varname>. Le projet
         <varname>book-examples</varname> construit les archives <acronym>ZIP</acronym> et <acronym>TGZ</acronym> que
-        vous avez téléchargées pour avoir les exemples de ce livre. Quand nous exécutons le build du projet
+        vous avez téléchargées pour obtenir les exemples de ce livre. Quand nous exécutons le build du projet
         <varname>book-examples</varname> depuis le répertoire <filename>book-examples/</filename> avec la commande
         <command>mvn package</command>, il ne sait pas qu'il n'est qu'une partie du projet
         <varname>maven-book</varname>. Le projet <varname>book-examples</varname> ne s'intéresse pas au projet
-        <varname>maven-book</varname>, tout ce qu'il sait que que son parent est le <acronym>POM</acronym>
+        <varname>maven-book</varname>, tout ce qu'il sait est que son parent est le <acronym>POM</acronym>
         <varname>sonatype</varname> de plus haut-niveau et qu'il construit une archive d'exemples. Dans ce cas, le
         projet <varname>maven-book</varname> existe uniquement comme facilitateur en regroupant des modules.</para>
 
         <para>Chacun de ces trois projets : <varname>maven-book</varname>, <varname>book-examples</varname> et
         <varname>book-chapters</varname> ont le même parent "d'entreprise" — <varname>sonatype</varname>. C'est une
         pratique courante dans les organisations qui ont adopté Maven. Au lieu d'avoir chaque projet qui étende le Super
-        <acronym>POM</acronym> par défaut, certaines organisations définissent un <acronym>POM</acronym> d'entre prise
-        de plus haut niveau qui sert de parent par défaut quand un projet n'a aucune raison d'en dépendre d'un autre.
+        <acronym>POM</acronym> par défaut, certaines organisations définissent un <acronym>POM</acronym> d'entreprise
+        de haut niveau qui sert de parent par défaut quand un projet n'a aucune raison d'en dépendre d'un autre.
         Dans ce livre, par exemple, il n'y a aucune raison pour que les projets <varname>book-examples</varname> et
         <varname>book-chapters</varname> partagent le même <acronym>POM</acronym> parent. Il s'agit de projets
         complètements différents avec leurs propres dépendances et configurations. Ils utilisent des plugins très
