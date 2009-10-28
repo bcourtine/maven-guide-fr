@@ -1307,12 +1307,12 @@
     <section id="pom-relationships-sect-dep-manage">
       <title>Gestion des dépendances</title>
 
-      <para>Une fois que vous vez adopté Maven dans votre entreprise extrèemement complexe, vous allez vous demander
-      s'il n'existe pas une meilleure manière de gérer les versiosn des dépendances dans vos deux cent vingt projets
-      Maven inter-dépendants. Si chaque projet qui utilise une dépendance comme le connecteur Java de MySQL doity gérer
-      dans son coin le numéro de version de cette dépendance, vous allez au devant de graves problèmes lorsque vous
-      allez devoir changer cette version. Puisque les numéros de version sont répartis sur l'ensemble d'arbre du projet,
-      vous allez devoir éditer à la main chacun des fichiers <filename>pom.xml</filename> qui fait référence à une
+      <para>Une fois que vous vez adopté Maven dans votre multinationale, vous allez vous demander
+      s'il n'existe pas une meilleure manière de gérer les versions des dépendances dans vos deux cent vingt projets
+      Maven inter-dépendants. Si chaque projet qui utilise une dépendance comme le connecteur Java de MySQL doit gérer
+      dans son coin le numéro de version de cette dépendance, vous allez au devant de graves problèmes le jour où
+      vous allez faire évoluer cette version. Puisque les numéros de version sont répartis sur l'ensemble d'arbre du projet,
+      vous allez devoir éditer à la main chacun des fichiers <filename>pom.xml</filename> qui fait référence à cette
       dépendance pour être sûr de mettre à jour ce numéro de version partout. Même avec des commandes comme
       <command>find</command>, <command>xargs</command>, et <command>awk</command>, vous risquez d'oublier un
       <acronym>POM</acronym>.</para>
@@ -1331,7 +1331,7 @@
       <acronym>POM</acronym> de plus haut niveau de votre projet multimodule.</para>
 
       <para><example>
-          <title>Définition des version dans un POM de haut niveau</title>
+          <title>Définition des versions dans un POM de haut niveau</title>
 
           <programlisting language="xml">&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -1371,11 +1371,11 @@
   &lt;/dependencies&gt;
 &lt;/project&gt;</programlisting>
 
-          <para>Faites attention au fait que le projet fils n'a pas déclaré explicitement la versionde la dépendance à
+          <para>Faites attention au fait que le projet fils n'a pas déclaré explicitement la version de la dépendance à
           <varname>mysql-connector-java</varname>. Comme cette dépendance a été déclarée dans la balise
-          <sgmltag>dependencyManagement</sgmltag> du <acronym>POM</acronym> de plus haut niveau,, le numéro de version
-          va se rpopager jusqu'à la dépendance <varname>mysql-connector-java</varname> du projet fils. Attention, si le
-          projet fils avait défini une version, celle-ci aurait pris le pas sur la version définie dans la section
+          <sgmltag>dependencyManagement</sgmltag> du <acronym>POM</acronym> de plus haut niveau, le numéro de version
+          va se propager jusqu'à la dépendance <varname>mysql-connector-java</varname> du projet fils. Attention, si le
+          projet fils avait défini une version, celle-ci aurait remplacé la version définie dans la section
           <sgmltag>dependencyManagement</sgmltag> du <acronym>POM</acronym> de plus haut niveau. Tout celà signifie que
           la version déclarée dans <sgmltag>dependencyManagement</sgmltag> n'est utilisée que lorsque le projet fils ne
           déclare pas de version.</para>
@@ -1385,10 +1385,10 @@
           les dépendances sont héritées. Si <varname>mysql-connector-java</varname> était déclarée comme une dépendance
           du projet de plus haut niveau, chaque projet fils ferait référence à cette dépendance. Au lieu d'ajouter des
           dépendances inutiles, l'utilisation de la balise <sgmltag>dependencyManagement</sgmltag> vous permet de
-          consolider et de centraliser la gestion des versions des dpendances sans ajouter des dépendances qui seront
-          héritées par tous les projets fils. En d'autres termes, la balise <sgmltag>dependencyManagement</sgmltag> est
+          consolider et de centraliser la gestion des versions des dépendances sans ajouter de dépendances héritées
+          par tous les projets fils. En d'autres termes, la balise <sgmltag>dependencyManagement</sgmltag> est
           équivalente à une variable d'environnement qui vous permet de déclarer une dépendance dans un sous-projet sans
-          avoir à spécifier de numéro de version.</para>
+          avoir à préciser de numéro de version.</para>
         </example></para>
     </section>
   </section>
@@ -1396,18 +1396,17 @@
   <section id="pom-relationships-sect-project-relationships">
     <title>Relations entre projets</title>
 
-    <para>Une des raisons par lesquelles nous utilisons Maven est qu'il facilite le suivi des dépendances (et des
+    <para>Une des raisons pour lesquelles nous utilisons Maven est qu'il facilite le suivi des dépendances (et des
     dépendances de dépendances). Quand un projet dépend d'un artefact produit par un autre projet alors cet artefact est
-    une dépendance. Dans le cas d'un projet Java, celà peut aller jusqu'à dépendre d'une dépendance externe comme Log4J
-    ou JUnit. Les dépendances peuvent donc représenter des dépendances externes, mais elles permettent aussi de gérer
-    les dépendances entre projets. Si le <varname>projet-a</varname> dépend du <varname>projet-b</varname>, Maven est
-    suffisamment intelligent pour savoir que le <varname>projet-b</varname> doit être construit avant le
+    une dépendance. Dans le cas d'un projet Java, celà peut être aussi simple que de dépendre d'une dépendance externe
+    comme Log4J ou JUnit. Les dépendances peuvent donc représenter des dépendances externes, mais elles permettent aussi
+    de gérer les dépendances entre projets. Si le <varname>projet-a</varname> dépend du <varname>projet-b</varname>,
+    Maven est suffisamment intelligent pour savoir que le <varname>projet-b</varname> doit être construit avant le
     <varname>projet-a</varname>.</para>
 
-    <para>Les relations ne se limitent pas aux dépendances et à déterminer tout ce qui est nécessaire à un projet pour
+    <para>Les relations d'un projet ne se limitent pas aux dépendances et à déterminer tout ce qui est lui nécessaire pour
     construire un artefact. Maven sait modèliser les relations d'un projet vers son parent et entre sous-modules. Cette
-    section présente les différentes relations qui peuvent exister entre projets et comment elles sont
-    configurées.</para>
+    section présente les différentes relations qui peuvent exister entre projets et comment les configurer.</para>
 
     <section id="pom-relationships-sect-more-coordinates">
       <title>Au sujet des coordonnées</title>
