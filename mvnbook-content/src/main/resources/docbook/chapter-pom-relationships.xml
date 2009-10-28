@@ -1709,7 +1709,7 @@ top-parent-project/project-c/pom.xml</programlisting>
     <section id="pom-relationships-sect-grouping-deps">
       <title>Regrouper les dépendances</title>
 
-      <para>Si vous avez un ensemble de dépendances qui sont logiquement liées les unes aux autres. Vous pouvez créer un
+      <para>Si vous avez un ensemble de dépendances qui sont logiquement liées les unes aux autres vous pouvez créer un
       projet de type <varname>pom</varname> qui va les regrouper. Par exemple, supposons que votre application utilise
       Hibernate, un célèbre framework de mapping Objet-Relationnel. Tout projet qui utilise Hibernate dépend aussi de
       Spring et du pilote <acronym>JDBC</acronym> pour MySQL. Au lieu d'avoir à déclarer ces dépendances dans chaque
