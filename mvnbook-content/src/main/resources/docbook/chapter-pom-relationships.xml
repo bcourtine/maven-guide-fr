@@ -1890,15 +1890,15 @@ top-parent-project/project-c/pom.xml</programlisting>
         <title>Projet multimodule d'entreprise</title>
 
         <para>Regardons un exemple qui fournit une image plus précise de ce que pourrait être un véritable projet où
-        l'héritage et les relations multimodules existent cote à cote. La <xref linkend="fig-multi-module" /> montre un
+        l'héritage et les relations multimodules existent côte à côte. La <xref linkend="fig-multi-module" /> montre un
         ensemble de projets qui ressemblent à ceux que l'on pourrait rencontrer dans une véritable application
-        d'entreprise. Il y a un <acronym>POM</acronym> de plus haut-niveau pour l'entreprise avec un
+        d'entreprise. Il y a un <acronym>POM</acronym> de haut niveau pour l'entreprise avec un
         <varname>artifactId</varname> ayant pour valeur <varname>sonatype</varname>. Il y a ensuite un projet
         multimodule <varname>big-system</varname> qui référence les sous-modules <varname>server-side</varname> et
         <varname>client-side</varname>.</para>
 
         <figure id="fig-multi-module">
-          <title>Projet multmodule d'entreprise ou héritage</title>
+          <title>Héritage dans un projet multimodule d'entreprise</title>
 
           <mediaobject>
             <imageobject role="web">
@@ -1914,7 +1914,7 @@ top-parent-project/project-c/pom.xml</programlisting>
         <para>De quoi s'agit il ? Essayons de donner un sens à toutes ces flêches. Tout d'abord, regardons
         <varname>big-system</varname>. Le projet <varname>big-system</varname> pourrait être le projet dans lequel vous
         exécuteriez la commande <command>mvn package</command> pour contruire et tester le système dans son entier. Le
-        projet <varname>big-system</varname> référence les sous-mdoules <varname>client-side</varname> et
+        projet <varname>big-system</varname> référence les sous-modules <varname>client-side</varname> et
         <varname>server-side</varname>. Chacun de ces projets regroupe le code qui s'exécute côté serveur et côté
         client. Concentrons nous le projet <varname>server-side</varname>. Sous ce projet <varname>server-side</varname>
         se trouve un projet appelé <varname>server-lib</varname> et un projet multimodule <varname>web-apps</varname>.
@@ -1923,58 +1923,57 @@ top-parent-project/project-c/pom.xml</programlisting>
 
         <para>Commençons par les relations parent/enfant de <varname>client-web</varname> et
         <varname>admin-web</varname> avec <varname>web-apps</varname>. Puisque ces deux applications web utilisent le
-        même framework (Wicket par exemple), ces deux projets partagnt un même ensemble de dépendances. Les dépendances
+        même framework (Wicket par exemple), ces deux projets partagent un même ensemble de dépendances. Les dépendances
         vers l'<acronym>API</acronym> <acronym>Servlet</acronym>, l'<acronym>API</acronym> <acronym>JSP</acronym> et
         Wicket seraient toutes regroupées dans le projet <varname>web-apps</varname>. Ces deux
-        projets<varname>client-web</varname> et <varname>admin-web</varname> doivent aussi dépendre de
-        <varname>server-lib</varname>. Cette dépendance devrait être définie comme une dépendance entre
-        <varname>web-apps</varname> et <varname>server-lib</varname>. Puisque <varname>client-web</varname> et
-        <varname>admin-web</varname> partagent toute cette configuration en héritant de <varname>web-apps</varname>, ces
+        projets <varname>client-web</varname> et <varname>admin-web</varname> doivent aussi dépendre de
+        <varname>server-lib</varname>. Cette dépendance sera définie comme une dépendance de <varname>web-apps</varname>
+        vers <varname>server-lib</varname>. Puisque <varname>client-web</varname> et <varname>admin-web</varname>
+        partagent toutes les deux cette configuration en héritant de <varname>web-apps</varname>, ces
         deux projets auront des <acronym>POM</acronym>s succints contenant tout au plus les identifiants, le parent et
         le nom de l'artefact final.</para>
 
-        <para>Maintenant, concentrons nous sur la relation parent/enfant de <varname>web-apps</varname> et
-        <varname>server-lib</varname> vers <varname>server-side</varname>. Dans ce cas ci, supposons que'il existe deux
-        groupes de développeurs séparés , l'un qui travaille surle code côté serveur, et l'autre sur le code côté
+        <para>Maintenant, concentrons-nous sur la relation parent/enfant de <varname>web-apps</varname> et
+        <varname>server-lib</varname> vers <varname>server-side</varname>. Dans ce cas-ci, supposons qu'il existe deux
+        groupes de développeurs séparés, l'un qui travaille surle code côté serveur et l'autre sur le code côté
         client. La liste des développeurs serait configurée dans le POM du projet <varname>server-side</varname> et
         héritée par ses projets fils : <varname>web-apps</varname>, <varname>server-lib</varname>,
         <varname>client-web</varname> et <varname>admin-web</varname>. Nous pourrions aussi imaginer que le projet
         <varname>server-side</varname> soit configuré différemment pour prendre en compte les spécificités du
-        développement côté serveur. Le projet <varname>server-side</varname> pourrait utiliser un profile qui n'aurait
-        de sens que pour tous les projets <varname>server-side</varname>. Ce profile pourrait contenir les informations
-        de connexion à la base de données, ou le <acronym>POM</acronym> de ce projet
-        <varname>server-side</varname>pourrait configurer une version spécifique du plugin Maven Jetty qui serait
-        partagée par touts les projets qui hériteraient du <acronym>POM</acronym> <varname>server-side</varname>
-        .</para>
+        développement côté serveur. Le projet <varname>server-side</varname> pourrait utiliser un profil qui n'aurait
+        de sens que pour tous les projets <varname>server-side</varname>. Ce profil pourrait contenir les informations
+        de connexion à la base de données, ou le <acronym>POM</acronym> de ce projet <varname>server-side</varname>
+        pourrait configurer une version spécifique du plugin Maven Jetty qui serait récupérée par tous les projets
+        qui hériteraient du <acronym>POM</acronym> <varname>server-side</varname>.</para>
 
         <para>Dans cet exemple, la principale raison d'utiliser les relations parent/enfant est cet ensemble de
         dépendances partagées et la configuration commune à un groupe de projets qui sont liés logiquement. Tous les
-        projets sous <varname>big-system</varname> sot liés les uns aux autre en tant que sous-modules, cependant tous
+        projets sous <varname>big-system</varname> sont liés les uns aux autres en tant que sous-modules, cependant tous
         les sous-modules ne sont pas obligés de déclarer comme parent le projet qui les a déclarés comme sous-module.
         Tout est sous-module pour des raisons de simplification, pour construire le système dans son ensemble allez dans
         le répertoire du projet <varname>big-system</varname> et exécutez la commande <command>mvn package</command>. Si
         vous regardez attentivement la figure vous noterez qu'il n'existe pas de relation parent/enfant entre les
-        projets <varname>server-side</varname> et <varname>big-system</varname>. Pourquoi donc? L'héritage de
-        <acronym>POM</acronym> est très puissante mais il peut être utilisé à mauvais escient. Quand le partage de
+        projets <varname>server-side</varname> et <varname>big-system</varname>. Pourquoi donc ? L'héritage de
+        <acronym>POM</acronym> est très puissant mais il ne doit pas être utilisé à tord et à travers. Quand le partage de
         dépendances et de configuration a du sens, il faut utiliser la relation parent/enfant. Mais elle n'a pas de sens
-        lorsque les deux projets ont de grandes différences. Ce qui est le cas, par exemple, des projets
+        lorsque les deux projets sont très différents. Ce qui est le cas, par exemple, des projets
         <varname>server-side</varname> et <varname>client-side</varname>. Il est tout à fait possible de concevoir un
         système où <varname>client-side</varname> et <varname>server-side</varname> héritent du <acronym>POM</acronym>
-        commun de <varname>big-system</varname>, mais dès qu'une divergence significative entre ces deux projets
-        apparait, vous llez devoir trouver des manières subtiles pour factoriser la configuration commune dans
-        <varname>big-system</varname> sans perturber tous les fils. Même si <varname>client-side</varname> et
+        commun de <varname>big-system</varname>. Cependant à chaque apparition d'une divergence significative entre ces
+        deux projets il va falloir trouver des manières subtiles pour factoriser la configuration commune dans
+        <varname>big-system</varname> sans perturber tous les projets fils. Même si <varname>client-side</varname> et
         <varname>server-side</varname> partagent la même dépendance à Log4J, ils peuvent avoir des configurations de
         plugins très différentes.</para>
 
-        <para>Il existe un certain point, dont la position dépend de votre style et de votre expérience, au delà duquel
-        vous estimez que la duplication de configuration est acceptable pour laisser indépendants des projets comme
-        <varname>client-side</varname> et <varname>server-side</varname>. Concevoir un système qui se compose de plus de
-        trente projets qui héritent de plus de cinq niveaux de POM de configuration n'est pas la meilleure idée qu'on
+        <para>Il existe un certain point, dont la position dépend de votre style et de votre expérience, au-delà duquel
+        vous estimerez que la duplication de configuration est acceptable pour garder des projets comme
+        <varname>client-side</varname> et <varname>server-side</varname> indépendants . Concevoir un système qui se
+        compose de dizaines de projets sur plus de cinq niveaux d'héritage de POM  n'est pas la meilleure idée qu'on
         puisse avoir. Dans une telle configuration, vous n'avez pas dupliqué votre dépendance à Log4J, mais vous devrez
         naviguer entre les cinq niveaux de POM pour comprendre comment Maven calcule votre POM effectif. Toute cette
-        complexité pour éviter d'avoir à dupliquer cinq fois les quelques lignes d'une dépendance. Avec Maven, il existe
-        "une manière Maven de faire", mais il y a bien d'autres façons de faire. Au final tout est question de
-        préferrences et de style. Dans la plupart des cas vous n'aurez pas de soucis si votre sous-modules déclarent le
+        complexité pour éviter d'avoir à dupliquer cinq fois les quelques lignes d'une dépendance. Avec Maven, il y a
+        toujours "une manière Maven de faire" mais il en existe bien d'autres. Au final tout est question de
+        préferrences et de style. Dans la plupart des cas vous n'aurez pas de soucis si vos sous-modules déclarent le
         même projet comme parent, mais il se peut que votre utilisation de Maven évolue dans temps.</para>
       </section>
     </section>
