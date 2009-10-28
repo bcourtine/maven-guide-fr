@@ -1697,14 +1697,14 @@ top-parent-project/project-c/pom.xml</programlisting>
   </section>
 
   <section id="pom-relationships-sect-pom-best-practice">
-    <title>Mes bonnes pratiques du POM</title>
+    <title>Les bonnes pratiques du POM</title>
 
-    <para>Maven peut être utilisé pour tout gérer, depuis des systèmes composé d'un projet tout simple à des systèmes
+    <para>Maven peut être utilisé pour tout gérer, depuis des systèmes composés d'un projet tout simple à des systèmes
     comprenant des dizaines de sous-modules liés les uns aux autres. Pour utiliser Maven il ne suffit pas d'apprendre la
     syntaxe nécessaire à sa configuration, il faut apprendre le "Maven Way" (la "manière Maven") —un ensemble de bonnes
-    pratiques pour orgaiser et construire des projets avec Maven. Cette section essaye d'en donner certains éléments
-    pour vous éviter d'avoir à creuser dans les couches de discussions des listes de diffusion de Maven qui se sont
-    accumulées au fil des années.</para>
+    pratiques pour organiser et construire des projets avec Maven. Cette section essaye d'en donner certains éléments
+    pour vous éviter d'avoir à creuser dans les strates de fils de discussions des listes de diffusion de Maven qui se
+    sont accumulées au cours des années.</para>
 
     <section id="pom-relationships-sect-grouping-deps">
       <title>Regrouper les dépendances</title>
