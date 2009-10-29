@@ -99,38 +99,37 @@
 
       <para>Evidemment, vous voulez éviter le pire cas : le build non-portable. Vous avez peut-être connu le malheur de
       travailler ou d'étudier pour une organisation dont les applications critiques ont des builds non-portables.
-      Das une organisation comme celle-là, impossible de déployer une application sans une personne bien spécifique
-      sur une machine bien spécifique aussi.
-      In such an organization, it is also very difficult to introduce new project dependencies or changes without
-      coordinating the change with the single person who maintains such a non-portable build. Non-portable builds tend
-      to grow in highly political environments when one individual or group needs to exert control over how and when a
-      project is built and deployed. "How do we build the system? Oh, we've got to call Jack and ask him to build it for
-      us, no one else deploys to production." That is a dangerous situation which is more common that you would think.
-      If you work for this organization, Maven and Maven profiles provide a way out of this mess.</para>
+      Dans une organisation comme celle-là, impossible de déployer une application sans une personne bien spécifique
+      sur une machine bien spécifique aussi. Avec une telle organisation, il est très difficile d'introduire de nouvelles
+      dépendances ou des changements sans se coordonner avec la personne qui gère ce build non-portable. Ces builds
+      non-portables ont tendances à se développer dans des environnements très politiques où une personne ou un groupe
+      veut contrôler quand et comment un projet est construit et déployé. "Comment construit-on le système ? Oh, nous
+      devons appeler Jack et lui demander de nous le construire, personne d'autre ne peut déployer en production". C'est
+      une situation périlleuse qui est beaucoup plus fréquente qu'on ne le pense. Si vous travaillez dans cette
+      organisation, Maven et les profils Maven sont votre porte de sortie.</para>
 
-      <para>On the opposite end of the portability spectrum are widely portable builds. Widely portable builds are
-      generally the most difficult build systems to attain. These builds restrict your dependencies to those projects
-      and tools that may be freely distributed and are publicly available. Many commercial software packages might be
-      excluded from the most-portable builds because they cannot be downloaded before you have accepted a certain
-      license. Wide portability also restricts dependencies to those pieces of software that may be distributed as Maven
-      artifacts. For example, if you depend upon Oracle JDBC drivers, your users will have to download and install them
-      manually; this is not widely portable as you will have to distribute a set of environment setup instructions for
-      people interested in building your application. On the other hand, you could use a JDBC driver which is available
-      from the public Maven repositories like MySQL or HSQLDB.</para>
+      <para>A l'autre bout du spectre de la portabilité se trouvent les builds très portables. Ces builds sont des builds
+      très difficiles à atteindre. Ils restreignent vos dépendances aux projets et aux outils qui sont librement
+      distribuables et facilement accessibles. De nombreux packages commerciaux doivent être exclus des builds les plus
+      portables car ils ne peuvent être téléchargés sans que vous n'ayez à accepter une license spécifique. Cette large
+      portabilité va aussi restreindre les dépendances aux logiciels qui sont distribués sous la forme d'artefacts Maven.
+      Par exemple, si vous dépendez des pilotes JDBC d'Oracle, vos utilisateurs devront les télécharger et les installer
+      manuellement ; ce n'est pas très portable car vous devrez fournir les intructions nécessaires pour configurer
+      l'environnement afin que les personnes itéressées puissent construire votre application. D'un autre côté, vous
+      pourriez utiliser un pilote JDBC disponible sur le dépôt publique de Maven comme MySQL ou HSQLDB.</para>
 
-      <para>As stated previously, open source projects benefit from having the most widely portable build possible.
-      Widely portable builds reduce the inefficiencies associated with contributing to a project. In an open source
-      project (such as Maven) there are two distinct groups: end-users and developers. When an end-user uses a project
-      like Maven and decides to contribute a patch to Maven, they have to make the transition from using the output of a
-      build to running a build. They have to first become a developer, and if it is difficult to learn how to build a
-      project, this end-user has a disincentive to take the time to contribute to a project. In a widely portable
-      project, an end-user doesn't have to follow a set or arcane build instructions to start becoming a developer, they
-      can download the source, modify the source, build, and submit a contribution without asking someone to help them
-      set up a build environment. When the cost of contributing source back to an open-source project is lower, you'll
-      see an increase in source code contributions, especially casual contributions which can make the difference
-      between a project's success and a project's failure. One side-effect of Maven's adoption across a wide group of
-      open source projects is that it has made it easier for developers to contribute code to various open source
-      projects.</para>
+      <para>Comme nous l'avons vu précédemment, les projets libres bénéficient d'avoir des builds le plus portable
+      possible. Les builds très portables réduisent le coût de contribution à un projet. Dans un projet libre (comme Maven)
+      on trouve deux groupes très distincts : les développeurs et les utilisateurs finaux. Quand un utilisateur final
+      utilise Maven et qu'il décide de contribuer en proposant un patch de Maven, il doit passer de l'utilisation de
+      l'artefact résultat d'un build à produire cet artefact. Il doit donc tout d'abord se transformer en développeur, et
+      si apprendre à construire ce projet est trop compliqué, alors cet utilisateur perdra de sa motivation à contribuer
+      au projet. Avec un projet très portable, un utilisateur n'a pas à connaitre les arcanes du projet pour se
+      tranformer en développeur, il peut télécharger le code source, le modifier, construire son artefact et proposer sa
+      contribution sans avoir à demander de l'aide pour configurer son environnement. Plus le coût d'entrée pour
+      contribuer à un projet libre est bas et plus le nombre de contributions augmente, surtout dans ces petites contributions
+      qui font la différence pour la réussite d'un projet. Une des conséquences de l'adoption de Maven par un grand nombre
+      de projets libres est que contribuer à ces projets est devenu beaucoup plus facile.</para>
     </section>
   </section>
 
