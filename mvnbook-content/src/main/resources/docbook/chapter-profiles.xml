@@ -38,14 +38,14 @@
         <title>Builds non portables</title>
 
         <para>Le manque de portabilité est exactement ce que les outils de build essayent d'éviter - cependant,
-        n'importe quel outil peut être configuré pour être non-portable (même Maven). Un projet non-portable peut être
-        construit seulement dans certaines circonstances spécifiques (ex : votre machine locale). A moins que vous
-        travailliez seul et que vous n'envisagiez pas de déployer votre application sur une autre machine, il vaut mieux
-        éviter complètement la non-portabilité. Un build non-portable fonctionne seulement sur une machine, c'est un
-        build "à usage unique". Maven est conçu pour décourager les buids non-portable en offrant la possibilité de
-        personnaliser les builds en utilisant les profils.</para>
+        n'importe quel outil peut être configuré pour être non-portable (même Maven). Un projet n'est pas portable
+        lorsqu'il ne peut être construit que dans certaines circonstances spécifiques (ex : votre machine locale). A
+        moins que vous travailliez seul et que vous n'envisagiez pas de déployer votre application sur une autre machine,
+        il vaut mieux éviter complètement la non-portabilité. Un build non-portable fonctionne seulement sur une machine,
+        c'est un build "à usage unique". Maven est conçu pour décourager les buids non-portables en offrant la
+        possibilité de personnaliser les builds grâce aux profils.</para>
 
-        <para>Quand un développeur récupère le code source d'un projet non-portable, il ne sera pas en mesure de
+        <para>Quand un développeur récupère le code source d'un projet non-portable, il n'est pas en mesure de
         construire le projet sans remanier une grosse partie du script de build.</para>
       </section>
 
@@ -55,50 +55,52 @@
         <para>Un build est qualifié de portable d'un environnement à l'autre s'il possède un mécanisme pour
         personnaliser le comportement et la configuration en fonction de l'environnement. Un projet qui contient une
         référence à une base de donnée de test dans un environnement de test, par exemple, et à une base de donnée de
-        production dans un environnement de production, est portable sur des environnements. Il est probable que ce
-        build ait différentes propriétés pour chaque environnement. Quand vous changez d'environnement, un qui n'est pas
-        défini et qui ne possède pas de profile associé, le projet ne fonctionnera pas. Donc ce n'est portable que sur
-        des environnements bien définis.</para>
+        production dans un environnement de production, est portable sur ces environnements. Il est probable que ce
+        build ait différentes propriétés pour chaque environnement. Quand vous changez pour un environnement pour qui
+        n'est pas défini et qui ne possède pas de profile associé, le projet ne fonctionnera pas. Donc un projet n'est
+        portable que sur des environnements bien définis.</para>
 
         <para>Quand un nouveau développeur récupère le code source d'un projet dépendant de l'environnement, il devra
-        exécuter le build dans cet environnement ou créer un environnement adequat pour pouvoir construire le projet
-        avec succès.</para>
+        exécuter le build dans cet environnement ou créer un environnement adequat pour réussir à construire le projet.
+        </para>
       </section>
 
       <section id="profiles-sect-org-portability">
         <title>Portabilité interne à une organisation</title>
 
-        <para>The center of this level of portability is a project's requirement that only a select few may access
-        internal resources such as source control or an internally-maintained Maven repository. A project at a large
-        corporation may depend on a database available only to in-house developers, or an open source project might
-        require a specific level of credentials to publish a web site and deploy the products of a build to a public
-        repository.</para>
+        <para>Le point clef de cet environnement est que seuls quelques uns ont accès à des ressources internes comme le
+        gestionnaire de configuration ou le dépôt interne Maven. Un projet dans une grande entreprise peut dépendre de
+        la présence d'une base de données accessibls uniqument pour les développeurs internes. Un projet libre peut
+        exiger un certain niveau de droits pour pouvoir publier le site web et les artefacts produits sur un dépôt
+        publique.</para>
 
-        <para>If you attempt to build an in-house project from scratch outside of the in-house network (for example,
-        outside of a corporate firewall), the build will fail. It may fail because certain required custom plugins are
-        unavailable, or project dependencies cannot be found because you don't have the appropriate credentials to
-        retrieve dependencies from a custom remote repository. Such a project is portable only across environments in a
-        single organization.</para>
+        <para>Si vous essayez de construire un projet interne hors du réseau interne de l'entreprise (par exemple de
+        l'autre coté du firewall), le build va échouer. Il se peut que celà vienne de plugins propres à l'entreprise qui
+        ne sont pas disponibles ou des dépendances du projet qui ne peuvent être trouvées car vous n'avez pas les droits
+        nécessaires pour accéder au dépôt distant d'entreprise. Un tel projet n'est portable que sur les environnements
+        au sein d'une organisation.</para>
       </section>
 
       <section id="profiles-sect-wide-portability">
-        <title>Wide (Universal) Portability</title>
+        <title>(Universelle) Véritable Portabilité</title>
 
-        <para>Anyone may download a widely portable project's source, compile, and install it without customizing a
-        build for a specific environment. This is the highest level of portability; anything less requires extra work
-        for those who wish to build your project. This level of portability is especially important for open source
-        projects, which depend on the ability for would-be contributors to easily download and build from source.</para>
+        <para>Tout le monde peut télécharger le code source d'un projet véritablement portable, le compiler et
+        l'installer sans avoir à configurer le build pour son environnement spécifique. C'est le plus haut niveau de
+        portabilité ; aucun travail supplémentaire n'est nécessaire pour construire ce projet. Ce niveau de portabilité
+        est important surtout pour les projets libres qui dépendent de la facilité avec laquelle les contributeurs
+        potentiels vont pouvoir construire le projet à partir du code source téléchargé.</para>
 
-        <para>Any developer could download the source for a widely portable project.</para>
+        <para>N'importe quel développeur peut télécharger le code source d'un projet véritablement portable.</para>
       </section>
     </section>
 
     <section id="profiles-sect-select-level">
-      <title>Selecting an Appropriate Level of Portability</title>
+      <title>Choisir le bon niveau de portabilité</title>
 
-      <para>Clearly, you'll want to avoid creating the worst-case scenario: the non-portable build. You may have had the
-      misfortune to work or study at an organization that had critical applications with non-portable builds. In such
-      organizations, you cannot deploy an application without the help of a specific individual on a specific machine.
+      <para>Evidemment, vous voulez éviter le pire cas : le build non-portable. Vous avez peut-être connu le malheur de
+      travailler ou d'étudier pour une organisation dont les applications critiques ont des builds non-portables.
+      Das une organisation comme celle-là, impossible de déployer une application sans une personne bien spécifique
+      sur une machine bien spécifique aussi.
       In such an organization, it is also very difficult to introduce new project dependencies or changes without
       coordinating the change with the single person who maintains such a non-portable build. Non-portable builds tend
       to grow in highly political environments when one individual or group needs to exert control over how and when a
