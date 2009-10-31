@@ -2,253 +2,180 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="writing-plugins">
-  <title>Writing Plugins</title>
+  <title>Création de Plugins</title>
 
   <section id="writing-plugins-sect-intro">
     <title>Introduction</title>
 
-    <para>While this chapter covers an advanced topic, don't let the idea of
-    writing a Maven plugin intimidate. For all of the theory and complexity of
-    this tool, the fundamental concepts are easy to understand and the
-    mechanics of writing a plugin are straightforward. After you read this
-    chapter, you will have a better grasp of what is involved in creating a
-    Maven plugin.</para>
+    <para>Bien que ce chapitre aborde une utilisation avancée de Maven, l'écriture de plugin d'un plugin Maven ne doit pas vous intimider.
+    Malgré la compléxité de cet outil, les concepts fondamentaux sont faciles à comprendre et l'écriture de plugins reste relativement simple. 
+    Après la lecture de ce chapitre, vous aurez une bonne idée de ce qu'implique la création d'un plugin Maven.</para>
   </section>
 
   <section id="writing-plugins-sect-programming-maven">
-    <title>Programming Maven</title>
+    <title>Programmation Maven</title>
 
-    <para>Most of this book has dealt with using Maven, and for a book on
-    Maven, you haven't seen too many code examples dealing with Maven
-    customization. In fact, you haven't yet seen any. This is by design, 99
-    out of 100 Maven users will never need to write a custom plugin to
-    customize Maven; there is an abundance of configurable plugins, and unless
-    your project has particularly unique requirements, you will have to work
-    to find a reason to write a new plugin. An even smaller percentage of
-    people who end up writing custom plugins will ever need to crack open the
-    source code for Maven and customize a core Maven component. If you really
-    need to customize the behavior of Maven, then you would write a plugin.
-    Modifying the core Maven code is as far out of scope for most developers
-    as modifying the TCP/IP stack on an operating system, it is that abstract
-    for most Maven users.</para>
+    <para>La plus grande partie de cet ouvrage a été dédié à l'utilisation de Maven, de ce fait, 
+    vous n'avez pas vu beaucoup d'exemples de code portant sur la personnalisation de Maven.
+    En fait, vous n'avez pas vu du tout. 
+    Maven a été pensé pour que 99% de ses utilisateurs n'aient jamais besoin d'écrire de plugin pour personnaliser Maven.
+    En effet, il existe bon nombre de plugins et ceux-ci peuvent être configurés pour répondre à la majorité des exigences, 
+    vous n'aurez donc probablement pas besoin d'écrire de plugins.  
+    Cela dit, si votre projet comporte des exigences vous obligeant à personnaliser le comportement de Maven, 
+    vous pouvez alors vous lancer dans la création d'un plugin.
+    Modifier le code du coeur de Maven est est aussi peu connu des développeurs que de modifier la stack TCP/IP d'un système d'exploitation,
+    c'est du moins ce que pensent la majorité des utilisateurs.</para>    
 
-    <para>On the other hand, if you are going to start writing a custom
-    plugin, you are going to have to learn a bit about the internals of Maven:
-    How does it manage software components? What is a Plugin? How can I
-    customize the lifecycle? This section answers some of those questions, and
-    it introduces a few concepts at the core of Maven's design. Learning how
-    to write a custom Maven plugin is the gateway to customizing Maven itself.
-    If you were wondering how to start understanding the code behind Maven,
-    you've found the proper starting line.</para>
+    <para>Avant de commencer à écrire votre plugin, vous devez en apprendre un peu plus sur les entrailles de Maven :  
+    Comment gère t-il des composants logiciels ? Qu'est-ce qu'un Plugin ? Comment puis-je personnaliser le cycle de vie ?
+    Cette section répond à certaines de ces questions et introduit les concepts de conception du coeur de Maven.  
+    Apprendre à écrire un plugin personnalisé Maven est le moyen le plus simple à la personnalisation de Maven lui-même.
+    Si vous vous demandiez par où démarrer pour comprendre le code de Maven, vous avez trouvé la bonne ligne de départ.</para>
 
     <section id="writing-plugins-ioc">
-      <title>What is Inversion of Control?</title>
+      <title>Qu'est ce que l'inversion de contrôle ?</title>
 
-      <para>At the heart of Maven is an Inversion of Control (IoC) container
-      named Plexus. What does it do? It is a system for managing and relating
-      components. While there is a canonical essay about IoC written by Martin
-      Fowler, the concept and term have been so heavily overloaded in the past
-      few years it is tough to find a good definition of the concept that
-      isn't a self-reference (or just a lazy reference to the aforementioned
-      essay). Instead of resorting to a Wikipedia quote, we'll summarize
-      Inversion of Control and Dependency Injection with an analogy.</para>
+      <para>Un conteneur d'inversion de contrôle (<acronym>IoC</acronym>) nommé Plexus se trouve au coeur de Maven. 
+      Que fait-il ? Il s'agit d'un système de gestion et de relations entre composants. 
+      Bien qu'il existe un ouvrage complet écrit par Martin Fowler sur l'<acronym>IoC</acronym>, 
+      le concept et le terme ont été si lourdement surchargés au cours des dernières années 
+      qu'il est difficile de trouver une bonne définition de la notion sans que ça soit une auto-référence.
+      Au lieu de recourir à une citation Wikipédia, nous allons résumer l'inversion de contrôle et l'ingestion de dépendances par l'intermédiaire d'une analogie.</para>
 
-      <para>Assume that you have a series of components which need to be wired
-      together. When you think about components, think stereo components not
-      software components. Imagine several stereo components hooked up to a
-      Playstation 3 and a Tivo that have to interface with both an Apple TV
-      box and a 50" flat panel LCD TV. You bring everything home from the
-      electronics store and you purchase a series of cables that you are going
-      to use to connect everything to everything else. You unpack all of these
-      components, put them in the right place, and then get to the job of
-      hooking up fifty thousand coaxial cables and stereo jacks to fifty
-      thousand digital inputs and network cables. Step back from your home
-      entertainment center and turn on the TV, you've just performed
-      dependency injection, and you've just been an inversion of control
-      container.</para>
+      <para>Supposons que vous devez connecter une série de composants ensemble. 
+      Quand vous pensez à des composants, pensez à des composants stéréo, pas les composants logiciels. 
+      Imaginez plusieurs composants stéréo branchés à une Playstation 3 et un TiVo qui doivent s'interfacer à la fois avec un boîtier Apple TV et d'une télévision LCD 50 pouces..
+      Vous ramenez tout cela d'un magasin d'électronique à la maison et vous achetez les câbles à utiliser pour connecter tout cela.
+      Vous déballez donc l'ensemble de ces éléments, vous les placez au bon endroit, 
+      puis vous commencez à accrocher les cinquante mille câbles coaxiaux et prises stéréo à cinquante mille entrées numériques.       
+      Éloignez-vous de votre Home cinéma et allumez la télé, vous venez de réaliser de l'injection de dépendances, et vous étiez vous-même un conteneur d'inversion de contrôle.</para>       
 
-      <para>So what did that have to do with anything? Your Playstation 3 and
-      a Java Bean both provide an interface. The Playstation 3 has two inputs:
-      power and network, and one output to the TV. Your JavaBean has three
-      properties: <varname>power</varname>, <varname>network</varname>, and
-      <varname>tvOutput</varname>. When you open the box of your Playstation
-      3, it didn't provide you with detailed pictures and instructions for how
-      to connect it to every different kind of TV that might be in every
-      different kind of house. When you look at your Java Bean, it just
-      provides a set of properties, not an explicit recipe for creating and
-      managing an entire system of components. In an IoC container like
-      Plexus, you are responsible for declaring the relationships between a
-      set of components which simply provide an interface of inputs and
-      outputs. You don't instantiate objects, Plexus does; your application's
-      code isn't responsible for managing the state of components, Plexus is.
-      Even though it sounds very cheesy, when you start up Maven, it is
-      starting Plexus and managing a system of related components just like
-      your stereo system.</para>
+      <para>Quel est le rapport avec tout ça ? Transposons cette analogie en Java.
+      Votre Playstation 3 et votre bean Java fournissent tous les deux une interface.
+      La Playsrtation 3 à deux entrées : l'alimentation et la fiche réseau, et une sortie vers la TV.
+      Votre bean Java possède trois propriétés : <varname>power</varname>, <varname>network</varname> et <varname>tvOutput</varname>.
+      Quand vous ouvrez la boîte de votre Playstation 3, le manuel ne vous décrit pas en détail comment la connecter à tous les différents types de téléviseurs. 
+      Quand vous regardez votre bean Java, it fournit une liste de propriétés sans pour autant expliquer une recette explicite pour créer et gérer un système complet de composants.         
+      Dans un conteur d'<acronym>IoC</acronym> comme Plexus, il vous incombe de déclarer les relations entre les composants en se contentent de fournir une interface d'entrée et de sortie.
+      Vous n'instanciez pas d'objets, Plexus s'en charge. Le code de votre application n'est pas resposable de la gestion des états des composants, contrairement à Plexus. 
+      Lorsque vous démarrez Maven, Plexus est démarré pour gérer un système d'éléments connexes, comme votre système stéréo.</para>
 
-      <para>What are the advantages of using an IoC container? What is the
-      advantage of buying discrete stereo components? If one component breaks,
-      you can drop in a replacement for your Playstation 3 without having to
-      spend $20,000 on the entire system. If you are unhappy with your TV, you
-      can swap it out without affecting your CD player. Most important to you,
-      your stereo components cost less and are more capable and reliable
-      because manufacturers can build to a set of known inputs and outputs and
-      focus on building individual components. Inversion of Control containers
-      and Dependency Injection encourage Disaggregation and the emergence of
-      standards. The software industry likes to imagine itself as the font of
-      all new ideas, but dependency injection and inversion of control are
-      really just new words for the concepts of Disaggregation and
-      interchangeable machinery. If you really want to know about DI and IoC,
-      learn about the Model T, the Cotton Gin, and the emergence of a railroad
-      standard in the late 19th century.</para>
+      <para>Quels sont les avantages apportés par l'utilisation d'un conteneur <acronym>IoC</acronym> ?
+      Quel est l'avantage d'acheter des composants stéréo discrets ?
+      Si l'un des composants se casse, vous pouvez le remplacer sans avoir à dépenser les 15 000 € nécessaires pour remplacer l'ensemble du système.
+      Si votre téléviseur vous lâche, vous pouvez la remplacer sans que cela n'affecte le lecteur CD.
+      Et le plus important pour vous, vos composants de votre chaîne hi-fi coûtent moins chers et sont plus fiables 
+      car les fabricants peuvent se contenter de construire des composants en s'appuyant un ensemble d'entrées et sorties connues. 
+      Les conteneurs d'inversion de contrôle et d'injection de dépendances encouragent la catégorisation et l'émergence de standards.
+      L'industrie du logiciel aime s'imaginer comme source de toutes les nouvelles idées, 
+      mais l'injection de dépendances et de l'inversion de contrôle ne sont réellement que des nouveaux mots pour définir des concepts bien connus : la catégorisation et le remplacement de machines.      
+      Si vous voulez en savoir plus sur l'<acronym>IoC</acronym> et l'injection de dépendances, vous pouvez vous renseigner sur le modèle T, le gin de coton ou l'émergence d'un standard pour le chemin de fer au 19ème siècle.</para>
     </section>
 
     <section id="writing-plugins-intro-plexus">
-      <title>Introduction to Plexus</title>
+      <title>Introduction à Plexus</title>
 
-      <para>The most important feature of an <acronym>IoC</acronym> container
-      implemented in Java is a mechanism called dependency injection. The
-      basic idea of <acronym>IoC</acronym> is that the control of creating and
-      managing objects is removed from the code itself and placed into the
-      hands of an <acronym>IoC</acronym> framework. Using dependency injection
-      in an application that has been programmed to interfaces, you can create
-      components which are not bound to specific implementations of these
-      interfaces. Instead, you program to interfaces and then configure Plexus
-      to connect the appropriate implementation to the appropriate component.
-      While your code deals with interfaces, you can capture the dependencies
-      between classes and components in an <acronym>XML</acronym> file that
-      defines components, implementation classes, and the relationships
-      between your components. In other words, you can write isolated
-      components, then you can wire them together using an
-      <acronym>XML</acronym> file that defines how the components are wired
-      together. In the case of Plexus, system components are defined with an
-      <acronym>XML</acronym> document that is found in
+      <para>La fonctionnalité la plus importante d'un conteneur d'<acronym>IoC</acronym> Java est son mécanisme d'injection de dépendances.
+      Le principe de base d'un conteneur <acronym>IoC</acronym> est de contrôler la création et la gestion des objets. 
+      Ce ne sont plus les objets qui sont responsables d'instancier leurs dépendances mais une tierce personne : le conteneur <acronym>IoC</acronym>.  
+      En utilisant l'injection de dépendances dans une application utilisant la programmation par interface, 
+      vous pouvez créer des composants qui n'ont aucune liaison particulière avec les différentes implémentations de vos services. 
+      Bien que votre code utilise des interfaces, 
+      vous pouvez capturer les dépendances entre les classes et les composants dans un fichier <acronym>XML</acronym> qui définit les composants, 
+      les classes d'implémentation et les relations entre vos composants.
+      En d'autres termes, vous pouvez écrire des composants isolés et déléguer la définition de leurs liaisons en utilisant un fichier <acronym>XML</acronym>. 
+      Dans Plexus, les différents composants d'un système sont définis par un document <acronym>XML</acronym> qui se trouve dans
       <filename>META-INF/plexus/components.xml</filename>.</para>
-
-      <para>In a Java <acronym>IoC</acronym> container, there are several
-      methods for injecting dependencies values into a component object:
-      constructor, setter, or field injections. Although Plexus is capable of
-      all three dependency injection techniques, Maven only uses two types:
-      field and setter injection.</para>
+      
+      <para>Dans un conteneur Java <acronym>IoC</acronym>, il existe plusieurs moyens d'injecter des dépendances dans un objet : injection par constructeur, setter ou propriétés. 
+      Bien que Plexus soit capable d'utiliser ces trois techniques d'injection de dépendances, Maven en utilise seulement deux :
+      l'injection par propriété et par setter.</para>
 
       <variablelist>
         <varlistentry>
-          <term>Constructor Injection</term>
+          <term>Injection par constructeur</term>
 
           <listitem>
-            <para>Constructor injection is populating an object's values
-            through its constructor when an instance of the object is created.
-            For example, if you had an object of type
-            <classname>Person</classname> which had a constructor
-            <methodname>Person(String name, Job job)</methodname>, you could
-            pass in values for both <varname>name</varname> and the
-            <varname>job</varname> via this constructor.</para>
+            <para>L'injection par constructeur permet de populer des objets à la création de l'objet.
+            Par exemple, si vous avec un objet du type <classname>Person</classname> 
+            qui possède un constructeur <methodname>Person(String name, Job job)</methodname>, 
+            vous pouvez y passer deux valeurs, soit deux dépendances.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Setter Injection</term>
+          <term>Injection par setter</term>
 
           <listitem>
-            <para>Setter injection is using the setter method of a property on
-            a Java bean to populate object dependencies. For example, if you
-            were working with a <classname>Person</classname> object with the
-            properties <varname>name</varname> and <varname>job</varname>, an
-            <acronym>IoC</acronym> container which uses setter injection,
-            would create an instance of <classname>Person</classname> using a
-            no-arg constructor. Once it had an instance of
-            <classname>Person</classname>, it would proceed to call the
-            <methodname>setName()</methodname> and
-            <methodname>setJob()</methodname> methods.</para>
+            <para>Ce type d'injection utilise les setters des propriétés des beans Java pour populer ses dépendances. 
+            Par exemple, si vous avec un objet du type <classname>Person</classname> 
+            qui possède deux propriétés <varname>name</varname> et <varname>job</varname>,
+            un conteneur <acronym>IoC</acronym> utilisant l'injection par setter créera une instance de la classe <classname>Person</classname>
+            en utilisant le constructeur par défaut et appellera ensuite les méthodes 
+            <methodname>setName()</methodname> et <methodname>setJob()</methodname>.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Field Injection</term>
+          <term>Injection par propriété</term>
 
           <listitem>
-            <para>Both Constructor and Setter injection rely on a call to a
-            public method. Using Field injection, an <acronym>IoC</acronym>
-            container populates a component's dependencies by setting an
-            object's fields directly. For example, if you were working with a
-            <classname>Person</classname> object that had two fields
-            <varname>name</varname> and <varname>job</varname>, your
-            <acronym>IoC</acronym> container would populate these dependencies
-            by setting these fields directly (i.e. <code>person.name =
-            "Thomas"; person.job = job;</code>)</para>
+            <para>Les deux types d'injection précédents se basent sur l'appel de méthodes et constructeur publics.
+            En utilisant l'injection par propriétés, un conteneur <acronym>IoC</acronym> peut populer les dépendances de composants
+            en utilisant directement les propriétés.
+            Par exemple, si vous avec un objet du type <classname>Person</classname> qui contient deux propriétés <varname>name</varname> et <varname>job</varname>, 
+            votre conteneur <acronym>IoC</acronym> utilisera ces champs directement pour populer les dépendances 
+            (i.e. <code>person.name = "Thomas"; person.job = job;</code>)</para>
           </listitem>
         </varlistentry>
       </variablelist>
     </section>
 
     <section id="writing-plugins-why-plexus">
-      <title>Why Plexus?</title>
+      <title>Pourquoi Plexus ?</title>
 
-      <para>Spring does happen to be the most popular IoC container at the
-      moment, and there's a good argument to be made that it has affected the
-      Java "ecosystem" for the better forcing companies like Sun Microsystems
-      to yield more control to the open source community and helping to open
-      up standards by providing a pluggable, component-oriented "bus". But,
-      Spring isn't the only IoC container in open source. There are many IoC
-      containers (like <ulink
-      url="http://www.picocontainer.org/">PicoContainer</ulink>).</para>
+      <para>Spring est le conteneur <acronym>IoC</acronym> le plus populaire du moment.
+      Il a un bon argument à faire valoir, il a affecté "l'écosystème Java" en forçant les entreprises comme Sun Microsystems
+      à donner plus contrôle à la communauté open source.
+      Mais Spring n'est pas le seul conteneur <acronym>IoC</acronym> open source, il en existe de plusieurs 
+      (comme <ulink url="http://www.picocontainer.org/">PicoContainer</ulink>).</para>
 
-      <para>Years and years ago, when Maven was created, Spring wasn't a
-      mature option. The initial team of committers on Maven were more
-      familiar with Plexus because they invented it, so they decided to use it
-      as an IoC container. While it might not be as popular as the Spring
-      Framework, it is no less capable. And, the fact that it was created by
-      the same person who created Maven makes it a perfect fit. After reading
-      this chapter you've have an idea of how Plexus works. If you already use
-      an IoC container you'll notice similarities and differences between
-      Plexus and the container you currently use.</para>
+      <para>Il y a des années, quand Maven a été créé, Spring n'était pas si mature.
+      L'équipe initiale des commiters Maven étaient plus familier avec un autre conteneur <acronym>IoC</acronym> : Plexus, qu'ils avaient d'ailleurs inventé.
+      Ils sont donc partis sur ce choix.
+      S'il n'est pas aussi populaire que Spring, il en est pas pour autant moins efficace.
+      Comme Plexus a été créé par les commiters initaux de Maven, il répond parfaitement à ses besoins.
+      Après la lecture de ce chapitre, vous en connaîtrez plus sur le fonctionnement de Plexus. 
+      Si vous avez déjà utilisé un conteneur <acronym>IoC</acronym>, vous pourrez noter les similarités et les différences de ce conteneur.</para>
 
       <note>
-        <para>Just because Maven is based on Plexus doesn't mean that the
-        Maven community is "anti-Spring" (we've included a whole chapter with
-        a Spring example in this book, portions of the Spring project are
-        moving to Maven as a build platform). The question, "Why didn't you
-        use Spring?" comes up often enough it did make sense to address it
-        here. We know it, Spring is a rock star, we don't deny it, and it is
-        on our continuing to-do list to introduce people to (and document)
-        Plexus: choice in the software industry is always a good thing.</para>
+        <para>Si Maven est basé sur Plexus, cela ne veut pas dire que la communauté Maven est "anti-Spring"
+        (nous avons d'ailleurs consacré un chapitre complet à Spring dans cet ouvrage).
+        La question "pourquoi vous n'avez pas utilisé Spring ?" revient assez souvent pour que nous effectuons cet aparté.</para>
       </note>
     </section>
 
     <section id="writing-plugins-what-is-plugin">
-      <title>What is a Plugin?</title>
+      <title>Qu'est ce qu'un Plugin ?</title>
 
-      <para>A Maven Plugin is a Maven artifact which contains a plugin
-      descriptor and one or more Mojos. A Mojo can be thought of as a goal in
-      Maven, and every goal corresponds to a Mojo. The
-      <varname>compiler:compile</varname> goal corresponds to the
-      <classname>CompilerMojo</classname> class in the Maven Compiler Plugin,
-      and the <varname>jar:jar</varname> goal corresponds to the
-      <classname>JarMojo</classname> class in the Maven Jar Plugin. When you
-      write your own plugin, you are simply grouping together a set of related
-      Mojos (or goals) in a single plugin artifact.<footnote
-          id="foot-mojo-def">
-          <para>"mojo." The American Heritage® Dictionary of the English
-          Language, Fourth Edition. Houghton Mifflin Company, 2004.
-          Answers.com 02 Mar. 2008. <ulink
-          url="http://www.answers.com/topic/mojo-1">http://www.answers.com/topic/mojo-1</ulink></para>
-        </footnote></para>
+      <para>Un plugin Maven est un artefact Maven qui contient un descripteur de plugin et un ou plusieurs Mojos. 
+      Un Mojo peut se comparer à un goal Maven, d'ailleurs derrière chaque goal se cache un Mojo.
+      Au goal <varname>compiler:compile</varname> correspond la classe <classname>CompilerMojo</classname> du plugin Maven Compiler, 
+      le goal <varname>jar:jar</varname> correspond à la classe <classname>JarMojo</classname> du plugin Maven Jar...
+      Losque vous écrivez votre propre plugin, vous regroupez un ensemble de Mojos (ou goals) dans un unique artefact.</para>
 
       <note>
-        <para>Mojo? What is a Mojo? The word mojo<footnoteref
-        linkend="foot-mojo-def" /> is defined as "a magic charm or spell", "an
-        amulet, often in a small flannel bag containing one or more magic
-        items", and "personal magnetism; charm". Maven uses the term Mojo
-        because it is a play on the word Pojo (Plain-old Java Object).</para>
+        <para>Mojo ? Qu'est-ce qu'un Mojo ? Le mot mojo définit dans le dictionnaire comme un "charme magique ou un sort", 
+        une "amulette, souvent dans un sac en flanelle de faible capacité contenant un ou plusieurs objets magiques" et du "magnétisme personnel; charme".
+        Maven utilise le terme Mojo comme jeu de mots autour du terme Pojo (Plain-old Java Object), un Pojo Maven est donc appelé Mojo.</para> 
       </note>
 
-      <para>A Mojo is much more than just a goal in Maven, it is a component
-      managed by Plexus that can include references to other Plexus
-      components.</para>
+      <para>Un Mojo est bien plus qu'un goal Maven, c'est un composant géré par Plexus qui peut inclure des références à d'autres composants Plexus.</para>
     </section>
   </section>
 
   <section id="writing-plugins-sect-plugin-descriptor">
-    <title>Plugin Descriptor</title>
+    <title>Descripteur de Plugin</title>
 
     <para>A Maven plugin contains a road-map for Maven that tells Maven about
     the various Mojos and plugin configuration. This plugin descriptor is
