@@ -177,32 +177,22 @@
   <section id="writing-plugins-sect-plugin-descriptor">
     <title>Descripteur de Plugin</title>
 
-    <para>A Maven plugin contains a road-map for Maven that tells Maven about
-    the various Mojos and plugin configuration. This plugin descriptor is
-    present in the plugin <acronym>JAR</acronym> file in
-    <filename>META-INF/maven/plugin.xml</filename>. When Maven loads a plugin,
-    it reads this <acronym>XML</acronym> file, instantiates and configures
-    plugin objects to make the Mojos contained in a plugin available to
-    Maven.</para>
+    <para>Un plugin Maven contient une carte qui permet Maven s'y retrouver dans les Mojos et la configuration de celui-ci. 
+    Ce descripteur de plugin se trouve dans le fichier <acronym>JAR</acronym> du plugin à l'emplacement <filename>META-INF/maven/plugin.xml</filename>. 
+    Quand Maven charge un plugin, il commence par lire ce fichier <acronym>XML</acronym> puis instancie et configure les objets du plugin pour rendre les Mojos disponibles.</para>
 
-    <para>When you are writing custom Maven plugins, you will almost never
-    need to think about writing a plugin descriptor. In <xref
-    linkend="lifecycle" />, the lifecycle goals bound to the
-    <varname>maven-plugin</varname> packaging type show that the
-    <varname>plugin:descriptor</varname> goal is bound to the
-    <varname>generate-resources</varname> phase. This goal generates a plugin
-    descriptor off of the annotations present in a plugin's source code. Later
-    in this chapter, you will see how Mojos are annotated, and you will also
-    see how the values in these annotations end up in the
-    <filename>META-INF/maven/plugin.xml</filename> file.</para>
+    <para>Lorsque vous écrivez des plugins Maven, nous n'avez quasiment jamais besoin de vous soucier du descripteur de site.
+    Dans le <xref linkend="lifecycle" />,
+    les goals du lifecycle rattachés au type de packaging <varname>maven-plugin</varname>
+    montrent que le goal <varname>plugin:descriptor</varname> est rattaché à la phase <varname>generate-resources</varname>. 
+    Ce goal génère un descripteur de plugin à partir de annotations présentes dans le code source du plugin.     
+    Dans la suite du chapitre, nous verrons comment les Mojos sont annotés ainsi que les impacts (de ces annotations) sur le fichier <filename>META-INF/maven/plugin.xml</filename>.</para>    
 
-    <para><xref linkend="ex-plugin-desc" /> shows a plugin descriptor for the
-    Maven Zip Plugin. This plugin is a contrived plugin that simply zips up
-    the output directory and produces an archive. Normally, you wouldn't need
-    to write a custom plugin to create an archive from Maven, you could simply
-    use the Maven Assembly Plugin which is capable of producing a distribution
-    archive in multiple formats. Read through the following plugin descriptor
-    to get an idea of the content it contains.</para>
+    <para>L'<xref linkend="ex-plugin-desc" /> montre le descripteur de plugin du plugin Maven Zip. 
+    Comme son nom l'indique, ce plugin permet d'effectuer des Zips à partir du répertoire de sortie.
+    Normalement, vous ne devriez jamais à avoir écrire votre propre plugin pour effectuer des archives avec Maven.
+    Utilisez simplement le plugin Maven Assembly, il est capable de produire des archives dans de multiples formats. 
+    Regardez le descripteur de site suivant, cela vous donnera une idée de ce genre de fichier.</para>
 
     <!--TODO: Reference Assembly Plugin Chapter-->
 
@@ -272,25 +262,21 @@
 </programlisting>
     </example>
 
-    <para>There are three parts to a plugin descriptor: the top-level
-    configuration of the plugin which contains elements like
-    <sgmltag>groupId</sgmltag> and <sgmltag>artifactId</sgmltag>, the
-    declaration of mojos, and the declaration of dependencies. Let's examine
-    each of these sections in more detail.</para>
+    <para>Un descripteur de site contient trois parties : la configuration haut-niveau qui contient les éléments du type  
+    <sgmltag>groupId</sgmltag> et <sgmltag>artifactId</sgmltag>, la déclaration des mojos et les dépendances. 
+    Regardons chacune de ces sections dans le détail.</para>
 
     <section id="writing-plugins-top-level-elements">
-      <title>Top-level Plugin Descriptor Elements</title>
+      <title>Éléments haut-niveau du descripteur de plugin</title>
 
-      <para>The top-level configuration values in the
-      <sgmltag>plugin</sgmltag> element are:</para>
+      <para>Les valeurs de configuration haut-niveau du plugin sont :</para>
 
       <variablelist>
         <varlistentry>
           <term>description</term>
 
           <listitem>
-            <para>This element contains a short description of the plugin. In
-            the case of the Zip plugin, this description is empty.</para>
+            <para>Cet élément contient une courte description du plugin. Dans le plugin Zip, cette description est laissée vide.</para>
           </listitem>
         </varlistentry>
 
@@ -298,10 +284,8 @@
           <term>groupId, artifactId, version</term>
 
           <listitem>
-            <para>As with everything else in Maven, plugins need to have a
-            unique set of coordinates. The groupId, artifactId, and version
-            are used to locate the plugin artifact in a Maven
-            repository.</para>
+            <para>Comme tout artefact dans Maven, les plugins doivent posséder des coordonnées uniques.
+            Le groupId, l'artifactId et la version sont utilisés pour identifier le plugin dans le dépôt Maven.</para> 
           </listitem>
         </varlistentry>
 
@@ -309,14 +293,10 @@
           <term>goalPrefix</term>
 
           <listitem>
-            <para>This element controls the prefix used to reference goals in
-            a particular plugin. If you were to look at the Compiler plugin's
-            descriptor you would see that <varname>goalPrefix</varname> has a
-            value of <varname>compiler</varname>. If you look at the
-            descriptor for the Jar plugin, it would have a
-            <varname>goalPrefix</varname> of <varname>jar</varname>. It is
-            important that you choose a distinct goal prefix for your custom
-            plugin.</para>
+            <para>Cet élément contrôle le préfixe utilisé pour référencer les différents goals d'un plugin.
+            Si vous regardez au descripteur du plugin Compiler, vous verrez que la valeur du <varname>goalPrefix</varname> est <varname>compiler</varname>.
+            De la même manière, si vous regardez le descripteur du plugin Jar, il possédera un <varname>goalPrefix</varname> à <varname>jar</varname>.
+            Il est important de choisir un préfixe qui n'existe pas pour votre nouveau plugin.</para>
           </listitem>
         </varlistentry>
 
@@ -324,18 +304,12 @@
           <term>isolatedRealm (deprecated)</term>
 
           <listitem>
-            <para>This is a legacy property which is no longer used by Maven.
-            It is still present in the system to provide backwards
-            compatibility with older plugins. Earlier versions of Maven used
-            to provide a mechanism to load a plugin's dependencies in an
-            isolated <classname>ClassLoader</classname>. Maven makes extensive
-            use of a project called <ulink
-            url="http://classworlds.codehaus.org/">ClassWorlds</ulink> from
-            the <ulink url="http://www.codehaus.org">Codehaus</ulink>
-            community to create hierarchies of
-            <classname>ClassLoader</classname> objects which are modeled by a
-            <classname>ClassRealm</classname> object. Feel free to ignore this
-            property and always set it to <varname>false</varname>.</para>
+            <para>C'est une propriété legacy qui n'est plus utilisée par Maven.
+            Elle reste présente dans le système pour assurer la compatibilité avec les plugins les plus anciens.
+            Les anciennes versions du Maven utilisaient un mécanisme de chargement des dépendances des plugins dans un <classname>ClassLoader</classname> isolé.
+            Maven utilise de manière intensive le projet <ulink url="http://classworlds.codehaus.org/">ClassWorlds</ulink> provenant de la communauté the <ulink url="http://www.codehaus.org">Codehaus</ulink>
+            pour créer une hiérarchie de <classname>ClassLoader</classname> qui est modélisée par un objet <classname>ClassRealm</classname>.               
+            N'hésitez pas à ignorer cette propriété et à laisser sa valeur à <varname>false</varname>.</para>              
           </listitem>
         </varlistentry>
 
@@ -343,37 +317,29 @@
           <term>inheritedByDefault</term>
 
           <listitem>
-            <para>If inheritedByDefault is set to true, any mojo in this
-            plugin which is configured in a parent project will be configured
-            in a child project. If you configure a mojo to execute during a
-            specific phase in a parent project and the Plugin has
-            inheritedByDefault set to true, this execution will be inherited
-            by the child project. If inheritedByDefault is not set to true,
-            then an goal execution defined in a parent project will not be
-            inherited by a child project.</para>
+            <para>Si cette propriété est affectée à <varname>true</varname>, il vous est possible de configurer vos mojo à partir des projets parents du plugin. 
+            Si vous configurez un mojo pour être exécuté durant une phase spécifique dans un projet parent et que cette propriété est settée à <varname>true</varname>,
+            l'exécution prendra bien en compte celui-ci. À l'inverse, l'exécution n'en tiendra pas compte.</para>
           </listitem>
         </varlistentry>
       </variablelist>
     </section>
 
     <section id="writing-plugins-sect-mojo-config">
-      <title>Mojo Configuration</title>
+      <title>Configuration du Mojo</title>
 
-      <para>Next is the declaration of the each Mojo. The plugin element
-      contains an element named mojos which contains a mojo element for each
-      mojo present in the Plugin. Each mojo element contains the following
-      configuration elements:</para>
+      <para>Vient ensuite la déclaration de chaque Mojo.
+      La balise <varname>plugin</varname> contient un sous balise <varname>mojos</varname> qui contient un élément par mojo présent dans le plugin. 
+      Chaque balise <varname>mojo</varname> contient les éléments suivants :</para>
 
       <variablelist>
         <varlistentry>
           <term>goal</term>
 
           <listitem>
-            <para>This is the name of the goal. If you were running the
-            <varname>compiler:compile</varname> goal, then
-            <varname>compiler</varname> is the plugin's
-            <varname>goalPrefix</varname> and <varname>compile</varname> would
-            be the name of the goal.</para>
+            <para>Il s'agit du nom du goal. Si nous prenons l'exemple du goal <varname>compiler:compile</varname>,
+            <varname>compiler</varname> est le <varname>goalPrefix</varname> et
+            <varname>compile</varname> désigne le nom du goal.</para>
           </listitem>
         </varlistentry>
 
@@ -381,9 +347,7 @@
           <term>description</term>
 
           <listitem>
-            <para>This contains a short description of the goal to display to
-            the use when they use the Help plugin to generate plugin
-            documentation.</para>
+            <para>Cette balise contient la description du goal. Celle-ci est utilisée par le plugin Help pour générer la documentation du plugin.</para>
           </listitem>
         </varlistentry>
 
@@ -391,12 +355,10 @@
           <term>requiresDirectInvocation</term>
 
           <listitem>
-            <para>If you set this to <varname>true</varname>, the goal can
-            only be executed if it is explicitly executed from the
-            command-line by the user. If someone tries to bind this goal to a
-            lifecycle phase in a <acronym>POM</acronym>, Maven will print an
-            error message. The default for this element is
-            <varname>false</varname>.</para>
+            <para>Si vous affectez cette propriété à <varname>true</varname>, 
+            le goal pourra seulement s'exécuter s'il est appelé directement par la ligne de commande par un utilisateur.
+            Si quelqu'un essaye de rattacher ce goal à une phase du cycle de cie dans un <acronym>POM</acronym>, Maven affichera un message d'erreur.             
+            La valeur par défaut pour est propriété est <varname>false</varname>.</para>
 
             <!--TODO: Might want some justification.-->
           </listitem>
@@ -406,11 +368,8 @@
           <term>requiresProject</term>
 
           <listitem>
-            <para>Specifies that a given goal cannot be executed outside of a
-            project. The goal requires a project with a
-            <acronym>POM</acronym>. The default value for this
-            <varname>requiresProject</varname> is
-            <varname>true</varname>.</para>
+            <para>Spécifie si le goal peut être exécuté en dehors d'un projet.
+            Si cette propriété est affectée à <varname>true</varname> (la valeur par défaut), le goal nécessitera un <acronym>POM</acronym>.</para>   
           </listitem>
         </varlistentry>
 
@@ -418,13 +377,10 @@
           <term>requiresReports</term>
 
           <listitem>
-            <para>If you were creating a plugin that relies on the presence of
-            reports, you would need to set <varname>requiresReports</varname>
-            to <varname>true</varname>. For example, if you were writing a
-            plugin to aggregate information from a number of reports, you
-            would set <varname>requiresReports</varname> to
-            <varname>true</varname>. The default for this element is
-            <varname>false</varname>.</para>
+            <para>Si vous créez un plugin qui nécessite la présence de rapports,
+            par exemple, si vous écrivez un plugin qui agrège les informations à partir de plusieurs rapports,
+            vous pouvez setter la propriété <varname>requiresReports</varname> à <varname>true</varname>.
+            La valeur par défaut de cette propriété est <varname>false</varname>.</para>
           </listitem>
         </varlistentry>
 
@@ -432,17 +388,15 @@
           <term>aggregator</term>
 
           <listitem>
-            <para>A Mojo descriptor with <varname>aggregator</varname> set to
-            <varname>true</varname> is supposed to only run once during the
-            execution of Maven, it was created to give plugin developers the
-            ability to summarize the output of a series of builds; for
-            example, to create a plugin that summarizes a report across all
-            projects included in a build. A goal with
-            <varname>aggregator</varname> set to <varname>true</varname>
+            <para>
+            
+            A Mojo descriptor with <varname>aggregator</varname> set to <varname>true</varname> is supposed to only run once during the execution of Maven, 
+            it was created to give plugin developers the ability to summarize the output of a series of builds; 
+            for example, to create a plugin that summarizes a report across all projects included in a build. 
+            A goal with <varname>aggregator</varname> set to <varname>true</varname>
             should only be run against the top-level project in a Maven build.
-            The default value of <varname>aggregator</varname> is
-            <varname>false</varname>. Aggregator is slated for deprecation in
-            a future release of Maven.</para>
+            The default value of <varname>aggregator</varname> is <varname>false</varname>. 
+            Aggregator is slated for deprecation in a future release of Maven.</para>
           </listitem>
         </varlistentry>
 
@@ -450,13 +404,11 @@
           <term>requiresOnline</term>
 
           <listitem>
-            <para>Specifies that a given goal cannot be executed if Maven is
-            running in offline mode (<varname>-o</varname> command-line
-            option). If a goal depends on a network resource, you would
-            specify a value of <varname>true</varname> for this element and
-            Maven would print an error if the goal was executed in offline
-            mode. The default for <varname>requiresOnline</varname> is
-            <varname>false</varname>.</para>
+            <para>Specifies that a given goal cannot be executed if Maven is running in offline mode 
+            (<varname>-o</varname> command-line option). 
+            If a goal depends on a network resource, you would specify a value of <varname>true</varname> for this element and
+            Maven would print an error if the goal was executed in offline mode. 
+            The default for <varname>requiresOnline</varname> is <varname>false</varname>.</para>
           </listitem>
         </varlistentry>
 
@@ -464,15 +416,15 @@
           <term>inheritedByDefault</term>
 
           <listitem>
-            <para>If <varname>inheritedByDefault</varname> is set to
-            <varname>true</varname>, a mojo which is configured in a parent
-            project will be configured in a child project. If you configure a
-            mojo to execute during a specific phase in a parent project and
-            the Mojo descriptor has <varname>inheritedByDefault</varname> set
-            to <varname>true</varname>, this execution will be inherited by
-            the child project. If <varname>inheritedByDefault</varname> is not
-            set to <varname>true</varname>, then a goal execution defined in a
-            parent project will not be inherited by a child project.</para>
+            <para>
+            
+            If <varname>inheritedByDefault</varname> is set to <varname>true</varname>, 
+            a mojo which is configured in a parent project will be configured in a child project. 
+            If you configure a mojo to execute during a specific phase in a parent project and
+            the Mojo descriptor has <varname>inheritedByDefault</varname> set to <varname>true</varname>, 
+            this execution will be inherited by the child project. 
+            If <varname>inheritedByDefault</varname> is not set to <varname>true</varname>, 
+            then a goal execution defined in a parent project will not be inherited by a child project.</para>
           </listitem>
         </varlistentry>
 
