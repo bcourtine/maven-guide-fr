@@ -488,23 +488,25 @@ The following profiles are active:
   <section id="profiles-sect-tips-tricks">
     <title>Trucs et Astuces</title>
 
-    <para>Profiles can encourage build portability. If your build needs subtle customizations to work on different
-    platforms or if you need your build to produce different results for different target platforms, project profiles
-    increase build portability. Settings profiles generally decrease build portability by adding extra-project
-    information that must be communicated from developer to developer. The following sections provide some guidelines
-    and some ideas for applying Maven profiles to your project.</para>
+    <para>Les profils encouragent la portabilité du build. Si vous avez besoin de configurer avec délicatesse votre
+    build pour qu'il puisse s'exécuter sur différentes plateformes ou pour construire différents artefacts selon la
+    plateforme cible, alors les profils peuvent améliorer la portabilité de votre build. Les profils définis dans les
+    fichiers <filename>settings.xml</filename> diminuent la portabilité d'un build puisque les développeurs doivent
+    échanger cette information supplémentaire. Les sections qui vont suivre présentent des guides et des suggestions
+    pour l'utilisation de profils Maven dans votre projet.</para>
 
     <section id="profiles-sect-common-envs">
       <title>Common Environments</title>
 
-      <para>One of the core motivations for Maven project profiles was to provide for environment-specific configuration
-      settings. In a development environment, you might want to produce bytecode with debug information and you might
-      want to configure your system to use a development database instance. In a production environment you might want
-      to produce a signed JAR and configure the system to use a production database. In this chapter, we defined a
-      number of environments with identifiers like <literal>dev</literal> and <literal>prod</literal>. A simpler way to
-      do this would be to define profiles that are activated by environment properties and to use these common
-      environment properties across all of your projects. For example, if every project had a
-      <literal>development</literal> profile activated by a property named
+      <para>Une des principales motivations pour l'utilisation de profils Maven est de fournir la configuration
+      spécifique à un environnement. Dans un environnement de développement, vous voudrez produire du bytecode avec les
+      informations nécessaires pour le déboggage et vous voudrez configurer votre système pour qu'il utilise une base de
+      données de dévelopement. Dans un environnement de prodution, vous souhaiterez produire un JAR signé et configurer
+      votre système pour qu'il utilise la base de données de production. Dans ce chapitre, nous avons défini un certain
+      nombre d'environnements avec des identifiants comme <literal>dev</literal> et <literal>prod</literal>. On peut
+      faire plus simple en définissant des profils qui seront activés par des propriétés de l'environnement et en
+      utilisant ces propriétés pour tous vos projets. Par exemple, si chaque projet a un profil
+      <literal>development</literal> activé par une propriété appelée
       <varname>environment.</varname><varname>type</varname> having a value of <literal>dev</literal>, and if those same
       projects had a <literal>production</literal> profile activated by a property named
       <varname>environment.</varname><varname>type</varname> having a value of <literal>prod</literal>, you could create
