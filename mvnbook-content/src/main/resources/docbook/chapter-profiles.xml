@@ -302,14 +302,15 @@
     <acronym>JDK</acronym> Java 6. Tout d'abord, jettons un oeil à la structure des répertoires de notre projet et
     comment nous souhaitons que les développeurs construisent notre système.</para>
 
-    <para>When someone runs <command>mvn install</command> with a Java 6 <acronym>JDK</acronym>, you want the build to
-    include the <literal>simple-script</literal> project's build, when they are running in Java 5, you would like to
-    skip the <literal>simple-script</literal> project build. If you failed to skip the <literal>simple-script</literal>
-    project build in Java 5, your build would fail because Java 5 does not have the <classname>ScriptEngine</classname>
-    on the classpath. Let's take a look at the library project's <filename>pom.xml</filename>:</para>
+    <para>Lorsque l'on exécute la commande <command>mvn install</command> avec un <acronym>JDK</acronym> Java 6, nous
+    voulons que le build construise le projet <literal>simple-script</literal>, par contre si cette commande est
+    exécutée sur Java 5 il faut exclure le projet <literal>simple-script</literal> du build. Si vous n'excluez pas le
+    projet <literal>simple-script</literal> de votre build en Java 5, celui-ci va échouer car Java 5 ne fournit pas la
+    classe <classname>ScriptEngine</classname>. Etudions plus en détail le fichier <filename>pom.xml</filename> du
+    projet de bibliothèque :</para>
 
     <example>
-      <title>Dynamic Inclusion of Submodules Using Profile Activation</title>
+      <title>Inclusion dynamique de sous-modules par activation de profil</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -339,39 +340,42 @@
 </programlisting>
     </example>
 
-    <para>If you run <command>mvn install</command> under Java 1.6, you will see Maven descending into the
-    <filename>simple-script</filename> subdirectory to build the <literal>simple-script</literal> project. If you are
-    running <command>mvn install</command> in Java 1.5, the build will not try to build the
-    <literal>simple-script</literal> submodule. Exploring this activation configuration in more detail:</para>
+    <para>Si vous exécutez la commande <command>mvn install</command> en Java 1.6, vous vous apercevrez que Maven
+    descent dans le sous-répertoire <filename>simple-script</filename> pour y construire le projet
+    <literal>simple-script</literal>. Si vous exécutez la même commande <command>mvn install</command> en Java 1.5, le
+    build n'essayera pas de construire le sous-module <literal>simple-script</literal>. Analysons cette configuration
+    d'activation en détails :</para>
 
     <calloutlist>
       <callout arearefs="coDef-profiles-active-1" id="coRef-profiles-active-1">
-        <para>The <sgmltag>activation</sgmltag> element lists the conditions for profile activation. In this example,
-        we've specified that this profile will be activated by Java versions that begin with "1.6". This would include
-        "1.6.0_03", "1.6.0_02", or any other string that began with "1.6". Activation parameters are not limited to Java
-        version, for a full list of activation parameters, see <xref linkend="profiles-sect-activation-config"
-        xrefstyle="select:title" />.</para>
+        <para>La balise <sgmltag>activation</sgmltag> indique les conditions d'activation du profil. Dans cet exemple,
+        nous avons indiqué que ce profil sera activé pour les versions de Java à partir de Java "1.6". Ce qui inclut
+        donc "1.6.0_03", "1.6.0_02" ou tout autre version commençant par "1.6". Les conditions d'activation ne sont pas
+        limitées à la version de Java, pour une liste complète des paramètres d'activation rendez-vous à la <xref
+        linkend="profiles-sect-activation-config" xrefstyle="select:title" />.</para>
       </callout>
 
       <callout arch="" arearefs="coDef-profiles-active-2" id="coRef-profiles-active-2">
-        <para>In this profile we are adding the module <literal>simple-script</literal>. Adding this module will cause
-        Maven to look in the <filename>simple-script/</filename> subdirectory for a <filename>pom.xml</filename>.</para>
+        <para>Dans ce profil nous ajoutons le module <literal>simple-script</literal>. A cause de l'ajout de ce module,
+        Maven va aller regarder dans le sous-répertoire <filename>simple-script/</filename> à la recherche d'u fichier
+        <filename>pom.xml</filename>.</para>
       </callout>
     </calloutlist>
 
     <section id="profiles-sect-activation-config">
-      <title>Activation Configuration</title>
+      <title>Configuration de l'activation</title>
 
-      <para>Activations can contain one of more selectors including JDK versions, Operating System parameters, files,
-      and properties. A profile is activated when all activation criteria has been satisfied. For example, a profile
-      could list an Operating System family of Windows, and a JDK version of 1.4, this profile will only be activated
-      when the build is executed on a Windows machine running Java 1.4. If the profile is active then all elements
-      override the corresponding project-level elements as if the profile were included with the <command>-P</command>
-      command-line argument. The following example, lists a profile which is activated by a very specific combination of
-      operating system parameters, properties, and a JDK version.</para>
+      <para>L'activation contient une ou plusieurs conditions sur les versions du JDK, les systèmes d'exploitation ou
+      des propriétés. Un profil est activé lorsque toutes les conditions d'activation sont satisfaites. Par exemple, un
+      profil peut indiquer comme conditions d'être sur un système d'exploitation Windows avec un JDK version 1.4. Ce
+      profil ne sera donc activé que si le build est exécuté sur une machine Windows avec Java 1.4. Si le profil est
+      actif, alors tous ses éléments surchargent les éléments correspondants du projet comme si ce profil était inclus
+      via l'argument <command>-P</command> en ligne de commande. L'exemple uivant présente un profil qui n'est activé
+      que par une combinaison très spécifique de propriétés, de version du JDK et de système d'exploitation.</para>
 
       <para><example>
-          <title>Profile Activation Parameters: JDK Version, OS Parameters, and Properties</title>
+          <title>Paramètres d'activation du profil : version du JDK Version, système d'exploitation et
+          propriétés</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -389,55 +393,54 @@
 </programlisting>
         </example></para>
 
-      <para>This previous example defines a very narrow set of activation parameters. Let's examine each activation
-      criterion in detail:</para>
+      <para>L'exemple précédent définit un ensemble très précis de paramètres d'activation. Regardons chacun d'entre eux
+      plus en détail :</para>
 
       <calloutlist>
         <callout arearefs="coDef-profiles-active2-1" id="coRef-profiles-active2-1">
-          <para>The <sgmltag>activeByDefault</sgmltag> element controls whether this profile is considered active by
-          default.</para>
+          <para>La balise <sgmltag>activeByDefault</sgmltag> controle si ce profil est actif par défaut.</para>
         </callout>
 
         <callout arearefs="coDef-profiles-active2-2" id="coRef-profiles-active2-2">
-          <para>This profile will only be active for JDK versions that begin with "1.5". This includes "1.5.0_01",
+          <para>Ce profil n'est actif que pour les versions du JDK commençant par "1.5". Ce qui inclut "1.5.0_01" et
           "1.5.1".</para>
         </callout>
 
         <callout arearefs="coDef-profiles-active2-3" id="coRef-profiles-active2-3">
-          <para>This profile targets a very specific version of Windows XP, version 5.1.2600 on a 32-bit platform. If
-          your project uses the native plugin to build a C program, you might find yourself writing projects for
-          specific platforms.</para>
+          <para>Ce profil cible ussi une version très spécifique de Windows XP, version 5.1.2600 sur une plateforme
+          32-bit. Si votre projet utilise le plugin natif pour compiler du code en C, vous risquez de vous retrouver à
+          écrire plusieurs projets selon les plateformes.</para>
         </callout>
 
         <callout arearefs="coDef-profiles-active2-4" id="coRef-profiles-active2-4">
-          <para>The <sgmltag>property</sgmltag> element tells Maven to activate this profile if the property
-          <varname>mavenVersion</varname> is set to the value <literal>2.0.5</literal>. <varname>mavenVersion</varname>
-          is an implicit property that is available to all Maven builds.</para>
+          <para>La balise <sgmltag>property</sgmltag> indique à Maven qu'il doit activer ce profil si la propriété
+          <varname>mavenVersion</varname> a pour valeur <literal>2.0.5</literal>. La propriété
+          <varname>mavenVersion</varname> est une propriété implicite qui est disponible pour tous les builds
+          Maven.</para>
         </callout>
 
         <callout arearefs="coDef-profiles-active2-5" id="coRef-profiles-active2-5">
-          <para>The <sgmltag>file</sgmltag> element allows us to activate a profile based on the presence (or absence)
-          of files. The <literal>dev</literal> profile will be activated if a file named
-          <filename>file2.properties</filename> exists in the base directory of the project. The <literal>dev</literal>
-          profile will only be activated if there is no file named <filename>file1.properties</filename> file in the
-          base directory of the project.</para>
+          <para>La balise <sgmltag>file</sgmltag> nous permet d'activer un profil sur la présence (ou l'absence) de
+          fichiers. Le profil <literal>dev</literal> sera activé si un fichier <filename>file2.properties</filename>
+          existe à la racine du projet. Le profil <literal>dev</literal> ne sera activé que s'il n'existe pas de fichier
+          <filename>file1.properties</filename> à la racine du projet.</para>
         </callout>
       </calloutlist>
     </section>
 
     <section id="profiles-sect-activation-by-absence">
-      <title>Activation by the Absence of a Property</title>
+      <title>Activation par l'absence d'une propriété</title>
 
-      <para>You can activate a profile based on the value of a property like
-      <varname>environment.</varname><varname>type</varname>. You can activate a <literal>development</literal> profile
-      if <varname>environment.</varname><varname>type</varname> equals <literal>dev</literal>, or a
-      <literal>production</literal> profile if <varname>environment.</varname><varname>type</varname> equals
-      <literal>prod</literal>. You can also activate a profile in the absence of a property. The following configuration
-      activates a profile if the property <varname>environment.</varname><varname>type</varname> is not present during
-      Maven execution.</para>
+      <para>Vous pouvez activer un profil sur la valeur d'une propriété telle que
+      <varname>environment.</varname><varname>type</varname>. Vous pouvez donc activer un profil
+      <literal>development</literal> si la variable <varname>environment.</varname><varname>type</varname> a pour valeur
+      <literal>dev</literal> et un profil <literal>production</literal> si cette variable vaut maintenant
+      <literal>prod</literal>. Il est aussi possible d'activer un profil en cas d'absence d'une propriété. La
+      configuration suivante active un profil si la propriété <varname>environment.</varname><varname>type</varname>
+      n'est pas présente durant l'exécution de Maven.</para>
 
       <para><example>
-          <title>Activating Profiles in the Absence of a Property</title>
+          <title>Activation de profiles en cas d'absence d'une propriété</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -455,22 +458,22 @@
 </programlisting>
         </example></para>
 
-      <para>Note the exclamation point prefixing the property name. The exclamation point is often referred to as the
-      "bang" character and signifies "not". This profile is activated when no
-      <varname>\${environment.</varname><varname>type}</varname> property is set.</para>
+      <para>Attention au point d'exclamation qui préfixe le nom de la propriété. Le point d'exclamation est souvent
+      appelé le caractère "bang" cet signifie "non". Ce profil est activé quand aucune propriété
+      <varname>\${environment.</varname><varname>type}</varname> est définie.</para>
     </section>
   </section>
 
   <section id="profiles-sect-listing-active-profiles">
-    <title>Listing Active Profiles</title>
+    <title>Lister les profiles actifs</title>
 
-    <para>Maven profiles can be defined in either <filename>pom.xml</filename>, <filename>profiles.xml</filename>,
-    <filename>~/.m2/settings.xml</filename>, or <filename>\${M2_HOME}/conf/settings.xml</filename>. With these four
-    levels, there's no good way of keeping track of profiles available to a particular project without remembering which
-    profiles are defined in these four files. To make it easier to keep track of which profiles are available, and where
-    they have been defined, the Maven Help plugin defines a goal, <literal>active-profiles</literal>, which lists all
-    the active profiles and where they have been defined. You can run the <literal>active-profiles</literal> goal, as
-    follows:</para>
+    <para>Les profiles Maven peuvent être définis soit dans le fichier <filename>pom.xml</filename>, dans un fichier
+    <filename>profiles.xml</filename>, dans le fichier <filename>~/.m2/settings.xml</filename> ou dans le fichier
+    <filename>\${M2_HOME}/conf/settings.xml</filename>. Avec ces quatre possibilités, il est difficile de savoir quels
+    sont les profiles disponibles pour un projet sans avoir à parcourir les quatre fichiers en question. Pour faciliter
+    la gestion des profiles, connaitre ceux qui sont disponibles et où ils sont définis, il existe le goal du plugin
+    Maven Help <literal>active-profiles</literal> qui liste l'ensemble des profiles actifs et où ils sont définis. Voici
+    les instructions pour exécuter le goal <literal>active-profiles</literal> :</para>
 
     <screen>$ <command>mvn help:active-profiles</command>
 Active Profiles for Project 'My Project':
@@ -483,7 +486,7 @@ The following profiles are active:
   </section>
 
   <section id="profiles-sect-tips-tricks">
-    <title>Tips and Tricks</title>
+    <title>Trucs et Astuces</title>
 
     <para>Profiles can encourage build portability. If your build needs subtle customizations to work on different
     platforms or if you need your build to produce different results for different target platforms, project profiles
