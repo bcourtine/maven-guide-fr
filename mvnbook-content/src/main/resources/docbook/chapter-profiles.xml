@@ -507,18 +507,19 @@ The following profiles are active:
       faire plus simple en définissant des profils qui seront activés par des propriétés de l'environnement et en
       utilisant ces propriétés pour tous vos projets. Par exemple, si chaque projet a un profil
       <literal>development</literal> activé par une propriété appelée
-      <varname>environment.</varname><varname>type</varname> having a value of <literal>dev</literal>, and if those same
-      projects had a <literal>production</literal> profile activated by a property named
-      <varname>environment.</varname><varname>type</varname> having a value of <literal>prod</literal>, you could create
-      a default profile in your <filename>settings.xml</filename> that always set
-      <varname>environment.</varname><varname>type</varname> to <literal>dev</literal> on your development machine. This
-      way, each project defines a <literal>dev</literal> profile activated by the same environment variable. Let's see
-      how this is done, the following <filename>settings.xml</filename> defines a profile in
-      <filename>~/.m2/settings.xml</filename> which sets the <varname>environment.</varname><varname>type</varname>
-      property to <literal>dev</literal>.</para>
+      <varname>environment.</varname><varname>type</varname> ayant pour valeur <literal>dev</literal>, et si ces mêmes
+      projets avaient un profil <literal>production</literal> activé par la présence d'une propriété
+      <varname>environment.</varname><varname>type</varname> ayant pour valeur <literal>prod</literal>, vous pourriez
+      alors créer un profil dans votre fichier <filename>settings.xml</filename> qui définirait une propriété
+      <varname>environment.</varname><varname>type</varname> avec pour valeur <literal>dev</literal> sur votre machine
+      de développement. Ainsi, chaque projet définit un profil <literal>dev</literal> activé par la même variable
+      d'environnement. Voyons comment appliquer tout celà, le fichier <filename>settings.xml</filename> suivant définit
+      un profil dans <filename>~/.m2/settings.xml</filename> qui spécifie la valeur <literal>dev</literal> pour la
+      propriété <varname>environment.</varname><varname>type</varname>.</para>
 
       <para><example>
-          <title>~/.m2/settings.xml defines a default profile setting environment.type</title>
+          <title>Le fichier ~/.m2/settings.xml définit un profil par défaut qui sépcifie la propriété
+          environment.type</title>
 
           <programlisting language="xml">&lt;settings&gt;
   &lt;profiles&gt;
@@ -535,14 +536,15 @@ The following profiles are active:
 </programlisting>
         </example></para>
 
-      <para>This means that every time you run Maven on your machine, this profile will be activated and the property
-      <varname>environment.</varname><varname>type</varname> will have the value <literal>dev</literal>. You can then
-      use this property to activate profiles defined in a project's <filename>pom.xml</filename> as follows. Let's take
-      a look at how a project's <filename>pom.xml</filename> would define a profile activated by
-      <varname>environment.</varname><varname>type</varname> having the value <literal>dev</literal>.</para>
+      <para>Ce implique que lorsque vous exécutez Maven sur votre poste ce profil sera activé et la propriété
+      <varname>environment.</varname><varname>type</varname> aura pour valeur <literal>dev</literal>. Vous pouvez
+      utiliser cette propriété pour activer les profils définis dans le fichier <filename>pom.xml</filename> d'un projet
+      comme nous allons le voir. Regardons donc, comment le fichier <filename>pom.xml</filename> définirait un profil
+      qui serait activé par le fait que la propriété <varname>environment.</varname><varname>type</varname> a la valeur
+      <literal>dev</literal>.</para>
 
       <para><example id="ex-profile-envtype-pom">
-          <title>Project Profile Activated by environment.type equalling 'dev'</title>
+          <title>Profil d'un projet activé parle fait que environment.type vaut 'dev'</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -583,48 +585,52 @@ The following profiles are active:
 </programlisting>
         </example></para>
 
-      <para>This project defines some properties like <varname>database.</varname><varname>url</varname> and
-      <varname>database.user</varname> which might be used to configure another Maven plugin configured in the
-      <filename>pom.xml</filename>. There are plugins available that can manipulate the database, run SQL, and plugins
-      like the Maven Hibernate3 plugin which can generate annotated model objects for use in persistence frameworks. A
-      few of these plugins, can be configured in a <filename>pom.xml</filename> using these properties. These properties
-      could also be used to filter resources. In this example, because we've defined a profile in
-      <filename>~/.m2/settings.xml</filename> which sets <varname>environment.</varname><varname>type</varname> to
-      <literal>dev</literal>, the development profile will always be activated when we run Maven on our development
-      machine. Alternatively, if we wanted to override this default, we could set a property on the command-line. If we
-      need to activate the production profile, we could always run Maven with:</para>
+      <para>Ce projet définit de nouvelles propriétés comme <varname>database.</varname><varname>url</varname> et
+      <varname>database.user</varname> qui pourraient être utilisées pour configurer un plugin Maven ailleurs dans le
+      fichier <filename>pom.xml</filename>. Il existe de nombreux plugins qui peuvent manipuler une base de données,
+      exécuter du SQL, ou comme le plugin Maven Hibernate3 peuvent générer un ensemble d'objets annotés utilisés par les
+      frameworks de persitance. Certains de ces plugins peuvent être configurés dans un fichier
+      <filename>pom.xml</filename> grâce à ces propriétés. Ces propriétés peuvent aussi être utilisées pour filtrer des
+      ressources. Dans cet exemple, comme nous avons définit un profil dans le fichier
+      <filename>~/.m2/settings.xml</filename> qui spécifie la valeur <literal>dev</literal> pour
+      <varname>environment.</varname><varname>type</varname>, le profil de développement sera toujours actif à chaque
+      exécution de Maven sur cette machine. Par contre, si nous voulions modifier ce comportement par défaut, nous
+      pourrions indiquer la vleur de cette propriété en ligne de commande. Si nous avons besoin d'activer le profil de
+      production, nous pourrions exécuter Maven avec la commande :</para>
 
       <screen>~/examples/profiles $ <command>mvn install -Denvironment.type=prod</command></screen>
 
-      <para>Setting a property on the command-line would override the default property set in
-      <filename>~/.m2/settings.xml</filename>. We could have just defined a profile with an <sgmltag>id</sgmltag> of
-      "dev" and invoked it directly with the <command>-P</command> command-line argument, but using this
-      <varname>environment.</varname><varname>type</varname> property allows us to code other project
-      <filename>pom.xml</filename> files to this standard. Every project in your codebase could have a profile which is
-      activated by the same <varname>environment.</varname><varname>type</varname> property set in every user's
-      <filename>~/.m2/settings.xml</filename>. In this way, developers can share common configuration for development
-      without defining this configuration in non-portable <filename>settings.xml</filename> files.</para>
+      <para>Spécifier une propriété en ligne de commande surchagera la valeur par défaut définie dans le fichier
+      <filename>~/.m2/settings.xml</filename>. Nous aurions pu aussi défiir un profil avec une <sgmltag>id</sgmltag>
+      "dev" et l'invoquer directemet avec l'argument <command>-P</command> en ligne de commande, mais l'utilisation de
+      cette propriété <varname>environment.</varname><varname>type</varname> nous permet d'écrire de nouveaux fichiers
+      <filename>pom.xml</filename> en respectant ce standard. Tous vos projets pourraient possèder un profil qui serait
+      activé par la même propriété <varname>environment.</varname><varname>type</varname>définie dans les fichiers
+      <filename>~/.m2/settings.xml</filename> de chaque développeur. Ainsi, les développeurs peuvent partager une
+      configuration commune pour le développement sans avoir à la définir dans des fichiers
+      <filename>settings.xml</filename> non-portables.</para>
     </section>
 
     <section id="profiles-sect-protecting-secrets">
-      <title>Protecting Secrets</title>
+      <title>Protèger les mots de passe</title>
 
-      <para>This best practice builds upon the previous section. In <xref linkend="ex-profile-envtype-pom"
-      xrefstyle="select:title" />, the production profile does not contain the <varname>database.password</varname>
-      property. I've done this on purpose to illustrate the concept of putting secrets in you user-specific
-      <filename>settings.xml</filename>. If you were developing an application at a large organization which values
-      security, it is likely that the majority of the development group will not know the password to the production
-      database. In an organization that draws a bold line between the development group and the operations group, this
-      will be the norm. Developers may have access to a development and a staging environment, but they might not have
-      (or want to have) access to the production database. There are a number of reasons why this makes sense,
-      particularly if an organization is dealing with extremely sensitive financial, intelligence, or medical
-      information. In this scenario, the production environment build may only be carried out by a lead developer or by
-      a member of the production operations group. When they run this build using the <literal>prod</literal>
-      <varname>environment.</varname><varname>type</varname>, they will need to define this variable in their
-      <filename>settings.xml</filename> as follows:</para>
+      <para>Cette bonne pratique est la conséquence de la section précédente. Dans <xref
+      linkend="ex-profile-envtype-pom" xrefstyle="select:title" />, le profil de production ne contient pas la propriété
+      <varname>database.password</varname>. J'ai fait celà délibéremment pour illustrer le fait de stocker les mots de
+      passe dans votre fichier <filename>settings.xml</filename>. Si vous développez une application dans une grande
+      orgaisation qui accorde de l'importance à la sécurité, il est probable que la majorité des développeurs ne
+      connaissent pas le mot de passe de production de la base de données. Dans une orgnisation qui trace des frontières
+      entre équipe de développement et équipe de production celà sera la norme. Les développeurs ont accès aux
+      environnements de développement et de pré-production,mais ils pourraient ne pas avoir (ou ne pas vouloir) accès à
+      la base de données de production. Il y a un certain nombres de raisons pour lesquelles celà aurait un sens,
+      particulièrement si une organisation gère des données sensibles financières, médicales ou autres. Dans ce
+      scénario, l'environnement de production ne pourrait être utilisé que par le responsable technique ou par un
+      memebre de l'équipe de production. Quand ils exécutent le build avec la valeur <literal>prod</literal> pour la
+      propriété <varname>environment.</varname><varname>type</varname>, ils ont devoir définir cette variable dans leur
+      fichier <filename>settings.xml</filename> comme suit :</para>
 
       <example>
-        <title>Storing Secrets in a User-specific Settings Profile</title>
+        <title>Enregistrement de mots de passe dans un profil du fichier settings.xml propre à l'utilisateur</title>
 
         <programlisting language="xml">&lt;settings&gt;
   &lt;profiles&gt;
@@ -640,9 +646,9 @@ The following profiles are active:
 </programlisting>
       </example>
 
-      <para>This user has defined a default profile which sets the
-      <varname>environment.</varname><varname>type</varname> to <literal>prod</literal> and which also sets the
-      production password. When the project is executed, the production profile is activated by the
+      <para>Cet utilisateur a définit un profil par défaut qui donne à
+      <varname>environment.</varname><varname>type</varname> la valeur <literal>prod</literal> et qui spécifie le mot de
+      passe de production. When the project is executed, the production profile is activated by the
       <varname>environment.</varname><varname>type</varname> property and the <varname>database.password</varname>
       property is populated. This way, you can put all of the production-specific configuration into a project's
       <filename>pom.xml</filename> and leave out only the single secret necessary to access the production
