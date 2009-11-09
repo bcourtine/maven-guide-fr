@@ -388,15 +388,13 @@
           <term>aggregator</term>
 
           <listitem>
-            <para>
-            
-            A Mojo descriptor with <varname>aggregator</varname> set to <varname>true</varname> is supposed to only run once during the execution of Maven, 
-            it was created to give plugin developers the ability to summarize the output of a series of builds; 
-            for example, to create a plugin that summarizes a report across all projects included in a build. 
-            A goal with <varname>aggregator</varname> set to <varname>true</varname>
-            should only be run against the top-level project in a Maven build.
-            The default value of <varname>aggregator</varname> is <varname>false</varname>. 
-            Aggregator is slated for deprecation in a future release of Maven.</para>
+            <para>Un descripteur de Mojo dont la valeur de la balise <varname>aggregator</varname> est affectée à <varname>true</varname> 
+            est censé s'exécuter qu'une seule fois durant l'exécution de Maven,
+            ce flag a été créé pour donner la possibilité aux développeurs de plugins d'agréger la sortie d'une série de builds.
+            Par exemple, on peut utiliser celui-ci pour créer un plugin qui agrège un rapport sur tous les projets d'un build.
+            Un goal qui possède ce flag <varname>aggregator</varname> positionné à <varname>true</varname> doit être lancé uniquement à partir d'un projet haut-niveau d'un build Maven.
+            La valeur par défaut de cette propriété est <varname>false</varname>.
+            Elle est marquée comme <varname>depracated</varname> pour les prochaines releases.</para>    
           </listitem>
         </varlistentry>
 
@@ -404,11 +402,9 @@
           <term>requiresOnline</term>
 
           <listitem>
-            <para>Specifies that a given goal cannot be executed if Maven is running in offline mode 
-            (<varname>-o</varname> command-line option). 
-            If a goal depends on a network resource, you would specify a value of <varname>true</varname> for this element and
-            Maven would print an error if the goal was executed in offline mode. 
-            The default for <varname>requiresOnline</varname> is <varname>false</varname>.</para>
+            <para>Spécifie si un goal donné peut s'exécuter en mode offline (option <varname>-o</varname> de la ligne de commande).
+            Si un goal nécessite l'utilisation de ressources réseau et que ce flag est activé, Maven affichera une erreur si le goal est exécuté en mode offline.
+            La valeur par défaut pour cette propriété est <varname>false</varname>.</para>
           </listitem>
         </varlistentry>
 
@@ -416,15 +412,11 @@
           <term>inheritedByDefault</term>
 
           <listitem>
-            <para>
-            
-            If <varname>inheritedByDefault</varname> is set to <varname>true</varname>, 
-            a mojo which is configured in a parent project will be configured in a child project. 
-            If you configure a mojo to execute during a specific phase in a parent project and
-            the Mojo descriptor has <varname>inheritedByDefault</varname> set to <varname>true</varname>, 
-            this execution will be inherited by the child project. 
-            If <varname>inheritedByDefault</varname> is not set to <varname>true</varname>, 
-            then a goal execution defined in a parent project will not be inherited by a child project.</para>
+            <para>Si cette propriété est positionnée à <varname>true</varname>,
+            un mojo configuré dans un pom parent reprendra cette configuration pour le projet enfant.  
+            Si vous configurez un mojo pour s'exécuter dans une phase spécifique d'un projet parent et que ce flag est activé,
+            cette exécution sera héritée pour le projet enfant. 
+            Cette propriété est positionnée par défaut à <varname>false</varname>.</para>
           </listitem>
         </varlistentry>
 
@@ -432,10 +424,8 @@
           <term>phase</term>
 
           <listitem>
-            <para>If you don't bind this goal to a specific phase, this
-            element defines the default phase for this mojo. If you do not
-            specify a phase element, Maven will require the user to explicitly
-            specify a phase in a <acronym>POM</acronym>.</para>
+            <para>Si vous ne rattachez pas ce goal à une phase spécifique, cet élément défini la phase par défaut du mojo.
+            Si vous ne précisez pas cet élément, Maven demandera à l'utilisateur de spécifier explicitement la phase dans le <acronym>POM</acronym>.</para> 
           </listitem>
         </varlistentry>
 
@@ -443,9 +433,8 @@
           <term>implementation</term>
 
           <listitem>
-            <para>This element tells Maven which class to instantiate for this
-            Mojo. This is a Plexus component property (defined in Plexus
-            <classname>ComponentDescriptor</classname>).</para>
+            <para>Il s'agit de la classe du Mojo à instancier par Maven.
+            Cette propriété est une propriété de composant Plexus (définie dans le <classname>ComponentDescriptor</classname> de Plexus).</para> 
           </listitem>
         </varlistentry>
 
@@ -453,13 +442,10 @@
           <term>language</term>
 
           <listitem>
-            <para>The default language for a Maven Mojo is Java. This controls
-            the Plexus <classname>ComponentFactory</classname> used to create
-            instances of this Mojo component. This chapter focuses on writing
-            Maven plugins in Java, but you can also write Maven in a number of
-            alternative languages such as Groovy, Beanshell, and Ruby. If you
-            were writing a plugin in one of these languages you would use a
-            language element value other than <varname>java</varname>.</para>
+            <para>Java est le langage par défaut d'un Mojo Maven.
+            Cette propriété contrôle le <classname>ComponentFactory</classname> utilisé par Plexus pour créer et instancier le Mojo. 
+            Ce chapitre se concentre sur l'écriture de plugin Java, cependant notez qu'il est possible d'utiliser d'autres langages : Groovy, Beanshell, Ruby...             
+            Dans le cas où vous utiliseriez un de ces langages alternatifs, vous auriez utilisé cet élément.</para>
           </listitem>
         </varlistentry>
 
@@ -467,12 +453,10 @@
           <term>instantiationStrategy</term>
 
           <listitem>
-            <para>This property is a Plexus component configuration property,
-            it tells Plexus how to create and manage instances of the
-            component. In Maven, all mojos are going to be configured with an
-            <varname>instantiationStrategy</varname> of
-            <varname>per-lookup</varname>; a new instance of the component
-            (mojo) is created every time it is retrieved from Plexus.</para>
+            <para>Cette propriété est une propriété de configuration de composants Plexus,
+            elle permet de contrôler la stratégie utilisée par Plexus pour gérer ses instances de composants.
+            Dans Maven, tous les mojos sont configurés par l'intermédiaire d'un  <varname>instantiationStrategy</varname> du <varname>per-lookup</varname>.   
+            Une nouvelle instance du composant (mojo) est crée à chaque récupération de celui-ci à partir de Plexus.</para>
           </listitem>
         </varlistentry>
 
@@ -480,12 +464,9 @@
           <term>executionStrategy</term>
 
           <listitem>
-            <para>The execution strategy tells Maven when and how to execute a
-            Mojo. The valid values are <varname>once-per-session</varname> and
-            <varname>always</varname>. Note: This particular property doesn't
-            do a thing, it is a hold over from an early design of Maven. This
-            property is slated for deprecation in a future release of
-            Maven.</para>
+            <para>Il s'agit du choix de la stratégie utilisée par Maven pour exécuter un Mojo.
+            Les différentes valeurs utilisables dans cet élément sont <varname>once-per-session</varname> et <varname>always</varname>.   
+            Note : cette propriété est dorénavant <varname>depracated</varname> et n'est plus utilisée par Maven, elle sera supprimée dans les prochaines releases.</para>
           </listitem>
         </varlistentry>
 
@@ -493,17 +474,16 @@
           <term>parameters</term>
 
           <listitem>
-            <para>This element describes all of the parameters for this Mojo.
-            What's the name of the parameter? What is the type of parameter?
-            Is it required? Each parameter has the following elements:</para>
+            <para>Cette balise décrit tous les paramètres du Mojo.
+            Quel est son nom ? Quel est son type ? Est-il obligatoire ?
+            Chaque paramètre possède les éléments suivants :</para>
 
             <variablelist>
               <varlistentry>
                 <term>name</term>
 
                 <listitem>
-                  <para>Is the name of the parameter (i.e.
-                  <varname>baseDirectory</varname>)</para>
+                  <para>Il s'agit du nom du paramètre (exemple <varname>baseDirectory</varname>)</para>
                 </listitem>
               </varlistentry>
 
@@ -511,8 +491,7 @@
                 <term>type</term>
 
                 <listitem>
-                  <para>This is the type (Java class) of the parameters (i.e.
-                  <classname>java.io.File</classname>)</para>
+                  <para>Il s'agit du type Java du paramètre (exemple <classname>java.io.File</classname>)</para>
                 </listitem>
               </varlistentry>
 
@@ -520,9 +499,8 @@
                 <term>required</term>
 
                 <listitem>
-                  <para>Is the parameter required? If <varname>true</varname>,
-                  the parameter must be non-null when the goal is
-                  executed.</para>
+                  <para>Indique si le paramètre est obligatoire. 
+                  Affecté à <varname>true</varname>, le paramètre de doit être passé au goal exécuté avec une valeur non null.</para>  
                 </listitem>
               </varlistentry>
 
@@ -530,15 +508,10 @@
                 <term>editable</term>
 
                 <listitem>
-                  <para>If a parameter is not editable (if
-                  <varname>editable</varname> is set to
-                  <varname>false</varname>), then the value of the parameter
-                  cannot be set in the <acronym>POM</acronym>. For example, if
-                  the plugin descriptor defines the value of
-                  <varname>buildDirectory</varname> to be
-                  <varname>\${basedir}</varname> in the descriptor, a
-                  <acronym>POM</acronym> cannot override this value to be
-                  another value in a <acronym>POM</acronym>.</para>
+                  <para>Si un paramètre n'est pas éditable (si cette propriété est positionnée à <varname>false</varname>),
+                  alors la valeur de ce paramètre ne pourra pas être modifier dans un <acronym>POM</acronym>.
+                  Par exemple, si le descripteur de plugin défini la valeur de la propriété <varname>buildDirectory</varname> à <varname>\${basedir}</varname>,
+                  aucun <acronym>POM</acronym> ne pourra pas surcharger cette valeur.</para>
                 </listitem>
               </varlistentry>
 
@@ -546,8 +519,7 @@
                 <term>description</term>
 
                 <listitem>
-                  <para>A short description to use when generating plugin
-                  documentation (using the Help Plugin)</para>
+                  <para>Courte description utilisée lors de la génération de la documentation du plugin (utilisé par le plugin Help)</para>
                 </listitem>
               </varlistentry>
             </variablelist>
@@ -558,14 +530,9 @@
           <term>configuration</term>
 
           <listitem>
-            <para>This element provides default values for all of the Mojo's
-            parameters using Maven property notation. This example provides a
-            default value for the <varname>baseDir</varname> Mojo parameter
-            and the <varname>buildDirectory</varname> Mojo parameter. In the
-            parameter element, the implementation specifies the type of the
-            parameter (in this case <classname>java.io.File</classname>), the
-            value in the parameter element contains either a hard-coded
-            default or a Maven property reference.</para>
+            <para>Cet élément fournit les valeurs par défaut de tous les paramètres du Mojo utilisant la notation Maven.
+            Cet exemple fournit la valeur par défaut des paramètres Mojo <varname>baseDir</varname> et <varname>buildDirectory</varname>. 
+            Dans cet élément, l'implémentation spécifie le type (<classname>java.io.File</classname>), la valeur du paramètre peut contenir soit une valeur par défaut harcodée soit  une référence à une propriété Maven.</para> 
           </listitem>
         </varlistentry>
 
@@ -573,53 +540,42 @@
           <term>requirements</term>
 
           <listitem>
-            <para>This is where the descriptor gets interesting. A Mojo is a
-            component that is managed by Plexus, and, because of this, it has
-            the opportunity to reference other components managed by Plexus.
-            This element allows you to define dependencies on other components
-            in Plexus.</para>
+            <para>Voila de quoi rendre intéressant le descripteur de plugin.
+            Un Mojo est un composant géré par Plexus. 
+            Grâce à cela, il est possible de référencer n'importe quel autre composant géré par Plexus. 
+            Cet propriété permet de définir les dépendances vers d'autres composants Plexus.</para>
 
             <!--TODO: Insert an XREF to an example?-->
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <para>While you should know how to read a Plugin Descriptor, you will
-      almost never need to write one of these descriptor files by hand. Plugin
-      Descriptor files are generated automatically off of a set of annotations
-      in the source for a Mojo.</para>
+      <para>Même s'il est intéressant de savoir comment lire un descripteur de plugin, vous ne devriez pratiquement jamais avoir à en écrire un.
+      Les fichiers du plugin descripteur sont générés automatiquement à partir d'annotations présentes dans le code source du mojo.</para>
     </section>
 
     <section id="writing-plugins-sect-plugin-depend">
-      <title>Plugin Dependencies</title>
+      <title>Dépendances d'un Plugin</title>
 
-      <para>Lastly, the plugin descriptor declares a set of dependencies just
-      like a Maven project. When Maven uses a plugin, it will download any
-      required dependencies before it attempts to execute a goal from this
-      plugin. In this example, the plugin depends on Jakarta Commons IO
-      version 1.3.2.</para>
+      <para>Pour finir, le descripteur de plugin déclare une liste de dépendance de la même manière qu'un projet Maven le ferait.
+      Quand Maven utilise un plugin, toutes ses dépendances sont téléchargées avant d'exécuter un de ses goals.
+      Dans cet exemple, le plugin dépend de Jakarta Commons IO version 1.3.2.</para>
     </section>
   </section>
 
   <section id="writing-plugins-sect-custom-plugin">
-    <title>Writing a Custom Plugin</title>
+    <title>Écrire un plugin personnalisé</title>
 
-    <para>When you write a custom plugin, you are going to be writing a series
-    of Mojos (goals). Every Mojo is a single Java class which contains a
-    series of annotations that tell Maven how to generate the Plugin
-    descriptor described in the previous section. Before you can start writing
-    Mojo classes, you will need to create Maven project with the appropriate
-    packaging and POM.</para>
+    <para>Pour écrire un plugin, vous devez créer un ou plusieurs Mojo (goal).
+    Chaque Mojo est représentée par une classe Java qui contient des annotations pour indiquer à Maven générer le descripteur de plugin.
+    Avant de commencer à écrire vos classes Mojo, vous devez commencer par créer un projet Maven avec le type de packaging approprié.</para>   
 
     <section id="writing-plugins-sect-creating-plugin-project">
-      <title>Creating a Plugin Project</title>
+      <title>Création d'un projet Plugin</title>
 
-      <para>To create a plugin project, you should use the Maven Archetype
-      plugin. The following command-line will create a plugin with a
-      <varname>groupId</varname> of
-      <varname>org.sonatype.mavenbook.plugins</varname> and the
-      <varname>artifactId</varname> of
-      <varname>first-maven-plugin</varname>:</para>
+      <para>Pour créer un projet Plugin, vous pouvez utiliser le plugin Maven Archetype.
+      La ligne de commande suivante se chargera de générer un projet possédant <varname>org.sonatype.mavenbook.plugins</varname> comme <varname>groupId</varname>,
+      et <varname>first-maven-plugin</varname> comme <varname>artifactId</varname> :</para> 
 
       <screen>$ <command>mvn archetype:create \
   -DgroupId=org.sonatype.mavenbook.plugins \
@@ -627,11 +583,10 @@
   -DarchetypeGroupId=org.apache.maven.archetypes \
   -DarchetypeArtifactId=maven-archetype-mojo</command></screen>
 
-      <para>The Archetype plugin is going to create a directory named
-      my-first-plugin which contains the following POM.</para>
+      <para>Le plugin Archetype va créer ainsi le répertoire nommé <varname>my-first-plugin</varname> qui conteindra le POM suivant.</para>
 
       <example>
-        <title>A Plugin Project's POM</title>
+        <title>Le POM d'un projet Plugin</title>
 
         <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
