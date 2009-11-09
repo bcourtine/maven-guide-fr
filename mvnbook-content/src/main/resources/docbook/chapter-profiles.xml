@@ -619,11 +619,11 @@ The following profiles are active:
       <varname>database.password</varname>. J'ai fait celà délibéremment pour illustrer le fait de stocker les mots de
       passe dans votre fichier <filename>settings.xml</filename>. Si vous développez une application dans une grande
       orgaisation qui accorde de l'importance à la sécurité, il est probable que la majorité des développeurs ne
-      connaissent pas le mot de passe de production de la base de données. Dans une orgnisation qui trace des frontières
-      entre équipe de développement et équipe de production celà sera la norme. Les développeurs ont accès aux
-      environnements de développement et de pré-production,mais ils pourraient ne pas avoir (ou ne pas vouloir) accès à
-      la base de données de production. Il y a un certain nombres de raisons pour lesquelles celà aurait un sens,
-      particulièrement si une organisation gère des données sensibles financières, médicales ou autres. Dans ce
+      connaissent pas le mot de passe de production de la base de données. Dans une organisation qui trace des
+      frontières entre équipe de développement et équipe de production celà sera la norme. Les développeurs ont accès
+      aux environnements de développement et de pré-production,mais ils pourraient ne pas avoir (ou ne pas vouloir)
+      accès à la base de données de production. Il y a un certain nombres de raisons pour lesquelles celà aurait un
+      sens, particulièrement si une organisation gère des données sensibles financières, médicales ou autres. Dans ce
       scénario, l'environnement de production ne pourrait être utilisé que par le responsable technique ou par un
       memebre de l'équipe de production. Quand ils exécutent le build avec la valeur <literal>prod</literal> pour la
       propriété <varname>environment.</varname><varname>type</varname>, ils ont devoir définir cette variable dans leur
@@ -648,31 +648,32 @@ The following profiles are active:
 
       <para>Cet utilisateur a définit un profil par défaut qui donne à
       <varname>environment.</varname><varname>type</varname> la valeur <literal>prod</literal> et qui spécifie le mot de
-      passe de production. When the project is executed, the production profile is activated by the
-      <varname>environment.</varname><varname>type</varname> property and the <varname>database.password</varname>
-      property is populated. This way, you can put all of the production-specific configuration into a project's
-      <filename>pom.xml</filename> and leave out only the single secret necessary to access the production
-      database.</para>
+      passe de production. Quand le build du projet est exécuté, le profil de production est activé par la propriété
+      <varname>environment.</varname><varname>type</varname> et la propriété <varname>database.password</varname> est
+      remplie. Ainsi, vous pouvez mettre toute la configuration spécifique à la production dans le fichier
+      <filename>pom.xml</filename> du projet et ne retirer que l'unique mot de passe nécessaire pour accèder à la base
+      de données de production.</para>
 
       <note>
-        <para>Secrets usually conflict with wide portability, but this makes sense. You wouldn't want to share your
-        secrets openly.</para>
+        <para>Ces données secrètes sont en général contraires à la portabilité, mais ce que nous venons de faire a du
+        sens. Vous ne voudriez pas partager vos secrets avec n'importe qui.</para>
       </note>
     </section>
 
     <section id="profiles-sect-platform-classifier">
-      <title>Platform Classifiers</title>
+      <title>Classifiers selon la plateforme</title>
 
-      <para>Let's assume that you have a library or a project that produces platform-specific customizations. Even
-      though Java is platform-neutral, there are times when you might need to write some code that invokes
-      platform-specific native code. Another possibility is that you've written some C code which is compiled by the
-      Maven Native plugin and you want to produce a qualified artifact depending on the build platform. You can set a
-      classifier with the Maven Assembly plugin or with the Maven Jar plugin. The following <filename>pom.xml</filename>
-      produces a qualified artifact using profiles which are activated by Operation System parameters. For more
-      information about the Maven Assembly plugin, see <xref linkend="assemblies" />.</para>
+      <para>Supposons que vous avez une bibliothèque ou un projet qui produit des artefacts spécifiques selon la
+      plateforme. Même si Java est indépendant de la plateforme, parfois vous pourriez avoir besoin d'écrire du code qui
+      invoque du code natif, spécifique à une plateforme. Un autre cas possible est que vous avez écrit du code C qui
+      est compilé par le plugin Maven Native et que vous voulez produire un artefact qualifié selon la plateforme sur
+      laquelle il a été construit. Vous pouvez définir un classifier avec le plugin Maven Assemblyou le plugin Maven
+      Jar. Le fichier <filename>pom.xml</filename> suivant produit un artefact qualifié grâce à des profils activés
+      selon le système d'exploitation. Pour plus d'informations sur le plugin Maven Assembly vous pouvez consulter le
+      <xref linkend="assemblies" />.</para>
 
       <para><example>
-          <title>Qualifying Artifacts with Platform Activated Project Profiles</title>
+          <title>Qualification d'artéfacts avec des profils activés selon la plateforme</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -718,14 +719,16 @@ The following profiles are active:
 </programlisting>
         </example></para>
 
-      <para>If the Operating System is in the Windows family, this <filename>pom.xml</filename> qualifies the JAR
-      artifact with "-win". If the Operating System is in the Unix family, the artifact is qualified with "-linux". This
-      <filename>pom.xml</filename> successfully adds the qualifiers to the artifacts, but it is more verbose than it
-      need to be due to the redundant configuration of the Maven Jar plugin in both profiles. This example could be
-      rewritten to use variable substitution to minimize redundancy as follows:</para>
+      <para>Si le système d'exploitation fait partie de la famille Windows, ce fichier <filename>pom.xml</filename>
+      qualifie l'artefact Jar avec "-win". Si le système d'exploitation est un membre de la famille Unix, l'artefact est
+      qualifié avec "-linux". Ce fichier <filename>pom.xml</filename> ajoute avec succèsles qualifieurs aux artefacts,
+      mais il est plus verbeux que nécessaire en recopiant la configuration du plugin Maven Jar dans les deux profils.
+      Cet exemple pourrrait être ainsi réecrit en utilisant la substitution de variables pour rduire la redondance
+      :</para>
 
       <para><example>
-          <title>Qualifying Artifacts with Platform Activated Project Profiles and Variable Substitution</title>
+          <title>Qualification des artefacts avec des profils activés selon la plateforme d'exécution et en utilisant la
+          substitution de variables</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -768,16 +771,17 @@ The following profiles are active:
 </programlisting>
         </example></para>
 
-      <para>In this <filename>pom.xml</filename>, each profile doesn't need to include a <sgmltag>build</sgmltag>
-      element to configure the Jar plugin. Instead, each profile is activated by the Operating System family and sets
-      the <varname>envClassifier</varname> property to either <literal>win</literal> or <literal>linux</literal>. This
-      <varname>envClassifier</varname> is then referenced in the default <filename>pom.xml</filename>
-      <sgmltag>build</sgmltag> element to add a classifier to the project's JAR artifact. The JAR artifact will be named
-      <code>\${finalName}-\${envClassifier}.jar </code>and included as a dependency using the following dependency
-      syntax:</para>
+      <para>Dans ce fichier <filename>pom.xml</filename> chaque profil n'a pas besoin d'inclure une balise
+      <sgmltag>build</sgmltag> pour configurer le plugin Jar. Au lieu de celà, chaque profil est activé par la famille à
+      laquelle appartient le système d'exploitation, et valorise la propriété <varname>envClassifier</varname> soit à
+      <literal>win</literal> soit à <literal>linux</literal>. Cette propriété <varname>envClassifier</varname> est
+      référencée dans la balise <sgmltag>build</sgmltag> du fichier <filename>pom.xml</filename> pour ajouter un
+      classifieur à l'artefact JAR produit par le projet. Ainsi l'artefact JAR produit s'appellera
+      <code>\${finalName}-\${envClassifier}.jar </code>et sera utilisé comme dépendance grâce à la syntaxe suivante
+      :</para>
 
       <para><example>
-          <title>Depending on a Qualified Artifact</title>
+          <title>Dépendance ves un artefact qualifié</title>
 
           <programlisting language="xml">&lt;dependency&gt;
       &lt;groupId&gt;com.mycompany&lt;/groupId&gt;
@@ -791,14 +795,15 @@ The following profiles are active:
   </section>
 
   <section id="profiles-sect-summary">
-    <title>Summary</title>
+    <title>En résumé</title>
 
-    <para>When used judiciously, profiles can make it very easy to customize a build for different platforms. If
-    something in your build needs to define a platform-specific path for something like an application server, you can
-    put these configuration points in a profile which is activated by an operating system parameter. If you have a
-    project which needs to produce different artifacts for different environments, you can customize the build behavior
-    for different environments and platforms via profile-specific plugin behavior. Using profiles, builds can become
-    portable, there is no need to rewrite your build logic to support a new environment, just override the configuration
-    that needs to change and share the configuration points which can be shared.</para>
+    <para>Lorsqu'ils sont utilisés judicieusement, les profils facilitent grandement la configuration du build pour
+    différentes plateformes. Si quelque part dans votre build vous avez besoin de définir un chemin spécifique à une
+    plateforme pour un serveur d'application, vous pouvez mettre ces éléments de configuration dans un profil qui sera
+    activé selon la nature de votre système d'exploitation. Si vous avez un projet qui doit produire différents
+    artefacts pour différents environnements, vous pouvez personnaliser le comportement du build selon les différents
+    environnements et plateformes par des profils spécifiques à ceux-ci. L'utilisation de profils permet de rendre les
+    builds portables, il n'est plus nécessaire de réecrire votre logique de construction pour l'adapter à un nouvel
+    environnement. Surchargez la configuration qui doit être modifiée et partagez celle qui peut l'être.</para>
   </section>
 </chapter>
