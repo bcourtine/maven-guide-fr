@@ -13,13 +13,13 @@
     <para>Qu'entendons-nous par différents environnements de build ? La production et le développement sont deux
     environnements typiques. Quand vous travaillez dans l'environnement de développement, votre système est certainement
     configuré pour travailler sur une base de donnée de développement installée sur le poste local tandis qu'en
-    production, votre système est configuré pour accèder à la base de donnée de production. Maven permet de définir un
-    différents environnements de build (profils de build) qui peuvent remplacer n'importe quel paramètre dans le
+    production, votre système est configuré pour accèder à la base de donnée de production. Maven permet de définir
+    différents environnements de build (profils de build) qui peuvent remplacer n'importe quel paramètre du fichier
     <filename>pom.xml</filename>. Vous pourriez configurer votre application pour lire dans votre base de donnée de
-    développement locale dans un profil "development", et la configurer pour lire dans la base de donnée de production
-    dans le profil "production". Les profils peuvent également être activés en fonction de l'environnement et de la
-    plateforme, vous pouvez personnaliser un build pour s'exécuter différemment en fonction du système d'exploitation ou
-    de la version du <acronym>JDK</acronym> installé. Avant que nous parlions de l'utilisation et la configuration des
+    développement locale dans un profil "development", et la configurer dans le profil "production" pour lire dans
+    la base de donnée de production. Les profils peuvent également être activés en fonction de l'environnement et de la
+    plateforme, vous pouvez personnaliser un build pour qu'il s'exécute différemment selon le système d'exploitation ou
+    la version du <acronym>JDK</acronym> installé. Avant que nous parlions de l'utilisation et la configuration des
     profils Maven, nous devons définir le concept de Portabilité du Build.</para>
 
     <section id="profiles-sect-portability">
@@ -27,17 +27,18 @@
 
       <para>La "portabilité" du build est la mesure de la facilité avec laquelle on peut prendre un projet particulier
       et le construire sur différents environnements. Un build qui fonctionne sans aucune configuration particulière ni
-      personnalisation des fichiers properties est plus portable qu'un build qui nécessite une quantité de travail pour
-      construire un projet depuis 0. Les projets les plus portables sont bien souvent des projets open source très
+      ni personnalisation des fichiers properties est plus portable qu'un build qui nécessite une un certain travail pour
+      construire le projet à partir de rien. Les projets les plus portables sont bien souvent des projets opensource très
       utilisés comme Apache Commons ou Apache Velocity qui fonctionnent avec Maven sans personnalisation ou presque.
-      Pour faire simple, les builds les plus portables fonctionnent, et les moins portables vous demander de jongler et
-      configurer les chemins vers les outils de build en fonction des plateformes. Avant que nousvous dévoilions comment
-      obtenir un build portable, étudions les différents types de portabilité dont nous allons parler.</para>
+      Pour faire simple, les builds les plus portables fonctionnent immédiatement et les moins portables vous demandent
+      de réaliser des acrobaties dans les fichiers de configuration pour modifier les chemins vers les outils de build
+      en fonction des plateformes. Avant que nousvous dévoilions comment obtenir un build portable, étudions les
+      différents types de portabilité dont nous allons parler.</para>
 
       <section id="profiles-sect-non-portable">
         <title>Builds non portables</title>
 
-        <para>Le manque de portabilité est exactement ce que les outils de build essayent d'éviter - cependant,
+        <para>L'absence de portabilité est exactement ce que les outils de build essayent d'éviter - cependant, 
         n'importe quel outil peut être configuré pour être non-portable (même Maven). Un projet n'est pas portable
         lorsqu'il ne peut être construit que dans certaines circonstances spécifiques (ex : votre machine locale). A
         moins que vous travailliez seul et que vous n'envisagiez pas de déployer votre application sur une autre
@@ -53,36 +54,36 @@
         <title>Portabilité sur l'environnement</title>
 
         <para>Un build est qualifié de portable d'un environnement à l'autre s'il possède un mécanisme pour
-        personnaliser le comportement et la configuration en fonction de l'environnement. Un projet qui contient une
-        référence à une base de donnée de test dans un environnement de test, par exemple, et à une base de donnée de
-        production dans un environnement de production, est portable sur ces environnements. Il est probable que ce
+        personnaliser le comportement et la configuration en fonction de l'environnement. Par exemple, un projet qui
+        contient une référence à une base de donnée de test dans un environnement de test et à une base de donnée de
+        production dans un environnement de production, est portable sur ces deux environnements. Il est probable que ce
         build ait différentes propriétés pour chaque environnement. Quand vous changez pour un environnement pour qui
         n'est pas défini et qui ne possède pas de profile associé, le projet ne fonctionnera pas. Donc un projet n'est
         portable que sur des environnements bien définis.</para>
 
         <para>Quand un nouveau développeur récupère le code source d'un projet dépendant de l'environnement, il devra
-        exécuter le build dans cet environnement ou créer un environnement adequat pour réussir à construire le
+        exécuter le build dans cet environnement ou créer l'environnement adéquat pour réussir à construire le
         projet.</para>
       </section>
 
       <section id="profiles-sect-org-portability">
         <title>Portabilité interne à une organisation</title>
 
-        <para>Le point clef de cet environnement est que seuls quelques uns ont accès à des ressources internes comme le
-        gestionnaire de configuration ou le dépôt interne Maven. Un projet dans une grande entreprise peut dépendre de
-        la présence d'une base de données accessibls uniqument pour les développeurs internes. Un projet libre peut
-        exiger un certain niveau de droits pour pouvoir publier le site web et les artefacts produits sur un dépôt
-        publique.</para>
+        <para>Le point clef de cet environnement est que seuls quelques uns ont accès à des ressources internes à
+        l'organisation comme le gestionnaire de configuration ou le dépôt interne Maven. Un projet dans une grande
+        entreprise peut dépendre de la présence d'une base de donnée accessible uniqument pour les développeurs 
+        internes. Un projet opensource peut exiger un certain niveau de droits pour pouvoir publier le site web et les
+        artefacts produits sur un dépôt publique.</para>
 
         <para>Si vous essayez de construire un projet interne hors du réseau interne de l'entreprise (par exemple de
         l'autre coté du firewall), le build va échouer. Il se peut que celà vienne de plugins propres à l'entreprise qui
-        ne sont pas disponibles ou des dépendances du projet qui ne peuvent être trouvées car vous n'avez pas les droits
-        nécessaires pour accéder au dépôt distant d'entreprise. Un tel projet n'est portable que sur les environnements
-        au sein d'une organisation.</para>
+        ne sont pas disponibles ou de dépendances du projet inaccessibles car vous n'avez pas les droits nécessaires
+        pour accéder au dépôt distant d'entreprise. Un tel projet n'est portable que sur les environnements au sein
+        d'une organisation.</para>
       </section>
 
       <section id="profiles-sect-wide-portability">
-        <title>(Universelle) Véritable Portabilité</title>
+        <title>Véritable Portabilité (Universelle)</title>
 
         <para>Tout le monde peut télécharger le code source d'un projet véritablement portable, le compiler et
         l'installer sans avoir à configurer le build pour son environnement spécifique. C'est le plus haut niveau de
