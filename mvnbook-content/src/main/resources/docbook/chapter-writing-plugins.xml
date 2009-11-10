@@ -817,17 +817,13 @@ public class EchoMojo extends AbstractMojo
         </listitem>
       </itemizedlist>
 
-      <para>If you would like to set an explicit plugin prefix, you'll need to
-      configure the Maven Plugin Plugin. The Maven Plugin Plugin is a plugin
-      that is responsible for building the Plugin descriptor and performing
-      plugin specific tasks during the package and load phases. The Maven
-      Plugin Plugin can be configured just like any other plugin in the build
-      element. To set the plugin prefix for your plugin, add the following
-      build element to the <varname>first-maven-plugin</varname> project's
-      <filename>pom.xml</filename>.</para>
+      <para>Si vous désirez mettre explicitement un préfixe de plugin, you avez besoin de configurer le plugin Maven Plugin.
+      Le plugin Maven Plugin est responsable de la construction du descripteur de plugin et doit également effectuer certaines tâches durant les phases de packaging et de chargement. 
+      Le plugin Maven Plugin est configurable comme n'importe quel autre plugin via la balise <varname>build</varname>.
+      Pour configurer le préfixe de votre plugin, ajoutez le code XML dans la balise <varname>build</varname> du projet <varname>first-maven-plugin</varname>.</para>  
 
       <example id="ex-plugin-prefix">
-        <title>Configuring a Plugin Prefix</title>
+        <title>Configuration d'un préfixe de Plugin</title>
 
         <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -864,49 +860,38 @@ public class EchoMojo extends AbstractMojo
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para><xref linkend="ex-plugin-prefix" /> sets the plugin prefix to
-      <varname>blah</varname>. If you've added the
-      <varname>org.sonatype.mavenbook.plugins</varname> to the
-      <sgmltag>pluginGroups</sgmltag> in your
-      <filename>~/.m2/settings.xml</filename>, you should be able to execute
-      the <classname>EchoMojo</classname> by running <command>mvn
-      echo:blah</command> from any directory.</para>
+      <para>L'<xref linkend="ex-plugin-prefix" /> configure le préfixe du plugin à <varname>blah</varname>. 
+      Si vous avez ajouté le groupe <varname>org.sonatype.mavenbook.plugins</varname> à la liste des groupes 
+      <sgmltag>pluginGroups</sgmltag> de votre fichier <filename>~/.m2/settings.xml</filename>, 
+      vous devriez pouvoir exécuter le <classname>EchoMojo</classname> en lançant la commande suivante <command>mvn echo:blah</command>.</para>
     </section>
 
     <section id="writing-plugins-sect-logging">
-      <title>Logging from a Plugin</title>
+      <title>Log à partir d'un Plugin</title>
 
-      <para>Maven takes care of connecting your Mojo to a logging provider by
-      calling <methodname>setLog()</methodname> prior to the execution of your
-      Mojo. It supplies an implementation of
-      <classname>org.apache.maven.monitor.logging.Log</classname>. This class
-      exposes methods that you can use to communicate information back to the
-      user. This <classname>Log</classname> class provides multiple levels of
-      logging similar to that <acronym>API</acronym> provided by <ulink
-      url="http://logging.apache.org/">Log4J</ulink>. Those levels are
-      captured by a series of methods available for each level: debug, info,
-      error and warn. To save trees, we've only listed the methods for a
-      single logging level: debug.</para>
+      <para>Maven s'occupe de connecter votre mojo à un logger en appelant la méthode <methodname>setLog()</methodname>  avant l'exécution de votre Mojo.
+      Il fournit une implémentation de la classe <classname>org.apache.maven.monitor.logging.Log</classname>.
+      Cette classe expose des méthodes qui vous pouvez utiliser pour afficher des informations à vos utilisateurs.
+      La classe <classname>Log</classname> fournit plusieurs niveaux de log, elle propose donc un mécanisme similaire à l'<acronym>API</acronym> fournie par <ulink
+      url="http://logging.apache.org/">Log4J</ulink>. 
+      Ces différents niveaux sont utilisables par l'intermédiaire de plus méthodes dédiées : debug, info, error et warn.
+      Afin de sauver les arbres, nous ne listerons ici que les méthodes du niveau degug.</para>
 
       <variablelist>
         <varlistentry>
-          <term><methodname>void debug( CharSequence message
-          )</methodname></term>
+          <term><methodname>void debug( CharSequence message )</methodname></term>
 
           <listitem>
-            <para>Prints a message to the debug logging level.</para>
+            <para>Affiche un message en utilisant le niveau debug.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term><methodname>void debug( CharSequence message, Throwable t
-          )</methodname></term>
+          <term><methodname>void debug( CharSequence message, Throwable t )</methodname></term>
 
           <listitem>
-            <para>Prints a message to the debug logging level which includes
-            the stack trace from the <classname>Throwable</classname> (either
-            <classname>Exception</classname> or
-            <classname>Error</classname>)</para>
+            <para>Affiche un message en utilisant le niveau debug et inclu une stack trace à partir d'un <classname>Throwable</classname>
+            <classname>Exception</classname> ou <classname>Error</classname>)</para>
           </listitem>
         </varlistentry>
 
@@ -914,10 +899,7 @@ public class EchoMojo extends AbstractMojo
           <term><methodname>void debug( Throwable t )</methodname></term>
 
           <listitem>
-            <para>Prints out the stack trace of the
-            <classname>Throwable</classname> (either
-            <classname>Exception</classname> or
-            <classname>Error</classname>)</para>
+            <para>Affiche la stack trace du <classname>Throwable</classname> (<classname>Exception</classname> ou <classname>Error</classname>)</para>
           </listitem>
         </varlistentry>
       </variablelist>
