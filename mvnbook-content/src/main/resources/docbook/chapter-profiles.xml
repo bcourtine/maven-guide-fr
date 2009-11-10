@@ -137,16 +137,16 @@
   </section>
 
   <section id="profiles-sect-maven-profiles">
-    <title>Portabilité grâce aux profiles Maven</title>
+    <title>Portabilité grâce aux profils Maven</title>
 
-    <para>Un profil dans Maven est un ensemble alternatif de valeurs qui définissent ou écrasent les valeurs par défaut.
+    <para>Un profil dans Maven est un ensemble alternatif de valeurs qui définissent ou surchargent les valeurs par défaut.
     En utilisant un profil, vous pouvez personnaliser un build pour différents environnements. Les profils sont
-    configurés dans le <filename>pom.xml</filename> et possèdent un identifiant. Vous pouez ensuite exécuter Maven en
-    précisant dans la ligne de commande le profil à utiliser. Le <filename>pom.xml</filename> suivant utilise un profil
-    <literal>production</literal> pour écraser les paramètres par défaut du plugin Compiler.</para>
+    configurés dans le fichier <filename>pom.xml</filename> et possèdent un identifiant. Vous pouvez ensuite exécuter 
+    Maven en précisant dans la ligne de commande le profil à utiliser. Le <filename>pom.xml</filename> suivant utilise
+    un profil <literal>production</literal> pour écraser les paramètres par défaut du plugin Compiler.</para>
 
     <example>
-      <title>Utilisation d'un profil Maven pour écraser les paramètres du compilateur pour la production</title>
+      <title>Surcharge des paramètres de compilation en production par un un profil Maven</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -167,10 +167,27 @@
       &lt;scope&gt;test&lt;/scope&gt;
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
-  &lt;profiles&gt; <co id="coDef-profiles-compile-1" linkends="coRef-profiles-compile-1" />&lt;profile&gt; &lt;id&gt;production&lt;/id&gt; <co
-          id="coDef-profiles-compile-2" linkends="coRef-profiles-compile-2" />&lt;build&gt; <co
-          id="coDef-profiles-compile-3" linkends="coDef-profiles-compile-3" />&lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt; &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt; &lt;configuration&gt; &lt;debug&gt;false&lt;/debug&gt; <co
-          id="coDef-profiles-compile-4" linkends="coDef-profiles-compile-4" />&lt;optimize&gt;true&lt;/optimize&gt; &lt;/configuration&gt; &lt;/plugin&gt; &lt;/plugins&gt; &lt;/build&gt; &lt;/profile&gt; &lt;/profiles&gt;
+  &lt;profiles&gt;<co id="coDef-profiles-compile-1"
+          linkends="coRef-profiles-compile-1" />
+    &lt;profile&gt;
+      &lt;id&gt;production&lt;/id&gt;<co id="coDef-profiles-compile-2"
+          linkends="coRef-profiles-compile-2" />
+      &lt;build&gt;<co id="coDef-profiles-compile-3"
+          linkends="coDef-profiles-compile-3" />
+        &lt;plugins&gt;
+          &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+              &lt;debug&gt;false&lt;/debug&gt;<co
+          id="coDef-profiles-compile-4" linkends="coDef-profiles-compile-4" />
+              &lt;optimize&gt;true&lt;/optimize&gt;
+            &lt;/configuration&gt;
+          &lt;/plugin&gt;
+        &lt;/plugins&gt;
+      &lt;/build&gt;
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
 &lt;/project&gt;
 </programlisting>
     </example>
