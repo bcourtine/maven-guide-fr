@@ -98,10 +98,10 @@
     <section id="profiles-sect-select-level">
       <title>Choisir le bon niveau de portabilité</title>
 
-      <para>Evidemment, vous voulez éviter le pire cas : le build non-portable. Vous avez peut-être connu le malheur de
-      travailler ou d'étudier pour une organisation dont les applications critiques ont des builds non-portables. Dans
+      <para>Evidemment vous voulez éviter le pire cas : le build non-portable. Vous avez peut-être connu le malheur de
+      travailler ou d'étudier pour une organisation dont les builds des applications critiques sont non-portables. Dans
       une organisation comme celle-là, impossible de déployer une application sans une personne bien spécifique sur une
-      machine bien spécifique aussi. Avec une telle organisation, il est très difficile d'introduire de nouvelles
+      machine bien spécifique elle aussi. Avec une telle organisation, il est très difficile d'introduire de nouvelles
       dépendances ou des changements sans se coordonner avec la personne qui gère ce build non-portable. Ces builds
       non-portables ont tendances à se développer dans des environnements très politiques où une personne ou un groupe
       veut contrôler quand et comment un projet est construit et déployé. "Comment construit-on le système ? Oh, nous
@@ -110,29 +110,29 @@
       organisation, Maven et les profils Maven sont votre porte de sortie.</para>
 
       <para>A l'autre bout du spectre de la portabilité se trouvent les builds très portables. Ces builds sont des
-      builds très difficiles à atteindre. Ils restreignent vos dépendances aux projets et aux outils qui sont librement
+      builds très difficiles à réaliser Ils restreignent vos dépendances aux projets et aux outils qui sont librement
       distribuables et facilement accessibles. De nombreux packages commerciaux doivent être exclus des builds les plus
       portables car ils ne peuvent être téléchargés sans que vous n'ayez à accepter une license spécifique. Cette large
       portabilité va aussi restreindre les dépendances aux logiciels qui sont distribués sous la forme d'artefacts
       Maven. Par exemple, si vous dépendez des pilotes JDBC d'Oracle, vos utilisateurs devront les télécharger et les
       installer manuellement ; ce n'est pas très portable car vous devrez fournir les intructions nécessaires pour
-      configurer l'environnement afin que les personnes itéressées puissent construire votre application. D'un autre
+      configurer l'environnement afin que les personnes intéressées puissent construire votre application. D'un autre
       côté, vous pourriez utiliser un pilote JDBC disponible sur le dépôt publique de Maven comme MySQL ou
       HSQLDB.</para>
 
-      <para>Comme nous l'avons vu précédemment, les projets libres bénéficient d'avoir des builds le plus portable
+      <para>Comme nous l'avons vu précédemment, les projets libres ont intérêt à avoir des builds le plus portable
       possible. Les builds très portables réduisent le coût de contribution à un projet. Dans un projet libre (comme
-      Maven) on trouve deux groupes très distincts : les développeurs et les utilisateurs finaux. Quand un utilisateur
-      final utilise Maven et qu'il décide de contribuer en proposant un patch de Maven, il doit passer de l'utilisation
-      de l'artefact résultat d'un build à produire cet artefact. Il doit donc tout d'abord se transformer en
-      développeur, et si apprendre à construire ce projet est trop compliqué, alors cet utilisateur perdra de sa
-      motivation à contribuer au projet. Avec un projet très portable, un utilisateur n'a pas à connaitre les arcanes du
-      projet pour se tranformer en développeur, il peut télécharger le code source, le modifier, construire son artefact
-      et proposer sa contribution sans avoir à demander de l'aide pour configurer son environnement. Plus le coût
-      d'entrée pour contribuer à un projet libre est bas et plus le nombre de contributions augmente, surtout dans ces
-      petites contributions qui font la différence pour la réussite d'un projet. Une des conséquences de l'adoption de
-      Maven par un grand nombre de projets libres est que contribuer à ces projets est devenu beaucoup plus
-      facile.</para>
+      Maven) on trouve deux groupes d'utilisateurs très distincts : les développeurs et les utilisateurs finaux. Quand
+      un utilisateur final utilise Maven et qu'il décide de contribuer en proposant un patch de Maven, d'utilisateur du
+      produit final d'un build, il doit se deveir capable de construire ce produit. Il doit donc tout d'abord se
+      transformer en développeur, et donc si apprendre à construire ce projet est trop compliqué, alors il perdra de sa
+      motivation à contribuer au projet. Avec un projet très portable, un utilisateur n'a pas à connaitre les arcanes
+      du build d'un projet pour se tranformer en développeur, il peut télécharger le code source, le modifier,
+      construire son artefact et proposer sa contribution sans avoir à demander de l'aide pour configurer son
+      environnement. Plus le coût d'entrée pour contribuer à un projet libre est bas et plus le nombre de contributions
+      augmente, surtout ces petites contributions qui font la différence pour la réussite d'un projet. Une des
+      conséquences de l'adoption de Maven par un grand nombre de projets opensource est que contribuer à ces projets est
+      devenu beaucoup plus facile.</para>
     </section>
   </section>
 
