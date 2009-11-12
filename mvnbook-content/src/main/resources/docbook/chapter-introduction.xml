@@ -248,7 +248,7 @@
     <title>Comparaison de Maven et de Ant</title>
 
     <para>Les auteurs de ce livre n'ont pas pour objectif de créer de l'animosité entre Apache Ant et Apache Maven.
-    cependant nous sommes conscients que pour la plupart des organisations il faut faire un choix entre Apache Ant et
+    Cependant nous sommes conscients que, pour la plupart des organisations, il faut faire un choix entre Apache Ant et
     Apache Maven. Dans cette section, nous allons comparer ces deux outils.</para>
 
     <para>Ant excelle dans le processus de build, c'est un système de build héritant de make avec des cibles et des
