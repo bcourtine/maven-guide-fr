@@ -266,7 +266,7 @@ lib/</screen>
 
       <para>Une fois que vous avez commencé à réellement utiliser Maven, vous vous apercevrez que Maven a créé
       localement des fichiers de configuration spécifiques à l'utilisateur ainsi qu'un dépôt local dans votre répertoire
-      utilisateur. Dans <filename>~/.m2</filename> vous trouverez :</para>
+      utilisateur. Dans <filename>~/.m2</filename>, vous trouverez :</para>
 
       <variablelist>
         <varlistentry>
