@@ -130,8 +130,8 @@
     entre la version 1.0 et la version utilisée actuellement quelqu'un a décidé d'apporter le support du framework de
     tests unitaires TestNG en plus de celui de JUnit. Cette mise à jour s'est faite sans casser la compatibilité
     ascendante. Si vous utilisez le plugin Surefire pour compiler et exécuter vos tests unitaires JUnit 3, et que vous
-    le mettez à jour, vos tests continuent à s'exécuter sans erreur. Mais vous avez obtenu une nouvelle fonctionnalité,
-    vous pouvez d'exécuter des tests avec TestNG. Et en plus, vous pouvez exécuter des tests unitaires JUnit 4
+    le mettez à jour, vos tests continueront de s'exécuter sans erreur. Mais vous avez obtenu une nouvelle fonctionnalité,
+    vous pouvez exécuter des tests avec TestNG. Et en plus, vous pouvez exécuter des tests unitaires JUnit 4
     annotés. Tout cela sans avoir à mettre à jour votre installation de Maven ou à installer quoi que ce soit. Et plus
     important encore, vous n'avez rien changé à votre projet si ce n'est le numéro de version d'un plugin dans un unique
     fichier de configuration de Maven, le Project Object Model (POM).</para>
