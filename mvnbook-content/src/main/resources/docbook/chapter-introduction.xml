@@ -305,7 +305,7 @@
     <filename>src/main/java</filename> dans le répertoire <filename>target/classes</filename>. Vous devez indiquer à Ant
     exactement où se trouve votre code source, où le bytecode produit devra être sauvé, et comment packager tout cela
     dans un fichier <acronym>JAR</acronym>. Même si des développements récents tendent à rendre Ant moins procédural,
-    pour un développeur Ant reste un langage de code procédural en <acronym>XML</acronym>.</para>
+    pour un développeur, Ant reste un langage de code procédural en <acronym>XML</acronym>.</para>
 
     <para>Comparons l'exemple Ant précédent avec un exemple Maven. Avec Maven, pour créer un fichier JAR à partir de
     code source Java, tout ce que vous avez à faire est de créer un simple <filename>pom.xml</filename>, mettre votre
