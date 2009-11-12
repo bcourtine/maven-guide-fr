@@ -9,8 +9,8 @@
   le choix d'être aussi détaillés que possible afin de réduire le nombre de problèmes que vous pourriez rencontrer suite
   à une installation partielle. La seule chose que nous allons supposer dans ce chapitre est que vous avez déjà installé
   un <acronym>JDK</acronym> (Java Development Kit) approprié. Si vous n'êtes intéressé que par l'utilisation  
-  elle-même, vous pouvez passer à la suite du livre après avoir lu <xref linkend="installation-sect-maven-download"
-  xrefstyle="select: title" /> et <xref linkend="installation-sect-maven-install" xrefstyle="select: title" />. Si vous
+  elle-même, vous pouvez passer à la suite du livre après avoir lu les paragraphes "<xref linkend="installation-sect-maven-download"
+  xrefstyle="select: title" />" et "<xref linkend="installation-sect-maven-install" xrefstyle="select: title" />". Si vous
   vous intéressez aux détails de votre installation de Maven, ce chapitre y est entièrement consacré, et vous donne une
   vision d'ensemble de ce que vous avez installé et de la licence Apache Software License, Version 2.0.</para>
 
@@ -266,7 +266,7 @@ lib/</screen>
 
       <para>Une fois que vous avez commencé à réellement utiliser Maven, vous vous apercevrez que Maven a créé
       localement des fichiers de configuration spécifiques à l'utilisateur ainsi qu'un dépôt local dans votre répertoire
-      utilisateur. Dans <filename>~/.m2</filename> vous trouverez :</para>
+      utilisateur. Dans <filename>~/.m2</filename>, vous trouverez :</para>
 
       <variablelist>
         <varlistentry>
