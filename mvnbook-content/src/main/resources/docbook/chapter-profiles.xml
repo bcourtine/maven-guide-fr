@@ -513,11 +513,11 @@
   <section id="profiles-sect-listing-active-profiles">
     <title>Lister les profiles actifs</title>
 
-    <para>Les profiles Maven peuvent être définis soit dans le fichier <filename>pom.xml</filename>, dans un fichier
+    <para>Les profils Maven peuvent être définis soit dans un fichier <filename>pom.xml</filename>, dans un fichier
     <filename>profiles.xml</filename>, dans le fichier <filename>~/.m2/settings.xml</filename> ou dans le fichier
     <filename>\${M2_HOME}/conf/settings.xml</filename>. Avec ces quatre possibilités, il est difficile de savoir quels
-    sont les profiles disponibles pour un projet sans avoir à parcourir les quatre fichiers en question. Pour faciliter
-    la gestion des profiles, connaitre ceux qui sont disponibles et où ils sont définis, il existe le goal du plugin
+    sont les profils disponibles pour un projet sans avoir à parcourir les quatre fichiers en question. Pour faciliter
+    la gestion des profils, connaitre ceux qui sont disponibles et où ils sont définis, il existe le goal du plugin
     Maven Help <literal>active-profiles</literal> qui liste l'ensemble des profiles actifs et où ils sont définis. Voici
     les instructions pour exécuter le goal <literal>active-profiles</literal> :</para>
 
