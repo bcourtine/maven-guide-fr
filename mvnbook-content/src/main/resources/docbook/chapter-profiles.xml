@@ -142,7 +142,7 @@
     <para>Un profil dans Maven est un ensemble alternatif de valeurs qui définissent ou surchargent les valeurs par défaut.
     En utilisant un profil, vous pouvez personnaliser un build pour différents environnements. Les profils sont
     configurés dans le fichier <filename>pom.xml</filename> et possèdent un identifiant. Vous pouvez ensuite exécuter 
-    Maven en précisant dans la ligne de commande le profil à utiliser. Le <filename>pom.xml</filename> suivant utilise
+    Maven en précisant en la ligne de commande le profil à utiliser. Le <filename>pom.xml</filename> suivant utilise
     un profil <literal>production</literal> pour écraser les paramètres par défaut du plugin Compiler.</para>
 
     <example>
@@ -192,26 +192,26 @@
 </programlisting>
     </example>
 
-    <para>Dans cet exemple, nous avons ajouté un profil nommé <literal>production</literal> pour écraser la
-    configuration par défaut du plugin Maven. Examinons la syntaxe de ce profil en détail.</para>
+    <para>Dans cet exemple, nous avons ajouté un profil nommé <literal>production</literal> pour surcharger la
+    configuration par défaut du plugin Maven Compiler. Examinons la syntaxe de ce profil en détail.</para>
 
     <calloutlist>
       <callout arearefs="coDef-profiles-compile-1" id="coRef-profiles-compile-1">
         <para>L'élément <sgmltag>profiles</sgmltag> est dans le <filename>pom.xml</filename>, il contient un ou
-        plusieurs éléments <sgmltag>profile</sgmltag>. Puisque les profils écrasent les paramètres par défaut dans le
+        plusieurs éléments <sgmltag>profile</sgmltag>. Puisque les profils écrasent les paramètres par défaut du 
         <filename>pom.xml</filename>, l'élément <sgmltag>profiles</sgmltag> est habituellement positionné en fin de
         <filename>pom.xml</filename>.</para>
       </callout>
 
       <callout arearefs="coDef-profiles-compile-2" id="coRef-profiles-compile-2">
         <para>Chaque profil doit avoir un élément <sgmltag>id</sgmltag>. Cet element <sgmltag>id</sgmltag> contient le
-        nom qui est utilisé pour invoquer ce profil sur la ligne de commande. Un profil est invoqué en passant
+        nom qui est utilisé pour invoquer ce profil en ligne de commande. Un profil est invoqué en passant
         l'argument <command>-P&lt;profile_id&gt;</command> à la ligne de commande Maven.</para>
       </callout>
 
       <callout arearefs="coDef-profiles-compile-3" id="coRef-profiles-compile-3">
-        <para>Un élément <sgmltag>profile</sgmltag> peut contenir de nombreux éléments contenus dans l'élément
-        <sgmltag>project</sgmltag> d'un POM. Dans cet exemple, nous écrasons le comportement du plugin Compiler et nous
+        <para>Un élément <sgmltag>profile</sgmltag> peut contenir de nombreux éléments présents dans l'élément
+        <sgmltag>project</sgmltag> d'un POM. Dans cet exemple, nous surchrgeons le comportement du plugin Compiler et nous
         devons écraser la configuration du plugin qui se trouve normalement dans l'élément
         <sgmltag>build</sgmltag>/<sgmltag>plugins</sgmltag>.</para>
       </callout>
@@ -224,9 +224,9 @@
     </calloutlist>
 
     <para>Pour exécuter la commande <command>mvn install</command> avec le profil de <literal>production</literal> vous
-    devez passer l'argument <command>-Pproduction</command> sur la ligne de commande. Pour vérifier que le profil de
-    <literal>production</literal> surcharge la configuation par défaut du plugin Compiler, exécutez Maven avec les
-    options de debug (<command>-X</command>) activées ainsi :</para>
+    devez passer l'argument <command>-Pproduction</command> en ligne de commande. Pour vérifier que le profil de
+    <literal>production</literal> surcharge la configuration par défaut du plugin Compiler, exécutez Maven avec les
+    options de debug (<command>-X</command>) activées :</para>
 
     <screen>~/examples/profile $ <command>mvn clean install -Pproduction -X</command>
 ... (omitting debugging output) ...
