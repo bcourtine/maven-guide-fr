@@ -477,10 +477,10 @@
     <section id="profiles-sect-activation-by-absence">
       <title>Activation par l'absence d'une propriété</title>
 
-      <para>Vous pouvez activer un profil sur la valeur d'une propriété telle que
+      <para>Vous pouvez activer un profil sur la valeur d'une propriété comme
       <varname>environment.</varname><varname>type</varname>. Vous pouvez donc activer un profil
-      <literal>development</literal> si la variable <varname>environment.</varname><varname>type</varname> a pour valeur
-      <literal>dev</literal> et un profil <literal>production</literal> si cette variable vaut maintenant
+      <literal>development</literal> si la propriété <varname>environment.</varname><varname>type</varname> a pour valeur
+      <literal>dev</literal> et un profil <literal>production</literal> si cette propriété vaut maintenant
       <literal>prod</literal>. Il est aussi possible d'activer un profil en cas d'absence d'une propriété. La
       configuration suivante active un profil si la propriété <varname>environment.</varname><varname>type</varname>
       n'est pas présente durant l'exécution de Maven.</para>
@@ -506,7 +506,7 @@
 
       <para>Attention au point d'exclamation qui préfixe le nom de la propriété. Le point d'exclamation est souvent
       appelé le caractère "bang" cet signifie "non". Ce profil est activé quand aucune propriété
-      <varname>\${environment.</varname><varname>type}</varname> est définie.</para>
+      <varname>\${environment.</varname><varname>type}</varname> n'est définie.</para>
     </section>
   </section>
 
