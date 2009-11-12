@@ -102,9 +102,9 @@
 
     <para>Même si Maven fournit tout un ensemble d'avantages, dont la gestion des dépendances et la réutilisation de
     comportements communs de build par ses plugins, la raison principale de son succès vient de la création d'une
-    interface unifiée pour construire un logiciel. En voyant qu'un projet comme <ulink
-    url="http://wicket.apache.org">Apache Wicket </ulink> utilise Maven, on imagine aisément qu'il suffit de récupérer
-    le code source et que la commande mvn install va construire ce projet sans trop de problèmes. Vous savez où insérer
+    interface unifiée pour construire un logiciel. Si vous voyez qu'un projet comme <ulink
+    url="http://wicket.apache.org">Apache Wicket</ulink> utilise Maven, vous pouvez supposer qu'après avoir récupérer son code source, 
+    la commande <command>mvn install</command> vous permettra de le construire sans trop de problèmes. Vous savez où insérer
     la clef de contact, que la pédale d'accélérateur se trouve à droite et le frein à gauche.</para>
   </section>
 
