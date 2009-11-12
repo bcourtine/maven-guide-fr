@@ -137,7 +137,7 @@
     fichier de configuration de Maven, le Project Object Model (POM).</para>
 
     <para>C'est ce même mécanisme que l'on retrouve dans tout Maven. Maven dispose de plugins pour tout faire, de la
-    compilation du code Java, à la génération de rapports et au déploiement sur un serveur d'applications. Maven a
+    compilation du code Java à la génération de rapports et au déploiement sur un serveur d'applications. Maven a
     extrait les tâches de la construction d'un projet dans des plugins qui sont centralisés pour leur maintenance et
     partagés universellement. Si l'état de l'art change pour une étape quelconque du build, si un nouveau framework de
     tests unitaires sort, si de nouveaux outils deviennent disponibles, vous n'avez plus à ajouter une nouvelle verrue à
