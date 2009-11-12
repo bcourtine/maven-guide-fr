@@ -49,7 +49,7 @@
     appréciable au projet.</para>
 
     <para>Maven intègre ce concept en ayant un comportement logique par défaut. Sans configuration spécifique, le code
-    source est supposé se trouver dans <filename>\${basedir}/src/main/java</filename> et les diff�rentes ressources dans
+    source est supposé se trouver dans <filename>\${basedir}/src/main/java</filename> et les différentes ressources dans
     <filename>\${basedir}/src/main/resources</filename>. Les tests eux sont supposés être dans
     <filename>\${basedir}/src/test</filename>, et un projet est supposé produire un fichier <acronym>JAR</acronym>.
     Maven suppose que vous voulez compiler en bytecode dans <filename>\${basedir}/target/classes</filename> et ensuite
