@@ -396,25 +396,45 @@
       profil peut indiquer comme conditions d'être sur un système d'exploitation Windows avec un JDK version 1.4. Ce
       profil ne sera donc activé que si le build est exécuté sur une machine Windows avec Java 1.4. Si le profil est
       actif, alors tous ses éléments surchargent les éléments correspondants du projet comme si ce profil était inclus
-      via l'argument <command>-P</command> en ligne de commande. L'exemple uivant présente un profil qui n'est activé
+      via l'argument <command>-P</command> en ligne de commande. L'exemple suivant présente un profil qui n'est activé
       que par une combinaison très spécifique de propriétés, de version du JDK et de système d'exploitation.</para>
 
       <para><example>
-          <title>Paramètres d'activation du profil : version du JDK Version, système d'exploitation et
-          propriétés</title>
-
-          <programlisting language="xml">&lt;project&gt;
+          <title>Paramètres d'activation du profil : version du JDK, système d'exploitation et propriétés</title>
+          <programlisting>&lt;project&gt;
   ...
   &lt;profiles&gt;
     &lt;profile&gt;
       &lt;id&gt;dev&lt;/id&gt;
       &lt;activation&gt;
-        &lt;activeByDefault&gt;false&lt;/activeByDefault&gt; <co id="coDef-profiles-active2-1"
-              linkends="coRef-profiles-active2-1" />&lt;jdk&gt;1.5&lt;/jdk&gt; <co id="coDef-profiles-active2-2"
-              linkends="coRef-profiles-active2-2" />&lt;os&gt; &lt;name&gt;Windows XP&lt;/name&gt; <co
-              id="coDef-profiles-active2-3" linkends="coRef-profiles-active2-3" />&lt;family&gt;Windows&lt;/family&gt; &lt;arch&gt;x86&lt;/arch&gt; &lt;version&gt;5.1.2600&lt;/version&gt; &lt;/os&gt; &lt;property&gt; &lt;name&gt;mavenVersion&lt;/name&gt; <co
-              id="coDef-profiles-active2-4" linkends="coRef-profiles-active2-4" />&lt;value&gt;2.0.5&lt;/value&gt; &lt;/property&gt; &lt;file&gt; &lt;exists&gt;file2.properties&lt;/exists&gt; <co
-              id="coDef-profiles-active2-5" linkends="coRef-profiles-active2-5" />&lt;missing&gt;file1.properties&lt;/missing&gt; &lt;/file&gt; &lt;/activation&gt; ... &lt;/profile&gt; &lt;/profiles&gt;
+        &lt;activeByDefault&gt;false&lt;/activeByDefault&gt;<co
+              id="coDef-profiles-active2-1"
+              linkends="coRef-profiles-active2-1" />
+        &lt;jdk&gt;1.5&lt;/jdk&gt;<co id="coDef-profiles-active2-2"
+              linkends="coRef-profiles-active2-2" />
+        &lt;os&gt;
+          &lt;name&gt;Windows XP&lt;/name&gt;<co id="coDef-profiles-active2-3"
+              linkends="coRef-profiles-active2-3" />
+          &lt;family&gt;Windows&lt;/family&gt;
+          &lt;arch&gt;x86&lt;/arch&gt;
+          &lt;version&gt;5.1.2600&lt;/version&gt;
+        &lt;/os&gt;
+        &lt;property&gt;
+          &lt;name&gt;mavenVersion&lt;/name&gt;<co
+              id="coDef-profiles-active2-4"
+              linkends="coRef-profiles-active2-4" />
+          &lt;value&gt;2.0.5&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;file&gt;
+          &lt;exists&gt;file2.properties&lt;/exists&gt;<co
+              id="coDef-profiles-active2-5"
+              linkends="coRef-profiles-active2-5" />
+          &lt;missing&gt;file1.properties&lt;/missing&gt;
+        &lt;/file&gt;
+      &lt;/activation&gt;
+      ...
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
 &lt;/project&gt;
 </programlisting>
         </example></para>
@@ -433,9 +453,9 @@
         </callout>
 
         <callout arearefs="coDef-profiles-active2-3" id="coRef-profiles-active2-3">
-          <para>Ce profil cible ussi une version très spécifique de Windows XP, version 5.1.2600 sur une plateforme
+          <para>Ce profil cible aussi une version très spécifique de Windows XP, la version 5.1.2600 sur une plateforme
           32-bit. Si votre projet utilise le plugin natif pour compiler du code en C, vous risquez de vous retrouver à
-          écrire plusieurs projets selon les plateformes.</para>
+          écrire plusieurs projets suivant les plateformes.</para>
         </callout>
 
         <callout arearefs="coDef-profiles-active2-4" id="coRef-profiles-active2-4">
@@ -446,8 +466,8 @@
         </callout>
 
         <callout arearefs="coDef-profiles-active2-5" id="coRef-profiles-active2-5">
-          <para>La balise <sgmltag>file</sgmltag> nous permet d'activer un profil sur la présence (ou l'absence) de
-          fichiers. Le profil <literal>dev</literal> sera activé si un fichier <filename>file2.properties</filename>
+          <para>La balise <sgmltag>file</sgmltag> nous permet d'activer un profil sur la présence (ou l'absence) d'un
+          fichier. Le profil <literal>dev</literal> sera activé si un fichier <filename>file2.properties</filename>
           existe à la racine du projet. Le profil <literal>dev</literal> ne sera activé que s'il n'existe pas de fichier
           <filename>file1.properties</filename> à la racine du projet.</para>
         </callout>
