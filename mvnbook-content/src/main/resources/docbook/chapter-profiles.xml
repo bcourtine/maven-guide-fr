@@ -309,10 +309,10 @@
     et le profil <literal>production</literal> existe pour apporter les éléments de configuration propres à
     l'environnement de production. Que se passe t'il si vous devez adapter votre build selon le système d'exploitation
     ou la version du <acronym>JDK</acronym> ? Maven fournit un mécanisme pour "activer" un profil selon différents
-    paramètres liés à l'environnement, c'est ce qe l'on appelle l'activation de profil.</para>
+    paramètres liés à l'environnement, c'est ce qu'on appelle l'activation de profil.</para>
 
     <para>Prenons l'exemple suivant, supposons que nous avons une bibliothèque Java dont certaines fonctions ne sont
-    disponibles que pour Java 6 : le moteur de scripts défini dans la <ulink
+    disponibles que pour Java 6 et son moteur de scripts défini dans la <ulink
     url="http://jcp.org/en/jsr/detail?id=223">JSR-223</ulink>. Une fois que vous avez séparé le bloc de code qui utilise
     le moteur de scripts dans un projet Maven à part, vous voulez que les personnes qui utilisent Java 5 puissent
     construire votre projet sans essayer de construire l'extension spécifique Java 6. Vous pouvez faire celà au moyen
@@ -321,7 +321,7 @@
     comment nous souhaitons que les développeurs construisent notre système.</para>
 
     <para>Lorsque l'on exécute la commande <command>mvn install</command> avec un <acronym>JDK</acronym> Java 6, nous
-    voulons que le build construise le projet <literal>simple-script</literal>, par contre si cette commande est
+    voulons que le build construise le projet <literal>simple-script</literal>, si par contre cette commande est
     exécutée sur Java 5 il faut exclure le projet <literal>simple-script</literal> du build. Si vous n'excluez pas le
     projet <literal>simple-script</literal> de votre build en Java 5, celui-ci va échouer car Java 5 ne fournit pas la
     classe <classname>ScriptEngine</classname>. Etudions plus en détail le fichier <filename>pom.xml</filename> du
@@ -352,30 +352,38 @@
   &lt;profiles&gt;
     &lt;profile&gt;
       &lt;id&gt;jdk16&lt;/id&gt;
-      &lt;activation&gt; <co id="coDef-profiles-active-1" linkends="coRef-profiles-active-1" />&lt;jdk&gt;1.6&lt;/jdk&gt; &lt;/activation&gt; &lt;modules&gt; <co
-          id="coDef-profiles-active-2" lang="" linkends="coRef-profiles-active-2" />&lt;module&gt;simple-script&lt;/module&gt; &lt;/modules&gt; &lt;/profile&gt; &lt;/profiles&gt;
+      &lt;activation&gt;<co id="coDef-profiles-active-1"
+          linkends="coRef-profiles-active-1" />
+        &lt;jdk&gt;1.6&lt;/jdk&gt;
+      &lt;/activation&gt;
+      &lt;modules&gt;<co id="coDef-profiles-active-2" lang=""
+          linkends="coRef-profiles-active-2" />
+        &lt;module&gt;simple-script&lt;/module&gt;
+      &lt;/modules&gt;
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
 &lt;/project&gt;
 </programlisting>
     </example>
 
-    <para>Si vous exécutez la commande <command>mvn install</command> en Java 1.6, vous vous apercevrez que Maven
+    <para>Si vous exécutez la commande <command>mvn install</command> en Java 6, vous vous apercevrez que Maven
     descent dans le sous-répertoire <filename>simple-script</filename> pour y construire le projet
-    <literal>simple-script</literal>. Si vous exécutez la même commande <command>mvn install</command> en Java 1.5, le
+    <literal>simple-script</literal>. Si vous exécutez la même commande <command>mvn install</command> en Java 5, le
     build n'essayera pas de construire le sous-module <literal>simple-script</literal>. Analysons cette configuration
-    d'activation en détails :</para>
+    d'activation en détail :</para>
 
     <calloutlist>
       <callout arearefs="coDef-profiles-active-1" id="coRef-profiles-active-1">
         <para>La balise <sgmltag>activation</sgmltag> indique les conditions d'activation du profil. Dans cet exemple,
         nous avons indiqué que ce profil sera activé pour les versions de Java à partir de Java "1.6". Ce qui inclut
         donc "1.6.0_03", "1.6.0_02" ou tout autre version commençant par "1.6". Les conditions d'activation ne sont pas
-        limitées à la version de Java, pour une liste complète des paramètres d'activation rendez-vous à la <xref
-        linkend="profiles-sect-activation-config" xrefstyle="select:title" />.</para>
+        limitées à la version de Java, pour une liste complète des paramètres d'activation rendez-vous à la section
+        <xref linkend="profiles-sect-activation-config" xrefstyle="select:title" />.</para>
       </callout>
 
       <callout arch="" arearefs="coDef-profiles-active-2" id="coRef-profiles-active-2">
-        <para>Dans ce profil nous ajoutons le module <literal>simple-script</literal>. A cause de l'ajout de ce module,
-        Maven va aller regarder dans le sous-répertoire <filename>simple-script/</filename> à la recherche d'u fichier
+        <para>Dans ce profil nous ajoutons le module <literal>simple-script</literal>. L'ajout de ce module fait que
+        Maven va aller regarder dans le sous-répertoire <filename>simple-script/</filename> à la recherche d'un fichier
         <filename>pom.xml</filename>.</para>
       </callout>
     </calloutlist>
