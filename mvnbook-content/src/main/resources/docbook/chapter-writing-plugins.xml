@@ -706,7 +706,6 @@ public class EchoMojo extends AbstractMojo
       <para>Si vous créez ce Mojo dans un <varname>\${basedir}</varname> sous <filename>src/main/java</filename> à l'emplacement 
       <filename>org/sonatype/mavenbook/mojo/EchoMojo.java</filename> dans le projet créé précédemment et que vous exécuter la commande <command>mvn install</command>,  
       vous devriez être capable d'appeler votre goal directement à partir de la ligne de commande :</para>
-      you should be able to invoke this goal directly from the command-line with:</para>
 
       <screen>$ <command>mvn org.sonatype.mavenbook.plugins:first-maven-plugin:1.0-SNAPSHOT:echo</command></screen>
 
@@ -904,52 +903,37 @@ public class EchoMojo extends AbstractMojo
         </varlistentry>
       </variablelist>
 
-      <para>Each of the four levels exposes the same three methods. The four
-      logging levels serve different purposes. The debug level exists for
-      debugging purposes and for people who want to see a very detailed
-      picture of the execution of a Mojo. You should use the debug logging
-      level to provide as much detail on the execution of a Mojo, but you
-      should never assume that a user is going to see the debug level. The
-      info level is for general informational messages that should be printed
-      as a normal course of operation. If you were building a plugin that
-      compiled code using a compiler, you might want to print the output of
-      the compiler to the screen.</para>
+      <para>Chacun de ces quatre niveaux expose ces trois méthodes.
+      Ces quatre niveaux répondent à quatre buts différents.
+      Le niveau debug est dédié aux personnes qui désirent voir une vue très détaillée de ce qui se passe lors de l'exécution d'un Mojo.  
+      Vous ne devez donc jamais présumer que vos utilisateurs utilisent ce niveau.
+      Pour cela, il est préférable d'utiliser le niveau info qui est destiné à afficher des messages d'informations généralistes devant s'afficher lors d'une utilisation normale du mojo.
+      Par exemple, si vous construisez un plugin qui compile du code, utilisez ce niveau info pour afficher la sortie du compilateur à l'écran.</para>
 
-      <para>The warn logging level is used for messages about unexpected
-      events and errors that your Mojo can cope with. If you were trying to
-      run a plugin that compiled Ruby source code, and there was no Ruby
-      source code available, you might want to just print a warning message
-      and move on. Warnings are not fatal, but errors are usually
-      build-stopping conditions. For the completely unexpected error
-      condition, there is the error logging level. You would use error if you
-      couldn't continue executing a Mojo. If you were writing a Mojo to
-      compile some Java code and the compiler wasn't available, you'd print a
-      message to the error level and possibly pass along an Exception that
-      Maven could print out for the user. You should assume that a user is
-      going to see most of the messages in info and all of the messages in
-      error.</para>
+      <para>Le niveau de logging warn est utilisé pour afficher des événements et messages d'erreurs que votre Mojo pourrait rencontrer.
+      Par exemple, si vous essayez d'exécuter un plugin qui compile du code source Ruby mais que votre code n'est pas disponible, un warning sera affiché. 
+      Contrairement aux erreurs (qui disposent d'un niveau dédié : error), les warnings ne sont pas destinés à afficher des erreurs bloquantes.          
+      Utilisez par exemple le niveau error lorsque votre Mojo qui doit compiler du code, ne trouve pas de compilateur.
+      Dans ce cas, vous voudrez probablement afficher un message d'erreur et lever une exception.
+      Vous pouvez présumer que vos utilisateurs verront les messages en info et tous les messages d'erreurs.</para>
+
     </section>
 
     <section id="writing-plugins-sect-class-annotations">
-      <title>Mojo Class Annotations</title>
+      <title>Annotations des Mojo</title>
 
-      <para>In <varname>first-maven-plugin</varname>, you didn't write the
-      plugin descriptor yourself, you relied on Maven to generate the plugin
-      descriptor from your source code. The descriptor was generated using
-      your plugin project's <acronym>POM</acronym> information and a set of
-      annotations on your <classname>EchoMojo</classname> class.
-      <classname>EchoMojo</classname> only specifies the
-      <classname>@goal</classname> annotation, here is a list of other
-      annotations you can place on your <classname>Mojo</classname>
-      implementation.</para>
+      <para>Dans le plugin <varname>first-maven-plugin</varname>, vous n'avez pas écrit de descripteur de plugin, Maven s'est chargé d'en générer un pour vous.
+      Pour cela, Maven utilise les informations du <acronym>POM</acronym> du projet et une liste d'annotations présentes dans votre classe <classname>EchoMojo</classname>.
+      La classe <classname>EchoMojo</classname> contient une seule annotation : <classname>@goal</classname>.
+      Voici la liste complète des annotations utilisables dans un <classname>Mojo</classname>.</para>          
 
       <para><variablelist>
           <varlistentry>
             <term>@goal &lt;goalName&gt;</term>
 
             <listitem>
-              <para>This is the only required annotation which gives a name to
-              this goal unique to this plugin.</para>
+              <para>C'est la seule annotation obligatoire, elle fournit un nom unique au goal que vous êtes en train d'écrire.</para>
+
             </listitem>
           </varlistentry>
 
@@ -957,12 +941,9 @@ public class EchoMojo extends AbstractMojo
             <term>@requiresDependencyResolution &lt;requireScope&gt;</term>
 
             <listitem>
-              <para>Flags this mojo as requiring the dependencies in the
-              specified scope (or an implied scope) to be resolved before it
-              can execute. Supports compile, runtime, and test. If this
-              annotation had a value of <varname>test</varname>, it would tell
-              Maven that the Mojo cannot be executed until the dependencies in
-              the test scope had been resolved.</para>
+              <para>Marque le mojo comme un mojo qui nécessite des dépendances dans un certain scope : compile, runtime ou test. 
+              Par exemple, si la valeur de cette annotation est passée à <varname>test</varname>,                
+              on empêche alors Maven d'exécuter ce Mojo si sa dépendance n'est pas résolue dans le scope test.</para>
             </listitem>
           </varlistentry>
 
@@ -970,9 +951,9 @@ public class EchoMojo extends AbstractMojo
             <term>@requiresProject (true|false)</term>
 
             <listitem>
-              <para>Marks that this goal must be run inside of a project,
-              default is <literal>true</literal>. This is opposed to plugins
-              like archetypes, which do not.</para>
+              <para>Marque ce goal comme goal devant être exécuté à l'intérieur d'un projet.
+              La valeur par défaut est <literal>true</literal>.
+              À l'opposé, certains plugins comment archetype ne le sont pas.</para>  
             </listitem>
           </varlistentry>
 
@@ -980,10 +961,9 @@ public class EchoMojo extends AbstractMojo
             <term>@requiresReports (true|false)</term>
 
             <listitem>
-              <para>If you were creating a plugin that relies on the presence
-              of reports, you would need to set
-              <varname>requiresReports</varname> to <varname>true</varname>.
-              The default value of this annotation is false.</para>
+              <para>Si vous voulez créer un plugin qui repose sur la présence de rapports,
+              affectez cette annotation à <varname>true</varname>.
+              La valeur par défaut de ce flag est <varname>false</varname>.</para>
             </listitem>
           </varlistentry>
 
@@ -991,16 +971,11 @@ public class EchoMojo extends AbstractMojo
             <term>@aggregator (true|false)</term>
 
             <listitem>
-              <para>A Mojo with <varname>aggregator</varname> set to
-              <varname>true</varname> is supposed to only run once during the
-              execution of Maven, it was created to give plugin developers the
-              ability to summarize the output of a series of builds; for
-              example, to create a plugin that summarizes a report across all
-              projects included in a build. A goal with
-              <varname>aggregator</varname> set to <varname>true</varname>
-              should only be run against the top-level project in a Maven
-              build. The default value of <varname>aggregator</varname> is
-              <varname>false</varname>.</para>
+              <para>Un goal possédant cette propriété affectée à <varname>true</varname> est supposé ne s'exécuter qu'une seule fois lors de l'exécution d'un plan Maven.
+              Cette propriété a été créée pour donner la possibilité aux développeurs d'agréger la sortie d'une série de build.
+              Par exemple, si vous voulez créer un plugin qui effectue un rapport consolidant la sortie de projets. 
+              Un goal avec <varname>aggregator</varname> affecté à <varname>true</varname> ne sevrait s'exécuter qu'à partir du projet de plus haut-niveau d'un build Maven.
+              Sa valeur par défaut est <varname>false</varname>.</para>
             </listitem>
           </varlistentry>
 
@@ -1008,10 +983,9 @@ public class EchoMojo extends AbstractMojo
             <term>@requiresOnline (true|false)</term>
 
             <listitem>
-              <para>When set to <varname>true</varname>, Maven must not be
-              running in offline mode when this goal is executed. Maven will
-              throw an error if one attempts to execute this goal offline.
-              Default: <varname>false</varname>.</para>
+              <para>Spécifie si un goal donné peut s'exécuter en mode offline.
+              Si un goal nécessite l'utilisation de ressources réseau et que ce flag est activé, Maven affichera une erreur si le goal est exécuté en mode offline.
+              La valeur par défaut pour cette propriété est <varname>false</varname>.</para>
             </listitem>
           </varlistentry>
 
@@ -1019,11 +993,10 @@ public class EchoMojo extends AbstractMojo
             <term>@requiresDirectInvocation</term>
 
             <listitem>
-              <para>When set to <varname>true</varname>, the goal can only be
-              executed if it is explicitly executed from the command-line by
-              the user. Maven will throw an error if someone tries to bind
-              this goal to a lifecycle phase. The default for this annotation
-              is <varname>false</varname>.</para>
+              <para>Si vous affectez cette propriété à <varname>true</varname>, 
+            le goal pourra seulement s'exécuter s'il est appelé directement par la ligne de commande par un utilisateur.
+            Si quelqu'un essaye de rattacher ce goal à une phase du cycle de cie dans un <acronym>POM</acronym>, Maven affichera un message d'erreur.             
+            La valeur par défaut pour est propriété est <varname>false</varname>.</para>
             </listitem>
           </varlistentry>
 
@@ -1031,11 +1004,8 @@ public class EchoMojo extends AbstractMojo
             <term>@phase &lt;phaseName&gt;</term>
 
             <listitem>
-              <para>This annotation specifies the default phase for this goal.
-              If you add an execution for this goal to a
-              <filename>pom.xml</filename> and do not specify the phase, Maven
-              will bind the goal to the phase specified in this annotation by
-              default.</para>
+              <para>Cette annotation spécifie la phase par défaut d'un goal.
+              Si vous n'avez pas spécifié de phase pour exécuter ce goal, Maven rattachera celui-ci à la phase spécifiée par cette annotation.</para> 
             </listitem>
           </varlistentry>
 
