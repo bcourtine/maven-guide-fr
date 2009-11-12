@@ -257,14 +257,14 @@
     <section id="profiles-sect-overriding-pom">
       <title>Surcharger un POM</title>
 
-      <para>L'exemple précédent vous a montré comment surcharger la configuration par défaut d'un unique plugin Maven,
-      mais vous ne savez toujours pas ce qu'il est possible de faire avec un profil Maven. Pour faire court, un profil
+      <para>L'exemple précédent vous a montré comment surcharger la configuration par défaut d'un plugin Maven seul,
+      cependant vous ignorez toujours ce qu'il est possible de faire avec un profil Maven. Pour faire court, un profil
       Maven peut surcharger presque tout ce que vous pouvez trouver dans un fichier <filename>pom.xml</filename>. Le
       <acronym>POM</acronym> Maven possède une balise appelée <sgmltag>profiles</sgmltag> qui contient les différentes
-      configurations d'un projet, et dans cette balise se trouve une balise profile qui définit chacun d'entre eux.
-      Chaque profil doit avoir une balise <sgmltag>id</sgmltag>, et à part celà elle peut contenir presque toutes les
-      balises que l'on peut trouver dans la balise <sgmltag>project</sgmltag>. Le document <acronym>XML</acronym> qui
-      suit nous montre toutes les balsies qu'un profile peut surcharger.</para>
+      configurations d'un projet, et dans cette balise se trouve une balise <sgmltag>profile</sgmltag> qui définit chacun d'entre eux.
+      Chaque profil doit avoir une balise <sgmltag>id</sgmltag>, celà mis à part il peut contenir presque tous les
+      éléments que l'on peut trouver sous la balise <sgmltag>project</sgmltag>. Le document <acronym>XML</acronym> qui
+      suit nous montre toutes les balises qu'un profil peut surcharger.</para>
 
       <para><example>
           <title>Balises autorisées dans un profil</title>
@@ -293,9 +293,9 @@
 </programlisting>
         </example></para>
 
-      <para>Un profil peut donc redéfinir les éléments entourés par une ellipse. Un profil peut redéfinir le nom de
-      l'artefact final, les dépendances et le build d'un projet via la en surchargeant la configuration de plugins. Un
-      profil peut aussi redéfinir les paramètres de distribution ; par exemple, si pour une étape de validation vous
+      <para>Un profil peut donc redéfinir tous ces éléments. Il peut redéfinir le nom de l'artefact final, les
+      dépendances et le build d'un projet via la en surchargeant la configuration de plugins. Un profil peut aussi
+      redéfinir les paramètres de distribution ; par exemple, si pour une étape de validation vous
       devez publier vos artefacts sur un serveur de pré-production vous allez créer un profil de validation qui va
       surcharger la balise <sgmltag>distributionManagement</sgmltag>.</para>
     </section>
