@@ -80,7 +80,7 @@
     temps sur leurs développements pour apprendre les arcanes de chaque nouveau projet auquel ils voulaient contribuer.
     En 2001, vous aviez une approche très différente pour construire un projet comme <ulink url="http://turbine.apache.org/">Turbine</ulink> par
     rapport à un projet comme <ulink url="http://tomcat.apache.org">Tomcat</ulink>. Si un nouvel outil d'analyse statique
-    du code source de code sortait, ou si un nouveau framework de tests unitaires était développé, tout le monde devait
+    du code source sortait, ou si un nouveau framework de tests unitaires était développé, tout le monde devrait
     s'arrêter de développer et voir comment l'intégrer dans l'environnement de build spécifique à chaque projet. Comment
     exécuter les tests unitaires ? Il existait des milliers de réponses à cette question. Cette époque se caractérisait
     par des discussions sans fin sur les outils et les procédures pour construire un logiciel. Le monde d'avant Maven
