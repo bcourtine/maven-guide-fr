@@ -12,12 +12,12 @@
 
     <para>Qu'entendons-nous par différents environnements de build ? La production et le développement sont deux
     environnements typiques. Quand vous travaillez dans l'environnement de développement, votre système est certainement
-    configuré pour travailler sur une base de donnée de développement installée sur le poste local tandis qu'en
-    production, votre système est configuré pour accèder à la base de donnée de production. Maven permet de définir
+    configuré pour travailler sur une base de données de développement installée sur le poste local tandis qu'en
+    production, votre système est configuré pour accèder à la base de données de production. Maven permet de définir
     différents environnements de build (profils de build) qui peuvent remplacer n'importe quel paramètre du fichier
-    <filename>pom.xml</filename>. Vous pourriez configurer votre application pour lire dans votre base de donnée de
+    <filename>pom.xml</filename>. Vous pourriez configurer votre application pour lire dans votre base de données de
     développement locale dans un profil "development", et la configurer dans le profil "production" pour lire dans
-    la base de donnée de production. Les profils peuvent également être activés en fonction de l'environnement et de la
+    la base de données de production. Les profils peuvent également être activés en fonction de l'environnement et de la
     plateforme, vous pouvez personnaliser un build pour qu'il s'exécute différemment selon le système d'exploitation ou
     la version du <acronym>JDK</acronym> installé. Avant que nous parlions de l'utilisation et la configuration des
     profils Maven, nous devons définir le concept de Portabilité du Build.</para>
@@ -55,7 +55,7 @@
 
         <para>Un build est qualifié de portable d'un environnement à l'autre s'il possède un mécanisme pour
         personnaliser le comportement et la configuration en fonction de l'environnement. Par exemple, un projet qui
-        contient une référence à une base de donnée de test dans un environnement de test et à une base de donnée de
+        contient une référence à une base de données de test dans un environnement de test et à une base de données de
         production dans un environnement de production, est portable sur ces deux environnements. Il est probable que ce
         build ait différentes propriétés pour chaque environnement. Quand vous changez pour un environnement pour qui
         n'est pas défini et qui ne possède pas de profile associé, le projet ne fonctionnera pas. Donc un projet n'est
@@ -71,7 +71,7 @@
 
         <para>Le point clef de cet environnement est que seuls quelques uns ont accès à des ressources internes à
         l'organisation comme le gestionnaire de configuration ou le dépôt interne Maven. Un projet dans une grande
-        entreprise peut dépendre de la présence d'une base de donnée accessible uniqument pour les développeurs 
+        entreprise peut dépendre de la présence d'une base de données accessible uniqument pour les développeurs
         internes. Un projet opensource peut exiger un certain niveau de droits pour pouvoir publier le site web et les
         artefacts produits sur un dépôt publique.</para>
 
@@ -518,7 +518,7 @@
     <filename>\${M2_HOME}/conf/settings.xml</filename>. Avec ces quatre possibilités, il est difficile de savoir quels
     sont les profils disponibles pour un projet sans avoir à parcourir les quatre fichiers en question. Pour faciliter
     la gestion des profils, connaitre ceux qui sont disponibles et où ils sont définis, il existe le goal du plugin
-    Maven Help <literal>active-profiles</literal> qui liste l'ensemble des profiles actifs et où ils sont définis. Voici
+    Maven Help <literal>active-profiles</literal> qui liste l'ensemble des profils actifs et où ils sont définis. Voici
     les instructions pour exécuter le goal <literal>active-profiles</literal> :</para>
 
     <screen>$ <command>mvn help:active-profiles</command>
@@ -536,15 +536,15 @@ The following profiles are active:
 
     <para>Les profils encouragent la portabilité du build. Si vous avez besoin de configurer avec délicatesse votre
     build pour qu'il puisse s'exécuter sur différentes plateformes ou pour construire différents artefacts selon la
-    plateforme cible, alors les profils peuvent améliorer la portabilité de votre build. Les profils définis dans les
+    plateforme cible, alors les profils peuvent améliorer sa portabilité. Les profils définis dans les
     fichiers <filename>settings.xml</filename> diminuent la portabilité d'un build puisque les développeurs doivent
     échanger cette information supplémentaire. Les sections qui vont suivre présentent des guides et des suggestions
     pour l'utilisation de profils Maven dans votre projet.</para>
 
     <section id="profiles-sect-common-envs">
-      <title>Common Environments</title>
+      <title>Environnements communs</title>
 
-      <para>Une des principales motivations pour l'utilisation de profils Maven est de fournir la configuration
+      <para>Une des principales raisons à l'utilisation de profils Maven est de fournir la configuration
       spécifique à un environnement. Dans un environnement de développement, vous voudrez produire du bytecode avec les
       informations nécessaires pour le déboggage et vous voudrez configurer votre système pour qu'il utilise une base de
       données de dévelopement. Dans un environnement de prodution, vous souhaiterez produire un JAR signé et configurer
@@ -558,13 +558,13 @@ The following profiles are active:
       <varname>environment.</varname><varname>type</varname> ayant pour valeur <literal>prod</literal>, vous pourriez
       alors créer un profil dans votre fichier <filename>settings.xml</filename> qui définirait une propriété
       <varname>environment.</varname><varname>type</varname> avec pour valeur <literal>dev</literal> sur votre machine
-      de développement. Ainsi, chaque projet définit un profil <literal>dev</literal> activé par la même variable
-      d'environnement. Voyons comment appliquer tout celà, le fichier <filename>settings.xml</filename> suivant définit
+      de développement. Ainsi, chaque projet doit définir un profil <literal>dev</literal> activé par la même variable
+      d'environnement. Voyons comment appliquer tout celà : le fichier <filename>settings.xml</filename> suivant définit
       un profil dans <filename>~/.m2/settings.xml</filename> qui spécifie la valeur <literal>dev</literal> pour la
       propriété <varname>environment.</varname><varname>type</varname>.</para>
 
       <para><example>
-          <title>Le fichier ~/.m2/settings.xml définit un profil par défaut qui sépcifie la propriété
+          <title>Le fichier ~/.m2/settings.xml définit un profil par défaut qui spécifie la propriété
           environment.type</title>
 
           <programlisting language="xml">&lt;settings&gt;
@@ -582,15 +582,15 @@ The following profiles are active:
 </programlisting>
         </example></para>
 
-      <para>Ce implique que lorsque vous exécutez Maven sur votre poste ce profil sera activé et la propriété
+      <para>Lorsque vous exécutez Maven sur votre poste avec cette configuration, ce profil sera activé et la propriété
       <varname>environment.</varname><varname>type</varname> aura pour valeur <literal>dev</literal>. Vous pouvez
       utiliser cette propriété pour activer les profils définis dans le fichier <filename>pom.xml</filename> d'un projet
       comme nous allons le voir. Regardons donc, comment le fichier <filename>pom.xml</filename> définirait un profil
-      qui serait activé par le fait que la propriété <varname>environment.</varname><varname>type</varname> a la valeur
+      qui serait activé par le fait que la propriété <varname>environment.</varname><varname>type</varname> ait pour valeur
       <literal>dev</literal>.</para>
 
       <para><example id="ex-profile-envtype-pom">
-          <title>Profil d'un projet activé parle fait que environment.type vaut 'dev'</title>
+          <title>Profil d'un projet activé quand environment.type vaut 'dev'</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -634,24 +634,24 @@ The following profiles are active:
       <para>Ce projet définit de nouvelles propriétés comme <varname>database.</varname><varname>url</varname> et
       <varname>database.user</varname> qui pourraient être utilisées pour configurer un plugin Maven ailleurs dans le
       fichier <filename>pom.xml</filename>. Il existe de nombreux plugins qui peuvent manipuler une base de données,
-      exécuter du SQL, ou comme le plugin Maven Hibernate3 peuvent générer un ensemble d'objets annotés utilisés par les
+      exécuter du SQL, ou comme le plugin Maven Hibernate3, peuvent générer un ensemble d'objets annotés utilisés par les
       frameworks de persitance. Certains de ces plugins peuvent être configurés dans un fichier
       <filename>pom.xml</filename> grâce à ces propriétés. Ces propriétés peuvent aussi être utilisées pour filtrer des
       ressources. Dans cet exemple, comme nous avons définit un profil dans le fichier
       <filename>~/.m2/settings.xml</filename> qui spécifie la valeur <literal>dev</literal> pour
       <varname>environment.</varname><varname>type</varname>, le profil de développement sera toujours actif à chaque
       exécution de Maven sur cette machine. Par contre, si nous voulions modifier ce comportement par défaut, nous
-      pourrions indiquer la vleur de cette propriété en ligne de commande. Si nous avons besoin d'activer le profil de
+      pourrions préciser la valeur de cette propriété en ligne de commande. Si nous avons besoin d'activer le profil de
       production, nous pourrions exécuter Maven avec la commande :</para>
 
       <screen>~/examples/profiles $ <command>mvn install -Denvironment.type=prod</command></screen>
 
       <para>Spécifier une propriété en ligne de commande surchagera la valeur par défaut définie dans le fichier
-      <filename>~/.m2/settings.xml</filename>. Nous aurions pu aussi défiir un profil avec une <sgmltag>id</sgmltag>
-      "dev" et l'invoquer directemet avec l'argument <command>-P</command> en ligne de commande, mais l'utilisation de
+      <filename>~/.m2/settings.xml</filename>. Nous aurions pu aussi définir un profil avec un <sgmltag>id</sgmltag>
+      "dev" et l'invoquer directement avec l'argument <command>-P</command> en ligne de commande, mais l'utilisation de
       cette propriété <varname>environment.</varname><varname>type</varname> nous permet d'écrire de nouveaux fichiers
       <filename>pom.xml</filename> en respectant ce standard. Tous vos projets pourraient possèder un profil qui serait
-      activé par la même propriété <varname>environment.</varname><varname>type</varname>définie dans les fichiers
+      activé par la même propriété <varname>environment.</varname><varname>type</varname> définie dans les fichiers
       <filename>~/.m2/settings.xml</filename> de chaque développeur. Ainsi, les développeurs peuvent partager une
       configuration commune pour le développement sans avoir à la définir dans des fichiers
       <filename>settings.xml</filename> non-portables.</para>
