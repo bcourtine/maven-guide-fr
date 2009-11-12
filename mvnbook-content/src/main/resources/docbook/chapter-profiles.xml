@@ -13,13 +13,13 @@
     <para>Qu'entendons-nous par différents environnements de build ? La production et le développement sont deux
     environnements typiques. Quand vous travaillez dans l'environnement de développement, votre système est certainement
     configuré pour travailler sur une base de donnée de développement installée sur le poste local tandis qu'en
-    production, votre système est configuré pour accèder à la base de donnée de production. Maven permet de définir un
-    différents environnements de build (profils de build) qui peuvent remplacer n'importe quel paramètre dans le
+    production, votre système est configuré pour accèder à la base de donnée de production. Maven permet de définir
+    différents environnements de build (profils de build) qui peuvent remplacer n'importe quel paramètre du fichier
     <filename>pom.xml</filename>. Vous pourriez configurer votre application pour lire dans votre base de donnée de
-    développement locale dans un profil "development", et la configurer pour lire dans la base de donnée de production
-    dans le profil "production". Les profils peuvent également être activés en fonction de l'environnement et de la
-    plateforme, vous pouvez personnaliser un build pour s'exécuter différemment en fonction du système d'exploitation ou
-    de la version du <acronym>JDK</acronym> installé. Avant que nous parlions de l'utilisation et la configuration des
+    développement locale dans un profil "development", et la configurer dans le profil "production" pour lire dans
+    la base de donnée de production. Les profils peuvent également être activés en fonction de l'environnement et de la
+    plateforme, vous pouvez personnaliser un build pour qu'il s'exécute différemment selon le système d'exploitation ou
+    la version du <acronym>JDK</acronym> installé. Avant que nous parlions de l'utilisation et la configuration des
     profils Maven, nous devons définir le concept de Portabilité du Build.</para>
 
     <section id="profiles-sect-portability">
@@ -27,17 +27,18 @@
 
       <para>La "portabilité" du build est la mesure de la facilité avec laquelle on peut prendre un projet particulier
       et le construire sur différents environnements. Un build qui fonctionne sans aucune configuration particulière ni
-      personnalisation des fichiers properties est plus portable qu'un build qui nécessite une quantité de travail pour
-      construire un projet depuis 0. Les projets les plus portables sont bien souvent des projets open source très
+      ni personnalisation des fichiers properties est plus portable qu'un build qui nécessite une un certain travail pour
+      construire le projet à partir de rien. Les projets les plus portables sont bien souvent des projets opensource très
       utilisés comme Apache Commons ou Apache Velocity qui fonctionnent avec Maven sans personnalisation ou presque.
-      Pour faire simple, les builds les plus portables fonctionnent, et les moins portables vous demander de jongler et
-      configurer les chemins vers les outils de build en fonction des plateformes. Avant que nousvous dévoilions comment
-      obtenir un build portable, étudions les différents types de portabilité dont nous allons parler.</para>
+      Pour faire simple, les builds les plus portables fonctionnent immédiatement et les moins portables vous demandent
+      de réaliser des acrobaties dans les fichiers de configuration pour modifier les chemins vers les outils de build
+      en fonction des plateformes. Avant que nousvous dévoilions comment obtenir un build portable, étudions les
+      différents types de portabilité dont nous allons parler.</para>
 
       <section id="profiles-sect-non-portable">
         <title>Builds non portables</title>
 
-        <para>Le manque de portabilité est exactement ce que les outils de build essayent d'éviter - cependant,
+        <para>L'absence de portabilité est exactement ce que les outils de build essayent d'éviter - cependant, 
         n'importe quel outil peut être configuré pour être non-portable (même Maven). Un projet n'est pas portable
         lorsqu'il ne peut être construit que dans certaines circonstances spécifiques (ex : votre machine locale). A
         moins que vous travailliez seul et que vous n'envisagiez pas de déployer votre application sur une autre
@@ -53,36 +54,36 @@
         <title>Portabilité sur l'environnement</title>
 
         <para>Un build est qualifié de portable d'un environnement à l'autre s'il possède un mécanisme pour
-        personnaliser le comportement et la configuration en fonction de l'environnement. Un projet qui contient une
-        référence à une base de donnée de test dans un environnement de test, par exemple, et à une base de donnée de
-        production dans un environnement de production, est portable sur ces environnements. Il est probable que ce
+        personnaliser le comportement et la configuration en fonction de l'environnement. Par exemple, un projet qui
+        contient une référence à une base de donnée de test dans un environnement de test et à une base de donnée de
+        production dans un environnement de production, est portable sur ces deux environnements. Il est probable que ce
         build ait différentes propriétés pour chaque environnement. Quand vous changez pour un environnement pour qui
         n'est pas défini et qui ne possède pas de profile associé, le projet ne fonctionnera pas. Donc un projet n'est
         portable que sur des environnements bien définis.</para>
 
         <para>Quand un nouveau développeur récupère le code source d'un projet dépendant de l'environnement, il devra
-        exécuter le build dans cet environnement ou créer un environnement adequat pour réussir à construire le
+        exécuter le build dans cet environnement ou créer l'environnement adéquat pour réussir à construire le
         projet.</para>
       </section>
 
       <section id="profiles-sect-org-portability">
         <title>Portabilité interne à une organisation</title>
 
-        <para>Le point clef de cet environnement est que seuls quelques uns ont accès à des ressources internes comme le
-        gestionnaire de configuration ou le dépôt interne Maven. Un projet dans une grande entreprise peut dépendre de
-        la présence d'une base de données accessibls uniqument pour les développeurs internes. Un projet libre peut
-        exiger un certain niveau de droits pour pouvoir publier le site web et les artefacts produits sur un dépôt
-        publique.</para>
+        <para>Le point clef de cet environnement est que seuls quelques uns ont accès à des ressources internes à
+        l'organisation comme le gestionnaire de configuration ou le dépôt interne Maven. Un projet dans une grande
+        entreprise peut dépendre de la présence d'une base de donnée accessible uniqument pour les développeurs 
+        internes. Un projet opensource peut exiger un certain niveau de droits pour pouvoir publier le site web et les
+        artefacts produits sur un dépôt publique.</para>
 
         <para>Si vous essayez de construire un projet interne hors du réseau interne de l'entreprise (par exemple de
         l'autre coté du firewall), le build va échouer. Il se peut que celà vienne de plugins propres à l'entreprise qui
-        ne sont pas disponibles ou des dépendances du projet qui ne peuvent être trouvées car vous n'avez pas les droits
-        nécessaires pour accéder au dépôt distant d'entreprise. Un tel projet n'est portable que sur les environnements
-        au sein d'une organisation.</para>
+        ne sont pas disponibles ou de dépendances du projet inaccessibles car vous n'avez pas les droits nécessaires
+        pour accéder au dépôt distant d'entreprise. Un tel projet n'est portable que sur les environnements au sein
+        d'une organisation.</para>
       </section>
 
       <section id="profiles-sect-wide-portability">
-        <title>(Universelle) Véritable Portabilité</title>
+        <title>Véritable Portabilité (Universelle)</title>
 
         <para>Tout le monde peut télécharger le code source d'un projet véritablement portable, le compiler et
         l'installer sans avoir à configurer le build pour son environnement spécifique. C'est le plus haut niveau de
@@ -97,10 +98,10 @@
     <section id="profiles-sect-select-level">
       <title>Choisir le bon niveau de portabilité</title>
 
-      <para>Evidemment, vous voulez éviter le pire cas : le build non-portable. Vous avez peut-être connu le malheur de
-      travailler ou d'étudier pour une organisation dont les applications critiques ont des builds non-portables. Dans
+      <para>Evidemment vous voulez éviter le pire cas : le build non-portable. Vous avez peut-être connu le malheur de
+      travailler ou d'étudier pour une organisation dont les builds des applications critiques sont non-portables. Dans
       une organisation comme celle-là, impossible de déployer une application sans une personne bien spécifique sur une
-      machine bien spécifique aussi. Avec une telle organisation, il est très difficile d'introduire de nouvelles
+      machine bien spécifique elle aussi. Avec une telle organisation, il est très difficile d'introduire de nouvelles
       dépendances ou des changements sans se coordonner avec la personne qui gère ce build non-portable. Ces builds
       non-portables ont tendances à se développer dans des environnements très politiques où une personne ou un groupe
       veut contrôler quand et comment un projet est construit et déployé. "Comment construit-on le système ? Oh, nous
@@ -109,43 +110,43 @@
       organisation, Maven et les profils Maven sont votre porte de sortie.</para>
 
       <para>A l'autre bout du spectre de la portabilité se trouvent les builds très portables. Ces builds sont des
-      builds très difficiles à atteindre. Ils restreignent vos dépendances aux projets et aux outils qui sont librement
+      builds très difficiles à réaliser Ils restreignent vos dépendances aux projets et aux outils qui sont librement
       distribuables et facilement accessibles. De nombreux packages commerciaux doivent être exclus des builds les plus
       portables car ils ne peuvent être téléchargés sans que vous n'ayez à accepter une license spécifique. Cette large
       portabilité va aussi restreindre les dépendances aux logiciels qui sont distribués sous la forme d'artefacts
       Maven. Par exemple, si vous dépendez des pilotes JDBC d'Oracle, vos utilisateurs devront les télécharger et les
       installer manuellement ; ce n'est pas très portable car vous devrez fournir les intructions nécessaires pour
-      configurer l'environnement afin que les personnes itéressées puissent construire votre application. D'un autre
+      configurer l'environnement afin que les personnes intéressées puissent construire votre application. D'un autre
       côté, vous pourriez utiliser un pilote JDBC disponible sur le dépôt publique de Maven comme MySQL ou
       HSQLDB.</para>
 
-      <para>Comme nous l'avons vu précédemment, les projets libres bénéficient d'avoir des builds le plus portable
+      <para>Comme nous l'avons vu précédemment, les projets libres ont intérêt à avoir des builds le plus portable
       possible. Les builds très portables réduisent le coût de contribution à un projet. Dans un projet libre (comme
-      Maven) on trouve deux groupes très distincts : les développeurs et les utilisateurs finaux. Quand un utilisateur
-      final utilise Maven et qu'il décide de contribuer en proposant un patch de Maven, il doit passer de l'utilisation
-      de l'artefact résultat d'un build à produire cet artefact. Il doit donc tout d'abord se transformer en
-      développeur, et si apprendre à construire ce projet est trop compliqué, alors cet utilisateur perdra de sa
-      motivation à contribuer au projet. Avec un projet très portable, un utilisateur n'a pas à connaitre les arcanes du
-      projet pour se tranformer en développeur, il peut télécharger le code source, le modifier, construire son artefact
-      et proposer sa contribution sans avoir à demander de l'aide pour configurer son environnement. Plus le coût
-      d'entrée pour contribuer à un projet libre est bas et plus le nombre de contributions augmente, surtout dans ces
-      petites contributions qui font la différence pour la réussite d'un projet. Une des conséquences de l'adoption de
-      Maven par un grand nombre de projets libres est que contribuer à ces projets est devenu beaucoup plus
-      facile.</para>
+      Maven) on trouve deux groupes d'utilisateurs très distincts : les développeurs et les utilisateurs finaux. Quand
+      un utilisateur final utilise Maven et qu'il décide de contribuer en proposant un patch de Maven, d'utilisateur du
+      produit final d'un build, il doit se deveir capable de construire ce produit. Il doit donc tout d'abord se
+      transformer en développeur, et donc si apprendre à construire ce projet est trop compliqué, alors il perdra de sa
+      motivation à contribuer au projet. Avec un projet très portable, un utilisateur n'a pas à connaitre les arcanes
+      du build d'un projet pour se tranformer en développeur, il peut télécharger le code source, le modifier,
+      construire son artefact et proposer sa contribution sans avoir à demander de l'aide pour configurer son
+      environnement. Plus le coût d'entrée pour contribuer à un projet libre est bas et plus le nombre de contributions
+      augmente, surtout ces petites contributions qui font la différence pour la réussite d'un projet. Une des
+      conséquences de l'adoption de Maven par un grand nombre de projets opensource est que contribuer à ces projets est
+      devenu beaucoup plus facile.</para>
     </section>
   </section>
 
   <section id="profiles-sect-maven-profiles">
-    <title>Portabilité grâce aux profiles Maven</title>
+    <title>Portabilité grâce aux profils Maven</title>
 
-    <para>Un profil dans Maven est un ensemble alternatif de valeurs qui définissent ou écrasent les valeurs par défaut.
+    <para>Un profil dans Maven est un ensemble alternatif de valeurs qui définissent ou surchargent les valeurs par défaut.
     En utilisant un profil, vous pouvez personnaliser un build pour différents environnements. Les profils sont
-    configurés dans le <filename>pom.xml</filename> et possèdent un identifiant. Vous pouez ensuite exécuter Maven en
-    précisant dans la ligne de commande le profil à utiliser. Le <filename>pom.xml</filename> suivant utilise un profil
-    <literal>production</literal> pour écraser les paramètres par défaut du plugin Compiler.</para>
+    configurés dans le fichier <filename>pom.xml</filename> et possèdent un identifiant. Vous pouvez ensuite exécuter 
+    Maven en précisant dans la ligne de commande le profil à utiliser. Le <filename>pom.xml</filename> suivant utilise
+    un profil <literal>production</literal> pour écraser les paramètres par défaut du plugin Compiler.</para>
 
     <example>
-      <title>Utilisation d'un profil Maven pour écraser les paramètres du compilateur pour la production</title>
+      <title>Surcharge des paramètres de compilation en production par un un profil Maven</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -166,10 +167,27 @@
       &lt;scope&gt;test&lt;/scope&gt;
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
-  &lt;profiles&gt; <co id="coDef-profiles-compile-1" linkends="coRef-profiles-compile-1" />&lt;profile&gt; &lt;id&gt;production&lt;/id&gt; <co
-          id="coDef-profiles-compile-2" linkends="coRef-profiles-compile-2" />&lt;build&gt; <co
-          id="coDef-profiles-compile-3" linkends="coDef-profiles-compile-3" />&lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt; &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt; &lt;configuration&gt; &lt;debug&gt;false&lt;/debug&gt; <co
-          id="coDef-profiles-compile-4" linkends="coDef-profiles-compile-4" />&lt;optimize&gt;true&lt;/optimize&gt; &lt;/configuration&gt; &lt;/plugin&gt; &lt;/plugins&gt; &lt;/build&gt; &lt;/profile&gt; &lt;/profiles&gt;
+  &lt;profiles&gt;<co id="coDef-profiles-compile-1"
+          linkends="coRef-profiles-compile-1" />
+    &lt;profile&gt;
+      &lt;id&gt;production&lt;/id&gt;<co id="coDef-profiles-compile-2"
+          linkends="coRef-profiles-compile-2" />
+      &lt;build&gt;<co id="coDef-profiles-compile-3"
+          linkends="coDef-profiles-compile-3" />
+        &lt;plugins&gt;
+          &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+              &lt;debug&gt;false&lt;/debug&gt;<co
+          id="coDef-profiles-compile-4" linkends="coDef-profiles-compile-4" />
+              &lt;optimize&gt;true&lt;/optimize&gt;
+            &lt;/configuration&gt;
+          &lt;/plugin&gt;
+        &lt;/plugins&gt;
+      &lt;/build&gt;
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
 &lt;/project&gt;
 </programlisting>
     </example>
@@ -619,11 +637,11 @@ The following profiles are active:
       <varname>database.password</varname>. J'ai fait celà délibéremment pour illustrer le fait de stocker les mots de
       passe dans votre fichier <filename>settings.xml</filename>. Si vous développez une application dans une grande
       orgaisation qui accorde de l'importance à la sécurité, il est probable que la majorité des développeurs ne
-      connaissent pas le mot de passe de production de la base de données. Dans une orgnisation qui trace des frontières
-      entre équipe de développement et équipe de production celà sera la norme. Les développeurs ont accès aux
-      environnements de développement et de pré-production,mais ils pourraient ne pas avoir (ou ne pas vouloir) accès à
-      la base de données de production. Il y a un certain nombres de raisons pour lesquelles celà aurait un sens,
-      particulièrement si une organisation gère des données sensibles financières, médicales ou autres. Dans ce
+      connaissent pas le mot de passe de production de la base de données. Dans une organisation qui trace des
+      frontières entre équipe de développement et équipe de production celà sera la norme. Les développeurs ont accès
+      aux environnements de développement et de pré-production,mais ils pourraient ne pas avoir (ou ne pas vouloir)
+      accès à la base de données de production. Il y a un certain nombres de raisons pour lesquelles celà aurait un
+      sens, particulièrement si une organisation gère des données sensibles financières, médicales ou autres. Dans ce
       scénario, l'environnement de production ne pourrait être utilisé que par le responsable technique ou par un
       memebre de l'équipe de production. Quand ils exécutent le build avec la valeur <literal>prod</literal> pour la
       propriété <varname>environment.</varname><varname>type</varname>, ils ont devoir définir cette variable dans leur
@@ -648,31 +666,32 @@ The following profiles are active:
 
       <para>Cet utilisateur a définit un profil par défaut qui donne à
       <varname>environment.</varname><varname>type</varname> la valeur <literal>prod</literal> et qui spécifie le mot de
-      passe de production. When the project is executed, the production profile is activated by the
-      <varname>environment.</varname><varname>type</varname> property and the <varname>database.password</varname>
-      property is populated. This way, you can put all of the production-specific configuration into a project's
-      <filename>pom.xml</filename> and leave out only the single secret necessary to access the production
-      database.</para>
+      passe de production. Quand le build du projet est exécuté, le profil de production est activé par la propriété
+      <varname>environment.</varname><varname>type</varname> et la propriété <varname>database.password</varname> est
+      remplie. Ainsi, vous pouvez mettre toute la configuration spécifique à la production dans le fichier
+      <filename>pom.xml</filename> du projet et ne retirer que l'unique mot de passe nécessaire pour accèder à la base
+      de données de production.</para>
 
       <note>
-        <para>Secrets usually conflict with wide portability, but this makes sense. You wouldn't want to share your
-        secrets openly.</para>
+        <para>Ces données secrètes sont en général contraires à la portabilité, mais ce que nous venons de faire a du
+        sens. Vous ne voudriez pas partager vos secrets avec n'importe qui.</para>
       </note>
     </section>
 
     <section id="profiles-sect-platform-classifier">
-      <title>Platform Classifiers</title>
+      <title>Classifiers selon la plateforme</title>
 
-      <para>Let's assume that you have a library or a project that produces platform-specific customizations. Even
-      though Java is platform-neutral, there are times when you might need to write some code that invokes
-      platform-specific native code. Another possibility is that you've written some C code which is compiled by the
-      Maven Native plugin and you want to produce a qualified artifact depending on the build platform. You can set a
-      classifier with the Maven Assembly plugin or with the Maven Jar plugin. The following <filename>pom.xml</filename>
-      produces a qualified artifact using profiles which are activated by Operation System parameters. For more
-      information about the Maven Assembly plugin, see <xref linkend="assemblies" />.</para>
+      <para>Supposons que vous avez une bibliothèque ou un projet qui produit des artefacts spécifiques selon la
+      plateforme. Même si Java est indépendant de la plateforme, parfois vous pourriez avoir besoin d'écrire du code qui
+      invoque du code natif, spécifique à une plateforme. Un autre cas possible est que vous avez écrit du code C qui
+      est compilé par le plugin Maven Native et que vous voulez produire un artefact qualifié selon la plateforme sur
+      laquelle il a été construit. Vous pouvez définir un classifier avec le plugin Maven Assemblyou le plugin Maven
+      Jar. Le fichier <filename>pom.xml</filename> suivant produit un artefact qualifié grâce à des profils activés
+      selon le système d'exploitation. Pour plus d'informations sur le plugin Maven Assembly vous pouvez consulter le
+      <xref linkend="assemblies" />.</para>
 
       <para><example>
-          <title>Qualifying Artifacts with Platform Activated Project Profiles</title>
+          <title>Qualification d'artéfacts avec des profils activés selon la plateforme</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -718,14 +737,16 @@ The following profiles are active:
 </programlisting>
         </example></para>
 
-      <para>If the Operating System is in the Windows family, this <filename>pom.xml</filename> qualifies the JAR
-      artifact with "-win". If the Operating System is in the Unix family, the artifact is qualified with "-linux". This
-      <filename>pom.xml</filename> successfully adds the qualifiers to the artifacts, but it is more verbose than it
-      need to be due to the redundant configuration of the Maven Jar plugin in both profiles. This example could be
-      rewritten to use variable substitution to minimize redundancy as follows:</para>
+      <para>Si le système d'exploitation fait partie de la famille Windows, ce fichier <filename>pom.xml</filename>
+      qualifie l'artefact Jar avec "-win". Si le système d'exploitation est un membre de la famille Unix, l'artefact est
+      qualifié avec "-linux". Ce fichier <filename>pom.xml</filename> ajoute avec succèsles qualifieurs aux artefacts,
+      mais il est plus verbeux que nécessaire en recopiant la configuration du plugin Maven Jar dans les deux profils.
+      Cet exemple pourrrait être ainsi réecrit en utilisant la substitution de variables pour rduire la redondance
+      :</para>
 
       <para><example>
-          <title>Qualifying Artifacts with Platform Activated Project Profiles and Variable Substitution</title>
+          <title>Qualification des artefacts avec des profils activés selon la plateforme d'exécution et en utilisant la
+          substitution de variables</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -768,16 +789,17 @@ The following profiles are active:
 </programlisting>
         </example></para>
 
-      <para>In this <filename>pom.xml</filename>, each profile doesn't need to include a <sgmltag>build</sgmltag>
-      element to configure the Jar plugin. Instead, each profile is activated by the Operating System family and sets
-      the <varname>envClassifier</varname> property to either <literal>win</literal> or <literal>linux</literal>. This
-      <varname>envClassifier</varname> is then referenced in the default <filename>pom.xml</filename>
-      <sgmltag>build</sgmltag> element to add a classifier to the project's JAR artifact. The JAR artifact will be named
-      <code>\${finalName}-\${envClassifier}.jar </code>and included as a dependency using the following dependency
-      syntax:</para>
+      <para>Dans ce fichier <filename>pom.xml</filename> chaque profil n'a pas besoin d'inclure une balise
+      <sgmltag>build</sgmltag> pour configurer le plugin Jar. Au lieu de celà, chaque profil est activé par la famille à
+      laquelle appartient le système d'exploitation, et valorise la propriété <varname>envClassifier</varname> soit à
+      <literal>win</literal> soit à <literal>linux</literal>. Cette propriété <varname>envClassifier</varname> est
+      référencée dans la balise <sgmltag>build</sgmltag> du fichier <filename>pom.xml</filename> pour ajouter un
+      classifieur à l'artefact JAR produit par le projet. Ainsi l'artefact JAR produit s'appellera
+      <code>\${finalName}-\${envClassifier}.jar </code>et sera utilisé comme dépendance grâce à la syntaxe suivante
+      :</para>
 
       <para><example>
-          <title>Depending on a Qualified Artifact</title>
+          <title>Dépendance ves un artefact qualifié</title>
 
           <programlisting language="xml">&lt;dependency&gt;
       &lt;groupId&gt;com.mycompany&lt;/groupId&gt;
@@ -791,14 +813,15 @@ The following profiles are active:
   </section>
 
   <section id="profiles-sect-summary">
-    <title>Summary</title>
+    <title>En résumé</title>
 
-    <para>When used judiciously, profiles can make it very easy to customize a build for different platforms. If
-    something in your build needs to define a platform-specific path for something like an application server, you can
-    put these configuration points in a profile which is activated by an operating system parameter. If you have a
-    project which needs to produce different artifacts for different environments, you can customize the build behavior
-    for different environments and platforms via profile-specific plugin behavior. Using profiles, builds can become
-    portable, there is no need to rewrite your build logic to support a new environment, just override the configuration
-    that needs to change and share the configuration points which can be shared.</para>
+    <para>Lorsqu'ils sont utilisés judicieusement, les profils facilitent grandement la configuration du build pour
+    différentes plateformes. Si quelque part dans votre build vous avez besoin de définir un chemin spécifique à une
+    plateforme pour un serveur d'application, vous pouvez mettre ces éléments de configuration dans un profil qui sera
+    activé selon la nature de votre système d'exploitation. Si vous avez un projet qui doit produire différents
+    artefacts pour différents environnements, vous pouvez personnaliser le comportement du build selon les différents
+    environnements et plateformes par des profils spécifiques à ceux-ci. L'utilisation de profils permet de rendre les
+    builds portables, il n'est plus nécessaire de réecrire votre logique de construction pour l'adapter à un nouvel
+    environnement. Surchargez la configuration qui doit être modifiée et partagez celle qui peut l'être.</para>
   </section>
 </chapter>
