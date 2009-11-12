@@ -308,9 +308,9 @@
     pour un développeur, Ant reste un langage de code procédural en <acronym>XML</acronym>.</para>
 
     <para>Comparons l'exemple Ant précédent avec un exemple Maven. Avec Maven, pour créer un fichier JAR à partir de
-    code source Java, tout ce que vous avez à faire est de créer un simple <filename>pom.xml</filename>, mettre votre
+    code source Java, tout ce que vous avez à faire est de créer un simple fichier <filename>pom.xml</filename>, mettre votre
     code source dans <filename>\${basedir}/src/main/java</filename> et exécuter la commande <command>mvn install
-    </command> depuis la ligne de commande. Le contenu du <filename>pom.xml</filename> Maven qui permet d'obtenir le
+    </command> depuis la ligne de commande. Le contenu du fichier <filename>pom.xml</filename> Maven qui permet d'obtenir le
     même résultat que le simple fichier Ant décrit dans l'<xref linkend="ex-ant-sample" /> est le suivant :</para>
 
     <example id="ex-maven-sample">
@@ -334,7 +334,7 @@
     <para>Certes, c'est l'exemple de projet le plus simple possible. Il ne contient rien d'autre que du code source et
     produit un <acronym>JAR</acronym>. C'est un projet qui suit les conventions de Maven et qui ne demande aucune
     dépendance ou personnalisation. Si nous voulons personnaliser le comportement, notre <filename>pom.xml</filename> va
-    grossir, et dans les plus gros projets vous pouvez trouver une collection de <acronym>POM</acronym>s Maven très
+    grossir, et dans les plus gros projets, vous pouvez trouver une collection de <acronym>POM</acronym>s Maven très
     complexes qui contiennent beaucoup de configuration de plugins et de déclarations de dépendances. Mais, même lorsque
     les fichiers <acronym>POM</acronym> de votre projet grossissent, ils contiennent des informations d'une nature
     différente de celles du fichier de build Ant d'un projet de taille similaire. Les <acronym>POM</acronym>s Maven
