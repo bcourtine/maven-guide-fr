@@ -1014,21 +1014,14 @@ public class EchoMojo extends AbstractMojo
             [lifecycle=lifecycleId]]</term>
 
             <listitem>
-              <para>This annotation can be used in a number of ways. If a
-              phase is supplied, Maven will execute a parallel lifecycle
-              ending in the specified phase. The results of this separate
-              execution will be made available in the Maven property
-              <varname>\${executedProperty}</varname>.</para>
+              <para>Cette annotation peut être utilisée de différentes manières.
+              Si une phase est fournie, Maven exécutera un cycle de vie parallèle en fin d'une phase spécifique.
+              Le résultat de cette exécution parallèle est rendu disponible dans la propriété Maven <varname>\${executedProperty}</varname>.</para>
 
-              <para>The second way of using this annotation is to specify an
-              explicit goal using the <varname>prefix:goal</varname> notation.
-              When you specify just a goal, Maven will execute this goal in a
-              parallel environment that will not affect the current Maven
-              build.</para>
+              <para>La seconde manière d'utiliser cette annotation est pour spécifier explicitement un goal en utilisant la notation <varname>prefix:goal</varname>. 
+              Lorsque vous spécifiez un goal, Maven exécute celui-ci dans un environnement parallèle, qui n'affecte pas le build Maven courant.</para>                 
 
-              <para>The third way of using this annotation would be to specify
-              a phase in an alternate lifecycle using the identifier of a
-              lifecycle.</para>
+              <para>La troisième manière d'utiliser cette annotation est de spécifier une phase dans un cycle de vie alternatif en utilisant un identifiant de cycle de vie.</para>
 
               <programlisting language="java">@execute phase="package" lifecycle="zip"
 @execute phase="compile"
@@ -1037,58 +1030,45 @@ public class EchoMojo extends AbstractMojo
           </varlistentry>
         </variablelist></para>
 
-      <para>If you look at the source for <classname>EchoMojo</classname>,
-      you'll notice that Maven is not using the standard annotations available
-      in Java 5. Instead, it is using <ulink
-      url="http://commons.apache.org/attributes/">Commons Attributes</ulink>.
-      Commons Attributes provided a way for Java programmers to use
-      annotations before annotations were a part of the Java language
-      specification. Why doesn't Maven use Java 5 annotations? Maven doesn't
-      use Java 5 annotations because it is designed to target pre-Java 5
-      <acronym>JVM</acronym>s. Because Maven has to support older versions of
-      Java, it cannot use any of the newer features available in Java
-      5.</para>
+      <para>Si vous regardez le code source du <classname>EchoMojo</classname>,
+      vous noterez que Maven n'utilise pas des annotations standard au format Java 5.
+      À la place, il utilise les <ulink url="http://commons.apache.org/attributes/">Commons Attributes</ulink>.
+      Commons Attributes fournit un moyen d'utiliser des annotations avant que les annotations Java ne fassent partit des spécifications Java.   
+      Pourquoi ne pas utiliser les annotations Java ?
+      Maven ne les utilise pas car il a été conçu pour des <acronym>JVM</acronym>s pré-Java 5.
+      Comme Maven doit supporter les versions antérieures de Java, il ne peut pas utiliser les fonctionnalités disponibles dans Java 5.</para> 
+
     </section>
 
     <section id="writing-plugins-sect-failure">
-      <title>When a Mojo Fails</title>
+      <title>Lorsque un Mojo échoue</title>
 
-      <para>The <methodname>execute()</methodname> method in Mojo throws two
-      exceptions <classname>MojoExecutionException</classname> and
-      <classname>MojoFailureException</classname>. The difference between
-      these two exception is both subtle and important, and it relates to what
-      happens when a goal execution "fails". A
-      <classname>MojoExecutionException</classname> is a fatal exception,
-      something unrecoverable happened. You would throw a
-      <classname>MojoExecutionException</classname> if something happens that
-      warrants a complete stop in a build; you re trying to write to disk, but
-      there is no space left, or you were trying to publish to a remote
-      repository, but you can't connect to it. Throw a
-      <classname>MojoExecutionException</classname> if there is no chance of a
-      build continuing; something terrible has happened and you want the build
-      to stop and the user to see a "BUILD ERROR" message.</para>
+      <para>La méthode <methodname>execute()</methodname> d'un Mojo lance deux types d'exceptions : <classname>MojoExecutionException</classname> et
+      <classname>MojoFailureException</classname>. 
+      La différence entre ces deux exceptions est aussi subtile qu'importante, ces exception ont un impact sur ce qui arrive lorsqu'une exécution "échoue". 
+      Une <classname>MojoExecutionException</classname> se doit d'être fatale, quelque chose d'irrécupérable est arrivé.
+      Lancez cette exception lorsque quelque chose arrive et que vous souhaitez arrêter le build.
+      Par exemple, vous essayez d'écrire sur le disque qui n'a plus d'espace libre ou que vous essayez de vous connecter à un dépôt distant qui ne répond pas.  
+      Lancez donc <classname>MojoExecutionException</classname> si vous n'avez aucune chance que votre build puisse continuer correctement,
+      lorsque quelque chose d'horrible est arrivé et que vous voulez arrêter le build et afficher à l'utilisateur un message "BUILD ERROR".</para> 
+      
+      <para>L'exception <classname>MojoFailureException</classname> correspond à un événement moins catastrophique, quelque chose qui ne doit pas déclencher la fin du build.
+      Un test unitaire peut échouer, un checksum <acronym>MD5</acronym> peut échouer, ces deux exemples sont des problèmes,
+      mais pas assez important pour arrêter votre build.       
+      C'est dans ce type situation que vous devez utiliser <classname>MojoFailureException</classname>.  
+      Maven prévoit plusieurs échappatoires lorsqu'un projet échoue.  
+      En voici es descriptions.</para>
 
-      <para>A <classname>MojoFailureException</classname> is something less
-      catastrophic, a goal can fail, but it might not be the end of the world
-      for your Maven build. A unit test can fail, or a <acronym>MD5</acronym>
-      checksum can fail; both of these are potential problems, but you don't
-      want to return an exception that is going to kill the entire build. In
-      this situation you would throw a
-      <classname>MojoFailureException</classname>. Maven provides for
-      different "resiliency" settings when it comes to project failure. Which
-      are described below.</para>
 
-      <para>When you run a Maven build, it could involve a series of projects
-      each of which can succeed or fail. You have the option of running Maven
-      in three failure modes:</para>
+      <para>Lorsque vous lancez un build Maven, vous pouvez invoquer une série de projets qui peuvent chacun soit réussir soit échouer.
+      Vous pouvez démarrer Maven sous trois modes différents :</para>
 
       <variablelist>
         <varlistentry>
           <term>mvn -ff</term>
 
           <listitem>
-            <para>Fail-fast mode: Maven will fail (stop) at the first build
-            failure.</para>
+            <para>Mode fail-fast : Maven échoue (s'arrête) au premier échec.</para>
           </listitem>
         </varlistentry>
 
@@ -1096,10 +1076,8 @@ public class EchoMojo extends AbstractMojo
           <term>mvn -fae</term>
 
           <listitem>
-            <para>Fail-at-end: Maven will fail at the end of the build. If a
-            project in the Maven reactor fails, Maven will continue to build
-            the rest of the builds and report a failure at the end of the
-            build.</para>
+            <para>Mode Fail-at-end : dans ce mode, Maven échouera à la fin du build.
+            Si un projet échoue, Maven continuera l'exécution de son build et affichera l'échec qu'en fin de build.</para> 
           </listitem>
         </varlistentry>
 
@@ -1107,34 +1085,28 @@ public class EchoMojo extends AbstractMojo
           <term>mvn -fn</term>
 
           <listitem>
-            <para>Fail never: Maven won't stop for a failure and it won't
-            report a failure.</para>
+            <para>Mode Fail never : Maven ne s'arrête pas en cas d'échec et ne reportera pas d'erreur.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <para>You might want to ignore failure if you are running a continuous
-      integration build and you want to attempt a build regardless of the
-      success of failure of an individual project build. As a plugin
-      developer, you'll have to make a call as to whether a particular failure
-      condition is a <classname>MojoExecutionException</classname> or a
-      <classname>MojoFailureExeception</classname>.</para>
+      <para>Vous pourrez vouloir d'ignorer les erreurs si vous exécutez un build d'intégration continu et que vous voulez effectuer votre build en ignorant le système d'échec.
+       En tant que développeur de plugin, vous devez prendre soin de lancer la bonne exception <classname>MojoExecutionException</classname> ou
+      <classname>MojoFailureExeception</classname> en fonction de votre type d'erreur.</para>       
     </section>
   </section>
 
   <section id="writing-plugins-sect-mojo-params">
-    <title>Mojo Parameters</title>
+    <title>Pramaètres du Mojo</title>
 
-    <para>Just as important as the <methodname>execute()</methodname> method
-    and the Mojo annotations, a Mojo is configured via parameters. This
-    section deals with some configuration and topics surrounding Mojo
-    parameters.</para>
+    <para>Cette notion est aussi importante que celles de la méthode <methodname>execute()</methodname> et des annotations du Mojo.
+    Un Mojo est configuré par l'intermédiaire de paramètres.
+    Cette section se concentre sur des sujets tournant autour de ces paramètres.</para> 
 
     <section id="writing-plugins-sect-param-values">
-      <title>Supplying Values for Mojo Parameters</title>
+      <title>Affectez des valeurs à vos paramètres de Mojo</title>
 
-      <para>In EchoMojo we declared the message parameter with the following
-      annotations:</para>
+      <para>Dans notre <varname>EchoMojo</varname>, nous avons déclaré un paramètre 'message' en utilisant l'annotation suivante :</para>
 
       <programlisting language="java">/**
  * Any Object to print out.
@@ -1145,26 +1117,18 @@ public class EchoMojo extends AbstractMojo
 private Object message;
 </programlisting>
 
-      <para>The default expression for this parameter is
-      <varname>\${echo.message}</varname>, this means that Maven will try to
-      use the value of the <varname>echo.message</varname> property to set the
-      value for message. If the value of the <varname>echo.message</varname>
-      property is null, the default-value attribute of the
-      <classname>@parameter</classname> annotation will be used instead.
-      Instead of using the <varname>echo.message</varname> property, we can
-      configure a value for the message parameter of the EchoMojo directly in
-      a project's <acronym>POM</acronym>.</para>
-
-      <para>There are a few ways to populate the message parameter in the
-      <classname>EchoMojo</classname>. First we can pass in a value from the
-      command-line like this (assuming that you've added
-      <varname>org.sonatype.mavenbook.plugins</varname> to your
-      <sgmltag>pluginGroups</sgmltag>):</para>
+      <para>L'expression par défaut pour ce paramètre est <varname>\${echo.message}</varname>. 
+      Cela veut dire que Maven essayera d'utiliser la valeur de la propriété <varname>echo.message</varname> pour affecter la valeur du message.
+      Si cette propriété est null, la valeur est récupérée grâce à l'attribut <varname>default-value</varname> de l'annotation <classname>@parameter</classname>. 
+      Au lieu d'utiliser la propriété <varname>echo.message</varname>, vous pouvez configurer une valeur pour ce message directement à partir de votre <acronym>POM</acronym> de projet.</para>  
+      
+      <para>Plusieurs moyens existent pour renseigner la valeur du paramètre 'message' de notre <classname>EchoMojo</classname>.
+      Premièrement, vous pouvez passer un valeur à partir de la ligne de commande en utilisant la syntaxe suivante (à supposer que vous ayez ajouté
+      <varname>org.sonatype.mavenbook.plugins</varname> à votre <sgmltag>pluginGroups</sgmltag>) :</para>
 
       <screen>$ mvn first:echo -Decho.message="Hello Everybody"</screen>
 
-      <para>We could also specify the value of this message parameter, by
-      setting a property in our <acronym>POM</acronym> or in our
+      <para>Vous pouvez également spécifier la valeur de ce message en affectant une propriété dans votre <acronym>POM</acronym> ou dans votre fichier  
       <filename>settings.xml</filename>.</para>
 
       <programlisting language="xml">&lt;project&gt;
@@ -1175,12 +1139,9 @@ private Object message;
 &lt;/project&gt;
 </programlisting>
 
-      <para>This parameter could also be configured directly as a
-      configuration value for the plugin. If we wanted to customize the
-      message parameter directly, we could use the following build
-      configuration. The following configuration bypasses the echo.message
-      property and populates the Mojo parameter in plugin
-      configuration.</para>
+      <para>Ce paramètre peut également être configuré directement par l'intermédiaire d'une valeur de configuration de votre plugin.
+      Si vous voulez personnaliser directement le paramètre 'message', vous pouvez utiliser la configuration de build suivante.
+      Celle-ci bypass la propriété <varname>echo.message</varname> et popule le paramètre du Mojo à partir de la configuration du plugin.</para> 
 
       <programlisting language="xml">&lt;project&gt;
   ...
@@ -1198,11 +1159,9 @@ private Object message;
   &lt;/build&gt;
 &lt;/project&gt;</programlisting>
 
-      <para>If we wanted to run the <classname>EchoMojo</classname> twice at
-      difference phases in a lifecycle, and we wanted to customize the message
-      parameter for each execution separately, we could configure the
-      parameter value at the execution level in a <acronym>POM</acronym> like
-      this:</para>
+      <para>Si vous désirez exécuter votre <classname>EchoMojo</classname> deux fois dans différentes phases du cycle de vie,
+      et si vous voulez configurer le paramètre 'message' avec deux valeurs différentes,
+      vous pouvez configurer la valeur de ce paramètre à partir de la balise <varname>execution</varname> dans votre <acronym>POM</acronym> de la manière suivante :</para>    
 
       <programlisting language="xml">&lt;build&gt;
   &lt;build&gt;
@@ -1238,33 +1197,27 @@ private Object message;
   &lt;/build&gt;
 &lt;/build&gt;</programlisting>
 
-      <para>While this last configuration example seems very verbose, it
-      illustrates the flexibility of Maven. In the previous configuration
-      example, you've bound the <classname>EchoMojo</classname> to both the
-      <varname>validate</varname> and <varname>generate-resources</varname>
-      phases in the default Maven lifecycle. The first execution is bound to
-      <varname>generate-resources</varname>, it supplies a string value to the
-      message parameter of "The Eagle has Landed!". The second execution is
-      bound to the <varname>validate</varname> phase, it supplies a property
-      reference to <varname>\${project.version}</varname>. When you run
-      <command>mvn install</command> for his project, you'll see that the
-      <varname>first:echo</varname> goal executes twice and prints out two
-      different messages.</para>
+      <para>Même si ce dernier exemple est assez verbeux, il illustre la flexibilité de Maven.
+      Dans l'exemple précédent, vous avez rattaché l'<classname>EchoMojo</classname> aux phases <varname>validate</varname> et <varname>generate-resources</varname> du cycle de vie par défaut. 
+      La première balise <varname>execution</varname> est rattachée à la phase <varname>generate-resources</varname>, 
+      elle fournit la valeur suivante à la propriété 'message' : "The Eagle has Landed!".  
+      La seconde balise <varname>execution</varname> est rattachée à la phase <varname>validate</varname>, 
+      elle fournit une référence à la propriété <varname>\${project.version}</varname>. 
+      Lorsque vous exécutez la commande <command>mvn install</command> sur ce projet,  
+      vous verrez que le goal <varname>first:echo</varname> s'exécute deux fois et affiche deux messages différents.</para> 
+
     </section>
 
     <section id="writing-plugins-sect-multival-params">
-      <title>Multi-valued Mojo Parameters</title>
+      <title>Paramètres de Mojo multi-valeurs</title>
 
-      <para>Plugins can have parameters which accept more than one value. Take
-      a look at the <classname>ZipMojo</classname> shown in <xref
-      linkend="ex-plugin-multivalue" />. Both the <varname>includes</varname>
-      and <varname>excludes</varname> parameters are multivalued
-      <classname>String</classname> arrays which specify the inclusion and
-      exclusion patterns for a component that creates a <acronym>ZIP</acronym>
-      file.</para>
+      <para>Les plugins peuvent avoir des paramètres qui acceptent plusieurs valeurs.
+      Jetez un coup d'oeil au <classname>ZipMojo</classname> affiché dans l'<xref linkend="ex-plugin-multivalue" />.
+      Les paramètres <varname>includes</varname> et <varname>excludes</varname> acceptent un tableau de <classname>String</classname>  
+      qui spécifient des paramètres d'inclusion et l'exclusion pour créer son fichier <acronym>ZIP</acronym>.</para>
 
       <example id="ex-plugin-multivalue">
-        <title>A Plugin with Multi-valued Parameters</title>
+        <title>Un plugin avec des paramètres multi-valeurs</title>
 
         <programlisting language="java">package org.sonatype.mavenbook.plugins
 
@@ -1324,17 +1277,12 @@ public class ZipMojo extends AbstractMojo
 }
 </programlisting>
 
-        <para>To configure a multi-valued Mojo parameter, you use a series of
-        elements for each value. If the name of the multi-valued parameter is
-        <varname>includes</varname>, you would use an element
-        <sgmltag>includes</sgmltag> with child elements
-        <sgmltag>include</sgmltag>. If the multi-valued parameter is
-        <varname>excludes</varname>, you would use an element
-        <sgmltag>excludes</sgmltag> with child elements
-        <sgmltag>exclude</sgmltag>. To configure the
-        <classname>ZipMojo</classname> to ignore all files ending in
-        <varname>.txt</varname> and all files ending in a tilde, you would use
-        the following plugin configuration.</para>
+        <para>Pour configurer un paramètre de Moo multi-valeurs, vous pouvez utiliser une liste d'éléments pour chaque valeur.
+        Si le nom d'un paramètre multi-valeurs est <varname>includes</varname>, vous utiliserez une balise <sgmltag>includes</sgmltag> contenant des éléments <sgmltag>include</sgmltag>.   
+        Si le paramètre multi-valeurs est <varname>excludes</varname>, vous utiliserez une balise <sgmltag>excludes</sgmltag> contenant des éléments <sgmltag>exclude</sgmltag>.
+        Pour configurer le <classname>ZipMojo</classname> pour qu'il ignore tous les fichiers <varname>.txt</varname> et tous les fichiers qui terminent par un tilde, 
+        vous pouvez utiliser la configuration de plugin suivante.</para>  
+
       </example>
 
       <programlisting language="xml">&lt;project&gt;
@@ -1358,20 +1306,17 @@ public class ZipMojo extends AbstractMojo
     </section>
 
     <section id="writing-plugins-sect-depend-plexus">
-      <title>Depending on Plexus Components</title>
+      <title>Dépendre de composants Plexus</title>
 
-      <para>A Mojo is a component managed by an <acronym>IoC</acronym>
-      container called Plexus. A Mojo can depend on other components managed
-      by Plexus by declaring a Mojo parameter and using the
-      <classname>@parameter</classname> or the
-      <classname>@component</classname> annotation. <xref
-      linkend="ex-plugin-multivalue" /> shows a <classname>ZipMojo</classname>
-      which depends on a Plexus component using the
-      <classname>@parameter</classname> annotation, this dependency could be
-      declared using the <classname>@component</classname> annotation.</para>
+      <para>Un mojo est un composant managé par un conteneur <acronym>IoC</acronym> appelé Plexus. 
+      Un Mojo peut dépendre d'un autr composant managé par Plexus en déclarant un paramètre de Mojo 
+      et en utilisant les annotations <classname>@parameter</classname> et <classname>@component</classname>. 
+      L'<xref linkend="ex-plugin-multivalue" /> affiche le Mojo <classname>ZipMojo</classname>.
+      Il dépend d'un composant Plexus en utilisant une annotation <classname>@parameter</classname>,  
+      cette dépendance peut-être déclarée en utilisant l'annotation <classname>@component</classname>.</para> 
 
       <example>
-        <title>Depending on a Plexus Component</title>
+        <title>Dépendre de composants Plexus</title>
 
         <programlisting language="java">/**
  * The Zip archiver.
@@ -1380,11 +1325,11 @@ public class ZipMojo extends AbstractMojo
 private ZipArchiver zipArchiver;</programlisting>
       </example>
 
-      <para>When Maven instantiates this Mojo, it will then attempt to
-      retrieve the Plexus component with the specified role and role hint. In
-      this example, the Mojo will be related to a ZipArchiver component which
-      will allow the <classname>ZipMojo</classname> to create a
-      <acronym>ZIP</acronym> file.</para>
+      <para>
+      
+      When Maven instantiates this Mojo, it will then attempt to retrieve the Plexus component with the specified role and role hint. 
+      In this example, the Mojo will be related to a ZipArchiver component which
+      will allow the <classname>ZipMojo</classname> to create a <acronym>ZIP</acronym> file.</para>
 
       <!--TODO: OK, we need more here.  How do I get my hands on components?  How to a bundle components?-->
     </section>
