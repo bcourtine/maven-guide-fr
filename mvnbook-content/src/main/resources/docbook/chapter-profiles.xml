@@ -511,7 +511,7 @@
   </section>
 
   <section id="profiles-sect-listing-active-profiles">
-    <title>Lister les profiles actifs</title>
+    <title>Lister les profils actifs</title>
 
     <para>Les profils Maven peuvent être définis soit dans un fichier <filename>pom.xml</filename>, dans un fichier
     <filename>profiles.xml</filename>, dans le fichier <filename>~/.m2/settings.xml</filename> ou dans le fichier
@@ -660,19 +660,19 @@ The following profiles are active:
     <section id="profiles-sect-protecting-secrets">
       <title>Protèger les mots de passe</title>
 
-      <para>Cette bonne pratique est la conséquence de la section précédente. Dans <xref
+      <para>Cette bonne pratique est la conséquence de la section précédente. Dans la partie <xref
       linkend="ex-profile-envtype-pom" xrefstyle="select:title" />, le profil de production ne contient pas la propriété
       <varname>database.password</varname>. J'ai fait celà délibéremment pour illustrer le fait de stocker les mots de
       passe dans votre fichier <filename>settings.xml</filename>. Si vous développez une application dans une grande
-      orgaisation qui accorde de l'importance à la sécurité, il est probable que la majorité des développeurs ne
-      connaissent pas le mot de passe de production de la base de données. Dans une organisation qui trace des
-      frontières entre équipe de développement et équipe de production celà sera la norme. Les développeurs ont accès
-      aux environnements de développement et de pré-production,mais ils pourraient ne pas avoir (ou ne pas vouloir)
-      accès à la base de données de production. Il y a un certain nombres de raisons pour lesquelles celà aurait un
+      organisation qui accorde de l'importance à la sécurité, il est probable que la majorité des développeurs ne
+      connaissent pas le mot de passe de production de la base de données. C'est la norme dans une organisation qui
+      trace des lignes infranchissables entre équipe de développement et équipe de production. Les développeurs ont accès
+      aux environnements de développement et de pré-production, mais ils pourraient ne pas avoir (ou ne pas vouloir)
+      accès à la base de données de production. Il y a un certain nombre de raisons pour lesquelles celà aurait un
       sens, particulièrement si une organisation gère des données sensibles financières, médicales ou autres. Dans ce
       scénario, l'environnement de production ne pourrait être utilisé que par le responsable technique ou par un
-      memebre de l'équipe de production. Quand ils exécutent le build avec la valeur <literal>prod</literal> pour la
-      propriété <varname>environment.</varname><varname>type</varname>, ils ont devoir définir cette variable dans leur
+      membre de l'équipe de production. Quand ils exécutent le build avec la valeur <literal>prod</literal> pour la
+      propriété <varname>environment.</varname><varname>type</varname>, ils vont devoir définir cette variable dans leur
       fichier <filename>settings.xml</filename> comme suit :</para>
 
       <example>
@@ -692,34 +692,34 @@ The following profiles are active:
 </programlisting>
       </example>
 
-      <para>Cet utilisateur a définit un profil par défaut qui donne à
+      <para>Cet utilisateur a défini un profil par défaut qui donne à
       <varname>environment.</varname><varname>type</varname> la valeur <literal>prod</literal> et qui spécifie le mot de
       passe de production. Quand le build du projet est exécuté, le profil de production est activé par la propriété
       <varname>environment.</varname><varname>type</varname> et la propriété <varname>database.password</varname> est
       remplie. Ainsi, vous pouvez mettre toute la configuration spécifique à la production dans le fichier
-      <filename>pom.xml</filename> du projet et ne retirer que l'unique mot de passe nécessaire pour accèder à la base
+      <filename>pom.xml</filename> du projet et retirer seulement le mot de passe nécessaire pour accèder à la base
       de données de production.</para>
 
       <note>
-        <para>Ces données secrètes sont en général contraires à la portabilité, mais ce que nous venons de faire a du
+        <para>Ces informations privées sont en général contraires à la portabilité, mais ce que nous venons de faire a du
         sens. Vous ne voudriez pas partager vos secrets avec n'importe qui.</para>
       </note>
     </section>
 
     <section id="profiles-sect-platform-classifier">
-      <title>Classifiers selon la plateforme</title>
+      <title>Classifieurs de plateforme</title>
 
       <para>Supposons que vous avez une bibliothèque ou un projet qui produit des artefacts spécifiques selon la
       plateforme. Même si Java est indépendant de la plateforme, parfois vous pourriez avoir besoin d'écrire du code qui
-      invoque du code natif, spécifique à une plateforme. Un autre cas possible est que vous avez écrit du code C qui
-      est compilé par le plugin Maven Native et que vous voulez produire un artefact qualifié selon la plateforme sur
-      laquelle il a été construit. Vous pouvez définir un classifier avec le plugin Maven Assemblyou le plugin Maven
+      invoque du code natif, spécifique à une plateforme. Vous pourriez aussi avoir écrit du code C compilé avec le
+      plugin Maven Native et que vous voulez produire un artefact qualifié selon la plateforme sur
+      laquelle il a été construit. Vous pouvez définir un classifier avec le plugin Maven Assembly ou le plugin Maven
       Jar. Le fichier <filename>pom.xml</filename> suivant produit un artefact qualifié grâce à des profils activés
       selon le système d'exploitation. Pour plus d'informations sur le plugin Maven Assembly vous pouvez consulter le
       <xref linkend="assemblies" />.</para>
 
       <para><example>
-          <title>Qualification d'artéfacts avec des profils activés selon la plateforme</title>
+          <title>Qualification d'artefacts avec des profils activés selon la plateforme</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -767,14 +767,13 @@ The following profiles are active:
 
       <para>Si le système d'exploitation fait partie de la famille Windows, ce fichier <filename>pom.xml</filename>
       qualifie l'artefact Jar avec "-win". Si le système d'exploitation est un membre de la famille Unix, l'artefact est
-      qualifié avec "-linux". Ce fichier <filename>pom.xml</filename> ajoute avec succèsles qualifieurs aux artefacts,
-      mais il est plus verbeux que nécessaire en recopiant la configuration du plugin Maven Jar dans les deux profils.
-      Cet exemple pourrrait être ainsi réecrit en utilisant la substitution de variables pour rduire la redondance
-      :</para>
+      qualifié avec "-linux". Ce fichier <filename>pom.xml</filename> apermet donc d'ajouter les qualifieurs aux artefacts,
+      mais il est plus verbeux que nécessaire car il recopie la configuration du plugin Maven Jar dans les deux profils.
+      Cet exemple pourrrait être réecrit en utilisant des variables pour réduire la redondance :</para>
 
       <para><example>
-          <title>Qualification des artefacts avec des profils activés selon la plateforme d'exécution et en utilisant la
-          substitution de variables</title>
+          <title>Qualification des artefacts avec des profils activés selon la plateforme d'exécution et en utilisant 
+          des variables</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -818,7 +817,7 @@ The following profiles are active:
         </example></para>
 
       <para>Dans ce fichier <filename>pom.xml</filename> chaque profil n'a pas besoin d'inclure une balise
-      <sgmltag>build</sgmltag> pour configurer le plugin Jar. Au lieu de celà, chaque profil est activé par la famille à
+      <sgmltag>build</sgmltag> pour configurer le plugin Jar. Au lieu de celà, le profil est activé par la famille à
       laquelle appartient le système d'exploitation, et valorise la propriété <varname>envClassifier</varname> soit à
       <literal>win</literal> soit à <literal>linux</literal>. Cette propriété <varname>envClassifier</varname> est
       référencée dans la balise <sgmltag>build</sgmltag> du fichier <filename>pom.xml</filename> pour ajouter un
@@ -829,7 +828,8 @@ The following profiles are active:
       <para><example>
           <title>Dépendance ves un artefact qualifié</title>
 
-          <programlisting language="xml">&lt;dependency&gt;
+          <programlisting language="xml">
+    &lt;dependency&gt;
       &lt;groupId&gt;com.mycompany&lt;/groupId&gt;
       &lt;artifactId&gt;my-project&lt;/artifactId&gt;
       &lt;version&gt;1.0&lt;/version&gt;
