@@ -511,7 +511,7 @@
   </section>
 
   <section id="profiles-sect-listing-active-profiles">
-    <title>Lister les profiles actifs</title>
+    <title>Lister les profils actifs</title>
 
     <para>Les profils Maven peuvent être définis soit dans un fichier <filename>pom.xml</filename>, dans un fichier
     <filename>profiles.xml</filename>, dans le fichier <filename>~/.m2/settings.xml</filename> ou dans le fichier
@@ -660,19 +660,19 @@ The following profiles are active:
     <section id="profiles-sect-protecting-secrets">
       <title>Protèger les mots de passe</title>
 
-      <para>Cette bonne pratique est la conséquence de la section précédente. Dans <xref
+      <para>Cette bonne pratique est la conséquence de la section précédente. Dans la partie <xref
       linkend="ex-profile-envtype-pom" xrefstyle="select:title" />, le profil de production ne contient pas la propriété
       <varname>database.password</varname>. J'ai fait celà délibéremment pour illustrer le fait de stocker les mots de
       passe dans votre fichier <filename>settings.xml</filename>. Si vous développez une application dans une grande
-      orgaisation qui accorde de l'importance à la sécurité, il est probable que la majorité des développeurs ne
-      connaissent pas le mot de passe de production de la base de données. Dans une organisation qui trace des
-      frontières entre équipe de développement et équipe de production celà sera la norme. Les développeurs ont accès
-      aux environnements de développement et de pré-production,mais ils pourraient ne pas avoir (ou ne pas vouloir)
-      accès à la base de données de production. Il y a un certain nombres de raisons pour lesquelles celà aurait un
+      organisation qui accorde de l'importance à la sécurité, il est probable que la majorité des développeurs ne
+      connaissent pas le mot de passe de production de la base de données. C'est la norme dans une organisation qui
+      trace des lignes infranchissables entre équipe de développement et équipe de production. Les développeurs ont accès
+      aux environnements de développement et de pré-production, mais ils pourraient ne pas avoir (ou ne pas vouloir)
+      accès à la base de données de production. Il y a un certain nombre de raisons pour lesquelles celà aurait un
       sens, particulièrement si une organisation gère des données sensibles financières, médicales ou autres. Dans ce
       scénario, l'environnement de production ne pourrait être utilisé que par le responsable technique ou par un
-      memebre de l'équipe de production. Quand ils exécutent le build avec la valeur <literal>prod</literal> pour la
-      propriété <varname>environment.</varname><varname>type</varname>, ils ont devoir définir cette variable dans leur
+      membre de l'équipe de production. Quand ils exécutent le build avec la valeur <literal>prod</literal> pour la
+      propriété <varname>environment.</varname><varname>type</varname>, ils vont devoir définir cette variable dans leur
       fichier <filename>settings.xml</filename> comme suit :</para>
 
       <example>
@@ -692,16 +692,16 @@ The following profiles are active:
 </programlisting>
       </example>
 
-      <para>Cet utilisateur a définit un profil par défaut qui donne à
+      <para>Cet utilisateur a défini un profil par défaut qui donne à
       <varname>environment.</varname><varname>type</varname> la valeur <literal>prod</literal> et qui spécifie le mot de
       passe de production. Quand le build du projet est exécuté, le profil de production est activé par la propriété
       <varname>environment.</varname><varname>type</varname> et la propriété <varname>database.password</varname> est
       remplie. Ainsi, vous pouvez mettre toute la configuration spécifique à la production dans le fichier
-      <filename>pom.xml</filename> du projet et ne retirer que l'unique mot de passe nécessaire pour accèder à la base
+      <filename>pom.xml</filename> du projet et retirer seulement le mot de passe nécessaire pour accèder à la base
       de données de production.</para>
 
       <note>
-        <para>Ces données secrètes sont en général contraires à la portabilité, mais ce que nous venons de faire a du
+        <para>Ces informations privées sont en général contraires à la portabilité, mais ce que nous venons de faire a du
         sens. Vous ne voudriez pas partager vos secrets avec n'importe qui.</para>
       </note>
     </section>
