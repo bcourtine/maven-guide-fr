@@ -1438,28 +1438,25 @@ private ZipArchiver zipArchiver;</programlisting>
       résultat de ce projet dans votre mojo en utilisant la propriété <varname>\${executedProject}</varname>.
       Vous pouvez ensuite référencer cette propriété dans un projet et effectuer ainsi un post processing.</para> 
 
-      <para>
-      
-      Another possibility is that you have a goal that does something completely unrelated to the default lifecycle. 
-      Let's consider something completely unexpected, 
-      maybe you have a goal that turns a <acronym>WAV</acronym> file into an <acronym>MP3</acronym> using something like <acronym>LAME</acronym>, 
-      but before you do that, you want to step through a lifecycle that turns a <acronym>MIDI</acronym> file to a <acronym>WAV</acronym>. 
-      (You can use Maven for anything; this isn't that "far out".) 
-      You've created a "midi-sound" lifecycle, and you want to include the output of the <varname>midi-sound</varname> lifecycle's
-      <varname>install</varname> phase in your web application project which has a <varname>war</varname> packaging type. Since your project is
-      running in the <varname>war</varname> packaging lifecycle, 
-      you'll need to have a goal that effectively forks off an isolated build and runs
-      through the <varname>midi-source</varname> lifecycle. 
-      You would do this by annotating your mojo with <varname>@execute lifecycle="midi-source" phase="install"</varname>.</para>
+      <para>Autre possibilité, si vous avez un goal qui effectue quelque chose de complètement différent du cycle de vie par défaut.
+      Imaginons quelque chose de complètement inattendu,
+      vous disposez peut-être d'un goal qui transforme un fichier <acronym>WAV</acronym> en <acronym>MP3</acronym> en utilisant quelque chose comme <acronym>LAME</acronym>.  
+      Avant de faire cela, vous voulez avancer dans un cycle de vie qui transforme un fichier <acronym>MIDI</acronym> en un fichier <acronym>WAV</acronym>.      
+      (l'utilisation de Maven est sans limites)
+      Vous avez donc créé un cycle de vie <varname>midi-sound</varname> et vous voulez utiliser la sortie de la phase <varname>install</varname> de ce cycle de vie 
+      dans une application web qui possède un type de packaging <varname>war</varname>.
+      Comme votre projet est exécuté dans le cycle de vie <varname>war</varname>,
+      vous devez avoir un goal qui fork le build et exécute votre cycle de vie <varname>midi-source</varname>. 
+      Pour cela, vous auriez annoté votre mojo avec <varname>@execute lifecycle="midi-source" phase="install"</varname>.</para>
 
       <variablelist>
         <varlistentry>
           <term>@execute goal="&lt;goal&gt;"</term>
 
           <listitem>
-            <para>This will execute the given goal before execution of this
-            one. The goal name is specified using the
-            <varname>prefix:goal</varname> notation.</para>
+            <para>Cela exécutera un goal donnée dans celui annoté.
+            Le nom du goal doit être donné en utilisant la notation <varname>prefix:goal</varname>.</para>  
+            
           </listitem>
         </varlistentry>
 
@@ -1467,10 +1464,7 @@ private ZipArchiver zipArchiver;</programlisting>
           <term>@execute phase="&lt;phase&gt;"</term>
 
           <listitem>
-            <para>This will fork an alternate build lifecycle up to the
-            specified phase before continuing to execute the current one. If
-            no lifecycle is specified, Maven will use the lifecycle of the
-            current build.</para>
+            <para>Un fork sera effectué pour exécuter un cycle de vie alternatif spécifié par la phase donnée avant de continuer l'exécution courante.</para>
           </listitem>
         </varlistentry>
 
@@ -1479,8 +1473,7 @@ private ZipArchiver zipArchiver;</programlisting>
           phase="&lt;phase&gt;"</term>
 
           <listitem>
-            <para>This will execute the given alternate lifecycle. A custom
-            lifecycle can be defined in
+            <para>Un cycle de vie alternatif sera exécuté. Un cycle de vie personnalisé peut être défini dans le fichier
             <filename>META-INF/maven/lifecycle.xml</filename>.</para>
           </listitem>
         </varlistentry>
@@ -1488,19 +1481,16 @@ private ZipArchiver zipArchiver;</programlisting>
     </section>
 
     <section id="writing-plugins-sect-custom-lifecycle">
-      <title>Creating a Custom Lifecycle</title>
+      <title>Création d'un cycle de vie pesonnalisé</title>
 
-      <para>A custom lifecycle must be packaged in the plugin under the
-      <filename>META-INF/maven/lifecycle.xml</filename> file. You can include
-      a lifecycle under <filename>src/main/resources</filename> in
-      <filename>META-INF/maven/lifecycle.xml</filename>. The following
-      <filename>lifecycle.xml</filename> declares a lifecycle named
-      <varname>zipcycle</varname> that contains only the
-      <varname>zip</varname> goal in a <varname>package</varname>
-      phase.</para>
+      <para>Un cycle de vie personnalisé doit être packagé dans un plugin dans un fichier 
+      <filename>META-INF/maven/lifecycle.xml</filename> dans l'un des dossiers ressoureces : par exemple <filename>src/main/resources</filename>.
+      Le fichier  <filename>lifecycle.xml</filename> suivant déclare un cycle de vie nommé 
+      <varname>zipcycle</varname>. Celui-ci contient un seul goal, 
+      <varname>zip</varname>, dans une seule phase, <varname>package</varname>.</para>
 
       <para><example>
-          <title>Define a Custom Lifecycle in lifecycle.xml</title>
+          <title>Définition d'un cycle de vie par défaut dans le fichier lifecycle.xml</title>
 
           <programlisting language="xml">&lt;lifecycles&gt;
   &lt;lifecycle&gt;
@@ -1522,15 +1512,12 @@ private ZipArchiver zipArchiver;</programlisting>
 </programlisting>
         </example></para>
 
-      <para>If you wanted to execute the <varname>zipcycle</varname> phase
-      within another build, you could then create a
-      <classname>ZipForkMojo</classname> which uses the
-      <classname>@execute</classname> annotation to tell Maven to step through
-      the <varname>zipcycle</varname> phase to package when the
-      <classname>ZipForkMojo</classname> is executed.</para>
+      <para>Si vous voulez exécuter la phase <varname>zipcycle</varname> dans un autre build, 
+      vous pouvez créer un <classname>ZipForkMojo</classname> qui utilise l'annotation <classname>@execute</classname>
+      pour demander à Maven de traverser la phase <varname>zipcycle</varname> avant l'exécution du build courant.</para>   
 
       <para><example>
-          <title>Forking a Customer Lifecycle from a Mojo</title>
+          <title>Fork d'un cycle de vie à partir d'un Mojo</title>
 
           <programlisting language="java">/**
  * Forks a zip lifecycle.
@@ -1548,10 +1535,9 @@ public class ZipForkMojo extends AbstractMojo
 </programlisting>
         </example></para>
 
-      <para>Running the <classname>ZipForkMojo</classname> will fork the
-      lifecycle. If you've configured your plugin to execute with the goal
-      prefix <varname>zip</varname>, running <varname>zip-fork</varname>
-      should produce something similar to the following output.</para>
+      <para>Exécuter le <classname>ZipForkMojo</classname> lancera un fork du cycle de vie.
+      Si vous avez configuré votre plugin pour qu'il s'exécuter avec le préfixe <varname>zip</varname>,
+      l'exécution de <varname>zip-fork</varname> devrait produire une sortie ressemblant à cela.</para>
 
       <screen>$ mvn zip:zip-fork
 [INFO] Scanning for projects...
@@ -1576,39 +1562,31 @@ public class ZipForkMojo extends AbstractMojo
 [INFO] ---------------------------------------------------------------------
 </screen>
 
-      <para>Calling <varname>zip-fork</varname> spawned another lifecycle,
-      Maven executed the <varname>zipcycle</varname> lifecycle then it printed
-      out the message from <classname>ZipFormMojo</classname>'s execute
-      method.</para>
+      <para>En appelant <varname>zip-fork</varname> à partir d'un autre cycle de vie,
+      Maven exécutera le cycle de vie <varname>zipcycle</varname> et affichera ensuite le message codé dans notre <classname>ZipFormMojo</classname>.</para> 
     </section>
 
     <section id="writing-plugins-sect-override-default-lifecycle">
-      <title>Overriding the Default Lifecycle</title>
+      <title>Surcharge du cycle de vie par défaut</title>
 
-      <para>Once you've created your own lifecycle and spawned it from a Mojo.
-      The next question you might have is how do you override the default
-      lifecycle. How do you create custom lifecycles and attach them to
-      projects? In <xref linkend="lifecycle" />, we saw that the packaging of
-      a project defines the lifecycle of a project. There's something
-      different about almost every packaging type; <varname>war</varname>
-      attached different goals to package, custom lifecycles like
-      <varname>swf</varname> from the Israfil Flex 3 plugin attach different
-      goals to the compile phase. When you create a custom lifecycle, you can
-      attach that lifecycle to a packaging type by supplying some Plexus
-      configuration in your plugin's archive.</para>
+      <para>Une fois que vous avez créé votre propre cycle de vie et que vous l'avez lancé depuis un Mojo,
+      la question suivante que vous pouvez vous poser est comment surcharger le cycle de vie par défaut. 
+      Comment créer un cycle de vie personnalisé et comment le rattacher à vos projets ?
+      Dans le chapitre <xref linkend="lifecycle" />, nous avons vu que le type de packaging d'un projet définit son cycle de vie.
+      Le comportement différent en fonction des types de packaging.
+      <varname>war</varname> est rattaché à différents goals pour construire le package.
+      Les cycles de vie personnalisés, comme <varname>swf</varname>, provenant du plugin Israfil Flex 3, rattachent différents goals à la phase compile.   
+      Lorsque vous créez un cycle de vie personnalisé, vous pouvez rattacher celui-ci à un type de packaging en fournissant une configuration Plexus dans l'archive de votre plugin.</para>      
 
-      <para>To define a new lifecycle for a new packaging type, you'll need to
-      configure a <classname>LifecycleMapping</classname> component in Plexus.
-      In your plugin project, create a
-      <filename>META-INF/plexus/components.xml</filename> under
-      src/main/resources. In components.xml add the content from <xref
-      linkend="ex-override-lifecycle" />. Set the name of the packaging type
-      under <varname>role-hint</varname>, and the set of phases containing the
-      coordinates of the goals to bind (omit the version). Multiple goals can
-      be associated with a phase using a comma delimited list.</para>
+      <para>Pour définir un nouveau cycle de vie pour un nouveau type de packaging, vous devez configurer le composant <classname>LifecycleMapping</classname> dans Plexus. 
+      Dans votre projet plugin, créez un fichier <filename>META-INF/plexus/components.xml</filename> sous <filename>src/main/resources</filename>.       
+      Éditez ce fichier et ajoutez lui le contenu de l'<xref linkend="ex-override-lifecycle" />.
+      Rentrez le nom du type de packaging dans <varname>role-hint</varname>,
+      et affectez les goals aux phases en utilisant leurs coordonnées (sans la version). 
+      Vous pouvez associer plusieurs goals à une phase en utilisant une liste séparée par des virgules.</para>   
 
       <para><example id="ex-override-lifecycle">
-          <title>Overriding the Default Lifecycle</title>
+          <title>Surcharge du cycle de vie par défaut</title>
 
           <programlisting language="xml">&lt;component-set&gt;
   &lt;components&gt;
@@ -1635,17 +1613,13 @@ public class ZipForkMojo extends AbstractMojo
 </programlisting>
         </example></para>
 
-      <para>If you create a plugin which defines a new packaging type and a
-      customized lifecycle, Maven won't know anything about it until you add
-      the plugin to your project's <acronym>POM</acronym> and set the
-      extensions element to true. Once you do this, Maven will scan your
-      plugin for more than just Mojos to execute, it will look for the
-      <filename>components.xml</filename> under
-      <filename>META-INF/plexus</filename>, and it will make the packaging
-      type available to your project.</para>
+      <para>Si vous créez un plugin qui définit un nouveau type de packaging et un nouveau cycle de vie,
+      vous devez affecter la balise <varname>extensions</varname> à <varname>true</varname> dans le <acronym>POM</acronym> de votre projet. 
+      Cela a pour effet de demander à Maven de scanner votre plugin à la recherche du fichier it will look for the <filename>components.xml</filename> dans le répertoire <filename>META-INF/plexus</filename>.   
+      Ainsi, votre nouveau type de packaging sera rendu disponible dans votre projet.</para>
 
       <para><example>
-          <title>Configuring a Plugin as an Extension</title>
+          <title>Configuration d'un plugin en Extension</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -1663,9 +1637,8 @@ public class ZipForkMojo extends AbstractMojo
 </programlisting>
         </example></para>
 
-      <para>Once you add the plugin with the extensions element set to true,
-      you can use the custom packaging type and your project will be able to
-      execute the custom lifecycle associated with that packaging type.</para>
+      <para>Une fois que vous avez ajouté le plugin avec sa balise extensions activée, vous pourrez utiliser votre nouveau type de packaging. 
+      Votre projet pourra ainsi exécuter le cycle de vie personnalité associé à celui-ci.</para>
     </section>
   </section>
 </chapter>
