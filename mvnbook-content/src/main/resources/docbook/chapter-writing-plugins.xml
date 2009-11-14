@@ -1363,7 +1363,7 @@ private ZipArchiver zipArchiver;</programlisting>
 
           <listitem>
             <para>Si cette annotation est présente, ce paramètre est marqué comme nécessitant une valeur.
-            Si Maven essaye d'exécuter le Mojo sans qu'il soit renseigné, une erreur est lancée.</param>
+            Si Maven essaye d'exécuter le Mojo sans qu'il soit renseigné, une erreur est lancée.</para>
           </listitem>
         </varlistentry>
 
