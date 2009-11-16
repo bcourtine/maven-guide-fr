@@ -1,8 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="running" lang="fr" ><title>Exécuter Maven</title> <para>Ce chapitre traite des différentes manières de personnaliser Maven durant son exécution. Il traite aussi de certains points particuliers comme la possibilité de modifier le comportement du  Maven Reactor et comment utiliser le plugin Maven Help pour obtenir des informations sur les plugins et leurs goals. </para> <section id="running-sect-options"><title>Options de ligne de commande Maven</title> <para>La section qui va suivre donne en détail les différentes options en ligne de commande pour Maven. </para> <section id="running-sect-define-prop" label=""><title>Définition de propriété</title> <para>Pour définir une propriété vous devez utiliser l'optionsuivante en ligne de commande : </para> <variablelist> <varlistentry><term>-D, --define &lt;arg&gt;</term> <listitem> <para>Définit une propriété système</para> </listitem> </varlistentry> </variablelist> <para>C'est l'option la plus utilisée pour personnaliser le comportement des plugins Maven. Voici quelques exemples d'utilisation de l'argument <command>-D</command> en ligne de commande : </para><screen>$ <command>mvn help:describe -Dcmd=compiler:compile</command>
-$ <command>mvn install -Dmaven.test.skip=true</command></screen> <para>Les propriétés définies sur la ligne de commande sont disponibles dans le POM Maven ou pour un plugin Maven. Pour plus d'informations sur le référencement des propriétés Maven, rendez-vous au <xref linkend="resource-filtering" />.</para> <para>Les propriétés peuvent aussi être utilisées pour activer des profils de build. Pour plus d'informations sur les profils de build Maven, rendez-vous au <xref linkend="profiles" />. </para> </section> <section id="running-sect-help-option" label=""><title>Obtenir de l'aide</title> <para>Pour obtenir la liste des différents paramètres de la ligne de commande, utilisez l'option de ligne de commande suivante : </para> <variablelist> <varlistentry><term>-h, --help</term> <listitem> <para>Affiche l'aide</para> </listitem> </varlistentry> </variablelist> <para>L'exécution de Maven avec cette option produit le résultat suivant : </para><screen>$ <command>mvn --help</command>
+<chapter id="running" lang="fr">
+  <title>Exécuter Maven</title>
+
+  <para>Ce chapitre traite des différentes manières de personnaliser Maven durant son exécution. Il traite aussi de
+  certains points particuliers comme la possibilité de modifier le comportement du Maven Reactor et comment utiliser le
+  plugin Maven Help pour obtenir des informations sur les plugins et leurs goals.</para>
+
+  <section id="running-sect-options">
+    <title>Options de ligne de commande Maven</title>
+
+    <para>La section qui va suivre donne en détail les différentes options en ligne de commande pour Maven.</para>
+
+    <section id="running-sect-define-prop" label="">
+      <title>Définition de propriété</title>
+
+      <para>Pour définir une propriété vous devez utiliser l'option suivante en ligne de commande :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-D, --define &lt;arg&gt;</term>
+
+          <listitem>
+            <para>Définit une propriété système</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>C'est l'option la plus utilisée pour personnaliser le comportement des plugins Maven. Voici quelques
+      exemples d'utilisation de l'argument <command>-D</command> en ligne de commande :</para>
+
+      <screen>$ <command>mvn help:describe -Dcmd=compiler:compile</command>
+$ <command>mvn install -Dmaven.test.skip=true</command></screen>
+
+      <para>Les propriétés définies sur la ligne de commande sont disponibles dans le POM Maven ou pour un plugin Maven.
+      Pour plus d'informations sur le référencement des propriétés Maven, rendez-vous au <xref
+      linkend="resource-filtering" />.</para>
+
+      <para>Les propriétés peuvent aussi être utilisées pour activer des profils de build. Pour plus d'informations sur
+      les profils de build Maven, rendez-vous au <xref linkend="profiles" />.</para>
+    </section>
+
+    <section id="running-sect-help-option" label="">
+      <title>Obtenir de l'aide</title>
+
+      <para>Pour obtenir la liste des différents paramètres de la ligne de commande, utilisez l'option de ligne de
+      commande suivante :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-h, --help</term>
+
+          <listitem>
+            <para>Affiche l'aide</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>L'exécution de Maven avec cette option produit le résultat suivant :</para>
+
+      <screen>$ <command>mvn --help</command>
 
 usage: mvn [options] [&lt;goal(s)&gt;] [&lt;phase(s)&gt;]
 
@@ -61,15 +119,568 @@ Options:
  -V,--show-version                      Display version information
                                         WITHOUT stopping build
  -v,--version                           Display version information
- -X,--debug                             Produce execution debug output</screen> <para>Si vous voulez de l'aide sur les les goals et les paramètres disponibles pour un plugin Maven spécifique, rendez-vous à la <xref linkend="installation-sect-help-plugin-install" />. </para> </section> <section id="running-sect-profile-option"><title>Utilisation de profils de build</title> <para>Pour activer un ou plusieurs profils depuis la ligne de commande il vous faut utiliser l'option suivante : </para> <variablelist> <varlistentry><term>-P, --activate-profiles &lt;arg&gt;</term> <listitem> <para>Liste de profils à actier séparés par des virgules</para> </listitem> </varlistentry> </variablelist> <para>Pour plus d'informations sur les profils de build, rendez-vous au <xref linkend="profiles" />. </para> </section> <section id="running-sect-version-option"><title>Affiher les informations relatives à la version</title> <para>Pour afficher les informations sur la version de Maven voici l'option à utiliser : </para> <variablelist> <varlistentry><term>-V, --show-version</term> <listitem> <para>Affiche la version SANS arrêter le build en cours </para> </listitem> </varlistentry> <varlistentry><term>-v, --version</term> <listitem> <para>Affiche la version</para> </listitem> </varlistentry> </variablelist> <para>Ces deux options affichent le même résultat, cependant l'option -v va arrêter Maven après avoir affiché la version. Utilisez l'option -V si vous voulez afficher les informations sur la version de Maven au début des traces de votre build. Celà peut-être pratique si vous exécutez Maven dans un environnement d'intégration continue et que vous voulez connaitre quelle version de Maven a été utilisée pour un build pariculier. </para> <example><title>Informations relatives  à la version de Maven</title> <screen>$ <command>mvn -v</command>
+ -X,--debug                             Produce execution debug output</screen>
+
+      <para>Si vous voulez de l'aide sur les les goals et les paramètres disponibles pour un plugin Maven spécifique,
+      rendez-vous à la <xref linkend="installation-sect-help-plugin-install" />.</para>
+    </section>
+
+    <section id="running-sect-profile-option">
+      <title>Utilisation de profils de build</title>
+
+      <para>Pour activer un ou plusieurs profils depuis la ligne de commande il vous faut utiliser l'option suivante
+      :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-P, --activate-profiles &lt;arg&gt;</term>
+
+          <listitem>
+            <para>Liste de profils à actier séparés par des virgules</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Pour plus d'informations sur les profils de build, rendez-vous au <xref linkend="profiles" />.</para>
+    </section>
+
+    <section id="running-sect-version-option">
+      <title>Affiher les informations relatives à la version</title>
+
+      <para>Pour afficher les informations sur la version de Maven voici l'option à utiliser :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-V, --show-version</term>
+
+          <listitem>
+            <para>Affiche la version SANS arrêter le build en cours</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-v, --version</term>
+
+          <listitem>
+            <para>Affiche la version</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Ces deux options affichent le même résultat, cependant l'option -v va arrêter Maven après avoir affiché la
+      version. Utilisez l'option -V si vous voulez afficher les informations sur la version de Maven au début des traces
+      de votre build. Celà peut-être pratique si vous exécutez Maven dans un environnement d'intégration continue et que
+      vous voulez connaitre quelle version de Maven a été utilisée pour un build pariculier.</para>
+
+      <example>
+        <title>Informations relatives à la version de Maven</title>
+
+        <screen>$ <command>mvn -v</command>
 Apache Maven 2.2.1 (r801777; 2009-08-06 14:16:01-0500)
 Java version: 1.6.0_15
 Java home: /System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home
 Default locale: en_US, platform encoding: MacRoman
 OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
-</screen>  </example> </section> <section id="running-sect-offline-option" label=""><title>Travailler en mode déconnecté</title> <para>Si vous devez utiliser Maven sans avoir accès à une connexion réseau, vous devez utiliser l'option suivante afin d'éviter que Maven vérifie les éventuelles mises à jour de plugins ou de dépendances via le réseau : </para> <variablelist> <varlistentry><term>-o, --offline</term> <listitem> <para>Travailler en mode déconnecté</para> </listitem> </varlistentry> </variablelist> <para>Quand Maven s'exécute avec cette option, il n'essayera pas de se connecter à un dépôt distant pour récupérer des artefacts. </para> </section> <section id="running-sect-custom-locations-option"><title>Utiliser le POM et le fichier settings de votre choix</title> <para>Si vous n'aimez pas le nom de votre fichier pom.xml, l'endroit où sont enregistrés vos préférences Maven, ou le répertoire par défaut où se trouve le fichier de configuration globale de Maven vous pouvez personnaliser tout celà avec les options suivantes : </para> <variablelist> <varlistentry><term>-f, --file &lt;file&gt;</term> <listitem> <para>Force l'utilisation d'un fichier POM alternatif </para> </listitem> </varlistentry> <varlistentry><term>-s,--settings &lt;arg&gt;</term> <listitem> <para>Chemin alternatif vers votre fichiers de configuration personnel </para> </listitem> </varlistentry> <varlistentry><term>-gs, --global-settings &lt;file&gt;</term> <listitem> <para>Chemin alternatif vers le fichier de configuration global </para> </listitem> </varlistentry> </variablelist> </section> <section id="running-sect-encrypt-option" label=""><title>Chiffrer les mots de passe</title> <para>Les commandes Maven suivantes vont vous permettre de chiffrer les mots de passe enregistrés dans vos fichiers de préférences Maven : </para> <variablelist> <varlistentry><term>-emp, --encrypt-master-password &lt;password&gt;</term> <listitem> <para>Chiffre le mot de passe principal </para> </listitem> </varlistentry> <varlistentry><term>-ep, --encrypt-password &lt;password&gt;</term> <listitem> <para>Chiffre le mot de passe du serveur</para> </listitem> </varlistentry> </variablelist> <para>Le chiffrement des mots de passe est dérit plus en détails dans l'<xref linkend="appendix-settings-sect-encrypting-passwords" />. </para> </section> <section id="running-sect-failure-option"><title>Gestion des erreurs</title> <para>Les options suivantes permettent de controler la réaction de Maven à l'échec d'un build en plein milieu d'un build multimodule : </para> <variablelist> <varlistentry><term>-fae, --fail-at-end</term> <listitem> <para>Le build n'échoue qu'à la fin ; tous les modules non-impactés sont construits  </para> </listitem> </varlistentry> <varlistentry><term>-ff, --fail-fast</term> <listitem> <para>Arrêt au premier échec dans les builds </para> </listitem> </varlistentry> <varlistentry><term>-fn, --fail-never</term> <listitem> <para>AUCUN échec, quelque soit le résultat de la construction du projet</para> </listitem> </varlistentry> </variablelist> <para>Les options <command>-fn</command> et <command>-fae</command> sont utiles pour les builds multimodules qui sont exécutés par un outil d'intégration continue comme Hudson. L'option <command>-ff</command> est très utile pour les développeurs qui exécutent des builds intéractifs et qui veulent des retours rapides durant le développement. </para> </section> <section id="running-sect-verbose-option"><title>Controle de la verbosité de Maven</title> <para>Si vous voulez controler le niveau de trace de Maven vous pouvez utiliser une de ces trois options de ligne de commande : </para> <variablelist> <varlistentry><term>-e, --errors</term> <listitem> <para>Affiche les messages d'erreur lors de l'exécution </para> </listitem> </varlistentry> <varlistentry><term>-X, --debug</term> <listitem> <para>Affiche les traces en mode debug </para> </listitem> </varlistentry> <varlistentry><term>-q, --quiet</term> <listitem> <para>Mode silencieux - n'affiche que les erreurs</para> </listitem> </varlistentry> </variablelist> <para>Avec l'option -q un message n'est affiché que lorsqu'il y a une erreur ou un problème.</para> <para>Avec l'option <command>-X</command> vous serez submergé de messages de debug. Cette option est surtout utilisée par lceux qui développent Maven et ses plugins pour diagnostiquer un problème avec du code Maven lors du développement. Cette option <command>-X</command> est très utile lorsqu que vous essayer de trouver la cuse d'un problème très délicat avec une dépendance ou un classpath.</para> <para>L'option <command>-e</command> sera pratique si vous êtes un développeur Maven ou si vous vous avez besoin de diagnostiquer une erreur dans un plugin Maven. Si vous rapportez un problème avec Maven ou l'un de ses plugins, vous voudrez fournir les traces obtnues avec les deux options <command>-X</command> and <command>-e</command>. </para> </section> <section id="running-sect-batch-option" label=""><title>Exécution de Maven en mode batch</title> <para>Pour exécuter Maven en mode batch utilisez l'option suivante : </para> <variablelist> <varlistentry><term>-B, --batch-mode</term> <listitem> <para>Exécution en mode non-intéractif (batch)</para> </listitem> </varlistentry> </variablelist> <para>Le mode batch est nécessaire lorsque vous devez exécuter Maven dans un environnement d'intégration continue sans intéractions possibles. Quand vous exécuter Maven en mode non-interactif, celui-ci n'acceptera aucune entrée de l'utilisateur. Au lieu de celà, il utilisera les valeurs par défaut intelligentes lorsqu'il aura besoin d'entrées. </para> </section> <section id="running-sect-deps-option"><title>Téléchargement et vérification des dépendances</title> <para>Les options de ligne de commande suivantes modifient le comportement de Maven vis-à-vis des dépôts distants ainsi que sa manière de vérifier les artefacts téléchargés : </para> <variablelist> <varlistentry><term>-C, --strict-checksums</term> <listitem> <para>Fait échouer le build si les checksums ne correspondent pas </para> </listitem> </varlistentry> <varlistentry><term>-c, --lax-checksums</term> <listitem> <para>Affiche une alerte si les checksums ne correspondent pas </para> </listitem> </varlistentry> <varlistentry><term>-U, --update-snapshots</term> <listitem> <para>Force la vérification de mises à jour de versions stables et des snapshots sur les dépôts distants</para> </listitem> </varlistentry> </variablelist> <para>Si pour vous la sécurité est importante, vous devrez utiliser l'option -C pour exécuter Maven. Les dépôts Maven possèdent un checksum MD5 et SHA1 pour chaque artefact stocké. Maven est configuré pour avertir l'utilisateur final lorsque le checksum ne correspond pas à l'artefact téléchargé. L'utilisation de l'option <command>-C</command> fera échouer le build si Maven rencontre un artefact avec un mauvais checksum.</para> <para>L'option<command>-U</command> est très utile lorsque vous voulez vous assurer que Maven vérifie qu'il utilise les dernières versions stables et SNAPSHOT des déepndances. </para> </section> <section><title id="running-sect-plugup-option">Controle de la mise à jour des plugins</title> <para>Les options de ligne de commande suivantes indiquent à Maven qu'il doit (ou pas) mettre à jour les plugins à partir des dépôts distants : </para> <variablelist> <varlistentry><term>-npu, --no-plugin-updates</term> <listitem> <para>Elimine la recherche de mises à jour pour tous les plugins enregistrés. L'utilisation de cette option aura pour effet de fixer Maven sur les versions des plugins disponibles dans le dépôt local. Avec l'option <varname>-npu</varname>, Maven n'ira pas consulter les dépôts distants à la recherche de mises à jour. </para> </listitem> </varlistentry> <varlistentry><term>-cpu, --check-plugin-updates</term> <listitem> <para>Force la recherche de mises à jour pour les plugins enregistrés. Force Maven à vérifier l'existence de nouvelle version stable d'un plugin Maven. Faites attention au fait que cela n'affectera pas vos builds si vous spécifiez explicitement les versions des plugins Maven dans le POM de votre projet. </para> </listitem> </varlistentry> <varlistentry><term>-up, --update-plugins</term> <listitem> <para>Synonyme de cpu.</para> </listitem> </varlistentry> </variablelist> <para>Les options suivantes modifient la manière dont Maven télécharge les plugins depuis un dépôt distant : </para> <variablelist> <varlistentry><term>-npr, --no-plugin-registry</term> <listitem> <para>Ne pas uitliser ~/.m2/plugin-registry.xml pour les versions de plugin.</para> </listitem> </varlistentry> </variablelist> <para>Lorsqu'elle est utilisée, l'option -npr demande à Maven de na pas consulter le Registre de plugins. Pour plus de détails sur le Registre de plugins, allez ici : <ulink
-      url="http://maven.apache.org/guides/introduction/introduction-to-plugin-registry.html">http://maven.apache.org/guides/introduction/introduction-to-plugin-registry.html</ulink>. </para> </section> <section id="running-sect-norecurse-option" label=""><title>Biulds non-récursifs</title> <para>Parfois vous voudrez exécuter Mven sans qu'il descende dans tous les sous-modules d'un projet. Vous pouvez obtenir celà grâce à l'option suivante : </para> <variablelist> <varlistentry><term>-N, --non-recursive</term> <listitem> <para>Empêche Maven de construire les sous-modules. Ne construit que le projet contenu dans le répertoire courant.</para> </listitem> </varlistentry> </variablelist> <para>Avec cette option Maven exécutera un goal ou une étape du cycle de vie du projet dans le répertoire courant. Maven n'essayera pas de construire tous les projets pour un projet multimodule quand vous utilisez l'option <command>-N</command>. </para> </section> </section> <section><title>Utilisation des options avancées du Reactor</title> <para>Depuis la version 2.1 de Maven, il existe de nouvelles options qui vous permettent de manipuler la façon dont Maven va constuire des projets multimodules. Si vous utlisez Maven 2.0, ces nouveaux arguments ne sont pas disponibles. Ces nouvelles options sont : </para> <variablelist> <varlistentry><term>-r, --reactor</term> <listitem> <para>Construit le reactor dynamiquement depuis les sous-répertoires </para> </listitem> </varlistentry> <varlistentry><term>-rf, --resume-from</term> <listitem> <para>Reprend le reactor depuis le projet spécifié </para> </listitem> </varlistentry> <varlistentry><term>-pl, --projects</term> <listitem> <para>Construit le reactor spécifié plutôt que tous les projets </para> </listitem> </varlistentry> <varlistentry><term>-am, --also-make</term> <listitem> <para>Si une liste de projets est spécifiée, construit aussi tous les projets demandés par cette liste </para> </listitem> </varlistentry> <varlistentry><term>-amd, --also-make-dependents</term> <listitem> <para>Si une liste de projets est spécifiée, construit aussi tous les projets dont dépendent les projets de cette liste </para> </listitem> </varlistentry> </variablelist> <section><title>Reprise de build</title> <para>Supposons que nous sommes en train de travailler sur du code et que nous essayons d'exécuter mvn install depuis simple-parent, et que nous avons un test en échec dans simple-weather. Nous modifons donc simple-weather sans changer simple-model ; nous savons que simple-model est bon et que donc il n'est pas nécessaire de le reconstruire ou de le tester. Nous pouvons alors utiliser l'argument --resume-from argument ainsi : </para><screen>$ <command>mvn --resume-from simple-weather install</command></screen> <para>Ainsi simple-model ne sera pas reconstruit et le build reprendra là où l'avions laissé dans simple-weather. Si simple-weather est construit avec succès, Maven poursuivra et construira les autres projets. </para> </section> <section><title>Spécifier un sous ensemble de projets</title> <para>Supposons que nous avons modifié simple-command et simple-webapp et que nous voulions reconstruire ces deux projets. Nous pouvons utiliser l'argument --projects argument ainsi : </para><screen>$ <command>mvn --projects simple-command,simple-webapp install</command></screen> <para>Seulement ces deux projets seront construits, ce qui nous évitera d'avoir à exécuter Maven séparément dans chaque répertoire. </para> </section> <section><title>Construire des sous-ensembles</title> <para>Supposons que nous sommes des développeurs travaillant sur simple-command ; nous ne désirons pas travailler sur simple-webapp pour l'instant mais juste avoir une version fonctionnelle de simple-command. Nous pouons utiliser --also-make ainsi : </para><screen>$ <command>mvn --projects simple-command --also-make install</command></screen> <para>Lorsque nous utilisons --also-make, Maven va examiner la liste de projets (ici uniquement simple-command) et va descendre dans l'arbre des dépendances à la recherche des projets qu'il va devoir construire. dans ce cas, il va automatiquement construire simple-model, simple-weather et simple-persist mais sans construire simple-webapp. </para> </section> <section><title>Modifier simple-weather et vérifier que nous n'avons rien cassé grâce à --also-make-dependents</title> <para>Supposons que nous avons modifié simple-weather ; nous voulons nous assurer que nous n'avons cassé aucun des projets qui en dépendent. (Dans ce cas-ci, nous voulons nous assurer que nous n'avond pas cassé simple-command et simple-webapp, mais dans un reactor plus complexe celà ne serait pas si évident.) Nous voulons aussi éviter d'avoir à reconstruire et retester les projets dont nous savons qu'ils n'ont pas changé. Dans ce cas-ci, nous voulons éviter de construire simple-persist. Nous pouvons utiliser --also-make-dependents ainsi : <screen>$ <command>mvn --projects simple-weather --also-make-dependents install</command></screen>Quand nous utilisons --also-make-dependents, Maven va examiner tous les projets de notre reactor pour trouver ceux qui dépendent de simple-weather, et va automatiquement construire ceux-ci et aucun autre. Dans notre cas, il va automatiqement construire simple-weather puis simple-command et simple-webapp. </para> </section> <section><title>Resuming a "make" build</title> <para>When we use --also-make, we run a subset of projects, but that doesn't mean stuff won't fail halfway through the build. We can resume our --also-make build from the project that stopped the build by using --resume-from together with --also-make, like this: </para><screen>$ <command>mvn --projects simple-command --also-make \
-      --resume-from simple-weather install</command></screen> <para>The --resume-from argument also works with --also-make-dependents. </para> </section> </section> <section id="installation-sect-help-plugin-install"><title>Using the Maven Help Plugin</title> <para>Throughout this book, we introduce Maven plugins, talking about Maven Project Object Model (<acronym>POM</acronym>) files, settings files, and profiles. There are going to be times when you need a tool to help you make sense of some of the models that Maven is using and what goals are available on a specific plugin. The Maven Help plugin allows you to list active Maven profiles, display an effective <acronym>POM</acronym>, print the effective settings, or list the attributes of a Maven plugin.</para> <note> <para>For a conceptual overview of the POM and plugins see <xref linkend="simple-project" xrefstyle="style:title" />.</para> </note> <para>The Maven Help plugin has four goals. The first three goals—<varname>active-profiles</varname>, <varname>effective-pom</varname>, and <varname>effective-settings</varname>—describe a particular project and must be run in the base directory of a project. The last goal—<varname>describe</varname>—is slightly more complex, showing you information about a plugin or a plugin goal. The following commands provide some general information about the four goals: </para> <variablelist> <varlistentry><term>help:active-profiles</term> <listitem> <para>Lists the profiles (project, user, global) which are active for the build. </para> </listitem> </varlistentry> <varlistentry><term>help:effective-pom</term> <listitem> <para>Displays the effective <acronym>POM</acronym> for the current build, with the active profiles factored in. </para> </listitem> </varlistentry> <varlistentry><term>help:effective-settings</term> <listitem> <para>Prints out the calculated settings for the project, given any profile enhancement and the inheritance of the global settings into the user-level settings. </para> </listitem> </varlistentry> <varlistentry><term>help:describe</term> <listitem> <para>Describes the attributes of a plugin. This need not run under an existing project directory. You must at least give the <varname>groupId</varname> and <varname>artifactId</varname> of the plugin you wish to describe. </para> </listitem> </varlistentry> </variablelist> <section id="installation-sect-describing-plugin"><title>Describing a Maven Plugin</title> <para>Once you start using Maven, you'll spend most of your time trying to get more information about Maven Plugins: How do plugins work? What are the configuration parameters? What are the goals? The <varname>help:</varname><varname>describe</varname> goal is something you'll be using very frequently to retrieve this information. With the <varname>plugin</varname> parameter you can specify a plugin you wish to investigate, passing in either the plugin prefix (e.g. <varname>maven-help-plugin</varname> as <varname>help</varname>) or the <varname>groupId:</varname><varname>artifact[:</varname><varname>version]</varname>, where version is optional. For example, the following command uses the Help plugin's <varname>describe</varname> goal to print out information about the Maven Help plugin. </para><screen>$ <command>mvn help:describe -Dplugin=help</command>
+</screen>
+      </example>
+    </section>
+
+    <section id="running-sect-offline-option" label="">
+      <title>Travailler en mode déconnecté</title>
+
+      <para>Si vous devez utiliser Maven sans avoir accès à une connexion réseau, vous devez utiliser l'option suivante
+      afin d'éviter que Maven vérifie les éventuelles mises à jour de plugins ou de dépendances via le réseau :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-o, --offline</term>
+
+          <listitem>
+            <para>Travailler en mode déconnecté</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Quand Maven s'exécute avec cette option, il n'essayera pas de se connecter à un dépôt distant pour récupérer
+      des artefacts.</para>
+    </section>
+
+    <section id="running-sect-custom-locations-option">
+      <title>Utiliser le POM et le fichier settings de votre choix</title>
+
+      <para>Si vous n'aimez pas le nom de votre fichier pom.xml, l'endroit où sont enregistrés vos préférences Maven, ou
+      le répertoire par défaut où se trouve le fichier de configuration globale de Maven vous pouvez personnaliser tout
+      celà avec les options suivantes :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-f, --file &lt;file&gt;</term>
+
+          <listitem>
+            <para>Force l'utilisation d'un fichier POM alternatif</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-s,--settings &lt;arg&gt;</term>
+
+          <listitem>
+            <para>Chemin alternatif vers votre fichiers de configuration personnel</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-gs, --global-settings &lt;file&gt;</term>
+
+          <listitem>
+            <para>Chemin alternatif vers le fichier de configuration global</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section id="running-sect-encrypt-option" label="">
+      <title>Chiffrer les mots de passe</title>
+
+      <para>Les commandes Maven suivantes vont vous permettre de chiffrer les mots de passe enregistrés dans vos
+      fichiers de préférences Maven :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-emp, --encrypt-master-password &lt;password&gt;</term>
+
+          <listitem>
+            <para>Chiffre le mot de passe principal</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-ep, --encrypt-password &lt;password&gt;</term>
+
+          <listitem>
+            <para>Chiffre le mot de passe du serveur</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Le chiffrement des mots de passe est dérit plus en détails dans l'<xref
+      linkend="appendix-settings-sect-encrypting-passwords" />.</para>
+    </section>
+
+    <section id="running-sect-failure-option">
+      <title>Gestion des erreurs</title>
+
+      <para>Les options suivantes permettent de controler la réaction de Maven à l'échec d'un build en plein milieu d'un
+      build multimodule :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-fae, --fail-at-end</term>
+
+          <listitem>
+            <para>Le build n'échoue qu'à la fin ; tous les modules non-impactés sont construits</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-ff, --fail-fast</term>
+
+          <listitem>
+            <para>Arrêt au premier échec dans les builds</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-fn, --fail-never</term>
+
+          <listitem>
+            <para>AUCUN échec, quelque soit le résultat de la construction du projet</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Les options <command>-fn</command> et <command>-fae</command> sont utiles pour les builds multimodules qui
+      sont exécutés par un outil d'intégration continue comme Hudson. L'option <command>-ff</command> est très utile
+      pour les développeurs qui exécutent des builds intéractifs et qui veulent des retours rapides durant le
+      développement.</para>
+    </section>
+
+    <section id="running-sect-verbose-option">
+      <title>Controle de la verbosité de Maven</title>
+
+      <para>Si vous voulez controler le niveau de trace de Maven vous pouvez utiliser une de ces trois options de ligne
+      de commande :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-e, --errors</term>
+
+          <listitem>
+            <para>Affiche les messages d'erreur lors de l'exécution</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-X, --debug</term>
+
+          <listitem>
+            <para>Affiche les traces en mode debug</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-q, --quiet</term>
+
+          <listitem>
+            <para>Mode silencieux - n'affiche que les erreurs</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Avec l'option -q un message n'est affiché que lorsqu'il y a une erreur ou un problème.</para>
+
+      <para>Avec l'option <command>-X</command> vous serez submergé de messages de debug. Cette option est surtout
+      utilisée par lceux qui développent Maven et ses plugins pour diagnostiquer un problème avec du code Maven lors du
+      développement. Cette option <command>-X</command> est très utile lorsqu que vous essayer de trouver la cuse d'un
+      problème très délicat avec une dépendance ou un classpath.</para>
+
+      <para>L'option <command>-e</command> sera pratique si vous êtes un développeur Maven ou si vous vous avez besoin
+      de diagnostiquer une erreur dans un plugin Maven. Si vous rapportez un problème avec Maven ou l'un de ses plugins,
+      vous voudrez fournir les traces obtnues avec les deux options <command>-X</command> and
+      <command>-e</command>.</para>
+    </section>
+
+    <section id="running-sect-batch-option" label="">
+      <title>Exécution de Maven en mode batch</title>
+
+      <para>Pour exécuter Maven en mode batch utilisez l'option suivante :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-B, --batch-mode</term>
+
+          <listitem>
+            <para>Exécution en mode non-intéractif (batch)</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Le mode batch est nécessaire lorsque vous devez exécuter Maven dans un environnement d'intégration continue
+      sans intéractions possibles. Quand vous exécuter Maven en mode non-interactif, celui-ci n'acceptera aucune entrée
+      de l'utilisateur. Au lieu de celà, il utilisera les valeurs par défaut intelligentes lorsqu'il aura besoin
+      d'entrées.</para>
+    </section>
+
+    <section id="running-sect-deps-option">
+      <title>Téléchargement et vérification des dépendances</title>
+
+      <para>Les options de ligne de commande suivantes modifient le comportement de Maven vis-à-vis des dépôts distants
+      ainsi que sa manière de vérifier les artefacts téléchargés :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-C, --strict-checksums</term>
+
+          <listitem>
+            <para>Fait échouer le build si les checksums ne correspondent pas</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-c, --lax-checksums</term>
+
+          <listitem>
+            <para>Affiche une alerte si les checksums ne correspondent pas</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-U, --update-snapshots</term>
+
+          <listitem>
+            <para>Force la vérification de mises à jour de versions stables et des snapshots sur les dépôts
+            distants</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Si pour vous la sécurité est importante, vous devrez utiliser l'option -C pour exécuter Maven. Les dépôts
+      Maven possèdent un checksum MD5 et SHA1 pour chaque artefact stocké. Maven est configuré pour avertir
+      l'utilisateur final lorsque le checksum ne correspond pas à l'artefact téléchargé. L'utilisation de l'option
+      <command>-C</command> fera échouer le build si Maven rencontre un artefact avec un mauvais checksum.</para>
+
+      <para>L'option<command>-U</command> est très utile lorsque vous voulez vous assurer que Maven vérifie qu'il
+      utilise les dernières versions stables et SNAPSHOT des déepndances.</para>
+    </section>
+
+    <section>
+      <title id="running-sect-plugup-option">Controle de la mise à jour des plugins</title>
+
+      <para>Les options de ligne de commande suivantes indiquent à Maven qu'il doit (ou pas) mettre à jour les plugins à
+      partir des dépôts distants :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-npu, --no-plugin-updates</term>
+
+          <listitem>
+            <para>Elimine la recherche de mises à jour pour tous les plugins enregistrés. L'utilisation de cette option
+            aura pour effet de fixer Maven sur les versions des plugins disponibles dans le dépôt local. Avec l'option
+            <varname>-npu</varname>, Maven n'ira pas consulter les dépôts distants à la recherche de mises à
+            jour.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-cpu, --check-plugin-updates</term>
+
+          <listitem>
+            <para>Force la recherche de mises à jour pour les plugins enregistrés. Force Maven à vérifier l'existence de
+            nouvelle version stable d'un plugin Maven. Faites attention au fait que cela n'affectera pas vos builds si
+            vous spécifiez explicitement les versions des plugins Maven dans le POM de votre projet.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>-up, --update-plugins</term>
+
+          <listitem>
+            <para>Synonyme de cpu.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Les options suivantes modifient la manière dont Maven télécharge les plugins depuis un dépôt distant
+      :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-npr, --no-plugin-registry</term>
+
+          <listitem>
+            <para>Ne pas uitliser ~/.m2/plugin-registry.xml pour les versions de plugin.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Lorsqu'elle est utilisée, l'option -npr demande à Maven de na pas consulter le Registre de plugins. Pour
+      plus de détails sur le Registre de plugins, allez ici : <ulink
+      url="http://maven.apache.org/guides/introduction/introduction-to-plugin-registry.html">http://maven.apache.org/guides/introduction/introduction-to-plugin-registry.html</ulink>.</para>
+    </section>
+
+    <section id="running-sect-norecurse-option" label="">
+      <title>Biulds non-récursifs</title>
+
+      <para>Parfois vous voudrez exécuter Mven sans qu'il descende dans tous les sous-modules d'un projet. Vous pouvez
+      obtenir celà grâce à l'option suivante :</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>-N, --non-recursive</term>
+
+          <listitem>
+            <para>Empêche Maven de construire les sous-modules. Ne construit que le projet contenu dans le répertoire
+            courant.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Avec cette option Maven exécutera un goal ou une étape du cycle de vie du projet dans le répertoire courant.
+      Maven n'essayera pas de construire tous les projets pour un projet multimodule quand vous utilisez l'option
+      <command>-N</command>.</para>
+    </section>
+  </section>
+
+  <section>
+    <title>Utilisation des options avancées du Reactor</title>
+
+    <para>Depuis la version 2.1 de Maven, il existe de nouvelles options qui vous permettent de manipuler la façon dont
+    Maven va constuire des projets multimodules. Si vous utlisez Maven 2.0, ces nouveaux arguments ne sont pas
+    disponibles. Ces nouvelles options sont :</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>-r, --reactor</term>
+
+        <listitem>
+          <para>Construit le reactor dynamiquement depuis les sous-répertoires</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>-rf, --resume-from</term>
+
+        <listitem>
+          <para>Reprend le reactor depuis le projet spécifié</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>-pl, --projects</term>
+
+        <listitem>
+          <para>Construit le reactor spécifié plutôt que tous les projets</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>-am, --also-make</term>
+
+        <listitem>
+          <para>Si une liste de projets est spécifiée, construit aussi tous les projets demandés par cette liste</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>-amd, --also-make-dependents</term>
+
+        <listitem>
+          <para>Si une liste de projets est spécifiée, construit aussi tous les projets dont dépendent les projets de
+          cette liste</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <section>
+      <title>Reprise de build</title>
+
+      <para>Supposons que nous sommes en train de travailler sur du code et que nous essayons d'exécuter mvn install
+      depuis simple-parent, et que nous avons un test en échec dans simple-weather. Nous modifons donc simple-weather
+      sans changer simple-model ; nous savons que simple-model est bon et que donc il n'est pas nécessaire de le
+      reconstruire ou de le tester. Nous pouvons alors utiliser l'argument --resume-from argument ainsi :</para>
+
+      <screen>$ <command>mvn --resume-from simple-weather install</command></screen>
+
+      <para>Ainsi simple-model ne sera pas reconstruit et le build reprendra là où l'avions laissé dans simple-weather.
+      Si simple-weather est construit avec succès, Maven poursuivra et construira les autres projets.</para>
+    </section>
+
+    <section>
+      <title>Spécifier un sous ensemble de projets</title>
+
+      <para>Supposons que nous avons modifié simple-command et simple-webapp et que nous voulions reconstruire ces deux
+      projets. Nous pouvons utiliser l'argument --projects argument ainsi :</para>
+
+      <screen>$ <command>mvn --projects simple-command,simple-webapp install</command></screen>
+
+      <para>Seulement ces deux projets seront construits, ce qui nous évitera d'avoir à exécuter Maven séparément dans
+      chaque répertoire.</para>
+    </section>
+
+    <section>
+      <title>Construire des sous-ensembles</title>
+
+      <para>Supposons que nous sommes des développeurs travaillant sur simple-command ; nous ne désirons pas travailler
+      sur simple-webapp pour l'instant mais juste avoir une version fonctionnelle de simple-command. Nous pouons
+      utiliser --also-make ainsi :</para>
+
+      <screen>$ <command>mvn --projects simple-command --also-make install</command></screen>
+
+      <para>Lorsque nous utilisons --also-make, Maven va examiner la liste de projets (ici uniquement simple-command) et
+      va descendre dans l'arbre des dépendances à la recherche des projets qu'il va devoir construire. dans ce cas, il
+      va automatiquement construire simple-model, simple-weather et simple-persist mais sans construire
+      simple-webapp.</para>
+    </section>
+
+    <section>
+      <title>Modifier simple-weather et vérifier que nous n'avons rien cassé grâce à --also-make-dependents</title>
+
+      <para>Supposons que nous avons modifié simple-weather ; nous voulons nous assurer que nous n'avons cassé aucun des
+      projets qui en dépendent. (Dans ce cas-ci, nous voulons nous assurer que nous n'avond pas cassé simple-command et
+      simple-webapp, mais dans un reactor plus complexe celà ne serait pas si évident.) Nous voulons aussi éviter
+      d'avoir à reconstruire et retester les projets dont nous savons qu'ils n'ont pas changé. Dans ce cas-ci, nous
+      voulons éviter de construire simple-persist. Nous pouvons utiliser --also-make-dependents ainsi : <screen>$ <command>mvn --projects simple-weather --also-make-dependents install</command></screen>Quand
+      nous utilisons --also-make-dependents, Maven va examiner tous les projets de notre reactor pour trouver ceux qui
+      dépendent de simple-weather, et va automatiquement construire ceux-ci et aucun autre. Dans notre cas, il va
+      automatiqement construire simple-weather puis simple-command et simple-webapp.</para>
+    </section>
+
+    <section>
+      <title>Reprise d'un build "make"</title>
+
+      <para>Quand nous utilisons --also-make, nous exécutons un sous-ensemble de projets, mais celà ne ne signifie pas
+      que le build ne va pas échouer en plein mileu. Nous pouvons reprendre notre build --also-make depuis le project
+      qui l'a arrêté en utilisant les options --resume-from et --also-make ainsi :</para>
+
+      <screen>$ <command>mvn --projects simple-command --also-make \
+      --resume-from simple-weather install</command></screen>
+
+      <para>L'argument --resume-from fonctionne aussi avec --also-make-dependents.</para>
+    </section>
+  </section>
+
+  <section id="installation-sect-help-plugin-install">
+    <title>Usage du plugin Maven Help</title>
+
+    <para>Tout au long de ce livre, nous allons introduire des plugins Maven, parler de fichiers Maven Project Object
+    Model (<acronym>POM</acronym>), de fichiers de settings, et de profils. Parfois vous aurez besoin d'un outil qui
+    vous permettra de connaître les modèles utilisés par Maven et les goals disponibles pour un plugin donné. Le plugin
+    Maven Help vous permet de lister tous les profils Maven actifs, d'afficher un <acronym>POM</acronym> effectif, les
+    settings effectifs, ou les attributs d'un plugin Maven.</para>
+
+    <note>
+      <para>Pour une vision plus conceptuelle du POM et des plugins, lisez le <xref linkend="simple-project"
+      xrefstyle="style:title" />.</para>
+    </note>
+
+    <para>Le plugin Maven Help a quatre goals. Les trois premiers goals— <varname>active-profiles</varname>,
+    <varname>effective-pom</varname> et <varname>effective-settings</varname> — décrivent un projet particulier et
+    doivent être exécutés depuis le répertoire racine d'un projet. Le dernier goal — <varname>describe</varname>— est un
+    peu plus complexe, il affiche des informations sur un plugin ou le goal d'un plugin. Les commandes suivantes vous
+    donnent des informations générales sur ces quatre goals :</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>help:active-profiles</term>
+
+        <listitem>
+          <para>Liste les profils (du projet, de l'utilisateur, globaux) qui sont actifs pour le build.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>help:effective-pom</term>
+
+        <listitem>
+          <para>Affiche le <acronym>POM</acronym> effectif pour le build en cours, en prenant en compte les profils
+          activés.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>help:effective-settings</term>
+
+        <listitem>
+          <para>Affiche la configuration calculée des settings pour le projet, en prenant en compte la configuration de
+          l'utilisateur et les modifications apportées par les profils actifs.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>help:describe</term>
+
+        <listitem>
+          <para>Décrit les attributs d'un plugin Il n'est pas nécessaire de l'exécuter dans le répertoire d'un projet.
+          Vous devez fournir au moins le <varname>groupId</varname> et le <varname>artifactId</varname> du plugin dont
+          vous voulez la description.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <section id="installation-sect-describing-plugin">
+      <title>Décrire un plugin Maven</title>
+
+      <para>ne fois que vous commencez à utiliser Maven, vous passerez le plus clair de votre temps à rechercher des
+      informations sur les Plugins Maven : Comment fonctionnent les plugins ? Quels sont les paramètres de configuration
+      ? Quels sont les goals ? Vous utiliserez fréquemment le goal <varname>help:</varname><varname>describe</varname>
+      pour obtenir ce type d'information. Le paramètre <varname>plugin</varname> vous permet de spécifier le plugin sur
+      lequel vous voulez des informations, en passant son préfixe (par exemple <varname>maven-help-plugin</varname> ou
+      <varname>help</varname>) ou son nom complet
+      <varname>groupId:</varname><varname>artifact[:</varname><varname>version]</varname>, la version étant optionnelle.
+      Par exemple, la commande suivante utilise le goal <varname>describe</varname> du plugin Maven Help pour afficher
+      des informations sur le plugin Maven Help.</para>
+
+      <screen>$ <command>mvn help:describe -Dplugin=help</command>
 ...
 Group Id:  org.apache.maven.plugins
 Artifact Id: maven-help-plugin
@@ -83,7 +694,16 @@ The Maven Help plugin provides goals aimed at helping to make sense out of
     have been applied, as well as a describe a particular plugin goal to give 
     usage information.
 ...
-</screen> <para>Executing the <varname>describe</varname> goal with the <varname>plugin</varname> parameter printed out the Maven coordinates for the plugin, the goal prefix, and a brief description of the plugin. While this information is helpful, you'll usually be looking for more detail than this. If you want the Help plugin to print a full list of goals with parameters, execute the <varname>help:</varname><varname>describe</varname> goal with the parameter <varname>full</varname> as follows: </para><screen>$ <command>mvn help:describe -Dplugin=help -Dfull</command>
+</screen>
+
+      <para>L'exécution du goal <varname>describe</varname> en passant le paramètre <varname>plugin</varname> a affiché
+      les coordonnées Maven du plugin, le préfixe du goal et une description succincte du plugin. Même si ces
+      informations sont utiles, habituellement on voudra en savoir un peu plus. Pour afficher la liste des goals avec
+      leurs paramètres grâce au plugin Help, il faut exécuter le goal
+      <varname>help:</varname><varname>describe</varname> avec le paramètre <varname>full</varname> comme ci-dessous
+      :</para>
+
+      <screen>$ <command>mvn help:describe -Dplugin=help -Dfull</command>
 ...
 Group Id:  org.apache.maven.plugins
 Artifact Id: maven-help-plugin
@@ -137,5 +757,18 @@ This mojo doesn't have any component requirements.
 ===============================================
 
 ... removed the other goals ...
-</screen> <para>This option is great for discovering all of a plugin's goals as well as their parameters. But sometimes this is far more information than necessary. To get information about a single goal, set the <varname>mojo</varname> parameter as well as the <varname>plugin</varname> parameter. The following command lists all of the information about the Compiler plugin's <varname>compile</varname> goal. </para><screen>$ <command>mvn help:describe -Dplugin=compiler -Dmojo=compile -Dfull</command></screen> <note> <para>What? A Mojo? In Maven, a Plugin goal is known as a "Mojo".</para> </note> </section> </section>
+</screen>
+
+      <para>Cette option est fort utile pour découvrir un plugin, tous ses goals et leurs paramètres. Mais parfois on
+      veut encore plus d'informations. Pour obtenir les informations sur un unique goal, renseignez le paramètre
+      <varname>mojo</varname> en plus du paramètre <varname>plugin</varname>. La commande suivante liste l'ensemble des
+      informations sur le goal <varname>compile</varname> du plugin Compiler.</para>
+
+      <screen>$ <command>mvn help:describe -Dplugin=compiler -Dmojo=compile -Dfull</command></screen>
+
+      <note>
+        <para>Quoi ? Un Mojo ? Chez Maven, le goal d'un Plugin s'appelle un "Mojo".</para>
+      </note>
+    </section>
+  </section>
 </chapter>
