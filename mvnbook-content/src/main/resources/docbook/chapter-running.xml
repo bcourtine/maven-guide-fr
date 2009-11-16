@@ -35,11 +35,11 @@
 $ <command>mvn install -Dmaven.test.skip=true</command></screen>
 
       <para>Les propriétés définies sur la ligne de commande sont disponibles dans le POM Maven ou pour un plugin Maven.
-      Pour plus d'informations sur le référencement des propriétés Maven, rendez-vous au <xref
+      Pour plus d'informations sur le référencement des propriétés Maven, lisez le <xref
       linkend="resource-filtering" />.</para>
 
       <para>Les propriétés peuvent aussi être utilisées pour activer des profils de build. Pour plus d'informations sur
-      les profils de build Maven, rendez-vous au <xref linkend="profiles" />.</para>
+      les profils de build Maven, lisez le <xref linkend="profiles" />.</para>
     </section>
 
     <section id="running-sect-help-option" label="">
@@ -121,15 +121,15 @@ Options:
  -v,--version                           Display version information
  -X,--debug                             Produce execution debug output</screen>
 
-      <para>Si vous voulez de l'aide sur les les goals et les paramètres disponibles pour un plugin Maven spécifique,
-      rendez-vous à la <xref linkend="installation-sect-help-plugin-install" />.</para>
+      <para>Si vous voulez de l'aide sur les goals et les paramètres disponibles pour un plugin Maven spécifique,
+      allez à la <xref linkend="installation-sect-help-plugin-install" />.</para>
     </section>
 
     <section id="running-sect-profile-option">
       <title>Utilisation de profils de build</title>
 
-      <para>Pour activer un ou plusieurs profils depuis la ligne de commande il vous faut utiliser l'option suivante
-      :</para>
+      <para>Pour activer un ou plusieurs profils depuis la ligne de commande il vous faut utiliser l'option
+      suivante :</para>
 
       <variablelist>
         <varlistentry>
@@ -170,7 +170,7 @@ Options:
       <para>Ces deux options affichent le même résultat, cependant l'option -v va arrêter Maven après avoir affiché la
       version. Utilisez l'option -V si vous voulez afficher les informations sur la version de Maven au début des traces
       de votre build. Celà peut-être pratique si vous exécutez Maven dans un environnement d'intégration continue et que
-      vous voulez connaitre quelle version de Maven a été utilisée pour un build pariculier.</para>
+      vous voulez connaitre quelle version de Maven a été utilisée pour un build particulier.</para>
 
       <example>
         <title>Informations relatives à la version de Maven</title>
@@ -188,7 +188,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
     <section id="running-sect-offline-option" label="">
       <title>Travailler en mode déconnecté</title>
 
-      <para>Si vous devez utiliser Maven sans avoir accès à une connexion réseau, vous devez utiliser l'option suivante
+      <para>Si vous devez utiliser Maven sans connexion réseau, vous devez utiliser l'option suivante
       afin d'éviter que Maven vérifie les éventuelles mises à jour de plugins ou de dépendances via le réseau :</para>
 
       <variablelist>
@@ -208,7 +208,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
     <section id="running-sect-custom-locations-option">
       <title>Utiliser le POM et le fichier settings de votre choix</title>
 
-      <para>Si vous n'aimez pas le nom de votre fichier pom.xml, l'endroit où sont enregistrés vos préférences Maven, ou
+      <para>Si vous n'aimez pas le nom de votre fichier pom.xml, l'endroit où sont enregistrés vos préférences Maven ou
       le répertoire par défaut où se trouve le fichier de configuration globale de Maven vous pouvez personnaliser tout
       celà avec les options suivantes :</para>
 
@@ -225,7 +225,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
           <term>-s,--settings &lt;arg&gt;</term>
 
           <listitem>
-            <para>Chemin alternatif vers votre fichiers de configuration personnel</para>
+            <para>Chemin alternatif vers votre fichier de configuration personnel</para>
           </listitem>
         </varlistentry>
 
@@ -242,7 +242,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
     <section id="running-sect-encrypt-option" label="">
       <title>Chiffrer les mots de passe</title>
 
-      <para>Les commandes Maven suivantes vont vous permettre de chiffrer les mots de passe enregistrés dans vos
+      <para>Les commandes Maven suivantes vous permettent de chiffrer les mots de passe enregistrés dans vos
       fichiers de préférences Maven :</para>
 
       <variablelist>
@@ -263,14 +263,14 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
         </varlistentry>
       </variablelist>
 
-      <para>Le chiffrement des mots de passe est dérit plus en détails dans l'<xref
+      <para>Le chiffrement des mots de passe est décrit plus en détails dans la <xref
       linkend="appendix-settings-sect-encrypting-passwords" />.</para>
     </section>
 
     <section id="running-sect-failure-option">
       <title>Gestion des erreurs</title>
 
-      <para>Les options suivantes permettent de controler la réaction de Maven à l'échec d'un build en plein milieu d'un
+      <para>Les options suivantes permettent de contrôler la réaction de Maven à l'échec d'un build en plein milieu d'un
       build multimodule :</para>
 
       <variablelist>
@@ -301,14 +301,14 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
 
       <para>Les options <command>-fn</command> et <command>-fae</command> sont utiles pour les builds multimodules qui
       sont exécutés par un outil d'intégration continue comme Hudson. L'option <command>-ff</command> est très utile
-      pour les développeurs qui exécutent des builds intéractifs et qui veulent des retours rapides durant le
+      pour les développeurs qui exécutent des builds intéractifs et qui veulent rapidement des retours durant le
       développement.</para>
     </section>
 
     <section id="running-sect-verbose-option">
-      <title>Controle de la verbosité de Maven</title>
+      <title>Contrôle de la verbosité de Maven</title>
 
-      <para>Si vous voulez controler le niveau de trace de Maven vous pouvez utiliser une de ces trois options de ligne
+      <para>Si vous voulez contrôler le niveau de trace de Maven vous pouvez utiliser une de ces trois options de ligne
       de commande :</para>
 
       <variablelist>
@@ -340,13 +340,13 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       <para>Avec l'option -q un message n'est affiché que lorsqu'il y a une erreur ou un problème.</para>
 
       <para>Avec l'option <command>-X</command> vous serez submergé de messages de debug. Cette option est surtout
-      utilisée par lceux qui développent Maven et ses plugins pour diagnostiquer un problème avec du code Maven lors du
+      utilisée par ceux qui développent Maven et ses plugins pour diagnostiquer un problème avec du code Maven lors du
       développement. Cette option <command>-X</command> est très utile lorsqu que vous essayer de trouver la cuse d'un
       problème très délicat avec une dépendance ou un classpath.</para>
 
       <para>L'option <command>-e</command> sera pratique si vous êtes un développeur Maven ou si vous vous avez besoin
       de diagnostiquer une erreur dans un plugin Maven. Si vous rapportez un problème avec Maven ou l'un de ses plugins,
-      vous voudrez fournir les traces obtnues avec les deux options <command>-X</command> and
+      n'oubliez pas de fournir les traces obtenues avec les deux options <command>-X</command> et
       <command>-e</command>.</para>
     </section>
 
@@ -375,7 +375,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       <title>Téléchargement et vérification des dépendances</title>
 
       <para>Les options de ligne de commande suivantes modifient le comportement de Maven vis-à-vis des dépôts distants
-      ainsi que sa manière de vérifier les artefacts téléchargés :</para>
+      ainsi que la vérification des artefacts téléchargés :</para>
 
       <variablelist>
         <varlistentry>
@@ -398,25 +398,25 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
           <term>-U, --update-snapshots</term>
 
           <listitem>
-            <para>Force la vérification de mises à jour de versions stables et des snapshots sur les dépôts
+            <para>Force la recherche de mises à jour de versions stables et snapshots sur les dépôts
             distants</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <para>Si pour vous la sécurité est importante, vous devrez utiliser l'option -C pour exécuter Maven. Les dépôts
+      <para>Si pour vous la sécurité est importante, utilisez l'option -C à l'exécution de Maven. Les dépôts
       Maven possèdent un checksum MD5 et SHA1 pour chaque artefact stocké. Maven est configuré pour avertir
       l'utilisateur final lorsque le checksum ne correspond pas à l'artefact téléchargé. L'utilisation de l'option
       <command>-C</command> fera échouer le build si Maven rencontre un artefact avec un mauvais checksum.</para>
 
       <para>L'option<command>-U</command> est très utile lorsque vous voulez vous assurer que Maven vérifie qu'il
-      utilise les dernières versions stables et SNAPSHOT des déepndances.</para>
+      utilise les dernières versions stables et SNAPSHOT des dépendances.</para>
     </section>
 
     <section>
-      <title id="running-sect-plugup-option">Controle de la mise à jour des plugins</title>
+      <title id="running-sect-plugup-option">Contrôle de la mise à jour des plugins</title>
 
-      <para>Les options de ligne de commande suivantes indiquent à Maven qu'il doit (ou pas) mettre à jour les plugins à
+      <para>Les options de ligne de commande suivantes indiquent à Maven s'il doit (ou pas) mettre à jour les plugins à
       partir des dépôts distants :</para>
 
       <variablelist>
@@ -458,20 +458,20 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
           <term>-npr, --no-plugin-registry</term>
 
           <listitem>
-            <para>Ne pas uitliser ~/.m2/plugin-registry.xml pour les versions de plugin.</para>
+            <para>Ne pas utiliser ~/.m2/plugin-registry.xml pour les versions de plugin.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <para>Lorsqu'elle est utilisée, l'option -npr demande à Maven de na pas consulter le Registre de plugins. Pour
-      plus de détails sur le Registre de plugins, allez ici : <ulink
+      <para>Lorsqu'elle est utilisée, l'option -npr demande à Maven de ne pas consulter le Registre de plugins. Pour
+      plus de détails sur le Registre de plugins, consultez la page : <ulink
       url="http://maven.apache.org/guides/introduction/introduction-to-plugin-registry.html">http://maven.apache.org/guides/introduction/introduction-to-plugin-registry.html</ulink>.</para>
     </section>
 
     <section id="running-sect-norecurse-option" label="">
-      <title>Biulds non-récursifs</title>
+      <title>Builds non-récursifs</title>
 
-      <para>Parfois vous voudrez exécuter Mven sans qu'il descende dans tous les sous-modules d'un projet. Vous pouvez
+      <para>Parfois vous voudrez exécuter Maven sans qu'il descende dans tous les sous-modules d'un projet. Vous pouvez
       obtenir celà grâce à l'option suivante :</para>
 
       <variablelist>
@@ -545,9 +545,9 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       <title>Reprise de build</title>
 
       <para>Supposons que nous sommes en train de travailler sur du code et que nous essayons d'exécuter mvn install
-      depuis simple-parent, et que nous avons un test en échec dans simple-weather. Nous modifons donc simple-weather
+      depuis simple-parent, et que nous avons un test en échec dans simple-weather. Nous corrieons donc simple-weather
       sans changer simple-model ; nous savons que simple-model est bon et que donc il n'est pas nécessaire de le
-      reconstruire ou de le tester. Nous pouvons alors utiliser l'argument --resume-from argument ainsi :</para>
+      reconstruire ou de le tester. Nous pouvons alors utiliser l'argument --resume-from ainsi :</para>
 
       <screen>$ <command>mvn --resume-from simple-weather install</command></screen>
 
@@ -571,13 +571,13 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       <title>Construire des sous-ensembles</title>
 
       <para>Supposons que nous sommes des développeurs travaillant sur simple-command ; nous ne désirons pas travailler
-      sur simple-webapp pour l'instant mais juste avoir une version fonctionnelle de simple-command. Nous pouons
+      sur simple-webapp pour l'instant mais juste avoir une version fonctionnelle de simple-command. Nous pouvons
       utiliser --also-make ainsi :</para>
 
       <screen>$ <command>mvn --projects simple-command --also-make install</command></screen>
 
       <para>Lorsque nous utilisons --also-make, Maven va examiner la liste de projets (ici uniquement simple-command) et
-      va descendre dans l'arbre des dépendances à la recherche des projets qu'il va devoir construire. dans ce cas, il
+      va descendre dans l'arbre des dépendances à la recherche des projets qu'il va devoir construire. Dans ce cas, il
       va automatiquement construire simple-model, simple-weather et simple-persist mais sans construire
       simple-webapp.</para>
     </section>
