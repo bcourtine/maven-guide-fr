@@ -1583,133 +1583,90 @@ I can add this back in later.  I didn't want to talk about it without an example
         </example>
 
         <para>Dans l'<xref linkend="ex-complex-dependencySet" />, 
-        la liste de dépendances scopée <varname>runtime</varname> de notre dernier exemple à été mis à jour pour exclure les dépendances du type ressource.
-        
-        Only binary dependencies (non-zip dependencies) should be added to the <filename>WEB-INF/lib</filename> directory of the web application. 
-        Resource dependencies now have their own dependency set, 
-        which is configured to include these dependencies in the resources directory of the web application. 
-        The <sgmltag>includes</sgmltag> section in the last <sgmltag>dependencySet</sgmltag> reverses the exclusion from the previous <sgmltag>dependencySet</sgmltag>, 
-        so that resource dependencies are included using the same identity pattern (i.e. <varname>*:zip</varname>). 
-        The last <sgmltag>dependencySet</sgmltag> refers to the shared resource dependency and it is configured to
-        unpack the shared resource dependency in the document root of the web application.</para>
+        la liste de dépendances scopée <varname>runtime</varname> de notre dernier exemple à été mis à jour pour exclure les dépendances de type ressource.
+        Seules les dépendances de type binaire (les dépendances qui ne sont pas de ZIP) sont ajoutées dans le répertoire <filename>WEB-INF/lib</filename> de l'application. 
+        Les dépendances de type ressource sont rassemblées dans une même liste,        
+        celle-ci est configurée pour copier ses dépendances dans le répertoire ressource de l'application.
+        La balise <sgmltag>includes</sgmltag> du dernier sgmltag>dependencySet</sgmltag> annule les exclusions du <sgmltag>dependencySet</sgmltag> précédent.
+        Ainsi, les dépendances ressources sont incluses en utilisant un seul pattern d'identité : <varname>*:zip</varname>.
+        La dernière balise <sgmltag>dependencySet</sgmltag> fait référence à des ressources partagées et est configurée pour deziper celles-ci à la racine de l'application web.</para>
 
-        <para>L'<xref linkend="ex-complex-dependencySet" /> was based upon the assumption that our shared resources project dependency had a type which differed from all of the other dependencies. 
-        What if the share resource dependency had the same type as all of the other dependencies? 
-        How could you differentiate the dependency? In this case if the shared resource dependency had been bundled as a JAR with the classifier <varname>resources</varname>, 
-        you can change to the identity pattern and match those dependencies instead:</para>
+        <para>L'<xref linkend="ex-complex-dependencySet" /> présume que le projet contenant les ressources partagées a un type différent des autres dépendances. 
+        Que se passerait-il si celle-ci avait le même type que celui des autres dépendances ?
+        Comment différencieriez-vous cette dépendance ?
+        Dans ce cas, si une dépendance de ressources partagées a été packagée comme un JAR avec le classificateur de type <varname>resources</varname>,  
+        vous pouvez changer le pattern d'identité pour qu'il match ces dépendances :</para> 
 
         <programlisting>*:jar:resources</programlisting>
 
-        <para>Instead of matching on artifacts with a type of
-        <varname>zip</varname> and no classifier, we’re matching on artifacts
-        with a classifier of resources and a type of
-        <varname>jar</varname>.</para>
+        <para>Au lieu de matcher les artefacts de type <varname>zip</varname> sans classificateur,
+        nous matchons ici les artefacts de type <varname>jar</varname> qui possède un classificateur <varname>resources</varname>.</para>   
 
-        <para>Just like the <sgmltag>fileSets</sgmltag> section,
-        <sgmltag>dependencySets</sgmltag> support the
-        <sgmltag>useStrictFiltering</sgmltag> flag. When enabled, any
-        specified patterns that don’t match one or more dependencies will
-        cause the assembly - and consequently, the build - to fail. This can
-        be particularly useful as a safety valve, to make sure your project
-        dependencies and assembly descriptors are synchronized and interacting
-        as you expect them to. By default, this flag is set to
-        <varname>false</varname> for the purposes of backward
-        compatibility.</para>
+        <para>Comme pour la section <sgmltag>fileSets</sgmltag>, <sgmltag>dependencySets</sgmltag> supporte l'utilisation du flag <sgmltag>useStrictFiltering</sgmltag>. 
+        Lorsque celui-ci est activé, n'importe quel pattern qui ne match pas une ou plusieurs dépendances causera l'échec de l'assembly, et donc par conséquent, du build.  
+        Très pratique pour utiliser comment soupape de sécurité, pour vous assurer que les dépendances de votre projet et votre descripteur d'assembly soient correctement synchronisés.  
+        Par défaut, ce flag est désactivé pour des raisons de rétrocompatibilité.</para> 
       </section>
 
       <section id="assemblies-sect-transitive">
-        <title>Transitive Dependencies, Project Attachments, and Project
-        Artifacts</title>
+        <title>Dépendances transitives, pièces jointes et artefacts de projet</title>
 
-        <para>The <sgmltag>dependencySet</sgmltag> section supports two more
-        general mechanisms for tuning the subset of matching artifacts:
-        transitive selection options, and options for working with project
-        artifacts. Both of these features are a product of the need to support
-        legacy configurations that applied a somewhat more liberal definition
-        of the word “dependency”. As a prime example, consider the project’s
-        own main artifact. Typically, this would not be considered a
-        dependency; yet older versions of the Assembly plugin included the
-        project artifact in calculations of dependency sets. To provide
-        backward compatibility with this “feature”, the 2.2 releases
-        (currently at 2.2-beta-2) of the Assembly plugin support a flag in the
-        <sgmltag>dependencySet</sgmltag> called
-        <sgmltag>useProjectArtifact</sgmltag>, whose default value is
-        <varname>true</varname>. By default, dependency sets will attempt to
-        include the project artifact itself in calculations about which
-        dependency artifacts match and which don’t. If you’d rather deal with
-        the project artifact separately, set this flag to
-        <varname>false</varname>.</para>
+        <para>La section <sgmltag>dependencySet</sgmltag> vous propose deux autres mécanismes pour vous aider dans le choix de vos artefacts :  
+        options de sélection transitive et options pour travailler avec des artefacts du projet.
+        Ces deux fonctionnalités proviennent de la nécessité de supporter des configurations existantes qui utilisent une définition un peu plus libérale du mot «dépendance». 
+        Comme premier exemple, examinons l'artefact principal du projet.
+        Typiquement, dans la majorité des cas, il ne doit pas être considéré comme une dépendance.
+        Pourtant, les plus anciennes versions du plugin Assembly l'utilisaient dans le calcul des dépendances.
+        Pour fournir une rétrocompatibilité avec cette “fonctionnalité”,
+        la version 2.2 du plugin Assembly dispose d'un flag à mettre dans le <sgmltag>dependencySet</sgmltag>, celui-ci est appelé <sgmltag>useProjectArtifact</sgmltag>,
+        La valeur par défaut de ce flag est <varname>true</varname>. 
+        Par défaut, le set de dépendances essayera d'inclure l'artefact du projet dans le calcul de ses dépendances.  
+        Si vous préférez gérer l'artefact du projet séparément, affectez ce flag à <varname>false</varname>.</para>
 
         <tip>
-          <para>The authors of this book recommend that you always set
-          <sgmltag>useProjectArtifact</sgmltag> to
-          <varname>false</varname>.</para>
+          <para>Les auteurs de ce livre vous recommandent de toujours laisser le flag
+          <sgmltag>useProjectArtifact</sgmltag> à <varname>false</varname>.</para>
         </tip>
 
-        <para>As a natural extension to the inclusion of the project artifact,
-        the project’s attached artifacts can also be managed within a
-        <sgmltag>dependencySet</sgmltag> using the
-        <sgmltag>useProjectAttachments</sgmltag> flag (whose default value is
-        <varname>false</varname>). Enabling this flag allows patterns that
-        specify classifiers and types to match on artifacts that are
-        “attached” to the main project artifact; that is, they share the same
-        basic
-        <varname>groupId</varname>/<varname>artifactId</varname>/<varname>version</varname>
-        identity, but differ in <varname>type</varname> and
-        <varname>classifier</varname> from the main artifact. This could be
-        useful for including JavaDoc or source jars in an assembly.</para>
+        <para>Comme extension naturelle à l'inclusion d'un artefact projet, 
+        les artefacts rattachés à un projet peuvent également être gérés par un  <sgmltag>dependencySet</sgmltag> en utilisant
+        le flag <sgmltag>useProjectAttachments</sgmltag> (celui-ci est désactivé par défaut). 
+        Activer ce flag permet aux patterns qui précisent des classificateurs et des types d'artefacts de matcher les artefacts rattachés.
+        Ils partagent la même identité <varname>groupId</varname>/<varname>artifactId</varname>/<varname>version</varname>,
+        mais diffèrent de <varname>type</varname> et de <varname>classifier</varname>.
+        Cette fonctionnalité peut s'avérer utilise pour inclure les JARs de Javadoc ou de Source dans une assembly.</para>
 
-        <para>Aside from dealing with the project’s own artifacts, it’s also
-        possible to fine-tune the dependency set using two
-        transitive-resolution flags. The first, called
-        <sgmltag>useTransitiveDependencies</sgmltag> (and set to
-        <varname>true</varname> by default) simply specifies whether the
-        dependency set should consider transitive dependencies at all when
-        determining the matching artifact set to be included. As an example of
-        how this could be used, consider what happens when your
-        <acronym>POM</acronym> has a dependency on another assembly. That
-        assembly (most likely) will have a classifier that separates it from
-        the main project artifact, making it an attachment. However, one quirk
-        of the Maven dependency-resolution process is that the
-        transitive-dependency information for the main artifact is still used
-        when resolving the assembly artifact. If the assembly bundles its
-        project dependencies inside itself, using transitive dependency
-        resolution here would effectively duplicate those dependencies. To
-        avoid this, we simply set <sgmltag>useTransitiveDependencies</sgmltag>
-        to <varname>false</varname> for the dependency set that handles that
-        assembly dependency.</para>
+        <para>En plus de traiter avec des artefacts du projet,
+        il est également possible de configurer un set de dépendances en utilisant deux flags permettant d'activer la résolution transitive.
+        Le premier, appelé <sgmltag>useTransitiveDependencies</sgmltag> (et activé par défaut), permet d'activer l'inclusion des dépendances transitives lors du matching.
+        Comme exemple pour savoir comment il peut être utilisé, considérer ce qui arrive lorsque votre <acronym>POM</acronym> à une dépendance sur une autre assembly.
+        Cette assembly aura (probablement) un classificateur qui le sépare de l'artefact principal du projet, ce qui en fait une pièce jointe.    
+        Cependant, une particularité du processus de résolution des dépendances Maven que les informations des dépendances transitives pour l'artefact principal
+        sont toujours utilisées pour résoudre l'artefact de l'assembly.
+        Si l'assembly package ses dépendances à l'intérieur de lui-même, 
+        dans ce cas, utiliser la résolution des dépendances transitives dupliquerait effectivement ces dépendances.         
+        Pour éviter cela, nous pouvons simplement affecter le flag <sgmltag>useTransitiveDependencies</sgmltag> à <varname>false</varname>.</para>
 
-        <para>The other transitive-resolution flag is far more subtle. It’s
-        called <sgmltag>useTransitiveFiltering</sgmltag>, and has a default
-        value of <varname>false</varname>. To understand what this flag does,
-        we first need to understand what information is available for any
-        given artifact during the resolution process. When an artifact is a
-        dependency of a dependency (that is, removed at least one level from
-        your own <acronym>POM</acronym>), it has what Maven calls a
-        "dependency trail", which is maintained as a list of strings that
-        correspond to the full artifact identities
-        (<varname>groupId:artifactId:type:[classifier:]version</varname>) of
-        all dependencies between your <acronym>POM</acronym> and the artifact
-        that owns that dependency trail. If you remember the three types of
-        artifact identities available for pattern matching in a dependency
-        set, you’ll notice that the entries in the dependency trail - the full
-        artifact identity - correspond to the third type. When
-        <sgmltag>useTransitiveFiltering</sgmltag> is set to
-        <varname>true</varname>, the entries in an artifact’s dependency trail
-        can cause the artifact to be included or excluded in the same way its
-        own identity can.</para>
+        <para>L'autre flag permettant de résoudre les dépedances dépendances est plus subtil.
+        Il est appelé <sgmltag>useTransitiveFiltering</sgmltag> et sa valeur par défaut est <varname>false</varname>.
+        Pour comprendre ce que fait ce flag, nous devons d'abord comprendre quelles informations sont disponibles pour un artefact donné lors du processus de résolution des dépendances. 
+        Quand un artefact est une dépendance d'un autre (qui est, retiré au moins un niveau à partir de votre <acronym>POM</acronym>),
+        elle a ce que Maven appelle un "chemin de dépendances", laquelle est maintenue comme une liste de chaînes de caractère et correspond à l'identité complète de l'artefact 
+        (<varname>groupId:artifactId:type:[classifier:]version</varname>)
+        de toutes les dépendances entre votre <acronym>POM</acronym> et l'artefact a qui appartient ce chemin.
+        Si vous vous rappelez des trois types d'identités des artefacts disponibles pour pattern matching,
+        vous remarquerez que les entrées dans ce chemin de dépendances - l'identité complète de l'artefact  - correspond au troisième type.
+        Lorsque le flag <sgmltag>useTransitiveFiltering</sgmltag> est affecté à <varname>true</varname>, 
+        toutes les entrées du chemin de dépendances d'un artefact peuvent agir sur l'inclusion ou l'exclusion de cet artefact.</para>
 
-        <para>If you’re considering using transitive filtering, be careful! A
-        given artifact can be included from multiple places in the
-        transitive-dependency graph, but as of Maven 2.0.9, only the first
-        inclusion’s trail will be tracked for this type of matching. This can
-        lead to subtle problems when collecting the dependencies for your
-        project.</para>
+        <para>Si vous considérez l'utisation de ce filtrage transitif, prennez garde !
+        Un artefact peut être inclus à partie de nombreux emplacement dans un graphe de dépendance, mais dans Maven 2.0.9,
+        seul le premier chemin de dépendances est utilisé pour ce type de matching.
+        Cela peut conduire à des problèmes subtils dans la collecte des dépendances de votre projet.</para>
 
         <warning>
-          <para>Most assemblies don’t really need this level of control over
-          dependency sets; consider carefully whether yours truly does. Hint:
-          It probably doesn't.</para>
+          <para>La plupart des assembly ne nécessitent ce niveau de contrôle sur les sets de dépendances,
+          reflechissez attentivement pour savoir si la vôtre en a vraiment besoin. Astuce : ce n'est probablement pas le cas.</para>
         </warning>
       </section>
 
