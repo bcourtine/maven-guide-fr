@@ -614,28 +614,28 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
     <title>Usage du plugin Maven Help</title>
 
     <para>Tout au long de ce livre, nous allons introduire des plugins Maven, parler de fichiers Maven Project Object
-    Model (<acronym>POM</acronym>), de fichiers de settings, et de profils. Parfois vous aurez besoin d'un outil qui
-    vous permettra de connaître les modèles utilisés par Maven et les goals disponibles pour un plugin donné. Le plugin
+    Model (<acronym>POM</acronym>), de fichiers de settings et de profils. Parfois vous aurez besoin d'un outil 
+    vous permettant de connaître les modèles utilisés par Maven et les goals disponibles pour un plugin donné. Le plugin
     Maven Help vous permet de lister tous les profils Maven actifs, d'afficher un <acronym>POM</acronym> effectif, les
-    settings effectifs, ou les attributs d'un plugin Maven.</para>
+    settings effectifs ou les attributs d'un plugin Maven.</para>
 
     <note>
       <para>Pour une vision plus conceptuelle du POM et des plugins, lisez le <xref linkend="simple-project"
       xrefstyle="style:title" />.</para>
     </note>
 
-    <para>Le plugin Maven Help a quatre goals. Les trois premiers goals— <varname>active-profiles</varname>,
+    <para>Le plugin Maven Help a quatre goals. Les trois premiers goals — <varname>active-profiles</varname>,
     <varname>effective-pom</varname> et <varname>effective-settings</varname> — décrivent un projet particulier et
-    doivent être exécutés depuis le répertoire racine d'un projet. Le dernier goal — <varname>describe</varname>— est un
-    peu plus complexe, il affiche des informations sur un plugin ou le goal d'un plugin. Les commandes suivantes vous
-    donnent des informations générales sur ces quatre goals :</para>
+    doivent être exécutés depuis le répertoire racine d'un projet. Le dernier goal — <varname>describe</varname> — est un
+    peu plus complexe, il affiche des informations sur un plugin ou le goal d'un plugin. Voici des informations
+    générales sur ces quatre goals :</para>
 
     <variablelist>
       <varlistentry>
         <term>help:active-profiles</term>
 
         <listitem>
-          <para>Liste les profils (du projet, de l'utilisateur, globaux) qui sont actifs pour le build.</para>
+          <para>Liste les profils (du projet, de l'utilisateur, globaux) qui sont actifs pour le build courant.</para>
         </listitem>
       </varlistentry>
 
@@ -661,7 +661,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
         <term>help:describe</term>
 
         <listitem>
-          <para>Décrit les attributs d'un plugin Il n'est pas nécessaire de l'exécuter dans le répertoire d'un projet.
+          <para>Décrit les attributs d'un plugin. Il n'est pas nécessaire de l'exécuter dans le répertoire d'un projet.
           Vous devez fournir au moins le <varname>groupId</varname> et le <varname>artifactId</varname> du plugin dont
           vous voulez la description.</para>
         </listitem>
@@ -671,8 +671,8 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
     <section id="installation-sect-describing-plugin">
       <title>Décrire un plugin Maven</title>
 
-      <para>ne fois que vous commencez à utiliser Maven, vous passerez le plus clair de votre temps à rechercher des
-      informations sur les Plugins Maven : Comment fonctionnent les plugins ? Quels sont les paramètres de configuration
+      <para>Une fois que vous commencez à utiliser Maven, vous passerez le plus clair de votre temps à rechercher des
+      informations sur les plugins Maven : Comment fonctionnent les plugins ? Quels sont les paramètres de configuration
       ? Quels sont les goals ? Vous utiliserez fréquemment le goal <varname>help:</varname><varname>describe</varname>
       pour obtenir ce type d'information. Le paramètre <varname>plugin</varname> vous permet de spécifier le plugin sur
       lequel vous voulez des informations, en passant son préfixe (par exemple <varname>maven-help-plugin</varname> ou
@@ -699,7 +699,7 @@ The Maven Help plugin provides goals aimed at helping to make sense out of
 
       <para>L'exécution du goal <varname>describe</varname> en passant le paramètre <varname>plugin</varname> a affiché
       les coordonnées Maven du plugin, le préfixe du goal et une description succincte du plugin. Même si ces
-      informations sont utiles, habituellement on voudra en savoir un peu plus. Pour afficher la liste des goals avec
+      informations sont utiles, la plupart du temps on voudra en savoir un peu plus. Pour afficher la liste des goals avec
       leurs paramètres grâce au plugin Help, il faut exécuter le goal
       <varname>help:</varname><varname>describe</varname> avec le paramètre <varname>full</varname> comme ci-dessous
       :</para>
