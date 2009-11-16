@@ -1518,7 +1518,7 @@ I can add this back in later.  I didn't want to talk about it without an example
           </varlistentry>
 
           <varlistentry>
-            <term><varname>groupId:artifactId:type[:classifier]</varname> - id de conflit/term>
+            <term><varname>groupId:artifactId:type[:classifier]</varname> - id de conflit</term>
 
             <listitem>
               <para>Ce pattern vous permet de fournir un ensemble plus large de coordonnées pour créer des patterns include/exclude plus spécifiques.</para>
