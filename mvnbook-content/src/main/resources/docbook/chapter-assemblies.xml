@@ -1470,90 +1470,86 @@ I can add this back in later.  I didn't want to talk about it without an example
         more development of this idea.</para>
       </section>
 
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
+
       <section id="assemblies-sect-fine-tune">
-        <title>Fine Tuning: Dependency Includes and Excludes</title>
+        <title>Configuration fine : inclusion et exclusion de dépendances</title>
 
-        <para>A resource dependency might be as simple as a set of resources
-        (CSS, Javascript, and Images) in a project that has an assembly which
-        creates a <acronym>ZIP</acronym> archive. Depending on the particulars
-        of our web application, we might be able to distinguish resource
-        dependencies from binary dependencies solely according to type. Most
-        web applications are going to depend on other dependencies of type
-        <varname>jar</varname>, and it is possible that we can state with
-        certainty that all dependencies of type <varname>zip</varname> are
-        resource dependencies. Or, we might have a situation where resources
-        are stored in <varname>jar</varname> format, but have a classifier of
-        something like <varname>resources</varname>. In either case, we can
-        specify an inclusion pattern to target these resource dependencies and
-        apply different logic than that used for binary dependencies. We’ll
-        specify these tuning patterns using the <sgmltag>includes</sgmltag>
-        and <sgmltag>excludes</sgmltag> sections of the
-        <sgmltag>dependencySet</sgmltag>.</para>
+        <para>Une dépendance de ressources peut être une simple liste de ressources (CSS, Javascript, images ...) dans un projet
+        qui a une assembly qui crée une archive <acronym>ZIP</acronym>.
+        En fonction des particularités de votre application web,
+        vous voudrez distinguer les dépendances de ressources des dépendances de binaires en fonction de leur type.
+        La plupart des applications web vont dépendre d'autres dépendances de type <varname>jar</varname>, 
+        du coup, il est possible de dire avec certitude que toutes les dépendances de type <varname>zip</varname> sont des dépendances de ressources.
+        Ou, nous pourrions avoir une situation où les ressources sont conservées sous un format <varname>jar</varname> mais 
+        que nous pouvons distinguer les ressources par un tag <varname>resources</varname>.
+        Dans tous les cas, nous pouvons spécifier un pattern d'inclusion pour cibler ces dépendances de ressources
+        et appliquer une logique différente que celle utilisée pour les binaires. 
+        Nous pouvons effectue cette distinction par l'intermédiaire de balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> 
+        dans le <sgmltag>dependencySet</sgmltag>.</para>
 
-        <para>Both includes and excludes are list sections, meaning they
-        accept the sub-elements <sgmltag>include</sgmltag> and
-        <sgmltag>exclude</sgmltag> respectively. Each
-        <sgmltag>include</sgmltag> or <sgmltag>exclude</sgmltag> element
-        contains a string value, which can contain wildcards. Each string
-        value can match dependencies in a few different ways. Generally
-        speaking, three identity pattern formats are supported:</para>
+        <para>Les balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> sont des listes, 
+        cela veut dire qu'elles acceptent des sous éléments du type <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag>.
+        Chaque balise <sgmltag>include</sgmltag> ou <sgmltag>exclude</sgmltag> contient une valeur sous forme de chaîne de caractère, celles-ci pouvant contenir des wildcards.
+        Chaque valeur peut matcher des dépendances selon différents moyens.         
+        Généralement, trois formats de pattern sont supportés :</para>
 
         <variablelist>
           <varlistentry>
-            <term><varname>groupId:artifactId</varname> - version-less
-            key</term>
+            <term><varname>groupId:artifactId</varname> - sans la version</term>
 
             <listitem>
-              <para>You would use this pattern to match a dependency by only
-              the groupId and the artifactId</para>
+              <para>Utilisez ce pattern pour trouver des dépendances par <varname>groupId</varname> et <varname>artifactId</varname></para>
             </listitem>
           </varlistentry>
 
           <varlistentry>
-            <term><varname>groupId:artifactId:type[:classifier]</varname> -
-            conflict id</term>
+            <term><varname>groupId:artifactId:type[:classifier]</varname> - id de conflit</term>
 
             <listitem>
-              <para>The pattern allows you to specify a wider set of
-              coordinates to create a more specific include/exclude
-              pattern.</para>
+              <para>Ce pattern vous permet de fournir un ensemble plus large de coordonnées pour créer des patterns include/exclude plus spécifiques.</para>
             </listitem>
           </varlistentry>
 
           <varlistentry>
-            <term><varname>groupId:artifactId:type[:classifier]:version</varname>
-            - full artifact identity</term>
+            <term><varname>groupId:artifactId:type[:classifier]:version</varname> - identité complète de l'artefact</term>
 
             <listitem>
-              <para>If you need to get really specific, you can specify all
-              the coordinates.</para>
+              <para>Si vous avez un récupérer un artefact bien spécifique, vous pouvez renseigner l'intégralité des coordonnées.</para>
             </listitem>
           </varlistentry>
         </variablelist>
 
-        <para>All of these pattern formats support the wildcard character ‘*’,
-        which can match any subsection of the identity and is not limited to
-        matching single identity parts (sections between ‘:’ characters).
-        Also, note that the classifier section above is optional, in that
-        patterns matching dependencies that don’t have classifiers do not need
-        to account for the classifier section in the pattern.</para>
+        <para>Tous ces formats de patterns supportent l'utilisation de widcard ‘*’, 
+        ils permettent de matcher n'importe quelle sous-section de l'identité et n'est pas limitée à une seule sous-section (sections entre ':').         
+        En outre, notez que la section classificateur ci-dessus est facultative,
+        le pattern matching des dépendances qui n'ont pas de classificateur ne prennent pas en compte la section 'classificateur' de ce pattern.</para>
 
-        <para>In the example given above, where the key distinction is the
-        artifact type zip, and none of the dependencies have classifiers, the
-        following pattern would match resource dependencies assuming that they
-        were of type <varname>zip</varname>:</para>
+        <para>Dans l'exemple donné ci-dessus, là où la distinction essentielle est l'artefact de type sip et qu'aucune des dépendances n'a de classificateur,
+        le pattern suivant matcherait toutes les ressources de type <varname>zip</varname> :</para> 
 
         <programlisting>*:zip</programlisting>
 
-        <para>The pattern above makes use of the second dependency identity:
-        the dependency’s conflict id. Now that we have a pattern that
-        distinguishes resource dependencies from binary dependencies, we can
-        modify our dependency sets to handle resource archives
-        differently:</para>
+        <para>Le pattern ci-dessus utilise la seconde identité de la dépendance : l'id de conflit.
+        Maintenant que nous avons un pattern qui distingue les dépendances ressources des binaires, 
+        nous pouvons modifier notre liste de dépendances pour gérer les archives différemment :</para>  
 
         <example id="ex-complex-dependencySet">
-          <title>Using Dependency Excludes and Includes in
-          <sgmltag>dependencySets</sgmltag></title>
+          <title>Utilisation des l'inclusion et d'exclusion de dépendances dans le <sgmltag>dependencySets</sgmltag></title>
 
           <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -1586,30 +1582,21 @@ I can add this back in later.  I didn't want to talk about it without an example
 &lt;/assembly&gt;</programlisting>
         </example>
 
-        <para>In <xref linkend="ex-complex-dependencySet" />, the
-        runtime-scoped dependency set from our last example has been updated
-        to exclude resource dependencies. Only binary dependencies (non-zip
-        dependencies) should be added to the <filename>WEB-INF/lib</filename>
-        directory of the web application. Resource dependencies now have their
-        own dependency set, which is configured to include these dependencies
-        in the resources directory of the web application. The
-        <sgmltag>includes</sgmltag> section in the last
-        <sgmltag>dependencySet</sgmltag> reverses the exclusion from the
-        previous <sgmltag>dependencySet</sgmltag>, so that resource
-        dependencies are included using the same identity pattern (i.e.
-        <varname>*:zip</varname>). The last <sgmltag>dependencySet</sgmltag>
-        refers to the shared resource dependency and it is configured to
-        unpack the shared resource dependency in the document root of the web
-        application.</para>
+        <para>Dans l'<xref linkend="ex-complex-dependencySet" />, 
+        la liste de dépendances scopée <varname>runtime</varname> de notre dernier exemple à été mis à jour pour exclure les dépendances du type ressource.
+        
+        Only binary dependencies (non-zip dependencies) should be added to the <filename>WEB-INF/lib</filename> directory of the web application. 
+        Resource dependencies now have their own dependency set, 
+        which is configured to include these dependencies in the resources directory of the web application. 
+        The <sgmltag>includes</sgmltag> section in the last <sgmltag>dependencySet</sgmltag> reverses the exclusion from the previous <sgmltag>dependencySet</sgmltag>, 
+        so that resource dependencies are included using the same identity pattern (i.e. <varname>*:zip</varname>). 
+        The last <sgmltag>dependencySet</sgmltag> refers to the shared resource dependency and it is configured to
+        unpack the shared resource dependency in the document root of the web application.</para>
 
-        <para><xref linkend="ex-complex-dependencySet" /> was based upon the
-        assumption that our shared resources project dependency had a type
-        which differed from all of the other dependencies. What if the share
-        resource dependency had the same type as all of the other
-        dependencies? How could you differentiate the dependency? In this case
-        if the shared resource dependency had been bundled as a JAR with the
-        classifier <varname>resources</varname>, you can change to the
-        identity pattern and match those dependencies instead:</para>
+        <para>L'<xref linkend="ex-complex-dependencySet" /> was based upon the assumption that our shared resources project dependency had a type which differed from all of the other dependencies. 
+        What if the share resource dependency had the same type as all of the other dependencies? 
+        How could you differentiate the dependency? In this case if the shared resource dependency had been bundled as a JAR with the classifier <varname>resources</varname>, 
+        you can change to the identity pattern and match those dependencies instead:</para>
 
         <programlisting>*:jar:resources</programlisting>
 
