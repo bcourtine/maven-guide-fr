@@ -1587,7 +1587,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         Seules les dépendances de type binaire (les dépendances qui ne sont pas de ZIP) sont ajoutées dans le répertoire <filename>WEB-INF/lib</filename> de l'application. 
         Les dépendances de type ressource sont rassemblées dans une même liste,        
         celle-ci est configurée pour copier ses dépendances dans le répertoire ressource de l'application.
-        La balise <sgmltag>includes</sgmltag> du dernier sgmltag>dependencySet</sgmltag> annule les exclusions du <sgmltag>dependencySet</sgmltag> précédent.
+        La balise <sgmltag>includes</sgmltag> du dernier <sgmltag>dependencySet</sgmltag> annule les exclusions du <sgmltag>dependencySet</sgmltag> précédent.
         Ainsi, les dépendances ressources sont incluses en utilisant un seul pattern d'identité : <varname>*:zip</varname>.
         La dernière balise <sgmltag>dependencySet</sgmltag> fait référence à des ressources partagées et est configurée pour deziper celles-ci à la racine de l'application web.</para>
 
