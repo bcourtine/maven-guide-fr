@@ -1742,65 +1742,49 @@ I can add this back in later.  I didn't want to talk about it without an example
     </section>
 
     <section id="assemblies-sect-modulesets">
-      <title><sgmltag>moduleSets</sgmltag> Sections</title>
+      <title>Sections <sgmltag>moduleSets</sgmltag></title>
 
-      <para>Multi-module builds are generally stitched together using the
-      parent and modules sections of interrelated <acronym>POM</acronym>s.
-      Typically, parent <acronym>POM</acronym>s specify their children in a
-      <sgmltag>modules</sgmltag> section, which under normal circumstances
-      causes the child <acronym>POM</acronym>s to be included in the build
-      process of the parent. Exactly how this relationship is constructed can
-      have important implications for the ways in which the Assembly plugin
-      can participate in this process, but we’ll discuss that more later. For
-      now, it’s enough to keep in mind this parent-module relationship as we
-      discuss the <sgmltag>moduleSets</sgmltag> section.</para>
+      <para>
+      
+      Multi-module builds are generally stitched together using the parent and modules sections of interrelated <acronym>POM</acronym>s.
+      Typically, parent <acronym>POM</acronym>s specify their children in a <sgmltag>modules</sgmltag> section, 
+      which under normal circumstances causes the child <acronym>POM</acronym>s to be included in the build process of the parent. 
+      Exactly how this relationship is constructed can have important implications for the ways in which the Assembly plugin can participate in this process, 
+      but we’ll discuss that more later. 
+      For now, it’s enough to keep in mind this parent-module relationship as we discuss the <sgmltag>moduleSets</sgmltag> section.</para>
 
       <!--TODO: I think we need a simple example of how/why this would be used.-->
 
-      <para>Projects are stitched together into multi-module builds because
-      they are part of a larger system. These projects are designed to be used
-      together, and single module in a larger build has little practical value
-      on its own. In this way, the structure of the project’s build is related
-      to the way we expect the project (and its modules) to be used. If
-      consider the project from the user's perspective, it makes sense that
-      the ideal end goal of that build would be a single, distributable file
-      that the user can consume directly with minimum installation hassle.
-      Since Maven multi-module builds typically follow a top-down structure,
-      where dependency information, plugin configurations, and other
-      information trickles down from parent to child, it seems natural that
-      the task of rolling all of these modules into a single distribution file
-      should fall to the topmost project. This is where the
-      <sgmltag>moduleSet</sgmltag> comes into the picture.</para>
+      <para>Les projets sont construits sous la forme d'un projet multimodule parce qu'ils font partie d'un système plus vaste.
+      Ces projets sont conçus pour être utilisés ensemble, un module unique dans un grand build n'a peu de valeur en lui-même.
+      De cette façon, la structure du build du projet est liée à la façon dont nous espérons que ce projet (et ses modules) soit utilisé.
+      Si vous considérez le projet du point de vue de l'utilisateur, 
+      il semble logique que l'objectif final de ce build soit de construire et distribuer un seul fichier que les utilisateurs pourront directement déployer sans trop de tracas. 
+      Comme les builds multimodule Maven s'appuient habituellement sur une structure top-down,
+      où des informations de dépendances, des configurations de plugin et bien d'autres informations sont hérités du projet parent à l'enfant,
+      il semble naturel que la tâche de transformation de ces modules dans un fichier unique distribuable doive incomber au projet le plus haut dans la hiérarchie.
+      Voilà où la balise <sgmltag>moduleSet</sgmltag> intervient.</para>
 
-      <para>Module sets allow the inclusion of resources that belong to each
-      module in the project structure into the final assembly archive. Just
-      like you can select a group of files to include in an assembly using a
-      <sgmltag>fileSet</sgmltag> and a <sgmltag>dependencySet</sgmltag>, you
-      can include a set of files and resources using a
-      <sgmltag>moduleSet</sgmltag> to refer to modules in a multi-module
-      build. They achieve this by enabling two basic types of module-specific
-      inclusion: file-based, and artifact-based. Before we get into the
-      specifics and differences between file-based and artifact-based
-      inclusion of module resources into an assembly, let’s talk a little
-      about selecting which modules to process.</para>
+      <para>Les sets de modules permettent l'inclusion de ressources dans l'assembly final, celles-ci dépendent de chaque module dans la structure du projet. 
+      Tout comme vous pouvez choisir un groupe de fichiers à inclure dans un assembly en utilisant les balises <sgmltag>fileSet</sgmltag> et <sgmltag>dependencySet</sgmltag>,
+      vous pouvez inclure un set de fichier et de ressources en utilisant un <sgmltag>moduleSet</sgmltag> pour se référer aux modules d'un build multimodule.
+      Cela est rendu possible grâce aux deux types d'inclusion spécifique aux modules : l'un basé sur les fichiers, l'autre sur les artefacts. 
+      Avant d'entrer dans les particularités ces deux types d'inclusion de modules ressources dans une assembly,
+      parlons un peu de comment sélectionner les modules à traiter.</para>
 
       <section id="assemblies-sect-module-selection">
-        <title>Module Selection</title>
+        <title>Sélection des modules</title>
 
-        <para>By now, you should be familiar with
-        <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag> patterns as
-        they are used throughout the assembly descriptor to filter files and
-        dependencies. When you are referring to modules in an assembly
-        descriptor, you will also use the
-        <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag> patterns to
-        define rules which apply to different sets of modules. The difference
-        in <sgmltag>moduleSet</sgmltag> <sgmltag>includes</sgmltag> and
-        <sgmltag>excludes</sgmltag> is that these rules do not allow for
-        wildcard patterns. (As of the 2.2-beta-2 release, this feature has not
-        really seen much demand, so it hasn’t been implemented.) Instead, each
-        include or exclude value is simply the <varname>groupId</varname> and
-        <varname>artifactId</varname> for the module, separated by a colon,
-        like this:</para>
+        <para>
+        
+        By now, you should be familiar with <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag> patterns as
+        they are used throughout the assembly descriptor to filter files and dependencies. 
+        When you are referring to modules in an assembly descriptor, 
+        you will also use the <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag> patterns to define rules which apply to different sets of modules. 
+        The difference in <sgmltag>moduleSet</sgmltag> <sgmltag>includes</sgmltag> and
+        <sgmltag>excludes</sgmltag> is that these rules do not allow for wildcard patterns. 
+        (As of the 2.2-beta-2 release, this feature has not really seen much demand, so it hasn’t been implemented.) 
+        Instead, each include or exclude value is simply the <varname>groupId</varname> and <varname>artifactId</varname> for the module, separated by a colon, like this:</para>
 
         <programlisting>groupId:artifactId</programlisting>
 
