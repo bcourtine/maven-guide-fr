@@ -2002,33 +2002,26 @@ I can add this back in later.  I didn't want to talk about it without an example
       <section id="assemblies-sect-modulesets-parent-pom">
         <title><sgmltag>moduleSets</sgmltag>, <acronym>POM</acronym>s parents et balise <sgmltag>binaries</sgmltag></title>
 
-        <para>Finally, we close the discussion about module handling with a
-        strong warning. There are subtle interactions between Maven’s internal
-        design as it relates to parent-module relationships and the execution
-        of a module-set’s binaries section. When a <acronym>POM</acronym>
-        declares a parent, that parent must be resolved in some way or other
-        before the <acronym>POM</acronym> in question can be built. If the
-        parent is in the Maven repository, there is no problem. However, as of
-        Maven 2.0.9 this can cause big problems if that parent is a
-        higher-level <acronym>POM</acronym> in the same build, particularly if
-        that parent <acronym>POM</acronym> expects to build an assembly using
-        its modules’ binaries.</para>
+        <para>Enfin, clôturons cette discussion avec un avertissement.
+        En ce qui concerne les relations parents-module, il existe des interactions subtiles entre le fonctionnement interne de Maven et l'exécution d'un <varname>moduleSet</varname> dans une balise <varname>binaires</varname>.         
+        Lorsqu'un <acronym>POM</acronym> déclare un parent, 
+        ce parent doit être résolu d'une façon ou d'une autre avant que le <acronym>POM</acronym> en question puisse être construit.
+        Si un parent est dans un dépôt Maven, pas de problème.
+        Cependant, vous vous exposez à de gros problèmes si le parent dispose d'un <acronym>POM</acronym> de plus haut niveau dans le même build,
+        en particulier si le <acronym>POM</acronym> parent utilise les binaires de ces modules.</para>
 
-        <para>Maven 2.0.9 sorts projects in a multi-module build according to
-        their dependencies, with a given project’s dependencies being built
-        ahead of itself. The problem is the parent element is considered a
-        dependency, which means the parent project’s build must complete
-        before the child project is built. If part of that parent’s build
-        process includes the creation of an assembly that uses module
-        binaries, those binaries will not exist yet, and therefore cannot be
-        included, causing the assembly to fail. This is a complex and subtle
-        issue, which severely limits the usefulness of the module binaries
-        section of the assembly descriptor. In fact, it has been filed in the
-        bug tracker for the Assembly plugin at: <ulink
+        <para>Maven 2.0.9 trie les projets d'un build multimodule en fonction de leurs dépendances, avec des dépendances d'un projet construit avant celui-ci.
+        Le problème est que l'élément parent est considéré comme une dépendance, 
+        ce qui signifie que le build du projet parent doit être effectué avant que le projet enfant soit construit.
+        Si une partie du build de ce parent inclus la création d'une assembly qui utilise les binaires des modules, 
+        ces binaires ne seront pas encore créés et ne pourront donc pas être inclus.
+        Cela provoquera ainsi l'échec de la construction de l'assembly. 
+        Il s'agit d'une question complexe et subtile.
+        Elle limite sérieusement l'utilité de la section <varname>binaires</varname> module du descripteur d'assembly. 
+        En fait, à ce sujet, un bug a été créé sur legestionnaire d'anomalie du plugin Assembly : <ulink
         url="http://jira.codehaus.org/browse/MASSEMBLY-97">http://jira.codehaus.org/browse/MASSEMBLY-97</ulink>.
-        Hopefully, future versions of Maven will find a way to restore this
-        functionality, since the parent-first requirement may not be
-        completely necessary.</para>
+        Il faut espérer que les futures versions de Maven vont trouver un moyen de réparer cette fonctionnalité, 
+        puisque la relation parent-first n'est pas forcément nécessaire.</para>
       </section>
     </section>
 
