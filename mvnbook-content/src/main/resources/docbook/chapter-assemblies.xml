@@ -1889,29 +1889,20 @@ I can add this back in later.  I didn't want to talk about it without an example
       </section>
 
       <section id="assemblies-sect-interpolate-modulesets">
-        <title>Interpolation of <sgmltag>outputDirectoryMapping</sgmltag> in
-        <sgmltag>moduleSets</sgmltag></title>
+        <title>Interpolation de l'<sgmltag>outputDirectoryMapping</sgmltag> dans les <sgmltag>moduleSets</sgmltag></title>
 
-        <para>In <xref linkend="assemblies-sect-output-location" />, we used
-        the element <sgmltag>outputDirectoryMapping</sgmltag> to change the
-        name of the directory under which each module’s sources would be
-        included. The expressions contained in this element are resolved in
-        exactly the same way as the <sgmltag>outputFileNameMapping</sgmltag>,
-        used in dependency sets (see the explanation of this algorithm in
-        <xref linkend="assemblies-sect-output-algorithm" />).</para>
+        <para>Dans l'<xref linkend="assemblies-sect-output-location" />, 
+        nous avons utilisé la balise <sgmltag>outputDirectoryMapping</sgmltag> pour changer le nom du répertoire sous lequel est inclue chaque source des modules. 
+        Les expressions contenues dans cette balise sont résolues exactement de la même manière que celles de la balise <sgmltag>outputFileNameMapping</sgmltag>,
+        qui utilisait des sets de dépendances (référez-vous à l'explication de cet algorithme dans la section <xref linkend="assemblies-sect-output-algorithm" />).</para>
 
-        <para>In <xref linkend="ex-include-exclude-moduleSet" />, we used the
-        expression <varname>\${module.basedir.name}</varname>. You might
-        notice that the root of that expression, <varname>module</varname>, is
-        not listed in the mapping-resolution algorithm from the dependency
-        sets section; this object root is specific to configurations within
-        <sgmltag>moduleSets</sgmltag>. It works in exactly the same way as the
-        <varname>\${artifact.*}</varname> references available in the
-        <sgmltag>outputFileNameMapping</sgmltag> element, except it is applied
-        to the module’s <classname>MavenProject</classname>,
-        <classname>Artifact</classname>, and
-        <classname>ArtifactHandler</classname> instances instead of those from
-        a dependency artifact.</para>
+        <para>Dans l'<xref linkend="ex-include-exclude-moduleSet" />, vous avons utilisé l'expression <varname>\${module.basedir.name}</varname>. 
+        Vous avez peut-être remarqué que le début de cette expression, <varname>module</varname>,
+        n'est pas listé dans l'algorithme de résolution des mappings de la section <xref linkend="assemblies-sect-output-algorithm" />.
+        Cet objet root est spécifique à la configuration des <sgmltag>moduleSets</sgmltag>.
+        Il fonctionne de la même manière que les réléférences à <varname>\${artifact.*}</varname> disponible dans la balise <sgmltag>outputFileNameMapping</sgmltag>,
+        à l'exception qu'il s'applique aux instances <classname>MavenProject</classname>, <classname>Artifact</classname> et <classname>ArtifactHandler</classname> du module
+        au lieu de celles d'un artefact de dépendance.</para>
       </section>
 
       <section id="assemblies-sect-binaries">
