@@ -1954,7 +1954,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         il est important de noter que les mêmes changements de l'exécution de l'algorithme de résolution des expressions, 
         dont nous avions parlé à propos de la balise <sgmltag>outputDirectoryMapping</sgmltag> de la balise <varname>sources</varname>, s'appliquent également ici.
         Tout ce qui est accessible par <varname>\${artifact.*}</varname> dans la configuration de la balise <sgmltag>outputFileNameMapping</sgmltag> du <sgmltag>dependencySet</sgmltag> est également disponible dans <varname>\${module.*}</varname>.  
-        La même chose s'applique pour toute balise <sgmltag>outputFileNameMapping</sgmltag> lorsqu'elle est utilisée directement dans une balise <<sgmltag>binaries</sgmltag>.</para>
+        La même chose s'applique pour toute balise <sgmltag>outputFileNameMapping</sgmltag> lorsqu'elle est utilisée directement dans une balise <sgmltag>binaries</sgmltag>.</para>
 
         <para>Enfin, examinons un exemple dans lequel nous voulons simplement traiter l'artefact du module et ses dépendances <varname>runtime</varname>.
         Dans ce cas, nous voulons séparer la configuration de l'artefact pour chaque module dans un set et une structure de répertoire séparés, 
@@ -1992,7 +1992,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         Dans les deux parties
         - la partie principale, chargée de la manipulation de l'artefact du module lui-même, des ensembles de dépendances, et qui est chargé des dépendances du module -  
         les options de configuration restent très similaires à celles des sets de dépendances.
-        Bien entendu, la balise <varname>binaires<varname> fournie également des options pour contrôler 
+        Bien entendu, la balise <varname>binaires</varname> fournie également des options pour contrôler 
         quelles dépendances sont incluses et quel artefact principal de projet vous souhaitez utiliser.</para>
 
         <para>Comme pour la balise <varname>source</varname>, la balise <varname>binaries</varname> dispose d'options de configuration qui sont fournies uniquement pour des causes de rétrocompatibilité.
@@ -2026,7 +2026,7 @@ I can add this back in later.  I didn't want to talk about it without an example
     </section>
 
     <section id="assemblies-sect-repositories">
-      <title>Repositories Section</title>
+      <title>Balise <varname>repositories</varname></title>
 
       <para>The repositories section represents a slightly more exotic feature
       in the assembly descriptor, since few applications other than Maven can
