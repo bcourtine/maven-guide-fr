@@ -1744,14 +1744,11 @@ I can add this back in later.  I didn't want to talk about it without an example
     <section id="assemblies-sect-modulesets">
       <title>Sections <sgmltag>moduleSets</sgmltag></title>
 
-      <para>
-      
-      Multi-module builds are generally stitched together using the parent and modules sections of interrelated <acronym>POM</acronym>s.
-      Typically, parent <acronym>POM</acronym>s specify their children in a <sgmltag>modules</sgmltag> section, 
-      which under normal circumstances causes the child <acronym>POM</acronym>s to be included in the build process of the parent. 
-      Exactly how this relationship is constructed can have important implications for the ways in which the Assembly plugin can participate in this process, 
-      but we’ll discuss that more later. 
-      For now, it’s enough to keep in mind this parent-module relationship as we discuss the <sgmltag>moduleSets</sgmltag> section.</para>
+      <para>Les builds multimodule sont généralement rassemblés ensemble en utilisant les balises <varname>parent</varname> et <varname>modules</varname> dans les <acronym>POM</acronym>s. 
+      Typiquement, les <acronym>POM</acronym>s parents spécifient leurs fils dans une section <sgmltag>modules</sgmltag>,
+      qui, en temps normal, aura pour effet de les inclure dans la procédure de build du projet parent.   
+      La relation entre ses deux projets, et comment elle a été contruite, peut avoir des implications importantes dans manière dont le plugin Assembly participe à ce processus, mais nous en discuterons plus tard.
+      Pour l'instant, contentons-nous de garder à l'esprit la relation parent-module telle que nous l'avions vu dans la section <sgmltag>moduleSets</sgmltag>.</para>  
 
       <!--TODO: I think we need a simple example of how/why this would be used.-->
 
