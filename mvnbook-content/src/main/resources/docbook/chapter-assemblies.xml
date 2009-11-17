@@ -1809,20 +1809,15 @@ I can add this back in later.  I didn't want to talk about it without an example
       </section>
 
       <section id="assemblies-sect-sources-section">
-        <title>Section Sources</title>
+        <title>Balise <varname>sources</varname></title>
 
-        <para>Suppose you want to include the source of all modules in your
-        project's assembly, but you would like to exclude a particular module.
-        Maybe you have a project named <varname>secret-sauce</varname> which
-        contains secret and sensitive code that you don't want to distribute
-        with your project. The simplest way to accomplish this is to use a
-        <sgmltag>moduleSet</sgmltag> which includes each project's directory
-        in <varname>\${module.basedir.name}</varname> and which excludes the
-        <varname>secret-sauce</varname> module from the assembly.</para>
+        <para>Supposez que vous désirez inclure les sources de tous les modules dans votre assembly, mais que vous voulez exclure un module en particulier.
+        Peut-être avec vous un projet appelé <varname>secret-sauce</varname> qui contient du code secret et sensible que vous ne voulez pas distribuer dans votre projet.
+        Le moyen le plus simple d'effectuer cela est d'utiliser la balise <sgmltag>moduleSet</sgmltag> qui inclus chaque répertoire d'un projet 
+        dans <varname>\${module.basedir.name}</varname> et qui exclu le module <varname>secret-sauce</varname> de l'assembly.</para>
 
         <example id="ex-include-exclude-moduleSet">
-          <title>Includes and Excluding Modules with a
-          <sgmltag>moduleSet</sgmltag></title>
+          <title>Inclusion et exclusion de modules dans un <sgmltag>moduleSet</sgmltag></title>
 
           <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -1856,61 +1851,41 @@ I can add this back in later.  I didn't want to talk about it without an example
 &lt;/assembly&gt;</programlisting>
         </example>
 
-        <para>In <xref linkend="ex-include-exclude-moduleSet" />, since we’re
-        dealing with each module’s sources it’s simpler to deal only with
-        direct modules of the current project, handling sub-modules using
-        file-path wildcard patterns in the file set. We set the
-        <sgmltag>includeSubModules</sgmltag> element to
-        <varname>false</varname> so we don't have to worry about submodules
-        showing up in the root directory of the assembly archive. The
-        <sgmltag>exclude</sgmltag> element will take care of excluding the
-        <varname>secret-sauce</varname> module. We’re not going to include the
-        project sources for the secret-sauce module; they’re, well,
-        secret.</para>
+        <para>Dans l'<xref linkend="ex-include-exclude-moduleSet" />,
+        puisque nous devons gérer les sources de chaque module,
+        il est plus simple de traiter seulement les modules directs du projet en cours,
+        en manipulant les sous-modules avec le widlcard chemin/fichier. 
+        Renseignez l'élément <sgmltag>includeSubModules</sgmltag> à <varname>false</varname>.
+        Ainsi, nous n'avons donc pas à nous soucier de sous-modules qui apparaissent dans le répertoire racine de l'archive d'assemblage.
+        La balise <sgmltag>exclude</sgmltag> s'occupera d'exclure votre module secret <varname>secret-sauce</varname>.</para>
 
-        <para>Normally, module sources are included in the assembly under a
-        subdirectory named after the module’s <varname>artifactId</varname>.
-        However, since Maven allows modules that are not in directories named
-        after the module project’s <varname>artifactId</varname>, it’s often
-        better to use the expression
-        <varname>\${module.basedir.name}</varname> to preserve the module
-        directory’s actual name (<varname>\${module.basedir.name}</varname> is
-        the same as calling
-        <methodname>MavenProject.getBasedir().getName()</methodname>). It is
-        critical to remember that modules are not required to be
-        subdirectories of the project that declares them. If your project has
-        a particularly strange directory structure, you may need to resort to
-        special <sgmltag>moduleSet</sgmltag> declarations that include
-        specific project and account for your own project's
-        idiosyncracies.</para>
+        <para>Normalement, les sources du module sont incluses dans l'assembly dans un sous-répertoire qui est nommé âpres <varname>artifactId</varname> du module.  
+        Toutefois, comme Maven permet aux modules qui ne sont pas dans des répertoires nommés d'après l'<varname>artifactId</varname> du module du projet,
+        il est souvent préférable d'utiliser une expression <varname>\${module.basedir.name}</varname> pour préserver le nom du répertoire du module courant.
+        (<varname>\${module.basedir.name}</varname> revient au même que d'appeler la méthode  <methodname>MavenProject.getBasedir().getName()</methodname>).
+        Il est important de se rappeler que les modules qui ne sont pas nécessairement des sous-répertoires du projet qui les déclare.
+        Si votre projet possède une structure particulièrement étrange, 
+        vous pouvez avoir besoin de recourir à la déclaration de balises <sgmltag>moduleSet</sgmltag> spéciales 
+        qui sauront comprendre et tenir compte des particularités de votre projet.</para>    
 
         <warning>
-          <para>Try to minimize your own project's idiosyncracies, while Maven
-          is flexible, if you find yourself doing too much configuration there
-          is likely an easier way.</para>
+          <para>Pour essayer de minimiser les particularités votre projet, comme Maven est flexible,
+          si vous vous prenez à faire trop de configuration,c'est qu'il y a probablement un moyen plus facile d'y arriver.</para>
         </warning>
 
-        <para>Continuing through <xref
-        linkend="ex-include-exclude-moduleSet" />, since we’re not processing
-        sub-modules explicitly in this module set, we need to make sure
-        sub-module directories are not excluded from the source directories we
-        consider for each direct module. By setting the
-        <sgmltag>excludeSubModuleDirectories</sgmltag> flag to
-        <varname>false</varname>, this allows us to apply the same file
-        pattern to directory structures within a sub-module of the one we’re
-        processing. Finally in <xref
-        linkend="ex-include-exclude-moduleSet" />, we’re not interested in any
-        output of the build process for this module set. We exclude the
-        target/ directory from all modules.</para>
+        <para>Continuons à parcourir l'<xref linkend="ex-include-exclude-moduleSet" />, 
+        since we’re not processing sub-modules explicitly in this module set, 
+        we need to make sure sub-module directories are not excluded from the source directories we consider for each direct module. 
+        By setting the <sgmltag>excludeSubModuleDirectories</sgmltag> flag to <varname>false</varname>, 
+        this allows us to apply the same file pattern to directory structures within a sub-module of the one we’re processing. 
+        Finally in <xref linkend="ex-include-exclude-moduleSet" />, 
+        we’re not interested in any output of the build process for this module set. We exclude the target/ directory from all modules.</para>
 
-        <para>It’s also worth mentioning that the <sgmltag>sources</sgmltag>
-        section supports <sgmltag>fileSet</sgmltag>-like elements directly
-        within itself, in addition to supporting nested
-        <sgmltag>fileSets</sgmltag>. These configuration elements are used to
-        provide backward compatibility to previous versions of the Assembly
-        plugin (versions 2.1 and under) that didn’t support multiple distinct
-        file sets for the same module without creating a separate module set
-        declaration. They are deprecated, and should not be used.</para>
+        <para>Ca vaut également le coup de mentionner que la balise <sgmltag>sources</sgmltag> supporte les éléments du type <sgmltag>fileSet</sgmltag> directement dans celle-ci ou dans ses sous-balises imbriquées.    
+        Ces balises de configuration sont utilisées pour fournir une rétrocompatibilité avec les anciennes versions du plugin Assembly (versions 2.1 et précédentes)
+        qui ne prenaient pas en charge plusieurs sets fichiers pour un même module sans créer de <varname>modulesSet</varname> séparés.
+        Elles sont dépréciées, vous ne devez pas les utiliser.</para>
+
       </section>
 
       <section id="assemblies-sect-interpolate-modulesets">
