@@ -1775,54 +1775,41 @@ I can add this back in later.  I didn't want to talk about it without an example
       <section id="assemblies-sect-module-selection">
         <title>Sélection des modules</title>
 
-        <para>
-        
-        By now, you should be familiar with <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag> patterns as
-        they are used throughout the assembly descriptor to filter files and dependencies. 
-        When you are referring to modules in an assembly descriptor, 
-        you will also use the <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag> patterns to define rules which apply to different sets of modules. 
-        The difference in <sgmltag>moduleSet</sgmltag> <sgmltag>includes</sgmltag> and
-        <sgmltag>excludes</sgmltag> is that these rules do not allow for wildcard patterns. 
-        (As of the 2.2-beta-2 release, this feature has not really seen much demand, so it hasn’t been implemented.) 
-        Instead, each include or exclude value is simply the <varname>groupId</varname> and <varname>artifactId</varname> for the module, separated by a colon, like this:</para>
+        <para>Maintenant, vous devriez commencer à maîtriser les patterns <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag>, ils sont également utilisés dans les descripteurs d'essembly pour filter les fichiers et les dépendances. 
+        Dans un descripteur d'un assembly, lorsque vous faites référence à des modules, vous pouvez également utiliser ces patterns <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag> 
+        pour définir les règles qui s'appliquent sur différents sets de modules. 
+        La particularité des partterns <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> d'un <sgmltag>moduleSet</sgmltag> est qu'ils ne permettent pas d'utiliser de wildcards. 
+        (du moins dans Maven 2.2-beta-2, cette fonctionnalité n'a pas été beaucoup demandée, elle n'a donc pas été implémentée.)
+        À la place de cela, chaque balise <varname>include</varname> et <varname>exclude</varname> correspond simplement au <varname>groupId</varname> et à l'<varname>artifactId</varname> du module, séparé par un caractère ':', comme ceci :</para>   
 
         <programlisting>groupId:artifactId</programlisting>
 
-        <para>In addition to <sgmltag>includes</sgmltag> and
-        <sgmltag>excludes</sgmltag>, the <sgmltag>moduleSet</sgmltag> also
-        supports an additional selection tool: the
-        <sgmltag>includeSubModules</sgmltag> flag (whose default value is
-        <varname>true</varname>). The parent-child relationship in any
-        multi-module build structure is not strictly limited to two tiers of
-        projects. In fact, you can include any number of tiers, or layers, in
-        your build. Any project that is a module of a module of the current
-        project is considered a sub-module. In some cases, you may want to
-        deal with each individual module in the build separately (including
-        sub-modules). For example, this is often simplest when dealing with
-        artifact-based contributions from these modules. To do this, you would
-        simply leave the <sgmltag>useSubModules</sgmltag> flag set to the
-        default of <varname>true</varname>.</para>
+        <para>En plus des balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag>,
+        le <sgmltag>moduleSet</sgmltag> propose d'autres outils de sélection : 
+        le flag <sgmltag>includeSubModules</sgmltag> (dont la valeur par défaut est <varname>true</varname>).
+        La relation parent-enfant d'une structure multimodule n'est pas limitée à deux tiers d'un projet. 
+        En fait, vous pouvez inclure n'importe quel nombre de tiers, ou de couche, dans votre build. 
+        Chaque projet qui est un module du module du projet courant est considéré comme un sous-module.
+        Dans certains cas, vous souhaitez construire chaque module séparément (y compris les sous-modules).
+        Pour cela, affectez simplement la valeur du flag <sgmltag>useSubModules</sgmltag> à <varname>true</varname>.</para>
 
-        <para>When you’re trying to include files from each module’s directory
-        structure, you may wish to process that module’s directory structure
-        only once. If your project directory structure mirrors that of the
-        parent-module relationships that are included in the
-        <acronym>POM</acronym>s, this approach would allow file patterns like
-        **/src/main/java to apply not only to that direct module’s project
-        directory, but also to the directories of its own modules as well. In
-        this case you don’t want to process sub-modules directly (they will be
-        processed as subdirectories within your own project’s modules
-        instead), you should set the <sgmltag>useSubModules</sgmltag> flag to
-        <varname>false</varname>.</para>
+        <para>Lorsque vous essayez d'inclure des fichiers dans une structure de répertoires de chaque module, 
+        vous souhaitez déclarer cette structure de répertoire une seule fois. 
+        Si votre structure de répertoire du projet reflète celle des relations du module parent qui sont inclus dans les <acronym>POM</acronym>s, 
+        cette approche permet aux patterns de fichiers comme <varname>**/src/main/java</varname> de s'appliquer non seulement aux répertoires directs de ce module, 
+        mais également pour les répertoires de ses propres modules.
+        Dans le cas ou ne voudriez pas traiter les sous-modules directement 
+        (ils seront traités à la place comme des sous-répertoires dans les modules de votre projet),
+        affectez la valeur du flag <sgmltag>useSubModules</sgmltag> à <varname>false</varname>.</para>
 
-        <para>Once we’ve determined how module selection should proceed for
-        the module set in question, we’re ready to choose what to include from
-        each module. As mentioned above, this can include files or artifacts
-        from the module project.</para>
+        <para>Une fois que nous avons déterminé comment la sélection module doit s'exécuter sur l'ensemble des modules, 
+        nous sommes prêts à choisir ce qu'ils doivent contenir.
+        Comme mentionné ci-dessus, il est possible d'inclure des fichiers ou des artefacts provenant du module du projet.</para>
+        
       </section>
 
       <section id="assemblies-sect-sources-section">
-        <title>Sources Section</title>
+        <title>Section Sources</title>
 
         <para>Suppose you want to include the source of all modules in your
         project's assembly, but you would like to exclude a particular module.
