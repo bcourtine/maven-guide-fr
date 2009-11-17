@@ -1746,16 +1746,13 @@ I can add this back in later.  I didn't want to talk about it without an example
     </section>
 
     <section id="assemblies-sect-modulesets">
-      <title>Sections <sgmltag>moduleSets</sgmltag></title>
+      <title>Balise <sgmltag>moduleSets</sgmltag></title>
 
-      <para>
-      
-      Multi-module builds are generally stitched together using the parent and modules sections of interrelated <acronym>POM</acronym>s.
-      Typically, parent <acronym>POM</acronym>s specify their children in a <sgmltag>modules</sgmltag> section, 
-      which under normal circumstances causes the child <acronym>POM</acronym>s to be included in the build process of the parent. 
-      Exactly how this relationship is constructed can have important implications for the ways in which the Assembly plugin can participate in this process, 
-      but we’ll discuss that more later. 
-      For now, it’s enough to keep in mind this parent-module relationship as we discuss the <sgmltag>moduleSets</sgmltag> section.</para>
+      <para>Les builds multimodule sont généralement rassemblés ensemble en utilisant les balises <varname>parent</varname> et <varname>modules</varname> dans les <acronym>POM</acronym>s. 
+      Typiquement, les <acronym>POM</acronym>s parents spécifient leurs fils dans une section <sgmltag>modules</sgmltag>,
+      qui, en temps normal, aura pour effet de les inclure dans la procédure de build du projet parent.   
+      La relation entre ses deux projets, et comment elle a été contruite, peut avoir des implications importantes dans manière dont le plugin Assembly participe à ce processus, mais nous en discuterons plus tard.
+      Pour l'instant, contentons-nous de garder à l'esprit la relation parent-module telle que nous l'avions vu dans la section <sgmltag>moduleSets</sgmltag>.</para>  
 
       <!--TODO: I think we need a simple example of how/why this would be used.-->
 
@@ -1893,67 +1890,45 @@ I can add this back in later.  I didn't want to talk about it without an example
       </section>
 
       <section id="assemblies-sect-interpolate-modulesets">
-        <title>Interpolation of <sgmltag>outputDirectoryMapping</sgmltag> in
-        <sgmltag>moduleSets</sgmltag></title>
+        <title>Interpolation de l'<sgmltag>outputDirectoryMapping</sgmltag> dans les <sgmltag>moduleSets</sgmltag></title>
 
-        <para>In <xref linkend="assemblies-sect-output-location" />, we used
-        the element <sgmltag>outputDirectoryMapping</sgmltag> to change the
-        name of the directory under which each module’s sources would be
-        included. The expressions contained in this element are resolved in
-        exactly the same way as the <sgmltag>outputFileNameMapping</sgmltag>,
-        used in dependency sets (see the explanation of this algorithm in
-        <xref linkend="assemblies-sect-output-algorithm" />).</para>
+        <para>Dans l'<xref linkend="assemblies-sect-output-location" />, 
+        nous avons utilisé la balise <sgmltag>outputDirectoryMapping</sgmltag> pour changer le nom du répertoire sous lequel est inclue chaque source des modules. 
+        Les expressions contenues dans cette balise sont résolues exactement de la même manière que celles de la balise <sgmltag>outputFileNameMapping</sgmltag>,
+        qui utilisait des sets de dépendances (référez-vous à l'explication de cet algorithme dans la section <xref linkend="assemblies-sect-output-algorithm" />).</para>
 
-        <para>In <xref linkend="ex-include-exclude-moduleSet" />, we used the
-        expression <varname>\${module.basedir.name}</varname>. You might
-        notice that the root of that expression, <varname>module</varname>, is
-        not listed in the mapping-resolution algorithm from the dependency
-        sets section; this object root is specific to configurations within
-        <sgmltag>moduleSets</sgmltag>. It works in exactly the same way as the
-        <varname>\${artifact.*}</varname> references available in the
-        <sgmltag>outputFileNameMapping</sgmltag> element, except it is applied
-        to the module’s <classname>MavenProject</classname>,
-        <classname>Artifact</classname>, and
-        <classname>ArtifactHandler</classname> instances instead of those from
-        a dependency artifact.</para>
+        <para>Dans l'<xref linkend="ex-include-exclude-moduleSet" />, vous avons utilisé l'expression <varname>\${module.basedir.name}</varname>. 
+        Vous avez peut-être remarqué que le début de cette expression, <varname>module</varname>,
+        n'est pas listé dans l'algorithme de résolution des mappings de la section <xref linkend="assemblies-sect-output-algorithm" />.
+        Cet objet root est spécifique à la configuration des <sgmltag>moduleSets</sgmltag>.
+        Il fonctionne de la même manière que les réléférences à <varname>\${artifact.*}</varname> disponible dans la balise <sgmltag>outputFileNameMapping</sgmltag>,
+        à l'exception qu'il s'applique aux instances <classname>MavenProject</classname>, <classname>Artifact</classname> et <classname>ArtifactHandler</classname> du module
+        au lieu de celles d'un artefact de dépendance.</para>
       </section>
 
       <section id="assemblies-sect-binaries">
-        <title>Binaries section</title>
+        <title>Balise <varname>binaries</varname></title>
 
-        <para>Just as the <sgmltag>sources</sgmltag> section is primarily
-        concerned with including a module in its source form, the
-        <sgmltag>binaries</sgmltag> section is primarily concerned with
-        including the module’s build output, or its artifacts. Though this
-        section functions primarily as a way of specifying
-        <sgmltag>dependencySets</sgmltag> that apply to each module in the
-        set, there are a few additional features unique to module artifacts
-        that are worth exploring: <sgmltag>attachmentClassifier</sgmltag> and
-        <sgmltag>includeDependencies</sgmltag>. In addition, the
-        <sgmltag>binaries</sgmltag> section contains options similar to the
-        <sgmltag>dependencySet</sgmltag> section, that relate to the handling
-        of the module artifact itself. These are: <sgmltag>unpack</sgmltag>,
-        <sgmltag>outputFileNameMapping</sgmltag>,
-        <sgmltag>outputDirectory</sgmltag>, <sgmltag>directoryMode</sgmltag>,
-        and <sgmltag>fileMode</sgmltag>. Finally, module binaries can contain
-        a <sgmltag>dependencySets</sgmltag> section, to specify how each
-        module’s dependencies should be included in the assembly archive.
-        First, let’s take a look at how the options mentioned here can be used
-        to manage the module’s own artifacts.</para>
+        <para>Tout comme la balise <sgmltag>sources</sgmltag> se charge de l'inclusion des sources d'un module,
+        la balise <sgmltag>binaries</sgmltag> se charge d'inclure les sorties du build d'un module, ou ses artefacts. 
+        Bien que cette section fonctionne essentiellement comme un moyen de spécifier un <sgmltag>dependencySets</sgmltag> à appliquer à chaque module de la série,
+        quelques fonctionnalités propres aux artefacts des modules méritent d'être explorées : <sgmltag>attachmentClassifier</sgmltag> et <sgmltag>includeDependencies</sgmltag>. 
+        En plus de cela, la balise <sgmltag>binaries</sgmltag> contient une option similaire à la balise <sgmltag>dependencySet</sgmltag>,
+        qui a trait à la manipulation de l'artefact du module lui-même.
+        Il s'agit : <sgmltag>unpack</sgmltag>, <sgmltag>outputFileNameMapping</sgmltag>, <sgmltag>outputDirectory</sgmltag>, <sgmltag>directoryMode</sgmltag> et <sgmltag>fileMode</sgmltag>. 
+        Enfin, les binaires d'un module peuvent contenir une balise <sgmltag>dependencySets</sgmltag> pour spécifier comment les dépendances de chaque module doivent être incluses dans l'assembly. 
+        D'abord, jetons un coup d'oeil à la façon dont ces options peuvent être utilisées pour gérer les artefacts propres au module.</para>
 
-        <para>Suppose we want to include the javadoc jars for each of our
-        modules inside our assembly. In this case, we don’t care about
-        including the module dependencies; we just want the javadoc jar.
-        However, since this particular jar is always going to be present as an
-        attachment to the main project artifact, we need to specify which
-        classifier to use to retrieve it. For simplicity, we won’t cover
-        unpacking the module javadoc jars, since this configuration is exactly
-        the same as what we used for dependency sets earlier in this chapter.
-        The resulting module set might look similar to <xref
-        linkend="ex-include-javadoc-moduleset" />.</para>
+        <para>Supposons que nous voulons inclure JARs de Javadoc pour chacun de nos modules à l'intérieur de notre assembly.
+        Dans ce cas, nous ne nous soucions pas de l'inclusion des dépendances, nous voulons simplement ajouter le JAR de la Javadoc.
+        Toutefois, comme ce JAR un peu particulier est toujours présent en tant que pièce jointe de l'artefact principal, 
+        nous devons spécifier le classificateur à utiliser pour le récupérer.
+        Pour simplifier, nous ne couvrirons pas dépaquetage les JARs de Javadoc des modules, 
+        puisque la configuration est exactement la même que celle utilisée pour les dépendances, comme nous l'avons abordé précédemment dans ce chapitre.
+        Le <varname>moduleSet</varname> devrait ressembler à l'<xref linkend="ex-include-javadoc-moduleset" />.</para>
 
         <example id="ex-include-javadoc-moduleset">
-          <title>Including JavaDoc from Modules in an Assembly</title>
+          <title>Inclure la Javadoc des modules dans une Assembly</title>
 
           <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -1970,45 +1945,28 @@ I can add this back in later.  I didn't want to talk about it without an example
 &lt;/assembly&gt;</programlisting>
         </example>
 
-        <para>In <xref linkend="ex-include-javadoc-moduleset" />, we don’t
-        explicitly set the <sgmltag>includeSubModules</sgmltag> flag, since
-        it’s <varname>true</varname> by default. However, we definitely want
-        to process all modules - even sub-modules - using this module set,
-        since we’re not using any sort of file pattern that could match on
-        sub-module directory structures within. The
-        <sgmltag>attachmentClassifier</sgmltag> grabs the attached artifact
-        with the javadoc classifier for each module processed. The
-        <sgmltag>includeDependencies</sgmltag> element tells the Assembly
-        plugin that we're not interested in any of the module's dependencies,
-        just the javadoc attachment. Finally, the
-        <sgmltag>outputDirectory</sgmltag> element tells the Assembly plugin
-        to put all of the javadoc jars into a directory named
-        <filename>apidoc-jars/</filename> off of the assembly root
-        directory.</para>
+        <para>Dans l'<xref linkend="ex-include-javadoc-moduleset" />,
+        vous ne spécifiez pas directement de valeur au flag <sgmltag>includeSubModules</sgmltag> flag, celui-ci est activé par défaut.
+        Cependant, nous tenons absolument à traiter tous les modules - même les sous-modules - en utilisant ce <varname>moduleSet</varname> :
+        nous n'utilisons aucune sorte de pattern de fichier qui pourrait correspondre à des structures de sous-répertoire à l'intérieur du module.
+        Pour chaque module, la balise <sgmltag>attachmentClassifier</sgmltag> récupérer l'artefact qui lui est attaché grâce au classificateur Javadoc.
+        La balise <sgmltag>includeDependencies</sgmltag> signale au plugin Assembly que l'on n'est pas intéressé par les dépendances des modules, nous récupérons juste les pièces jointes.  
+        Enfin, la balise <sgmltag>outputDirectory</sgmltag> demande au plugin Assembly de mettre tous les JARs de JAvadoc dans un répertoire nommé 
+        <filename>apidoc-jars/</filename> en dehors du répertoire de l'assembly.</para>
 
-        <para>Although we’re not doing anything too complicated in this
-        example, it’s important to understand that the same changes to the
-        expression-resolution algorithm discussed for the
-        <sgmltag>outputDirectoryMapping</sgmltag> element of the sources
-        section also applies here. That is, whatever was available as
-        <varname>\${artifact.*}</varname> inside a
-        <sgmltag>dependencySet</sgmltag>’s
-        <sgmltag>outputFileNameMapping</sgmltag> configuration is also
-        available here as <varname>\${module.*}</varname>. The same applies
-        for <sgmltag>outputFileNameMapping</sgmltag> when used directly within
-        a <sgmltag>binaries</sgmltag> section.</para>
+        <para>Bien que nous ne faisons rien de très compliqué dans cet exemple,
+        il est important de noter que les mêmes changements de l'exécution de l'algorithme de résolution des expressions, 
+        dont nous avions parlé à propos de la balise <sgmltag>outputDirectoryMapping</sgmltag> de la balise <varname>sources</varname>, s'appliquent également ici.
+        Tout ce qui est accessible par <varname>\${artifact.*}</varname> dans la configuration de la balise <sgmltag>outputFileNameMapping</sgmltag> du <sgmltag>dependencySet</sgmltag> est également disponible dans <varname>\${module.*}</varname>.  
+        La même chose s'applique pour toute balise <sgmltag>outputFileNameMapping</sgmltag> lorsqu'elle est utilisée directement dans une balise <sgmltag>binaries</sgmltag>.</para>
 
-        <para>Finally, let’s examine an example where we simply want to
-        process the module’s artifact and its runtime dependencies. In this
-        case, we want to separate the artifact set for each module into
-        separate directory structures, according to the module’s
-        <varname>artifactId</varname> and <varname>version</varname>. The
-        resulting module set is surprisingly simply, and it looks like the
-        listing in <xref linkend="ex-the-big-include" />:</para>
+        <para>Enfin, examinons un exemple dans lequel nous voulons simplement traiter l'artefact du module et ses dépendances <varname>runtime</varname>.
+        Dans ce cas, nous voulons séparer la configuration de l'artefact pour chaque module dans un set et une structure de répertoire séparés, 
+        en fonction de l'<varname>artifactId</varname> et de la <varname>version</varname> des modules.
+        Le <varname>moduleSet</varname> reste simple, il ressemble au code de l'<xref linkend="ex-the-big-include" /> :</para>
 
         <example id="ex-the-big-include">
-          <title>Including Module Artifacts and Dependencies in an
-          Assembly</title>
+          <title>Inclusion des artefacts d'un module et de ses dépendances dans une assembly</title>
 
           <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -2028,64 +1986,51 @@ I can add this back in later.  I didn't want to talk about it without an example
 &lt;/assembly&gt;</programlisting>
         </example>
 
-        <para>In <xref linkend="ex-the-big-include" />, we’re using the empty
-        <sgmltag>dependencySet</sgmltag> element here, since that should
-        include all runtime dependencies by default, with no configuration.
-        With the <sgmltag>outputDirectory</sgmltag> specified at the binaries
-        level, all dependencies should be included alongside the module’s own
-        artifact in the same directory, so we don’t even need to specify that
-        in our dependency set.</para>
+        <para>Dans l'<xref linkend="ex-the-big-include" />, nous utilisons la balise <sgmltag>dependencySet</sgmltag> en la laissant vide.
+        Comme vous devez inclure toutes les dépendances, par défaut, vous n'avez pas besoin d'effectuer de configuration. 
+        Lorsque la balise <sgmltag>outputDirectory</sgmltag> est spécifiée dans la balise <varname>binaires</varname>,
+        toutes les dépendances devraient être incluses aux côtés de l'artefact du module dans le même répertoire.
+        Ainsi, nous n'avons pas besoin le configurer tout cela dans le <varname>dependencySet</varname>.</para>  
 
-        <para>For the most part, module binaries are fairly straightforward.
-        In both parts - the main part, concerned with handling the module
-        artifact itself, and the dependency sets, concerned with the module’s
-        dependencies - the configuration options are very similar to those in
-        a dependency set. Of course, the binaries section also provides
-        options for controlling whether dependencies are included, and which
-        main-project artifact you want to use.</para>
+        <para>La plupart du temps, les binaires d'un module restent assez simples.
+        Dans les deux parties
+        - la partie principale, chargée de la manipulation de l'artefact du module lui-même, des ensembles de dépendances, et qui est chargé des dépendances du module -  
+        les options de configuration restent très similaires à celles des sets de dépendances.
+        Bien entendu, la balise <varname>binaires</varname> fournie également des options pour contrôler 
+        quelles dépendances sont incluses et quel artefact principal de projet vous souhaitez utiliser.</para>
 
-        <para>Like the sources section, the binaries section contains a couple
-        of configuration options that are provided solely for backward
-        compatibility, and should be considered deprecated. These include the
-        includes and excludes sub-sections.</para>
+        <para>Comme pour la balise <varname>source</varname>, la balise <varname>binaries</varname> dispose d'options de configuration qui sont fournies uniquement pour des causes de rétrocompatibilité.
+        Celles-ci devraient être dépréciées, comment l'utilisation des sous-sections <varname>includes</varname> et <varname>excludes</varname>.</para>
       </section>
 
       <section id="assemblies-sect-modulesets-parent-pom">
-        <title><sgmltag>moduleSets</sgmltag>, Parent <acronym>POM</acronym>s
-        and the <sgmltag>binaries</sgmltag> Section</title>
+        <title><sgmltag>moduleSets</sgmltag>, <acronym>POM</acronym>s parents et balise <sgmltag>binaries</sgmltag></title>
 
-        <para>Finally, we close the discussion about module handling with a
-        strong warning. There are subtle interactions between Maven’s internal
-        design as it relates to parent-module relationships and the execution
-        of a module-set’s binaries section. When a <acronym>POM</acronym>
-        declares a parent, that parent must be resolved in some way or other
-        before the <acronym>POM</acronym> in question can be built. If the
-        parent is in the Maven repository, there is no problem. However, as of
-        Maven 2.0.9 this can cause big problems if that parent is a
-        higher-level <acronym>POM</acronym> in the same build, particularly if
-        that parent <acronym>POM</acronym> expects to build an assembly using
-        its modules’ binaries.</para>
+        <para>Enfin, clôturons cette discussion avec un avertissement.
+        En ce qui concerne les relations parents-module, il existe des interactions subtiles entre le fonctionnement interne de Maven et l'exécution d'un <varname>moduleSet</varname> dans une balise <varname>binaires</varname>.         
+        Lorsqu'un <acronym>POM</acronym> déclare un parent, 
+        ce parent doit être résolu d'une façon ou d'une autre avant que le <acronym>POM</acronym> en question puisse être construit.
+        Si un parent est dans un dépôt Maven, pas de problème.
+        Cependant, vous vous exposez à de gros problèmes si le parent dispose d'un <acronym>POM</acronym> de plus haut niveau dans le même build,
+        en particulier si le <acronym>POM</acronym> parent utilise les binaires de ces modules.</para>
 
-        <para>Maven 2.0.9 sorts projects in a multi-module build according to
-        their dependencies, with a given project’s dependencies being built
-        ahead of itself. The problem is the parent element is considered a
-        dependency, which means the parent project’s build must complete
-        before the child project is built. If part of that parent’s build
-        process includes the creation of an assembly that uses module
-        binaries, those binaries will not exist yet, and therefore cannot be
-        included, causing the assembly to fail. This is a complex and subtle
-        issue, which severely limits the usefulness of the module binaries
-        section of the assembly descriptor. In fact, it has been filed in the
-        bug tracker for the Assembly plugin at: <ulink
+        <para>Maven 2.0.9 trie les projets d'un build multimodule en fonction de leurs dépendances, avec des dépendances d'un projet construit avant celui-ci.
+        Le problème est que l'élément parent est considéré comme une dépendance, 
+        ce qui signifie que le build du projet parent doit être effectué avant que le projet enfant soit construit.
+        Si une partie du build de ce parent inclus la création d'une assembly qui utilise les binaires des modules, 
+        ces binaires ne seront pas encore créés et ne pourront donc pas être inclus.
+        Cela provoquera ainsi l'échec de la construction de l'assembly. 
+        Il s'agit d'une question complexe et subtile.
+        Elle limite sérieusement l'utilité de la section <varname>binaires</varname> module du descripteur d'assembly. 
+        En fait, à ce sujet, un bug a été créé sur legestionnaire d'anomalie du plugin Assembly : <ulink
         url="http://jira.codehaus.org/browse/MASSEMBLY-97">http://jira.codehaus.org/browse/MASSEMBLY-97</ulink>.
-        Hopefully, future versions of Maven will find a way to restore this
-        functionality, since the parent-first requirement may not be
-        completely necessary.</para>
+        Il faut espérer que les futures versions de Maven vont trouver un moyen de réparer cette fonctionnalité, 
+        puisque la relation parent-first n'est pas forcément nécessaire.</para>
       </section>
     </section>
 
     <section id="assemblies-sect-repositories">
-      <title>Repositories Section</title>
+      <title>Balise <varname>repositories</varname></title>
 
       <para>The repositories section represents a slightly more exotic feature
       in the assembly descriptor, since few applications other than Maven can
