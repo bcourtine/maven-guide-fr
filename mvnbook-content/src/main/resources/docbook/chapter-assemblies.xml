@@ -1671,34 +1671,25 @@ I can add this back in later.  I didn't want to talk about it without an example
       </section>
 
       <section id="assemblies-sect-unpack">
-        <title>Advanced Unpacking Options</title>
+        <title>Options avancées de dépaquetage</title>
 
-        <para>As we discussed previously, some project dependencies may need
-        to be unpacked in order to create a working assembly archive. In the
-        examples above, the decision to unpack or not was simple. It didn’t
-        take into account what needed to be unpacked, or more importantly,
-        what should not be unpacked. To gain more control over the dependency
-        unpacking process, we can configure the
-        <sgmltag>unpackOptions</sgmltag> element of the
-        <sgmltag>dependencySet</sgmltag>. Using this section, we have the
-        ability to choose which file patterns to include or exclude from the
-        assembly, and whether included files should be filtered to resolve
-        expressions using current <acronym>POM</acronym> information. In fact,
-        the options available for unpacking dependency sets are fairly similar
-        to those available for including files from the project directory
-        structure, using the file sets descriptor section.</para>
+        <para>Comme discuté précédemment, certaines dépendances de projet ont besoin d'être dézippées pour créer une assembly.
+        Dans les exemples ci-dessus, la décision de dézipper ou non était simple.
+        Il ne tient pas compte de ce qui doit être dépaqueté, ou plus important, de ce qui ne doit pas être dépaqueté. 
+        Pour obtenir plus de contrôle sur le processus de dépaquetage,
+        vous pouvez configurer la balise <sgmltag>unpackOptions</sgmltag> dans votre <sgmltag>dependencySet</sgmltag>.
+        Ainsi, vous avez la possibilité de choisir quels fichiers vous voulez inclure dans votre assembly,
+        et quels fichiers doivent être filtrés pour résoudre des expressions à partir des informations du <acronym>POM</acronym>.
+        En fait, les options disponibles pour dépaqueter vos sets de dépendances sont similaires à celles disponibles pour l'inclusion ou l'exclusion de fichier.</para>
 
-        <para>To continue our web-application example, suppose some of the
-        resource dependencies have been bundled with a file that details their
-        distribution license. In the case of our web application, we’ll handle
-        third-party license notices by way of a <filename>NOTICES</filename>
-        file included in our own bundle, so we don’t want to include the
-        license file from the resource dependency. To exclude this file, we
-        simply add it to the unpack options inside the dependency set that
-        handles resource artifacts:</para>
+        <para>Pour continuer notre exemple d'application web,
+        supposons que certaines dépendances de ressources aient été zippées avec un fichier qui décrit les détails de leur licence de distribution.
+        Dans le cas de notre application web,
+        ces licences se présenteront sous la forme d'un fichier <filename>NOTICES</filename> inclu dans notre paquetage.
+        Pour exclure ce fichier, ajoutons-le simplement aux options de dépaquetage dans le set des dépendances qui gère les artefacts de ressources :</para> 
 
         <example>
-          <title>Excluding Files from a Dependency Unpack</title>
+          <title>Exclusion de fichiers dans le dépaquetage d'une dépendance</title>
 
           <programlisting language="xml">&lt;asembly&gt;
   ...
@@ -1723,44 +1714,30 @@ I can add this back in later.  I didn't want to talk about it without an example
 &lt;/assembly&gt;</programlisting>
         </example>
 
-        <para>Notice that the <sgmltag>exclude</sgmltag> we’re using looks
-        very similar to those used in <sgmltag>fileSet</sgmltag> declarations.
-        Here, we’re blocking any file starting with the word
-        <filename>LICENSE</filename> in any directory within our resource
-        artifacts. You can think of the unpack options section as a
-        lightweight <sgmltag>fileSet</sgmltag> applied to each dependency
-        matched within that dependency set. In other words, it is a
-        <sgmltag>fileSet</sgmltag> by way of an unpacked dependency. Just as
-        we specified an exclusion pattern for files within resource
-        dependencies in order to block certain files, you can also choose
-        which restricted set of files to include using the includes section.
-        The same code that processes inclusions and exclusions on
-        <sgmltag>fileSets</sgmltag> has been reused for processing
-        <sgmltag>unpackOptions</sgmltag>.</para>
+        <para>Notez que le tag <sgmltag>exclude</sgmltag> que nous utilisons ressemble beaucoup à celui de la déclaration du <sgmltag>fileSet</sgmltag>.  
+        Ici, nous interdisons les fichiers qui commencent par le mot <filename>LICENSE</filename> dans les répertoires de nos artefacts de ressources.
+        Vous pouvez comparer la section des options de dépaquetage à un petit <sgmltag>fileSet</sgmltag> appliqué à chaque dépendance qui match ce set.
+        En d'autres mots, il s'agit d'un <sgmltag>fileSet</sgmltag> utilisé pour le dépaquetage des dépendances.
+        Tout comme nous avons spécifié un modèle d'exclusion pour les dossiers dans les dépendances de ressources afin de bloquer certains fichiers,
+        vous pouvez également choisir un ensemble restreint de fichiers à inclure en utilisant la section <varname>includes</varname>.
+        Le même code que celui du processus d'inclusion et d'exclusion des <sgmltag>fileSets</sgmltag> peut-être réutilisé pour le traitement des <sgmltag>unpackOptions</sgmltag>.</para>
 
-        <para>In addition to file inclusion and exclusion, the unpack options
-        on a dependency set also provides a <sgmltag>filtering</sgmltag> flag,
-        whose default value is <varname>false</varname>. Again, this should be
-        familiar from our discussion of file sets above. In both cases,
-        expressions using either the Maven syntax of
-        <varname>\${property}</varname> or the Ant syntax of
-        <varname>@property@</varname> are supported. Filtering is a
-        particularly nice feature to have for dependency sets, though, since
-        it effectively allows you to create standardized, versioned resource
-        templates that are then customized to each assembly as they are
-        included. Once you start mastering the use of filtered, unpacked
-        dependencies which store shared resources, you will be able to start
-        abstracting repeated resources into common resource projects.</para>
+        <para>En plus de mécanisme d'inclusion et d'exclusion,
+        les options de dépaquetages sur un set de dépendances peuvent également fournir un flag <sgmltag>filtering</sgmltag>,
+        par défaut sa valeur est <varname>false</varname>.
+        Encore une fois, cela ressemble beaucoup au mécanisme proposé par les sets de fichiers discuté ci-dessus.
+        Les expressions peuvent utiliser soit la syntaxe Maven d'une <varname>\${property}</varname>, soit la syntaxe Ant d'une <varname>@property@</varname>.
+        Le filtrage des ressources est particulièrement intéressant pour les sets de dépendances.        
+        Car elle permet de créer des templates ressources normalisés et versionnés qui peuvent être personnalisés pour chaque assembly dans lequel ils sont inclus.
+        Une fois que vous maîtrisez la fonctionnalité de filtrage, que vous avez dépaqueté les dépendances qui sont stockées dans des ressources partagées,
+        vous serez en mesure de commencer à abstraire certaines ressources répétées.</para>
       </section>
 
       <section id="assemblies-sect-summarizing">
-        <title>Summarizing Dependency Sets</title>
+        <title>Résumer les sets de dépendances</title>
 
-        <para>Finally, it’s worth mentioning that dependency sets support the
-        same <sgmltag>fileMode</sgmltag> and <sgmltag>directoryMode</sgmltag>
-        configuration options that file sets do, though you should remember
-        that the <sgmltag>directoryMode</sgmltag> setting will only be used
-        when dependencies are unpacked.</para>
+        <para>Au final, il est important de mentionner que les sets de dépendances supportent les mêmes options de configuration <sgmltag>fileMode</sgmltag> et <sgmltag>directoryMode</sgmltag> que celles des sets de fichiers.
+        Cependant, vous devrez vous rappeler que le <sgmltag>directoryMode</sgmltag> ne sera utilisé que si les dépendances sont dépaquetées.</para>
       </section>
     </section>
 
