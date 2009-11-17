@@ -54,18 +54,17 @@
   </section>
 
   <section id="assemblies-sect-basics">
-    <title>Assembly Basics</title>
+    <title>Les bases du plugin Assembly</title>
 
-    <para>Before we go any further, it’s best to take a minute and talk about
-    the two main goals in the Assembly plugin:
-    <varname>assembly:assembly</varname>, and the <varname>single</varname>
-    mojo. I list these two goals in different ways because it reflects the
-    difference in how they’re used. The <varname>assembly:assembly</varname>
-    goal is designed to be invoked directly from the command line, and should
-    never be bound to a build lifecycle phase. In contrast, the
-    <varname>single</varname> mojo is designed to be a part of your everyday
-    build, and should be bound to a phase in your project’s build
-    lifecycle.</para>
+    <para>Avant d'aller plus loin, prenons une minute pour parler des deux principaux
+    goals du plugin Assembly : <varname>assembly:assembly</varname> et le mojo
+    <varname>single</varname>. J'ai cité ces deux goals de manière différente pour
+    indiquer qu'on ne les utilise pas de la même manière. Le goal
+    <varname>assembly:assembly</varname> est conçu pour être invoqué directement
+    depuis la ligne de commande et il ne doit jamais être lié à une hase du cycle 
+    de vie. Au contraire, le mojo <varname>single</varname> est lui conçu pour
+    faire partie de votre build de tous les jours et doit être rattaché à une phase
+    du cycle de vie du build de votre projet.</para>
 
     <para>The main reason for this difference is that the
     <varname>assembly:assembly</varname> goal is what Maven terms an
