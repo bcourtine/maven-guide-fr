@@ -66,41 +66,40 @@
     faire partie de votre build de tous les jours et doit être rattaché à une phase
     du cycle de vie du build de votre projet.</para>
 
-    <para>The main reason for this difference is that the
-    <varname>assembly:assembly</varname> goal is what Maven terms an
-    aggregator mojo; that is, a mojo which is designed to run at most once in
-    a build, regardless of how many projects are being built. It draws its
-    configuration from the root project - usually the top-level
-    <acronym>POM</acronym> or the command line. When bound to a lifecycle, an
-    aggregator mojo can have some nasty side-effects. It can force the
-    execution of the <varname>package</varname> lifecycle phase to execute
-    ahead of time, and can result in builds which end up executing the
-    <varname>package</varname> phase twice.</para>
+    <para>La raison de cette différence est que le le goal 
+    <varname>assembly:assembly</varname> est ce que Maven appelle un mojo
+    aggrégateur ; c'est à dire un mojo qui a été conçu pour pour être exécuté
+    au plus une fois dans un build, quelque soit le nombre de projets qui sont
+    construits. Il prend sa configuration du projet racine - habituellement
+    le <acronym>POM</acronym> de plus haut niveau ou la ligne de commande.
+    Quand il est rattaché à un cycle de vie, un mojo aggrégateur peut provoquer
+    de désagréables effets secondaires. Il peut forcer l'exécution de la phase
+    <varname>package</varname> du cycle de vie en avance de phase, ce qui fait que le build
+    exécute cette phase <varname>package</varname> deux fois.</para>
 
-    <para>Because the <varname>assembly:assembly</varname> goal is an
-    aggregator mojo, it raises some issues in multi-module Maven builds, and
-    it should only be called as a stand-alone mojo from the command-line.
-    Never bind an <varname>assembly:assembly</varname> execution to a
-    lifecycle phase. <varname>assembly:assembly</varname> was the original
-    goal in the Assembly plugin, and was never designed to be part of the
-    standard build process for a project. As it became clear that assembly
-    archives were a legitimate requirement for projects to produce, the
-    <varname>single</varname> mojo was developed. This mojo assumes that it
-    has been bound to the correct part of the build process, so that it will
-    have access to the project files and artifacts it needs to execute within
-    the lifecycle of a large multi-module Maven project. In a multi-module
-    environment, it will execute as many times as it is bound to the different
-    module <acronym>POM</acronym>s. Unlike
-    <varname>assembly:assembly</varname>, <varname>single</varname> will never
-    force the execution of another lifecycle phase ahead of itself.</para>
+    <para>Comme le goal <varname>assembly:assembly</varname> est un mojo aggrégateur,
+    celà peut poser des problèmes avec les builds Maven multimodules et il doit donc
+    être appelé seul en ligne de commande. Ne rattachez jamais l'exécution de
+    <varname>assembly:assembly</varname> à une phase du cycle de vie.
+    <varname>assembly:assembly</varname> était le goal originel du plugin Assembly
+    et il n'a jamais été conçu pour faire partie du processus standard de build
+    d'un projet. Quand il est devenu clair que les archives produites par assembly
+    étaient une exigence légitime des projets le mojo <varname>single</varname> a été
+    développé. Ce mojo suppose qu'il a été rattaché à la bonne partie du processus
+    de build et que donc il aura accès aux fichiers et artefacts du projetdont il
+    a besoin pour s'exécuter au sein d'un grand projet Maven multimodule. Dans un
+    environnemet multimodule il s'exécutera autant de fois qu'il est lié aux
+    <acronym>POM</acronym>s des différetes modules. Contrairement à
+    <varname>assembly:assembly</varname>, <varname>single</varname> ne forcera
+    jamais l'exécution d'une étape du cycle de vie en avance de phase.</para>
 
-    <para>The Assembly plugin provides several other goals in addition to
-    these two. However, discussion of these other mojos is beyond the scope of
-    this chapter, because they serve exotic or obsolete use cases, and because
-    they are almost never needed. Whenever possible, you should definitely
-    stick to using <varname>assembly:assembly</varname> for assemblies
-    generated from the command line, and to <varname>single</varname> for
-    assemblies bound to lifecycle phases.</para>
+    <para>Le plugin Assembly propose plusieurs autres goals en plus de ces deux là.
+    Cependant le détail de ces autres mojos dépasse le cadre de ce chapitre, parce
+    qu'ils servent des cas d'utilisation obsoletes ou exotiques et parce qu'on a
+    très rarement besoin d'eux. Autant que possible, pour produire vos packages
+    utilisez <varname>assembly:assembly</varname> depuis la ligne de commande et
+    <varname>single</varname> pour rattacher cette opération aux phases du cycle
+    de vie.</para>
 
     <section id="assemblies-sect-predefined">
       <title>Predefined Assembly Descriptors</title>
