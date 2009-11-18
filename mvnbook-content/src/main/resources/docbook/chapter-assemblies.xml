@@ -7,60 +7,64 @@
   <section id="assemblies-sect-intro">
     <title>Introduction</title>
 
-    <para>Maven provides plugins that are used to create the most common
-    archive types, most of which are consumable as dependencies of other
-    projects. Some examples include the <acronym>JAR</acronym>,
-    <acronym>WAR</acronym>, <acronym>EJB</acronym>, and <acronym>EAR</acronym>
-    plugins. As discussed in <xref linkend="lifecycle" /> these plugins
-    correspond to different project packaging types each with a slightly
-    different build process. While Maven has plugins and customized lifecycles
-    to support standard packaging types, there are times when you'll need to
-    create an archive or directory with a custom layout. Such custom archives
-    are called Maven Assemblies.</para>
+    <para>Maven fournit des plugins qui sont utilisés pour créer des
+    archives dans les formats les plus courants, et qui seront pour la
+    plupart utilisées comme dépendances d'autres projets. Par exemples
+    nous avons les plugins <acronym>JAR</acronym>, <acronym>WAR</acronym>,
+    <acronym>EJB</acronym> et <acronym>EAR</acronym>. Comme nous l'avons
+    déjà vu dans le <xref linkend="lifecycle" /> ces plugins correspondent
+    à différents formats de packaging de projet, chacun avec son processus
+    de build légérement différent. Même si Maven supporte les différents
+    formats standards de packagaing grâce à ses plugins et des cycles de vie
+    personnalisés, il va arriver un moment où vous aurez besoin de créer une
+    archive ou un répertoire avec une structure qui lui est propre. Ces archives
+    personnalisées sont appelées Assemblies Maven.</para>
 
-    <para>There are any number of reasons why you may want to build custom
-    archives for your project. Perhaps the most common is the project
-    distribution. The word ‘distribution’ means many different things to
-    different people (and projects), depending on how the project is meant to
-    be used. Essentially, these are archives that provide a convenient way for
-    users to install or otherwise make use of the project’s releases. In some
-    cases, this may mean bundling a web application with an application server
-    like Jetty. In others, it could mean bundling API documentation alongside
-    source and compiled binaries like jar files. Assemblies usually come in
-    handy when you are building the final distribution of a product. For
-    example, products like Nexus introduced in <ulink
+    <para>Il existe de nombreuses raisons pour lesquelles vous voulez construire
+    ces archives personnalisées pour votre projet. La plus courante, peut-être,
+    est la distribution du projet. Ce mot 'distribution' peut signifier plusieurs
+    choses selon la personne qui l'emploie (ou selon le projet), tout celà dépendant
+    de la manière dont le projet doit être utilisé. Essentiellement, il s'agit
+    d'archives qui fournissent un moyen simple pour les utilisateurs d'installer
+    ou d'utiliser le produit du projet. Dans certains cas, celà peut signifier
+    fournir un serveur d'application comme Jety avec l'application Web. Dans d'autres,
+    il s'agit de fournir un paquet contenant le code source, la documentation de l'API
+    avec le binaire compilé comme par exemple un fichier jar. C'est souvent lorsque
+    vous êtes en train de construire la version distribuable d'un produit que les assemblies
+    vont pouvoir vous aider. Par exemple, les produits comme Nexus dont on parle plus
+    en détail dans <ulink
     url="http://www.sonatype.com/books/nexus-book/reference/">Repository
-    Management with Nexus</ulink>, are the product of large multi-module Maven
-    products, and the final archive you download from Sonatype was created
-    using a Maven Assembly.</para>
+    Management with Nexus</ulink>, sont le résultat de plusieurs énormes projets
+    Maven multimodules, et c'est une assembly Maven qui a construit l'archive finale
+    que vous téléchargez depuis Sonatype.</para>
 
-    <para>In most cases, the Assembly plugin is ideally suited to the process
-    of building project distributions. However, assemblies don’t have to be
-    distribution archives; assemblies are intended to provide Maven users with
-    the flexibility they need to produce customized archives of all kinds.
-    Essentially, assemblies are intended to fill the gaps between the standard
-    archive formats provided by project package types. Of course, you could
-    write an entire Maven plugin simply to generate your own custom archive
-    format, along with a new lifecycle mapping and artifact-handling
-    configuration to tell Maven how to deploy it. But the Assembly plugin
-    makes this unnecessary in most cases by providing generalized support for
-    creating your own archive recipe without spending so much time writing
-    Maven code.</para>
+    <para>Dans la plupart des cas, le plugin Assembly est idéallement taillé
+    pour construire des packages distribuables de projets. Cependant, les assemblies
+    ne sont pas forcéemnt des archives distribuables ; les assemblies doivent apporter
+    aux utilisateurs de Maven la flexibilité dont ils ont besoin pour produire des
+    achives personnalisées de tout type.
+    Essentiellement, les assemblies doivent combler les trous entre les formats
+    standards d'archive fournis par les types de packaging des projets. Bien sûr,
+    vous pourriez écrire un plugin Maven complet pour produire votre propre
+    format d'archive, avec une nouvelle association au cycle de vie et la
+    configuration de gestion d'artefact pour indiquer à Maven comment le déployer.
+    Mais le plugin Assembly rend tout celà superflu dans la plupart des cas en vous
+    donnant les moyen de construire votre archive selon votre propre recette sans
+    avoir à écrire une ligne de code Maven.</para>
   </section>
 
   <section id="assemblies-sect-basics">
-    <title>Assembly Basics</title>
+    <title>Les bases du plugin Assembly</title>
 
-    <para>Before we go any further, it’s best to take a minute and talk about
-    the two main goals in the Assembly plugin:
-    <varname>assembly:assembly</varname>, and the <varname>single</varname>
-    mojo. I list these two goals in different ways because it reflects the
-    difference in how they’re used. The <varname>assembly:assembly</varname>
-    goal is designed to be invoked directly from the command line, and should
-    never be bound to a build lifecycle phase. In contrast, the
-    <varname>single</varname> mojo is designed to be a part of your everyday
-    build, and should be bound to a phase in your project’s build
-    lifecycle.</para>
+    <para>Avant d'aller plus loin, prenons une minute pour parler des deux principaux
+    goals du plugin Assembly : <varname>assembly:assembly</varname> et le mojo
+    <varname>single</varname>. J'ai cité ces deux goals de manière différente pour
+    indiquer qu'on ne les utilise pas de la même manière. Le goal
+    <varname>assembly:assembly</varname> est conçu pour être invoqué directement
+    depuis la ligne de commande et il ne doit jamais être lié à une hase du cycle 
+    de vie. Au contraire, le mojo <varname>single</varname> est lui conçu pour
+    faire partie de votre build de tous les jours et doit être rattaché à une phase
+    du cycle de vie du build de votre projet.</para>
 
     <para>The main reason for this difference is that the
     <varname>assembly:assembly</varname> goal is what Maven terms an
