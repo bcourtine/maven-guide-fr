@@ -102,26 +102,25 @@
     de vie.</para>
 
     <section id="assemblies-sect-predefined">
-      <title>Predefined Assembly Descriptors</title>
+      <title>Les descripteurs Assembly prédéfinis</title>
 
-      <para>While many people opt to create their own archive recipes - called
-      assembly descriptors - this isn’t strictly necessary. The Assembly
-      plugin provides built-in descriptors for several common archive types
-      that you can use immediately without writing a line of configuration.
-      The following assembly descriptors are predefined in the Maven Assembly
-      plugin:</para>
+      <para>Nombreux sont ceux qui choisissent de créer leurs propres recettes -
+      appelées descripteurs assembly - cependant celà n'est pas forcément
+      nécessaire. Le plugin Assembly fournit des descripteurs prêts à l'emploi
+      pour plusieurs types communs d'archives. Vous pouvez donc les utiliser
+      immédiatement sans écrire une ligne de configuration. Voici la liste
+      des descripteurs assembly prédéfinis daans le plugin Maven Assembly :</para>
 
       <variablelist>
         <varlistentry>
           <term><varname>bin</varname></term>
 
           <listitem>
-            <para>The <varname>bin</varname> descriptor is used to bundle
-            project <filename>LICENSE</filename>, <filename>README</filename>,
-            and <filename>NOTICE</filename> files with the project’s main
-            artifact, assuming this project builds a jar as its main artifact.
-            Think of this as the smallest possible binary distribution for
-            completely self-contained projects.</para>
+            <para>Le descripteur <varname>bin</varname> est utilisé pour packager
+            les fichiers <filename>LICENSE</filename>, <filename>README</filename>
+            et <filename>NOTICE</filename> du projet avec on artefact principal, pour
+            peu que ce dernier soit un jar. Vous pouvez voir celà comme la plus petite
+            distribution binaire pour un projet autoporté.</para>
           </listitem>
         </varlistentry>
 
@@ -129,14 +128,12 @@
           <term><varname>jar-with-dependencies</varname></term>
 
           <listitem>
-            <para>The <varname>jar-with-dependencies</varname> descriptor
-            builds a <acronym>JAR</acronym> archive with the contents of the
-            main project jar along with the unpacked contents of all the
-            project’s runtime dependencies. Coupled with an appropriate
-            <varname>Main-Class</varname> Manifest entry (discussed in “Plugin
-            Configuration” below), this descriptor can produce a
-            self-contained, executable jar for your project, even if the
-            project has dependencies.</para>
+            <para>Le descripteur <varname>jar-with-dependencies</varname> construit
+            une archive <acronym>JAR</acronym> avec le contenu du jar du projet principal
+            et les contenus des dépendances d'exécution de ce projet. Associé avec la bonne
+            définition de la <varname>Main-Class</varname> Manifest ( dont on parle dans
+            “Plugin Configuration” ci-dessous), ce descripteur permet de produire un jar exécutable
+            autoporté de votre projet, même si ce projet a des dépendances.</para>
           </listitem>
         </varlistentry>
 
@@ -144,14 +141,15 @@
           <term><varname>project</varname></term>
 
           <listitem>
-            <para>The <varname>project</varname> descriptor simply archives
-            the project directory structure as it exists in your file-system
-            and, most likely, in your version control system. Of course, the
-            target directory is omitted, as are any version-control metadata
-            files like the <filename>CVS</filename> and
-            <filename>.svn</filename> directories we’re all used to seeing.
-            Basically, the point of this descriptor is to create a project
-            archive that, when unpacked, can be built using Maven.</para>
+            <para>Le descripteur <varname>project</varname> construit une archive
+            à partir de la structure du répertoire du projet telle qu'elle existe sur
+            votre système de fichier, et probablement dans votre outil de gestion de 
+            configuration. Bien sûr, le répertoire <filename>target</filename> n'est
+            pas pris en compte ainsi que les fichiers de métadonnées comme les
+            répertoires <filename>CVS</filename> et <filename>.svn</filename> que nous
+            avons l'habitude de voir. En bref, le but de ce descripteur est de créer
+            une archive du projet qui, une fois décompressée, permet de construire
+            le projet avec Maven.</para>
           </listitem>
         </varlistentry>
 
