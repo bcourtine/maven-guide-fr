@@ -109,7 +109,7 @@
       nécessaire. Le plugin Assembly fournit des descripteurs prêts à l'emploi
       pour plusieurs types communs d'archives. Vous pouvez donc les utiliser
       immédiatement sans écrire une ligne de configuration. Voici la liste
-      des descripteurs assembly prédéfinis daans le plugin Maven Assembly :</para>
+      des descripteurs assembly prédéfinis dans le plugin Maven Assembly :</para>
 
       <variablelist>
         <varlistentry>
@@ -157,35 +157,34 @@
           <term><varname>src</varname></term>
 
           <listitem>
-            <para>The <varname>src</varname> descriptor produces an archive of
-            your project source and <filename>pom.xml</filename> files, along
-            with any <filename>LICENSE</filename>,
-            <filename>README</filename>, and <filename>NOTICE</filename> files
-            that are in the project’s root directory. This precursor to the
-            project descriptor produces an archive that can be built by Maven
-            in most cases. However, because of its assumption that all source
-            files and resources reside in the standard
-            <filename>src</filename> directory, it has the potential to leave
-            out non-standard directories and files that are nonetheless
-            critical to some builds.</para>
+            <para>Le descripteur <varname>src</varname> produit une archive du code source
+            de votre projet avec les fichiers <filename>pom.xml</filename>, ainsi que les
+            évntuels fichiers <filename>LICENSE</filename>,
+            <filename>README</filename> et <filename>NOTICE</filename> qui se trouvent
+            dans le répertoire racine du projet. Ce descripteur produit une archive 
+            qui peut être construite par Maven dans la plupart des cas. Cependant,
+            comme il suppose que tout le code source et les ressources sont dans le 
+            répertoire standard <filename>src</filename> et donc il peut oublier
+            les fichiers et les répertoires non-standards même s'ils sont critiques
+            pour le build.</para>
           </listitem>
         </varlistentry>
       </variablelist>
     </section>
 
     <section id="assemblies-sect-building">
-      <title>Building an Assembly</title>
+      <title>Construire une Assembly</title>
 
-      <para>The Assembly plugin can be executed in two ways: you can invoke it
-      directly from the command line, or you can configure it as part of your
-      standard build process by binding it to a phase of your project’s build
-      lifecycle. Direct invocation has its uses, particularly for one-off
-      assemblies that are not considered part of your project’s core
-      deliverables. In most cases, you’ll probably want to generate the
-      assemblies for your project as part of its standard build process. Doing
-      this has the effect of including your custom assemblies whenever the
-      project is installed or deployed into Maven’s repositories, so they are
-      always available to your users.</para>
+      <para>Le plugin Assembly peut être exécuté de deux manières : vous pouvez
+      l'invoquer directement depuis la ligne de commande ou le configurer comme
+      un élément standard de votre processus de build en le rattachant à une
+      phase du cycle de vie du build de votre projet. L'invocation directe a son
+      utilité , particulièrement pour les assemblies qui ne font pas partie des
+      principaux délivrables de votre projet. Dans la plupart des cas, vous
+      voudrez produire les assemblies de votre projet au cours de son processus
+      de build standard. Ainsi vos packagings personnalisés sont inclus lorsque
+      votre projet est installé ou deployé dans les dépôts Maven et ils sont donc
+      toujours disponibles pour vos utilisateurs.</para>
 
       <para>As an example of the direct invocation of the Assembly plugin,
       imagine that you wanted to ship off a copy of your project which people
