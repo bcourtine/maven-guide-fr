@@ -424,14 +424,13 @@ Hello, World!</screen>
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>Each project <acronym>POM</acronym> references the managed plugin
-      configuration from <xref linkend="ex-top-pom-assembly" /> using a
-      minimal plugin declaration in its build section shown in <xref
+      <para>Le <acronym>POM</acronym> de chaque projet référence le plugin dont la
+      configuration est décrite dans <xref linkend="ex-top-pom-assembly" /> par une
+      déclaration minimale dans son build comme le montre l' <xref
       linkend="ex-activating-assembly" />.</para>
 
       <example id="ex-activating-assembly">
-        <title>Activating the Assembly Plugin Configuration in Child
-        Projects</title>
+        <title>Activation de la configuration du plugin Assembly dans les projets fils</title>
 
         <programlisting language="xml">&lt;build&gt;
   &lt;plugins&gt;
@@ -443,9 +442,9 @@ Hello, World!</screen>
 </programlisting>
       </example>
 
-      <para>To produce the set of project assemblies, run <command>mvn
-      install</command> from the top-level directory. You should see Maven
-      installing artifacts with classifiers in your local repository.</para>
+      <para>Pour produire l'ensemble des assemblies de projet, exécutez la commande
+      <command>mvn install</command> depuis le répertoire racine. Vous devriez voir
+      Maven installer les artefacts avec des classifiers dans votre dépôt.</para>
 
       <screen>$ <command>mvn install</command>
 ...
@@ -465,19 +464,19 @@ Installing ~/mvn-examples-1.0/assemblies/as-dependencies/project-parent/\
            second-project-1.0-SNAPSHOT-project.zip
 ...</screen>
 
-      <para>When you run install, Maven will copy the each project's main
-      artifact and each assembly to your local Maven repository. All of these
-      artifacts are now available for reference as dependencies in other
-      projects locally. If your ultimate goal is to create a bundle which
-      includes assemblies from multiple project, you can do so by creating
-      another project which will include other project's assemblies as
-      dependencies. This bundling project (aptly named project-bundle) is
-      responsible for creating the bundled assembly. The
-      <acronym>POM</acronym> for the bundling project would resemble the XML
-      document listed in <xref linkend="ex-bundling-pom" />.</para>
+      <para>Lorsque vous exécutez <varname>install</varname>, Maven va copier
+      l'artefact principal de chaque projet ainsi que chaque assembly dans
+      votre dépôt Maven local. Tous cesartefacts sont maintenant disponibles
+      comme dépendance pour d'autres projets localement. Si votre but final
+      est de créer un paquet qui inlut les assemblies de différents projets
+      vous pouvez créer un autre projet qui référence comme dépendances les
+      assemblies de ce projet. Ce projet chapeau prend la responsabilité
+      de construire l'assembly englobant tous les autres. Le
+      <acronym>POM</acronym> de ce projet chapeau d'empaquetage ressemblerait
+      au document XML décrit dans l'<xref linkend="ex-bundling-pom" />.</para>
 
       <example id="ex-bundling-pom">
-        <title>POM for the Assembly Bundling Project</title>
+        <title>POM du projet assembly chapeau</title>
 
         <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -2027,12 +2026,12 @@ I can add this back in later.  I didn't want to talk about it without an example
     <section id="assemblies-sect-repositories">
       <title>Balise <varname>repositories</varname></title>
 
-      <para>Dans le descripteur d'assembly, la balise <varname>repositories<varname> est un élément un peu plus exotiques,
+      <para>Dans le descripteur d'assembly, la balise <varname>repositories</varname> est un élément un peu plus exotiques,
       peu d'applications (autre que Maven) peuvent tirer pleinement parti de la structure de répertoires d'un dépôt Maven. 
       Pour cette raison, et parceque nombre de ces fonctionnalités ressemblent étroitement à la balise <sgmltag>dependencySets</sgmltag>,
       nous ne passerons que très rapidement sur la présentation de cette balise.  
       Dans la plupart des cas, les utilisateurs qui ont compris comment fonctionnent les <sgmltag>dependencySets</sgmltag> n'auront aucun souci à 
-      utiliser la balise <varname>repositories<varname> par l'intermédiaire du plugin Assembly
+      utiliser la balise <varname>repositories</varname> par l'intermédiaire du plugin Assembly
       Nous n'allons donc pas illustrer cette balise par un cas d'utilisation.
       Nous allons simplement donner quelques mises en garde pour ceux d'entre vous qui ressentent le besoin d'utiliser la balise <sgmltag>repositories</sgmltag>.</para>
 
