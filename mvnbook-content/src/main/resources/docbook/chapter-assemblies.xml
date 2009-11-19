@@ -23,10 +23,10 @@
     <para>Il existe de nombreuses raisons pour lesquelles vous voulez construire
     ces archives personnalisées pour votre projet. La plus courante, peut-être,
     est la distribution du projet. Ce mot 'distribution' peut signifier plusieurs
-    choses selon la personne qui l'emploie (ou selon le projet), tout celà dépendant
+    choses selon la personne qui l'emploie (ou selon le projet), tout cela dépendant
     de la manière dont le projet doit être utilisé. Essentiellement, il s'agit
     d'archives qui fournissent un moyen simple pour les utilisateurs d'installer
-    ou d'utiliser le produit du projet. Dans certains cas, celà peut signifier
+    ou d'utiliser le produit du projet. Dans certains cas, cela peut signifier
     fournir un serveur d'application comme Jety avec l'application Web. Dans d'autres,
     il s'agit de fournir un paquet contenant le code source, la documentation de l'API
     avec le binaire compilé comme par exemple un fichier jar. C'est souvent lorsque
@@ -48,7 +48,7 @@
     vous pourriez écrire un plugin Maven complet pour produire votre propre
     format d'archive, avec une nouvelle association au cycle de vie et la
     configuration de gestion d'artefact pour indiquer à Maven comment le déployer.
-    Mais le plugin Assembly rend tout celà superflu dans la plupart des cas en vous
+    Mais le plugin Assembly rend tout cela superflu dans la plupart des cas en vous
     donnant les moyen de construire votre archive selon votre propre recette sans
     avoir à écrire une ligne de code Maven.</para>
   </section>
@@ -78,7 +78,7 @@
     exécute cette phase <varname>package</varname> deux fois.</para>
 
     <para>Comme le goal <varname>assembly:assembly</varname> est un mojo aggrégateur,
-    celà peut poser des problèmes avec les builds Maven multimodules et il doit donc
+    cela peut poser des problèmes avec les builds Maven multimodules et il doit donc
     être appelé seul en ligne de commande. Ne rattachez jamais l'exécution de
     <varname>assembly:assembly</varname> à une phase du cycle de vie.
     <varname>assembly:assembly</varname> était le goal originel du plugin Assembly
@@ -105,7 +105,7 @@
       <title>Les descripteurs Assembly prédéfinis</title>
 
       <para>Nombreux sont ceux qui choisissent de créer leurs propres recettes -
-      appelées descripteurs assembly - cependant celà n'est pas forcément
+      appelées descripteurs assembly - cependant cela n'est pas forcément
       nécessaire. Le plugin Assembly fournit des descripteurs prêts à l'emploi
       pour plusieurs types communs d'archives. Vous pouvez donc les utiliser
       immédiatement sans écrire une ligne de configuration. Voici la liste
@@ -119,7 +119,7 @@
             <para>Le descripteur <varname>bin</varname> est utilisé pour packager
             les fichiers <filename>LICENSE</filename>, <filename>README</filename>
             et <filename>NOTICE</filename> du projet avec on artefact principal, pour
-            peu que ce dernier soit un jar. Vous pouvez voir celà comme la plus petite
+            peu que ce dernier soit un jar. Vous pouvez voir cela comme la plus petite
             distribution binaire pour un projet autoporté.</para>
           </listitem>
         </varlistentry>
@@ -191,7 +191,7 @@
       sources. Au lieu de le déployer le produit final du build vous voulez aussi
       inclure le code source. Ce n'est pas une opération que vous avez besoin de répeter
       souvent, donc ça n'a pas de sens que d'ajouter cette configuration à votre
-      <sgmltag>POM</sgmltag>. AU lieu de celà, vous pouvez utiliser la commande
+      <sgmltag>POM</sgmltag>. AU lieu de cela, vous pouvez utiliser la commande
       suivante : </para>
       <screen>$ <command>mvn -DdescriptorId=project assembly:single</command> 
 ...
@@ -277,7 +277,7 @@
       configuration ci-dessus. Premièrement, nous utilisons l'élément 
       <sgmltag>descriptorRefs</sgmltag> dans configuration plutôt que
       le paramètre <sgmltag>descriptorId</sgmltag> que nous avions utilisé
-      précédemment. Celà nous permet de construire différents packages
+      précédemment. cela nous permet de construire différents packages
       durant la même exécution du plugin Assembly tout en supportant
       notre cas d'utilisation avec très peu de configuration supplémentaire.
       Deuxièmement, la balise <sgmltag>archive</sgmltag> sous
@@ -323,77 +323,76 @@ Hello, World!</screen>
     </section>
 
     <section id="assemblies-sect-as-depend">
-      <title>Assemblies as Dependencies</title>
+      <title>Utilisation des assemblies comme dépendances</title>
 
-      <para>When you generate assemblies as part of your normal build process,
-      those assembly archives will be attached to your main project’s
-      artifact. This means they will be installed and deployed alongside the
-      main artifact, and are then resolvable in much the same way. Each
-      assembly artifact is given the same basic coordinate
-      (<varname>groupId</varname>, <varname>artifactId</varname>, and
-      <varname>version</varname>) as the main project. However, these
-      artifacts are attachments, which in Maven means they are derivative
-      works based on some aspect of the main project build. To provide a
-      couple of examples, <varname>source</varname> assemblies contain the raw
-      inputs for the project build, and
-      <varname>jar-with-dependencies</varname> assemblies contain the
-      project’s classes plus its dependencies. Attached artifacts are allowed
-      to circumvent the Maven requirement of one project, one artifact
-      precisely because of this derivative quality.</para>
+      <para>Lorsque des assemblies sont produits durant le processus de
+      build normal du projet les archives résultantes sont jointes à
+      l'artefact principal du projet. Cela signifie qu'ils seront installés
+      et déployés au côté de l'artefact et qu'ils seront donc accessibles
+      comme ce dernier. Cahque artefact assembly aura les mêmes 
+      coordonnées de base que le projet princiapl (à savoir le 
+      <varname>groupId</varname>, l'<varname>artifactId</varname> et la
+      <varname>version</varname>). Cependant ces artefacts sont des pièces 
+      jointes ce qui signifie pour Maven quil s'agit de produits dérivés du
+      build du projet princiapl. Par exemple, les assemblies <varname>source</varname>
+      contiennent les données d'entrée brutes du build du projet et les
+      assemblies <varname>jar-with-dependencies</varname> contiennent l'ensemble
+      des classes du projet et de ses dépendances. Les artefacts ainsi rattachés
+      peuvent ne pas respecter la règle Maven un projet un artefact de par cette
+      nature de produits dérivés.</para>
 
-      <para>Since assemblies are (normally) attached artifacts, each must have
-      a classifier to distinguish it from the main artifact, in addition to
-      the normal artifact coordinate. By default, the classifier is the same
-      as the assembly descriptor’s identifier. When using the built-in
-      assembly descriptors, as above, the assembly descriptor’s identifier is
-      generally also the same as the identifier used in the
-      <sgmltag>descriptorRef</sgmltag> for that type of assembly.</para>
+      <para>Comme les assemblies sont (normalement) des artefacts rattachés, chaucun
+      doit avoir son classifier en plus des coordonnées de l'artfact principal pour
+      le distinguer de ce dernier. Par défauut ce classifier est l'identifiant du
+      descripteur de l'assembly. Quand on utilise les descripteurs pré-définis
+      l'identifiant du descripteur d'assembly est le même que l'identifiant utilisé 
+      dans la balise <sgmltag>descriptorRef</sgmltag> pour ce type d'assembly.</para>
 
-      <para>Once you’ve deployed an assembly alongside your main project
-      artifact, how can you use that assembly as a dependency in another
-      project? The answer is fairly straightforward. Recall the discussions in
-      <xref linkend="simple-project-sect-maven-coordinates" /> and <xref
-      linkend="pom-relationships-sect-more-coordinates" /> about project
-      dependencies in Maven, projects depend on other projects using a
-      combination of four basic elements, referred to as a project’s
-      coordinates: <varname>groupId</varname>, <varname>artifactId</varname>,
-      <varname>version</varname>, and <varname>packaging</varname>. In <xref
-      linkend="profiles-sect-platform-classifier" />, multiple
-      platform-specific variants of a project’s artifact and available, and
-      the project specifies a <varname>classifier</varname> element with a
-      value of either <varname>win</varname> or <varname>linux</varname> to
-      select the appropriate dependency artifact for the target platform.
-      Assembly artifacts can be used as dependencies using the required
-      coordinates of a project plus the classifier under which the assembly
-      was installed or deployed. If the assembly is not a
-      <acronym>JAR</acronym> archive, we also need to declare its type.</para>
+      <para>Maintenant que vous avez déployé l'assembly au côté de votre artefact
+      principal, comment pouvez vous l'utiliser comme dépendance dans un autre
+      projet ? La réponse est simple. Rappelez-vous la discussion dans la
+      <xref linkend="simple-project-sect-maven-coordinates" /> et dans la <xref
+      linkend="pom-relationships-sect-more-coordinates" /> à propos des dépendances
+      entre projets avec Maven, les projets dépendent les uns des autres grâce à
+      quatre éléments de base que l'on appelle coordonées d'un projet :
+      <varname>groupId</varname>, <varname>artifactId</varname>,
+      <varname>version</varname>et <varname>packaging</varname>. Dans la <xref
+      linkend="profiles-sect-platform-classifier" />, il existe de nombreuses
+      variantes de l'artefact du projet selon la plate-forme cible et le 
+      projet spécifie un élément <varname>classifier</varname> qui prend la
+      valeur <varname>win</varname> ou <varname>linux</varname> de manière à
+      pouvoir choisir le bon artefact selon la plate-forme cible. Les artefacts
+      assembly peuvent être utilisés comme dépendance grâce aux coordonnées de
+      base du projet plus le calssifier avec lequel l'assembly a été installé 
+      ou déployé. Si l'assembly n'est pas une archive <acronym>JAR</acronym>
+      nous allons devoir déclarer aussi son type.</para>
     </section>
 
     <section id="assemblies-sect-assembling-via-depend">
-      <title>Assembling Assemblies via Assembly Dependencies</title>
+      <title>Construction d'assemblies via des assemblies dépendances</title>
 
-      <para>How's that for a confusing section title? Let's try to set up a
-      scenario which would explain the idea of assembling assemblies. Imagine
-      you want to create an archive which itself contains some project
-      assemblies. Assume that you have a multi-module build and you want to
-      deploy an assembly which contains a set of related project assemblies.
-      In this section's example, we create a bundle of "buildable" project
-      directories for a set of projects that are commonly used together. For
-      simplicity, we’ll reuse the two built-in assembly descriptors discussed
-      above - <varname>project</varname> and
-      <varname>jar-with-dependencies</varname>. In this particular example, it
-      is assumed that each project creates the <varname>project</varname>
-      assembly in addition to its main <acronym>JAR</acronym> artifact. Assume
-      that every project in a multi-module build binds the
-      <varname>single</varname> goal to the <varname>package</varname> phase
-      and uses the <varname>project</varname>
-      <sgmltag>descriptorRef</sgmltag>. Every project in a multi-module will
-      inherit the configuration from a top-level <filename>pom.xml</filename>
-      whose <sgmltag>pluginManagement</sgmltag> element is shown in <xref
+      <para>Assez perturbant ce titre n'est ce pas ? Essayons de mettre en place
+      un scénario pour expliquer cette notion d'assemblage d'assembly. Imaginez que
+      vous voulez construire une archive qui elle-même contient des assemblies d'un
+      projet. Supposons que vous avez un build multimodule et que vous voulez
+      déployer un assembly qui contient un ensemble d'assemblies de ce projet
+      liés entre eux. Dans l'exemple de cette section nous créons un package
+      qui rassemble des répertoires "constructibles" du projet pour des
+      sous-projets qui sont utilisés ensembles. Pour essayer de rester simple nous
+      utiliserons les descripteurs d'assembly dont nous venons de parler -
+      <varname>project</varname> et <varname>jar-with-dependencies</varname>.
+      Dans cet exemple particulier nous supposons que chaque projet construit
+      son assembly en plus de l'artefact <acronym>JAR</acronym> principal.
+      Nous supposerons aussi que cahque projet de ce build multimodule rattache
+      le goal <varname>single</varname> à la phase <varname>package</varname> et
+      qu'il utilise la balise <sgmltag>descriptorRef</sgmltag>. Tous les projets
+      de ce build multimodule hérite de la configuration du fichier
+      <filename>pom.xml</filename> de plus haut niveau et notamment de sa
+      balise <sgmltag>pluginManagement</sgmltag> qui est décrite dans l'<xref
       linkend="ex-top-pom-assembly" />.</para>
 
       <example id="ex-top-pom-assembly">
-        <title>Configuring the project assembly in top-level POM</title>
+        <title>Configuration de l'assembly du projet dans le POM de plus haut niveau</title>
 
         <programlisting language="xml">&lt;project&gt;
   ...
