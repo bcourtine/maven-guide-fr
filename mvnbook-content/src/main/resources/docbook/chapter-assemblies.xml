@@ -273,25 +273,26 @@
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>There are two things to notice about the configuration above.
-      First, we’re using the <sgmltag>descriptorRefs</sgmltag> configuration
-      section instead of the <sgmltag>descriptorId</sgmltag> parameter we used
-      last time. This allows multiple assembly types to be built from the same
-      Assembly plugin execution, while still supporting our use case with
-      relatively little extra configuration. Second, the
-      <sgmltag>archive</sgmltag> element under
-      <sgmltag>configuration</sgmltag> sets the <varname>Main-Class</varname>
-      manifest attribute in the generated <acronym>JAR</acronym>. This section
-      is commonly available in plugins that create <acronym>JAR</acronym>
-      files, such as the <acronym>JAR</acronym> plugin used for the default
-      project package type.</para>
+      <para>Il y a deux points auxquels ilfaut prêter attention dans la 
+      configuration ci-dessus. Premièrement, nous utilisons l'élément 
+      <sgmltag>descriptorRefs</sgmltag> dans configuration plutôt que
+      le paramètre <sgmltag>descriptorId</sgmltag> que nous avions utilisé
+      précédemment. Celà nous permet de construire différents packages
+      durant la même exécution du plugin Assembly tout en supportant
+      notre cas d'utilisation avc très peu de configuration supplémentaire.
+      Deuxièmement, la balise <sgmltag>archive</sgmltag> sous
+      <sgmltag>configuration</sgmltag> spécifie l'attribut <varname>Main-Class</varname>
+      du fichier manifest dans le <acronym>JAR</acronym> produit. Cette section est
+      généralement disponible dans les plugins qui créent des fichiers 
+      <acronym>JAR</acronym> comme le plugin <acronym>JAR</acronym> utilisé
+      pour le packaging par défaut des projets.</para>
 
-      <para>Now, you can produce the executable <acronym>JAR</acronym> simply
-      by executing <command>mvn package</command>. Afterward, we’ll also get a
-      directory listing for the target directory, just to verify that the
-      executable <acronym>JAR</acronym> was generated. Finally, just to prove
-      that we actually do have an executable <acronym>JAR</acronym>, we’ll try
-      executing it:</para>
+      <para>Maintenant, vous pouvez produire un <acronym>JAR</acronym> exécutable
+      simplement en exécutant la commande <command>mvn package</command>. Après,
+      nous listerons le contenu du répertoire<filename>target</filename> pour
+      vérifier que le <acronym>JAR</acronym> exécutable a bien été généré. Enfin,
+      pour prouver qu'il s'agit bien d'un <acronym>JAR</acronym> exécutable, nous
+      essayerons de l'exécuter :</para>
 
       <screen>$ <command>mvn package</command>
 ... (output omitted) ...
