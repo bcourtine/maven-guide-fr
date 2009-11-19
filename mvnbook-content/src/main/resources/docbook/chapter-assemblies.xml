@@ -186,14 +186,13 @@
       votre projet est installé ou deployé dans les dépôts Maven et ils sont donc
       toujours disponibles pour vos utilisateurs.</para>
 
-      <para>As an example of the direct invocation of the Assembly plugin,
-      imagine that you wanted to ship off a copy of your project which people
-      could build from source. Instead of just deploying the end-product of
-      the build, you wanted to include the source as well. You won’t need to
-      do this often, so it doesn’t make sense to add the configuration to your
-      <sgmltag>POM</sgmltag>. Instead, you can use the following
-      command:</para>
-
+      <para>Comme exemple d'inocation directe du plugin Assembly, imaginez que vous
+      voulez livrer une copie de votre projet que l'on puisse construire à partir des
+      sources. Au lieu de le déployer le produit final du build vous voulez aussi
+      inclure le code source. Ce n'est pas une opération que vous avez besoin de répeter
+      souvent, donc ça n'a pas de sens que d'ajouter cette configuration à votre
+      <sgmltag>POM</sgmltag>. AU lieu de celà, vous pouvez utiliser la commande
+      suivante : </para>
       <screen>$ <command>mvn -DdescriptorId=project assembly:single</command> 
 ...
 [INFO] [assembly:single] 
@@ -205,23 +204,23 @@
                       target/direct-invocation-1.0-SNAPSHOT-project.zip
 ...</screen>
 
-      <para>Imagine you want to produce an executable <acronym>JAR</acronym>
-      from your project. If your project is totally self-contained with no
-      dependencies, this can be achieved with the main project artifact using
-      the archive configuration of the <acronym>JAR</acronym> plugin. However,
-      most projects have dependencies, and those dependencies must be
-      incorporated in any executable <acronym>JAR</acronym>. In this case, you
-      want to make sure that every time the main project
-      <acronym>JAR</acronym> is installed or deployed, your executable
-      <acronym>JAR</acronym> goes along with it.</para>
+      <para>Imaginez que vous voulez produire un <acronym>JAR</acronym>
+      exécutable à partir de votre projet. Si votre projet est autoporté
+      et sans dépendacevous pouvez obtenir ce résultat à partir de votre
+      artefact avec un peu de configuration du plugin <acronym>JAR</acronym>.
+      Cependant, la plupart des projets ont des dépendances et celles-ci
+      doivent être incorporées pour obtenir un <acronym>JAR</acronym> exécutable.
+      Dans ce cas, vous voulez vous assurer qu'à chaque fois que vous installez ou
+      déployez l'artefact <acronym>JAR</acronym> de votre projet, le <acronym>JAR</acronym>
+      exécutable le soit aussi.</para>
 
-      <para>Assuming the main class for the project is
-      <classname>org.sonatype.mavenbook.App</classname>, the following
-      <acronym>POM</acronym> configuration will create an executable
-      <acronym>JAR</acronym>:</para>
+      <para>Supposons que la classe princiaple de votre projet est
+      <classname>org.sonatype.mavenbook.App</classname>, la configuration de
+      <acronym>POM</acronym> suivante permet de crer un <acronym>JAR</acronym>
+      exécutable :</para>
 
       <example>
-        <title>Assembly Descriptor for Executable JAR</title>
+        <title>Descripteur assembly pour un JAR exécutable</title>
 
         <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
