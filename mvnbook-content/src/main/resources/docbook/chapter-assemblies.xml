@@ -279,7 +279,7 @@
       le paramètre <sgmltag>descriptorId</sgmltag> que nous avions utilisé
       précédemment. Celà nous permet de construire différents packages
       durant la même exécution du plugin Assembly tout en supportant
-      notre cas d'utilisation avc très peu de configuration supplémentaire.
+      notre cas d'utilisation avec très peu de configuration supplémentaire.
       Deuxièmement, la balise <sgmltag>archive</sgmltag> sous
       <sgmltag>configuration</sgmltag> spécifie l'attribut <varname>Main-Class</varname>
       du fichier manifest dans le <acronym>JAR</acronym> produit. Cette section est
@@ -313,13 +313,13 @@ $ <command>java -jar \
         target/executable-jar-1.0-SNAPSHOT-jar-with-dependencies.jar </command>
 Hello, World!</screen>
 
-      <para>From the output shown above, you can see that the normal project
-      build now produces a new artifact in addition to the main
-      <acronym>JAR</acronym> file. The new one has a classifier of
-      <varname>jar-with-dependencies</varname>. Finally, we verified that the
-      new <acronym>JAR</acronym> actually is executable, and that executing
-      the <acronym>JAR</acronym> produced the desired output of “Hello,
-      World!”</para>
+      <para>Des traces présentées ci-dessus vous pouvez voir 
+      que maintenant le build normal du projet produit un nouvel
+      artefact en plus du principal fichier <acronym>JAR</acronym>.
+      Ce nouvel artefact à le classifer <varname>jar-with-dependencies</varname>.
+      Enfin, nous avons vérifié que ce nouveau <acronym>JAR</acronym>
+      est réellement exécutable et que son exécution produit le résutat
+      attendu : l'affichage de “Hello, World!”</para>
     </section>
 
     <section id="assemblies-sect-as-depend">
