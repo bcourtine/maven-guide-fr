@@ -468,7 +468,7 @@ Installing ~/mvn-examples-1.0/assemblies/as-dependencies/project-parent/\
       l'artefact principal de chaque projet ainsi que chaque assembly dans
       votre dépôt Maven local. Tous cesartefacts sont maintenant disponibles
       comme dépendance pour d'autres projets localement. Si votre but final
-      est de créer un paquet qui inlut les assemblies de différents projets
+      est de créer un paquet qui inclut les assemblies de différents projets
       vous pouvez créer un autre projet qui référence comme dépendances les
       assemblies de ce projet. Ce projet chapeau prend la responsabilité
       de construire l'assembly englobant tous les autres. Le
@@ -533,35 +533,34 @@ Installing ~/mvn-examples-1.0/assemblies/as-dependencies/project-parent/\
 </programlisting>
       </example>
 
-      <para>This bundling project's <acronym>POM</acronym> references the two
-      assemblies from <varname>first-project</varname> and
-      <varname>second-project</varname>. Instead of referencing the main
-      artifact of each project, the bundling project's <acronym>POM</acronym>
-      specifies a classifier of <varname>project</varname> and a type of
-      <varname>zip</varname>. This tells Maven to resolve the
-      <acronym>ZIP</acronym> archive which was created by the
-      <varname>project</varname> assembly. Note that the bundling project
-      generates a <varname>jar-with-dependencies</varname> assembly.
-      <varname>jar-with-dependencies</varname> does not create a particularly
-      elegant bundle, it simply creates a <acronym>JAR</acronym> file with the
-      unpacked contents of all of the dependencies.
-      <varname>jar-with-dependencies</varname> is really just telling Maven to
-      take all of the dependencies, unpack them, and then create a single
-      archive which includes the output of the current project. In this
-      project, it has the effect of creating a single <acronym>JAR</acronym>
-      file that puts the two project assemblies from
-      <varname>first-project</varname> and <varname>second-project</varname>
-      side-by-side.</para>
+      <para>Le <acronym>POM</acronym> de ce projet chapeau d'empaquetage 
+      fait référence à deux assemblies des projets 
+      <varname>first-project</varname> et <varname>second-project</varname>.
+      Au lieu de référencer l'artefact princiapl de chaque projet, le
+      <acronym>POM</acronym> de ce projet d'empaquetage spécifie un
+      <varname>project</varname> et un type <varname>zip</varname>.
+      Cela indique à Maven qu'il v devoir résoudre une archive de
+      type <acronym>ZIP</acronym> qui a été créée par l'assembly
+      <varname>project</varname>. Remarquez que le projet d'empaquetage
+      produit lui-même un assembly <varname>jar-with-dependencies</varname>. 
+      <varname>jar-with-dependencies</varname> ne produit pas un paquet 
+      particulièrement élégant puisqu'il construit un fichier <acronym>JAR</acronym>
+      contenant toutes les dépendances dépaquettées.
+      <varname>jar-with-dependencies</varname> demande à Maven de récupérer toutes
+      les dépendances , de les décompresser et ensuite de créer une archive
+      unique en y incluant le résultat du projet courant. Dans ce projet, cela
+      produit un unique fichier <acronym>JAR</acronym> qui aggrège les contenus des
+      assemblies de <varname>first-project</varname> et de
+      <varname>second-project</varname>.</para>
 
-      <para>This example illustrates how the basic capabilities of the Maven
-      Assembly plugin can be combined without the need for a custom assembly
-      descriptor. It achieves the purpose of creating a single archive that
-      contains the project directories for multiple projects side-by-side.
-      This time, the <varname>jar-with-dependencies</varname> is just a
-      storage format, so we don’t need to specify a
-      <varname>Main-Class</varname> manifest attribute. To build the bundle,
-      we just build the <varname>project-bundle</varname> project
-      normally:</para>
+      <para>Cet exemple illustre comment les capacités de base du plugin Maven
+      Assembly peuvent être combinées sans avoir recours à un descripteur 
+      d'assembly. Il crée une unique archive qui contient les répertoires
+      de plusieurs projets les uns à coté des autres. Cette fois, le 
+      <varname>jar-with-dependencies</varname> est juste un format de stockage
+      et nous n'avons pas besoin de spécifier l'attribut de
+      manifest <varname>Main-Class</varname>. Pour construire ce paquet, nous
+      exécutons le projet <varname>project-bundle</varname> comme d'habitude :</para>
 
       <screen>$ <command>mvn package</command>
 ...
@@ -571,9 +570,9 @@ Installing ~/mvn-examples-1.0/assemblies/as-dependencies/project-parent/\
   project-bundle/target/project-bundle-1.0-SNAPSHOT-jar-with-dependencies.jar
 </screen>
 
-      <para>To verify that the project-bundle assembly contains the unpacked
-      contents of the assembly dependencies, run <command>jar
-      tf</command>:</para>
+      <para>Pour vérifier que l'assembly <varname>project-bundle</varname>
+      contient bien les élémnts dépaquettés des assemblies dépendances
+      exécutez la commande <command>jar tf</command> :</para>
 
       <screen>$ <command>jar tf \
   target/project-bundle-1.0-SNAPSHOT-jar-with-dependencies.jar</command>
@@ -586,15 +585,15 @@ second-project-1.0-SNAPSHOT/pom.xml
 second-project-1.0-SNAPSHOT/src/main/java/org/sonatype/mavenbook/App.java
 second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</screen>
 
-      <para>After reading this section, the title should make more sense.
-      You've assembled assemblies from two projects into an assembly using a
-      bundling project which has a dependency on each of the
-      assemblies.</para>
+      <para>Maintenant que vous avez lu cette section son titre devrait
+      avoir un peu plus de sens. Vous avez assemblé les assemblies de deux
+      projects dans un assembly grâce à un projet d'empaquetage dépendant
+      de chcun de ces assemblies.</para>
     </section>
   </section>
 
   <section id="assemblies-sect-overview-descriptor">
-    <title>Overview of the Assembly Descriptor</title>
+    <title>Vue d'ensmble du descripteur d'assembly</title>
 
     <para>When the standard assembly descriptors introduced in <xref
     linkend="assemblies-sect-basics" /> are not adequate, you will need to
