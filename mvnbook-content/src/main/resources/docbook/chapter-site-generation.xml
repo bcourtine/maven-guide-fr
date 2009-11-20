@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="site-generation">
+<chapter id="site-generation" lang="fr">
   <title>Génération du Site</title>
 
   <section id="site-generation-sect-intro">
@@ -216,7 +216,7 @@ $ mvn site:run</screen>
     </section>
 
     <section id="site-generation-sect-custom-nav">
-      <title>Personnalisez le Menu Navigation</title>
+      <title>Personnaliser le Menu Navigation</title>
 
       <para>Pour personnalisez le contenu du menu navigation, utilisez la balise <sgmltag>menu</sgmltag> avec une sous-balise <sgmltag>item</sgmltag>.
       La balise <sgmltag>menu</sgmltag> ajoute une section au menu gauche de navigation.
@@ -572,7 +572,7 @@ Welcome to Sample Project
     la création d'un 'skin' Maven est souvent nécessaire.</para>
 
     <section id="site-generation-sect-site-css">
-      <title>Personnalisez la CSS du Site</title>
+      <title>Personnaliser la CSS du Site</title>
 
       <para>Le moyen le plus simple pour personnaliser l'apparence de votre site est de fournir à votre projet une <acronym>CSS</acronym> <filename>site.css</filename>.
       Tout comme pour les images ou pour le contenu <acronym>XHTML</acronym>, ce fichier <acronym>CSS</acronym> doit se trouver dans le répertoire <filename>src/site/resources/css</filename>.   
@@ -915,7 +915,7 @@ $ <command>mkdir src/main/resources</command>
     </section>
 
     <section id="site-generation-sect-custom-theme-css">
-      <title>Création d'un Theme CSS Personnalisé</title>
+      <title>Création d'un Thème CSS Personnalisé</title>
 
       <para>Ensuite, écrivons une <acronym>CSS</acronym> personnalisée pour notre skin.
       Celle-ci doit se trouver à l'emplacement suivant : <filename>src/main/resources/css/maven-theme.css</filename>.

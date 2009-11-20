@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="writing-plugins">
+<chapter id="writing-plugins" lang="fr">
   <title>Création de Plugins</title>
 
   <section id="writing-plugins-sect-intro">
     <title>Introduction</title>
 
     <para>Bien que ce chapitre aborde une utilisation avancée de Maven, l'écriture de plugin d'un plugin Maven ne doit pas vous intimider.
-    Malgré la compléxité de cet outil, les concepts fondamentaux sont faciles à comprendre et l'écriture de plugins reste relativement simple. 
+    Malgré la complexité de cet outil, les concepts fondamentaux sont faciles à comprendre et l'écriture de plugins reste relativement simple.
     Après la lecture de ce chapitre, vous aurez une bonne idée de ce qu'implique la création d'un plugin Maven.</para>
   </section>
 
@@ -1097,14 +1097,14 @@ public class EchoMojo extends AbstractMojo
   </section>
 
   <section id="writing-plugins-sect-mojo-params">
-    <title>Pramaètres du Mojo</title>
+    <title>Paramètres du Mojo</title>
 
     <para>Cette notion est aussi importante que celles de la méthode <methodname>execute()</methodname> et des annotations du Mojo.
     Un Mojo est configuré par l'intermédiaire de paramètres.
     Cette section se concentre sur des sujets tournant autour de ces paramètres.</para> 
 
     <section id="writing-plugins-sect-param-values">
-      <title>Affectez des valeurs à vos paramètres de Mojo</title>
+      <title>Affecter des valeurs aux paramètres de Mojo</title>
 
       <para>Dans notre <varname>EchoMojo</varname>, nous avons déclaré un paramètre 'message' en utilisant l'annotation suivante :</para>
 
@@ -1333,7 +1333,7 @@ private ZipArchiver zipArchiver;</programlisting>
     </section>
 
     <section id="writing-plugins-sect-param-annot">
-      <title>Paramètres des annottions d'un Mojo</title>
+      <title>Paramètres des annotations d'un Mojo</title>
 
       <para>À moins que vous insistiez pour écrire vos descripteurs de plugin à la main, vous ne devriez pas à avoir à écrire de <acronym>XML</acronym>.   
       À la place de cela, le plugin Maven Plugin dispose d'un goal <varname>plugin:descriptor</varname> qui est rattaché à la phase <varname>generate-resources</varname>.

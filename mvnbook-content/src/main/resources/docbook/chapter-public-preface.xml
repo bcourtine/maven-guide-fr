@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE preface PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<preface id="preface-1">
+<preface id="preface-1" lang="fr">
   <title>Préface</title>
   <para>Maven est un outil de "build", de gestion de projet, un conteneur abstrait
   où s'exécutent les différentes étapes de construction du projet. C'est un outil
