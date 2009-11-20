@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="archetypes">
-  <title>Utilisation des archétypes Maven</title>
+<chapter id="archetypes" lang="fr">
+  <title>Utilisation des archÃ©types Maven</title>
 
   <section id="archetype-sect-intro">
     <title>Introduction aux Archetypes Maven</title>
 
-    <para>Un archétype est un template de projet Maven. 
-    Il est utilisé par le plugin Maven Archetype pour créer de nouveaux projets.
-    Les archétypes permettent à des projets open sources comme Apache Wicket ou Apache Cocoon de présenter à leurs utilisateurs 
+    <para>Un archÃ©type est un template de projet Maven. 
+    Il est utilisÃ© par le plugin Maven Archetype pour crÃ©er de nouveaux projets.
+    Les archÃ©types permettent Ã  des projets open sources comme Apache Wicket ou Apache Cocoon de prÃ©senter Ã  leurs utilisateurs 
     les fondations d'une nouvelle application.
-    Les archétypes peuvent également être utilisés dans une société pour encourager une standardisation d'un ensemble de projets. 
-    Si vous travaillez dans une société avec de larges équipes de développement, que tous vous projets doivent suivre une même structure, vous pouvez publier un archétype. 
-    Ainsi, n'importe quel membre de l'équipe de développement sera capable de démarrer rapidement un projet qui respectant la structure préconisée. 
-    Vous pouvez créer un nouveau projet à partir d'un archétype en utilisant le plugin Maven Archetype à partir de la ligne de commande ou
-    en utilisant le wizard de création d'un nouveau projet proposé par le plugin <varname>m2eclipse</varname> tel que le présente la partie <xref linkend="eclipse" />.</para> 
+    Les archÃ©types peuvent Ã©galement Ãªtre utilisÃ©s dans une sociÃ©tÃ© pour encourager une standardisation d'un ensemble de projets. 
+    Si vous travaillez dans une sociÃ©tÃ© avec de larges Ã©quipes de dÃ©veloppement, que tous vous projets doivent suivre une mÃªme structure, vous pouvez publier un archÃ©type. 
+    Ainsi, n'importe quel membre de l'Ã©quipe de dÃ©veloppement sera capable de dÃ©marrer rapidement un projet qui respectant la structure prÃ©conisÃ©e. 
+    Vous pouvez crÃ©er un nouveau projet Ã  partir d'un archÃ©type en utilisant le plugin Maven Archetype Ã  partir de la ligne de commande ou
+    en utilisant le wizard de crÃ©ation d'un nouveau projet proposÃ© par le plugin <varname>m2eclipse</varname> tel que le prÃ©sente la partie <xref linkend="eclipse" />.</para> 
   </section>
 
   <section id="archetype-sect-using">
-    <title>Utilisation des archétypes</title>
+    <title>Utilisation des archÃ©types</title>
 
-    <para>Vous pouvez utiliser un archétype en utilisant le goal <varname>generate</varname> du plugin Maven Archetype à partir de la ligne de commande ou du plugin Eclipse <varname>m2eclipse</varname>.</para>
+    <para>Vous pouvez utiliser un archÃ©type en utilisant le goal <varname>generate</varname> du plugin Maven Archetype Ã  partir de la ligne de commande ou du plugin Eclipse <varname>m2eclipse</varname>.</para>
 
     <section id="archetype-sect-using-cmd-line">
-      <title>Utilisation d'un archétype à partir de la ligne de commande</title>
+      <title>Utilisation d'un archÃ©type Ã  partir de la ligne de commande</title>
 
-      <para>La ligne de commande suivante peut être utilisée pour générer un projet à partir de l'archétype <varname>quickstart</varname>.</para>
+      <para>La ligne de commande suivante peut Ãªtre utilisÃ©e pour gÃ©nÃ©rer un projet Ã  partir de l'archÃ©type <varname>quickstart</varname>.</para>
 
       <screen>mvn archetype:generate \
   -DgroupId=org.sonatype.mavenbook \
@@ -38,14 +38,14 @@
   -DarchetypeVersion=1.0 \
   -DinteractiveMode=false</screen>
 
-      <para>Le goal <varname>generate</varname> accepte les paramètres suivants :</para>
+      <para>Le goal <varname>generate</varname> accepte les paramÃ¨tres suivants :</para>
 
       <variablelist>
         <varlistentry>
           <term><varname>groupId</varname></term>
 
           <listitem>
-            <para>Il s'agit du <varname>groupId</varname> du projet que vous voulez créer.</para>
+            <para>Il s'agit du <varname>groupId</varname> du projet que vous voulez crÃ©er.</para>
           </listitem>
         </varlistentry>
 
@@ -53,7 +53,7 @@
           <term><varname>artifactId</varname></term>
 
           <listitem>
-            <para>Il s'agit de l'<varname>artifactId</varname> du projet que vous voulez créer.</para>
+            <para>Il s'agit de l'<varname>artifactId</varname> du projet que vous voulez crÃ©er.</para>
           </listitem>
         </varlistentry>
 
@@ -61,7 +61,7 @@
           <term><varname>version</varname></term>
 
           <listitem>
-            <para>Il d'agit de la <varname>version</varname> du projet que vous voulez créer (valeur par défaut : 1.0-SNAPSHOT).</para>
+            <para>Il d'agit de la <varname>version</varname> du projet que vous voulez crÃ©er (valeur par dÃ©faut : 1.0-SNAPSHOT).</para>
           </listitem>
         </varlistentry>
 
@@ -69,8 +69,8 @@
           <term><varname>packageName</varname></term>
 
           <listitem>
-            <para>Le package par défaut de votre projet 
-            (par défaut, il s'agit du <varname>groupId</varname>).</para>
+            <para>Le package par dÃ©faut de votre projet 
+            (par dÃ©faut, il s'agit du <varname>groupId</varname>).</para>
           </listitem>
         </varlistentry>
 
@@ -78,7 +78,7 @@
           <term><varname>archetypeGroupId</varname></term>
 
           <listitem>
-            <para>Le <varname>groupId</varname> de l'archétype que vous désirez utiliser.</para>
+            <para>Le <varname>groupId</varname> de l'archÃ©type que vous dÃ©sirez utiliser.</para>
           </listitem>
         </varlistentry>
 
@@ -86,7 +86,7 @@
           <term><varname>archetypeArtifactId</varname></term>
 
           <listitem>
-            <para>L'<varname>artifactId</varname> de l'archétype que vous désirez utiliser.</para>
+            <para>L'<varname>artifactId</varname> de l'archÃ©type que vous dÃ©sirez utiliser.</para>
           </listitem>
         </varlistentry>
 
@@ -94,7 +94,7 @@
           <term><varname>archetypeVersion</varname></term>
 
           <listitem>
-            <para>La <varname>version</varname> de l'archetype que vous désirez utiliser.</para>
+            <para>La <varname>version</varname> de l'archetype que vous dÃ©sirez utiliser.</para>
           </listitem>
         </varlistentry>
 
@@ -102,27 +102,27 @@
           <term><varname>interactiveMode</varname></term>
 
           <listitem>
-            <para>Lorsque le goal <varname>generate</varname> goal est exécuté dans ce mode,
-            les paramètres listés précédemment seront demandés un à un à l'utilisation.
-            Dans le cas contraire, le goal <varname>generate</varname> utilise les valeurs passées sur la ligne de commande.</para>
+            <para>Lorsque le goal <varname>generate</varname> goal est exÃ©cutÃ© dans ce mode,
+            les paramÃ¨tres listÃ©s prÃ©cÃ©demment seront demandÃ©s un Ã  un Ã  l'utilisation.
+            Dans le cas contraire, le goal <varname>generate</varname> utilise les valeurs passÃ©es sur la ligne de commande.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <para>Une fois que vous avez exécuté le goal <varname>generate</varname> avec la ligne de commande précédente,
-      un répertoire <varname>quickstart</varname> contenant un nouveau projet Maven sera créé.
-      Cette ligne de commande est relativement difficile à retenir.
-      Dans la section suivante, nous générerons ce même projet en utilisant le mode interactif.</para> 
+      <para>Une fois que vous avez exÃ©cutÃ© le goal <varname>generate</varname> avec la ligne de commande prÃ©cÃ©dente,
+      un rÃ©pertoire <varname>quickstart</varname> contenant un nouveau projet Maven sera crÃ©Ã©.
+      Cette ligne de commande est relativement difficile Ã  retenir.
+      Dans la section suivante, nous gÃ©nÃ©rerons ce mÃªme projet en utilisant le mode interactif.</para> 
       
     </section>
 
     <section id="archtype-sect-generate">
       <title>Utilisation du goal Generate en mode interactif</title>
 
-      <para>Le moyen le plus simple d'utiliser le plugin Maven Archetype pour générer un nouveau projet Maven à partie d'un archétype est d'utiliser le goal 
+      <para>Le moyen le plus simple d'utiliser le plugin Maven Archetype pour gÃ©nÃ©rer un nouveau projet Maven Ã  partie d'un archÃ©type est d'utiliser le goal 
       <varname>archetype:generate</varname> en mode interactif.
-      Ainsi, le goal <varname>generate</varname> vous demandera de choisir un archétype parmi une liste d'archétypes disponible. 
-      Par défaut, le mode interactif est activé, la seule chose que vous avez à faire pour générer un nouveau projet est d'exécuter cette simple commande : <command>mvn
+      Ainsi, le goal <varname>generate</varname> vous demandera de choisir un archÃ©type parmi une liste d'archÃ©types disponible. 
+      Par dÃ©faut, le mode interactif est activÃ©, la seule chose que vous avez Ã  faire pour gÃ©nÃ©rer un nouveau projet est d'exÃ©cuter cette simple commande : <command>mvn
       archetype:generate</command>.</para>
 
       <screen>$ <command>mvn archetype:generate</command>
@@ -176,14 +176,14 @@ Choose archetype:
 41: internal -&gt; gmaven-archetype-mojo
 Choose a number: <command>15 </command></screen>
 
-      <para>La première chose que le goal <varname>archetype:generate</varname> effectue en mode interactif et d'afficher la liste des archétypes disponibles à l'utilisateur.
-      Le plugin Maven Archetype est founit avec un catalogue d'archétypes pour la plupart des types de projets standards (archétypes 10 à 18).
-      Le catalogue d'archétypes du plugin peut également être complété par des archétypes tiers, 
-      comme des archétypes permettant de générer des projets AppFuse, des plugins Confluence et Jira, des applications Wicket, des applications Scala, des projets Groovy, ...     
-      Vous pouvez consulter une liste non exhaustive des archétypes proposés par des tiers dans la partie 
+      <para>La premiÃ¨re chose que le goal <varname>archetype:generate</varname> effectue en mode interactif et d'afficher la liste des archÃ©types disponibles Ã  l'utilisateur.
+      Le plugin Maven Archetype est founit avec un catalogue d'archÃ©types pour la plupart des types de projets standards (archÃ©types 10 Ã  18).
+      Le catalogue d'archÃ©types du plugin peut Ã©galement Ãªtre complÃ©tÃ© par des archÃ©types tiers, 
+      comme des archÃ©types permettant de gÃ©nÃ©rer des projets AppFuse, des plugins Confluence et Jira, des applications Wicket, des applications Scala, des projets Groovy, ...     
+      Vous pouvez consulter une liste non exhaustive des archÃ©types proposÃ©s par des tiers dans la partie 
       <xref linkend="archetype-sect-third-party" />.</para>
 
-      <para>Une fois que vous avez choisi un archétype, le plugin Maven Archetype télécharge celui-ci et vous demande de fournir des valeurs suivantes pour générer votre nouveau projet :</para>
+      <para>Une fois que vous avez choisi un archÃ©type, le plugin Maven Archetype tÃ©lÃ©charge celui-ci et vous demande de fournir des valeurs suivantes pour gÃ©nÃ©rer votre nouveau projet :</para>
 
       <itemizedlist>
         <listitem>
@@ -218,7 +218,7 @@ package: org.sonatype.mavenbook
  Y: : <command>Y</command>
 </screen>
 
-      <para>Une fois ceci fait, le plugin Maven Archetype génère le projet dans le répertoire que vous avez fourni.</para>
+      <para>Une fois ceci fait, le plugin Maven Archetype gÃ©nÃ¨re le projet dans le rÃ©pertoire que vous avez fourni.</para>
 
       <screen>[INFO] ----------------------------------------------------------------------------
 [INFO] Using following parameters for creating OldArchetype: maven-archetype-quickstart:RELEASE
@@ -242,11 +242,11 @@ package: org.sonatype.mavenbook
     </section>
 
     <section id="archetype-sect-using-m2eclipse">
-      <title>Utilisation d'un archetype à partir du plugin Eclipse m2eclipse</title>
+      <title>Utilisation d'un archetype Ã  partir du plugin Eclipse m2eclipse</title>
 
-      <para>Le plugin <varname>m2eclipse</varname> vous permet de créer des projets Maven à partir d'archétypes en fournissant des wizzard intuitifs pour rechercher, 
-      selectionner et configurer un archétype Maven.
-      Pour plus d'informations sur la génération de projet Maven à partir d'un archétype et du plugin Eclipse <varname>m2eclipse</varname>, référez-vous 
+      <para>Le plugin <varname>m2eclipse</varname> vous permet de crÃ©er des projets Maven Ã  partir d'archÃ©types en fournissant des wizzard intuitifs pour rechercher, 
+      selectionner et configurer un archÃ©type Maven.
+      Pour plus d'informations sur la gÃ©nÃ©ration de projet Maven Ã  partir d'un archÃ©type et du plugin Eclipse <varname>m2eclipse</varname>, rÃ©fÃ©rez-vous 
       au chapitre <ulink
       url="http://www.sonatype.com/books/m2eclipse-book/reference/eclipse-sect-creating-project.html#eclipse-sect-m2e-create-archetype">"Creating
       a Maven Project from a Maven Archetype"</ulink> du livre <ulink
@@ -255,80 +255,80 @@ package: org.sonatype.mavenbook
   </section>
 
   <section id="archetype-sect-available">
-    <title>Archétypes disponibles</title>
+    <title>ArchÃ©types disponibles</title>
 
-    <para>Comme de plus en plus de projets adoptent Maven, de plus en plus d'artefacts sont publiés et 
-    fournissent aux utilisateurs un moyen simple de créer des projets à partir de templates existant. 
-    Cette section présente quelques-uns des archétypes de ces archétypes.</para>   
+    <para>Comme de plus en plus de projets adoptent Maven, de plus en plus d'artefacts sont publiÃ©s et 
+    fournissent aux utilisateurs un moyen simple de crÃ©er des projets Ã  partir de templates existant. 
+    Cette section prÃ©sente quelques-uns des archÃ©types de ces archÃ©types.</para>   
 
     <section id="archetype-sect-common-maven">
-      <title>Archétypes Maven communs</title>
+      <title>ArchÃ©types Maven communs</title>
 
-      <para>La plupart des archétypes les plus simples sont contenus dans le <varname>groupId</varname> <varname>org.apache.maven.archetypes</varname>.
-      Ces archétypes ne possèdent que quelques options et proposent la création de projets relativement basics. 
-      Vous pouvez les utiliser pour générer les quelques éléments de structure qui distingue un projet Maven d'un projet non-Maven.
-      Par exemple, l'archétype <varname>webapp</varname> présenté ici, se contente de générer un fichier   
-      <filename>web.xml</filename> dans le répertoire <filename>\${basedir}/src/main/webapp/WEB-INF</filename>.
-      Dans le paragraphe <xref linkend="archetype-sect-third-party" /> vous pouvez effectuer un survol rapide de quelques-uns des archétypes tiers les plus remarquables
+      <para>La plupart des archÃ©types les plus simples sont contenus dans le <varname>groupId</varname> <varname>org.apache.maven.archetypes</varname>.
+      Ces archÃ©types ne possÃ¨dent que quelques options et proposent la crÃ©ation de projets relativement basics. 
+      Vous pouvez les utiliser pour gÃ©nÃ©rer les quelques Ã©lÃ©ments de structure qui distingue un projet Maven d'un projet non-Maven.
+      Par exemple, l'archÃ©type <varname>webapp</varname> prÃ©sentÃ© ici, se contente de gÃ©nÃ©rer un fichier   
+      <filename>web.xml</filename> dans le rÃ©pertoire <filename>\${basedir}/src/main/webapp/WEB-INF</filename>.
+      Dans le paragraphe <xref linkend="archetype-sect-third-party" /> vous pouvez effectuer un survol rapide de quelques-uns des archÃ©types tiers les plus remarquables
       comme ceux d'AppFuse ou de Cocoon.</para>
 
-      <para>Les archétypes suivants peuvent être trouvés dans le <varname>groupId</varname> <varname>org.apache.maven.archetypes</varname> :</para>
+      <para>Les archÃ©types suivants peuvent Ãªtre trouvÃ©s dans le <varname>groupId</varname> <varname>org.apache.maven.archetypes</varname> :</para>
 
       <section id="archetype-sect-quickstart">
         <title>maven-archetype-quickstart</title>
 
-        <para>L'archétype <varname>quickstart</varname> est un simple projet du type <acronym>JAR</acronym> 
-        et d'une simple dépendance sur JUnit.
-        Après avoir généré un projet avec cet archétype, une seule classe sera générée, <classname>App</classname>,
-        dans le package par défaut, avec une méthode <methodname>main()</methodname> qui affiche "Hello World!" sur la sortie standard.  
-        Vous aurez également un test unitaire JUnit dans une classe nommée <varname>AppTest</varname> avec une méthode <methodname>testApp()</methodname> dont le code est trivial.</para>              
+        <para>L'archÃ©type <varname>quickstart</varname> est un simple projet du type <acronym>JAR</acronym> 
+        et d'une simple dÃ©pendance sur JUnit.
+        AprÃ¨s avoir gÃ©nÃ©rÃ© un projet avec cet archÃ©type, une seule classe sera gÃ©nÃ©rÃ©e, <classname>App</classname>,
+        dans le package par dÃ©faut, avec une mÃ©thode <methodname>main()</methodname> qui affiche "Hello World!" sur la sortie standard.  
+        Vous aurez Ã©galement un test unitaire JUnit dans une classe nommÃ©e <varname>AppTest</varname> avec une mÃ©thode <methodname>testApp()</methodname> dont le code est trivial.</para>              
     
       </section>
 
       <section id="archetype-sect-webapp">
         <title>maven-archetype-webapp</title>
 
-        <para>Cet archétype créé un simple projet de type 
-        <acronym>WAR</acronym> avec une dépendance sur JUnit.
+        <para>Cet archÃ©type crÃ©Ã© un simple projet de type 
+        <acronym>WAR</acronym> avec une dÃ©pendance sur JUnit.
         Le dossier <filename>\${basedir}/src/main/webapp</filename> contient un fragment simple d'application web : 
         une page <filename>index.jsp</filename> et un fichier <filename>web.xml</filename> aussi simple que possible.  
-        Même si cet archétype inclus une dépendance sur JUnit, aucun test n'est créé.
-        Si vous recherchez un exemple fonctionnel d'application web, cet archétype vous décevra probablement.
-        Consulter la partie <xref linkend="archetype-sect-third-party" /> pour trouver des exemples d'archétypes plus poussés.</para>
+        MÃªme si cet archÃ©type inclus une dÃ©pendance sur JUnit, aucun test n'est crÃ©Ã©.
+        Si vous recherchez un exemple fonctionnel d'application web, cet archÃ©type vous dÃ©cevra probablement.
+        Consulter la partie <xref linkend="archetype-sect-third-party" /> pour trouver des exemples d'archÃ©types plus poussÃ©s.</para>
       </section>
 
       <section id="archetype-sect-mojo">
         <title>maven-archetype-mojo</title>
 
-        <para>Cet archétype créé un simple projet du type <varname>maven-plugin</varname> contenant une seule classe nommée
-        <classname>MyMojo</classname> dans le package par défaut du projet.
-        La classe <classname>MyMojo</classname> contient un goal <varname>touch</varname> goal rattaché à la phase <varname>process-resources</varname>.
-        Un fichier nommé <filename>touch.txt</filename> est généré dans le répertoire <filename>target/</filename> du nouveau projet.
-        Ce nouveau projet a une dépendance sur <varname>maven-plugin-api</varname> et <varname>JUnit</varname>.</para>
+        <para>Cet archÃ©type crÃ©Ã© un simple projet du type <varname>maven-plugin</varname> contenant une seule classe nommÃ©e
+        <classname>MyMojo</classname> dans le package par dÃ©faut du projet.
+        La classe <classname>MyMojo</classname> contient un goal <varname>touch</varname> goal rattachÃ© Ã  la phase <varname>process-resources</varname>.
+        Un fichier nommÃ© <filename>touch.txt</filename> est gÃ©nÃ©rÃ© dans le rÃ©pertoire <filename>target/</filename> du nouveau projet.
+        Ce nouveau projet a une dÃ©pendance sur <varname>maven-plugin-api</varname> et <varname>JUnit</varname>.</para>
       </section>
     </section>
 
     <section id="archetype-sect-third-party">
-      <title>Archétypes tiers notables</title>
+      <title>ArchÃ©types tiers notables</title>
 
-      <para>Cette section vous propose un bref aperçu de quelques archétypes fournis par des tiers non associés au projet Maven.
-      Si vous recherchez une liste plus complète des archétypes disponibles, jetez un oeil à la liste des archétypes disponibles dans <varname>m2eclipse</varname>.
-      <varname>m2eclipse</varname> vous permet de créer un nouveau projet Maven à partir d'une liste grandissante de plus de 80 archétypes pour la plupart des technologies.
+      <para>Cette section vous propose un bref aperÃ§u de quelques archÃ©types fournis par des tiers non associÃ©s au projet Maven.
+      Si vous recherchez une liste plus complÃ¨te des archÃ©types disponibles, jetez un oeil Ã  la liste des archÃ©types disponibles dans <varname>m2eclipse</varname>.
+      <varname>m2eclipse</varname> vous permet de crÃ©er un nouveau projet Maven Ã  partir d'une liste grandissante de plus de 80 archÃ©types pour la plupart des technologies.
       Le chapitre <ulink url="http://www.sonatype.com/books/m2eclipse-book/reference/eclipse-sect-creating-project.html#eclipse-sect-m2e-create-archetype">"Creating
       a Maven Project from a Maven Archetype"</ulink> du livre <ulink
       url="http://www.sonatype.com/books/m2eclipse-book/">"Developing with
-      Eclipse and Maven"</ulink> contient la liste des archétypes directement disponibles à partir du plugin <varname>m2eclipse</varname>.
-      Les archétypes listés dans cette section sont disponibles dans la liste des archétypes par défaut générée par le mode interactif du goal  
+      Eclipse and Maven"</ulink> contient la liste des archÃ©types directement disponibles Ã  partir du plugin <varname>m2eclipse</varname>.
+      Les archÃ©types listÃ©s dans cette section sont disponibles dans la liste des archÃ©types par dÃ©faut gÃ©nÃ©rÃ©e par le mode interactif du goal  
       <varname>generate</varname>.</para>
 
       <section id="archetype-sect-appfuse">
         <title>AppFuse</title>
 
-        <para>AppFuse est un framework développé par Matt Raible.
-        Vous pouvez comparer celui-ci à quelque chose comme Rosetta Stone orienté sur des technologies Java comme Spring Framework, Hibernate ou iBatis.
-        En utilisant AppFuse, vous pouvez rapidement créer une application multi-tier qui peut être pluguée sur plusieurs frameworks de présentation web, comme Java Server Faces, Struts ou Tapestry.          
-        En créant AppFuse 2.0, Matt Raible à mis à jour son framework pour qu'il utilise Maven 2 pour utiliser les fonctionnalités de gestion des dépendances et de création d'archétypes.
-        AppFuse 2 fourni les archétypes suivants, tous sont groupés dans le <varname>groupId</varname> <varname>org.appfuse.archetypes</varname> :</para>
+        <para>AppFuse est un framework dÃ©veloppÃ© par Matt Raible.
+        Vous pouvez comparer celui-ci Ã  quelque chose comme Rosetta Stone orientÃ© sur des technologies Java comme Spring Framework, Hibernate ou iBatis.
+        En utilisant AppFuse, vous pouvez rapidement crÃ©er une application multi-tier qui peut Ãªtre pluguÃ©e sur plusieurs frameworks de prÃ©sentation web, comme Java Server Faces, Struts ou Tapestry.          
+        En crÃ©ant AppFuse 2.0, Matt Raible Ã  mis Ã  jour son framework pour qu'il utilise Maven 2 pour utiliser les fonctionnalitÃ©s de gestion des dÃ©pendances et de crÃ©ation d'archÃ©types.
+        AppFuse 2 fourni les archÃ©types suivants, tous sont groupÃ©s dans le <varname>groupId</varname> <varname>org.appfuse.archetypes</varname> :</para>
 
         <variablelist>
           <varlistentry>
@@ -336,7 +336,7 @@ package: org.sonatype.mavenbook
             <varname>appfuse-modular-jsf</varname></term>
 
             <listitem>
-              <para>Application complète utilisant JSF (Java Server Faces) comme couche de présentation.</para>
+              <para>Application complÃ¨te utilisant JSF (Java Server Faces) comme couche de prÃ©sentation.</para>
             </listitem>
           </varlistentry>
 
@@ -345,7 +345,7 @@ package: org.sonatype.mavenbook
             <varname>appfuse-modular-spring</varname></term>
 
             <listitem>
-              <para>Application complète utilisant Spring MVC comme couche de présentation.</para>
+              <para>Application complÃ¨te utilisant Spring MVC comme couche de prÃ©sentation.</para>
             </listitem>
           </varlistentry>
 
@@ -354,7 +354,7 @@ package: org.sonatype.mavenbook
             <varname>appfuse-modular-struts</varname></term>
 
             <listitem>
-              <para>Application complète utilisant Struts 2 comme couche de présentation.</para>
+              <para>Application complÃ¨te utilisant Struts 2 comme couche de prÃ©sentation.</para>
             </listitem>
           </varlistentry>
 
@@ -363,7 +363,7 @@ package: org.sonatype.mavenbook
             <varname>appfuse-modular-tapestry</varname></term>
 
             <listitem>
-              <para>Application complète utilisant Tapestry comme couche de présentation.</para>
+              <para>Application complÃ¨te utilisant Tapestry comme couche de prÃ©sentation.</para>
             </listitem>
           </varlistentry>
 
@@ -371,15 +371,15 @@ package: org.sonatype.mavenbook
             <term><varname>appfuse-core</varname></term>
 
             <listitem>
-              <para>Modèle objet et persistance dans couche présentation.</para>
+              <para>ModÃ¨le objet et persistance dans couche prÃ©sentation.</para>
             </listitem>
           </varlistentry>
         </variablelist>
 
-        <para>Les archétypes dont le nom suit le pattern <varname>appfuse-basic-*</varname> correspondent à des applications complètes dans un simple projet Maven. 
-        Les archétypes dont le nom suit le pattern <varname>appfuse-modular-*</varname> correspondent à des applications complètes avec un projet Maven multimodule 
-        qui sépare les objets du modèle, la couche de persistance et la couche présentation.
-        Voici un exemple permettant de générer une application web modulaire utilisant Spring MVC :</para>
+        <para>Les archÃ©types dont le nom suit le pattern <varname>appfuse-basic-*</varname> correspondent Ã  des applications complÃ¨tes dans un simple projet Maven. 
+        Les archÃ©types dont le nom suit le pattern <varname>appfuse-modular-*</varname> correspondent Ã  des applications complÃ¨tes avec un projet Maven multimodule 
+        qui sÃ©pare les objets du modÃ¨le, la couche de persistance et la couche prÃ©sentation.
+        Voici un exemple permettant de gÃ©nÃ©rer une application web modulaire utilisant Spring MVC :</para>
 
         <screen>$ mvn archetype:generate \
       -DarchetypeArtifactId=appfuse-modular-spring \
@@ -412,31 +412,31 @@ $ cd web
 $ mvn jetty:run-war
 ... (Maven Jetty plugin starts a Servlet Container on port 8080)</screen>
 
-        <para>Utiliser un archétype AppFuse pour générer une application web avec une authentification, un système de gestion d'utilisateurs ne devrait pas vous prendre plus de 5 minutes.
-        C'est un exemple de la véritable force de l'utilisation des archétypes Maven pour générer des nouvelles applications.         
-        Nous avons simplifié le processus d'installation d'AppFuse, mais nous avons laissé un peu côté le téléchargement et l'installation de la base de données MySQL.
-        Mais il n'y a rien de très compliqué au final dans tout cela, pour plus d'informations vous pouvez vous lire la <ulink
+        <para>Utiliser un archÃ©type AppFuse pour gÃ©nÃ©rer une application web avec une authentification, un systÃ¨me de gestion d'utilisateurs ne devrait pas vous prendre plus de 5 minutes.
+        C'est un exemple de la vÃ©ritable force de l'utilisation des archÃ©types Maven pour gÃ©nÃ©rer des nouvelles applications.         
+        Nous avons simplifiÃ© le processus d'installation d'AppFuse, mais nous avons laissÃ© un peu cÃ´tÃ© le tÃ©lÃ©chargement et l'installation de la base de donnÃ©es MySQL.
+        Mais il n'y a rien de trÃ¨s compliquÃ© au final dans tout cela, pour plus d'informations vous pouvez vous lire la <ulink
         url="http://appfuse.org/display/APF/AppFuse+QuickStart">documentation du Quickstart d'AppFuse</ulink>.</para>
       </section>
 
       <section id="archetype-sect-atlassian">
         <title>Plugins Confluence et JIRA</title>
 
-        <para>Atlassian a créé quelques archétypes pour aider les personnes intéressées dans le développement de plugins Confluence ou JIRA.
+        <para>Atlassian a crÃ©Ã© quelques archÃ©types pour aider les personnes intÃ©ressÃ©es dans le dÃ©veloppement de plugins Confluence ou JIRA.
         Confluence et JIRA sont respectivement un wiki et un gestionnaire d'anomalies.
         Ces deux produits ont acquis un grand nombre d'utilisateurs en distribuant des licences gratuites pour les projets open source. 
-        Les deux artefacts <varname>jira-plugin-archetype</varname> et <varname>confluence-maven-archetype</varname> ont le même <varname>groupeId</varname> <varname>com.atlassian.maven.archetypes</varname>.
-        Lorsque vous générez un plugin Confluence, l'archétype va créer un fichier <varname>pom.xml</varname>
-        qui contient les références au dépôt Atlassian et des dépendances sur l'artefact Confluence.         
+        Les deux artefacts <varname>jira-plugin-archetype</varname> et <varname>confluence-maven-archetype</varname> ont le mÃªme <varname>groupeId</varname> <varname>com.atlassian.maven.archetypes</varname>.
+        Lorsque vous gÃ©nÃ©rez un plugin Confluence, l'archÃ©type va crÃ©er un fichier <varname>pom.xml</varname>
+        qui contient les rÃ©fÃ©rences au dÃ©pÃ´t Atlassian et des dÃ©pendances sur l'artefact Confluence.         
         Au final, le projet plugin Confluence disposera d'un exemple de macro et d'un descripteur <varname>atlassian-plugin.xml</varname>.
-        En utilisant l'archétype JIRA, vous créez un projet avec une classe <classname>MyPlugin</classname> vierge et un descripteur <varname>atlassian-plugin.xml</varname> 
-        dans le répertoire <filename>\${basedir}/src/main/resources</filename>.</para>
+        En utilisant l'archÃ©type JIRA, vous crÃ©ez un projet avec une classe <classname>MyPlugin</classname> vierge et un descripteur <varname>atlassian-plugin.xml</varname> 
+        dans le rÃ©pertoire <filename>\${basedir}/src/main/resources</filename>.</para>
 
-        <para>Pour plus d'information sur le développement de plugins Confluence en utilisant Maven 2, référez-vous à la page <ulink
+        <para>Pour plus d'information sur le dÃ©veloppement de plugins Confluence en utilisant Maven 2, rÃ©fÃ©rez-vous Ã  la page <ulink
         url="http://confluence.atlassian.com/display/DISC/Developing+Confluence+Plugins+with+Maven+2">"Developing
         Confluence Plugins with Maven 2"</ulink> disponibles sur le wiki du projet.
-        De même, pour plus d'informations sur le développement de plugins JIRA en utilisant Maven 2,
-        référez-vous à la page <ulink url="http://confluence.atlassian.com/display/DEVNET/How+to+Build+an+Atlassian+Plugin">"How
+        De mÃªme, pour plus d'informations sur le dÃ©veloppement de plugins JIRA en utilisant Maven 2,
+        rÃ©fÃ©rez-vous Ã  la page <ulink url="http://confluence.atlassian.com/display/DEVNET/How+to+Build+an+Atlassian+Plugin">"How
         to Build and Atlassian Plugin"</ulink> disponible sur le <varname>Atlassian Developer
         Network</varname>.</para>
       </section>
@@ -444,11 +444,11 @@ $ mvn jetty:run-war
       <section id="archetype-sect-wicket">
         <title>Wicket</title>
 
-        <para>Apache Wicket est un framework web orienté composant.
-        Il se focalise sur la gestion de l'état de composants serveur écris en Java et en simple <acronym>HTML</acronym>.  
-        Là où un framework comme Spring MVC ou Ruby on Rails se focalise sur la fusion d'objets d'une requête avec une série de template de page,
-        Wicket se focalise plus sur la capture des interactions et sur la structure de la page à partir d'une série de classes <acronym>POJO</acronym> Java. 
-        Vous pouvez générer un projet Wicket en utiliser le plugin Maven Archetype :</para> 
+        <para>Apache Wicket est un framework web orientÃ© composant.
+        Il se focalise sur la gestion de l'Ã©tat de composants serveur Ã©cris en Java et en simple <acronym>HTML</acronym>.  
+        LÃ  oÃ¹ un framework comme Spring MVC ou Ruby on Rails se focalise sur la fusion d'objets d'une requÃªte avec une sÃ©rie de template de page,
+        Wicket se focalise plus sur la capture des interactions et sur la structure de la page Ã  partir d'une sÃ©rie de classes <acronym>POJO</acronym> Java. 
+        Vous pouvez gÃ©nÃ©rer un projet Wicket en utiliser le plugin Maven Archetype :</para> 
 
         <screen>$ <command>mvn archetype:generate</command>
 ... (select the "wicket-archetype-quickstart" artifact from the interactive menu) ...
@@ -460,34 +460,34 @@ $ <command>mvn install</command>
 $ <command>mvn jetty:run</command>
 ... (Jetty will start listening on port 8080) ...</screen>
 
-        <para>Tout comme l'archétype AppFuse, cet archétype créé une application web directement exécutable par le plugin Maven Jetty.
-        Une fois lancé, rendez-vous à l'adresse <ulink url="http://localhost:8080/ex-wicket">http://localhost:8080/ex-wicket</ulink>,
-        pour consulter votre nouvelle application web générée.</para>
+        <para>Tout comme l'archÃ©type AppFuse, cet archÃ©type crÃ©Ã© une application web directement exÃ©cutable par le plugin Maven Jetty.
+        Une fois lancÃ©, rendez-vous Ã  l'adresse <ulink url="http://localhost:8080/ex-wicket">http://localhost:8080/ex-wicket</ulink>,
+        pour consulter votre nouvelle application web gÃ©nÃ©rÃ©e.</para>
 
         <note>
-          <para>Pensez à la puissance des archétypes Maven face à une simple approche 'copier-coller' qui a caractérisé les dernières années de développement web.
+          <para>Pensez Ã  la puissance des archÃ©types Maven face Ã  une simple approche 'copier-coller' qui a caractÃ©risÃ© les derniÃ¨res annÃ©es de dÃ©veloppement web.
           Il y a six ans, sans le plugin Maven Archetype,
-          vous auriez du parcourir un livre sur AppFuse ou un livre sur Wicket et apprendre comment bien utiliser le framework avant de pouvoir en exécuter un morceau de code dans un conteneur de servlets.            
-          Ou alors, vous auriez juste copié collé un projet existant et commencé à le personnaliser selon vos besoins.
-          Avec le plugin Maven Archetype, les développeurs de framework peuvent vous fournir une application personnalisée à vos besoins en quelques minutes. 
+          vous auriez du parcourir un livre sur AppFuse ou un livre sur Wicket et apprendre comment bien utiliser le framework avant de pouvoir en exÃ©cuter un morceau de code dans un conteneur de servlets.            
+          Ou alors, vous auriez juste copiÃ© collÃ© un projet existant et commencÃ© Ã  le personnaliser selon vos besoins.
+          Avec le plugin Maven Archetype, les dÃ©veloppeurs de framework peuvent vous fournir une application personnalisÃ©e Ã  vos besoins en quelques minutes. 
           Il s'agit d'un changement profond qui n'a pas encore atteint toutes les entreprises.
-          On peut donc s'attendre à voir se multiplier le nombre d'artefacts dans les prochaines années.</para>
+          On peut donc s'attendre Ã  voir se multiplier le nombre d'artefacts dans les prochaines annÃ©es.</para>
         </note>
       </section>
     </section>
   </section>
 
   <section id="archetype-sect-publishing">
-    <title>Publication d'archétypes</title>
+    <title>Publication d'archÃ©types</title>
 
-    <para>Une fois que vous avez généré quelques artefacts, vous voudrez probablement les partager avec le reste du monde.
-    Pour cela, vous devez créer un catalogue d'archétypes.
-    Un catalogue d'archétypes est un fichier XML que le plugin Maven Archetype peut consulter pour rechercher des archétypes dans un repository. 
-    L'exemple <xref linkend="archetypes-cocoon-catalog" /> affiche le contenu du catalogue d'archétypes du projet Apache Cocoon qui peut être trouvé à l'adresse <ulink
+    <para>Une fois que vous avez gÃ©nÃ©rÃ© quelques artefacts, vous voudrez probablement les partager avec le reste du monde.
+    Pour cela, vous devez crÃ©er un catalogue d'archÃ©types.
+    Un catalogue d'archÃ©types est un fichier XML que le plugin Maven Archetype peut consulter pour rechercher des archÃ©types dans un repository. 
+    L'exemple <xref linkend="archetypes-cocoon-catalog" /> affiche le contenu du catalogue d'archÃ©types du projet Apache Cocoon qui peut Ãªtre trouvÃ© Ã  l'adresse <ulink
     url="http://cocoon.apache.org/archetype-catalog.xml">http://cocoon.apache.org/archetype-catalog.xml</ulink>.</para>
 
     <example id="archetypes-cocoon-catalog">
-      <title>Catalogue d'archétypes du projet Apache Cocoon</title>
+      <title>Catalogue d'archÃ©types du projet Apache Cocoon</title>
 
       <para><programlisting>&lt;archetype-catalog&gt;
   &lt;archetypes&gt;
@@ -513,11 +513,11 @@ $ <command>mvn jetty:run</command>
     &lt;/archetype&gt;
   &lt;/archetypes&gt;
 
-&lt;/archetype-catalog&gt;</programlisting>Pour générer un tel catalogue, vous devez parcourir un dépôt Maven.
-      Le plugin Maven Archetype possède un goal nommé <varname>crawl</varname> qui effectue cela.
-      En exécutant le goal <varname>archetype:crawl</varname> à partir de la ligne de commande sans argument,
-      le plugin Maven Archetype parcourra votre dépôt local à la recherche d'archétypes et créé un fichier
-      <varname>archetype-catalog.xml</varname> dans le répertoire <varname>~/.m2/repository</varname>.</para>
+&lt;/archetype-catalog&gt;</programlisting>Pour gÃ©nÃ©rer un tel catalogue, vous devez parcourir un dÃ©pÃ´t Maven.
+      Le plugin Maven Archetype possÃ¨de un goal nommÃ© <varname>crawl</varname> qui effectue cela.
+      En exÃ©cutant le goal <varname>archetype:crawl</varname> Ã  partir de la ligne de commande sans argument,
+      le plugin Maven Archetype parcourra votre dÃ©pÃ´t local Ã  la recherche d'archÃ©types et crÃ©Ã© un fichier
+      <varname>archetype-catalog.xml</varname> dans le rÃ©pertoire <varname>~/.m2/repository</varname>.</para>
 
       <screen>[tobrien@MACBOOK repository]$ mvn archetype:crawl
 [INFO] Scanning for projects...
@@ -547,15 +547,15 @@ catalogFile null
 [INFO] ------------------------------------------------------------------------
 </screen>
 
-      <para>Si vous êtes intéressés par la création d'un catalogue d'archétypes, 
-      c'est généralement parce que vous êtes un projet open source ou une société qui dispose d'un ensemble d'archétypes à partager.
-      Ces archétypes sont probablement déjà disponibles dans un repository, vous avez besoin d'explorer ce dépôt et de générer un catalogue.
-      En d'autres termes, vous aurez probablement envie de scanner un répertoire sur un dépôt Maven existant 
-      et générer un plugin Archetype à la racine du repository.
-      Pour cela, vous aurez besoin de passer le catalogue et le dépôt en paramètre du goal <varname>archetype:crawl</varname>.</para>
+      <para>Si vous Ãªtes intÃ©ressÃ©s par la crÃ©ation d'un catalogue d'archÃ©types, 
+      c'est gÃ©nÃ©ralement parce que vous Ãªtes un projet open source ou une sociÃ©tÃ© qui dispose d'un ensemble d'archÃ©types Ã  partager.
+      Ces archÃ©types sont probablement dÃ©jÃ  disponibles dans un repository, vous avez besoin d'explorer ce dÃ©pÃ´t et de gÃ©nÃ©rer un catalogue.
+      En d'autres termes, vous aurez probablement envie de scanner un rÃ©pertoire sur un dÃ©pÃ´t Maven existant 
+      et gÃ©nÃ©rer un plugin Archetype Ã  la racine du repository.
+      Pour cela, vous aurez besoin de passer le catalogue et le dÃ©pÃ´t en paramÃ¨tre du goal <varname>archetype:crawl</varname>.</para>
 
-      <para>La ligne de commande permet de créer un fichier catalogue à l'emplacement <varname>/var/www/html/archetype-catalog.xml</varname>,
-      le dépôt se trouve dans le répertoire <varname>/var/www/html/maven2</varname>.</para> 
+      <para>La ligne de commande permet de crÃ©er un fichier catalogue Ã  l'emplacement <varname>/var/www/html/archetype-catalog.xml</varname>,
+      le dÃ©pÃ´t se trouve dans le rÃ©pertoire <varname>/var/www/html/maven2</varname>.</para> 
 
       <screen>$ mvn archetype:crawl -Dcatalog=/var/www/html/archetype-catalog.xml \
                       [INFO] Scanning for projects...
