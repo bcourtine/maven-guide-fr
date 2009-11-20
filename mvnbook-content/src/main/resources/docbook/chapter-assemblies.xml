@@ -595,96 +595,97 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
   <section id="assemblies-sect-overview-descriptor">
     <title>Vue d'ensmble du descripteur d'assembly</title>
 
-    <para>When the standard assembly descriptors introduced in <xref
-    linkend="assemblies-sect-basics" /> are not adequate, you will need to
-    define your own assembly descriptor. The assembly descriptor is an XML
-    document which defines the structure and contents of an assembly. The
-    assembly descriptor contains five main configuration sections, plus two
-    additional sections: one for specifying standard assembly-descriptor
-    fragments, called component descriptors, and another for specifying custom
-    file processor classes to help manage the assembly-production
-    process.</para>
+    <para>Quand les descripteurs d'assembly standard dont nous avons parlé 
+    dans la <xref linkend="assemblies-sect-basics" /> ne sont pas pertinents,
+    vous allez avoir besoin  de définir votre propre descripteur. Un 
+    descripteur d'assembly est un document XML qui définit la structure et
+    les contenus d'un assembly. Ce descripteur se compose de cinq sections
+    principales de configuration et de deux sections additionnelles : une
+    pour spécifier des fragments de descripteur d'assembly standard, que l'on
+    appelle descripteurs de composant, et une autre pour définir des classes
+    de traitement personnalisé de fichier pour aider à gérer la production
+    de l'assembly.</para>
 
     <variablelist>
       <varlistentry>
-        <term>Base Configuration</term>
+        <term>Configuration de base</term>
 
         <listitem>
-          <para>This section contains the information required by all
-          assemblies, plus some additional configuration options related to
-          the format of the entire archive, such as the base path to use for
-          all archive entries. For the assembly descriptor to be valid, you
-          must at least specify the assembly id, at least one format, and at
-          least one of the other sections shown above.</para>
+          <para>Cette section contient les informations nécessaires à tous
+          les assemblies plus quelques options de configuration pour
+          l'archive finale, comme le chemin de base à utiliser pour toutes les
+          entrées d'archive. Pour que le descripteur soit valide vous devez
+          spécifier l'identifiant de l'assembly, au moins un format et au moins
+          une des sections présentées ci-dessus.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>File Information</term>
+        <term>Information de fichier</term>
 
         <listitem>
-          <para>The configurations in this segment of the assembly descriptor
-          apply to specific files on the file system within the project’s
-          directory structure. This segment contains two main sections:
-          <sgmltag>files</sgmltag> and <sgmltag>fileSets</sgmltag>. You use
-          <sgmltag>files</sgmltag> and <sgmltag>fileSets</sgmltag> to control
-          the permissions of files in an assembly and to include or exclude
-          files from an assembly.</para>
+          <para>La configuration de ce segment du descripteur d'assembly
+          s'applique aux fichiers du système de fichier contenus dans les
+          répertoires du projet. Ce segment se compose de deux sections
+          principales : <sgmltag>files</sgmltag> et <sgmltag>fileSets</sgmltag>.
+          Vous pouvez utiliser les balises <sgmltag>files</sgmltag> et
+          <sgmltag>fileSets</sgmltag> pour controler quels fichiers seront
+          inclus ou exclus de l'assembly et avec quelles permissions.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>Dependency Information</term>
+        <term>Informations de dépendance</term>
 
         <listitem>
-          <para>Almost all projects of any size depend on other projects. When
-          creating distribution archives, project dependencies are usually
-          included in the end-product of an assembly. This section manages the
-          way dependencies are included in the resulting archive. This section
-          allows you to specify whether dependencies are unpacked, added
-          directly to the <filename>lib/</filename> directory, or mapped to
-          new file names. This section also allows you to control the
-          permissions of dependencies in the assembly, and which dependencies
-          are included in an assembly.</para>
+          <para>Presque tous les projets, quelque soit leur taille, dépendent
+          d'autres projets. Durant la création d'archives de distribution, les
+          dépendances d'un projet sont souvent ajoutées dans l'assembly du
+          produit final. Cette section gère la manière dont les dépendances sont 
+          ajoutées dans l'archive finale. Cette dans cette section que vous 
+          configurez si dépendances doivent être décompressées, ajoutées 
+          directement au répertoire <filename>lib/</filename> ou renommées.
+          Cette section vous permet aussi de controler quelles dépendances doivent
+          être ajoutées à l'assembly et avec quelles permissions.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>Repository Information</term>
+        <term>Information de dépôt</term>
 
         <listitem>
-          <para>At times, it’s useful to isolate the sum total of all
-          artifacts necessary to build a project, whether they’re dependency
-          artifacts, <acronym>POM</acronym>s of dependency artifacts, or even
-          a project’s own POM ancestry (your parent <acronym>POM</acronym>,
-          its parent, and so on). This section allows you to include one or
-          more artifact-repository directory structures inside your assembly,
-          with various configuration options. The Assembly plugin does not
-          have the ability to include plugin artifacts in these repositories
-          yet.</para>
+          <para>Parfois il est utile d'isoler l'ensemble des arefacts nécessaires
+          à la construction d'un projet, qu'il s'agisse d'artefacts de dépendance,
+          des <acronym>POM</acronym>s des artefacts de dépendance ou même d'un POM
+          ancêtre du projet (le <acronym>POM</acronym> parent, son parent, etc.).
+          Cette sectionvous permet d'inclure une ou plusieurs structures de répertoires
+          de dépôt d'artefact dans votre assembly avec différentes options de 
+          configuration. Le plugin Assembly n'est pas capable d'inclure les artefacts
+          de plugin dans ces dépôts pour l'instant.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>Module Information</term>
+        <term>Information de module</term>
 
         <listitem>
-          <para>This section of the assembly descriptor allows you to take
-          advantage of these parent-child relationships when assembling your
-          custom archive, to include source files, artifacts, and dependencies
-          from your project’s modules. This is the most complex section of the
-          assembly descriptor, because it allows you to work with modules and
-          sub-modules in two ways: as a series of <sgmltag>fileSets</sgmltag>
-          (via the <sgmltag>sources</sgmltag> section) or as a series of
-          <sgmltag>dependencySets</sgmltag> (via the
-          <sgmltag>binaries</sgmltag> section).</para>
+          <para>Cette section du descripteur d'assembly vous permet de profiter
+          des relations parent-enfant lors de la construction de votre archive
+          personnalisée pour inclure des fichiers de code source, des artefacts
+          et des dépendances des sous-modules de votre projet. C'est la section
+          la plus complexe du descripteur d'assembly car elle vous permet de
+          travailler avec des modules et des sous-modules de deux façons :
+          comme un ensemble de balises <sgmltag>fileSets</sgmltag> (via la section
+          <sgmltag>sources</sgmltag>) ou comme un ensemble de
+          <sgmltag>dependencySets</sgmltag> (via la section
+          <sgmltag>binaries</sgmltag>).</para>
         </listitem>
       </varlistentry>
     </variablelist>
   </section>
 
   <section id="assemblies-sect-descriptor">
-    <title>The Assembly Descriptor</title>
+    <title>Le descripteur d'assembly</title>
 
     <para>This section is a tour of the assembly descriptor which contains
     some guidelines for developing a custom assembly descriptor. The Assembly
