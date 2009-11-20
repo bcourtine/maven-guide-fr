@@ -2059,39 +2059,26 @@ doesn't make sense to new users.-->
     </section>
 
     <section id="assemblies-sect-managing-root">
-      <title>Managing the Assembly’s Root Directory</title>
+      <title>Gestion du répertoire racine de l'assembly</title>
 
-      <para>Now that we’ve made it through the main body of the assembly
-      descriptor, we can close the discussion of content-related descriptor
-      sections with something lighter: root-directory naming and
-      site-directory handling.</para>
+      <para>Maintenant que nous avons parcouru les principales fonctionnalités dy déscripteur d'assembly,
+      nous pouvons clôturer la discussion du contenu de ce descripteur avec quelque chose de plus léger :
+      nommer un répertoire racine et manipulation des répertoires de site.</para>
 
-      <para>Some may consider it a stylistic concern, but it’s often important
-      to have control over the name of the root directory for your assembly,
-      or whether the root directory is there at all. Fortunately, two
-      configuration options in the root of the assembly descriptor make
-      managing the archive root directory simple:
-      <sgmltag>includeBaseDirectory</sgmltag> and
-      <sgmltag>baseDirectory</sgmltag>. In cases like executable jar files,
-      you probably don’t want a root directory at all. To skip it, simply set
-      the <sgmltag>includeBaseDirectory</sgmltag> flag to
-      <varname>false</varname> (it’s <varname>true</varname> by default). This
-      will result in an archive that, when unpacked, may create more than one
-      directory in the unpack target directory. While this is considered bad
-      form for archives that are meant to be unpacked before use, it’s not so
-      bad for archives that are consumable as-is.</para>
+      <para>Il est souvent important d'avoir le contrôle sur le nom du répertoire racine de votre assembly, ou de savoir a minima où on se trouve celui-ci.
+      Deux options de configurations sont disponibles dans le descripteur d'assembly pour vous permettre de gérer le répertoire racine de vos archives :
+      <sgmltag>includeBaseDirectory</sgmltag> et <sgmltag>baseDirectory</sgmltag>.
+      Dans le cas de JAR execuratables, vous n'avez pas besoin de répertoire racine. 
+      Pour ceci, il vous suffit d'inclure la balise <sgmltag>includeBaseDirectory</sgmltag> à <varname>false</varname>
+      (sa valeur par défaut est <varname>true</varname>). 
+      Ainsi, vous obtiendrez une archive, qui une fois dépaquetée, peut contenir plusieurs répertoires. 
+      Ce type d'archives est considéré comme invalide, vous devez les dépaqueter avant de les utiliser.</para>
 
-      <para>In other cases, you may want to guarantee the name of the archive
-      root directory regardless of the <acronym>POM</acronym>’s version or
-      other information. By default, the <sgmltag>baseDirectory</sgmltag>
-      element has a value equal to
-      <varname>\${project.artifactId}-\${project.version}</varname>. However,
-      we can easily set this element to any value that consists of literal
-      strings and expressions which can be interpolated from the current
-      <acronym>POM</acronym>, such as
-      <varname>\${project.groupId}-\${project.artifactId}</varname>. This
-      could be very good news for your documentation team! (We all have those,
-      right?)</para>
+      <para>Dans les autres cas, vous voudrez garantir le nom de votre répertoire racine de votre archive quelque soientt les informations contenues dans votre <acronym>POM</acronym> (comme la version par exemple).
+      Par défaut, la balise <sgmltag>baseDirectory</sgmltag> à pour valeur <varname>\${project.artifactId}-\${project.version}</varname>.
+      Cependant, vous pouvez modifier cette valeur aisemment avec n'importe quelle expression provenant du <acronym>POM</acronym>,
+      par exemple : <varname>\${project.groupId}-\${project.artifactId}</varname>.    
+      Cette fonctionnalité peut s'avèrer très pratique pour les équipes de documentation (tout le mond en a, n'est-ce pas ?).</para>
 
       <para>Another configuration available is the
       <sgmltag>includeSiteDirectory</sgmltag> flag, whose default value is
