@@ -341,21 +341,17 @@
     </section>
 
     <section id="appendix-settings-sect-profiles">
-      <title>Profiles</title>
+      <title>Balise <varname>profiles</varname></title>
 
-      <para>The <sgmltag>profile</sgmltag> element in the
-      <filename>settings.xml</filename> is a truncated version of the
-      <filename>pom.xml</filename> profile element. It consists of the
+      <para>La balise <sgmltag>profile</sgmltag> du fichier <filename>settings.xml</filename> est comparable à une version tronquée de la balise du même nom diponible dans un <filename>pom.xml</filename>.  
+      Elle contient des balises 
       <sgmltag>activation</sgmltag>, <sgmltag>repositories</sgmltag>,
-      <sgmltag>pluginRepositories</sgmltag> and <sgmltag>properties</sgmltag>
-      elements. The profile elements only include these four elements because
-      they concern themselves with the build system as a whole (which is the
-      role of the <filename>settings.xml</filename> file), not about
-      individual project object model settings.</para>
+      <sgmltag>pluginRepositories</sgmltag> et <sgmltag>properties</sgmltag>.
+      Cette balise <varname>profile</varname> ne peut inclure que ces quatres éléments car 
+      ils se préoccupent du système de construction dans son intégralité.</para>
 
-      <para>If a profile is active from settings, its values will override any
-      equivalent profiles which matching identifiers in a
-      <acronym>POM</acronym> or <filename>profiles.xml</filename> file.</para>
+      <para>Si un profil est activé à partir des settings, ces valeurs surchargeront n'importe quels autres profils provenant qui matchent les identifiants des fichiers 
+      <acronym>POM</acronym> ou <filename>profiles.xml</filename>.</para>
     </section>
 
     <section id="appendix-settings-sect-activation">
