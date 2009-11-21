@@ -2407,7 +2407,7 @@ run before the assembly is generated.
       Le module <varname>app-web</varname>, qui est le premier module désigné dans le descripteur d'assembly, n'a pas encore été construit. 
       Par conséquent, il ne dispose d'aucun des artefacts qui lui sont associés, la construction de l'assembly ne peut réussir.</para>
 
-      <para>Une solution de contournement consiste à supprimer la balise <varname>executions</varnames> de la déclaration du plugin Assembly. 
+      <para>Une solution de contournement consiste à supprimer la balise <varname>executions</varname> de la déclaration du plugin Assembly. 
       Celle-ci lie le plugin à la phase <varname>package</varname> du cycle de vie dans le fichier <acronym>POM</acronym> parent. 
       Une fois cette suppression effectuée, exécutez ces deux tâches Maven : 
       la première, <varname>package</varname>, permet de construire un projet multimodule ; 
