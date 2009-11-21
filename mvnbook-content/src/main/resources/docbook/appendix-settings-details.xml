@@ -268,7 +268,7 @@
     </section>
 
     <section id="appendix-settings-sect-proxies">
-      <title>Balise <varname>proxies</varnaem></title>
+      <title>Balise <varname>proxies</varname></title>
 
       <para><example>
           <title>Configuration d'un proxy à partir du settings.xml</title>
