@@ -2095,67 +2095,54 @@ doesn't make sense to new users.-->
     </section>
 
     <section id="assemblies-sect-componentDescriptors">
-      <title><sgmltag>componentDescriptors</sgmltag> and
+      <title><sgmltag>componentDescriptors</sgmltag> et
       <sgmltag>containerDescriptorHandlers</sgmltag></title>
 
-      <para>To round out our exploration of the assembly descriptor, we should
-      touch briefly on two other sections:
-      <sgmltag>containerDescriptorHandlers</sgmltag> and
-      <sgmltag>componentDescriptors</sgmltag>. The
-      <sgmltag>containerDescriptorHandlers</sgmltag> section refers to custom
-      components that you use to extend the capabilities of the Assembly
-      plugin. Specifically, these custom components allow you to define and
-      handle special files which may need to be merged from the multiple
-      constituents used to create your assembly. A good example of this might
-      be a custom container-descriptor handler that merged
-      <filename>web.xml</filename> files from constituent war or war-fragment
-      files included in your assembly, in order to create the single
-      web-application descriptor required for you to use the resulting
-      assembly archive as a war file.</para>
+      <para>Terminons l'exploration du descripteur d'assembly avec la présentation de deux dernières balises :  
+      <sgmltag>containerDescriptorHandlers</sgmltag> et <sgmltag>componentDescriptors</sgmltag>. 
+      La balise <sgmltag>containerDescriptorHandlers</sgmltag> fait référence à des composants 
+      qui vous permettent d'étendre les fonctionnalités du plugin Assembly.
+      Précisément, ces composants personnalisés vous permettent de définir et de gérer certains types de fichiers
+      qui peuvent être fusionnés à partir de constituants utilisés pour créer votre assembly.
+      Par exemple, nous pouvons utiliser ce mécanisme pour construire un unique <filename>web.xml</filename> à partir de plusieurs fragments 
+      pour l'intégrer à l'assembly.</para>
 
-      <para>The <sgmltag>componentDescriptors</sgmltag> section allows you to
-      reference external assembly-descriptor fragments and include them in the
-      current descriptor. Component references can be any of the
-      following:</para>
+      <para>La balise <sgmltag>componentDescriptors</sgmltag> permet de référencer des des descripteurs d'assembly externes et de les inclure dans le decripteur courant.
+      Les références des composants peuvent-être une des caractéristiques suivantes :</para>
 
       <orderedlist>
         <listitem>
-          <para>Relative file paths:
+          <para>Chemins relatifs :
           <filename>src/main/assembly/component.xml</filename></para>
         </listitem>
 
         <listitem>
-          <para>Artifact references:
+          <para>Références d'artefact :
           <varname>groupId:artifactId:version[:type[:classifier]]</varname></para>
         </listitem>
 
         <listitem>
-          <para>Classpath resources:
+          <para>Ressources du classpath :
           <filename>/assemblies/component.xml</filename></para>
         </listitem>
 
         <listitem>
-          <para>URLs: <ulink
+          <para>URLs : <ulink
           url="http://www.sonatype.com/component.xml">http://www.sonatype.com/component.xml</ulink></para>
         </listitem>
       </orderedlist>
 
-      <para>Incidentally, when resolving a component descriptor, the Assembly
-      plugin tries those different strategies in that exact order. The first
-      one to succeed is used.</para>
+      <para>Lors de la résolution d'un descripteur de composant, le plugin Assembly essaye ces différentes stratégies dans cet ordre précis.
+      La première stratégie qui matche est utilisée.</para>
 
-      <para>Component descriptors can contain many of the same
-      content-oriented sections available in the assembly descriptor itself,
-      with the exception of <sgmltag>moduleSets</sgmltag>, which is considered
-      so specific to each project that it’s not a good candidate for reuse.
-      Also included in a component descriptor is the
-      <sgmltag>containerDescriptorHandlers</sgmltag> section, which we briefly
-      discussed above. Component descriptors cannot contain formats, assembly
-      id’s, or any configuration related to the base directory of the assembly
-      archive, all of which are also considered unique to a particular
-      assembly descriptor. While it may make sense to allow sharing of the
-      formats section, this has not been implemented as of the 2.2-beta-2
-      Assembly-plugin release.</para>
+      <para>Les descripteurs de composant peuvent contenir plusieurs fois les mêmes sections disponibles dans le descripteur d'Assembly,
+      à l'exception de la balise <sgmltag>moduleSets</sgmltag>.
+      Celle-ci est considérée comme spécifique à chaque projet.
+      La balise <sgmltag>containerDescriptorHandlers</sgmltag> est également incluse dans le descripteur de composant, nous venons de le présenter. 
+      Les descripteurs de composants ne peuvent pas contenir de formats, d'id d'assembly ou toute autre configuration en rapport avec le répertoire racine de l'archive.
+      Ils sont tous sont considérés comme propres à un descripteur d'assembly.
+      Bien qu'il semble intéressant de permettre le partage de la balise <varname>formats</varname>, 
+      cela n'a pas été fait jusqu'à ce jour (version 2.2-beta-2-release du plugin Assembly).</para>
     </section>
   </section>
 
