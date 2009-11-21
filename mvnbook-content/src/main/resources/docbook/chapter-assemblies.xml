@@ -2317,34 +2317,25 @@ doesn't make sense to new users.-->
     </section>
 
     <section id="assemblies-set-dist-assemblies">
-      <title>Distribution (Aggregating) Assemblies</title>
+      <title>Assembly de distribution (agrégation)</title>
 
-      <para>As mentioned above, the Assembly plugin provides multiple ways of
-      creating many archive formats. Distribution archives are typically very
-      good examples of this, since they often combine modules from a
-      multi-module build, along with their dependencies and possibly, other
-      files and artifacts besides these. The distribution aims to include all
-      these different sources into a single archive that the user can
-      download, unpack, and run with convenience. However, we also examined
-      some of the potential drawbacks of using the
-      <sgmltag>moduleSets</sgmltag> section of the assembly descriptor -
-      namely, that the parent-child relationships between
-      <acronym>POM</acronym>s in a build can prevent the availability of
-      module artifacts in some cases.</para>
+      <para>Comme mentionné ci-dessus, le plugin Assembly fournit plusieurs façons de créer de nombreux formats d'archives. 
+      Les Assembly de distribution sont généralement de très bons exemples, 
+      car ils combinent souvent des modules à partir d'un build multimodule, avec leurs dépendances et, éventuellement, d'autres fichiers en plus de ces artefacts. 
+      La distribution vise à inclure ces différentes sources en une seule archive que l'utilisateur pourra télécharger, décompresser, et exécuter. 
+      Toutefois, nous avons également parcouru un certain nombre d'inconvénients potentiels pouvant être provoqués par l'utilisation de la balise <sgmltag>moduleSets</sgmltag> du descripteur d'assembly - 
+      les relations parent-enfant entre les <acronym>POM</acronym>s d'un build peuvent, dans certains cas, 
+      rendre indisponlibe les artefacts des modules.</para>
+      
+      <para>Plus précisément, si les <acronym>POM</acronym>s des modules référencent comme leur parent le <acronym>POM</acronym> qui contient la configuration du plugin-assembly, 
+      le projet parent devra être construit avant les projets modules lors de l'exécution du build. 
+      Or, l'assembly du parent s'attend à trouver les artefacts de ses modules, 
+      mais ces projets attendent également la fin de la construction de leur parent.
+      On arrive donc à une situation de lock empêchant la construction du build parent. 
+      En d'autres termes, le projet enfant dépend du projet parent et le projet parent dépend à son tour du projet enfant.</para>
 
-      <para>Specifically, if module <acronym>POM</acronym>s reference as their
-      parent the <acronym>POM</acronym> that contains the Assembly-plugin
-      configuration, that parent project will be built ahead of the module
-      projects when the multi-module build executes. The parent’s assembly
-      expects to find artifacts in place for its modules, but these module
-      projects are waiting on the parent itself to finish building, a gridlock
-      situation is reached and the parent build cannot succeed (since it’s
-      unable to find artifacts for its module projects). In other words, the
-      child project depends on the parent project which in turn depends on the
-      child project.</para>
-
-      <para>As an example, consider the assembly descriptor below, designed to
-      be used from the top-level project of a multi-module hierarchy:</para>
+      <para>À titre d'exemple, considérons le descripteur d'assembly ci-dessous. 
+      Il est conçu pour être utilisé à partir du projet de plus haut niveau de la hiérarchie multimodule :</para>
 
       <programlisting language="xml">&lt;assembly&gt;
   &lt;id&gt;distribution&lt;/id&gt;
@@ -2385,10 +2376,9 @@ doesn't make sense to new users.-->
   &lt;/moduleSets&gt;
 &lt;/assembly&gt;</programlisting>
 
-      <para>Given a parent project - called app-parent - with three modules
-      called <varname>app-core</varname>, <varname>app-web</varname>, and
-      <varname>app-addons</varname>, notice what happens when we try to
-      execute this multi-module build:</para>
+      <para>Pour un projet parent donnée - appelé <varname>app-parent</varname> - contenant trois modules :
+      <varname>app-core</varname>, <varname>app-web</varname> et <varname>app-addons</varname>,
+      notez ce qui se passe lorsque nous essayons d'exécuter ce build multimodule :</para> 
 
       <screen>$ <command>mvn package</command>
 [INFO] Reactor build order: 
@@ -2412,60 +2402,43 @@ does not have an artifact with a file. Please ensure the package phase is
 run before the assembly is generated.
 ...</screen>
 
-      <para>The parent project - <varname>app-parent</varname> - builds first.
-      This is because each of the other projects lists that
-      <acronym>POM</acronym> as its parent, which causes it to be forced to
-      the front of the build order. The <varname>app-web</varname> module,
-      which is the first module to be processed in the assembly descriptor,
-      hasn’t been built yet. Therefore, it has no artifact associated with it,
-      and the assembly cannot succeed.</para>
+      <para>Le projet parent - <varname>app-parent</varname> - est le premier à être construit.
+      C'est parce que chacun des autres projets désigne ce <acronym>POM</acronym> comme leur parent, forçant ainsi la construction dans cet ordre.
+      Le module <varname>app-web</varname>, qui est le premier module désigné dans le descripteur d'assembly, n'a pas encore été construit. 
+      Par conséquent, il ne dispose d'aucun des artefacts qui lui sont associés, la construction de l'assembly ne peut réussir.</para>
 
-      <para>One workaround for this is to remove the executions section of the
-      Assembly-plugin declaration, that binds the plugin to the
-      <varname>package</varname> lifecycle phase in the parent
-      <acronym>POM</acronym>, keeping the configuration section intact. Then,
-      execute Maven with two command-line tasks: the first,
-      <varname>package</varname>, to build the multi-module project graph, and
-      a second, <varname>assembly:assembly</varname>, as a direct invocation
-      of the assembly plugin to consume the artifacts built on the previous
-      run, and create the distribution assembly. The command line for such a
-      build might look like this:</para>
-
+      <para>Une solution de contournement consiste à supprimer la balise <varname>executions</varnames> de la déclaration du plugin Assembly. 
+      Celle-ci lie le plugin à la phase <varname>package</varname> du cycle de vie dans le fichier <acronym>POM</acronym> parent. 
+      Une fois cette suppression effectuée, exécutez ces deux tâches Maven : 
+      la première, <varname>package</varname>, permet de construire un projet multimodule ; 
+      et un second, <varname>assembly:assembly</varname>, pour invoquer directement le plugin assembly 
+      et consommer les artefacts construits lors de l'exécution précédente, et créer l'assemblage de distribution. 
+      Pour effectuer cela, utilisez la ligne de commande suivante :</para>
+      
       <screen>$ <command>mvn package assembly:assembly</command></screen>
 
-      <para>However, this approach has several drawbacks. First, it makes the
-      distribution-assembly process more of a manual task that can increase
-      the complexity and potential for error in the overall build process
-      significantly. Additionally, it could mean that attached artifacts -
-      which are associated in memory as the project build executes - are not
-      reachable on the second pass without resorting to file-system
-      references.</para>
+      <para>Cependant, cette approche présente plusieurs inconvénients. 
+      Premièrement, elle rend le processus d'assemblage plus complexe en lui rajoutant une tâche manuelle qui peut accroître les risques d'erreur. 
+      En outre, cela pourrait signifier que les artefacts joints - 
+      qui sont associés en mémoire lors de l'exécution de la construction du projet - 
+      ne seront pas accessibles au second passage sans recourir à des fichiers système de référence.</para>
 
-      <para>Instead of using a <sgmltag>moduleSet</sgmltag> to collect the
-      artifacts from your multi-module build, it often makes more sense to
-      employ a low-tech approach: using a dedicated distribution project
-      module and inter-project dependencies. In this approach, you create a
-      new module in your build whose sole purpose is to assemble the
-      distribution. This module <acronym>POM</acronym> contains dependency
-      references to all the other modules in the project hierarchy, and it
-      configures the Assembly plugin to be bound the
-      <varname>package</varname> phase of its build lifecycle. The assembly
-      descriptor itself uses the <sgmltag>dependencySets</sgmltag> section
-      instead of the <sgmltag>moduleSets</sgmltag> section to collect module
-      artifacts and determine where to include them in the resulting assembly
-      archive. This approach escapes the pitfalls associated with the
-      parent-child relationship discussed above, and has the additional
-      advantage of using a simpler configuration section within the assembly
-      descriptor itself to do the job.</para>
-
-      <para>To do this, we can create a new project structure that’s very
-      similar to the one used for the module-set approach above, with the
-      addition of a new distribution project, we might end up with five
-      <acronym>POM</acronym>s in total: <varname>app-parent</varname>,
-      <varname>app-core</varname>, <varname>app-web</varname>,
-      <varname>app-addons</varname>, and <varname>app-distribution</varname>.
-      The new <varname>app-distribution</varname> <acronym>POM</acronym> looks
-      similar to the following:</para>
+      <para>Au lieu d'utiliser la balise <sgmltag>moduleSet</sgmltag> pour lister les artefacts du projet multimodule,
+      il est souvent préférable d'utiliser une approche moins technique :
+      à l'aide d'un module dédié à la distribution et aux dépendances inter-projet.
+      Avec cette approche, vous créez un nouveau module dans votre build dont le seul but est d'effectuer l'assemblage.
+      Le <acronym>POM</acronym> de ce module contient des références aux dépendances des autres modules, 
+      et il configure le plugin Assembly pour qu'il soit rattaché à la phase <varname>package</varname> de son cycle de vie. 
+      Le descripteur d'assembly lui-même utilise une section <sgmltag>dependencySets</sgmltag> à la place d'un <sgmltag>moduleSets</sgmltag> 
+      pour lister les artefacts et déterminer où les inclure dans l'archive résultante.  
+      Cette approche évite les inconvénients liés à la relation parent-enfant mentionnés plus haut, 
+      et offre l'avantage d'utiliser une section de configuration plus simple dans le descripteur de l'assembly.</para>
+      
+      <para>Pour cela, nous pouvons créer une nouvelle structure de projet qui est ressemble étroitement à celle utilisée par l'approche module-set présentée précédemment. 
+      En plus de ce nouveau projet de distribution, vous devriez avoir cinq <acronym>POM</acronym>s au total : 
+      <varname>app-parent</varname>, <varname>app-core</varname>, <varname>app-web</varname>,
+      <varname>app-addons</varname> et <varname>app-distribution</varname>.
+      Le nouveau <acronym>POM</acronym> <varname>app-distribution</varname> devrait ressembler à cela :</para>
 
       <programlisting language="xml">&lt;project&gt;
   &lt;parent&gt;
@@ -2500,17 +2473,14 @@ run before the assembly is generated.
 &lt;/project&gt;
 </programlisting>
 
-      <para>Notice that we have to include dependencies for the other modules
-      in the project structure, since we don’t have a modules section to rely
-      on in this <acronym>POM</acronym>. Also, notice that we’re not using an
-      explicit dependency on <varname>app-core</varname>. Since it’s also a
-      dependency of <varname>app-web</varname>, we don’t need to process it
-      (or, avoid processing it) twice.</para>
+      <para>Notez que nous avons à inclure les dépendances pour les autres modules dans la structure du projet, 
+      puisque nous n'avons pas de section <varname>modules</varname> dans ce POM. 
+      Aussi, notez que nous n'utilisons pas de dépendance explicite sur <varname>app-core</varname>. 
+      Puisqu'il s'agit également d'une dépendance du <varname>app-web</varname>, 
+      nous n'avons pas besoin de le traiter (ou, d'éviter de le traiter) à deux reprises.</para>
 
-      <para>Next, when we move the <filename>distro.xml</filename> assembly
-      descriptor into the <varname>app-distribution</varname> project, we must
-      also change it to use a <sgmltag>dependencySets</sgmltag> section, like
-      this:</para>
+      <para>Ensuite, lorsque vous déplacerez le descripteur d'assembly <filename>distro.xml</filename> dans le projet <varname>app-distribution</varname>,
+      nous devons également modifier l'utilisation de la section <sgmltag>dependencySets</sgmltag> :</para>  
 
       <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -2535,8 +2505,7 @@ run before the assembly is generated.
 &lt;/assembly&gt;
 </programlisting>
 
-      <para>This time, if we run the build from the top-level project
-      directory, we get better news:</para>
+      <para>Cette fois, si nous lançons la construction à partir du répertoire de plus haut niveau du projet, nous obtiendrons de meilleurs résultats :</para>
 
       <screen>$ <command>mvn package</command>
 (...)
@@ -2557,10 +2526,9 @@ run before the assembly is generated.
 [INFO] Final Memory: 16M/29M
 [INFO] ---------------------------------------------------------------</screen>
 
-      <para>As you can see, the dependency-set approach is much more stable
-      and - at least until Maven’s internal project-sorting logic catches up
-      with the Assembly plugin’s capabilities, - involves less opportunity to
-      get things wrong when running a build.</para>
+      <para>Comme vous pouvez le voir, l'approche par dependency-set est beaucoup plus stable et - 
+      aussi longtemps que la logique interne de tri dans Maven ne prenne pas compte des fonctionnalités du plugin Assembly - 
+      offre moins de possibilités de se tromper lors de l'exécution d'un build.</para>
     </section>
   </section>
 
