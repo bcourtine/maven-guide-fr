@@ -2311,7 +2311,7 @@ doesn't make sense to new users.-->
 (...)</programlisting>
 
       <para>Si vous avez ajouté le reste de la configuration du plugin - comme décrit dans l'exemple précédent - 
-      dans la section <varname>pluginManagement<varname> du <varname>POM<varname> parent de votre projet, 
+      dans la section <varname>pluginManagement</varname> du <varname>POM</varname> parent de votre projet, 
       chaque projet d'héritant de celui-ci peut ajouter une entrée minimaliste comme celle-ci et profiter 
       du format d'assemblage avancé dans leurs propres builds.</para>
     </section>
