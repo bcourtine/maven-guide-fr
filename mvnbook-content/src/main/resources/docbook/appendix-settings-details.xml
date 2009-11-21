@@ -268,10 +268,10 @@
     </section>
 
     <section id="appendix-settings-sect-proxies">
-      <title>Proxies</title>
+      <title>Balise <varname>proxies</varnaem></title>
 
       <para><example>
-          <title>Proxy configuration in settings.xml</title>
+          <title>Configuration d'un proxy à partir du settings.xml</title>
 
           <programlisting language="xml">&lt;settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -300,8 +300,7 @@
             <term>id</term>
 
             <listitem>
-              <para>The unique identifier for this proxy. This is used to
-              differentiate between proxy elements.</para>
+              <para>Identifiant unique du proxy. Celui-ci est utilisé pour différencier les éléments <varname>proxy</varname>.</para>
             </listitem>
           </varlistentry>
 
@@ -309,9 +308,8 @@
             <term>active</term>
 
             <listitem>
-              <para><varname>true</varname> if this proxy is active. This is
-              useful for declaring a set of proxies, but only one may be
-              active at a time.</para>
+              <para><varname>true</varname> si ce proxy est activé. 
+              Vous pouvez ainsi configurer plusieurs proxy, mais d'en activer un seul à la fois à la demande.</para>
             </listitem>
           </varlistentry>
 
@@ -319,8 +317,7 @@
             <term>protocol, host, port</term>
 
             <listitem>
-              <para>The <varname>protocol://host:port</varname> of the proxy,
-              separated into discrete elements.</para>
+              <para>Les <varname>protocol://host:port</varname> d'un proxy.</para>
             </listitem>
           </varlistentry>
 
@@ -328,8 +325,7 @@
             <term>username, password</term>
 
             <listitem>
-              <para>These elements appear as a pair denoting the login and
-              password required to authenticate to this proxy server.</para>
+              <para>Ces éléments apparaissent sous la forme d'une paire indiquant l'identifiant et le mot de passe requis pour vous authentifier sur ce serveur proxy.</para>
             </listitem>
           </varlistentry>
 
@@ -337,10 +333,8 @@
             <term>nonProxyHosts</term>
 
             <listitem>
-              <para>This is a list of hosts which should not be proxied. The
-              delimiter of the list is the expected type of the proxy server;
-              the example above is pipe delimited - comma delimited is also
-              common.</para>
+              <para>Liste des Hosts pour lesquels il ne faut pas utiliser de proxy.
+              L'exemple ci-dessus est délimité par des pipes ('|'), il est également possible des les délimiter par des virgules.</para>
             </listitem>
           </varlistentry>
         </variablelist></para>
