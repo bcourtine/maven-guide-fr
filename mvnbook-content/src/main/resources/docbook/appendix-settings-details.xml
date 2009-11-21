@@ -215,7 +215,7 @@
       <title>Balise <varname>mirrors</varname></title>
 
       <para><example>
-          <title>Mirror configuration in settings.xml</title>
+          <title>Configuration des mirroirs dans le fichier settings.xml</title>
 
           <programlisting language="xml">&lt;settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -240,8 +240,7 @@
             <term>id, name</term>
 
             <listitem>
-              <para>The unique identifier of this mirror. The id is used to
-              differentiate between mirror elements.</para>
+              <para>Identifiant unique d'un mirroir. L'id est utilisé pour différencier plusieurs miroirs.</para>
             </listitem>
           </varlistentry>
         </variablelist><variablelist>
@@ -249,10 +248,8 @@
             <term>url</term>
 
             <listitem>
-              <para>The base <acronym>UR</acronym>L of this mirror. The build
-              system will use prepend this <acronym>URL</acronym> to connect
-              to a repository rather than the default server
-              <acronym>URL</acronym>.</para>
+              <para>L'<acronym>URL</acronym> de base de ce miroir. Le système de build utilisera cette <acronym>URL</acronym> 
+              pour se connecter à un dépôt plutôt que d'utiliser l'<acronym>URL</acronym> du serveur par défaut.</para>
             </listitem>
           </varlistentry>
         </variablelist><variablelist>
@@ -260,12 +257,11 @@
             <term>mirrorOf</term>
 
             <listitem>
-              <para>The id of the server that this is a mirror of. For
-              example, to point to a mirror of the Maven central server
+              <para>L'id du serveur dont ce miroir fait référence. 
+              Par exemple, utilisez cette balise pour pointer vers un miroir du serveur central Maven
               (<ulink
-              url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2</ulink>),
-              set this element to central. This must not match the mirror
-              id.</para>
+              url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2</ulink>).
+              Il ne doit pas s'agir de 'id du miroir.</para>
             </listitem>
           </varlistentry>
         </variablelist></para>
