@@ -2,36 +2,33 @@
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <appendix id="appendix-settings">
-  <title>Appendix: Settings Details</title>
+  <title>Annexe : détails des settings</title>
 
   <section id="appendix-settings-sect-quick-overview">
-    <title>Quick Overview</title>
+    <title>Aperçu rapide</title>
 
-    <para>The settings element in the <filename>settings.xml</filename> file
-    contains elements used to define values which configure Maven execution.
-    Settings in this file are settings which apply to many projects and which
-    should not be bundled to any specific project, or distributed to an
-    audience. These include values such as the local repository location,
-    alternate remote repository servers, and authentication information. There
-    are two locations where a <filename>settings.xml</filename> file may
-    live:</para>
+    <para>La balise <varname>settings</varname> du fichier <filename>settings.xml</filename> contient les balises utilisées pour définir les valeurs qui permettent de configurer l'exécution de Maven. 
+    Les paramètres de ce fichier doivent s'appliquer à plusieurs nombreux projets, 
+    ils ne doivent donc pas s'appliquer à une configuration spécifique. 
+    Ils permettent par exemple de configurer les dépôts locaux, les serveurs de repository alternatifs, les informations d'authentification.
+    Ce fichier <filename>settings.xml</filename> peut se trouver à deux emplacements :</para>
 
     <itemizedlist>
       <listitem>
-        <para>Maven Installation Directory:
+        <para>Répertoire d'installation de Maven :
         <filename>$M2_HOME/conf/settings.xml</filename></para>
       </listitem>
 
       <listitem>
-        <para>User-specific Settings File:
+        <para>Fichier spécifique à un utilisateur :
         <filename>~/.m2/settings.xml</filename></para>
       </listitem>
     </itemizedlist>
 
-    <para>Here is an overview of the top elements under settings:</para>
+    <para>Voici un aperçu des balises de haut niveau à insérer dans la balise <varname>settings</varname> :</para>
 
     <para><example>
-        <title>Overview of top-level elements in settings.xml</title>
+        <title>Aperçu des balises haut-niveau du settings.xml</title>
 
         <programlisting language="xml">&lt;settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
