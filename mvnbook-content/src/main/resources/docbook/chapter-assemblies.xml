@@ -2533,21 +2533,18 @@ run before the assembly is generated.
   </section>
 
   <section id="assemblies-sect-summary">
-    <title>Summary</title>
+    <title>Récapitulatif</title>
 
-    <para>As we’ve seen in this chapter, the Maven Assembly plugin offers
-    quite a bit of potential for creating custom archive formats. While the
-    details of these assembly archives can be complex, they certainly don’t
-    have to be in all cases - as we saw with built-in assembly descriptors.
-    Even if your aim is to include your project’s dependencies and selected
-    project files in some unique, archived directory structure, writing a
-    custom assembly descriptor doesn’t have to be an arduous task.</para>
+    <para>Comme nous l'avons vu dans ce chapitre, le plugin Maven Assembly permet de la création de formats d'archives personnalisées. 
+    Bien que les détails de ces archives peuvent être complexes,ils ne le sont pas nécessairement dans tous les cas - 
+    comme nous l'avons vu avec les descripteurs d'assembly built-in. 
+    Même si votre but est d'inclure les dépendances de votre projet et certains fichiers sélectionnés dans une structure de répertoires uniques et archivés, 
+    l'écriture d'un descripteur d'assembly ne doit pas être trop complexe.</para>
 
-    <para>Assemblies are useful for a wide array of applications, but are most
-    commonly used as application distributions of various sorts. And, while
-    there are many different ways to use the Assembly plugin, using
-    standardized assembly-descriptor artifacts and avoiding
-    <sgmltag>moduleSets</sgmltag> when creating distributions containing
-    binaries are two sure ways to avoid problems.</para>
+    <para>Les assembly sont utiles pour un large éventail de cas d'utilisation. 
+    Elles sont le plus couramment utilisées comme application de distribution. 
+    Même s'il existe de nombreuses manières différentes d'utiliser le plugin Assembly,
+    les deux façons les plus conseillées pour vous éviter des problèmes est d'utiliser
+    des descripteurs d'assemblage standardisés et d'éviter l'utilisation des <varname>moduleSets</varname> lors de la création des distributions.</para>
   </section>
 </chapter>
