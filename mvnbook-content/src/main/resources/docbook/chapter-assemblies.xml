@@ -2149,13 +2149,10 @@ doesn't make sense to new users.-->
   <section id="assemblies-sect-best-practices">
     <title>Best Practices</title>
 
-    <para>The Assembly plugin provides enough flexibility to solve many
-    problems in a number of different ways. If you have a unique requirement
-    for your project, there's a good chance that you can use the methods
-    documented in this chapter to achieve almost any assembly structure. This
-    section of the chapter details some common best practices which, if
-    adhered to, will make your experiences with the assembly plugin more
-    productive and less painful.</para>
+    <para>Le plugin Assemly est assez flexible pour permettre de résoudre la plupart des problèmes par différents moyens.
+    Si vous avez un besoin unique pour votre projet, 
+    il ya de bonnes chances que vous puissiez utiliser directement l'une des méthodes documentées dans ce chapitre pour obtenir votre structure d'assembly désirée.
+    Cette section décrit quelques-unes des bonnes pratiques qui, si elles sont respectées, rendront l'utilisation du plugin Assembly plus productive et moins pénible.</para>  
 
     <section id="assemblies-sect-standard-reusable">
       <title>Standard, Reusable Assembly Descriptors</title>
