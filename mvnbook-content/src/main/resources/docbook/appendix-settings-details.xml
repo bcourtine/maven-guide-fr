@@ -131,17 +131,14 @@
     </section>
 
     <section id="appendix-settings-sect-servers">
-      <title>Servers</title>
+      <title>Balise <varname>servers</varname></title>
 
-      <para>The <sgmltag>distributionManagement</sgmltag> element of the
-      <acronym>POM</acronym> defines the repositories for deployment. However,
-      certain settings such as security credentials should not be distributed
-      along with the <filename>pom.xml</filename>. This type of information
-      should exist on the build server in the
-      <filename>settings.xml</filename>.</para>
-
+      <para>La balise <sgmltag>distributionManagement</sgmltag> du <acronym>POM</acronym> définit les repository à utiliser pour le déploiement. 
+      Cependant, certains paramètres tels que les certificats de sécurité ne doivent pas être distribué avec le <filename>pom.xml</filename>. 
+      Ce type d'information doit se trouver dans le fichier <filename>settings.xml</filename> du serveur de construction.</para> 
+      
       <para><example>
-          <title>Server configuration in settings.xml</title>
+          <title>Configuration serveur du settings.xml</title>
 
           <programlisting language="xml">&lt;settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -165,17 +162,15 @@
 </programlisting>
         </example></para>
 
-      <para>The elements under server are:</para>
+      <para>Les balises utilisables dans <varname>servers</varname>:</para>
 
       <variablelist>
         <varlistentry>
           <term>id</term>
 
           <listitem>
-            <para>This is the <sgmltag>id</sgmltag> of the server (not of the
-            user to login as) that matches the
-            <sgmltag>distributionManagement</sgmltag> repository element's
-            <sgmltag>id</sgmltag>.</para>
+            <para>Il s'agit de l'<sgmltag>id</sgmltag> du serveur (ce n'est pas le login utilisateur) 
+            il correspond à l'<sgmltag>id</sgmltag> de la balise <sgmltag>distributionManagement</sgmltag> du répository.</para>  
           </listitem>
         </varlistentry>
       </variablelist>
@@ -185,8 +180,7 @@
           <term>username, password</term>
 
           <listitem>
-            <para>These elements appear as a pair denoting the login and
-            password required to authenticate to this server.</para>
+            <para>Ces éléments apparaissent sous la forme d'une paire indiquant l'identifiant et le mot de passe requis pour vous authentifier sur ce serveur.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -196,12 +190,11 @@
           <term>privateKey, passphrase</term>
 
           <listitem>
-            <para>Like the previous two elements, this pair specifies a path
-            to a private key (default is
-            <filename>\${user.home}/.ssh/id_dsa</filename>) and a passphrase,
-            if required. The passphrase and password elements may be
-            externalized in the future, but for now they must be set
-            plain-text in the <filename>settings.xml</filename> file.</para>
+            <para>Comme pour les deux éléments précédents, cette paire indique le chemin vers une clé privée 
+            (qui se trouve par défaut dans <filename>\${user.home}/.ssh/id_dsa</filename>) et une passphrase, si nécessaire.
+            Les balises passphrase et password pourront être externalisées dans le futur,
+            pour le moment leur valeur doit être rentré en plain-text dans le fichier 
+            <filename>settings.xml</filename>.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -211,17 +204,15 @@
           <term>filePermissions, directoryPermissions</term>
 
           <listitem>
-            <para>When a repository file or directory is created on
-            deployment, these are the permissions to use. The legal values of
-            each is a three digit number corresponding to *nix file
-            permissions, i.e. 664, or 775.</para>
+            <para>Lorsqu'un fichier ou un répertoire est créé lors du déploiement dans un dépôt, ces permissions sont utilisées.
+            Les valeurs autorisées des nombres à trois chiffres correspondant aux permissions fichiers *nix, comme 664 ou 775.</para>  
           </listitem>
         </varlistentry>
       </variablelist>
     </section>
 
     <section id="appendix-settings-sect-mirrors">
-      <title>Mirrors</title>
+      <title>Balise <varname>mirrors</varname></title>
 
       <para><example>
           <title>Mirror configuration in settings.xml</title>
