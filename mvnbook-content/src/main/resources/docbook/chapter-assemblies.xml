@@ -2080,26 +2080,18 @@ doesn't make sense to new users.-->
       par exemple : <varname>\${project.groupId}-\${project.artifactId}</varname>.    
       Cette fonctionnalité peut s'avèrer très pratique pour les équipes de documentation (tout le mond en a, n'est-ce pas ?).</para>
 
-      <para>Another configuration available is the
-      <sgmltag>includeSiteDirectory</sgmltag> flag, whose default value is
-      <varname>false</varname>. If your project build has also constructed a
-      website document root using the site lifecycle or the Site plugin goals,
-      that output can be included by setting this flag to
-      <varname>true</varname>. However, this feature is a bit limited, since
-      it only includes the <sgmltag>outputDirectory</sgmltag> from the
-      reporting section of the current <acronym>POM</acronym> (by default,
-      <filename>target/site</filename>) and doesn’t take into consideration
-      any site directories that may be available in module projects. Use it if
-      you want, but a good <sgmltag>fileSet</sgmltag> specification or
-      <sgmltag>moduleSet</sgmltag> specification with sources configured could
-      serve equally well, if not better. This is yet another example of legacy
-      configuration currently supported by the Assembly plugin for the purpose
-      of backward compatibility. Your mileage may vary. If you really want to
-      include a site that is aggregated from many modules, you'll want to
-      consider using a <sgmltag>fileSet</sgmltag> or
-      <sgmltag>moduleSet</sgmltag> instead of setting
-      <sgmltag>includeSiteDirectory</sgmltag> to
-      <varname>true</varname>.</para>
+      <para>Continuons avec la présentation d'un autre flag de configuration : <sgmltag>includeSiteDirectory</sgmltag>.
+      Par défaut, celui-ci a pour valeur <varname>false</varname>.  
+      Si le build de votre projet construit répertoire racine pour un site en utilisant le cycle de vie ou les goals du plugin Maven Site,  
+      la sortie de celui-ci peut être inclus à l'assembly en positionnant ce flag à <varname>false</varname>.       
+      Cependant, celle fonctionnalité est un peu limitée,
+      comme on se contente d'inclure le répertoire <sgmltag>outputDirectory</sgmltag> dans la section reporting du <acronym>POM</acronym> courant (par défaut, <filename>target/site</filename>)
+      sans prendre en considération d'éventuels autres répertoires qui pourraient être disponibles dans d'autres modules.
+      Utilisez cette option si vous le désirez, mais vous pouvez obtenir le même résultat en utilisant un <sgmltag>fileSet</sgmltag> ou un <sgmltag>moduleSet</sgmltag>.
+      Il s'agit encore d'un autre exemple de configuration legacy supportée par le plugin Assembly pour assurer la rétrocompatibilité.       
+      Vos besoins peuvent évoluer, si vous désirer inclure un site provenant de plusieurs modules, privilégiez l'utilisation des 
+      <sgmltag>fileSet</sgmltag> ou des <sgmltag>moduleSet</sgmltag> à la place d'activer le flag  <sgmltag>includeSiteDirectory</sgmltag>.</para>
+
     </section>
 
     <section id="assemblies-sect-componentDescriptors">
