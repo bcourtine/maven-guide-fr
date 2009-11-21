@@ -28,7 +28,7 @@
     <para>Voici un aperçu des balises de haut niveau à insérer dans la balise <varname>settings</varname> :</para>
 
     <para><example>
-        <title>Aperçu des balises haut-niveau du settings.xml</title>
+        <title>Aperçu des balises haut niveau du settings.xml</title>
 
         <programlisting language="xml">&lt;settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -50,17 +50,16 @@
   </section>
 
   <section id="appendix-settings-sect-details">
-    <title>Settings Details</title>
+    <title>Détails des settings</title>
 
     <section id="appendix-settings-sect-simpleval">
-      <title>Simple Values</title>
+      <title>Valeurs simples</title>
 
-      <para>Half of the top-level settings elements are simple values,
-      representing a range of values which configure the core behavior of
-      Maven:</para>
+      <para>La moitié des éléments de haut niveau des paramètres sont des valeurs simples, 
+      ce qui représente une plage de valeurs qui permettent de configurer le comportement de base de Maven :</para>
 
       <para><example>
-          <title>Simple top-level elements in settings.xml</title>
+          <title>Balises simples de haut niveau du  settings.xml</title>
 
           <programlisting language="xml">&lt;settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -78,15 +77,14 @@
 </programlisting>
         </example></para>
 
-      <para>The simple top-level elements are:</para>
+      <para>Les balises simples de haut niveau sont :</para>
 
       <variablelist>
         <varlistentry>
           <term>localRepository</term>
 
           <listitem>
-            <para>This value is the path of this build system's local
-            repository. The default value is
+            <para>Cette valeur correspond au chemin du dépôt local. Sa valeur par défaut est 
             <filename>\${user.dir}/.m2/repository</filename>.</para>
           </listitem>
         </varlistentry>
@@ -95,9 +93,8 @@
           <term>interactiveMode</term>
 
           <listitem>
-            <para><varname>true</varname> if Maven should attempt to interact
-            with the user for input, <varname>false</varname> if not. Defaults
-            to <varname>true</varname>.</para>
+            <para><varname>true</varname> si Maven doit essayer d'intéragir avec les entrées de l'utilisateur, 
+            <varname>false</varname> sinon. Sa valeur par défaut est <varname>true</varname>.</para>
           </listitem>
         </varlistentry>
 
@@ -105,9 +102,8 @@
           <term>usePluginRegistry</term>
 
           <listitem>
-            <para><varname>true</varname> if Maven should use the
-            <filename>\${user.dir}/.m2/plugin-registry.xml</filename> file to
-            manage plugin versions, defaults to
+            <para><varname>true</varname> si Maven doit utiliser le fichier 
+            <filename>\${user.dir}/.m2/plugin-registry.xml</filename> pour gérer les versions des plugins, sa valeur par défaut est 
             <varname>false</varname>.</para>
           </listitem>
         </varlistentry>
@@ -116,11 +112,8 @@
           <term>offline</term>
 
           <listitem>
-            <para><varname>true</varname> if this build system should operate
-            in offline mode, defaults to <varname>false</varname>. This
-            element is useful for build servers which cannot connect to a
-            remote repository, either because of network setup or security
-            reasons.</para>
+            <para><varname>true</varname> si le système de build doit fonctionner en mode hors connexion, sa valeur par défaut est <varname>false</varname>. 
+            Cette balise est très utilile pour les serveurs de build qui ne peuvent pas se connecter à des dépôts distants, soit par ce qu'il ne dispose pas de réseau, soit pour des raisons de sécurité.</para>
           </listitem>
         </varlistentry>
 
@@ -128,12 +121,10 @@
           <term>pluginGroups</term>
 
           <listitem>
-            <para>This element contains a list of
-            <sgmltag>pluginGroup</sgmltag> elements, each contains a
-            <sgmltag>groupId</sgmltag>. The list is searched when a plugin is
-            used and the <sgmltag>groupId</sgmltag> is not provided in the
-            command line. This list contains
-            <varname>org.apache.maven.plugins</varname> by default.</para>
+            <para>Cette balise contient un liste de balises <sgmltag>pluginGroup</sgmltag>, 
+            chaque balise contenant un <sgmltag>groupId</sgmltag>. 
+            La liste est utilisée lorsqu'un plugin est utilisé que le son <sgmltag>groupId</sgmltag> n'est pas fournit par la ligne de commande. 
+            Cette liste contient <varname>org.apache.maven.plugins</varname> par défaut.</para>
           </listitem>
         </varlistentry>
       </variablelist>
