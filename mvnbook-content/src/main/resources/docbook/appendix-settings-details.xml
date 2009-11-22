@@ -812,7 +812,7 @@
       <screen>$ <command>mvn -ep qualityFIRST</command>
 {uMrbEOEf/VQHnc0W2X49Qab75j9LSTwiM3mg2LCrOzI=}</screen>
 
-      <para>À ce stade, copiez le mot de passe encrypté affiché sur la sortie standard et collez-le dans vos Settings Maven.<para>
+      <para>À ce stade, copiez le mot de passe encrypté affiché sur la sortie standard et collez-le dans vos Settings Maven.</para>
 
       <example>
         <title>Stocker un mot de passe encrypté dans les Settings Maven (~/.m2/settings.xml)</title>
@@ -857,7 +857,6 @@
       <filename>settings-security.xml</filename> à emplacement personnalisé
       <filename>/Volumes/usb-key/settings-security.xml</filename> 
       qui ne devrait être disponible que si le développeur est assis devant sa station de travail.</para>
-      </para>
     </section>
   </section>
 </appendix>
