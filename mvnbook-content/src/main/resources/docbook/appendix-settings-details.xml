@@ -451,28 +451,24 @@
     </section>
 
     <section id="appendix-settings-sect-properties">
-      <title>Properties</title>
+      <title>Balise <varname>properties</varname></title>
 
-      <para>Maven properties are value placeholder, like properties in Ant.
-      Their values are accessible anywhere within a <acronym>POM</acronym> by
-      using the notation <varname>\${X}</varname>, where X is the property.
-      They come in five different styles, all accessible from the settings.xml
-      file:</para>
+      <para>Les propriétés Maven permettent de définir des valeurs, comme celles des propriétés Ant. 
+      Leurs valeurs sont accessibles à partir de n'importe où dans un POM en utilisant la notation <varname>\${X}</varname>, où X est la propriété. 
+      Ils existe cinq styles différents de propriétés, qui sont tous disponibles à partir du fichier <varname>settings.xml</varname> :</para>
 
       <variablelist>
         <varlistentry>
           <term><literal>env.</literal><replaceable>X</replaceable></term>
 
           <listitem>
-            <para>Prefixing a variable with <literal>env.</literal> will
+            <para>Préfixer une variable avec <literal>env.</literal> retournera
             <indexterm>
                 <primary>env.* properties</primary>
               </indexterm><indexterm>
-                <primary>environment variables, referencing</primary>
-              </indexterm>return the shellâ€™s environment variable. For
-            example, <varname>\${env.PATH}</varname> contains the
-            <varname>$path</varname> environment variable.
-            (<varname>%PATH%</varname> in Windows.)</para>
+                <primary>variables d'environment</primary>
+              </indexterm>une variable d'environnement. Par exemple, <varname>\${env.PATH}</varname> contient la valeur de la variable d'environnement <varname>$path</varname>.
+            (<varname>%PATH%</varname> sous Windows.)</para>
           </listitem>
         </varlistentry>
 
@@ -480,18 +476,18 @@
           <term><literal>project.</literal><replaceable>x</replaceable></term>
 
           <listitem>
-            <para>A dot-notated (.) path in the <acronym>POM</acronym> will
+            <para>Ce genre de propriété contiendra
             <indexterm>
                 <primary>project.* properties</primary>
               </indexterm><indexterm>
                 <primary>POM (Project Object Model)</primary>
 
-                <secondary>referencing properties in</secondary>
+                <secondary>référencement des propriétés</secondary>
               </indexterm><indexterm>
                 <primary>pom.xml file</primary>
 
-                <secondary>referencing properties in</secondary>
-              </indexterm>contain the corresponding elements value.</para>
+                <secondary>référencement des propriétés</secondary>
+              </indexterm>la valeur de l'élément correspondant du <acronym>POM</acronym>.</para>
           </listitem>
         </varlistentry>
 
@@ -499,31 +495,29 @@
           <term><literal>settings.</literal><replaceable>x</replaceable></term>
 
           <listitem>
-            <para>A dot-notated (.) path in the<indexterm>
+            <para>Permet de référencer <indexterm>
                 <primary>settings.* properties</primary>
               </indexterm><indexterm>
-                <primary>settings.xml file</primary>
+                <primary>fichier settings.xml</primary>
 
-                <secondary>properties in</secondary>
+                <secondary>propriétés dans</secondary>
 
                 <tertiary>referencing</tertiary>
-              </indexterm> <filename>settings.xml</filename> will contain the
-            corresponding elements value.</para>
+              </indexterm>un élément du fichier <filename>settings.xml</filename>.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Java system properties</term>
+          <term>Propriétés systèmes Java</term>
 
           <listitem>
-            <para>All properties accessible via<indexterm>
-                <primary>system properties, referencing</primary>
+            <para>Toutes les propriétés disponibles <indexterm>
+                <primary>propriété systèmes, références</primary>
               </indexterm><indexterm>
-                <primary>Java system properties, referencing</primary>
+                <primary>Propriétés systèmes Java, références</primary>
               </indexterm>
-            <methodname>java.lang.System.getProperties()</methodname> are
-            available as <acronym>POM</acronym> properties, such as
-            <varname>\${java.home}</varname>.</para>
+            via la méthode <methodname>java.lang.System.getProperties()</methodname> sont accessibles comme propriété de <acronym>POM</acronym>
+            (Exemple : <varname>\${java.home}</varname>).</para>
           </listitem>
         </varlistentry>
 
@@ -531,15 +525,14 @@
           <term><replaceable>x</replaceable></term>
 
           <listitem>
-            <para>Set within a <literal>properties</literal> element or an
-            external file, the value may be used as <varname
+            <para>Affecté avec la balise <literal>properties</literal> ou un par l'intermédiaire d'un fichier externe, cet valeur peut être utilisée comme <varname
             role="keep-together">\${someVar}</varname>.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
       <para><example>
-          <title>Setting the \${user.install} property in settings.xml</title>
+          <title>Affecter la propriété \${user.install} à partir du fichier settings.xml</title>
 
           <programlisting language="xml">&lt;settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -560,8 +553,8 @@
 </programlisting>
         </example></para>
 
-      <para>The property <varname>\${user.install}</varname> is accessible
-      from a <acronym>POM</acronym> if this profile is active.</para>
+      <para>La propriété <varname>\${user.install}</varname> est accessible dans un 
+      <acronym>POM</acronym> si ce profil est activé.</para>
     </section>
 
     <section id="appendix-settings-sect-settings-repository">
