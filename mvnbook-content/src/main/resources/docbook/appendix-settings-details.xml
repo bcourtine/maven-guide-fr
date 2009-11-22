@@ -710,10 +710,10 @@
     </section>
 
     <section id="appendix-settings-sect-active-profiles">
-      <title>Active Profiles</title>
+      <title>Balise <varname>activeProfiles</varname></title>
 
       <para><example>
-          <title>Setting active profiles in settings.xml</title>
+          <title>Activer des profiles à partir du fichier settings.xml</title>
 
           <programlisting language="xml">&lt;settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -727,17 +727,13 @@
 </programlisting>
         </example></para>
 
-      <para>The final piece of the <filename>settings.xml</filename> puzzle is
-      the <sgmltag>activeProfiles</sgmltag> element. This contains a set of
-      <sgmltag>activeProfile</sgmltag> elements, which each have a value of a
-      profile id. Any profile id defined as an
-      <sgmltag>activeProfile</sgmltag> will be active, regardless of any
-      environment settings. If no matching profile is found nothing will
-      happen. For example, if <varname>env-test</varname> is an
-      <sgmltag>activeProfile</sgmltag>, a <sgmltag>profile</sgmltag> in a
-      <filename>pom.xml</filename> (or <filename>profile.xml</filename> with a
-      corresponding id it will be active. If no such profile is found then
-      execution will continue as normal.</para>
+      <para>La dernière pièce du puzzle du <filename>settings.xml</filename> est la balise <sgmltag>activeProfiles</sgmltag>. 
+      Elle contient un ensemble de balises <sgmltag>activeProfile</sgmltag>, qui ont chacun pour valeur un id de profil. 
+      Tout profil dont l'id est présente dans une balise <sgmltag>activeProfile</sgmltag> sera activé, quels que soient les paramètres d'environnement. 
+      Si aucun profil n'est trouvé, rien ne se passera. 
+      Par exemple, si <varname>env-test</varname> est un <sgmltag>activeProfile</sgmltag>, un <sgmltag>profile</sgmltag> dans un <filename>pom.xml</filename> 
+      (ou <filename>profile.xml</filename>) sera activé. 
+      Si aucun profil n'est trouvé, l'exécution se poursuivra tout de même normalement.</para>
     </section>
 
     <section id="appendix-settings-sect-encrypting-passwords">
