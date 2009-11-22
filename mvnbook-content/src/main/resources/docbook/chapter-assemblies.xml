@@ -273,7 +273,7 @@
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>Il y a deux points auxquels ilfaut prêter attention dans la 
+      <para>Il y a deux points auxquels il faut prêter attention dans la
       configuration ci-dessus. Premièrement, nous utilisons l'élément 
       <sgmltag>descriptorRefs</sgmltag> dans configuration plutôt que
       le paramètre <sgmltag>descriptorId</sgmltag> que nous avions utilisé
@@ -693,28 +693,26 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
     most flexible.</para>
 
     <section id="assemblies-sect-prop-refs">
-      <title>Property References in Assembly Descriptors</title>
+      <title>Référence à ds propriétés dans un descripteur d'assembly</title>
 
-      <para>Any property discussed in <xref
-      linkend="resource-filtering-sect-properties" /> can be referenced in an
-      assembly descriptor. Before any assembly descriptor is used by Maven, it
-      is interpolated using information from the <acronym>POM</acronym> and
-      the current build environment. All properties supported for
-      interpolation within the <acronym>POM</acronym> itself are valid for use
-      in assembly descriptors, including <acronym>POM</acronym> properties,
-      <acronym>POM</acronym> element values, system properties, user-defined
-      properties, and operating-system environment variables.</para>
+      <para>Toutes les propriétés dont nous avons parlé dans le <xref
+      linkend="resource-filtering-sect-properties" /> peut être
+      référencée dans un descripteur d'assembly. Avant qu'un descripteur
+      d'assembly soit utilisé par Maven, il doit être interpolé en utilisant les
+      données du <acronym>POM</acronym> et de l'environnement de build. Toutes
+      les propriétés du <acronym>POM</acronym> suuportées pour l'interpolation
+      sont utilisables dans les descripteurs d'assembly, qu'il s'agisse de 
+      propriétés du <acronym>POM</acronym>, de valeurs d'éléments du
+      <acronym>POM</acronym>, de propriétés système, de propriétés définies par
+      l'utilisateur element values, system properties, user-defined ou de variables
+      d'environnement du système d'exploitation.</para>
 
-      <para>The only exceptions to this interpolation step are elements in
-      various sections of the descriptor named
-      <sgmltag>outputDirectory</sgmltag>,
-      <sgmltag>outputDirectoryMapping</sgmltag>, or
-      <sgmltag>outputFileNameMapping</sgmltag>. The reason these are held back
-      in their raw form is to allow artifact- or module-specific information
-      to be applied when resolving expressions in these values, on a per-item
-      basis.</para>
-
-      <!--This last paragraph is not clear.-->
+      <para>Les seules exceptions à cette étape d'interpolation sont les balises 
+      <sgmltag>outputDirectory</sgmltag>, <sgmltag>outputDirectoryMapping</sgmltag> ou
+      <sgmltag>outputFileNameMapping</sgmltag> des différentes sections du descripteur.
+      Ces éléments sont conservés sous leur forme primitive pour permettre d'appliquer
+      les données spécifiques à chaque artéfacts ou module pour la résolution des
+      expressions.</para>
     </section>
 
     <section id="assemblies-sect-required">
