@@ -737,22 +737,21 @@
     </section>
 
     <section id="appendix-settings-sect-encrypting-passwords">
-      <title>Encryption des passwords dans les Settings Maven</title>
+      <title>Encryption des mots de passe dans les Settings Maven</title>
 
-      <para>Une fois que vous avez commencé à utiliser Maven pour déployer des logiciels sur des dépôts distants, 
-      et interagir avec gestionnaires de code source,  vous commencerez à avoir un certain nombre de mots de passe dans vos paramètres Maven. 
-      Sans un mécanisme pour chiffrer ces mots de passe, le fichier <filename>~/.m2/settings.xml</filename> devient rapidement un problème de sécurité car il contient les mots de passe en clair. 
-      Maven 2.1 introduit une fonctionnalité qui permet de crypter les mots de passe des settings utilisateurs. 
-      Pour ce faire, vous devez d'abord créer un mot de passe principal et stocker celui-ci dans un fichier de <filename>security-settings.xml</filename> à l'emplacement <filename>~/.m2/settings-security.xml</filename>. 
-      Vous pouvez ensuite utiliser ce mot de passe principal pour chiffrer les autres mots de passe stockés dans les Settings Maven (<filename>~/.m2/settings.xml</filename>).</para>
+      <para>Si vous utilisez Maven pour déployer vos artefacts sur des dépôts distants ou tout autre service distant nécessitant l'utilisation de mots de passe,
+      la meilleure solution est de stocker ces mots de passe dans vos Settings Maven. 
+      Sans un mécanisme pour chiffrer ces mots de passe, le fichier <filename>~/.m2/settings.xml</filename> devient rapidement une faille de sécurité, car il contient les mots de passe en clair d'accès à vos différents serveurs.
+      Pour éviter ce problème, Maven 2.1 a introduit une fonctionnalité qui permet de chiffrer vos mots de passe. 
+      Pour ce faire, vous devez commencer par créer un mot de passe maître et stocker celui-ci dans un fichier de <filename>security-settings.xml</filename> à l'emplacement <filename>~/.m2/settings-security.xml</filename>. 
+      Vous pouvez ensuite utiliser ce dernier pour chiffrer vos autres mots de passe, ceux que vous deviez stocker en clair dans vos Settings Maven (<filename>~/.m2/settings.xml</filename>).</para>
 
-      <para>Pour illustrer cette fonctionnalité, examinons le processus utilisé par Maven utilise pour récupérer un mot de passe non chiffrée d'un serveur
-      avec les paramètres Maven d'un utilisateur comme le montre la <xref linkend="fig-settings-unencrypted" />. 
-      Un utilisateur fera référence à un serveur en utilisant un identifiant en POM d'un projet, 
-      Maven recherche alors le serveur correspondant dans les settings. 
-      Une fois trouvé, Maven utilisera alors le mot de passe associé. 
-      Le mot de passe est stocké en texte brut dans <filename>~/.m2/settings.xml</filename>, 
-      il est facilement accessible à toute personne qui a les droits d'accès à ce fichier.</para>
+      <para>Pour illustrer cette fonctionnalité, regardons le processus utilisé par Maven utilise pour récupérer un mot de passe non chiffré d'un serveur
+      à partir des paramètres Maven d'un utilisateur. La <xref linkend="fig-settings-unencrypted" /> présente ce processus. 
+      Un utilisateur peut faire référence à un serveur en utilisant un identifiant dans le <varname>POM</varname> d'un projet, Maven recherche alors le serveur correspondant dans ses settings. 
+      Une fois trouvé, Maven utilisera le mot de passe associé à celui-ci. 
+      Le mot de passe est stocké en clair dans <filename>~/.m2/settings.xml</filename>, 
+      il est donc facilement accessible à toute personne qui dispose des droits de lecture sur ce fichier.</para>
       
       <figure id="fig-settings-unencrypted">
         <title>Stockage de mot de passe non crypté dans les Settings Maven</title>
@@ -768,7 +767,7 @@
         </mediaobject>
       </figure>
 
-      <para>Maintenant, examinons le processus utilisé par Maven pour gérer les mots de passe cryptés, comme montre sur la <xref linkend="fig-settings-encrypted" />.</para>
+      <para>Maintenant, regardons comment Maven utilise des mots de passe chiffrés, la <xref linkend="fig-settings-encrypted" /> présente ce processus.</para>
 
       <figure id="fig-settings-encrypted">
         <title>Stockage d'un mot de passe crypté dans les Settings Maven</title>
@@ -784,16 +783,15 @@
         </mediaobject>
       </figure>
 
-      <para>Pour configurer la fonctionnalité de mots de passe encryptés, créez le mot de passe maître en exécutant les commandes
+      <para>Pour configurer la fonctionnalité de chiffrage des mots de passe, créez le mot de passe maître en exécutant l'une des commandes 
       <command>mvn -emp</command> ou <command>mvn
       --encrypt-master-password</command> suivi par votre mot de passe maître.</para>
 
       <screen>$ <command>mvn -emp mypassword</command>
 {rsB56BJcqoEHZqEZ0R1VR4TIspmODx1Ln8/PVvsgaGw=}</screen>
 
-      <para>Maven affiche alors une copie de la version encryptée du mot de passe sur la sortie stantand. 
-      Copiez celui-ci et collez-le dans le fichier 
-      <filename>~/.m2/settings-security.xml</filename> file comme le montré l'exemple suivant.</para>
+      <para>Maven affiche alors une copie de la version chiffrée du mot de passe sur la sortie stantand. 
+      Copiez celui-ci et collez-le dans le fichier <filename>~/.m2/settings-security.xml</filename> comme le montre l'exemple suivant.</para>
 
       <example id="ex-settings-master-password">
         <title>settings-security.xml avec un mot de passe maître</title>
@@ -804,15 +802,15 @@
 </programlisting>
       </example>
 
-      <para>Après avoir créé le mot de passe maître, vous pouvez encrypter vos mots de passe pour les utiliser dans vos Settings.
-      Pour encrypter un mot de passe à l'aide du mot de passe maître, utilisez les commandes <command>mvn -ep</command> ou <command>mvn --encrypt-password</command>. 
-      Imaginons que vous disposez d'un gestionnaire de dépôt et que vous avez besoin d'un utilisateur "deployment" et d'un mot de passe "qualityFIRST".  
-      Pour encrypter ce mot de passe, utilisez la ligne de commande suivante :</para>
+      <para>Après avoir créé le mot de passe maître, vous pouvez commencer à chiffrer vos mots de passe pour les utiliser dans vos settings.
+      Pour chiffrer un mot de passe à l'aide du mot de passe maître, utilisez l'une des commande <command>mvn -ep</command> ou <command>mvn --encrypt-password</command>. 
+      Imaginons que vous disposez d'un gestionnaire de dépôt et que vous avez besoin d'un utilisateur "deployment" et d'un mot de passe "qualityFIRST" pour vous y connecter.  
+      Pour chiffrer ce mot de passe, utilisez la ligne de commande suivante :</para>
 
       <screen>$ <command>mvn -ep qualityFIRST</command>
 {uMrbEOEf/VQHnc0W2X49Qab75j9LSTwiM3mg2LCrOzI=}</screen>
 
-      <para>À ce stade, copiez le mot de passe encrypté affiché sur la sortie standard et collez-le dans vos Settings Maven.</para>
+      <para>Copiez ensuite le mot de passe chiffré affiché sur la sortie standard et collez-le dans vos settings Maven.</para>
 
       <example>
         <title>Stocker un mot de passe encrypté dans les Settings Maven (~/.m2/settings.xml)</title>
@@ -829,19 +827,19 @@
 &lt;/settings&gt;</programlisting>
       </example>
 
-      <para>Lorsque vous exécutez un build Maven qui à besoin d'interagir avec le gestionnaire de dépôt, 
-      Maven récupérera le mot de passe maître à partir du fichier <filename>~/.m2/settings-security.xml</filename> 
-      et utilisera celui-ci pour décrypté le mot de passe stocké dans votre fichier <filename>~/.m2/settings.xml</filename>. 
-      Maven utilisera ce dernier sur le serveur.</para>
+      <para>Lorsque vous exécutez un build Maven qui à besoin d'interagir avec le gestionnaire de repository, 
+      Maven récupérera le mot de passe principal à partir du fichier <filename>~/.m2/settings-security.xml</filename> 
+      et utilisera celui-ci pour déchiffrer le mot de passe stocké dans votre fichier <filename>~/.m2/settings.xml</filename>. 
+      Maven utilisera ce dernier pour se connecter au serveur.</para>
 
-      <para>Quels en sont les bénéfices ? 
-      Il vous permet d'éviter de stocker en clair vos mots de passe dans <filename>~/.m2/settings.xml</filename>. 
-      Notez que cette fonctionnalité ne prévoit pas de cryptage du mot de passe lors de l'envoi de celui-ci sur le serveur distant. 
-      Il est toujours possible à une personne mal intentionnée de récupérer vos mots de passe en analysant les flux réseau.</para>
+      <para>Quels en sont les bénéfices d'un tel mécanisme ? 
+      Il vous permet d'éviter de stocker en clair vos mots de passe dans le fichier <filename>~/.m2/settings.xml</filename>. 
+      Notez que cette fonctionnalité ne prévoit pas le chiffrage du mot de passe lors de l'envoi de celui-ci sur le serveur distant. 
+      Il est toujours possible, pour une personne mal intentionnée, de récupérer vos mots de passe en analysant les flux réseau.</para>
 
-      <para>Pour encore plus de sécurité, vous pouvez demander à vos développeurs de stocker le mot de passe maître crypté sur un périphérique de stockage amovible comme un disque dur USB. 
+      <para>Pour encore plus de sécurité, vous pouvez demander à vos développeurs de stocker le mot de passe maître chiffré sur un périphérique de stockage amovible comme un disque dur USB. 
       En utilisant cette méthode, un développeur doit brancher son disque amovible sur sa station de travail lorsqu'il veut effectuer un déploiement ou une quelconque interaction avec un serveur distant. 
-      Pour cela, votre fichier <filename>~/.m2/settings-security.xml</filename> doit contenir une référence l'emplacement réel de votre fichier <filename>settings-security.xml</filename>.
+      Pour cela, votre fichier <filename>~/.m2/settings-security.xml</filename> doit contenir une référence vers l'emplacement réel de votre fichier <filename>settings-security.xml</filename>.
       Cette configuration passe par l'utilisation de la balise <varname>relocation</varname>.</para>
       
       <example>
@@ -854,9 +852,9 @@
       </example>
 
       <para>Ainsi, le développeur peut stocker son fichier 
-      <filename>settings-security.xml</filename> à emplacement personnalisé
-      <filename>/Volumes/usb-key/settings-security.xml</filename> 
-      qui ne devrait être disponible que si le développeur est assis devant sa station de travail.</para>
+      <filename>settings-security.xml</filename> sur son emplacement personnalisé
+      <filename>/Volumes/usb-key/settings-security.xml</filename> et s'arranger pour que ce fichier ne soit 
+      disponible que s'il est assis devant sa station de travail.</para>
     </section>
   </section>
 </appendix>
