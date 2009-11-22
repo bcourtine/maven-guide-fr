@@ -663,15 +663,13 @@
     </section>
 
     <section id="appendix-settings-sect-plugin-repositories">
-      <title>Plugin Repositories</title>
+      <title>Balise <varname>pluginRepositories</varname></title>
 
-      <para>The structure of the <sgmltag>pluginRepositories</sgmltag> element
-      block is similar to the <sgmltag>repositories</sgmltag> element. The
-      <sgmltag>pluginRepository</sgmltag> elements each specify a remote
-      location of where Maven can find plugins artifacts.</para>
+      <para>La structure de la balise <sgmltag>pluginRepositories</sgmltag> est similaire à celle de la balise <sgmltag>repositories</sgmltag>. 
+      Les balises <sgmltag>pluginRepositories</sgmltag> spécifient un emplacement distant où l'on peut trouver des artefacts de plugins Maven.</para>
 
       <example>
-        <title>Plugin Repositories in settings.xml</title>
+        <title>pluginRepositories dans le fichier settings.xml</title>
 
         <programlisting>&lt;settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
