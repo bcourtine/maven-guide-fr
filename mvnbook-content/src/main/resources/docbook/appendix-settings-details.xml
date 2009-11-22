@@ -355,15 +355,15 @@
     </section>
 
     <section id="appendix-settings-sect-activation">
-      <title>Activation</title>
+      <title>Balise <varname>activation</varname></title>
 
-      <para>Activations are the key of a profile. Like the
-      <acronym>POM</acronym>'s profiles, the power of a profile comes from its
-      ability to modify some values only under certain circumstances; those
-      circumstances are specified via an activation element.</para>
+      <para>Une <varname>activation</varname> est la clé d'un profil. 
+      Comme les profils du <acronym>POM</acronym>, 
+      la puissance d'un profil vient de sa capacité à modifier certaines des valeurs sous certaines conditions. 
+      Ces conditions sont indiindiquées qués dans la balise <varname>activation</varname>.</para>
 
       <para><example>
-          <title>Defining Activation Parameters in settings.xml</title>
+          <title>Balise activation du fichier settings.xml</title>
 
           <programlisting language="xml">&lt;settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -399,18 +399,17 @@
 </programlisting>
         </example></para>
 
-      <para>Activation occurs when all specified criteria have been met,
-      though not all are required at once.</para>
+      <para>L'activation d'un profil se produit lorsque les critères définis ont été atteints.
+      Tous ne sont pas forcément nécessaires à en même temps.</para>
 
       <variablelist>
         <varlistentry>
           <term>jdk</term>
 
           <listitem>
-            <para>activation has a built in, Java-centric check in the jdk
-            element. This will activate if the test is run under a jdk version
-            number that matches the prefix given. In the above example,
-            1.5.0_06 will match.</para>
+            <para>L'activation a une vérification centrée Java intégrée dans la balise <varname>jdk</varname>. 
+            Celui se déclenchera si le test est exécuté avec un numéro de version de JDK qui correspond au préfixe donné. 
+            Dans l'exemple ci-dessus, 1.5.0_06 correspondra.</para>
           </listitem>
         </varlistentry>
 
@@ -418,8 +417,7 @@
           <term>os</term>
 
           <listitem>
-            <para>The <sgmltag>os</sgmltag> element can define some operating
-            system specific properties shown above.</para>
+            <para>La balise <sgmltag>os</sgmltag> peut définir des propriétés spécifiques à un système d'exploitation.</para>
           </listitem>
         </varlistentry>
 
@@ -427,9 +425,8 @@
           <term>property</term>
 
           <listitem>
-            <para>The profile will activate if Maven detects a property (a
-            value which can be dereferenced within the POM by \${name}) of the
-            corresponding name=value pair.</para>
+            <para>Le profile s'activera si Maven détecte la présence d'une certaine propriété 
+            (une valeur qui peut être référencée dans un POM par \${name}) qui correspond à une paire nom=valeur.</para>
           </listitem>
         </varlistentry>
 
@@ -437,21 +434,17 @@
           <term>file</term>
 
           <listitem>
-            <para>Finally, a given filename may activate the profile by the
-            existence of a file, or if it is missing.</para>
+            <para>Enfin, un nom de fichier donné peut activer le profil en fonction de l'existence d'un fichier.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <para>The <sgmltag>activation</sgmltag> element is not the only way that
-      a profile may be activated. The <filename>settings.xml</filename> file's
-      <sgmltag>activeProfile</sgmltag> element may contain the profile's id.
-      They may also be activated explicitly through the command line via a
-      comma separated list after the P flag (e.g. <varname>-P</varname>
-      test).</para>
+      <para>La balise <sgmltag>activation</sgmltag> n'est pas le seul moyen d'activer un profil.
+      La balise <sgmltag>activeProfile</sgmltag> du fichier <filename>settings.xml</filename> peut contenir un id de profil.
+      Ils peuvent également être activés à partir de la ligne de commande en utilisant une liste séparée par virgules après un flag P
+      (Exemple : <varname>-P</varname> test).</para>
 
-      <para>To see which profile will activate in a certain build, use the
-      maven-help-plugin.</para>
+      <para>Pour voir quels profils sont activés sur un build, utiliser le maven-help-plugin :</para>
 
       <screen>mvn help:active-profiles
 </screen>
