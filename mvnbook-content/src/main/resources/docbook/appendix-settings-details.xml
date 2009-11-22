@@ -558,17 +558,14 @@
     </section>
 
     <section id="appendix-settings-sect-settings-repository">
-      <title>Repositories</title>
+      <title>Balise <varname>repositories</varname></title>
 
-      <para>Repositories are remote collections of projects from which Maven
-      uses to populate the local repository of the build system. It is from
-      this local repository that Maven calls it plugins and dependencies.
-      Different remote repositories may contain different projects, and under
-      the active profile they may be searched for a matching release or
-      snapshot artifact.</para>
+      <para>Les dépôts sont des collections distantes de projets utilisables par Maven pour remplir le dépôt local du système de build. 
+      C'est à partir de ce dépôt local que Maven appelle ses plugins et ses dépendances. 
+      Différents dépôts distants peuvent contenir des projets, et en fonction du profil actif, on peut les utiliser pour rechercher une certaine release ou un snapshot d'un artefact.</para>
 
       <para><example>
-          <title>Repository Configuration in settings.xml</title>
+          <title>Configuration des dépôts à partir du fichier settings.xml</title>
 
           <programlisting language="xml">&lt;settings xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -612,12 +609,9 @@
             <term>releases, snapshots</term>
 
             <listitem>
-              <para>These are the policies for each type of artifact, Release
-              or snapshot. With these two sets, a <acronym>POM</acronym> has
-              the power to alter the policies for each type independent of the
-              other within a single repository. For example, one may decide to
-              enable only snapshot downloads, possibly for development
-              purposes.</para>
+              <para>Ce sont les policy pour chaque type d'artefact, release ou snapshot. 
+              Avec ces deux ensembles, un pom a le pouvoir de modifier les policy de chaque type au sein d'un référentiel unique. 
+              Par exemple, un peut décider d'activer seulement le téléchargement de snapsjots, par exemple à des fins de développement.</para>
             </listitem>
           </varlistentry>
 
@@ -625,9 +619,8 @@
             <term>enabled</term>
 
             <listitem>
-              <para><varname>true</varname> or <varname>false</varname> for
-              whether this repository is enabled for the respective type
-              (releases or snapshots).</para>
+              <para><varname>true</varname> ou <varname>false</varname>, permet de savoir si un dépôt est activé pour un certain type 
+              (releases ou snapshots).</para>
             </listitem>
           </varlistentry>
 
@@ -635,12 +628,12 @@
             <term>updatePolicy</term>
 
             <listitem>
-              <para>This element specifies how often updates should attempt to
-              occur. Maven will compare the local <acronym>POM</acronym>s
-              timestamp to the remote. The choices are:
-              <varname>always</varname>, <varname>daily</varname> (default),
-              <varname>interval:X</varname> (where X is an integer in minutes)
-              or <varname>never</varname>.</para>
+              <para>Cet élément spécifie la fréquence des mises à jour. 
+              Maven va comparer les timestamp des <acronym>POM</acronym>s locaux avec les <acronym>POM</acronym>s distants.
+              Les choix possibles sont :
+              <varname>always</varname>, <varname>daily</varname> (par défaut),
+              <varname>interval:X</varname> (où X représente un nombre de minute)
+              ou <varname>never</varname>.</para>
             </listitem>
           </varlistentry>
 
@@ -648,11 +641,10 @@
             <term>checksumPolicy</term>
 
             <listitem>
-              <para>When Maven deploys files to the repository, it also
-              deploys corresponding checksum files. Your options are to
-              <varname>ignore</varname>, <varname>fail</varname>, or
-              <varname>warn</varname> on missing or incorrect
-              checksums.</para>
+              <para>Lorsque Maven déploie des fichiers dans le dépôt, il déploie également les fichiers checksum correspondants.
+              Plusieurs options sont disponibles lorsqu'un checksum est manquant ou invalide :
+              <varname>ignore</varname>, <varname>fail</varname> ou
+              <varname>warn</varname>.</para>
             </listitem>
           </varlistentry>
 
@@ -660,13 +652,10 @@
             <term>layout</term>
 
             <listitem>
-              <para>In the above description of repositories, it was mentioned
-              that they all follow a common layout. This is mostly correct.
-              Maven 2 has a default layout for its repositories; however,
-              Maven 1.x had a different layout. Use this element to specify
-              which if it is default or legacy. If you are upgrading from
-              Maven 1 to Maven 2, and you want to use the same repository
-              which was used in your Maven 1 build, list the layout as
+              <para>Dans la description des dépôts ci-dessus, il est mentionné que tous les dépôts suivent un layout commun. 
+              Maven 2 a un layout par défaut pour ses dépôts, Maven 1.x en avait un différent. 
+              Utilisez cet élément pour préciser lesquels sont par défaut ou legacy. 
+              Si vous êtes passé de Maven 1 à Maven 2 et que vous souhaitez utiliser le même dépôt, renseignez celui-ci comme
               <varname>legacy</varname>.</para>
             </listitem>
           </varlistentry>
