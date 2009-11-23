@@ -693,7 +693,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
     most flexible.</para>
 
     <section id="assemblies-sect-prop-refs">
-      <title>Référence à ds propriétés dans un descripteur d'assembly</title>
+      <title>Référence de propriété dans un descripteur d'assembly</title>
 
       <para>Toutes les propriétés dont nous avons parlé dans le <xref
       linkend="resource-filtering-sect-properties" /> peut être
@@ -703,9 +703,8 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       les propriétés du <acronym>POM</acronym> suuportées pour l'interpolation
       sont utilisables dans les descripteurs d'assembly, qu'il s'agisse de 
       propriétés du <acronym>POM</acronym>, de valeurs d'éléments du
-      <acronym>POM</acronym>, de propriétés système, de propriétés définies par
-      l'utilisateur element values, system properties, user-defined ou de variables
-      d'environnement du système d'exploitation.</para>
+      <acronym>POM</acronym>, de propriétés système ou définies par
+      l'utilisateur et de variables d'environnement du système d'exploitation.</para>
 
       <para>Les seules exceptions à cette étape d'interpolation sont les balises 
       <sgmltag>outputDirectory</sgmltag>, <sgmltag>outputDirectoryMapping</sgmltag> ou
@@ -716,23 +715,23 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
     </section>
 
     <section id="assemblies-sect-required">
-      <title>Required Assembly Information</title>
+      <title>Informations obligatoires pour un assembly</title>
 
-      <para>There are two essential pieces of information that are required
-      for every assembly: the <sgmltag>id</sgmltag>, and the list of archive
-      formats to produce. In practice, at least one other section of the
-      descriptor is required - since most archive format components will choke
-      if they don’t have at least one file to include - but without at least
-      one <sgmltag>format</sgmltag> and an <sgmltag>id</sgmltag>, there is no
-      archive to create. The <sgmltag>id</sgmltag> is used both in the
-      archive’s file name, and as part of the archive’s artifact classifier in
-      the Maven repository. The format string also controls the
-      archiver-component instance that will create the final assembly archive.
-      All assembly descriptors must contain an <sgmltag>id</sgmltag> and at
-      least one <sgmltag>format</sgmltag>:</para>
+      <para>Tout assembly a besoin obligatoirement de deux données :
+      la balise <sgmltag>id</sgmltag> et la liste des formats d'archive à produire.
+      En pratique il faut en plus au moins une autre section du descripteur - 
+      car la plupart des assembleurs vont se bloquer s'il y a aucun fichier à
+      incorporer - mais sans une balise <sgmltag>format</sgmltag> et une
+      balise <sgmltag>id</sgmltag> il n'y a aucune archive à réaliser. La
+      balise <sgmltag>id</sgmltag> est utilisée à la fois pour le nom et le
+      classifier dans le dépôt Maven de l'artefact de l'archive produite.
+      Le format détermine quel composant archiveur sera utilisé pour
+      produire l'archive assembly finale. Tous les descripteurs d'assembly doivent
+      contenir une balise <sgmltag>id</sgmltag> et au moins une balise
+      <sgmltag>format</sgmltag> :</para>
 
       <example id="ex-required-assembly">
-        <title>Required Assembly Descriptor Elements</title>
+        <title>Balises obligatoires d'un descripteur d'assembly</title>
 
         <programlisting language="xml">&lt;assembly&gt;
   &lt;id&gt;bundle&lt;/id&gt; 
@@ -743,19 +742,19 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
 &lt;/assembly&gt;</programlisting>
       </example>
 
-      <para>The assembly <sgmltag>id</sgmltag> can be any string that does not
-      contain spaces. The standard practice is to use dashes when you must
-      separate words within the assembly <sgmltag>id</sgmltag>. If you were
-      creating an assembly to create an interesting unique package structure,
-      you would give your an <varname>id</varname> of something like
-      <varname>interesting-unique-package</varname>. It also supports multiple
-      formats within a single assembly descriptor, allowing you to create the
-      familiar <filename>.zip</filename>, <filename>.tar.gz</filename>, and
-      <filename>.tar.bz2</filename> distribution archive set with ease. If you
-      don't find the archive format you need, you can also create a custom
-      format. Custom formats are discussed in <xref
-      linkend="assemblies-sect-componentDescriptors" />. The Assembly plugin
-      supports several archive formats natively, including:</para>
+      <para>L'<sgmltag>id</sgmltag> de l'assembly est une chaine de caractères
+      sans espace. La pratique standard est d'utiliser des tirets (TODO MANU vérifier
+      traduction dash) entre les mots de l'<sgmltag>id</sgmltag> de l'assembly.
+      Si vous produisez un assembly qui construit une structure unique d'un
+      package intéressant, vous lui donnerez une <varname>id</varname> comme
+      <varname>unique-package-interessant</varname>. Il est possible de déclarer
+      plusieurs formats différents dans un même descripteur d'assembly, ce qui
+      vous permet de créer les archives de distrbution habituelles 
+      <filename>.zip</filename>, <filename>.tar.gz</filename> et
+      <filename>.tar.bz2</filename> facilement. Si vous ne trouvez pas le format
+      d'archive qu'il vous faut vous pouvez créer un format personel. Les formats personnels
+      sont décrits dans la <xref linkend="assemblies-sect-componentDescriptors" />. Le plugin
+      Assembly supporte nativement plusieurs formats d'archive, ce qui inclut :</para>
 
       <itemizedlist>
         <listitem>
@@ -807,12 +806,11 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
         </listitem>
       </itemizedlist>
 
-      <para>The <varname>id</varname> and <varname>format</varname> are
-      essential because they will become a part of the coordinates for the
-      assembled archive. The example from <xref
-      linkend="ex-required-assembly" /> will create an assembly artifact of
-      type <varname>zip</varname> with a classifier of
-      <varname>bundle</varname>.</para>
+      <para>L'<varname>id</varname> et le <varname>format</varname> sont
+      indispensables car il vont faire partie des coordonnées de l'archive
+      assemblée. L'exemple de <xref linkend="ex-required-assembly" /> va
+      créer un artefact d'assemblyde type <varname>zip</varname> avec comme
+      classifier <varname>bundle</varname>.</para>
     </section>
   </section>
 
