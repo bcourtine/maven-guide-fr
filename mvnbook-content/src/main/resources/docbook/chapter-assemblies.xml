@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="assemblies">
+<chapter id="assemblies" lang="fr">
   <title>Maven Assemblies</title>
 
   <section id="assemblies-sect-intro">
@@ -743,15 +743,14 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       </example>
 
       <para>L'<sgmltag>id</sgmltag> de l'assembly est une chaine de caractères
-      sans espace. La pratique standard est d'utiliser des tirets (TODO MANU vérifier
-      traduction dash) entre les mots de l'<sgmltag>id</sgmltag> de l'assembly.
-      Si vous produisez un assembly qui construit une structure unique d'un
-      package intéressant, vous lui donnerez une <varname>id</varname> comme
-      <varname>unique-package-interessant</varname>. Il est possible de déclarer
-      plusieurs formats différents dans un même descripteur d'assembly, ce qui
-      vous permet de créer les archives de distrbution habituelles 
-      <filename>.zip</filename>, <filename>.tar.gz</filename> et
-      <filename>.tar.bz2</filename> facilement. Si vous ne trouvez pas le format
+      sans espace. La pratique standard est d'utiliser des tirets entre les mots 
+      de l'<sgmltag>id</sgmltag> de l'assembly. Si vous produisez un assembly
+      qui construit une structure unique d'un package intéressant, vous lui
+      donnerez une <varname>id</varname> comme <varname>unique-package-interessant</varname>.
+      Il est possible de déclarer plusieurs formats différents dans un même
+      descripteur d'assembly, ce qui vous permet de créer les archives de
+      distribution habituelles <filename>.zip</filename>, <filename>.tar.gz</filename>
+      et <filename>.tar.bz2</filename> facilement. Si vous ne trouvez pas le format
       d'archive qu'il vous faut vous pouvez créer un format personel. Les formats personnels
       sont décrits dans la <xref linkend="assemblies-sect-componentDescriptors" />. Le plugin
       Assembly supporte nativement plusieurs formats d'archive, ce qui inclut :</para>
@@ -815,36 +814,35 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
   </section>
 
   <section id="assemblies-sect-controlling-contents">
-    <title>Controlling the Contents of an Assembly</title>
+    <title>Choisir les contenus d'un assembly</title>
 
-    <para>In theory, <varname>id</varname> and <varname>format</varname> are
-    the only absolute requirements for a valid assembly descriptor; however,
-    many assembly archivers will fail if they do not have at least one file to
-    include in the output archive. The task of defining the files to be
-    included in the assembly is handled by the five main sections of the
-    assembly descriptor: <sgmltag>files</sgmltag>,
+    <para>En théorie, l'<varname>id</varname> et le <varname>format</varname>
+    sont les seuls éléments obligatoires pour un descripteur d'assembly valide ;
+    cependant la plupart des composants archiveurs 'assembly échoueront s'ils
+    n'ont pas au moins un fichier à inclure dans l'archive finale. La définition
+    des fichiers à inclure dans l'assembly se fait dans les cinq sections principales
+    du descripteur d'assembly : <sgmltag>files</sgmltag>,
     <sgmltag>fileSets</sgmltag>, <sgmltag>dependencySets</sgmltag>,
-    <sgmltag>repositories</sgmltag>, and <sgmltag>moduleSets</sgmltag>. To
-    explore these sections most effectively, we’ll start by discussing the
-    most elemental section: <sgmltag>files</sgmltag>. Then, we’ll move on to
-    the two most commonly used sections, <sgmltag>fileSets</sgmltag> and
-    <sgmltag>dependencySets</sgmltag>. Once you understand the workings of
-    <sgmltag>fileSets</sgmltag> and <sgmltag>dependencySets</sgmltag>, it’s
-    easier to understand <sgmltag>repositories</sgmltag> and
-    <sgmltag>moduleSets</sgmltag>.</para>
+    <sgmltag>repositories</sgmltag> et <sgmltag>moduleSets</sgmltag>.
+    Pour explorer ces sections le plus efficacement possibl nous allons commencer
+    par étudier la plus simple : <sgmltag>files</sgmltag>. Puis nous traiterons
+    les deux sections les plus utilisées <sgmltag>fileSets</sgmltag> et
+    <sgmltag>dependencySets</sgmltag>. Une fois que vous avez compris le
+    fonctionnement de <sgmltag>fileSets</sgmltag> et de <sgmltag>dependencySets</sgmltag>,
+    il est beaucoup plus facile de comprendre comment fonctionnent 
+    <sgmltag>repositories</sgmltag> et <sgmltag>moduleSets</sgmltag>.</para>
 
     <section id="assemblies-sect-files">
-      <title><sgmltag>Files</sgmltag> Section</title>
+      <title>Section <sgmltag>files</sgmltag></title>
 
-      <para>The <sgmltag>files</sgmltag> section is the simplest part of the
-      assembly descriptor, it is designed for files that have a definite
-      location relative to your project’s directory. Using this section, you
-      have absolute control over the exact set of files that are included in
-      your assembly, exactly what they are named, and where they will reside
-      in the archive.</para>
+      <para>La <sgmltag>files</sgmltag> est la partie la plus simple du descripteur
+      d'assembly, elle a été conçue pour les fichiers qui ont une position
+      relative au répertoire du projet. Avec cette section vous avez un total
+      contrôle sur les fichiers qui seront inclus dans votre assembly, quel
+      seront leurs noms et où ils se positionneront dans l'archive.</para>
 
       <example id="ex-assembly-files">
-        <title>Including a <acronym>JAR</acronym> file in an Assembly using
+        <title>Ajout d'un fichier <acronym>JAR</acronym> dans un assembly avec la balise 
         <sgmltag>files</sgmltag></title>
 
         <programlisting language="xml">&lt;assembly&gt;
@@ -861,45 +859,46 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
 &lt;/assembly&gt;</programlisting>
       </example>
 
-      <para>Assuming you were building a project called
-      <varname>my-app</varname> with a version of <varname>1.0</varname>,
-      <xref linkend="ex-assembly-files" /> would include your project's
-      <acronym>JAR</acronym> in the assembly’s <filename>lib/</filename>
-      directory, trimming the version from the file name in the process so the
-      final file name is simply <filename>my-app.jar</filename>. It would then
-      make the <acronym>JAR</acronym> readable by everyone and writable by the
-      user that owns it (this is what the mode 0644 means for files, using
-      Unix four-digit Octal permission notation). For more information about
-      the format of the value in <sgmltag>fileMode</sgmltag>, please see the
-      Wikipedia's explanation of <ulink
-      url="http://en.wikipedia.org/wiki/File_system_permissions#Octal_notation_and_additional_permissions">four-digit
-      Octal notation</ulink>.</para>
+      <para>Supposons que vous construisiez le projet <varname>my-app</varname>
+      dans sa version <varname>1.0</varname>, <xref linkend="ex-assembly-files" />
+      permet d'inclure le <acronym>JAR</acronym> de votre projet dans le répertoire
+      <filename>lib/</filename> de l'assembly, en supprimant le numéro de version
+      du nom du fichier renommé en <filename>my-app.jar</filename>. Ensuite,
+      il faudrait rendre ce <acronym>JAR</acronym> lisible par tout le monde et 
+      éditable par l'utilisateur qui le possède (c'est ce que le mode 0644 signifie
+      pour les fichiers avec la notation de permission Unix sur quatre chiffres).
+      Pour plus d'informations sur le format de la valeur de la balise 
+      <sgmltag>fileMode</sgmltag>, allez consulter l'explication de Wikipédia <ulink
+      url="http://en.wikipedia.org/wiki/File_system_permissions#Octal_notation_and_additional_permissions">système
+      Octal de représentation des droits</ulink>.</para>
 
-      <para>You could build a very complex assembly using file entries, if you
-      knew the full list of files to be included. Even if you didn’t know the
-      full list before the build started, you could probably use a custom
-      Maven plugin to discover that list and generate the assembly descriptor
-      using references like the one above. While the files section gives you
-      fine-grained control over the permission, location, and name of each
-      file in the assembly archive, listing a <sgmltag>file</sgmltag> element
-      for every file in a large archive would be a tedious exercise. For the
-      most part, you will be operating on groups of files and dependencies
-      using <sgmltag>fileSets</sgmltag>. The remaining four file-inclusion
-      sections are designed to help you include entire sets of files that
-      match a particular criteria.</para>
+      <para>Vous pouvez construire un assembly très complexe avec ces fichiers,
+      si vous connaissez la liste complète des fichiers à inclure. Même si
+      vous ne connaissez pas la liste de tous les fichiers à inclure au
+      lancement du build, vous pouvez très facilement utiliser un plugin
+      Maven personnalisé pour produire ce descripteur d'assembly avec des
+      références comme celui ci-dessus. Si la section <sgmltag>files</sgmltag>
+      vous permet un contrôle très fin des permissions, de la position et du nom
+      de chaque fichier dans l'archive assembly, écrire une balise
+      <sgmltag>file</sgmltag> pour chaque fichier est une tâche pénible. La
+      plupart du temps vous allez travailler sur des groupes de fichiers et de 
+      dépendances grâce à la balise <sgmltag>fileSets</sgmltag>. Les quatre
+      sections suivantes sont conçues pour vous permettre de sélectionner des
+      listes de fichiers selon des critères particuliers.</para>
     </section>
 
     <section id="assemblies-sect-filesets">
-      <title><sgmltag>FileSets</sgmltag> Section</title>
+      <title>Section <sgmltag>fileSets</sgmltag></title>
 
-      <para>Similar to the <sgmltag>files</sgmltag> section,
-      <sgmltag>fileSets</sgmltag> are intended for files that have a definite
-      location relative to your project’s directory structure. However, unlike
-      the <sgmltag>files</sgmltag> section, <sgmltag>fileSets</sgmltag>
-      describe sets of files, defined by file and path patterns they match (or
-      don’t match), and the general directory structure in which they are
-      located. The simplest <sgmltag>fileSet</sgmltag> just specifies the
-      directory where the files are located:</para>
+      <para>Comme pour la section <sgmltag>files</sgmltag>, les
+      <sgmltag>fileSets</sgmltag> correspondent à des fichiers qui ont une
+      position relative par rapport à la structure de répertoires du projet.
+      Cependant, au contraire de la section <sgmltag>files</sgmltag>,
+      <sgmltag>fileSets</sgmltag> décrit des ensembles de fichiers dont
+      le nom et le chemin respectent (ou ne respectent pas) un certain
+      format et la structure de répertoire dans laquelle ils se trouvent.
+      La forme la plus simple de <sgmltag>fileSet</sgmltag> spécifie
+      uniqument le répertoire où se trouvent les fichiers :</para>
 
       <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -911,36 +910,36 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
   ...
 &lt;/assembly&gt;</programlisting>
 
-      <para>This file set simply includes the contents of the
-      <filename>src/main/java</filename> directory from our project. It takes
-      advantage of many default settings in the section, so let’s discuss
-      those briefly.</para>
+      <para>Cet ensemble de fichiers contient tout le contenu du répertoire
+      <filename>src/main/java</filename> de notre projet. Il profite des
+      valeurs par défauts des nombreux paramètres de cette section, aussi
+      regardons les brièvement.</para>
 
-      <para>First, you’ll notice that we haven’t told the file set where
-      within the assembly matching files should be located. By default, the
-      destination directory (specified with
-      <sgmltag>outputDirectory</sgmltag>) is the same as the source directory
-      (in our case, <filename>src/main/java</filename>). Additionally, we
-      haven’t specified any inclusion or exclusion file patterns. When these
-      are empty, the file set assumes that all files within the source
-      directory are included, with some important exceptions. The exceptions
-      to this rule pertain mainly to source-control metadata files and
-      directories, and are controlled by the
-      <sgmltag>useDefaultExcludes</sgmltag> flag, which is defaulted to
-      <sgmltag>true</sgmltag>. When active,
-      <sgmltag>useDefaultExcludes</sgmltag> will keep directories like
-      <filename>.svn/</filename> and <filename>CVS/</filename> from being
-      added to the assembly archive. <xref
-      linkend="assemblies-sect-default-excludes" /> provides a detailed list
-      of the default exclusion patterns.</para>
+      <para>Tout d'abord, vous avez remarqué que nous n'avons pas indiqué où
+      nous souhaitons mettre les fichiers à inclure dans l'assembly. Par
+      défaut, le répertoire de destination (que l'on peut préciser au moyen
+      de la balise <sgmltag>outputDirectory</sgmltag>) est le même que le
+      répertoire source (dans notre cas, <filename>src/main/java</filename>).
+      De plus, nous n'avons pas pécifier de format à respecter pour l'inclusion
+      ou l'exclusion de fichiers. Dans ce cas, le comportement par défaut est
+      de sélectionner tous les fichiers qui se trouvent dans le répertoire
+      source avec quelques exceptions importantes. Les exceptions à cette règle sont
+      surtout les fichiers et les répertoires de métadonnées des outils de gestion de
+      configuration. Ces exceptions par défaut sont utilisées lorsque la balise
+      <sgmltag>useDefaultExcludes</sgmltag> est à vrai ce qui est le cas par défaut.
+      Lorsque l'option <sgmltag>useDefaultExcludes</sgmltag> est activée, les
+      répertoires tels que <filename>.svn/</filename> et <filename>CVS/</filename>
+      sont exclus d'office pour l'ajout dans l'archive assembly. La <xref
+      linkend="assemblies-sect-default-excludes" /> présente une liste
+      détaillée des formats d'exclusion par défaut.</para>
 
-      <para>If we want more control over this file set, we can specify it more
-      explicitly. <xref linkend="ex-explicit-fileSet" /> shows a
-      <sgmltag>fileSet</sgmltag> element with all of the default elements
-      specified.</para>
+      <para>Si vous voulons contrôler plus finement cet ensemble de 
+      fichiers, vous pouvez le spécifier explicitement. L'
+      <xref linkend="ex-explicit-fileSet" /> montre une balise
+      <sgmltag>fileSet</sgmltag> qui spécifie toutes les valeurs par défaut.</para>
 
       <example id="ex-explicit-fileSet">
-        <title>Including Files with <sgmltag>fileSet</sgmltag></title>
+        <title>Inclusion de fichiers avec la balise <sgmltag>fileSet</sgmltag></title>
 
         <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -960,44 +959,46 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
 &lt;/assembly&gt;</programlisting>
       </example>
 
-      <para>The <sgmltag>includes</sgmltag> section uses a list of
-      <sgmltag>include</sgmltag> elements, which contain path patterns. These
-      patterns may contain wildcards such as ‘**’ which matches one or more
-      directories or ‘*’ which matches part of a file name, and ‘?’ which
-      matches a single character in a file name. <xref
-      linkend="ex-explicit-fileSet" /> uses a <sgmltag>fileMode</sgmltag>
-      entry to specify that files in this set should be readable by all, but
-      only writable by the owner. Since the <sgmltag>fileSet</sgmltag>
-      includes directories, we also have the option of specifying a
-      <sgmltag>directoryMode</sgmltag> that works in much the same way as the
-      <sgmltag>fileMode</sgmltag>. Since a directories’ execute permission is
-      what allows users to list their contents, we want to make sure
-      directories are executable in addition to being readable. Like files,
-      only the owner can write to directories in this set.</para>
+      <para>Les sections <sgmltag>includes</sgmltag> se composent d'une
+      liste de balises <sgmltag>include</sgmltag> qui contiennent de formats
+      de chemin. Ces formats peuvent avoir un ou plusieurs jokers comme
+      ‘**’ qui correspond à un ou plusieurs répertoires ou ‘*’ ce qui
+      correspond à une partie d'un nom de fichier et ‘?’ qui remplace
+      un caractère quelqconque dans un nom de fichier. L'<xref
+      linkend="ex-explicit-fileSet" /> utilise une balise <sgmltag>fileMode</sgmltag>
+      pour spécifier que les fichiers de ce groupe devront être lisibles par tous mais
+      éditables uniquement par le propriétaire. Comme la balise <sgmltag>fileSet</sgmltag>
+      peut inclure des répertoires il existe aussi la balise <sgmltag>directoryMode</sgmltag>
+      pour spécifier le mode du répertoire. Elle fonctionne comme
+      <sgmltag>fileMode</sgmltag>. Comme il faut avoir les droits d'exécution
+      sur un répertoire pour pouvoir en lister le contenu, il faut
+      s'assurer que les répertoires sont bien exécutables en plus d'être
+      lisibles. Comme pour les fichiers, seul le propriétaire peut modifier
+      les répertoires et leurs contenus dans ce cas.</para>
 
-      <para>The <sgmltag>fileSet</sgmltag> entry offers some other options as
-      well. First, it allows for an <sgmltag>excludes</sgmltag> section with a
-      form identical to the <sgmltag>includes</sgmltag> section. These
-      exclusion patterns allow you to exclude specific file patterns from a
-      <sgmltag>fileSet</sgmltag>. Include patterns take precedence over
-      exclude patterns. Additionally, you can set the
-      <sgmltag>filtering</sgmltag> flag to true if you want to substitute
-      property values for expressions within the included files. Expressions
-      can be delimited either by <varname>\${</varname> and
-      <varname>}</varname> (standard Maven expressions like
-      <varname>\${project.groupId}</varname>) or by <varname>@</varname> and
-      <varname>@</varname> (standard Ant expressions like
-      <varname>@project.groupId@</varname>). You can adjust the line ending of
-      your files using the <sgmltag>lineEnding</sgmltag> element; valid values
-      for <sgmltag>lineEnding</sgmltag> are:</para>
+      <para>La balise <sgmltag>fileSet</sgmltag> possède des options supplémentaires.
+      Premièrement, il peut centenir une balise <sgmltag>excludes</sgmltag>
+      de la même forme que la balise <sgmltag>includes</sgmltag>. Les formats
+      d'exclusion vous permettent d'exclure des fichiers spécifiques d'un
+      <sgmltag>fileSet</sgmltag> qui correspondent à ce modèle. Les formats
+      d'inclusion prennent le pas sur les formats d'exclusion. Vous pouvez aussi
+      mettre à vrai l'élément <sgmltag>filtering</sgmltag> si vous voulez remplacer
+      les exprssions dans les fichiers inclus par les valeurs des propriétés. Les 
+      expressions sont délimitées soit par <varname>\${</varname> et
+      <varname>}</varname> (expression standard Maven comme par exemple
+      <varname>\${project.groupId}</varname>) ou par <varname>@</varname> suivi de
+      <varname>@</varname> (expression standard Ant comme par exemple
+      <varname>@project.groupId@</varname>). Vous pouvez choisir la fin de ligne
+      dans vos fichiers grâce à la balise <sgmltag>lineEnding</sgmltag> ; les valeurs
+      autorisées spour la balise <sgmltag>lineEnding</sgmltag> sont :</para>
 
       <variablelist>
         <varlistentry>
           <term>keep</term>
 
           <listitem>
-            <para>Preserve line endings from original files. (This is the
-            default value.)</para>
+            <para>Conserve la fin de ligne des fihiers originaux. (C'est la
+            valeur par défaut).</para>
           </listitem>
         </varlistentry>
 
@@ -1005,7 +1006,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
           <term>unix</term>
 
           <listitem>
-            <para>Unix-style line endings</para>
+            <para>Fins de ligne de type Unix</para>
           </listitem>
         </varlistentry>
 
@@ -1013,7 +1014,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
           <term>lf</term>
 
           <listitem>
-            <para>Only a Line Feed Character</para>
+            <para>Juste un caractère de nouvelle la ligne</para>
           </listitem>
         </varlistentry>
 
@@ -1021,7 +1022,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
           <term>dos</term>
 
           <listitem>
-            <para>MS-DOS-style line endings</para>
+            <para>Fins de ligne de type MS-DOS</para>
           </listitem>
         </varlistentry>
 
@@ -1029,23 +1030,22 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
           <term>crlf</term>
 
           <listitem>
-            <para>Carriage-return followed by a Line Feed</para>
+            <para>Retour à la ligne suivi du caractère Nouvelle Ligne</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <para>Finally, if you want to ensure that all file-matching patterns are
-      used, you can use the <sgmltag>useStrictFiltering</sgmltag> element with
-      a value of <sgmltag>true</sgmltag> (the default is
-      <sgmltag>false</sgmltag>). This can be especially useful if unused
-      patterns may signal missing files in an intermediary output directory.
-      When <sgmltag>useStrictFiltering</sgmltag> is set to
-      <sgmltag>true</sgmltag>, the Assembly plugin will fail if an include
-      pattern is not satisfied. In other words, if you have an include pattern
-      which includes a file from a build, and that file is not present,
-      setting <sgmltag>useStrictFiltering</sgmltag> to <sgmltag>true</sgmltag>
-      will cause a failure if Maven cannot find the file to be
-      included.</para>
+      <para>Enfin, si vous voulez vous assurez que tous les formats de sélection
+      de fichier sont utilisés, vous pouvez mettre la balise 
+      <sgmltag>useStrictFiltering</sgmltag> à <sgmltag>true</sgmltag>
+      (la valeur par défaut est <sgmltag>false</sgmltag>). Cela peut-être très utile
+      si des formats inutilisés indiquent des fichiers manquants dans un répertoire
+      intermédiaire. Lorsque la balise <sgmltag>useStrictFiltering</sgmltag> est à
+      <sgmltag>true</sgmltag>, le plugin Assembly échouera si un format d'inclusion
+      n'est pas satisfait. En d'autres termes, si vous avez un modèle d'inclusion qui
+      inclut un fichier d'un build et que ce fichier est absent alors, lorsque 
+      la balise <sgmltag>useStrictFiltering</sgmltag> est à <sgmltag>true</sgmltag>n
+      Maven fera échouer le build sil ne trouve pas le fichier à inclure.</para>
 
       <!--TODO: JCasey, I had to take the statement about Ant Expressions out because I couldn't verify it.
 I can add this back in later.  I didn't want to talk about it without an example.  - TIM-->
