@@ -8,17 +8,17 @@
     <title>Introduction</title>
 
     <para>Au travers de ce livre, vous avez pu rencontrer des propriétés utilisées dans des fichiers <acronym>POM</acronym>.
-    Les dépendances d'un build multimodule peuvent être référencées par les propriétés <varname>\${project.groupId}</varname> et
-    <varname>\${project.version}</varname> et n'importe quelle partie du <acronym>POM</acronym> peut être référencé en préfixant la variable par "project.".   
+    Les dépendances d'un build multimodule peuvent être référencées par les propriétés comme <varname>\${project.groupId}</varname> et
+    <varname>\${project.version}</varname>, et n'importe quelle partie du <acronym>POM</acronym> peut être référencé en préfixant la variable par "project.".   
     Les variables d'environnement et propriétés Système Java peuvent également être référencées, tout comme les valeurs définies dans le fichier <filename>~/.m2/settings.xml</filename>.
     Nous allons parcourir dans ce chapitre l'ensemble des valeurs possibles et nous verrons comment ces propriétés peuvent être utilisées pour créer des build portables.</para>     
 
     <para>Si vous avez déjà utilisé des références à des propriétés dans votre <acronym>POM</acronym>,  
     vous devriez savoir que cette fonctionnalité est appelée 'filtrage des ressources'. 
     Celle-ci permet de remplacer les références des propriétés dans n'importe quel fichier stocké dans <filename>src/main/resources</filename>. 
-    Par défaut, cette fonctionnalité est désactivée pour éviter un filtrage accidentel.
+    Par défaut, cette fonctionnalité est désactivée pour éviter des filtrages accidentels.
     Cette fonctionnalité peut être utilisée pour effectuer des builds spécifiques à une certaine plateforme 
-    ou pour externaliser les variables de build dans des fichiers de propriétés, des <acronym>POM</acronym>s ou des profiles. 
+    ou pour externaliser les variables de build dans des fichiers de propriétés, des <acronym>POM</acronym>s ou des profils. 
     Ce chapitre présente donc cette fonctionnalité de filtrage des ressources.</para>
 
   </section>
@@ -74,22 +74,22 @@
     </variablelist>
 
     <para>En plus de ces propriétés implicites, l'utilisateur peut définir ses propres propriétés à partir du <acronym>POM</acronym>,  
-    du fichier de paramétrage <filename>~/.m2/settings.xml</filename> ou dans un profile Maven.
-    Les paragraphes qui suivent fournissent ainsi le détail des différentes propriétés disponibles dans un projet Maven.</para>
+    du fichier de paramétrage <filename>~/.m2/settings.xml</filename> ou dans un profil Maven.
+    Les paragraphes suivants fournissent ainsi le détail des différentes propriétés disponibles dans un projet Maven.</para>
 
     <section id="resource-filtering-sect-project-properties">
       <title>Propriétés d'un projet Maven</title>
 
       <para>Quand une propriété Maven est utilisée, son nom référence une propriété du <acronym>POM</acronym>.
-      Plus précisément, vous référencez une propriété de la classe <classname>org.apache.maven.model.Model</classname> qui est explosée implicitement comme variable du projet. 
-      Quand vous référencez une propriété en utilisant cette variable implicite,
+      Plus précisément, vous référencez une propriété de la classe <classname>org.apache.maven.model.Model</classname> qui est exposée implicitement comme variable du projet. 
+      Quand vous référencez une propriété en utilisant l'une de ces variables implicites,
       vous utilisez la notation avec des 'points' pour référencer la propriété du bean <classname>Model</classname> correspondante.
       Par exemple, lorsque nous utilisons <varname>\${project.version}</varname>,
-      dans les faits, vous invoquez la méthode <methodname>getVersion()</methodname> de l'instance du <classname>Model</classname> qui est exposé comme <varname>project</varname>.</para>
+      en fait, vous invoquez la méthode <methodname>getVersion()</methodname> de l'instance du <classname>Model</classname> qui est exposée en <varname>project</varname>.</para>
 
       <para>Le <acronym>POM</acronym> est également représenté dans le document <filename>pom.xml</filename> disponible dans tous les projets Maven.
       Tout ce qui se trouve dans le <acronym>POM</acronym> peut donc être utilisé en propriété.
-      Pour une présentation compléte de la structure du <acronym>POM</acronym>, référez-vous à l'adresse <ulink
+      Pour une présentation complète de la structure du <acronym>POM</acronym>, référez-vous à l'adresse <ulink
       url="http://maven.apache.org/ref/${maven.version}/maven-model/maven.html">http://maven.apache.org/ref/${maven.version}/maven-model/maven.html</ulink>.
       La liste ci-dessous récapitule quelques-unes des propriétés habituellement utilisées dans un projet Maven.</para>
 
@@ -117,7 +117,7 @@
           <term><varname>project.artifactId</varname></term>
 
           <listitem>
-            <para>L'artefactId d'un projet est souvent utilisé pour le nom du package généré.
+            <para>L'<varname>artefactId</varname> d'un projet est souvent utilisé pour le nom du package généré.
             Par exemple, dans un projet avec un packaging du type <acronym>WAR</acronym>, 
             vous voudrez peut-être générer un fichier <acronym>WAR</acronym> sans sa version. 
             Pour cela, utilisez la propriété <varname>project.artifactId</varname> dans votre <acronym>POM</acronym> comme ceci :</para>
@@ -175,7 +175,7 @@
             <para>Les propriétés <varname>sourceDirectory</varname>, <varname>scriptSourceDirectory</varname> et <varname>testSourceDirectory</varname> 
             fournissent un accès aux répertoires source du projet.
             Les propriétés <varname>outputDirectory</varname> et <varname>testOutputDirectory</varname> 
-            fournissent un accès aux répertoires utilisés par Maven pour produire le bytecode et le résultat de son buil.
+            fournissent un accès aux répertoires utilisés par Maven pour produire le bytecode et le résultat de son build.
             La propriété <varname>directory</varname> désigne le répertoire qui contient tous ces répertoires destination.</para>
           </listitem>
         </varlistentry>
@@ -207,11 +207,11 @@
     </section>
 
     <section id="resource-filtering-sect-settings-properties">
-      <title>Propriétés des Préférences Maven</title>
+      <title>Propriétés des Settings Maven</title>
 
-      <para>Vous pouvez également référencer n'importe quelle propriété définie dans le préférences Mavenlocales, ce fichier de préférence se trouve d'ordinatire dans le fichier <filename>~/.m2/settings.xml</filename>.   
-      En général, ce fichier contient des configuration spécifiques aux utilisateurs comme par exemple : l'emplacement du dépôt local, des différents serveurs
-      du choix des profiles, des différents mirroirs.</para>
+      <para>Vous pouvez également référencer n'importe quelle propriété définie dans le préférences Maven locales, ce fichier de préférence se trouve d'ordinatire dans le fichier <filename>~/.m2/settings.xml</filename>.   
+      En général, ce fichier contient des configuration spécifiques aux utilisateurs comme par exemple : l'emplacement du dépôt local, des différents serveurs,
+      du choix des profils et des différents mirroirs.</para>
 
       <para>La liste complète des propriétés des paramètres utilisateurs est disponible à cette adresse <ulink
       url="http://maven.apache.org/ref/${maven.version}/maven-settings/settings.html">http://maven.apache.org/ref/${maven.version}/maven-settings/settings.html</ulink>.</para>
@@ -446,7 +446,7 @@
 
       <para>En plus des propriétés implicites fournies par le <acronym>POM</acronym>, les paramètres, les variables d'environnement et les propriétés système,
       vous avez la possibilité de définir vos propres propriétés.
-      Les propriétés peuvent être définies dans un <acronym>POM</acronym> ou dans un Profil.       
+      Les propriétés peuvent être définies dans un <acronym>POM</acronym> ou dans un profil.       
       Les propriétés définies de la sorte peuvent être référencées de la même manière que toute autre propriété disponible dans Maven.
       Les propriétés définies par l'utilisateur peuvent être utilisées directement dans un <acronym>POM</acronym> ou dans le filtrage des ressources par l'intermédiaire du plugin Maven Resource.  
       Voici un exemple de définition d'une propriété dans un <acronym>POM</acronym> Maven.</para>
@@ -473,7 +473,7 @@
       </example>
 
       <para>L'exemple précédent définit deux propriétés : 
-      <varname>arbitrary.property.a</varname> et  <varname>hibernate.version</varname>. 
+      <varname>arbitrary.property.a</varname> et <varname>hibernate.version</varname>. 
       La propriété <varname>hibernate.version</varname> est utilisée dans la déclaration d'une dépendance.
       L'utilisation du caractère '.' en séparateur dans les noms de propriété est pratique courante dans les <acronym>POM</acronym>s et profils.
       Cette notation n'offre rien de spécial, la clé <varname>hibernate.version</varname> est simplement utilisée pour référencer la valeur "3.3.0.ga".  
@@ -506,18 +506,18 @@
 
     <para>Vous pouvez utiliser Maven pour remplacer des variables dans les ressources d'un projet par leur véritable valeur.
     Lorsque cette fonctionnalité de filtrage des ressources est activée,
-    Maven scan les ressources pour rechercher des références à des propriétés.
+    Maven scanne les ressources pour rechercher des références à des propriétés.
     Lorsque Maven trouve l'une de ces références, il remplace celle-ci par la valeur appropriée par un mécanisme similaire aux propriétés définies dans un <acronym>POM</acronym>.      
     Cette fonctionnalité est très pratique pour paramétrer un build avec différentes valeurs de configuration selon la platform cible.</para>
 
     <para>Il est fréquent qu'un fichier <filename>.properties</filename> ou qu'un document <acronym>XML</acronym> présent dans le répertoire <filename>src/main/resources</filename>  
     contienne des références vers des ressources externes du type base de données ou emplacement réseau 
     qui doivent être configurés différemment en fonction de l'environnement cible.
-    Par exemple, un système qui fait appel à une base de données aura un fichier de configuration qui contidra
+    Par exemple, un système qui fait appel à une base de données aura un fichier de configuration qui contiendra
     l'URL <acronym>JDBC</acronym>, le nom d'utilisateur et le mot de passe permettant de s'y connecter.
     Si vous avez besoin d'utiliser une base de données différente en développement, 
     vous pouvez soit utiliser une technologie du type <varname>JNDI</varname> pour externaliser votre configuration, 
-    soit utilisez un mécanisme de buil qui sait remplacer les différentes variables avec des valeurs dépendances de la plateforme cible.</para>   
+    soit utilisez un mécanisme de build qui sait remplacer les différentes variables avec des valeurs dépendances de la plateforme cible.</para>   
 
     <para>En utilisant le filtrage des ressources, vous pouvez référencer des propriétés Maven et les utiliser dans les profils pour définir différentes valeurs de configuration en fonction des environnements cibles.  
     Pour illustrer cela, prenons l'exemple d'un projet qui utilise Spring pour configurer une <classname>BasicDataSource</classname> à partir du projet <ulink
@@ -611,7 +611,7 @@ $ <command>cat target/classes/applicationContext.xml</command>
     Dans ce <acronym>POM</acronym>, la configuration par défaut des connexions à la base de données cible une base de données MySQL locale installée sur la machine du développeur.
     Lorsque ce projet est construit avec le profil 'production' activé, Maven mettra à jour cette configuration pour se connecter à une base de données Oracle en utilisant un autre driver, une autre URL, utilisateur et mot de passe.     
     Si vous construisez un projet avec la ressource de l'<xref linkend="ex-filter-spring" /> et du POM de l'<xref linkend="ex-filter-pom" /> et le profil 'production' activé
-    et que vous afficher le contenu des ressources du répertoire <varname>target/classes</varname>,
+    et que vous affichez le contenu des ressources du répertoire <varname>target/classes</varname>,
     vous constaterez qu'il contient un fichier correctement filtré avec les valeurs de production :</para>
 
     <screen>$ <command>mvn -Pproduction install</command>
