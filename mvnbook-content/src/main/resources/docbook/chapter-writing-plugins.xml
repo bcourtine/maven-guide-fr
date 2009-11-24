@@ -703,12 +703,12 @@ public class EchoMojo extends AbstractMojo
       </example>
 
       <para>Si vous créez ce Mojo dans un <varname>\${basedir}</varname> sous <filename>src/main/java</filename> à l'emplacement 
-      <filename>org/sonatype/mavenbook/mojo/EchoMojo.java</filename> dans le projet créé précédemment et que vous exécuter la commande <command>mvn install</command>,  
-      vous devriez être capable d'appeler votre goal directement à partir de la ligne de commande :</para>
+      <filename>org/sonatype/mavenbook/mojo/EchoMojo.java</filename> dans le projet créé précédemment et que vous exécutez la commande <command>mvn install</command>,  
+      vous devriez être capable d'appeler votre directement goal à partir de la ligne de commande :</para>
 
       <screen>$ <command>mvn org.sonatype.mavenbook.plugins:first-maven-plugin:1.0-SNAPSHOT:echo</command></screen>
 
-      <para>Cette (large) ligne de commande est un simple appel à <command>mvn</command> suivi d'un argument : <varname>groupId:artifactId:version:goal</varname>. 
+      <para>Cette (longue) ligne de commande est un simple appel à <command>mvn</command> suivi d'un argument : <varname>groupId:artifactId:version:goal</varname>. 
       Lorsque vous exécutez cette ligne de commande, vous devriez voir apparaître le message "Hello Maven World..." dans votre console.
       Pour personnaliser ce message, vous pouvez passer le paramètre suivant à cette même ligne de commande :</para>
 
@@ -738,10 +738,10 @@ public class EchoMojo extends AbstractMojo
       S'il n'y trouve pas de préfixe <varname>hibernate3</varname>, il continuera par scanner les métadonnées du groupe <varname>org.codehaus.mojo</varname>.</para>  
 
       <para>Lorsque Maven scanne les métadonnées d'un <varname>groupId</varname>,
-      il récupére le fichier <acronym>XML</acronym> à partir du répository dans lequel sont contenus les métadonnées des artefacts contenu dans un group.
-      Ce fichier <acronym>XML</acronym> est spécifique à chaque repository référencé.
+      il récupére le fichier <acronym>XML</acronym> à partir du répository dans lequel sont contenus les métadonnées des artefacts contenu dans un groupe.
+      Ce fichier <acronym>XML</acronym> est spécifique à chaque dépôt.
       Si vous n'avez pas configuré de dépôt, Maven se contentera de chercher dans les métadonnées du groupe <varname>org.apache.maven.plugins</varname>
-      dans votre dépot local (<filename>~/.m2/repository</filename>) dans le fichier
+      dans votre repository local (<filename>~/.m2/repository</filename>) dans le fichier
       <filename>org/apache/maven/plugins/maven-metadata-central.xml</filename>.
       L'<xref linkend="ex-maven-metadata" /> présente une partie du fichier <acronym>XML</acronym> <filename>maven-metadata-central.xml</filename> du groupe 
       <varname>org.apache.maven.plugin</varname>.</para>
@@ -772,13 +772,13 @@ public class EchoMojo extends AbstractMojo
 &lt;/metadata&gt;</programlisting>
       </example>
 
-      <para>Comme vous pouvez le voire dans l'<xref linkend="ex-maven-metadata" />,
+      <para>Comme vous pouvez le voir dans l'<xref linkend="ex-maven-metadata" />,
       c'est ce fichier <filename>maven-metadata-central.xml</filename> qui rend possible l'exécution de la commande <command>mvn surefire:test</command>.   
       Maven scanne <varname>org.apache.maven.plugins</varname> et <varname>org.codehaus.mojo</varname> :
       les plugins du groupe <varname>org.apache.maven.plugins</varname> sont considérés comme des plugins core Maven,
       alors que les plugins du groupe <varname>org.apache.maven.plugins</varname> sont considérés comme des plugins moins importants.
       Le projet Apache Maven gère le groupe <varname>org.apache.maven.plugins</varname>, et un autre projet open source qui se charge du projet Codehaus Mojo. 
-      Pour publier vos plugins dans votre propre <varname>groupId</varname>,
+      Pour publier vos plugins avec votre <varname>groupId</varname>,
       vous désirez que Maven scanne automatiquement votre propre préfixe de plugin pour votre nouveau <varname>groupId</varname>. 
       Pour cela, vous pouvez personnaliser les groupes scannés par Maven à partir de vos Settings Maven.</para>
 
@@ -867,7 +867,7 @@ public class EchoMojo extends AbstractMojo
     <section id="writing-plugins-sect-logging">
       <title>Log à partir d'un Plugin</title>
 
-      <para>Maven s'occupe de connecter votre mojo à un logger en appelant la méthode <methodname>setLog()</methodname>  avant l'exécution de votre Mojo.
+      <para>Maven s'occupe de connecter votre mojo à un logger en appelant la méthode <methodname>setLog()</methodname> avant l'exécution de votre Mojo.
       Il fournit une implémentation de la classe <classname>org.apache.maven.monitor.logging.Log</classname>.
       Cette classe expose des méthodes qui vous pouvez utiliser pour afficher des informations à vos utilisateurs.
       La classe <classname>Log</classname> fournit plusieurs niveaux de log, elle propose donc un mécanisme similaire à l'<acronym>API</acronym> fournie par <ulink
@@ -910,9 +910,9 @@ public class EchoMojo extends AbstractMojo
       Par exemple, si vous construisez un plugin qui compile du code, utilisez ce niveau info pour afficher la sortie du compilateur à l'écran.</para>
 
       <para>Le niveau de logging warn est utilisé pour afficher des événements et messages d'erreurs que votre Mojo pourrait rencontrer.
-      Par exemple, si vous essayez d'exécuter un plugin qui compile du code source Ruby mais que votre code n'est pas disponible, un warning sera affiché. 
+      Par exemple, si vous essayez d'exécuter un plugin qui compile du code source Ruby mais que votre code n'est pas disponible, affichez un warning. 
       Contrairement aux erreurs (qui disposent d'un niveau dédié : error), les warnings ne sont pas destinés à afficher des erreurs bloquantes.          
-      Utilisez par exemple le niveau error lorsque votre Mojo qui doit compiler du code, ne trouve pas de compilateur.
+      Vous utiliseriez plutôt le niveau error lorsque votre Mojo qui doit compiler du code, ne trouve pas de compilateur.
       Dans ce cas, vous voudrez probablement afficher un message d'erreur et lever une exception.
       Vous pouvez présumer que vos utilisateurs verront les messages en info et tous les messages d'erreurs.</para>
 
@@ -1035,7 +1035,7 @@ public class EchoMojo extends AbstractMojo
       Commons Attributes fournit un moyen d'utiliser des annotations avant que les annotations Java ne fassent partit des spécifications Java.   
       Pourquoi ne pas utiliser les annotations Java ?
       Maven ne les utilise pas car il a été conçu pour des <acronym>JVM</acronym>s pré-Java 5.
-      Comme Maven doit supporter les versions antérieures de Java, il ne peut pas utiliser les fonctionnalités disponibles dans Java 5.</para> 
+      Comme Maven désire rester compatible avec les versions antérieures de Java, il ne peut pas utiliser les fonctionnalités disponibles dans Java 5.</para> 
 
     </section>
 
@@ -1094,6 +1094,8 @@ public class EchoMojo extends AbstractMojo
       <classname>MojoFailureExeception</classname> en fonction de votre type d'erreur.</para>       
     </section>
   </section>
+
+  <!-- ERWAN-->
 
   <section id="writing-plugins-sect-mojo-params">
     <title>Paramètres du Mojo</title>
