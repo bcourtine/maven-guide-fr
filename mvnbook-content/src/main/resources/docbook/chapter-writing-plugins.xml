@@ -1419,7 +1419,7 @@ private ZipArchiver zipArchiver;</programlisting>
     <title>Plugins cycle de vie Maven</title>
 
     <para>Dans le chapitre <xref linkend="lifecycle" />,
-    nous avons vu que les cycles de vie peuvent être personnalisé en fonction des types de packaging. 
+    nous avons vu que les cycles de vie peuvent être personnalisés en fonction des types de packaging. 
     Un plugin peut soit introduire un nouveau type de packaging, soit personnaliser le cycle de vie.
     Dans cette section, nous allons voir comment personnaliser le cycle de vie à partir d'un plugin Maven.
     Nous verrons également comment dire à un Mojo de s'exécuter sur un cycle de vie parallèle.</para>
@@ -1430,7 +1430,7 @@ private ZipArchiver zipArchiver;</programlisting>
       <para>Imaginons que vous devez écrire un plugin qui dépend de la sortie du build précédent. 
       Par exemple, peut-être que le goal du <classname>ZipMojo</classname> ne peut être lancé que si une sortie à inclure dans l'archive existe.
       Il est possible de préciser des goal prérequis en utilisant l'annotation <classname>@execute</classname> sur un Mojo.
-      Cette annotation forcera Maven a exécuter un build parallèle et exécuter un goal ou un cycle de vie sans qu'il n'affecte le build courant.
+      Cette annotation forcera Maven à exécuter un build parallèle et exécuter un goal ou un cycle de vie sans qu'il n'affecte le build courant.
       Si vous voulez écrire un Mojo qui peut s'exécuter une fois par jour pour lancer la commande <command>mvn install</command>  
       et packager la sortie sous un format de distribution personnalisé.
       Votre descripteur de Mojo peut demander à Maven d'exécuter le cycle de vie par défaut jusqu'à la phase install et d'exposer le 
@@ -1483,7 +1483,7 @@ private ZipArchiver zipArchiver;</programlisting>
       <title>Création d'un cycle de vie pesonnalisé</title>
 
       <para>Un cycle de vie personnalisé doit être packagé dans un plugin dans un fichier 
-      <filename>META-INF/maven/lifecycle.xml</filename> dans l'un des dossiers ressoureces : par exemple <filename>src/main/resources</filename>.
+      <filename>META-INF/maven/lifecycle.xml</filename> dans l'un des dossiers ressources : par exemple <filename>src/main/resources</filename>.
       Le fichier  <filename>lifecycle.xml</filename> suivant déclare un cycle de vie nommé 
       <varname>zipcycle</varname>. Celui-ci contient un seul goal, 
       <varname>zip</varname>, dans une seule phase, <varname>package</varname>.</para>
@@ -1614,7 +1614,7 @@ public class ZipForkMojo extends AbstractMojo
 
       <para>Si vous créez un plugin qui définit un nouveau type de packaging et un nouveau cycle de vie,
       vous devez affecter la balise <varname>extensions</varname> à <varname>true</varname> dans le <acronym>POM</acronym> de votre projet. 
-      Cela a pour effet de demander à Maven de scanner votre plugin à la recherche du fichier it will look for the <filename>components.xml</filename> dans le répertoire <filename>META-INF/plexus</filename>.   
+      Cela a pour effet de demander à Maven de scanner votre plugin à la recherche du fichier <filename>components.xml</filename> dans le répertoire <filename>META-INF/plexus</filename>.   
       Ainsi, votre nouveau type de packaging sera rendu disponible dans votre projet.</para>
 
       <para><example>
