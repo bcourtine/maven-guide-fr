@@ -458,8 +458,8 @@ Welcome to Sample Project
 
     <para>Une fois que la documentation de votre projet est écrite et que vous êtes fier du site que vous avez créé,
     vous désirerez le déployer sur un serveur.     
-    Pour déployer un site, vous pouvez utiliser le plugin Maven Site qui propose différentes méthodes 
-    pour envoyer votre site sur un serveur distant, dont
+    Pour déployer un site, vous pouvez utiliser le plugin Maven Site.
+    Celui-ci propose différentes méthodes pour envoyer votre site sur un serveur distant, dont
     <acronym>FTP</acronym>, <acronym>SCP</acronym> et  <acronym>DAV</acronym>.
     Par exemple, pour déployer votre site via <acronym>DAV</acronym>, configurez la balise <sgmltag>distributionManagement</sgmltag>
     dans votre <acronym>POM</acronym> comme ceci : </para>
@@ -481,7 +481,7 @@ Welcome to Sample Project
       </example></para>
 
     <para>L'url contenue dans une sous balise de la section <sgmltag>distributionManagement</sgmltag> est préfixée 
-    par un indicateur <varname>dav</varname>. Celui-ci indique au plugin Maven Site d'effectuer le déploiement du site vers
+    par un indicateur <varname>dav</varname>. Celui-ci configure le plugin Maven Site d'effectuer le déploiement du site vers
     une <acronym>URL</acronym> qui est capable de comprendre le protocole <acronym>WebDAV</acronym>.  
     Une fois la configuration effectuée dans le <acronym>POM</acronym> de votre projet <varname>sample-project</varname>,
     vous pouvez lancer le déploiement via la commande suivante :</para> 
@@ -499,11 +499,11 @@ Welcome to Sample Project
     <section id="site-generation-sect-server-auth">
       <title>Configurer l'Authentification de votre Serveur</title>
 
-      <para>Pour configurer votre indetifiants et mot de passe au déploiement du site dans le fichier <filename>$HOME/.m2/settings.xml</filename>, 
+      <para>Pour configurer votre indentifiant et mot de passe au déploiement du site dans le fichier <filename>$HOME/.m2/settings.xml</filename>, 
       inspirez vous de l'<xref linkend="ex-site-authetification" /> :</para>
 
       <para><example id="ex-site-authetification">
-          <title>Authentification Serveur dans les Préférences Utilisateur</title>
+          <title>Authentification serveur dans les préférences utilisateur</title>
 
           <programlisting language="xml">&lt;settings&gt;
   ...
@@ -527,14 +527,14 @@ Welcome to Sample Project
     </section>
 
     <section id="site-generation-sect-modes">
-      <title>Configurer les droits des Fichiers et Dossiers</title>
+      <title>Configurer les droits des fichiers et dossiers</title>
 
-      <para>Si vous travaillez dans un groupe conséquent de développeur,
+      <para>Si vous travaillez dans un groupe conséquent de développeurs,
       vous voudrez vous assurer que les dossiers de votre site Internet se retrouvent avec des droits utilisateur et des permissions de groupe convenables après leur déploiement.
       Pour configurer ces modes lors du déploiement, inspirez-vous du fichier <filename>$HOME/.m2/settings.xml</filename> suivant :</para>
 
       <para><example>
-          <title>Configurer les droits des File et Répertoires sur un Serveur Distant</title>
+          <title>Configurer les droits des fichiers et répertoires sur un serveur distant</title>
 
           <programlisting language="xml">&lt;settings&gt;
   ...
