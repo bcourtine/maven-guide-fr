@@ -333,7 +333,7 @@ $ mvn site:run</screen>
   </section>
 
   <section id="site-generation-sect-proj-doc">
-    <title>Écrire la documentation d'un Projet</title>
+    <title>Écrire la documentation d'un projet</title>
 
     <para>Maven utilise en moteur de traitement de documentation appelé Doxia. 
     Doxia peut transformer plusieurs formats de fichiers dans un même modèle de document, 
