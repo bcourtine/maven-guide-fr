@@ -1171,35 +1171,33 @@ I can add this back in later.  I didn't want to talk about it without an example
       vous pourriez vouloir faire par rapport à cette liste de dépendances est 
       d'exclure l'artefact du projet en mettant <sgmltag>useProjectArtifact</sgmltag> 
       à <varname>false</varname> (sa valeur par défaut est à
-      <varname>true</varname> pour des raisons hsitoriques). Cela vous permettra de
+      <varname>true</varname> pour des raisons historiques). Cela vous permettra de
       gérer le résultat du build de votre projet indépendamment des fichiers des 
       dépendances. Aussi, vous pourriez choisir de décompresser les dépendances en 
       mettant la balise <sgmltag>unpack</sgmltag> à <varname>true</varname> (elle
-      est à <varname>false</varname> par défaut). Lorsque l'option upack est activée,
+      est à <varname>false</varname> par défaut). Lorsque l'option unpack est activée,
       le plugin Assembly va décompressé les contenus des dépnedances dans le répetoire
       racine de l'archive.</para>
 
-      <para>From this point, there are several things you might choose to do
-      with this dependency set. The next sections discuss how to define the
-      output location for dependency sets and how include and exclude
-      dependencies by scope. Finally, we’ll expand on the unpacking
-      functionality of the dependency set by exploring some advanced options
-      for unpacking dependencies.</para>
+      <para>A partir maintenant, vous pouvez faire plusieurs choses avec cet
+      ensemble de dépendances. Les sections qui vont suivre présentent comment
+      définir l'endroit où seront enregistées ces dépendances et comment inclure
+      et exclure des dépendances selon leur scope. Enfin, nous nous étendrons
+      sur cette fonctionnalité de décompression des dépendances en explorant
+      certaines de ses options avancées.</para>
 
       <section id="assemblies-sect-output-location">
-        <title>Customizing Dependency Output Location</title>
+        <title>Configurer l'emplacement des dépendances</title>
 
-        <para>There are two configuration options that are used in concert to
-        define the location for a dependency file within the assembly archive:
-        <sgmltag>outputDirectory</sgmltag> and
-        <sgmltag>outputFileNameMapping</sgmltag>. You may want to customize
-        the location of dependencies in your assembly using properties of the
-        dependency artifacts themselves. Let's say you want to put all the
-        dependencies in directories that match the dependency artifact's
-        <sgmltag>groupId</sgmltag>. In this case, you would use the
-        <sgmltag>outputDirectory</sgmltag> element of the
-        <sgmltag>dependencySet</sgmltag>, and you would supply something
-        like:</para>
+        <para>C'est la combinaison de deux options de configuration qui détermine
+        où va se retrouver un fichier de dépendance dans l'archive assembly : 
+        <sgmltag>outputDirectory</sgmltag> et <sgmltag>outputFileNameMapping</sgmltag>.
+        Vous pouvez configurer l'emplacement des dépendances dans votre assembly
+        selon les propriétés des artefacts des dépendances. Disons que vous voulez
+        mettre toutes vos dépendances dans des répertoires qui correspondent au
+        <sgmltag>groupId</sgmltag> de l'artefact. Dans ce cas, vous pouvez utiliser
+        la balise <sgmltag>outputDirectory</sgmltag> sous <sgmltag>dependencySet</sgmltag>
+        et lui donner pour valeur :</para>
 
         <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -1211,14 +1209,14 @@ I can add this back in later.  I didn't want to talk about it without an example
   ...
 &lt;/assembly&gt;</programlisting>
 
-        <para>This would have the effect of placing every single dependency in
-        a subdirectory that matched the name of each dependency artifact's
-        <sgmltag>groupId</sgmltag>.</para>
+        <para>Cela aura pour effet de mettre chaque dépendance  dans un
+        répertoire dont le nom correspond au <sgmltag>groupId</sgmltag>
+        de l'artefact de chacune d'entre elles.</para>
 
-        <para>If you wanted to perform a further customization and remove the
-        version numbers from all dependencies. You could customize the the
-        output file name for each dependency using the
-        <sgmltag>outputFileNameMapping</sgmltag> element as follows:</para>
+        <para>Si vous voulez aller plus loin dans la personnalisation et que 
+        vous souhaitez retirer le numéro de version de toutes les dépendances.
+        Il suffit de configurer le renommage de chaque dépendance grâce à la
+        balise <sgmltag>outputFileNameMapping</sgmltag> comme suit :</para>
 
         <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -1233,33 +1231,31 @@ I can add this back in later.  I didn't want to talk about it without an example
   ...
 &lt;/assembly&gt;</programlisting>
 
-        <para>In the previous example, a dependency on
-        <varname>commons:commons-codec</varname> version 1.3, would end up in
-        the file <filename>commons/commons-codec.jar</filename>.</para>
+        <para>Dans l'exemple précédent, une dépendance sur
+        <varname>commons:commons-codec</varname> version 1.3, se retrouverait
+        dans le fichier <filename>commons/commons-codec.jar</filename>.</para>
       </section>
 
       <section id="assemblies-sect-interpolate">
-        <title>Interpolation of Properties in Dependency Output
-        Location</title>
+        <title>Interpolation de propriétés pour l'emplacement des dépendances</title>
 
-        <para>As mentioned in the Assembly Interpolation section above,
-        neither of these elements are interpolated with the rest of the
-        assembly descriptor, because their raw values have to be interpreted
-        using additional, artifact-specific expression resolvers.</para>
+        <para>Comme nous l'avons déjà mentionné dans la 
+        <xref linkend="assemblies-sect-prop-refs" /> aucun de ces éléments
+        n'est interpolé avec le reste du descritpeur d'assembly. En effet,
+        leurs valeurs brutes doivent être traitées par des interpréteurs
+        d'expression d'artefact spécifiques.</para>
 
-        <para>The artifact expressions available for these two elements vary
-        only slightly. In both cases, all of the
-        <varname>\${project.*}</varname>, <varname>\${pom.*}</varname>, and
-        <varname>\${*}</varname> expressions that are available in the
-        <acronym>POM</acronym> and the rest of the assembly descriptor are
-        also available here. For the <sgmltag>outputFileNameMapping</sgmltag>
-        element, the following process is applied to resolve
-        expressions:</para>
+        <para>Les expressions utilisables pour ces deux ééments sont légèrement
+        différentes. Les expressions <varname>\${project.*}</varname>,
+        <varname>\${pom.*}</varname> et <varname>\${*}</varname> qui sont
+        disponibles dans le <acronym>POM</acronym> et dans le reste du descripteur
+        le sont aussi dans ces deux cas. Pour la balise <sgmltag>outputFileNameMapping</sgmltag>
+        le traitement suivant est appliqué pour résoudre les expressios :</para>
 
         <orderedlist>
           <listitem>
-            <para>If the expression matches the pattern
-            <varname>\${artifact.*}</varname>:</para>
+            <para>Si l'expression correspond au pattern 
+            <varname>\${artifact.*}</varname> :</para>
 
             <orderedlist numeration="loweralpha">
               <listitem>
