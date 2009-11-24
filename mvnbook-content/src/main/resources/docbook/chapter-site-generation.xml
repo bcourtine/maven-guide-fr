@@ -7,16 +7,15 @@
   <section id="site-generation-sect-intro">
     <title>Introduction</title>
 
-    <para>Les applications réussies sont rarement produites par une équipe d'un seul individu.
+    <para>Les applications les mieux réussies sont rarement l'oeuvre d'un seul homme.
     Les équipes sont souvent découpées en cellules pouvant aller d'une poignée de personnes dans un bureau 
-    à des équipes de plusieurs centaines de personnes réparties dans un environnement distribué. 
-    La plupart des projets Open Source (comme Maven) réussissent ou échouent en fonction de la présence d'une documentation bien écrite et largement distribuée,  
+    à des équipes de plusieurs centaines de personnes réparties sur un environnement distribué. 
+    La plupart des projets Open Source (comme Maven) réussissent ou échouent en fonction de la présence d'une documentation bien écrite et largement distribuée.  
     Dans chaque environnement, il est important que les projets disposent d'un moyen simple pour publier et maintenir leur documentation en ligne.      
     Le développement d'applications est avant tout un exercice de collaboration et de communication,
-    la publication d'un site Maven est l'un des chemins qui permet de s'assurer que votre projet communique avec ses utilisateurs.</para>
+    la publication d'un site Maven est l'un des chemins qui permettent de s'assurer que votre projet communique avec ses utilisateurs.</para>
  
-
-    <para>Pour un projet Open Source, un site Internet est souvent le point de départ tant pour les communautés de développeurs que pour les utilisateurs finaux.
+    <para>Pour un projet Open Source, un site Internet est souvent le point de départ tant pour les communautés de développeurs que pour les utilisateurs.
     Là où les utilisateurs finaux recherchent sur le site du projet des tutoriaux, des guides utilisateurs, la documentation de <acronym>API</acronym> et les archives de la mailing-list,
     les développeurs y recherchent des documents de conception, des rapports de code, un gestionnaire d'anomalies ou les release notes.      
     Les plus larges des projets Open Sources peuvent intégrer des wikis, des gestionnaires d'anomalies et des systèmes d'intégration continue
