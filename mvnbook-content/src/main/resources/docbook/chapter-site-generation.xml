@@ -560,7 +560,7 @@ Welcome to Sample Project
   </section>
 
   <section id="site-generation-sect-site-appearance">
-    <title>Personnaliser l'Apparence de votre Site</title>
+    <title>Personnaliser l'apparence de votre site</title>
 
     <para>Le template Maven par défaut laisse beaucoup à désirer. 
     Si vous voulez personnaliser votre site de projet au delà de l'ajout de contenu, d'options dans le menu navigation et de modification des logos,
@@ -570,12 +570,12 @@ Welcome to Sample Project
     la création d'un 'skin' Maven est souvent nécessaire.</para>
 
     <section id="site-generation-sect-site-css">
-      <title>Personnaliser la CSS du Site</title>
+      <title>Personnaliser la CSS du site</title>
 
       <para>Le moyen le plus simple pour personnaliser l'apparence de votre site est de fournir à votre projet une <acronym>CSS</acronym> <filename>site.css</filename>.
       Tout comme pour les images ou pour le contenu <acronym>XHTML</acronym>, ce fichier <acronym>CSS</acronym> doit se trouver dans le répertoire <filename>src/site/resources/css</filename>.   
-      Avec cette <acronym>CSS</acronym>, il vous est possible de modifier la disposition et le style des textes de votre site; 
-      il vous est également possible d'ajouter une image de fond ou de personnaliser les images de vos listes.   
+      Avec cette <acronym>CSS</acronym>, il vous est possible de modifier la disposition et le style des textes de votre site. 
+      Il vous est également possible d'ajouter une image de fond ou de personnaliser les images de vos listes.   
       Par exemple, si vous décidez de faire ressortir davantage le titre du menu, vous pourriez utiliser le style suivant dans le fichier 
       <filename>src/site/resources/css/site.css</filename> : </para>
 
@@ -605,9 +605,9 @@ Welcome to Sample Project
     </section>
 
     <section id="site-generation-sect-custom-template">
-      <title>Créer un Template de Site Personnalisé</title>
+      <title>Créer un template de site personnalisé</title>
 
-      <para>Si la structure du Site Maven par défaut ne vous convient pas, vous pouvez toujours personnaliser son template. 
+      <para>Si la structure du site Maven par défaut ne vous convient pas, vous pouvez toujours personnaliser son template. 
       Grâce à cela, il est possible d'avoir le contrôle complet de la sortie du plugin Maven.
       Il est également possible de personnaliser le template du site de telle sorte que vous ne reconnaissiez pas la structure du template par défaut.</para>
 
@@ -778,7 +778,7 @@ Welcome to Sample Project
       Pour personnaliser le template du site, vous devez utiliser la balise <sgmltag>templateDirectory</sgmltag> dans les propriétés de configuration du plugin Maven Site.</para>
 
       <para><example>
-          <title>Personnaliser le Template d'une PAge dans le POM du Projet</title>
+          <title>Personnaliser le template d'une page dans le POM du projet</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -820,7 +820,7 @@ $ <command>cp -rf \
       
       <para>Lorsque vous regénérez un site, vous noterez également que certains éléments du menu ne posséderont pas de style CSS.
       Cela est dû à une mauvaise intégration entre la <acronym>CSS</acronym> du site et votre template personnalisé.
-      Pour corriger cel, modifiez votre fichier <filename>site.css</filename> pour modifier la couleur de vos liens dans le menu en ajoutant les lignes suivantes :</para>
+      Pour corriger cela, modifiez votre fichier <filename>site.css</filename> pour changer la couleur de vos liens dans le menu en ajoutant les lignes suivantes :</para>
 
       <screen>li.collapsed, li.expanded, a:link {
   color:#36a;
@@ -836,7 +836,7 @@ $ <command>cp -rf \
       Le plus simple reste donc d'ajouter au sous-menu un élément "Overview" qui pointe sur cette même page :</para>
 
       <para><example>
-          <title>Ajouter un Elément du Menu dans le Descripteur de Site</title>
+          <title>Ajouter un élément du menu dans le descripteur de site</title>
 
           <programlisting language="xml">&lt;project name="Hello World"&gt;
   ...
