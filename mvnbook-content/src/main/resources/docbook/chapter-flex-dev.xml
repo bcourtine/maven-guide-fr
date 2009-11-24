@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="flex-dev">
@@ -415,11 +415,11 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
   </section>
 
   <section id="flex-dev-sect-creating-with-archetype">
-    <title>Creating a Flex Mojos Project from an Archetype</title>
+    <title>Creation d'un projet Flex Mojos à partir d'un archétype</title>
 
-    <para>Flexmojos has a set of archetypes which can be used to quickly
-    create a new Flex project. The following archetypes are all in the
-    <package>org.sonatype.flexmojos</package> group with a version of
+    <para>Flexmojos a un ensemble d'archétypes qui peuvent être utilisés rapidement pour creer 
+    un nouveau projet Flex. Les archétypes ci-dessous sont tous dans le groupe 
+    <package>org.sonatype.flexmojos</package> avec version 
     <varname>${flexmojos.version}</varname>:</para>
 
     <variablelist>
@@ -427,7 +427,7 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
         <term>flexmojos-archetypes-library</term>
 
         <listitem>
-          <para>Creates a simple Flex Library project which produces a
+          <para>Crée un simple projet de librairie Flex qui crée un artéfact
           SWC</para>
         </listitem>
       </varlistentry>
@@ -436,7 +436,7 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
         <term>flexmojos-archetypes-application</term>
 
         <listitem>
-          <para>Creates a simple Flex Application with produces a SWF</para>
+          <para>Crée un simple projet Flex qui crée un artéfact SWF</para>
         </listitem>
       </varlistentry>
 
@@ -444,19 +444,19 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
         <term>flexmojos-archetypes-modular-webapp</term>
 
         <listitem>
-          <para>Creates a Multimodule project which consists of a project that
-          produces a SWC which is consumed by a project which produces a SWF
-          that is ultimately presented in a project that generates a
+          <para>Crée un projet multi-modules qui présente un projet qui 
+          produit un SWC qui est consommé par un projet qui produit un SWF
+          lequel est présenté au final dans un projet qui génère un 
           WAR</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
     <section id="flex-dev-sect-library-archetype">
-      <title>Creating a Flex Library</title>
+      <title>Création d'une librairie Flex</title>
 
-      <para>To create a Flex Library Project, execute the following command at
-      the command-line:</para>
+      <para>Pour créer un projet de librairie Flex, il suffit d'exécuter la commande en ligne
+      suivante :</para>
 
       <screen>$ <command>mvn archetype:generate \
     -DarchetypeRepository=http://repository.sonatype.org/content/groups/public \
@@ -490,12 +490,12 @@ package: org.sonatype.test
 [INFO] BUILD SUCCESSFUL
 </screen>
 
-      <para>If you look in the directory sample-library/ you will see that the
-      project consists of the directory structure shown in <xref
+      <para>En regardant dans le répertoire sample-library/ vous verrez
+      que le projet présente une arborescence comme dans la figure <xref
       linkend="fig-flex-dev-library-archetype-fs" />.</para>
 
       <figure id="fig-flex-dev-library-archetype-fs">
-        <title>Flexmojo Library Archetype File Structure</title>
+        <title>Arborescence de l'archétype Librairie Flexmojo</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -510,12 +510,12 @@ package: org.sonatype.test
         </mediaobject>
       </figure>
 
-      <para>The product of the simple Flex library archetype only contains
-      three files: a POM, one source, and a unit test. Let's examine each of
-      these files. First, the Project Object Model (POM).</para>
+      <para>Le produit du seul archétype Lirairie Flex contient 
+      trois fichiers: un POM, un fichier source et un fichier de test unitaire. Regardons chacun de ces
+      trois fichiers. Premièrement, le Project Object Model (POM).</para>
 
       <example id="fig-flex-dev-simple-lib-pom">
-        <title>Project Object Model for Flex Library Archetype</title>
+        <title>POM d'un archétype pour projet de librairie Flex</title>
 
         <programlisting>&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -565,31 +565,30 @@ package: org.sonatype.test
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para><xref linkend="fig-flex-dev-simple-lib-pom" /> is very simple, the
-      key to this POM is the <varname>flexmojos-maven-plugin</varname>
-      configuration which sets <varname>extensions</varname> to
-      <varname>true</varname>. This configuration customizes the lifecycle for
-      the <varname>swc</varname> packaging which is defined in the
-      <varname>flexmojos-maven-plugin</varname>. The archetype then includes
-      the <varname>flex-framework</varname> dependency and the
-      <varname>flexmojos-unittest-support</varname> test-scoped dependency.
-      The <varname>flex-framework</varname> dependency is a POM which contains
-      references to the SWC libraries and resources required to compile Flex
-      applications.</para>
+      <para>L'<xref linkend="fig-flex-dev-simple-lib-pom" /> est très simple, le 
+      point clef de ce POM c'est la configuration de <varname>flexmojos-maven-plugin</varname>
+       qui positionne <varname>extensions</varname> à
+      <varname>true</varname>. Cette configuration personalise le cycle pour le pacjaging 
+      <varname>swc</varname> qui est défini dans le plugin
+      <varname>flexmojos-maven-plugin</varname>. L'archétype inclut alors
+      la dépendance <varname>flex-framework</varname> ainsi que la dépence de scope test
+      <varname>flexmojos-unittest-support</varname>.
+      La dépendance <varname>flex-framework</varname> est un POM qui contient
+      les références vers les librairies libraries et les resources requises pour compiler une application Flex.</para>
 
-      <para>In <xref linkend="fig-flex-dev-simple-lib-pom" />, the packaging
-      is very critical. A POMs packaging type controls the lifecycle it uses
-      to produce build output. The value <varname>swc</varname> in the
-      packaging element is Maven's cue to look for the Flex-specific lifecycle
-      customizations which are provided by the
-      <varname>flexmojos-maven-plugin</varname>. The other important part of
-      this POM is the build element which specifies the location of the Flex
-      source code and the Flex unit tests. Next, let's take a quick look at
-      <xref linkend="ex-flex-dev-lib-as" /> which contains the sample
-      Actionscript which was created by this archetype.</para>
+      <para>Dans l'<xref linkend="fig-flex-dev-simple-lib-pom" />, le packaging
+      est primordial. Le type de packaging d'un POM controle le cycle de vie qui est utilisé
+      pour produire le résultat de build. La valeur <varname>swc</varname> dans 
+       l'élément packaging est l'indice pour rechercher les personalisations liées aux cycle de vie spécifique Flex
+      qui sont fournies par le plugin 
+      <varname>flexmojos-maven-plugin</varname>. L'autre partie importante de ce
+      POM est lélément build qui précise la localisation du code source Flex
+      ainsi que des tests unitaires. Maintenant, jetons un coup d'oeil à 
+      <xref linkend="ex-flex-dev-lib-as" /> qui contient l'exemple 
+      d'Actionscript créé par l'archetype.</para>
 
       <example id="ex-flex-dev-lib-as">
-        <title>Flex Library Archetype's Sample App Class</title>
+        <title>App, l'application exemple de l'archétype pour Librairie Flex</title>
 
         <programlisting>package org.sonatype.test {
   public class App {
@@ -601,15 +600,14 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>While this code is underwhelming, it does provide you with a quick
-      model and a quick pointer: "Place More Code Here". While it might seem
-      silly to test code this simple, a sample test named
-      <filename>TestApp.as</filename> is provides in the
-      <filename>src/test/flex</filename> directory. This test is shown in
-      <xref linkend="ex-flex-dev-test-app" />.</para>
+      <para>Bien que ce code soit très simple, il apporte un exemple et un pointeur rapide : "Placer le reste du code ici". Bien qu'il puisse sembler idiot
+      de tester ce code aussi simple, un exemple de test nommé
+      <filename>TestApp.as</filename> est proposé dans le répertoire
+      <filename>src/test/flex</filename>. Ce test est illustré dans 
+      l'<xref linkend="ex-flex-dev-test-app" />.</para>
 
       <example id="ex-flex-dev-test-app">
-        <title>Unit Test for Library Archetype's App Class</title>
+        <title>Test unitaire de la classe App pour l'archetype de Librairie Flex</title>
 
         <programlisting>package org.sonatype.test {
 
@@ -632,7 +630,7 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>To run this build, go to the sample-library project directory and
+      <para>Pour exécuter ce build, allez au répertoire du projet sample-library et lancer la commande : 
       run mvn install.</para>
 
       <screen>$ <command>mvn install</command> 
@@ -687,21 +685,14 @@ See COPYRIGHT file
 </screen>
 
       <note>
-        <para>To execute Flex unit tests you will need to configure your PATH
-        environment variable to include the Flash Player. For more information
-        about configuring FlexMojos for unit tests, see <xref
+        <para>Pour pouvoir exécuter les tests unitaires Flex il vous faudra  configurer votre variable d'enrironnement PATH
+        afin d'inclure le lecteur Flash Player. Pour plus d'information concernant  la configuration de FlexMojos pour les tests unitiares, se référer à la <xref
         linkend="flex-dev-sect-configuring-unit-tests" />.</para>
       </note>
 
-      <para>When you ran <command>mvn install</command> on this project, you
-      should notice in the output that Maven and Flexmojos plugin is take care
-      of managing all of the libraries and the dependencies for the Flex
-      compiler. Much like Maven excels at helping Java developers manage the
-      contents of a Java classpath, Maven can help Flex developers manage the
-      complex of compile paths. You also might have been shocked when the
-      Flexmojos project started a web browser or the Flash Player and used it
-      to execute the TestApp.as class against the project's source
-      code.</para>
+      <para>Quand vous exécuter la commande <command>mvn install</command> pour ce projet, vous
+      pouvez noter dans l'output que Maven et le plugin Flexmojos prennent en charge
+      la gestion de toutes les librairies et dépendances pour le compilateur Flex. De la même façon que Maven est excellent pour aider les développeurs Java à gérer le contenu d'un classpath Java, Maven peut aider les développeurs Flex a gérer la complexité de génération des paths. Vous avez peut-être été surpris quand votre projet Flexmojos a démarré un navigateur web ou un lecteur Flash Player et l'a utilisé pour exécuter l'application TestApp construit à partir de votre code source.</para>
     </section>
 
     <section id="flex-dev-sect-application-archetype">
