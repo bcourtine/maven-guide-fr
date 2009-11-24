@@ -696,10 +696,10 @@ See COPYRIGHT file
     </section>
 
     <section id="flex-dev-sect-application-archetype">
-      <title>Creating a Flex Application</title>
+      <title>Création d'une application Flex</title>
 
-      <para>To create a Flex application from a Maven archetype, execute the
-      following command:</para>
+      <para>Pour créer une application Flex à partir d'un archétype Maven, lancer la 
+       commande suivante :</para>
 
       <screen>$ <command>mvn archetype:generate \
     -DarchetypeRepository=http://repository.sonatype.org/content/groups/public \
@@ -734,11 +734,11 @@ package: org.sonatype.test
 
 </screen>
 
-      <para>If you look in the directory sample-application/ you will see the
-      filesystem shown in <xref linkend="fig-flex-dev-dir-app-fs" />.</para>
+      <para>Si vous regerdez dans le répertoire sample-application/ vous verrez l'arborescence
+      de fichiers illustrée dans la <xref linkend="fig-flex-dev-dir-app-fs" />.</para>
 
       <figure id="fig-flex-dev-dir-app-fs">
-        <title>Directory Structure for Flex Application Archetype</title>
+        <title>Structure de fichiers issu de l'archétype pour application Flex</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -753,11 +753,10 @@ package: org.sonatype.test
         </mediaobject>
       </figure>
 
-      <para>Building an application from the Application archetype produces
-      the following POM.</para>
+      <para>La génération d'une application Flex via l'archétype produit le POM suivant.</para>
 
       <example id="ex-flex-dev-app-pom">
-        <title>POM for Flex Application Archetype</title>
+        <title>POM généré par l'archétype Flex Application </title>
 
         <programlisting>&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -808,18 +807,18 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>The difference between <xref linkend="ex-flex-dev-app-pom" /> and
-      <xref linkend="fig-flex-dev-simple-lib-pom" /> is that the
-      <varname>packaging</varname> element is <varname>swf</varname> instead
-      of <varname>swc</varname>. By setting the packaging to
-      <varname>swf</varname>, the project will produce a Flex application in
-      <filename>target/sample-application-1.0-SNAPSHOT.swf</filename>. The
-      sample application created by this archetype displays the Text "Hello
-      World". <filename>Main.mxml</filename> can be found in
+      <para>La différence entre l'<xref linkend="ex-flex-dev-app-pom" /> et 
+      l'<xref linkend="fig-flex-dev-simple-lib-pom" /> se trouve dans l'élément de 
+      <varname>packaging</varname> : <varname>swf</varname> à la place de 
+      <varname>swc</varname>. En positionnant le packaging à
+      <varname>swf</varname>, le projet produira une application Flex, à savoir 
+      <filename>target/sample-application-1.0-SNAPSHOT.swf</filename>. L'application 
+	exemple produit par cet archétype affichera le texte "Hello
+      World". Le fichier source <filename>Main.mxml</filename> se trouve dans 
       <filename>src/main/flex</filename>.</para>
 
       <example>
-        <title>Sample Application Main.mxml</title>
+        <title>Application exemple Main.mxml</title>
 
         <programlisting>&lt;mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"&gt;
         &lt;mx:Text text="Hello World!"/&gt;
@@ -827,12 +826,12 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>This application also creates a simple FlexUnit test that does
-      nothing more than print out a trace message. The sample unit test is in
+      <para>L'archétype produit également un test unitaire flexUnit simple qui ne fait rien d'autre que d'afficher un message de trace. 
+	l'exemple de test unitaire se trouve dans 
       <filename>src/test/flex/org/sonatype/test</filename>.</para>
 
       <example>
-        <title>Unit Test for Main.mxml</title>
+        <title>test unitaire de Main.mxml</title>
 
         <programlisting>package org.sonatype.test 
 {
@@ -855,12 +854,10 @@ package: org.sonatype.test
     </section>
 
     <section id="flex-dev-sect-multimodule-archetype">
-      <title>Creating a Multi-module Project: Web Application with a Flex
-      Dependency</title>
+      <title>Creating d'un projet multi-modules : application web avec dépendance Flex</title>
 
-      <para>To create a multi-module project consisting of a Flex Library
-      project referenced by a Flex Application, referenced by a Web
-      Application.</para>
+      <para>La ligne de commande suivante crée un projet multi-modules contenant un projet de librairie Flex
+ référencée par une application Flex qui elle-même est référencée par une application web : </para>
 
       <screen>$ <command>mvn archetype:generate \
     -DarchetypeRepository=http://repository.sonatype.org/content/groups/public \
@@ -895,12 +892,12 @@ package: org.sonatype.test
 [INFO] BUILD SUCCESSFUL
 </screen>
 
-      <para>If you look in the <filename>sample-multimodule/</filename>
-      directory, you will see a directory structure which contains three
-      projects swc, swf, and war.</para>
+      <para>Si vous regardez dans le répertoire <filename>sample-multimodule/</filename>, 
+	vous verrez une arborescence qui contient trois projets
+       swc, swf et war.</para>
 
       <figure id="fig-flex-dev-multimodule-archetype-fs">
-        <title>Directory Structure for Flex Multimodule Archetype</title>
+        <title>Arborescence de fichiers issu de l'archétype Multi-modules Flex</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -915,13 +912,11 @@ package: org.sonatype.test
         </mediaobject>
       </figure>
 
-      <para>The simple top-level POM in this multimodule project is shown in .
-      It consists of module references to the swc, swf, and war
-      modules.</para>
+      <para>Le POM parent du projet multi-modules est simple et affiché ci-dessous.
+      Il est constitué de références aux modules swc, swf et war.</para>
 
       <example>
-        <title>Top-level POM Created by Modular Web Application
-        Archetype</title>
+        <title>POM parent produit par l'archétype Multi-modules Flex</title>
 
         <programlisting>&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -942,13 +937,13 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>The swc project has a simple POM that resembles the POM shown in
-      <xref linkend="fig-flex-dev-simple-lib-pom" />. Note that the
-      <varname>artifactId</varname> in this POM differs from the name of the
-      module directory and is <varname>swc-swc</varname>.</para>
+      <para>Le projet swc a un POM simple qui ressemble au POM illustré dans 
+      l'<xref linkend="fig-flex-dev-simple-lib-pom" />. Notez que
+      l'<varname>artifactId</varname> dans ce POM ne reflète pas le nom de 
+      module mais est <varname>swc-swc</varname>.</para>
 
       <example>
-        <title>swc Module POM</title>
+        <title>POM du module swc</title>
 
         <programlisting>&lt;project&gt;
 
@@ -1005,15 +1000,15 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>The swf module's POM resembles the POM in <xref
-      linkend="ex-flex-dev-app-pom" /> adding a dependency on the
-      <varname>swc-swc</varname> artifact. Note that the following POM defines
-      an <varname>artifactId</varname> that differs from the directory that
-      stores the module; the artifactId in the following POM is
-      <varname>swf-swf</varname>.</para>
+      <para>Le POM du module swf ressemble au POM de l'<xref
+      linkend="ex-flex-dev-app-pom" /> en ajoutant une dépendance à l'artéfact
+      <varname>swc-swc</varname>. Notez que
+      l'<varname>artifactId</varname> dans ce POM ne reflète pas le nom du répertoire qui contient le 
+      module ; l'artifactId dans le POM ci-dessous est 
+	<varname>swf-swf</varname>.</para>
 
       <example id="ex-flex-swf-module-pom">
-        <title>swf module POM</title>
+        <title>MOM du module swf</title>
 
         <programlisting>&lt;project&gt;
 
@@ -1079,23 +1074,21 @@ package: org.sonatype.test
       </example>
 
       <warning>
-        <para>In <xref linkend="ex-flex-swf-module-pom" />, the dependency on
-        "swf-swc" needs to be changed to "swc-swc". This is a bug in the
-        modular webapp archetype that is present in the FlexMojos
-        ${flexmojos.version} release. It will be fixed in the FlexMojos 3.2.0
-        release.</para>
+        <para>Dans l'<xref linkend="ex-flex-swf-module-pom" />, la dépendance vers
+        "swf-swc" doit être changé pour "swc-swc". C'est un bug dans l'archétype Multi-module Flex 
+	qui est présent dans la version 
+        ${flexmojos.version} de FlexMojos. Il sera corrigé dans la version FlexMojos 3.2.0.</para>
       </warning>
 
-      <para>When you declare a dependency on a SWC, you'll need to specify the
-      type of the dependency so that Maven can locate the appropriate artifact
-      in the remote or local repository. In this case, the
-      <varname>swf-swf</varname> project depends upon the SWC that is
-      generated by the <varname>swc-swc</varname> project. When you add the
-      dependency to the <varname>swf-swf</varname> project, the FlexMojos
-      plugin will add the appropriate SWC file to the Flex Compiler's library
-      path.</para>
+      <para>Quand vous déclarer une dépendance vers un SWC, vous devez préciser le type de 
+      dépendencé afin que Maven puisse localiser les artéfacts adéquats dans le dépot distant ou local. 
+      Dans ce cas, projet
+      <varname>swf-swf</varname> dépend d'un SWC qui est généré
+      par un projet <varname>swc-swc</varname>. Quand vous ajoutez
+      la dépendence au projet <varname>swf-swf</varname>, le plugin FlexMojos
+      ajoutera le fichier SWC approprié dans le chemin des bibliothèques de compilation Flex.</para>
 
-      <para>Next, take a look at the simple POM in the war module.</para>
+      <para>Maintenant, jetez un coup d'oeil dans le POM simple du module war.</para>
 
       <example id="ex-flex-war-module-pom">
         <title>war module POM</title>
@@ -1144,54 +1137,50 @@ package: org.sonatype.test
       </example>
 
       <warning>
-        <para>In <xref linkend="ex-flex-war-module-pom" />, the dependency on
-        "war-swf" needs to be changed to "swf-swf". This is a bug in the
-        modular webapp archetype that is present in the FlexMojos
-        ${flexmojos.version} release. It will be fixed in the FlexMojos 3.2.0
-        release.</para>
+        <para>Dans l'<xref linkend="ex-flex-war-module-pom" />, la dépendance vers 
+        "war-swf" doit être remplacée par "swf-swf". C'est un bug dans l'archétype Multi-module Flex 
+	qui est présent dans la version 
+        ${flexmojos.version} de FlexMojos. Il sera corrigé dans la version FlexMojos 3.2.0.</para>
       </warning>
 
-      <para>The POM shown in <xref linkend="ex-flex-war-module-pom" />
-      configures the FlexMojos plugin to execute the
-      <varname>copy-flex-resources</varname> goal for this project. The
-      <varname>copy-flex-resources</varname> goal will copy SWF application
-      into the web application's document root. In this project, running a
-      build and creating a WAR will copy the
-      <filename>swf-swf-1.0-SNAPSHOT.swf</filename> file to the web
-      application's root directory in
+      <para>Le POM illustré dans l'<xref linkend="ex-flex-war-module-pom" />
+      configure le plugin FlexMojos pour exécuter le goal
+      <varname>copy-flex-resources</varname> pour ce projet. Le goal
+      <varname>copy-flex-resources</varname> fera une copie de l'application SWF 
+      à la racine de l'application web. Dans ce projet, l'exécution du build
+      et la production du WAR fera une copie du fichier 
+      <filename>swf-swf-1.0-SNAPSHOT.swf</filename> dans le répertoire racine de l'application web 
       <filename>target/war-war-1.0-SNAPSHOT</filename>.</para>
 
-      <para>To build the multimodule web application project, run <command>mvn
-      install</command> from the top-level directory. This should build the
-      <varname>swc-swc</varname>, <varname>swf-swf</varname>, and
-      <varname>war-war</varname> artifacts and product a WAR file in
-      war<filename>/target/war-war-1.0-SNAPSHOT.war</filename> which contains
-      the <filename>swf-swf-1.0-SNAPSHOT.swf</filename> in the document root
-      of the web application.</para>
+      <para>Pour construire l'application web multi-modules, exécutez <command>mvn
+      install</command> depuis le répertoire racine. Ceci doit générer les artéfacts
+      <varname>swc-swc</varname>, <varname>swf-swf</varname> et
+      <varname>war-war</varname> et produire le fichier WAR 
+	<filename>/target/war-war-1.0-SNAPSHOT.war</filename> qui contient
+      le <filename>swf-swf-1.0-SNAPSHOT.swf</filename> à la racine de 
+      l'application web.</para>
 
       <note>
-        <para>To execute Flex unit tests you will need to configure your PATH
-        environment variable to include the Flash Player. For more information
-        about configuring FlexMojos for unit tests, see <xref
+        <para>Pour pouvoir exécuter les tests unitaires Flex il vous faudra  configurer votre variable d'enrironnement PATH
+        afin d'inclure le lecteur Flash Player. Pour plus d'information concernant  la configuration de FlexMojos pour les tests unitiares, se référer à la <xref
         linkend="flex-dev-sect-configuring-unit-tests" />.</para>
       </note>
     </section>
   </section>
 
   <section id="flex-dev-sect-custom-lifecycle">
-    <title>The FlexMojos Lifecycle</title>
+    <title>Le cycle de vie de FlexMojos</title>
 
-    <para>The FlexMojos Maven plugin customizes the lifecycle based on the
-    packaging. If your project has a <varname>packaging</varname> of type
-    <varname>swc</varname> or <varname>swf,</varname> the FlexMojos plugin
-    with execute a customized lifecycle if your plugin configuration sets the
-    extensions to true. <xref linkend="ex-flex-dev-extensions-true" /> shows
-    the plugin configuration for the flexmojos-maven-plugin with the
-    <varname>extensions</varname> set to <varname>true</varname>.</para>
+    <para>Le plguin Maven FlexMojos personalise le cycle de vie sur la base du type de 
+    packaging. Si votre projet a <varname>packaging</varname> de type
+    <varname>swc</varname> ou <varname>swf,</varname> alors le plugin FlexMojos 
+    exécute un cycle de vie personalisé si votre configuration de plugin positionne 
+    extensions à true. L'<xref linkend="ex-flex-dev-extensions-true" /> illustre
+    la configuration de plugin pour flexmojos-maven-plugin avec 
+    <varname>extensions</varname> positionné à <varname>true</varname>.</para>
 
     <example id="ex-flex-dev-extensions-true">
-      <title>Setting Plugin Extensions to True for Custom Flex
-      Lifecycle</title>
+      <title>Configuration de l'élément extensions à true pour un cycle de vie personalisé Flex</title>
 
       <programlisting>  &lt;build&gt;
     &lt;sourceDirectory&gt;src/main/flex&lt;/sourceDirectory&gt;
@@ -1213,15 +1202,15 @@ package: org.sonatype.test
     </example>
 
     <section id="flex-dev-sect-lifecycle-swc">
-      <title>The SWC Lifecycle</title>
+      <title>Le cycle de vie SWC</title>
 
-      <para>When the packaging is swc, FlexMojos will execute the lifecycle
-      shown in <xref linkend="fig-flex-dev-swc-lifecycle" />. The highlighted
-      goals are goals from the FlexMojos plugin, the goals which are not
-      highlights are standard goals from the Core Maven plugins.</para>
+      <para>Quand le packaging est swc, FlexMojos execute le cycle de vie
+      illustré dans la <xref linkend="fig-flex-dev-swc-lifecycle" />. Les goals surlignés
+      sont des goals spécifiques au plugin FlexMojos, les goals qui ne sont pas
+      surlignés sont des goals standards du plugin Core Maven.</para>
 
       <figure id="fig-flex-dev-swc-lifecycle">
-        <title>The FlexMojos SWC Lifecycle</title>
+        <title>Le cycle de vie SWC de FlexMojos </title>
 
         <mediaobject>
           <imageobject role="web">
@@ -1236,17 +1225,16 @@ package: org.sonatype.test
         </mediaobject>
       </figure>
 
-      <para>The FlexMojos contributed goals are:</para>
+      <para>Les goals FlexMojos mise en oeuvre sont les suivants:</para>
 
       <variablelist>
         <varlistentry>
           <term>flexmojos:compile-swc</term>
 
           <listitem>
-            <para>This goal compiles all of the Actionscript and MXML files in
-            the <varname>sourceDirectory</varname> into a SWC. A SWC is an
-            Adobe library or class file which contains components and
-            resources used in Flex applications.</para>
+            <para>Ce goal compile en librairie SWC tous les fichiers Actionscript et MXML qui sont dans 
+	<varname>sourceDirectory</varname>. Un SWC une bibliothèque Adobe qui contient des composants et des 
+            resources utilisées dans des Flex applications.</para>
           </listitem>
         </varlistentry>
 
@@ -1254,8 +1242,8 @@ package: org.sonatype.test
           <term>flexmojos:test-compile</term>
 
           <listitem>
-            <para>This goal compiles all of the Actionscript and MXML files in
-            the <varname>testSourceDirectory</varname>.</para>
+            <para>Ce goal compile tous les fichiers Actionscript et MXML files qui se trouvent 
+            dans <varname>testSourceDirectory</varname>.</para>
           </listitem>
         </varlistentry>
 
@@ -1263,9 +1251,9 @@ package: org.sonatype.test
           <term>flexmojos:test-run</term>
 
           <listitem>
-            <para>This goal executes unit tests using the Flash Player. This
-            goal can only run if the Flash Player has been configured as
-            described in <xref
+            <para>Ce goal execute les tests unitaires en utilisant le lecteur Flash Player. Ce 
+            goal ne peut s'exécuter que si Flash Player a correctement été configuré comme 
+            décrit dans la <xref
             linkend="flex-dev-sect-configuring-unit-tests" />.</para>
           </listitem>
         </varlistentry>
