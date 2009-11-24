@@ -330,7 +330,6 @@ $ mvn site:run</screen>
     il génère les fichiers <acronym>HTML</acronym> dans des répertoires relatifs à la racine du site. 
     Si un fichier se trouve dans le répertoire <filename>apt</filename>, son fichier généré se trouvera à la racine du site web.
     Si un fichier se trouve dans le répertoire <filename>apt/developer</filename>, son fichier généré se trouvera dans le répertoire <filename>developer/</filename> du site web.</para>
-     
   </section>
 
   <section id="site-generation-sect-proj-doc">
