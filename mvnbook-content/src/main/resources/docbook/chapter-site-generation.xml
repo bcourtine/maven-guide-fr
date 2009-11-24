@@ -855,7 +855,7 @@ $ <command>cp -rf \
     </section>
 
     <section id="site-generation-sect-reusable-skin">
-      <title>Réutilisation des Skins</title>
+      <title>Réutilisation des skins</title>
 
       <para>Si votre entreprise créé de nombreux sites Maven,
       vous voudrez probablement réutiliser vos templates et <acronym>CSS</acronym> personnalisés sur plusieurs projets.
@@ -913,7 +913,7 @@ $ <command>mkdir src/main/resources</command>
     </section>
 
     <section id="site-generation-sect-custom-theme-css">
-      <title>Création d'un Thème CSS Personnalisé</title>
+      <title>Création d'un thème CSS personnalisé</title>
 
       <para>Ensuite, écrivons une <acronym>CSS</acronym> personnalisée pour notre skin.
       Celle-ci doit se trouver à l'emplacement suivant : <filename>src/main/resources/css/maven-theme.css</filename>.
@@ -961,7 +961,7 @@ $ <command>mkdir src/main/resources</command>
       Pour référencer une skin dans votre site, utilisez la balise du même nom :</para>
 
       <para><example>
-          <title>Configurer un Skin Personnalisé dans le Descripteur de Site</title>
+          <title>Configurer un skin personnalisé dans le descripteur de site</title>
 
           <programlisting language="xml">&lt;project name="Sample Project"&gt;
   ...
@@ -975,7 +975,7 @@ $ <command>mkdir src/main/resources</command>
         </example></para>
 
       <para>Vous pouvez comparer le skin de votre site à une dépendance.
-      Les skins sont par un groupId et un artifactId comme n'importe quel artefact.
+      Les skins sont par un <varname>groupId</varname> et un <varname>artifactId</varname> comme n'importe quel artefact.
       Utiliser un skin pour votre site vous permet de consolider les personnalisations d'un projet
       pour réutiliser ses <acronym>CSS</acronym> et template aussi facilement que n'importe quel autre artefact.</para>  
 
