@@ -926,12 +926,12 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       source avec quelques exceptions importantes. Les exceptions à cette règle sont
       surtout les fichiers et les répertoires de métadonnées des outils de gestion de
       configuration. Ces exceptions par défaut sont utilisées lorsque la balise
-      <sgmltag>useDefaultExcludes</sgmltag> est à vrai ce qui est le cas par défaut.
-      Lorsque l'option <sgmltag>useDefaultExcludes</sgmltag> est activée, les
-      répertoires tels que <filename>.svn/</filename> et <filename>CVS/</filename>
-      sont exclus d'office pour l'ajout dans l'archive assembly. La <xref
-      linkend="assemblies-sect-default-excludes" /> présente une liste
-      détaillée des formats d'exclusion par défaut.</para>
+      <sgmltag>useDefaultExcludes</sgmltag> est à <varname>true</varname>, ce qui
+      est le cas par défaut. Lorsque l'option <sgmltag>useDefaultExcludes</sgmltag>
+      est activée, les répertoires tels que <filename>.svn/</filename> et
+      <filename>CVS/</filename> sont exclus d'office pour l'ajout dans l'archive
+      assembly. La <xref linkend="assemblies-sect-default-excludes" /> présente une
+      liste détaillée des formats d'exclusion par défaut.</para>
 
       <para>Si vous voulons contrôler plus finement cet ensemble de 
       fichiers, vous pouvez le spécifier explicitement. L'
@@ -960,10 +960,10 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       </example>
 
       <para>Les sections <sgmltag>includes</sgmltag> se composent d'une
-      liste de balises <sgmltag>include</sgmltag> qui contiennent de formats
-      de chemin. Ces formats peuvent avoir un ou plusieurs jokers comme
-      ‘**’ qui correspond à un ou plusieurs répertoires ou ‘*’ ce qui
-      correspond à une partie d'un nom de fichier et ‘?’ qui remplace
+      liste de balises <sgmltag>include</sgmltag> qui contiennent des patterns
+      de chemin et de nom de fichier. Ces formats peuvent avoir un ou plusieurs
+      jokers comme ‘**’ qui correspond à un ou plusieurs répertoires, ‘*’ qui
+      correspond à une partie d'un nom de fichier ou ‘?’ qui remplace
       un caractère quelqconque dans un nom de fichier. L'<xref
       linkend="ex-explicit-fileSet" /> utilise une balise <sgmltag>fileMode</sgmltag>
       pour spécifier que les fichiers de ce groupe devront être lisibles par tous mais
@@ -977,20 +977,21 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       les répertoires et leurs contenus dans ce cas.</para>
 
       <para>La balise <sgmltag>fileSet</sgmltag> possède des options supplémentaires.
-      Premièrement, il peut centenir une balise <sgmltag>excludes</sgmltag>
-      de la même forme que la balise <sgmltag>includes</sgmltag>. Les formats
+      Premièrement, il peut contenir une balise <sgmltag>excludes</sgmltag>
+      de la même forme que la balise <sgmltag>includes</sgmltag>. Les patterns
       d'exclusion vous permettent d'exclure des fichiers spécifiques d'un
-      <sgmltag>fileSet</sgmltag> qui correspondent à ce modèle. Les formats
+      <sgmltag>fileSet</sgmltag> qui correspondent à ce modèle. Les patterns
       d'inclusion prennent le pas sur les formats d'exclusion. Vous pouvez aussi
-      mettre à vrai l'élément <sgmltag>filtering</sgmltag> si vous voulez remplacer
-      les exprssions dans les fichiers inclus par les valeurs des propriétés. Les 
-      expressions sont délimitées soit par <varname>\${</varname> et
-      <varname>}</varname> (expression standard Maven comme par exemple
-      <varname>\${project.groupId}</varname>) ou par <varname>@</varname> suivi de
-      <varname>@</varname> (expression standard Ant comme par exemple
-      <varname>@project.groupId@</varname>). Vous pouvez choisir la fin de ligne
-      dans vos fichiers grâce à la balise <sgmltag>lineEnding</sgmltag> ; les valeurs
-      autorisées spour la balise <sgmltag>lineEnding</sgmltag> sont :</para>
+      mettre à <varname>true</varname> l'élément <sgmltag>filtering</sgmltag> si
+      vous voulez remplacer les expressions dans les fichiers inclus par les
+      valeurs des propriétés. Les expressions sont délimitées soit par
+      <varname>\${</varname> et <varname>}</varname> (expression standard Maven
+      comme par exemple <varname>\${project.groupId}</varname>) ou par
+      <varname>@</varname> suivi de <varname>@</varname> (expression standard Ant
+      comme par exemple <varname>@project.groupId@</varname>). Vous pouvez
+      choisir la fin de ligne dans vos fichiers grâce à la balise
+      <sgmltag>lineEnding</sgmltag> ; les valeurs autorisées pour la balise
+      <sgmltag>lineEnding</sgmltag> sont :</para>
 
       <variablelist>
         <varlistentry>
@@ -1035,16 +1036,16 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
         </varlistentry>
       </variablelist>
 
-      <para>Enfin, si vous voulez vous assurez que tous les formats de sélection
+      <para>Enfin, si vous voulez vous assurez que tous les éléments de sélection
       de fichier sont utilisés, vous pouvez mettre la balise 
       <sgmltag>useStrictFiltering</sgmltag> à <sgmltag>true</sgmltag>
       (la valeur par défaut est <sgmltag>false</sgmltag>). Cela peut-être très utile
-      si des formats inutilisés indiquent des fichiers manquants dans un répertoire
+      si des patterns inutilisés indiquent des fichiers manquants dans un répertoire
       intermédiaire. Lorsque la balise <sgmltag>useStrictFiltering</sgmltag> est à
-      <sgmltag>true</sgmltag>, le plugin Assembly échouera si un format d'inclusion
-      n'est pas satisfait. En d'autres termes, si vous avez un modèle d'inclusion qui
+      <sgmltag>true</sgmltag>, le plugin Assembly échouera si un pattern d'inclusion
+      n'est pas satisfait. En d'autres termes, si vous avez un pattern d'inclusion qui
       inclut un fichier d'un build et que ce fichier est absent alors, lorsque 
-      la balise <sgmltag>useStrictFiltering</sgmltag> est à <sgmltag>true</sgmltag>n
+      la balise <sgmltag>useStrictFiltering</sgmltag> est à <sgmltag>true</sgmltag>
       Maven fera échouer le build sil ne trouve pas le fichier à inclure.</para>
 
       <!--TODO: JCasey, I had to take the statement about Ant Expressions out because I couldn't verify it.
@@ -1052,25 +1053,23 @@ I can add this back in later.  I didn't want to talk about it without an example
     </section>
 
     <section id="assemblies-sect-default-excludes">
-      <title>Default Exclusion Patterns for
+      <title>Patterns d'exclusion par défaut pour la balise
       <sgmltag>fileSets</sgmltag></title>
 
-      <para>When you use the default exclusion patterns, the Maven Assembly
-      plugin is going to be ignoring more than just <acronym>SVN</acronym> and
-      <acronym>CVS</acronym> information. By default the exclusion patterns
-      are defined by the <ulink
+      <para>Quand vous utilisez les patterns d'exclusion par défaut, le plugin Maven
+      Assembly va ignorer d'autres fichiers que les répertoires <acronym>SVN</acronym>
+      et <acronym>CVS</acronym>. Par défaut, les patterns d'exclusion sont la classe
+       <ulink
       url="http://svn.codehaus.org/plexus/plexus-utils/trunk/src/main/java/org/codehaus/plexus/util/DirectoryScanner.java">DirectoryScanner</ulink>
-      class in the <ulink
+      du projet <ulink
       url="http://plexus.codehaus.org/plexus-utils/">plexus-utils</ulink>
-      project hosted at Codehaus. The array of exclude patterns is defined as
-      a static, final <classname>String</classname> array named
-      <varname>DEFAULTEXCLUDES</varname> in
-      <classname>DirectoryScanner</classname>. The contents of this variable
-      are shown in <xref linkend="ex-default-excludes" />.</para>
+      hébergé chez Codehaus. La liste des patterns d'exclusion est définie sous la forme d'un
+      tableau statique <classname>String</classname> appelé <varname>DEFAULTEXCLUDES</varname>
+      dans <classname>DirectoryScanner</classname>. Le contenu de cette variable est présenté
+      dans <xref linkend="ex-default-excludes" />.</para>
 
       <example id="ex-default-excludes">
-        <title>Definition of Default Exclusion Patterns from Plexus
-        Utils</title>
+        <title>Définitions des patterns d'exclu de Plexus Utils</title>
 
         <programlisting language="java">   public static final String[] DEFAULTEXCLUDES = {
         // Miscellaneous typical temporary files
@@ -1112,33 +1111,34 @@ I can add this back in later.  I didn't want to talk about it without an example
     };</programlisting>
       </example>
 
-      <para>This default array of patterns excludes temporary files from
-      editors like <ulink url="http://www.gnu.org/software/emacs/">GNU
-      Emacs</ulink>, and other common temporary files from Macs and a few
-      common source control systems (although Visual SourceSafe is more of a
-      curse than a source control system). If you need to override these
-      default exclusion patterns you set <sgmltag>useDefaultExcludes</sgmltag>
-      to false and then define a set of exclusion patterns in your own
-      assembly descriptor.</para>
+      <para>Ce tableau de patterns par défaut exclut les fichiers temporaire d'
+      editeurs tels que <ulink url="http://www.gnu.org/software/emacs/">GNU
+      Emacs</ulink>, les fichiers temporaires les plus classqies sous Mac et
+      les fichiers des outils de gestion de configuration (même si
+      Visual SourceSafe est plus une malédiction qu'un outil de gestion de
+      configuration). Si vous avez besoin de redéfinir ces patterns d'exclusion
+      par défaut, mettez <sgmltag>useDefaultExcludes</sgmltag> à
+      <varname>false</varname> et définissez votre propre lsite de patterns
+      d'exclusion dans votre descripteur d'assembly.</para>
     </section>
 
     <section id="assemblies-sect-output-algorithm">
-      <title><sgmltag>dependencySets</sgmltag> Section</title>
+      <title>Section <sgmltag>dependencySets</sgmltag></title>
 
-      <para>One of the most common requirements for assemblies is the
-      inclusion of a project’s dependencies in an assembly archive. Where
-      <sgmltag>files</sgmltag> and <sgmltag>fileSets</sgmltag> deal with files
-      in your project, dependency files don't have a location in your project.
-      The artifacts your project depends on have to be resolved by Maven
-      during the build. Dependency artifacts are abstract, they lack a
-      definite location, and are resolved using a symbolic set of Maven
-      coordinates. Since <sgmltag>file</sgmltag> and
-      <sgmltag>fileSet</sgmltag> specifications require a concrete source
-      path, dependencies are included or excluded from an assembly using a
-      combination of Maven coordinates and dependency scopes.</para>
+      <para>Une des exigences les plus demandée pour les assemblies est l'ajout
+      des dépendances d'un projet dans l'archive assembly. Les balises
+      <sgmltag>files</sgmltag> et <sgmltag>fileSets</sgmltag> traitent les fichiers
+      de votre projet, cependant une dépendance n'est pas un fichier qui se 
+      trouve dans les répertoires de votre projet. Les artefacts dont dépend 
+      votre projet sont résolus par Maven lors du build. Les artefacts de 
+      dépendance sont une notion abstraite, il n'ont pas un chemin bien défini
+      et sont résolus en utilisant un ensemble symbolique de coordonnées Maven.
+      Puisque <sgmltag>file</sgmltag> et
+      <sgmltag>fileSet</sgmltag> exigent un chemin réél, les dépendances seront incluses ou
+      excluses d'un assembly par une combinaison de coordonnées Maven et de scope.</para>
 
-      <para>The simplest <sgmltag>dependencySet</sgmltag> is an empty
-      element:</para>
+      <para>La forme la plus simple de la balise <sgmltag>dependencySet</sgmltag> est
+      une balise vide :</para>
 
       <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -1148,38 +1148,36 @@ I can add this back in later.  I didn't want to talk about it without an example
   ...
 &lt;/assembly&gt;</programlisting>
 
-      <para>The <sgmltag>dependencySet</sgmltag> above will match all runtime
-      dependencies of your project (runtime scope includes the compile scope
-      implicitly), and it will add these dependencies to the root directory of
-      your assembly archive. It will also copy the current project’s main
-      artifact into the root of the assembly archive, if it exists.</para>
+      <para>La balise <sgmltag>dependencySet</sgmltag> ci-dessus va rechercher
+      toutes les dépedances d'exécution de votre projet (le scope runtime scope
+      inclut le contenu du scope compile implicitement), et va ensuite les ajouter
+      au répertoire racine de l'archive assembly. Elle va aussi copier l'artefact
+      principal de votre projet, s'il existe, dans ce répertoire racine.</para>
 
       <note>
-        <para>Wait? I thought <sgmltag>dependencySet</sgmltag> was about
-        including my project's dependencies, not my project's main archive?
-        This counterintuitive side-effect was a widely-used bug in the 2.1
-        version of the Assembly plugin, and, because Maven puts an emphasis on
-        backward compatibility, this counterintuitive and incorrect behavior
-        needed to be preserved between a 2.1 and 2.2 release. You can control
-        this behavior by changing the <sgmltag>useProjectArtifact</sgmltag>
-        flag to <varname>false</varname>.</para>
+        <para>Une minute ? Je pensais que la balise <sgmltag>dependencySet</sgmltag>
+        gérait l'inclusion des dépendances de mon projet, pas son archive principale ?
+        Cet effet secondaire non-intuitif était un bug très utilisé de la version 
+        2.1 du plugin Assembly plugin, et, comme Maven accorde une très grande importance
+        à la compatibilité ascendante, ce comportement non-intuitif et incorrect a du
+        être présevé pour la version 2.2. Vous pouvez interdire ce comportement
+        en mettant à <varname>false</varname> la balise <sgmltag>useProjectArtifact</sgmltag>.</para>
       </note>
 
-      <para>While the default dependency set can be quite useful with no
-      configuration whatsoever, this section of the assembly descriptor also
-      supports a wide array of configuration options, allowing your to tailor
-      its behavior to your specific requirements. For example, the first thing
-      you might do to the dependency set above is exclude the current project
-      artifact, by setting the <sgmltag>useProjectArtifact</sgmltag> flag to
-      <varname>false</varname> (again, its default value is
-      <varname>true</varname> for legacy reasons). This will allow you to
-      manage the current project’s build output separately from its dependency
-      files. Alternatively, you might choose to unpack the dependency
-      artifacts using by setting the <sgmltag>unpack</sgmltag> flag to
-      <varname>true</varname> (this is <varname>false</varname> by default).
-      When unpack is set to true, the Assembly plugin will combine the
-      unpacked contents of all matching dependencies inside the archive’s root
-      directory.</para>
+      <para>Même si l'ensemble des dépendances par défaut peut être très utile sans
+      configuration supplémentaire, cette section du descripteur d'assembly supporte
+      un de nombreuses options de configuration pour vous permettre d'adapter son
+      comportement à vosdemandes spécifiques. Par exemple, la première chose que 
+      vous pourriez vouloir faire par rapport à cette liste de dépendances est 
+      d'exclure l'artefact du projet en mettant <sgmltag>useProjectArtifact</sgmltag> 
+      à <varname>false</varname> (sa valeur par défaut est à
+      <varname>true</varname> pour des raisons hsitoriques). Cela vous permettra de
+      gérer le résultat du build de votre projet indépendamment des fichiers des 
+      dépendances. Aussi, vous pourriez choisir de décompresser les dépendances en 
+      mettant la balise <sgmltag>unpack</sgmltag> à <varname>true</varname> (elle
+      est à <varname>false</varname> par défaut). Lorsque l'option upack est activée,
+      le plugin Assembly va décompressé les contenus des dépnedances dans le répetoire
+      racine de l'archive.</para>
 
       <para>From this point, there are several things you might choose to do
       with this dependency set. The next sections discuss how to define the
