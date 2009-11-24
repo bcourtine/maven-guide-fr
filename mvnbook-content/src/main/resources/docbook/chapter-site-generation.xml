@@ -1015,18 +1015,18 @@ $ <command>mkdir src/main/resources</command>
     </section>
 
     <section id="site-generation-sect-add-links">
-      <title>Ajouter des Liens sous le Logo de votre Site</title>
+      <title>Ajouter des liens sous le logo de votre site</title>
 
       <para>Si vous travaillez sur un projet développé par une entreprise, vous voudrez probablement ajouter des liens en dessous du logo de votre projet.
       Supposons que votre projet appartienne à l'Apache Software Foundation. 
       Par exemple, vous voudrez ajouter un lien vers le site web officiel juste en dessous de votre logo, 
-      mais également un lien vers le site de votre projet Parent.
+      mais également un lien vers le site de votre projet parent.
       Pour ajouter des liens en dessous du logo d'un site, ajoutez une balise <sgmltag>links</sgmltag> à la balise <sgmltag>body</sgmltag> du descripteur de site.
       Ensuite, à chaque balise <sgmltag>item</sgmltag> correspond un lien dans la barre juste en dessous du logo du projet.      
       Dans l'exemple suivant, nous désirons créer un lien vers l'Apache Software Foundation et un lien vers le projet Apache Maven.</para>
 
       <para><example>
-          <title>Ajouter des Liens sous le Logo de votre Site</title>
+          <title>Ajouter des liens sous le logo de votre site</title>
 
           <programlisting language="xml">&lt;project name="Hello World"&gt;
   ...
@@ -1044,7 +1044,7 @@ $ <command>mkdir src/main/resources</command>
     </section>
 
     <section id="site-generation-add-breadcumbs">
-      <title>Ajouter un Chemin de Navigation à votre Site</title>
+      <title>Ajouter un chemin de navigation à votre site</title>
 
       <para>Si vos pages sont liées par une hiérarchie, vous voudrez probablement mettre en place un chemin de navigation
       pour ajouter un contexte à vos utilisateurs et leur donner un moyen de naviguer facilement dans les pages et catégories parentes. 
@@ -1055,7 +1055,7 @@ $ <command>mkdir src/main/resources</command>
       Dans l'exemple suivant, dans le descripteur de site, l'élément Codehaus contiendra un élément Mojo.</para> 
 
       <para><example>
-          <title>Configurer le Chemin de Navigation de votre Site</title>
+          <title>Configurer le chemin de navigation de votre site</title>
 
           <programlisting language="xml">&lt;project name="Sample Project"&gt;
   ...
@@ -1073,13 +1073,13 @@ $ <command>mkdir src/main/resources</command>
     </section>
 
     <section id="site-generation-sect-add-project-version">
-      <title>Ajoutez la Version de votre Projet</title>
+      <title>Ajoutez la version de votre projet</title>
 
       <para>Lorsque vous documentez un projet qui propose plusieurs versions, c'est souvent important de lister les versions du projet sur toutes les pages du site.
       Pour afficher la version de votre projet sur le site web, ajoutez simplement la balise <sgmltag>version</sgmltag> à votre descripteur de site :</para> 
 
       <para><example>
-          <title>Afficher la Version de votre Projet</title>
+          <title>Afficher la version de votre projet</title>
 
           <programlisting language="xml">&lt;project name="Sample Project"&gt;
   ...
@@ -1203,7 +1203,7 @@ $ <command>mkdir src/main/resources</command>
       Par exemple, pour modifier le format de la date pour qu'il utilise le masque <varname>yyyy-MM-dd</varname>, utilisez la balise <sgmltag>publishDate</sgmltag> suivante.</para>       
 
       <para><example>
-          <title>Configurer le Format de la Date de Publication</title>
+          <title>Configurer le format de la date de publication</title>
 
           <programlisting language="xml">&lt;project name="Sample Project"&gt;
   ...
@@ -1215,9 +1215,9 @@ $ <command>mkdir src/main/resources</command>
     </section>
 
     <section id="site-generation-sect-doxia-macros">
-      <title>Utilisez des Macros Doxia</title>
+      <title>Utilisez des macros Doxia</title>
 
-      <para>En plus de ces fonctionnalités avancée de templating, Doxia fournit également un moteur de macros.
+      <para>En plus de ces fonctionnalités avancées de templating, Doxia fournit également un moteur de macros.
       Celui-ci permet de déclender l'injection de contenu dynamique pour chaque entrée.
       Prenons un exemple pour illuster l'utilisation de ce moteur, la macro <varname>snipet</varname>. 
       Cette macro vous permet d'injecter un extrait de code dans le source d'un fichier disponible via <acronym>HTTP</acronym>.
@@ -1231,7 +1231,7 @@ mdo/archetype.mdo}
 </screen>
 
       <para><example>
-          <title>Sortie du la Macrp Snippet en XHTML</title>
+          <title>Sortie du la macro snippet en XHTML</title>
 
           <programlisting language="xml">&lt;div class="source"&gt;&lt;pre&gt;
 
