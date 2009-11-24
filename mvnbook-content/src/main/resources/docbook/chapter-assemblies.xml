@@ -1259,67 +1259,65 @@ I can add this back in later.  I didn't want to talk about it without an example
 
             <orderedlist numeration="loweralpha">
               <listitem>
-                <para>Match against the dependency’s
-                <classname>Artifact</classname> instance (resolves:
+                <para>Recherche dans l'instance <classname>Artifact</classname>
+                de la dépendance (résoud :
                 <varname>groupId</varname>, <varname>artifactId</varname>,
                 <varname>version</varname>, <varname>baseVersion</varname>,
-                <varname>scope</varname>, <varname>classifier</varname>, and
+                <varname>scope</varname>, <varname>classifier</varname> et
                 <varname>file.*</varname>)</para>
               </listitem>
 
               <listitem>
-                <para>Match against the dependency’s
-                <classname>ArtifactHandler</classname> instance (resolves:
-                <varname>expression</varname>)</para>
+                <para>Recherche dans l'instance <classname>ArtifactHandler</classname>
+                de la dépednace (résoud : <varname>expression</varname>)</para>
               </listitem>
 
               <listitem>
-                <para>Match against the project instance associated with the
-                dependency’s Artifact (resolves: mainly POM properties)</para>
+                <para>Recherche dans l'instance du projet associé à l'artefact
+                de la dépendance (résoud : principalement les propriétés du POM)</para>
               </listitem>
             </orderedlist>
           </listitem>
 
           <listitem>
-            <para>If the expression matches the patterns
+            <para>Si l'expression correspond au pattern 
             <varname>\${pom.*}</varname> or
             <varname>\${project.*}</varname>:</para>
 
             <orderedlist numeration="loweralpha">
               <listitem>
-                <para>Match against the project instance
-                (<classname>MavenProject</classname>) of the current
-                build.</para>
+                <para>Recherche dans l'instance du projet
+                (<classname>MavenProject</classname>) du build en cours.</para>
               </listitem>
             </orderedlist>
           </listitem>
 
           <listitem>
-            <para>If the expression matches the pattern
-            <varname>\${dashClassifier?}</varname> and the Artifact instance
-            contains a non-null classifier, resolve to the classifier preceded
-            by a dash (-classifier). Otherwise, resolve to an empty
-            string.</para>
+            <para>Si l'expression correspond au pattern
+            <varname>\${dashClassifier?}</varname> et que l'instance 
+            <classname>Artifact</classname> de la dépendance a un classifier,
+            résoud jusqu'au classfier précédé d'un tiret (-classifier).
+            Sinon résoud comme étant une chaine vide.</para>
           </listitem>
 
           <listitem>
-            <para>Attempt to resolve the expression against the project
-            instance of the current build.</para>
+            <para>Essaye de résoudre l'expression avec l'instance du
+            projet du build en cours.</para>
           </listitem>
 
           <listitem>
-            <para>Attempt to resolve the expression against the POM properties
-            of the current build.</para>
+            <para>Essaye de résoudre l'expression avec les propriétés du
+            POM du build en cours.</para>
           </listitem>
 
           <listitem>
-            <para>Attempt to resolve the expression against the available
-            system properties.</para>
+            <para>Essaye de résoudre l'expression avec les propriétés
+            système disponiblesm.</para>
           </listitem>
 
           <listitem>
-            <para>Attempt to resolve the expression against the available
-            operating-system environment variables.</para>
+            <para>Essaye de résoudre l'expression avec les variables
+            d'environnement du système d'exploitation.</para>
           </listitem>
         </orderedlist>
 
