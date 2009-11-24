@@ -1095,8 +1095,6 @@ public class EchoMojo extends AbstractMojo
     </section>
   </section>
 
-  <!-- ERWAN-->
-
   <section id="writing-plugins-sect-mojo-params">
     <title>Paramètres du Mojo</title>
 
@@ -1120,11 +1118,11 @@ private Object message;
 
       <para>L'expression par défaut pour ce paramètre est <varname>\${echo.message}</varname>. 
       Cela veut dire que Maven essayera d'utiliser la valeur de la propriété <varname>echo.message</varname> pour affecter la valeur du message.
-      Si cette propriété est null, la valeur est récupérée grâce à l'attribut <varname>default-value</varname> de l'annotation <classname>@parameter</classname>. 
+      Si cette propriété est nulle, la valeur sera récupérée grâce à l'attribut <varname>default-value</varname> de l'annotation <classname>@parameter</classname>. 
       Au lieu d'utiliser la propriété <varname>echo.message</varname>, vous pouvez configurer une valeur pour ce message directement à partir de votre <acronym>POM</acronym> de projet.</para>  
       
       <para>Plusieurs moyens existent pour renseigner la valeur du paramètre 'message' de notre <classname>EchoMojo</classname>.
-      Premièrement, vous pouvez passer un valeur à partir de la ligne de commande en utilisant la syntaxe suivante (à supposer que vous ayez ajouté
+      Premièrement, vous pouvez passer une valeur à partir de la ligne de commande en utilisant la syntaxe suivante (à supposer que vous ayez ajouté
       <varname>org.sonatype.mavenbook.plugins</varname> à votre <sgmltag>pluginGroups</sgmltag>) :</para>
 
       <screen>$ mvn first:echo -Decho.message="Hello Everybody"</screen>
@@ -1141,7 +1139,7 @@ private Object message;
 </programlisting>
 
       <para>Ce paramètre peut également être configuré directement par l'intermédiaire d'une valeur de configuration de votre plugin.
-      Si vous voulez personnaliser directement le paramètre 'message', vous pouvez utiliser la configuration de build suivante.
+      Si vous voulez personnaliser directement le paramètre 'message', vous pouvez utiliser la configuration suivante pour votre build.
       Celle-ci bypass la propriété <varname>echo.message</varname> et popule le paramètre du Mojo à partir de la configuration du plugin.</para> 
 
       <programlisting language="xml">&lt;project&gt;
@@ -1278,7 +1276,7 @@ public class ZipMojo extends AbstractMojo
 }
 </programlisting>
 
-        <para>Pour configurer un paramètre de Moo multi-valeurs, vous pouvez utiliser une liste d'éléments pour chaque valeur.
+        <para>Pour configurer un paramètre de Moo multi-valeurs, vous pouvez utiliser une liste d'éléments.
         Si le nom d'un paramètre multi-valeurs est <varname>includes</varname>, vous utiliserez une balise <sgmltag>includes</sgmltag> contenant des éléments <sgmltag>include</sgmltag>.   
         Si le paramètre multi-valeurs est <varname>excludes</varname>, vous utiliserez une balise <sgmltag>excludes</sgmltag> contenant des éléments <sgmltag>exclude</sgmltag>.
         Pour configurer le <classname>ZipMojo</classname> pour qu'il ignore tous les fichiers <varname>.txt</varname> et tous les fichiers qui terminent par un tilde, 
@@ -1310,7 +1308,7 @@ public class ZipMojo extends AbstractMojo
       <title>Dépendre de composants Plexus</title>
 
       <para>Un mojo est un composant managé par un conteneur <acronym>IoC</acronym> appelé Plexus. 
-      Un Mojo peut dépendre d'un autr composant managé par Plexus en déclarant un paramètre de Mojo 
+      Un Mojo peut dépendre d'un autre composant managé par Plexus en déclarant un paramètre de Mojo 
       et en utilisant les annotations <classname>@parameter</classname> et <classname>@component</classname>. 
       L'<xref linkend="ex-plugin-multivalue" /> affiche le Mojo <classname>ZipMojo</classname>.
       Il dépend d'un composant Plexus en utilisant une annotation <classname>@parameter</classname>,  
@@ -1336,10 +1334,10 @@ private ZipArchiver zipArchiver;</programlisting>
     <section id="writing-plugins-sect-param-annot">
       <title>Paramètres des annotations d'un Mojo</title>
 
-      <para>À moins que vous insistiez pour écrire vos descripteurs de plugin à la main, vous ne devriez pas à avoir à écrire de <acronym>XML</acronym>.   
+      <para>À moins que vous insistiez pour écrire vos descripteurs de plugin à la main, vous ne devriez pas à avoir à écrire la moindre ligne de <acronym>XML</acronym>.   
       À la place de cela, le plugin Maven Plugin dispose d'un goal <varname>plugin:descriptor</varname> qui est rattaché à la phase <varname>generate-resources</varname>.
       Ce goal génère le descripteur de plugin à partir d'annotations sur votre Mojo.
-      Pour configurer un paramètre de Mojo, vous pouvez utiliser les annotations suivantes.
+      Pour configurer un paramètre de Mojo, vous pouvez utiliser les annotations présentées ci-dessous.
       Vous pouvez les mettre soit sur des champs privés, soit sur les setters publics du Mojo.
       En général, la convention veut que l'on configure les plugins Maven en utilisant les annotations directement sur les champs des Mojo.</para>
 
