@@ -91,13 +91,13 @@ $ <command>mvn site:run</command>
     </figure>
 
     <para>Si vous cliquez sur ce site web, vous constaterez qu'il n'est pas très pratique pour un vrai site de projet.
-    Il ne contient juste rien (et n'est pas très joli).
+    Il ne contient ... juste rien du tout (et n'est pas très joli).
     Tant que le projet <varname>sample-project</varname> n'a pas été configuré pour afficher la liste des développeurs, le gestionnaire d'anomalies ou le code source,
     toutes les pages du projet ne contiendront aucune information intéressante.
     Même la page d'index du site est vide de contenu, elle affiche un message indiquant qu'aucune description n'a été associée à ce projet. 
     Pour personnaliser ce site, vous devez commencer par ajouter du contenu à votre projet et dans votre <acronym>POM</acronym>.</para>
 
-    <para>Si vous décidez d'utiliser le plugin Maven Site pour construire le site de votre projet, vous voudrez le personnaliser.
+    <para>Si vous décidez d'utiliser le plugin Maven Site pour construire le site de votre projet, vous voudrez donc le personnaliser.
     Vous voudrez renseigner les champs du <acronym>POM</acronym> qui permettent de lister les personnes participant au projet. 
     Vous voudrez personnaliser également le menu à gauche du site et les liens visible en haut de la page. 
     Pour personnaliser le contenu du site, dont le menu de navigation, vous devez éditer le descripteur de site.</para>
