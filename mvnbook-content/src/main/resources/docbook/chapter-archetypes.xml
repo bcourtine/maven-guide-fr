@@ -242,7 +242,7 @@ package: org.sonatype.mavenbook
     </section>
 
     <section id="archetype-sect-using-m2eclipse">
-      <title>Utilisation d'un archetype à partir du plugin Eclipse m2eclipse</title>
+      <title>Utilisation d'un archétype à partir du plugin Eclipse m2eclipse</title>
 
       <para>Le plugin <varname>m2eclipse</varname> vous permet de créer des projets Maven à partir d'archétypes en fournissant des wizzard intuitifs pour rechercher, 
       selectionner et configurer un archétype Maven.

@@ -952,7 +952,7 @@ public class EchoMojo extends AbstractMojo
             <listitem>
               <para>Marque ce goal comme goal devant être exécuté à l'intérieur d'un projet.
               La valeur par défaut est <literal>true</literal>.
-              À l'opposé, certains plugins comment archetype ne le sont pas.</para>  
+              À l'opposé, certains plugins comment archétype ne le sont pas.</para>  
             </listitem>
           </varlistentry>
 
