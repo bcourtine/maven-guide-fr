@@ -1349,49 +1349,52 @@ I can add this back in later.  I didn't want to talk about it without an example
       <section id="assemblies-sect-include-by-scope">
         <title>Inclusion et exclusion de dépendancs par scope</title>
 
-        <para>In <xref
-        linkend="pom-relationships-sect-project-dependencies" />, it was noted
-        that all project dependencies have one scope or another. Scope
-        determines when in the build process that dependency normally would be
-        used. For instance, test-scoped dependencies are not included in the
-        classpath during compilation of the main project sources; but they are
-        included in the classpath when compiling unit test sources. This is
-        because your project’s main source code should not contain any code
-        specific to testing, since testing is not a function of the project
-        (it’s a function of the project’s build process). Similarly,
-        provided-scoped dependencies are assumed to be present in the
-        environment of any eventual deployment. However, if a project depends
-        on a particular provided dependency, it is likely to require that
-        dependency in order to compile. Therefore, provided-scoped
-        dependencies are present in the compilation classpath, but not in the
-        dependency set that should be bundled with the project’s artifact or
-        assembly.</para>
+        <para>Dans la <xref
+        linkend="pom-relationships-sect-project-dependencies" />, nous avons
+        noté que toutes les dépendances d'un projet ont un scope. Le scope
+        détermine le moment où une dépendance sera utilisée au cours du 
+        processus de build. Par exemple, les dépendances dans le scope 
+        <varname>test</varname> ne font pas partie du classpath au moment
+        de la compilation du code source du projet ; par contre elles font 
+        partie du classpath de compilation des tests unitaires. Cela parce
+        que le code source de votre projet ne devrait pas contenir du code
+        spécifique pour les tests car tester n'est pas une des fonctions de
+        votre projet (c'est une fonction du processus de build du projet).
+        De même, les dépendances dans le scope <varname>provided</varname>
+        doivent être présentes dans l'environnement où sera déployé le 
+        projet. Cependant, si un projet dépend d'une dépendance
+        <varname>provided</varname> particulière, il est possible qu'il ait
+        besoin de celle-ci pour compiler. C'est pour cette raison que
+        les dépendances du scope <varname>provided</varname> sont présentes
+        dans le classpath de compilation mais qu'elles ne sont pas empaquetées
+        avec l'artefact ou un assembly du projet.</para>
 
-        <para>Also from <xref
-        linkend="pom-relationships-sect-project-dependencies" />, recall that
-        some dependency scopes imply others. For instance, the
-        <varname>runtime</varname> dependency scope implies the
-        <varname>compile</varname> scope, since all compile-time dependencies
-        (except for those in the <varname>provided</varname> scope) will be
-        required for the code to execute. There are a number of complex
-        relationships between the various dependency scopes which control how
-        the scope of a direct dependency affects the scope of a transitive
-        dependency. In a Maven Assembly descriptor, we can use scopes to apply
-        different settings to different sets of dependencies
-        accordingly.</para>
+        <para>Dans cette même <xref
+        linkend="pom-relationships-sect-project-dependencies" />, nous avions
+        vu que les scopes de dépendances en induisent d'autres. Par exemple,
+        le scope de dépendance <varname>runtime</varname> inclus les
+        dépendances du scope <varname>compile</varname>, car toutes les
+        dépendances utilisées au moment de la compilation (sauf celles du scope
+        <varname>provided</varname>) seront nécessaires pour l'exécution du code.
+        Les manières dont un scope d'une dépendance directe affecte le scope
+        des dépendances transitives sont très complexes. Dans un descripteur
+        d'assembly Maven, nous pouvons utiliser les scopes pour filtrer des
+        ensemble de dépendances et leurs appliquer diffrents traitements.</para>
 
-        <para>For instance, if we plan to bundle a web application with <ulink
-        url="http://www.mortbay.org/jetty-6/">Jetty</ulink> to create a
-        completely self-contained application, we’ll need to include all
-        provided-scope dependencies somewhere in the jetty directory structure
-        we’re including. This ensures those provided dependencies actually are
-        present in the runtime environment. Non-provided, runtime dependencies
-        will still land in the WEB-INF/lib directory, so these two dependency
-        sets must be processed separately. These dependency sets might look
-        similar to the following XML.</para>
+        <para>Par exemple, si nous projetons de packager une application web
+        avec <ulink url="http://www.mortbay.org/jetty-6/">Jetty</ulink> pour
+        créer une application autonome, nous allons devoir inclure toutes
+        les dépendances du scope provided quelque par dans les répertoires
+        du Jetty que nous incluons. Cela nous assurera que ces dépendances
+        provided sont effectivement présentes dans l'environnement d'exécution.
+        Les dépendances d'exécution qui ne font pas partie du scope
+        <varname>provided</varname> continuent à aller dans le répertoire
+        <filename>WEB-INF/lib</filename>, donc ces deux ensembles de dépendances
+        doivent être traités distinctement. Ces blocs de dpéendances
+        ressemblent au dcument XML qui suit.</para>
 
         <example>
-          <title>Defining Dependency Sets Using Scope</title>
+          <title>Definition de blocs de dépendances par l'utilisation des scopes</title>
 
           <programlisting language="xml">&lt;assembly&gt;
   ...
