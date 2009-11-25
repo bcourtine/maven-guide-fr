@@ -1171,35 +1171,33 @@ I can add this back in later.  I didn't want to talk about it without an example
       vous pourriez vouloir faire par rapport à cette liste de dépendances est 
       d'exclure l'artefact du projet en mettant <sgmltag>useProjectArtifact</sgmltag> 
       à <varname>false</varname> (sa valeur par défaut est à
-      <varname>true</varname> pour des raisons hsitoriques). Cela vous permettra de
+      <varname>true</varname> pour des raisons historiques). Cela vous permettra de
       gérer le résultat du build de votre projet indépendamment des fichiers des 
       dépendances. Aussi, vous pourriez choisir de décompresser les dépendances en 
       mettant la balise <sgmltag>unpack</sgmltag> à <varname>true</varname> (elle
-      est à <varname>false</varname> par défaut). Lorsque l'option upack est activée,
+      est à <varname>false</varname> par défaut). Lorsque l'option unpack est activée,
       le plugin Assembly va décompressé les contenus des dépnedances dans le répetoire
       racine de l'archive.</para>
 
-      <para>From this point, there are several things you might choose to do
-      with this dependency set. The next sections discuss how to define the
-      output location for dependency sets and how include and exclude
-      dependencies by scope. Finally, we’ll expand on the unpacking
-      functionality of the dependency set by exploring some advanced options
-      for unpacking dependencies.</para>
+      <para>A partir maintenant, vous pouvez faire plusieurs choses avec cet
+      ensemble de dépendances. Les sections qui vont suivre présentent comment
+      définir l'endroit où seront enregistées ces dépendances et comment inclure
+      et exclure des dépendances selon leur scope. Enfin, nous nous étendrons
+      sur cette fonctionnalité de décompression des dépendances en explorant
+      certaines de ses options avancées.</para>
 
       <section id="assemblies-sect-output-location">
-        <title>Customizing Dependency Output Location</title>
+        <title>Configurer l'emplacement des dépendances</title>
 
-        <para>There are two configuration options that are used in concert to
-        define the location for a dependency file within the assembly archive:
-        <sgmltag>outputDirectory</sgmltag> and
-        <sgmltag>outputFileNameMapping</sgmltag>. You may want to customize
-        the location of dependencies in your assembly using properties of the
-        dependency artifacts themselves. Let's say you want to put all the
-        dependencies in directories that match the dependency artifact's
-        <sgmltag>groupId</sgmltag>. In this case, you would use the
-        <sgmltag>outputDirectory</sgmltag> element of the
-        <sgmltag>dependencySet</sgmltag>, and you would supply something
-        like:</para>
+        <para>C'est la combinaison de deux options de configuration qui détermine
+        où va se retrouver un fichier de dépendance dans l'archive assembly : 
+        <sgmltag>outputDirectory</sgmltag> et <sgmltag>outputFileNameMapping</sgmltag>.
+        Vous pouvez configurer l'emplacement des dépendances dans votre assembly
+        selon les propriétés des artefacts des dépendances. Disons que vous voulez
+        mettre toutes vos dépendances dans des répertoires qui correspondent au
+        <sgmltag>groupId</sgmltag> de l'artefact. Dans ce cas, vous pouvez utiliser
+        la balise <sgmltag>outputDirectory</sgmltag> sous <sgmltag>dependencySet</sgmltag>
+        et lui donner pour valeur :</para>
 
         <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -1211,14 +1209,14 @@ I can add this back in later.  I didn't want to talk about it without an example
   ...
 &lt;/assembly&gt;</programlisting>
 
-        <para>This would have the effect of placing every single dependency in
-        a subdirectory that matched the name of each dependency artifact's
-        <sgmltag>groupId</sgmltag>.</para>
+        <para>Cela aura pour effet de mettre chaque dépendance  dans un
+        répertoire dont le nom correspond au <sgmltag>groupId</sgmltag>
+        de l'artefact de chacune d'entre elles.</para>
 
-        <para>If you wanted to perform a further customization and remove the
-        version numbers from all dependencies. You could customize the the
-        output file name for each dependency using the
-        <sgmltag>outputFileNameMapping</sgmltag> element as follows:</para>
+        <para>Si vous voulez aller plus loin dans la personnalisation et que 
+        vous souhaitez retirer le numéro de version de toutes les dépendances.
+        Il suffit de configurer le renommage de chaque dépendance grâce à la
+        balise <sgmltag>outputFileNameMapping</sgmltag> comme suit :</para>
 
         <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -1233,169 +1231,170 @@ I can add this back in later.  I didn't want to talk about it without an example
   ...
 &lt;/assembly&gt;</programlisting>
 
-        <para>In the previous example, a dependency on
-        <varname>commons:commons-codec</varname> version 1.3, would end up in
-        the file <filename>commons/commons-codec.jar</filename>.</para>
+        <para>Dans l'exemple précédent, une dépendance sur
+        <varname>commons:commons-codec</varname> version 1.3, se retrouverait
+        dans le fichier <filename>commons/commons-codec.jar</filename>.</para>
       </section>
 
       <section id="assemblies-sect-interpolate">
-        <title>Interpolation of Properties in Dependency Output
-        Location</title>
+        <title>Interpolation de propriétés pour l'emplacement des dépendances</title>
 
-        <para>As mentioned in the Assembly Interpolation section above,
-        neither of these elements are interpolated with the rest of the
-        assembly descriptor, because their raw values have to be interpreted
-        using additional, artifact-specific expression resolvers.</para>
+        <para>Comme nous l'avons déjà mentionné dans la 
+        <xref linkend="assemblies-sect-prop-refs" /> aucun de ces éléments
+        n'est interpolé avec le reste du descritpeur d'assembly. En effet,
+        leurs valeurs brutes doivent être traitées par des interpréteurs
+        d'expression d'artefact spécifiques.</para>
 
-        <para>The artifact expressions available for these two elements vary
-        only slightly. In both cases, all of the
-        <varname>\${project.*}</varname>, <varname>\${pom.*}</varname>, and
-        <varname>\${*}</varname> expressions that are available in the
-        <acronym>POM</acronym> and the rest of the assembly descriptor are
-        also available here. For the <sgmltag>outputFileNameMapping</sgmltag>
-        element, the following process is applied to resolve
-        expressions:</para>
+        <para>Les expressions utilisables pour ces deux ééments sont légèrement
+        différentes. Les expressions <varname>\${project.*}</varname>,
+        <varname>\${pom.*}</varname> et <varname>\${*}</varname> qui sont
+        disponibles dans le <acronym>POM</acronym> et dans le reste du descripteur
+        le sont aussi dans ces deux cas. Pour la balise <sgmltag>outputFileNameMapping</sgmltag>
+        le traitement suivant est appliqué pour résoudre les expressios :</para>
 
         <orderedlist>
           <listitem>
-            <para>If the expression matches the pattern
-            <varname>\${artifact.*}</varname>:</para>
+            <para>Si l'expression correspond au pattern 
+            <varname>\${artifact.*}</varname> :</para>
 
             <orderedlist numeration="loweralpha">
               <listitem>
-                <para>Match against the dependency’s
-                <classname>Artifact</classname> instance (resolves:
+                <para>Recherche dans l'instance <classname>Artifact</classname>
+                de la dépendance (résoud :
                 <varname>groupId</varname>, <varname>artifactId</varname>,
                 <varname>version</varname>, <varname>baseVersion</varname>,
-                <varname>scope</varname>, <varname>classifier</varname>, and
+                <varname>scope</varname>, <varname>classifier</varname> et
                 <varname>file.*</varname>)</para>
               </listitem>
 
               <listitem>
-                <para>Match against the dependency’s
-                <classname>ArtifactHandler</classname> instance (resolves:
-                <varname>expression</varname>)</para>
+                <para>Recherche dans l'instance <classname>ArtifactHandler</classname>
+                de la dépednace (résoud : <varname>expression</varname>)</para>
               </listitem>
 
               <listitem>
-                <para>Match against the project instance associated with the
-                dependency’s Artifact (resolves: mainly POM properties)</para>
+                <para>Recherche dans l'instance du projet associé à l'artefact
+                de la dépendance (résoud : principalement les propriétés du POM)</para>
               </listitem>
             </orderedlist>
           </listitem>
 
           <listitem>
-            <para>If the expression matches the patterns
+            <para>Si l'expression correspond au pattern 
             <varname>\${pom.*}</varname> or
             <varname>\${project.*}</varname>:</para>
 
             <orderedlist numeration="loweralpha">
               <listitem>
-                <para>Match against the project instance
-                (<classname>MavenProject</classname>) of the current
-                build.</para>
+                <para>Recherche dans l'instance du projet
+                (<classname>MavenProject</classname>) du build en cours.</para>
               </listitem>
             </orderedlist>
           </listitem>
 
           <listitem>
-            <para>If the expression matches the pattern
-            <varname>\${dashClassifier?}</varname> and the Artifact instance
-            contains a non-null classifier, resolve to the classifier preceded
-            by a dash (-classifier). Otherwise, resolve to an empty
-            string.</para>
+            <para>Si l'expression correspond au pattern
+            <varname>\${dashClassifier?}</varname> et que l'instance 
+            <classname>Artifact</classname> de la dépendance a un classifier,
+            résoud jusqu'au classfier précédé d'un tiret (-classifier).
+            Sinon résoud comme étant une chaine vide.</para>
           </listitem>
 
           <listitem>
-            <para>Attempt to resolve the expression against the project
-            instance of the current build.</para>
+            <para>Essaye de résoudre l'expression avec l'instance du
+            projet du build en cours.</para>
           </listitem>
 
           <listitem>
-            <para>Attempt to resolve the expression against the POM properties
-            of the current build.</para>
+            <para>Essaye de résoudre l'expression avec les propriétés du
+            POM du build en cours.</para>
           </listitem>
 
           <listitem>
-            <para>Attempt to resolve the expression against the available
-            system properties.</para>
+            <para>Essaye de résoudre l'expression avec les propriétés
+            système disponibles.</para>
           </listitem>
 
           <listitem>
-            <para>Attempt to resolve the expression against the available
-            operating-system environment variables.</para>
+            <para>Essaye de résoudre l'expression avec les variables
+            d'environnement du système d'exploitation.</para>
           </listitem>
         </orderedlist>
 
-        <para>The <sgmltag>outputDirectory</sgmltag> value is interpolated in
-        much the same way, with the difference being that there is no
-        available <varname>\${artifact.*}</varname> information, only the
-        <varname>\${project.*}</varname> instance for the particular artifact.
-        Therefore, the expressions listed above associated with those classes
-        (1a, 1b, and 3 in the process listing above) are unavailable.</para>
+        <para>La valeur de la balise <sgmltag>outputDirectory</sgmltag> est
+        interpolée de manière assez proche, à la différence près qu'il n'y a
+        pas dinformation du type <varname>\${artifact.*}</varname> disponible.
+        Seules les instances <varname>\${project.*}</varname> des artefacts
+        permettent de résoudre les expressions. Donc les expressions associées
+        à ces patterns ne sont pas disponibles (il s'agit des éléments
+        (1a, 1b, et 3 de la liste ci-dessus).</para>
 
-        <para>How do you know when to use <sgmltag>outputDirectory</sgmltag>
-        and <sgmltag>outputFileNameMapping</sgmltag>? When dependencies are
-        unpacked only the <sgmltag>outputDirectory</sgmltag> is used to
-        calculate the output location. When dependencies are managed as whole
-        files (not unpacked), both <sgmltag>outputDirectory</sgmltag> and
-        <sgmltag>outputFileNameMapping</sgmltag> can be used together. When
-        used together, the result is the equivalent of:</para>
+        <para>Comment sait-on quand utiliser <sgmltag>outputDirectory</sgmltag>
+        et <sgmltag>outputFileNameMapping</sgmltag> ? Quand les dépendances
+        sont décompressées, seul l'<sgmltag>outputDirectory</sgmltag> est
+        utilisé pour calculer l'emplacement final. Quand les dépendances sont gérées
+        comme un tout (c'est à dire non décompressées), les deux éléments
+        <sgmltag>outputDirectory</sgmltag> et <sgmltag>outputFileNameMapping</sgmltag>
+        peuvent être utilisés ensemble. Quand ilsl le sont, le résultat est
+        équivalent à :</para>
 
         <programlisting language="xml">&lt;archive-root-dir&gt;/&lt;outputDirectory&gt;/&lt;outputFileNameMapping&gt;</programlisting>
 
-        <para>When <sgmltag>outputDirectory</sgmltag> is missing, it is not
-        used. When <sgmltag>outputFileNameMapping</sgmltag> is missing, its
-        default value is:
+        <para>Quand l'<sgmltag>outputDirectory</sgmltag> est absent, il n'est pas
+        utilisé. Quand c'est l'<sgmltag>outputFileNameMapping</sgmltag> qui est
+        absent, on prend sa valeur par défaut qui est :
         <code>\${artifact.artifactId}-\${artifact.version}\${dashClassifier?}.\${artifact.extension}</code></para>
       </section>
 
       <section id="assemblies-sect-include-by-scope">
-        <title>Including and Excluding Dependencies by Scope</title>
+        <title>Inclusion et exclusion de dépendancs par scope</title>
 
-        <para>In <xref
-        linkend="pom-relationships-sect-project-dependencies" />, it was noted
-        that all project dependencies have one scope or another. Scope
-        determines when in the build process that dependency normally would be
-        used. For instance, test-scoped dependencies are not included in the
-        classpath during compilation of the main project sources; but they are
-        included in the classpath when compiling unit test sources. This is
-        because your project’s main source code should not contain any code
-        specific to testing, since testing is not a function of the project
-        (it’s a function of the project’s build process). Similarly,
-        provided-scoped dependencies are assumed to be present in the
-        environment of any eventual deployment. However, if a project depends
-        on a particular provided dependency, it is likely to require that
-        dependency in order to compile. Therefore, provided-scoped
-        dependencies are present in the compilation classpath, but not in the
-        dependency set that should be bundled with the project’s artifact or
-        assembly.</para>
+        <para>Dans la <xref
+        linkend="pom-relationships-sect-project-dependencies" />, nous avons
+        noté que toutes les dépendances d'un projet ont un scope. Le scope
+        détermine le moment où une dépendance sera utilisée au cours du 
+        processus de build. Par exemple, les dépendances dans le scope 
+        <varname>test</varname> ne font pas partie du classpath au moment
+        de la compilation du code source du projet ; par contre elles font 
+        partie du classpath de compilation des tests unitaires. Cela parce
+        que le code source de votre projet ne devrait pas contenir du code
+        spécifique pour les tests car tester n'est pas une des fonctions de
+        votre projet (c'est une fonction du processus de build du projet).
+        De même, les dépendances dans le scope <varname>provided</varname>
+        doivent être présentes dans l'environnement où sera déployé le 
+        projet. Cependant, si un projet dépend d'une dépendance
+        <varname>provided</varname> particulière, il est possible qu'il ait
+        besoin de celle-ci pour compiler. C'est pour cette raison que
+        les dépendances du scope <varname>provided</varname> sont présentes
+        dans le classpath de compilation mais qu'elles ne sont pas empaquetées
+        avec l'artefact ou un assembly du projet.</para>
 
-        <para>Also from <xref
-        linkend="pom-relationships-sect-project-dependencies" />, recall that
-        some dependency scopes imply others. For instance, the
-        <varname>runtime</varname> dependency scope implies the
-        <varname>compile</varname> scope, since all compile-time dependencies
-        (except for those in the <varname>provided</varname> scope) will be
-        required for the code to execute. There are a number of complex
-        relationships between the various dependency scopes which control how
-        the scope of a direct dependency affects the scope of a transitive
-        dependency. In a Maven Assembly descriptor, we can use scopes to apply
-        different settings to different sets of dependencies
-        accordingly.</para>
+        <para>Dans cette même <xref
+        linkend="pom-relationships-sect-project-dependencies" />, nous avions
+        vu que les scopes de dépendances en induisent d'autres. Par exemple,
+        le scope de dépendance <varname>runtime</varname> inclus les
+        dépendances du scope <varname>compile</varname>, car toutes les
+        dépendances utilisées au moment de la compilation (sauf celles du scope
+        <varname>provided</varname>) seront nécessaires pour l'exécution du code.
+        Les manières dont un scope d'une dépendance directe affecte le scope
+        des dépendances transitives sont très complexes. Dans un descripteur
+        d'assembly Maven, nous pouvons utiliser les scopes pour filtrer des
+        ensemble de dépendances et leurs appliquer diffrents traitements.</para>
 
-        <para>For instance, if we plan to bundle a web application with <ulink
-        url="http://www.mortbay.org/jetty-6/">Jetty</ulink> to create a
-        completely self-contained application, we’ll need to include all
-        provided-scope dependencies somewhere in the jetty directory structure
-        we’re including. This ensures those provided dependencies actually are
-        present in the runtime environment. Non-provided, runtime dependencies
-        will still land in the WEB-INF/lib directory, so these two dependency
-        sets must be processed separately. These dependency sets might look
-        similar to the following XML.</para>
+        <para>Par exemple, si nous projetons de packager une application web
+        avec <ulink url="http://www.mortbay.org/jetty-6/">Jetty</ulink> pour
+        créer une application autonome, nous allons devoir inclure toutes
+        les dépendances du scope provided quelque par dans les répertoires
+        du Jetty que nous incluons. Cela nous assurera que ces dépendances
+        provided sont effectivement présentes dans l'environnement d'exécution.
+        Les dépendances d'exécution qui ne font pas partie du scope
+        <varname>provided</varname> continuent à aller dans le répertoire
+        <filename>WEB-INF/lib</filename>, donc ces deux ensembles de dépendances
+        doivent être traités distinctement. Ces blocs de dpéendances
+        ressemblent au dcument XML qui suit.</para>
 
         <example>
-          <title>Defining Dependency Sets Using Scope</title>
+          <title>Definition de blocs de dépendances par l'utilisation des scopes</title>
 
           <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -1415,88 +1414,76 @@ I can add this back in later.  I didn't want to talk about it without an example
 &lt;/assembly&gt;</programlisting>
         </example>
 
-        <para>Provided-scoped dependencies are added to the
-        <filename>lib/</filename> directory in the assembly root, which is
-        assumed to be a libraries directory that will be included in the Jetty
-        global runtime classpath. We’re using a subdirectory named for the
-        project’s <varname>artifactId</varname> in order to make it easier to
-        track the origin of a particular library. Runtime dependencies are
-        included in the <filename>WEB-INF/lib</filename> path of the web
-        application, which is located within a subdirectory of the standard
-        Jetty <filename>webapps/</filename> directory that is named using a
-        custom <acronym>POM</acronym> property called
-        <varname>webContextName</varname>. What we've done in the previous
-        example is separate application-specific dependencies from
-        dependencies which will be present in a Servlet contains global
-        classpath.</para>
+        <para>Les dépendances du scope <varname>provided</varname> sont ajoutées
+        au répertoire <filename>lib/</filename> à la racine de l'assembly, ce
+        répertoire  va contenir l'ensemble des bibliothèques qui seront incluses 
+        dans le classpath global d'exécution de Jetty. Nous utilisons un
+        sous-répertoire dont le nom est l'<varname>artifactId</varname> du projet
+        pour retrouver plus facilement d'où vient une bibliothèque particulière. Les
+        dépendances d'exécution sont incluses dans le répertoire 
+        <filename>WEB-INF/lib</filename> de l'application web, qui se trouve dans
+        le sous-répertoire standard de Jetty <filename>webapps/</filename>
+        et dont le nom est donné par une configuration de la propriété 
+        <varname>webContextName</varname> du <acronym>POM</acronym>.
+        Ce que nous venons de faire dans cet exemple est de séparer les
+        dépendances spécifiques à l'application de celles qui sont
+        présentes dans le classpath global d'un conteneur de servlets.</para>
 
-        <para>However, simply separating according to scope may not be enough,
-        particularly in the case of a web application. It’s conceivable that
-        one or more runtime dependencies will actually be bundles of
-        standardized, non-compiled resources for use in the web application.
-        For example, consider a set of web application which reuse a common
-        set of Javascript, CSS, SWF, and image resources. To make these
-        resources easy to standardize, it’s a common practice to bundle them
-        up in an archive and deploy them to the Maven repository. At that
-        point, they can be referenced as standard Maven dependencies -
-        possibly with a dependency type of <varname>zip</varname> - that are
-        normally specified with a runtime scope. Remember, these are
-        resources, not binary dependencies of the application code itself;
-        therefore, it’s not appropriate to blindly include them in the
-        <filename>WEB-INF/lib</filename> directory. Instead, these resource
-        archives should be separated from binary runtime dependencies, and
-        unpacked into the web application document root somewhere. In order to
-        achieve this kind of separation, we’ll need to use inclusion and
-        exclusion patterns that apply to the coordinates of a specific
-        dependency.</para>
+        <para>Cependant, séparer en ne tenant compet que du scope peut s'avérer
+        insuffisant, notamment dans le cas d'applications web. Il est
+        tout à fait concevable qu'une ou plusieurs des dépendances pour
+        l'exécution soient un assemblage de resurces standardisées et
+        non-compilées qui seront utilisées par l'application web. Par
+        exemple nous pourrions avoir un ensemble d'applications qui
+        réutiliseraient le même ensemble de fichiers de Javascript,
+        CSS, SWF et d'image. Pour faciliter la standardisation de ces ressources,
+        une bonne pratique consiste à les mettre dans une archive et de les
+        déployer sur un dépôt Maven. A partir de ce moment là, elles peuvent
+        petre référencées comme une dépendance Maven standard - éventuellement
+        avec une dépendance de type <varname>zip</varname> - normalement dans
+        le scope  <varname>runtime</varname>. Souvenez-vous qu'il s'agit de
+        ressources et non d'une dépendance  du code de l'application vers un
+        binaire ; et donc il n'est pas approprié de les inclure dans le répertoire
+        <filename>WEB-INF/lib</filename>. Ces archives de ressources doivent
+        être séparées des dépendances binaires d'exécution et décompressées 
+        à la racine de l'application web. Pour pouvoir effectuer ce type de
+        séparation nous allons utiliser les patterns d'inclusion et d'exclusion
+        qui se basent sur les coordonnées d'une dépendance.</para>
 
-        <para>In other words, say you have three or four web application which
-        reuse the same resources and you want to create an assembly that puts
-        provided dependencies into <filename>lib/</filename>, runtime
-        dependencies into
-        <filename>webapps/&lt;contextName&gt;/WEB-INF/lib</filename>, and then
-        unpacks a specific runtime dependency into your web application's
-        document root. You can do this because the Assembly allows you to
-        define multiple include and exclude patterns for a given
-        <sgmltag>dependencySet</sgmltag> element. Read the next section for
-        more development of this idea.</para>
+        <para>En d'autres termes, nous allons supposer que vous avez trois ou 
+        quatre applications web qui réutilisent les mêmes ressources et que 
+        vous voulez créer un  assembly qui met les dépendances du scope 
+        <varname>provided</varname> dans le répertoire <filename>lib/</filename>,
+        les dépendances du scope <varname>runtime</varname> dans
+        <filename>webapps/&lt;contextName&gt;/WEB-INF/lib</filename>
+        et enfin décompresse une dépendance d'exécution spécifique à la racine de votre
+        application web. Vous pouvez faire tout ça car le plugin Assembly 
+        vous permet de définir plusieurs patterns d'inclusion et d'exclusion
+        pour un même élément <sgmltag>dependencySet</sgmltag>. Dans la prochaine section
+        nous allons essayer de développer cette idée.</para>
       </section>
 
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
       <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
 
       <section id="assemblies-sect-fine-tune">
         <title>Configuration fine : inclusion et exclusion de dépendances</title>
 
         <para>Une dépendance de ressources peut être une simple liste de ressources (CSS, Javascript, images ...) dans un projet
-        qui a une assembly qui crée une archive <acronym>ZIP</acronym>.
+        qui a un assembly qui crée une archive de type <acronym>ZIP</acronym>.
         En fonction des particularités de votre application web,
         vous voudrez distinguer les dépendances de ressources des dépendances de binaires en fonction de leur type.
-        La plupart des applications web vont dépendre d'autres dépendances de type <varname>jar</varname>, 
-        du coup, il est possible de dire avec certitude que toutes les dépendances de type <varname>zip</varname> sont des dépendances de ressources.
-        Ou, nous pourrions avoir une situation où les ressources sont conservées sous un format <varname>jar</varname> mais 
+        La plupart des applications web vont dépendre d'autres dépendances de type <varname>jar</varname>. 
+        Du coup, il est possible de dire avec certitude que toutes les dépendances de type <varname>zip</varname> sont des dépendances de ressources.
+        Or, nous pourrions avoir une situation où les ressources sont conservées sous un format <varname>jar</varname> mais 
         que nous pouvons distinguer les ressources par un tag <varname>resources</varname>.
         Dans tous les cas, nous pouvons spécifier un pattern d'inclusion pour cibler ces dépendances de ressources
         et appliquer une logique différente que celle utilisée pour les binaires. 
         Nous pouvons effectue cette distinction par l'intermédiaire de balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> 
         dans le <sgmltag>dependencySet</sgmltag>.</para>
 
-        <para>Les balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> sont des listes, 
-        cela veut dire qu'elles acceptent des sous éléments du type <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag>.
-        Chaque balise <sgmltag>include</sgmltag> ou <sgmltag>exclude</sgmltag> contient une valeur sous forme de chaîne de caractère, celles-ci pouvant contenir des wildcards.
+        <para>Les balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> sont des listes. 
+        Elles acceptent des sous-éléments du type <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag>.
+        Chaque balise <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag> contient une valeur sous forme de chaîne de caractère et pouvent contenir des wildcards.
         Chaque valeur peut matcher des dépendances selon différents moyens.         
         Généralement, trois formats de pattern sont supportés :</para>
 
@@ -1527,18 +1514,19 @@ I can add this back in later.  I didn't want to talk about it without an example
         </variablelist>
 
         <para>Tous ces formats de patterns supportent l'utilisation de widcard ‘*’, 
-        ils permettent de matcher n'importe quelle sous-section de l'identité et n'est pas limitée à une seule sous-section (sections entre ':').         
+        ils permettent de matcher n'importe quelle sous-section de l'identité et ne se limite pas à une seule sous-section (sections entre ':').         
         En outre, notez que la section classificateur ci-dessus est facultative,
         le pattern matching des dépendances qui n'ont pas de classificateur ne prennent pas en compte la section 'classificateur' de ce pattern.</para>
 
-        <para>Dans l'exemple donné ci-dessus, là où la distinction essentielle est l'artefact de type sip et qu'aucune des dépendances n'a de classificateur,
+        <para>Dans l'exemple donné ci-dessus, là où la distinction essentielle est l'artefact de type sip 
+        et qu'aucune des dépendances n'a de classificateur,
         le pattern suivant matcherait toutes les ressources de type <varname>zip</varname> :</para> 
 
         <programlisting>*:zip</programlisting>
 
         <para>Le pattern ci-dessus utilise la seconde identité de la dépendance : l'id de conflit.
-        Maintenant que nous avons un pattern qui distingue les dépendances ressources des binaires, 
-        nous pouvons modifier notre liste de dépendances pour gérer les archives différemment :</para>  
+        Maintenant que nous avons un pattern qui distingue les dépendances ressources des dépendances binaires, 
+        nous pouvons modifier notre liste de dépendances pour gérer ces archives différemment :</para>  
 
         <example id="ex-complex-dependencySet">
           <title>Utilisation des l'inclusion et d'exclusion de dépendances dans le <sgmltag>dependencySets</sgmltag></title>
@@ -1575,28 +1563,38 @@ I can add this back in later.  I didn't want to talk about it without an example
         </example>
 
         <para>Dans l'<xref linkend="ex-complex-dependencySet" />, 
-        la liste de dépendances scopée <varname>runtime</varname> de notre dernier exemple à été mis à jour pour exclure les dépendances de type ressource.
-        Seules les dépendances de type binaire (les dépendances qui ne sont pas de ZIP) sont ajoutées dans le répertoire <filename>WEB-INF/lib</filename> de l'application. 
-        Les dépendances de type ressource sont rassemblées dans une même liste,        
-        celle-ci est configurée pour copier ses dépendances dans le répertoire ressource de l'application.
-        La balise <sgmltag>includes</sgmltag> du dernier <sgmltag>dependencySet</sgmltag> annule les exclusions du <sgmltag>dependencySet</sgmltag> précédent.
+        la liste de dépendances scopée <varname>runtime</varname> de notre dernier exemple 
+        a été mis à jour pour exclure les dépendances de type ressource.
+        Seules les dépendances de type binaires (les dépendances qui ne sont pas de ZIP) 
+        sont ajoutées dans le répertoire <filename>WEB-INF/lib</filename> de l'application. 
+        Les dépendances de type ressources sont rassemblées dans une même liste.        
+        Celle-ci est configurée pour copier ses dépendances dans le répertoire ressource de l'application.
+        La balise <sgmltag>includes</sgmltag> du dernier <sgmltag>dependencySet</sgmltag> 
+        annule les exclusions du <sgmltag>dependencySet</sgmltag> précédent.
         Ainsi, les dépendances ressources sont incluses en utilisant un seul pattern d'identité : <varname>*:zip</varname>.
-        La dernière balise <sgmltag>dependencySet</sgmltag> fait référence à des ressources partagées et est configurée pour deziper celles-ci à la racine de l'application web.</para>
+        La dernière balise <sgmltag>dependencySet</sgmltag> fait référence à des ressources partagées, 
+        elle est configurée pour deziper celles-ci à la racine de l'application web.</para>
 
-        <para>L'<xref linkend="ex-complex-dependencySet" /> présume que le projet contenant les ressources partagées a un type différent des autres dépendances. 
+        <para>L'<xref linkend="ex-complex-dependencySet" /> présume que le projet contenant 
+        les ressources partagées dispose d'un type différent des autres dépendances. 
         Que se passerait-il si celle-ci avait le même type que celui des autres dépendances ?
         Comment différencieriez-vous cette dépendance ?
-        Dans ce cas, si une dépendance de ressources partagées a été packagée comme un JAR avec le classificateur de type <varname>resources</varname>,  
+        Dans ce cas, si une dépendance de ressources partagées a été packagée comme un JAR 
+        avec le classificateur de type <varname>resources</varname>,  
         vous pouvez changer le pattern d'identité pour qu'il match ces dépendances :</para> 
 
         <programlisting>*:jar:resources</programlisting>
 
         <para>Au lieu de matcher les artefacts de type <varname>zip</varname> sans classificateur,
-        nous matchons ici les artefacts de type <varname>jar</varname> qui possède un classificateur <varname>resources</varname>.</para>   
+        nous matchons ici les artefacts de type <varname>jar</varname> 
+        qui possède un classificateur <varname>resources</varname>.</para>   
 
-        <para>Comme pour la section <sgmltag>fileSets</sgmltag>, <sgmltag>dependencySets</sgmltag> supporte l'utilisation du flag <sgmltag>useStrictFiltering</sgmltag>. 
-        Lorsque celui-ci est activé, n'importe quel pattern qui ne match pas une ou plusieurs dépendances causera l'échec de l'assembly, et donc par conséquent, du build.  
-        Très pratique pour utiliser comment soupape de sécurité, pour vous assurer que les dépendances de votre projet et votre descripteur d'assembly soient correctement synchronisés.  
+        <para>Comme pour la section <sgmltag>fileSets</sgmltag>, <sgmltag>dependencySets</sgmltag> supporte 
+        l'utilisation du flag <sgmltag>useStrictFiltering</sgmltag>. 
+        Lorsque celui-ci est activé, n'importe quel pattern qui ne match pas une ou plusieurs dépendances 
+        causera l'échec de l'assembly, et donc par conséquent, l'échec du build.  
+        Très pratique pour utiliser comme soupape de sécurité, pour vous assurer que les dépendances 
+        de votre projet et votre descripteur d'assembly soient correctement synchronisés.  
         Par défaut, ce flag est désactivé pour des raisons de rétrocompatibilité.</para> 
       </section>
 
@@ -1605,12 +1603,14 @@ I can add this back in later.  I didn't want to talk about it without an example
 
         <para>La section <sgmltag>dependencySet</sgmltag> vous propose deux autres mécanismes pour vous aider dans le choix de vos artefacts :  
         options de sélection transitive et options pour travailler avec des artefacts du projet.
-        Ces deux fonctionnalités proviennent de la nécessité de supporter des configurations existantes qui utilisent une définition un peu plus libérale du mot «dépendance». 
+        Ces deux fonctionnalités proviennent de la nécessité de supporter des configurations existantes 
+        qui utilisent une définition un peu plus libérale du mot "dépendance". 
         Comme premier exemple, examinons l'artefact principal du projet.
-        Typiquement, dans la majorité des cas, il ne doit pas être considéré comme une dépendance.
+        Dans la majorité des cas, il ne doit pas être considéré comme une dépendance.
         Pourtant, les plus anciennes versions du plugin Assembly l'utilisaient dans le calcul des dépendances.
-        Pour fournir une rétrocompatibilité avec cette “fonctionnalité”,
-        la version 2.2 du plugin Assembly dispose d'un flag à mettre dans le <sgmltag>dependencySet</sgmltag>, celui-ci est appelé <sgmltag>useProjectArtifact</sgmltag>,
+        Pour fournir une rétrocompatibilité avec cette "fonctionnalité",
+        la version 2.2 du plugin Assembly dispose d'un flag à mettre dans le <sgmltag>dependencySet</sgmltag>, 
+        celui-ci est appelé <sgmltag>useProjectArtifact</sgmltag>,
         La valeur par défaut de ce flag est <varname>true</varname>. 
         Par défaut, le set de dépendances essayera d'inclure l'artefact du projet dans le calcul de ses dépendances.  
         Si vous préférez gérer l'artefact du projet séparément, affectez ce flag à <varname>false</varname>.</para>
@@ -1626,59 +1626,69 @@ I can add this back in later.  I didn't want to talk about it without an example
         Activer ce flag permet aux patterns qui précisent des classificateurs et des types d'artefacts de matcher les artefacts rattachés.
         Ils partagent la même identité <varname>groupId</varname>/<varname>artifactId</varname>/<varname>version</varname>,
         mais diffèrent de <varname>type</varname> et de <varname>classifier</varname>.
-        Cette fonctionnalité peut s'avérer utilise pour inclure les JARs de Javadoc ou de Source dans une assembly.</para>
+        Cette fonctionnalité peut s'avérer utilise pour inclure les JARs de Javadoc ou de source dans une assembly.</para>
 
         <para>En plus de traiter avec des artefacts du projet,
-        il est également possible de configurer un set de dépendances en utilisant deux flags permettant d'activer la résolution transitive.
-        Le premier, appelé <sgmltag>useTransitiveDependencies</sgmltag> (et activé par défaut), permet d'activer l'inclusion des dépendances transitives lors du matching.
-        Comme exemple pour savoir comment il peut être utilisé, considérer ce qui arrive lorsque votre <acronym>POM</acronym> à une dépendance sur une autre assembly.
-        Cette assembly aura (probablement) un classificateur qui le sépare de l'artefact principal du projet, ce qui en fait une pièce jointe.    
-        Cependant, une particularité du processus de résolution des dépendances Maven que les informations des dépendances transitives pour l'artefact principal
+        il est également possible de configurer un set de dépendances en utilisant 
+        deux flags permettant d'activer la résolution transitive.
+        Le premier, appelé <sgmltag>useTransitiveDependencies</sgmltag> (et activé par défaut), 
+        permet d'activer l'inclusion des dépendances transitives lors du matching.
+        Comme exemple pour savoir comment il peut être utilisé, considérez ce qui arrive lorsque votre <acronym>POM</acronym> 
+        à une dépendance sur une autre assembly.
+        Cette assembly aura (probablement) un classificateur qui permet de le distinguer de l'artefact principal du projet, 
+        ce qui en fait une pièce jointe.    
+        Cependant, une particularité du processus de résolution des dépendances Maven 
+        que les informations des dépendances transitives pour l'artefact principal
         sont toujours utilisées pour résoudre l'artefact de l'assembly.
         Si l'assembly package ses dépendances à l'intérieur de lui-même, 
-        dans ce cas, utiliser la résolution des dépendances transitives dupliquerait effectivement ces dépendances.         
-        Pour éviter cela, nous pouvons simplement affecter le flag <sgmltag>useTransitiveDependencies</sgmltag> à <varname>false</varname>.</para>
+        dans ce cas, utiliser la résolution des dépendances transitives dupliquerait ces dépendances.         
+        Pour éviter cela, nous pouvons simplement utiliser le flag <sgmltag>useTransitiveDependencies</sgmltag> 
+        en le positionnant <varname>false</varname>.</para>
 
-        <para>L'autre flag permettant de résoudre les dépedances dépendances est plus subtil.
+        <para>L'autre flag permettant de résoudre les dépendances est plus subtil.
         Il est appelé <sgmltag>useTransitiveFiltering</sgmltag> et sa valeur par défaut est <varname>false</varname>.
-        Pour comprendre ce que fait ce flag, nous devons d'abord comprendre quelles informations sont disponibles pour un artefact donné lors du processus de résolution des dépendances. 
+        Pour comprendre ce que fait ce flag, nous devons d'abord comprendre quelles informations 
+        sont disponibles pour un artefact donné lors du processus de résolution des dépendances. 
         Quand un artefact est une dépendance d'un autre (qui est, retiré au moins un niveau à partir de votre <acronym>POM</acronym>),
-        elle a ce que Maven appelle un "chemin de dépendances", laquelle est maintenue comme une liste de chaînes de caractère et correspond à l'identité complète de l'artefact 
+        elle a ce que Maven appelle un "chemin de dépendances", laquelle est maintenue 
+        comme une liste de chaînes de caractères et correspond à l'identité complète de l'artefact 
         (<varname>groupId:artifactId:type:[classifier:]version</varname>)
-        de toutes les dépendances entre votre <acronym>POM</acronym> et l'artefact a qui appartient ce chemin.
+        de toutes les dépendances entre votre <acronym>POM</acronym> et l'artefact à qui appartient ce chemin.
         Si vous vous rappelez des trois types d'identités des artefacts disponibles pour pattern matching,
         vous remarquerez que les entrées dans ce chemin de dépendances - l'identité complète de l'artefact  - correspond au troisième type.
-        Lorsque le flag <sgmltag>useTransitiveFiltering</sgmltag> est affecté à <varname>true</varname>, 
+        Lorsque le flag <sgmltag>useTransitiveFiltering</sgmltag> est positionné à <varname>true</varname>, 
         toutes les entrées du chemin de dépendances d'un artefact peuvent agir sur l'inclusion ou l'exclusion de cet artefact.</para>
 
-        <para>Si vous considérez l'utisation de ce filtrage transitif, prennez garde !
+        <para>Si vous envisagez l'utisation de ce filtrage transitif, prennez garde !
         Un artefact peut être inclus à partie de nombreux emplacement dans un graphe de dépendance, mais dans Maven 2.0.9,
         seul le premier chemin de dépendances est utilisé pour ce type de matching.
-        Cela peut conduire à des problèmes subtils dans la collecte des dépendances de votre projet.</para>
+        Cela peut conduire à des problèmes difficiles à résoudre dans la collecte des dépendances de votre projet.</para>
 
         <warning>
-          <para>La plupart des assembly ne nécessitent ce niveau de contrôle sur les sets de dépendances,
-          reflechissez attentivement pour savoir si la vôtre en a vraiment besoin. Astuce : ce n'est probablement pas le cas.</para>
+          <para>La plupart des assembly ne nécessitent ce niveau de contrôle sur les sets de dépendances.
+          Reflechissez attentivement pour savoir si la votre en a vraiment besoin. Astuce : ce n'est probablement pas le cas.</para>
         </warning>
       </section>
 
       <section id="assemblies-sect-unpack">
         <title>Options avancées de dépaquetage</title>
 
-        <para>Comme discuté précédemment, certaines dépendances de projet ont besoin d'être dézippées pour créer une assembly.
-        Dans les exemples ci-dessus, la décision de dézipper ou non était simple.
+        <para>Comme discuté précédemment, certaines dépendances de projet ont besoin d'être dézippées pour créer un assembly.
+        Dans les exemples ci-dessus, la décision de savoir s'il fallait dézipper était simple.
         Il ne tient pas compte de ce qui doit être dépaqueté, ou plus important, de ce qui ne doit pas être dépaqueté. 
         Pour obtenir plus de contrôle sur le processus de dépaquetage,
         vous pouvez configurer la balise <sgmltag>unpackOptions</sgmltag> dans votre <sgmltag>dependencySet</sgmltag>.
         Ainsi, vous avez la possibilité de choisir quels fichiers vous voulez inclure dans votre assembly,
         et quels fichiers doivent être filtrés pour résoudre des expressions à partir des informations du <acronym>POM</acronym>.
-        En fait, les options disponibles pour dépaqueter vos sets de dépendances sont similaires à celles disponibles pour l'inclusion ou l'exclusion de fichier.</para>
+        En fait, les options disponibles pour dépaqueter vos sets de dépendances sont similaires à celles disponibles 
+        pour l'inclusion ou l'exclusion de fichier.</para>
 
         <para>Pour continuer notre exemple d'application web,
         supposons que certaines dépendances de ressources aient été zippées avec un fichier qui décrit les détails de leur licence de distribution.
         Dans le cas de notre application web,
         ces licences se présenteront sous la forme d'un fichier <filename>NOTICES</filename> inclu dans notre paquetage.
-        Pour exclure ce fichier, ajoutons-le simplement aux options de dépaquetage dans le set des dépendances qui gère les artefacts de ressources :</para> 
+        Pour exclure ce fichier, ajoutons-le simplement aux options de dépaquetage dans le set des dépendances 
+        qui gère les artefacts de ressources :</para> 
 
         <example>
           <title>Exclusion de fichiers dans le dépaquetage d'une dépendance</title>
@@ -1706,57 +1716,80 @@ I can add this back in later.  I didn't want to talk about it without an example
 &lt;/assembly&gt;</programlisting>
         </example>
 
-        <para>Notez que le tag <sgmltag>exclude</sgmltag> que nous utilisons ressemble beaucoup à celui de la déclaration du <sgmltag>fileSet</sgmltag>.  
-        Ici, nous interdisons les fichiers qui commencent par le mot <filename>LICENSE</filename> dans les répertoires de nos artefacts de ressources.
-        Vous pouvez comparer la section des options de dépaquetage à un petit <sgmltag>fileSet</sgmltag> appliqué à chaque dépendance qui match ce set.
+        <para>Notez que le tag <sgmltag>exclude</sgmltag> que nous utilisons ressemble beaucoup 
+        à celui de la déclaration du <sgmltag>fileSet</sgmltag>.  
+        Ici, nous interdisons les fichiers qui commencent par le mot <filename>LICENSE</filename> 
+        des répertoires de nos artefacts de ressources.
+        Vous pouvez comparer la section des options de dépaquetage à un petit <sgmltag>fileSet</sgmltag> 
+        appliqué à chaque dépendance qui match ce set.
         En d'autres mots, il s'agit d'un <sgmltag>fileSet</sgmltag> utilisé pour le dépaquetage des dépendances.
-        Tout comme nous avons spécifié un modèle d'exclusion pour les dossiers dans les dépendances de ressources afin de bloquer certains fichiers,
-        vous pouvez également choisir un ensemble restreint de fichiers à inclure en utilisant la section <varname>includes</varname>.
-        Le même code que celui du processus d'inclusion et d'exclusion des <sgmltag>fileSets</sgmltag> peut-être réutilisé pour le traitement des <sgmltag>unpackOptions</sgmltag>.</para>
+        Tout comme nous avons spécifié un modèle d'exclusion pour les dossiers 
+        dans les dépendances de ressources afin de bloquer certains fichiers,
+        vous pouvez également choisir un ensemble restreint de fichiers à inclure 
+        en utilisant la section <varname>includes</varname>.
+        Le même code que celui du processus d'inclusion et d'exclusion des <sgmltag>fileSets</sgmltag> 
+        peut-être réutilisé pour le traitement des <sgmltag>unpackOptions</sgmltag>.</para>
 
         <para>En plus de mécanisme d'inclusion et d'exclusion,
         les options de dépaquetages sur un set de dépendances peuvent également fournir un flag <sgmltag>filtering</sgmltag>,
         par défaut sa valeur est <varname>false</varname>.
         Encore une fois, cela ressemble beaucoup au mécanisme proposé par les sets de fichiers discuté ci-dessus.
-        Les expressions peuvent utiliser soit la syntaxe Maven d'une <varname>\${property}</varname>, soit la syntaxe Ant d'une <varname>@property@</varname>.
+        Les expressions peuvent utiliser, soit la syntaxe Maven d'une <varname>\${property}</varname>, 
+        soit la syntaxe Ant d'une <varname>@property@</varname>.
         Le filtrage des ressources est particulièrement intéressant pour les sets de dépendances.        
-        Car elle permet de créer des templates ressources normalisés et versionnés qui peuvent être personnalisés pour chaque assembly dans lequel ils sont inclus.
-        Une fois que vous maîtrisez la fonctionnalité de filtrage, que vous avez dépaqueté les dépendances qui sont stockées dans des ressources partagées,
-        vous serez en mesure de commencer à abstraire certaines ressources répétées.</para>
+        Elle permet de créer des templates ressources normalisés et versionnés 
+        qui peuvent être personnalisés pour chaque assembly dans lequel ils sont inclus.
+        Une fois que vous maîtrisez la fonctionnalité de filtrage, que vous avez dépaqueté les dépendances 
+        stockées dans des ressources partagées, vous serez en mesure de commencer à abstraire certaines ressources répétées.</para>
       </section>
 
       <section id="assemblies-sect-summarizing">
-        <title>Résumer les sets de dépendances</title>
+        <title>Résumer des sets de dépendances</title>
 
-        <para>Au final, il est important de mentionner que les sets de dépendances supportent les mêmes options de configuration <sgmltag>fileMode</sgmltag> et <sgmltag>directoryMode</sgmltag> que celles des sets de fichiers.
-        Cependant, vous devrez vous rappeler que le <sgmltag>directoryMode</sgmltag> ne sera utilisé que si les dépendances sont dépaquetées.</para>
+        <para>Au final, il est important de mentionner que les sets de dépendances supportent 
+        les mêmes options de configuration <sgmltag>fileMode</sgmltag> et 
+        <sgmltag>directoryMode</sgmltag> que celles des sets de fichiers.
+        Cependant, vous devrez vous rappeler que le <sgmltag>directoryMode</sgmltag> 
+        ne sera utilisé que si les dépendances sont dépaquetées.</para>
       </section>
     </section>
 
     <section id="assemblies-sect-modulesets">
       <title>Balise <sgmltag>moduleSets</sgmltag></title>
 
-      <para>Les builds multimodule sont généralement rassemblés ensemble en utilisant les balises <varname>parent</varname> et <varname>modules</varname> dans les <acronym>POM</acronym>s. 
+      <para>Les builds multimodule sont généralement rassemblés en utilisant les balises 
+      <varname>parent</varname> et <varname>modules</varname> dans les <acronym>POM</acronym>s. 
       Typiquement, les <acronym>POM</acronym>s parents spécifient leurs fils dans une section <sgmltag>modules</sgmltag>,
-      qui, en temps normal, aura pour effet de les inclure dans la procédure de build du projet parent.   
-      La relation entre ses deux projets, et comment elle a été contruite, peut avoir des implications importantes dans manière dont le plugin Assembly participe à ce processus, mais nous en discuterons plus tard.
-      Pour l'instant, contentons-nous de garder à l'esprit la relation parent-module telle que nous l'avions vu dans la section <sgmltag>moduleSets</sgmltag>.</para>  
+      qui, en temps normal, aura pour effet de les inclure dans la procédure d'exécution du build du projet parent.   
+      La relation entre ses deux projets, et comment elle a été contruite, 
+      peut avoir des implications importantes sur la manière dont le plugin Assembly participe à ce processus. 
+      Nous discuterons de cela un peu plus tard.
+      Pour l'instant, contentons-nous de garder à l'esprit la relation parent-module 
+      telle que nous l'avions vu dans la section <sgmltag>moduleSets</sgmltag>.</para>  
 
       <!--TODO: I think we need a simple example of how/why this would be used.-->
 
-      <para>Les projets sont construits sous la forme d'un projet multimodule parce qu'ils font partie d'un système plus vaste.
-      Ces projets sont conçus pour être utilisés ensemble, un module unique dans un grand build n'a peu de valeur en lui-même.
-      De cette façon, la structure du build du projet est liée à la façon dont nous espérons que ce projet (et ses modules) soit utilisé.
+      <para>Les projets sont construits sous la forme d'un projet multimodule 
+      parce qu'ils font partie d'un système plus vaste.
+      Ces projets sont conçus pour être utilisés ensemble, un module unique 
+      dans un grand build n'a peu de valeur en lui-même.
+      De cette façon, la structure du build du projet est liée à la façon 
+      dont nous espérons que ce projet (et ses modules) soit utilisé.
       Si vous considérez le projet du point de vue de l'utilisateur, 
-      il semble logique que l'objectif final de ce build soit de construire et distribuer un seul fichier que les utilisateurs pourront directement déployer sans trop de tracas. 
+      il semble logique que l'objectif final de ce build soit de construire et distribuer un seul fichier 
+      qu'ils pourront directement déployer sans trop de soucis. 
       Comme les builds multimodule Maven s'appuient habituellement sur une structure top-down,
-      où des informations de dépendances, des configurations de plugin et bien d'autres informations sont hérités du projet parent à l'enfant,
-      il semble naturel que la tâche de transformation de ces modules dans un fichier unique distribuable doive incomber au projet le plus haut dans la hiérarchie.
+      où des informations de dépendances, des configurations de plugin et bien d'autres informations 
+      sont héritées du projet parent à l'enfant, il semble naturel que la tâche de transformation 
+      de ces modules dans un fichier unique et distribuable doive incomber au projet de plus haut dans la hiérarchie.
       Voilà où la balise <sgmltag>moduleSet</sgmltag> intervient.</para>
 
-      <para>Les sets de modules permettent l'inclusion de ressources dans l'assembly final, celles-ci dépendent de chaque module dans la structure du projet. 
-      Tout comme vous pouvez choisir un groupe de fichiers à inclure dans un assembly en utilisant les balises <sgmltag>fileSet</sgmltag> et <sgmltag>dependencySet</sgmltag>,
-      vous pouvez inclure un set de fichier et de ressources en utilisant un <sgmltag>moduleSet</sgmltag> pour se référer aux modules d'un build multimodule.
+      <para>Les sets de modules permettent l'inclusion de ressources dans l'assembly final, 
+      celles-ci dépendent de chaque module dans la structure du projet. 
+      Tout comme vous pouvez choisir un groupe de fichiers à inclure dans un assembly 
+      en utilisant les balises <sgmltag>fileSet</sgmltag> et <sgmltag>dependencySet</sgmltag>,
+      vous pouvez inclure un set de fichiers et de ressources en utilisant un <sgmltag>moduleSet</sgmltag> 
+      pour se référer aux modules d'un build multimodule.
       Cela est rendu possible grâce aux deux types d'inclusion spécifique aux modules : l'un basé sur les fichiers, l'autre sur les artefacts. 
       Avant d'entrer dans les particularités ces deux types d'inclusion de modules ressources dans une assembly,
       parlons un peu de comment sélectionner les modules à traiter.</para>
@@ -1764,12 +1797,17 @@ I can add this back in later.  I didn't want to talk about it without an example
       <section id="assemblies-sect-module-selection">
         <title>Sélection des modules</title>
 
-        <para>Maintenant, vous devriez commencer à maîtriser les patterns <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag>, ils sont également utilisés dans les descripteurs d'essembly pour filter les fichiers et les dépendances. 
-        Dans un descripteur d'un assembly, lorsque vous faites référence à des modules, vous pouvez également utiliser ces patterns <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag> 
+        <para>Maintenant, vous devriez commencer à maîtriser les patterns <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag>, 
+        ils sont également utilisés dans les descripteurs d'assembly pour filter les fichiers et les dépendances. 
+        Dans un descripteur d'assembly, lorsque vous faites référence à des modules, 
+        vous pouvez également utiliser ces patterns <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag> 
         pour définir les règles qui s'appliquent sur différents sets de modules. 
-        La particularité des partterns <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> d'un <sgmltag>moduleSet</sgmltag> est qu'ils ne permettent pas d'utiliser de wildcards. 
-        (du moins dans Maven 2.2-beta-2, cette fonctionnalité n'a pas été beaucoup demandée, elle n'a donc pas été implémentée.)
-        À la place de cela, chaque balise <varname>include</varname> et <varname>exclude</varname> correspond simplement au <varname>groupId</varname> et à l'<varname>artifactId</varname> du module, séparé par un caractère ':', comme ceci :</para>   
+        La particularité des partterns <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> 
+        d'un <sgmltag>moduleSet</sgmltag> est qu'ils ne permettent pas d'utiliser de wildcards. 
+        (Du moins dans Maven 2.2-beta-2, cette fonctionnalité n'a pas été beaucoup demandée, elle n'a donc pas été implémentée.)
+        À la place de cela, chaque balise <varname>include</varname> et <varname>exclude</varname> 
+        correspond simplement au <varname>groupId</varname> et à l'<varname>artifactId</varname> du module, 
+        séparé par un caractère ':', comme ceci :</para>   
 
         <programlisting>groupId:artifactId</programlisting>
 
@@ -1782,10 +1820,12 @@ I can add this back in later.  I didn't want to talk about it without an example
         Dans certains cas, vous souhaitez construire chaque module séparément (y compris les sous-modules).
         Pour cela, affectez simplement la valeur du flag <sgmltag>useSubModules</sgmltag> à <varname>true</varname>.</para>
 
-        <para>Lorsque vous essayez d'inclure des fichiers dans une structure de répertoires de chaque module, 
-        vous souhaitez déclarer cette structure de répertoire une seule fois. 
-        Si votre structure de répertoire du projet reflète celle des relations du module parent qui sont inclus dans les <acronym>POM</acronym>s, 
-        cette approche permet aux patterns de fichiers comme <varname>**/src/main/java</varname> de s'appliquer non seulement aux répertoires directs de ce module, 
+        <para>Lorsque vous essayez d'inclure des fichiers dans la structure de répertoires de chaque module, 
+        vous souhaitez déclarer cette structure de répertoires une seule fois. 
+        Si votre structure de répertoires du projet reflète celle des relations du module 
+        parents qui sont inclus dans les <acronym>POM</acronym>s, 
+        cette approche permet aux patterns de fichiers comme <varname>**/src/main/java</varname> 
+        de s'appliquer non seulement aux répertoires directs de ce module, 
         mais également pour les répertoires de ses propres modules.
         Dans le cas ou ne voudriez pas traiter les sous-modules directement 
         (ils seront traités à la place comme des sous-répertoires dans les modules de votre projet),
@@ -1800,8 +1840,10 @@ I can add this back in later.  I didn't want to talk about it without an example
       <section id="assemblies-sect-sources-section">
         <title>Balise <varname>sources</varname></title>
 
-        <para>Supposez que vous désirez inclure les sources de tous les modules dans votre assembly, mais que vous voulez exclure un module en particulier.
-        Peut-être avec vous un projet appelé <varname>secret-sauce</varname> qui contient du code secret et sensible que vous ne voulez pas distribuer dans votre projet.
+        <para>Supposez que vous désirez inclure les sources de tous les modules dans votre assembly, 
+        mais que vous voulez exclure un module en particulier.
+        Peut-être avez-vous un projet appelé <varname>secret-sauce</varname> 
+        qui contient du code secret et sensible que vous ne voulez pas distribuer dans votre projet.
         Le moyen le plus simple d'effectuer cela est d'utiliser la balise <sgmltag>moduleSet</sgmltag> qui inclus chaque répertoire d'un projet 
         dans <varname>\${module.basedir.name}</varname> et qui exclu le module <varname>secret-sauce</varname> de l'assembly.</para>
 
@@ -1848,31 +1890,38 @@ I can add this back in later.  I didn't want to talk about it without an example
         Ainsi, nous n'avons donc pas à nous soucier de sous-modules qui apparaissent dans le répertoire racine de l'archive d'assemblage.
         La balise <sgmltag>exclude</sgmltag> s'occupera d'exclure votre module secret <varname>secret-sauce</varname>.</para>
 
-        <para>Normalement, les sources du module sont incluses dans l'assembly dans un sous-répertoire qui est nommé âpres <varname>artifactId</varname> du module.  
-        Toutefois, comme Maven permet aux modules qui ne sont pas dans des répertoires nommés d'après l'<varname>artifactId</varname> du module du projet,
-        il est souvent préférable d'utiliser une expression <varname>\${module.basedir.name}</varname> pour préserver le nom du répertoire du module courant.
-        (<varname>\${module.basedir.name}</varname> revient au même que d'appeler la méthode  <methodname>MavenProject.getBasedir().getName()</methodname>).
-        Il est important de se rappeler que les modules qui ne sont pas nécessairement des sous-répertoires du projet qui les déclare.
-        Si votre projet possède une structure particulièrement étrange, 
+        <para>Normalement, les sources du module sont incluses dans l'assembly 
+        dans un sous-répertoire qui est nommé âpres <varname>artifactId</varname> du module.  
+        Toutefois, comme Maven permet aux modules qui ne sont pas dans des répertoires nommés 
+        d'après l'<varname>artifactId</varname> du module du projet,
+        il est souvent préférable d'utiliser une expression <varname>\${module.basedir.name}</varname> 
+        pour préserver le nom du répertoire du module courant.
+        (<varname>\${module.basedir.name}</varname> revient au même que d'appeler 
+        la méthode <methodname>MavenProject.getBasedir().getName()</methodname>).
+        Il est important de se rappeler que les modules ne sont pas nécessairement des sous-répertoires du projet qui les déclare.
+        Si votre projet possède une structure un peu étrange, 
         vous pouvez avoir besoin de recourir à la déclaration de balises <sgmltag>moduleSet</sgmltag> spéciales 
         qui sauront comprendre et tenir compte des particularités de votre projet.</para>    
 
         <warning>
           <para>Pour essayer de minimiser les particularités votre projet, comme Maven est flexible,
-          si vous vous prenez à faire trop de configuration,c'est qu'il y a probablement un moyen plus facile d'y arriver.</para>
+          si vous vous prenez à faire trop de configuration, c'est qu'il y a probablement un moyen plus facile d'y arriver.</para>
         </warning>
 
-        <para>Continuons à parcourir l'<xref linkend="ex-include-exclude-moduleSet" />, 
-        since we’re not processing sub-modules explicitly in this module set, 
-        we need to make sure sub-module directories are not excluded from the source directories we consider for each direct module. 
-        By setting the <sgmltag>excludeSubModuleDirectories</sgmltag> flag to <varname>false</varname>, 
-        this allows us to apply the same file pattern to directory structures within a sub-module of the one we’re processing. 
-        Finally in <xref linkend="ex-include-exclude-moduleSet" />, 
-        we’re not interested in any output of the build process for this module set. We exclude the target/ directory from all modules.</para>
+        <para>Continuons à parcourir l'<xref linkend="ex-include-exclude-moduleSet" />,
+        tant que nous traitons pas les sous-modules de manière explicite,
+        nous devons faire en sorte que les répertoires de sous-module ne sont pas exclus 
+        des répertoires sources que nous utilisons pour chaque module direct.
+        Affecter le flag <sgmltag>excludeSubModuleDirectories</sgmltag> à <varname>false</varname>
+        permet d'appliquer les mêmes patterns de fichiers sur les structures de répertoires 
+        dans un sous-module de celui qu'on est en train de traiter.  
+        Enfin, dans l'<xref linkend="ex-include-exclude-moduleSet" />,
+        nous ne sommes pas intéressés à n'importe quelle sortie de la procédure de build de ce set de module.
+        Nous avons exclu le répertoire <varname>target/</varname> de tous les modules.</para>         
 
         <para>Ca vaut également le coup de mentionner que la balise <sgmltag>sources</sgmltag> supporte les éléments du type <sgmltag>fileSet</sgmltag> directement dans celle-ci ou dans ses sous-balises imbriquées.    
         Ces balises de configuration sont utilisées pour fournir une rétrocompatibilité avec les anciennes versions du plugin Assembly (versions 2.1 et précédentes)
-        qui ne prenaient pas en charge plusieurs sets fichiers pour un même module sans créer de <varname>modulesSet</varname> séparés.
+        qui ne prenaient pas en charge plusieurs sets de fichiers pour un même module sans créer de <varname>modulesSet</varname> séparés.
         Elles sont dépréciées, vous ne devez pas les utiliser.</para>
 
       </section>
@@ -1881,16 +1930,22 @@ I can add this back in later.  I didn't want to talk about it without an example
         <title>Interpolation de l'<sgmltag>outputDirectoryMapping</sgmltag> dans les <sgmltag>moduleSets</sgmltag></title>
 
         <para>Dans l'<xref linkend="assemblies-sect-output-location" />, 
-        nous avons utilisé la balise <sgmltag>outputDirectoryMapping</sgmltag> pour changer le nom du répertoire sous lequel est inclue chaque source des modules. 
-        Les expressions contenues dans cette balise sont résolues exactement de la même manière que celles de la balise <sgmltag>outputFileNameMapping</sgmltag>,
-        qui utilisait des sets de dépendances (référez-vous à l'explication de cet algorithme dans la section <xref linkend="assemblies-sect-output-algorithm" />).</para>
+        nous avons utilisé la balise <sgmltag>outputDirectoryMapping</sgmltag> 
+        pour changer le nom du répertoire sous lequel est inclue chaque source des modules. 
+        Les expressions contenues dans cette balise sont résolues exactement de la même manière 
+        que celles de la balise <sgmltag>outputFileNameMapping</sgmltag>,
+        qui utilisait des sets de dépendances (référez-vous à l'explication de 
+        cet algorithme dans la section <xref linkend="assemblies-sect-output-algorithm" />).</para>
 
-        <para>Dans l'<xref linkend="ex-include-exclude-moduleSet" />, vous avons utilisé l'expression <varname>\${module.basedir.name}</varname>. 
+        <para>Dans l'<xref linkend="ex-include-exclude-moduleSet" />, vous avons 
+        utilisé l'expression <varname>\${module.basedir.name}</varname>. 
         Vous avez peut-être remarqué que le début de cette expression, <varname>module</varname>,
         n'est pas listé dans l'algorithme de résolution des mappings de la section <xref linkend="assemblies-sect-output-algorithm" />.
         Cet objet root est spécifique à la configuration des <sgmltag>moduleSets</sgmltag>.
-        Il fonctionne de la même manière que les réléférences à <varname>\${artifact.*}</varname> disponible dans la balise <sgmltag>outputFileNameMapping</sgmltag>,
-        à l'exception qu'il s'applique aux instances <classname>MavenProject</classname>, <classname>Artifact</classname> et <classname>ArtifactHandler</classname> du module
+        Il fonctionne de la même manière que les réléférences à <varname>\${artifact.*}</varname> 
+        disponibles dans la balise <sgmltag>outputFileNameMapping</sgmltag>,
+        à l'exception qu'il s'applique aux instances <classname>MavenProject</classname>, 
+        <classname>Artifact</classname> et <classname>ArtifactHandler</classname> du module
         au lieu de celles d'un artefact de dépendance.</para>
       </section>
 
@@ -1899,24 +1954,32 @@ I can add this back in later.  I didn't want to talk about it without an example
 
         <para>Tout comme la balise <sgmltag>sources</sgmltag> se charge de l'inclusion des sources d'un module,
         la balise <sgmltag>binaries</sgmltag> se charge d'inclure les sorties du build d'un module, ou ses artefacts. 
-        Bien que cette section fonctionne essentiellement comme un moyen de spécifier un <sgmltag>dependencySets</sgmltag> à appliquer à chaque module de la série,
-        quelques fonctionnalités propres aux artefacts des modules méritent d'être explorées : <sgmltag>attachmentClassifier</sgmltag> et <sgmltag>includeDependencies</sgmltag>. 
-        En plus de cela, la balise <sgmltag>binaries</sgmltag> contient une option similaire à la balise <sgmltag>dependencySet</sgmltag>,
+        Bien que cette section fonctionne essentiellement comme une façon de 
+        spécifier un <sgmltag>dependencySets</sgmltag> à appliquer à chaque module de la série,
+        quelques fonctionnalités propres aux artefacts des modules méritent d'être explorées : 
+        <sgmltag>attachmentClassifier</sgmltag> et <sgmltag>includeDependencies</sgmltag>. 
+        En plus de cela, la balise <sgmltag>binaries</sgmltag> contient une option 
+        similaire à la balise <sgmltag>dependencySet</sgmltag>,
         qui a trait à la manipulation de l'artefact du module lui-même.
-        Il s'agit : <sgmltag>unpack</sgmltag>, <sgmltag>outputFileNameMapping</sgmltag>, <sgmltag>outputDirectory</sgmltag>, <sgmltag>directoryMode</sgmltag> et <sgmltag>fileMode</sgmltag>. 
-        Enfin, les binaires d'un module peuvent contenir une balise <sgmltag>dependencySets</sgmltag> pour spécifier comment les dépendances de chaque module doivent être incluses dans l'assembly. 
-        D'abord, jetons un coup d'oeil à la façon dont ces options peuvent être utilisées pour gérer les artefacts propres au module.</para>
+        Il s'agit : <sgmltag>unpack</sgmltag>, <sgmltag>outputFileNameMapping</sgmltag>, 
+        <sgmltag>outputDirectory</sgmltag>, <sgmltag>directoryMode</sgmltag> et <sgmltag>fileMode</sgmltag>. 
+        Enfin, les binaires d'un module peuvent contenir une balise <sgmltag>dependencySets</sgmltag> 
+        pour spécifier comment les dépendances de chaque module doivent être incluses dans l'assembly. 
+        D'abord, jetons un coup d'oeil à la façon dont ces options peuvent être 
+        utilisées pour gérer les artefacts propres au module.</para>
 
         <para>Supposons que nous voulons inclure JARs de Javadoc pour chacun de nos modules à l'intérieur de notre assembly.
-        Dans ce cas, nous ne nous soucions pas de l'inclusion des dépendances, nous voulons simplement ajouter le JAR de la Javadoc.
+        Dans ce cas, nous ne nous soucions pas de l'inclusion des dépendances, 
+        nous voulons simplement ajouter le JAR de la Javadoc.
         Toutefois, comme ce JAR un peu particulier est toujours présent en tant que pièce jointe de l'artefact principal, 
         nous devons spécifier le classificateur à utiliser pour le récupérer.
         Pour simplifier, nous ne couvrirons pas dépaquetage les JARs de Javadoc des modules, 
-        puisque la configuration est exactement la même que celle utilisée pour les dépendances, comme nous l'avons abordé précédemment dans ce chapitre.
+        puisque la configuration est exactement la même que celle utilisée pour les dépendances, 
+        comme nous l'avons abordé précédemment dans ce chapitre.
         Le <varname>moduleSet</varname> devrait ressembler à l'<xref linkend="ex-include-javadoc-moduleset" />.</para>
 
         <example id="ex-include-javadoc-moduleset">
-          <title>Inclure la Javadoc des modules dans une Assembly</title>
+          <title>Inclure la Javadoc des modules dans un assembly</title>
 
           <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -1936,25 +1999,35 @@ I can add this back in later.  I didn't want to talk about it without an example
         <para>Dans l'<xref linkend="ex-include-javadoc-moduleset" />,
         vous ne spécifiez pas directement de valeur au flag <sgmltag>includeSubModules</sgmltag> flag, celui-ci est activé par défaut.
         Cependant, nous tenons absolument à traiter tous les modules - même les sous-modules - en utilisant ce <varname>moduleSet</varname> :
-        nous n'utilisons aucune sorte de pattern de fichier qui pourrait correspondre à des structures de sous-répertoire à l'intérieur du module.
-        Pour chaque module, la balise <sgmltag>attachmentClassifier</sgmltag> récupérer l'artefact qui lui est attaché grâce au classificateur Javadoc.
-        La balise <sgmltag>includeDependencies</sgmltag> signale au plugin Assembly que l'on n'est pas intéressé par les dépendances des modules, nous récupérons juste les pièces jointes.  
-        Enfin, la balise <sgmltag>outputDirectory</sgmltag> demande au plugin Assembly de mettre tous les JARs de JAvadoc dans un répertoire nommé 
+        nous n'utilisons aucune sorte de pattern de fichier qui pourrait correspondre 
+        à des structures de sous-répertoire à l'intérieur du module.
+        Pour chaque module, la balise <sgmltag>attachmentClassifier</sgmltag> récupére l'artefact 
+        qui lui est attaché grâce au classificateur Javadoc.
+        La balise <sgmltag>includeDependencies</sgmltag> signale au plugin Assembly 
+        que l'on n'est pas intéressé par les dépendances des modules, nous récupérons juste les pièces jointes.  
+        Enfin, la balise <sgmltag>outputDirectory</sgmltag> demande au plugin Assembly 
+        de mettre tous les JARs de JAvadoc dans un répertoire nommé 
         <filename>apidoc-jars/</filename> en dehors du répertoire de l'assembly.</para>
 
         <para>Bien que nous ne faisons rien de très compliqué dans cet exemple,
         il est important de noter que les mêmes changements de l'exécution de l'algorithme de résolution des expressions, 
-        dont nous avions parlé à propos de la balise <sgmltag>outputDirectoryMapping</sgmltag> de la balise <varname>sources</varname>, s'appliquent également ici.
-        Tout ce qui est accessible par <varname>\${artifact.*}</varname> dans la configuration de la balise <sgmltag>outputFileNameMapping</sgmltag> du <sgmltag>dependencySet</sgmltag> est également disponible dans <varname>\${module.*}</varname>.  
-        La même chose s'applique pour toute balise <sgmltag>outputFileNameMapping</sgmltag> lorsqu'elle est utilisée directement dans une balise <sgmltag>binaries</sgmltag>.</para>
+        dont nous avions parlé à propos de la balise <sgmltag>outputDirectoryMapping</sgmltag> 
+        de la balise <varname>sources</varname>, s'appliquent également ici.
+        Tout ce qui est accessible par <varname>\${artifact.*}</varname> dans la 
+        configuration de la balise <sgmltag>outputFileNameMapping</sgmltag> du 
+        <sgmltag>dependencySet</sgmltag> est également disponible dans <varname>\${module.*}</varname>.  
+        La même chose s'applique pour toute balise <sgmltag>outputFileNameMapping</sgmltag> lorsqu'elle est 
+        utilisée directement dans une balise <sgmltag>binaries</sgmltag>.</para>
 
-        <para>Enfin, examinons un exemple dans lequel nous voulons simplement traiter l'artefact du module et ses dépendances <varname>runtime</varname>.
-        Dans ce cas, nous voulons séparer la configuration de l'artefact pour chaque module dans un set et une structure de répertoire séparés, 
+        <para>Enfin, examinons un exemple dans lequel nous voulons simplement 
+        traiter l'artefact du module et ses dépendances <varname>runtime</varname>.
+        Dans ce cas, nous voulons séparer la configuration de l'artefact pour chaque module 
+        dans un set et une structure de répertoire séparés, 
         en fonction de l'<varname>artifactId</varname> et de la <varname>version</varname> des modules.
         Le <varname>moduleSet</varname> reste simple, il ressemble au code de l'<xref linkend="ex-the-big-include" /> :</para>
 
         <example id="ex-the-big-include">
-          <title>Inclusion des artefacts d'un module et de ses dépendances dans une assembly</title>
+          <title>Inclusion des artefacts d'un module et de ses dépendances dans un assembly</title>
 
           <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -1982,27 +2055,35 @@ I can add this back in later.  I didn't want to talk about it without an example
 
         <para>La plupart du temps, les binaires d'un module restent assez simples.
         Dans les deux parties
-        - la partie principale, chargée de la manipulation de l'artefact du module lui-même, des ensembles de dépendances, et qui est chargé des dépendances du module -  
+        - la partie principale, chargée de la manipulation de l'artefact du module lui-même, 
+        des ensembles de dépendances, et qui est chargé des dépendances du module -  
         les options de configuration restent très similaires à celles des sets de dépendances.
         Bien entendu, la balise <varname>binaires</varname> fournie également des options pour contrôler 
         quelles dépendances sont incluses et quel artefact principal de projet vous souhaitez utiliser.</para>
 
-        <para>Comme pour la balise <varname>source</varname>, la balise <varname>binaries</varname> dispose d'options de configuration qui sont fournies uniquement pour des causes de rétrocompatibilité.
-        Celles-ci devraient être dépréciées, comment l'utilisation des sous-sections <varname>includes</varname> et <varname>excludes</varname>.</para>
+        <para>Comme pour la balise <varname>source</varname>, la balise <varname>binaries</varname> 
+        dispose d'options de configuration qui sont fournies uniquement pour des causes de rétrocompatibilité.
+        Celles-ci devraient être dépréciées, comment l'utilisation des sous-sections 
+        <varname>includes</varname> et <varname>excludes</varname>.</para>
       </section>
 
       <section id="assemblies-sect-modulesets-parent-pom">
         <title><sgmltag>moduleSets</sgmltag>, <acronym>POM</acronym>s parents et balise <sgmltag>binaries</sgmltag></title>
 
         <para>Enfin, clôturons cette discussion avec un avertissement.
-        En ce qui concerne les relations parents-module, il existe des interactions subtiles entre le fonctionnement interne de Maven et l'exécution d'un <varname>moduleSet</varname> dans une balise <varname>binaires</varname>.         
+        En ce qui concerne les relations parents-module, il existe des interactions 
+        subtiles entre le fonctionnement interne de Maven et l'exécution d'un 
+        <varname>moduleSet</varname> dans une balise <varname>binaires</varname>.         
         Lorsqu'un <acronym>POM</acronym> déclare un parent, 
-        ce parent doit être résolu d'une façon ou d'une autre avant que le <acronym>POM</acronym> en question puisse être construit.
+        ce parent doit être résolu d'une façon ou d'une autre avant que le 
+        <acronym>POM</acronym> en question puisse être construit.
         Si un parent est dans un dépôt Maven, pas de problème.
-        Cependant, vous vous exposez à de gros problèmes si le parent dispose d'un <acronym>POM</acronym> de plus haut niveau dans le même build,
+        Cependant, vous vous exposez à de gros problèmes si le parent dispose 
+        d'un <acronym>POM</acronym> de plus haut niveau dans le même build,
         en particulier si le <acronym>POM</acronym> parent utilise les binaires de ces modules.</para>
 
-        <para>Maven 2.0.9 trie les projets d'un build multimodule en fonction de leurs dépendances, avec des dépendances d'un projet construit avant celui-ci.
+        <para>Maven 2.0.9 trie les projets d'un build multimodule en fonction de leurs dépendances, 
+        avec des dépendances d'un projet construit avant celui-ci.
         Le problème est que l'élément parent est considéré comme une dépendance, 
         ce qui signifie que le build du projet parent doit être effectué avant que le projet enfant soit construit.
         Si une partie du build de ce parent inclus la création d'une assembly qui utilise les binaires des modules, 
@@ -2010,7 +2091,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         Cela provoquera ainsi l'échec de la construction de l'assembly. 
         Il s'agit d'une question complexe et subtile.
         Elle limite sérieusement l'utilité de la section <varname>binaires</varname> module du descripteur d'assembly. 
-        En fait, à ce sujet, un bug a été créé sur legestionnaire d'anomalie du plugin Assembly : <ulink
+        En fait, à ce sujet, un bug a été créé sur le gestionnaire d'anomalie du plugin Assembly : <ulink
         url="http://jira.codehaus.org/browse/MASSEMBLY-97">http://jira.codehaus.org/browse/MASSEMBLY-97</ulink>.
         Il faut espérer que les futures versions de Maven vont trouver un moyen de réparer cette fonctionnalité, 
         puisque la relation parent-first n'est pas forcément nécessaire.</para>
