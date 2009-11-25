@@ -281,29 +281,23 @@ Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour u
     </section>
 
     <section id="flex-dev-sect-configuring-unit-tests">
-      <title>Configuring Environment to Support Flex Unit Tests</title>
+      <title>Configuraton de l'environnement pour les tests Flex Unit</title>
 
-      <para>Flexmojos expects to be able to launch the stand-alone Flash Play
-      to execute unit tests. In order for this to work, you will need to add
-      the stand-alone Flash Player to your PATH, or you will need to pass the
-      location of the Flash Player executable to your build using the
-      <varname>-DflashPlayer.command</varname> options. When executing a unit
-      test, Flex Mojos expects to launch the following platform-specific
-      executables for the stand-alone Flash Player:</para>
+      <para>Flexmojos s'attend à pouvoir lancer le lecteur autonome Flash Play
+      pour l'exécution des tests unitaires. Pour que cela soit opérationnel, il vous faudra ou bien ajouter le lecteur Flash Player à votre PATH, or alors indiquer
+      la localisation de l'exécutable Flash Player lors du build en utilisant l'option
+      <varname>-DflashPlayer.command</varname>. Au moment de l'exécution d'un test unitaire, Flex Mojos s'attend à pouvoir lancer l'exécutable Flash Player en fonction de la platforme:</para>
 
       <variablelist>
         <varlistentry>
           <term>Microsoft Windows</term>
 
           <listitem>
-            <para>FlexMojos will attempt to launch the
-            <filename>FlashPlayer.exe</filename> binary. To support execution
-            of unit tests, add the directory containing
-            <filename>FlashPlayer.exe</filename> to your PATH or pass in the
-            location of the <filename>FlashPlayer.exe</filename> binary to
-            Maven using the
-            <varname>-DflashPlayer.command=${filepath}</varname> command-line
-            option.</para>
+            <para>FlexMojos tentera de lancer le binaire <filename>FlashPlayer.exe</filename>.
+	 Pour permettre l'exécution des tests unitiares, ajoutez à votre PATH le répertoire contenant
+            <filename>FlashPlayer.exe</filename>,  ou alors préciser la localisation du binaire
+            <filename>FlashPlayer.exe</filename> via l'option de ligne de commande Maven 
+            <varname>-DflashPlayer.command=${filepath}</varname>.</para>
           </listitem>
         </varlistentry>
 
@@ -311,12 +305,8 @@ Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour u
           <term>Macintosh OSX</term>
 
           <listitem>
-            <para>FlexMojos will attempt to launch the "Flash Player"
-            application. To support the execution of unit tests, add the
-            directory containing "Flash Player" to your PATH or pass the path
-            to the executable to Maven using the
-            <varname>-DflashPlayer.command=${filepath}</varname> command-line
-            option.</para>
+            <para>FlexMojos tentera de lancer l'application "Flash Player". 
+	    Pour permettre l'exécution des tests unitiares, ajoutez le répertoire contenant "Flash Player" à votre PATH, ou alors préciser le chemin de l'exécutable via l'option de ligne de commande Maven <varname>-DflashPlayer.command=${filepath}</varname>.</para>
           </listitem>
         </varlistentry>
 
@@ -324,33 +314,26 @@ Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour u
           <term>Unix (Linux, Solaris, etc.)</term>
 
           <listitem>
-            <para>FlexMojos will attempt to launch the
-            <filename>flashplayer</filename> executable. To support the
-            execution of unit tests, add the directory containing
-            <filename>flashplayer</filename> to your PATH or pass the path to
-            the executable to Maven using the
-            <varname>-DflashPlayer.command=${filepath}</varname> command-line
-            option.</para>
+            <para>FlexMojos tentera de lancer l'exécutable
+            <filename>flashplayer</filename>. Pour permettre l'exécution des tests unitiares, ajoutez le répertoire contenant 
+            <filename>flashplayer</filename> à votre PATH, ou alors préciser le chemin de l'exécutable via l'option de ligne de commande Maven 
+            <varname>-DflashPlayer.command=${filepath}</varname>.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
       <note>
-        <para>On a Linux machine, you will need to have X virtual framebuffer
-        (Xvfb) installed to run unit tests in a headless build. For more
-        information about Xvfb, <ulink
-        url="http://en.wikipedia.org/wiki/Xvfb">click here</ulink>.</para>
+        <para>Sur une machine Linux, il vous faudra installer un serveur X Virtual Frame Buffer 
+        (Xvfb) pour pouvoir lancer les tests unitaires sans interface graphique. Pour plus 
+        d'information, suivez le lien <ulink
+        url="http://en.wikipedia.org/wiki/Xvfb">Xvfb</ulink>.</para>
       </note>
 
-      <para>If you have been developing Flash Applications with Adobe Flash
-      CS4 or Adobe Flex Builder or if you have been viewing flash content in a
-      browser, you probably have the Flash Player installed somewhere on your
-      workstation. While it is possible to configure Maven to use one of these
-      players for Flex unit tests, you'll want to make sure that you are
-      running the debug version of the Flash Player. To minimize the potential
-      for incompatibility, you should download one of the Flash Player's
-      listed below and install it on your local workstation. To download the
-      standalone Flash Player for you environment:</para>
+      <para>Si vous avez déja développé des applicaiton Flash avec Adobe Flash
+      CS4 ou avec Adobe Flex Builder ou bien si vous visionez du contenu flash dans un navigateur, 	alors il est probableque Flash Player soit installé quelque part sur votre station de travail.
+	Bien qu'il soit possible de configurer Maven pour utiliser l'un de ces players
+      pour la campagne de tests unitaires Flex, vous préférerez vous assurer que vous lancer bien 
+      la version debug de Flash Player. Pour minimiser les risques d'incompatibilité, vous devriez télécharger l'un des Flash Player listés ci-dessous et l'installer sur votre station de travail. Téléchargement de Flash Player en fonction de l'environnement:</para>
 
       <itemizedlist>
         <listitem>
@@ -369,8 +352,7 @@ Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour u
         </listitem>
       </itemizedlist>
 
-      <para>To install this player and add it to your PATH on an OSX machine,
-      run the following commands:</para>
+      <para>Lancer la commande suivante pour instaler ce player et l'ajouter à votre PATH sur une machine OSX:</para>
 
       <screen>$ <command>wget http://download.macromedia.com/pub/flashplayer/updaters/10/\
 flashplayer_10_sa_debug.app.zip</command>
@@ -378,22 +360,19 @@ $ <command>unzip flashplayer_10_sa_debug.app.zip</command>
 $ <command>sudo cp -r Flash\ Player.app /Applications/</command>
 $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</command></screen>
 
-      <para>Instead of adding the path for the Flash Player to your PATH on
-      the command-line, you should configure your environment's profile. On
-      OSX, tyou would add the last export command to you
-      <filename>~/.bash_profile</filename>.</para>
+      <para>Plutôt que d'ajouter en ligne de commande le chemin de Flash Player à votre PATH, vous devriez configurer votre environment. En OSX, il vous suffit d'ajouter la dernière commande d'export à votre fichier <filename>~/.bash_profile</filename>.</para>
     </section>
 
     <section id="flex-dev-sect-plugin-group">
-      <title>Adding FlexMojos to Your Maven Settings' Plugin Groups</title>
+      <title>Ajouter FlexMojos aux groupes de plugins de votre configuration Maven </title>
 
-      <para>If you need to run FlexMojos goals from the command-line, it will
-      be more convenient if you add the Sonatype Plugin groups to your Maven
-      Settings. To do this, open up <filename>~/.m2/settings.xml</filename>
-      and add the following plugin groups:</para>
+      <para>Si vous executez des goals FlexMojos en ligne de commande, vous trouverez
+      que c'est plus pratique d'ajouter les groupes de plugins Sonatype à votre configuration Maven.
+ 	Pour le faire, éditer le fichier <filename>~/.m2/settings.xml</filename>
+      et ajouter les groupes de plugins suivants :</para>
 
       <example>
-        <title>Adding Sonatype Plugins to Maven Settings</title>
+        <title>Ajouter les plugins Sonatype à votre configuration Maven</title>
 
         <programlisting>&lt;pluginGroups&gt;
   &lt;pluginGroup&gt;com.sonatype.maven.plugins&lt;/pluginGroup&gt;
@@ -402,19 +381,18 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
 </programlisting>
       </example>
 
-      <para>Once you've added these plugin groups to your Maven Settings you
-      can invoke a FlexMojos goal using the plugin prefix
-      <varname>flexmojos</varname>. Without this configuration, calling the
-      <varname>flexbuilder</varname> goal would involve the following
-      command-line:</para>
+      <para>Une fois que vous avez ajouté ces groupes de plugins à votre configuration Maven, 
+      vous pouvez invoquer les goals FlexMojos en utilisant le prefixe de plugin <varname>flexmojos</varname>. Sans cette configuration, invocation du goal <varname>flexbuilder</varname> nécessite la 
+      ligne de commande suivante:</para>
 
       <screen>$ <command>mvn org.sonatype.flexmojos:flexmojos-maven-plugin:3.2.0:flexbuilder</command></screen>
 
-      <para>With the org.sonatype.plugins group in your Maven settings, the
-      same goal can be invoked with:</para>
+      <para>Avec le groupe org.sonatype.plugins dans votre configuration Maven, le même goal peut être invoqué comme suit:</para>
 
       <screen>$ <command>mvn flexmojos:flexbuilder</command></screen>
     </section>
+
+
   </section>
 
   <section id="flex-dev-sect-creating-with-archetype">
