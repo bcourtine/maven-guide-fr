@@ -35,7 +35,7 @@
     en détail dans <ulink
     url="http://www.sonatype.com/books/nexus-book/reference/">Repository
     Management with Nexus</ulink>, sont le résultat de plusieurs énormes projets
-    Maven multimodules, et c'est une assembly Maven qui a construit l'archive finale
+    Maven multimodules, et c'est un assembly Maven qui a construit l'archive finale
     que vous téléchargez depuis Sonatype.</para>
 
     <para>Dans la plupart des cas, le plugin Assembly est idéallement taillé
@@ -173,7 +173,7 @@
     </section>
 
     <section id="assemblies-sect-building">
-      <title>Construire une Assembly</title>
+      <title>Construire un Assembly</title>
 
       <para>Le plugin Assembly peut être exécuté de deux manières : vous pouvez
       l'invoquer directement depuis la ligne de commande ou le configurer comme
@@ -1626,7 +1626,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         Activer ce flag permet aux patterns qui précisent des classificateurs et des types d'artefacts de matcher les artefacts rattachés.
         Ils partagent la même identité <varname>groupId</varname>/<varname>artifactId</varname>/<varname>version</varname>,
         mais diffèrent de <varname>type</varname> et de <varname>classifier</varname>.
-        Cette fonctionnalité peut s'avérer utilise pour inclure les JARs de Javadoc ou de source dans une assembly.</para>
+        Cette fonctionnalité peut s'avérer utilise pour inclure les JARs de Javadoc ou de source dans un assembly.</para>
 
         <para>En plus de traiter avec des artefacts du projet,
         il est également possible de configurer un set de dépendances en utilisant 
@@ -1791,7 +1791,7 @@ I can add this back in later.  I didn't want to talk about it without an example
       vous pouvez inclure un set de fichiers et de ressources en utilisant un <sgmltag>moduleSet</sgmltag> 
       pour se référer aux modules d'un build multimodule.
       Cela est rendu possible grâce aux deux types d'inclusion spécifique aux modules : l'un basé sur les fichiers, l'autre sur les artefacts. 
-      Avant d'entrer dans les particularités ces deux types d'inclusion de modules ressources dans une assembly,
+      Avant d'entrer dans les particularités ces deux types d'inclusion de modules ressources dans un assembly,
       parlons un peu de comment sélectionner les modules à traiter.</para>
 
       <section id="assemblies-sect-module-selection">
@@ -2086,7 +2086,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         avec des dépendances d'un projet construit avant celui-ci.
         Le problème est que l'élément parent est considéré comme une dépendance, 
         ce qui signifie que le build du projet parent doit être effectué avant que le projet enfant soit construit.
-        Si une partie du build de ce parent inclus la création d'une assembly qui utilise les binaires des modules, 
+        Si une partie du build de ce parent inclus la création d'un assembly qui utilise les binaires des modules, 
         ces binaires ne seront pas encore créés et ne pourront donc pas être inclus.
         Cela provoquera ainsi l'échec de la construction de l'assembly. 
         Il s'agit d'une question complexe et subtile.
@@ -2097,8 +2097,6 @@ I can add this back in later.  I didn't want to talk about it without an example
         puisque la relation parent-first n'est pas forcément nécessaire.</para>
       </section>
     </section>
-
-<!--ERWAN-->
 
     <section id="assemblies-sect-repositories">
       <title>Balise <varname>repositories</varname></title>
