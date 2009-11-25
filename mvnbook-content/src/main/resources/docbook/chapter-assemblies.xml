@@ -1414,67 +1414,55 @@ I can add this back in later.  I didn't want to talk about it without an example
 &lt;/assembly&gt;</programlisting>
         </example>
 
-        <para>Provided-scoped dependencies are added to the
-        <filename>lib/</filename> directory in the assembly root, which is
-        assumed to be a libraries directory that will be included in the Jetty
-        global runtime classpath. We’re using a subdirectory named for the
-        project’s <varname>artifactId</varname> in order to make it easier to
-        track the origin of a particular library. Runtime dependencies are
-        included in the <filename>WEB-INF/lib</filename> path of the web
-        application, which is located within a subdirectory of the standard
-        Jetty <filename>webapps/</filename> directory that is named using a
-        custom <acronym>POM</acronym> property called
-        <varname>webContextName</varname>. What we've done in the previous
-        example is separate application-specific dependencies from
-        dependencies which will be present in a Servlet contains global
-        classpath.</para>
+        <para>Les dépendances du scope <varname>provided</varname> sont ajoutées
+        au répertoire <filename>lib/</filename> à la racine de l'assembly, ce
+        répertoire  va contenir l'ensemble des bibliothèques qui seront incluses 
+        dans le classpath global d'exécution de Jetty. Nous utilisons un
+        sous-répertoire dont le nom est l'<varname>artifactId</varname> du projet
+        pour retrouver plus facilement d'où vient une bibliothèque particulière. Les
+        dépendances d'exécution sont incluses dans le répertoire 
+        <filename>WEB-INF/lib</filename> de l'application web, qui se trouve dans
+        le sous-répertoire standard de Jetty <filename>webapps/</filename>
+        et dont le nom est donné par une configuration de la propriété 
+        <varname>webContextName</varname> du <acronym>POM</acronym>.
+        Ce que nous venons de faire dans cet exemple est de séparer les
+        dépendances spécifiques à l'application de celles qui sont
+        présentes dans le classpath global d'un conteneur de servlets.</para>
 
-        <para>However, simply separating according to scope may not be enough,
-        particularly in the case of a web application. It’s conceivable that
-        one or more runtime dependencies will actually be bundles of
-        standardized, non-compiled resources for use in the web application.
-        For example, consider a set of web application which reuse a common
-        set of Javascript, CSS, SWF, and image resources. To make these
-        resources easy to standardize, it’s a common practice to bundle them
-        up in an archive and deploy them to the Maven repository. At that
-        point, they can be referenced as standard Maven dependencies -
-        possibly with a dependency type of <varname>zip</varname> - that are
-        normally specified with a runtime scope. Remember, these are
-        resources, not binary dependencies of the application code itself;
-        therefore, it’s not appropriate to blindly include them in the
-        <filename>WEB-INF/lib</filename> directory. Instead, these resource
-        archives should be separated from binary runtime dependencies, and
-        unpacked into the web application document root somewhere. In order to
-        achieve this kind of separation, we’ll need to use inclusion and
-        exclusion patterns that apply to the coordinates of a specific
-        dependency.</para>
+        <para>Cependant, séparer en ne tenant compet que du scope peut s'avérer
+        insuffisant, notamment dans le cas d'applications web. Il est
+        tout à fait concevable qu'une ou plusieurs des dépendances pour
+        l'exécution soient un assemblage de resurces standardisées et
+        non-compilées qui seront utilisées par l'application web. Par
+        exemple nous pourrions avoir un ensemble d'applications qui
+        réutiliseraient le même ensemble de fichiers de Javascript,
+        CSS, SWF et d'image. Pour faciliter la standardisation de ces ressources,
+        une bonne pratique consiste à les mettre dans une archive et de les
+        déployer sur un dépôt Maven. A partir de ce moment là, elles peuvent
+        petre référencées comme une dépendance Maven standard - éventuellement
+        avec une dépendance de type <varname>zip</varname> - normalement dans
+        le scope  <varname>runtime</varname>. Souvenez-vous qu'il s'agit de
+        ressources et non d'une dépendance  du code de l'application vers un
+        binaire ; et donc il n'est pas approprié de les inclure dans le répertoire
+        <filename>WEB-INF/lib</filename>. Ces archives de ressources doivent
+        être séparées des dépendances binaires d'exécution et décompressées 
+        à la racine de l'application web. Pour pouvoir effectuer ce type de
+        séparation nous allons utiliser les patterns d'inclusion et d'exclusion
+        qui se basent sur les coordonnées d'une dépendance.</para>
 
-        <para>In other words, say you have three or four web application which
-        reuse the same resources and you want to create an assembly that puts
-        provided dependencies into <filename>lib/</filename>, runtime
-        dependencies into
-        <filename>webapps/&lt;contextName&gt;/WEB-INF/lib</filename>, and then
-        unpacks a specific runtime dependency into your web application's
-        document root. You can do this because the Assembly allows you to
-        define multiple include and exclude patterns for a given
-        <sgmltag>dependencySet</sgmltag> element. Read the next section for
-        more development of this idea.</para>
+        <para>En d'autres termes, nous allons supposer que vous avez trois ou 
+        quatre applications web qui réutilisent les mêmes ressources et que 
+        vous voulez créer un  assembly qui met les dépendances du scope 
+        <varname>provided</varname> dans le répertoire <filename>lib/</filename>,
+        les dépendances du scope <varname>runtime</varname> dans
+        <filename>webapps/&lt;contextName&gt;/WEB-INF/lib</filename>
+        et enfin décompresse une dépendance d'exécution spécifique à la racine de votre
+        application web. Vous pouvez faire tout ça car le plugin Assembly 
+        vous permet de définir plusieurs patterns d'inclusion et d'exclusion
+        pour un même élément <sgmltag>dependencySet</sgmltag>. Dans la prochaine section
+        nous allons essayer de développer cette idée.</para>
       </section>
 
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
       <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
 
       <section id="assemblies-sect-fine-tune">
