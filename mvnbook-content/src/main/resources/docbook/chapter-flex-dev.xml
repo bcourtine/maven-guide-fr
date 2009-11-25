@@ -7,7 +7,7 @@
   <section id="flex-dev-sect-intro">
     <title>Introduction</title>
 
-    <para>Ce chapître propose un apperçu du projet Flexmojos pour les personnes intéressées d'utilisées Maven pour développer des applications Flex ainsi que des librairies.</para>
+    <para>Ce chapître propose un apperçu du projet Flexmojos pour les personnes intéressées par l'utilistion de Maven pour développer des applications Flex ainsi que des librairies.</para>
   </section>
 
   <section id="flex-dev-sect-config-build">
@@ -32,14 +32,14 @@
     <section id="flex-dev-sect-referencing-repo-with-flex">
       <title>Faire référence à un dépôt contenant le Framework Flex </title>
 
-      <para>Pour configurer votre environnement Maven pour utiliser Flexmojos, vous avez deux options: vous pouvez faire référence au dếpôt Flexmojos de Sonotype directement dans le fichier 
+      <para>Pour configurer votre environnement Maven pour utiliser Flexmojos, vous avez deux options: vous pouvez faire référence au dépôt Flexmojos de Sonotype directement dans le fichier 
   <filename>pom.xml</filename>, ou vous pouvez installer Nexus et ajouter le dépôt Sonatype pour Flexmojos en tant que dépôt proxy dans votre propre gestionnaire de dépôts.
   Alors que l'option la plus directe conciste à faire référence directement au dépôt, télécharger et installer Nexus vous procurera le contrôle et la flexibilité dont vous avez besoin pour câcher et gérer les artéfacts générés par vos propres builds.
-Si vous être juste intéressé de démarrer rapidement et exécuter Flexmojos, lisez ci-dessous <xref linkend="flex-dev-sect-direct-repo"/> . Si vous êtes intéressés par une solution à long terme qui peut être déployée pour servir de support à une equipe de développement allez à la section 
+Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-dessous la <xref linkend="flex-dev-sect-direct-repo"/>. Si vous êtes intéressés par une solution à long terme qui peut être déployée pour servir de support à une equipe de développement, allez à la  
       <xref linkend="flex-dev-sect-proxy-nexus"/>.</para>
 
       <para>Si votre organisation utilise déjà la solution Nexus de Sonatype en tant que proxy
-      pour les dépôts distants, vous avre probablement un fichier 
+      pour les dépôts distants, vous avez probablement un fichier 
       <filename>~/.m2/settings.xml</filename> personalisé qui pointe vers un seul groupe 
       Nexus. 
       Si telle est votre situation, vous devrez ajouter au groupe référencé par votre équipe de développement un dépôt proxy 
@@ -51,7 +51,7 @@ Si vous être juste intéressé de démarrer rapidement et exécuter Flexmojos, 
         <title>Faire référence depuis le POM au dépôt Flexmojos de Sonatype</title>
 
         <para>Flexmojos depend de quelques artifacts qui ne sont actuellement pas disponible depuis le dépôt central Maven.
-Ces artefact sont disponible depuis un dépot hébergé par sonatype. Pour utiliser Flexmojos, vous devrez faire référence à ce dépot depuis le 
+Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour utiliser Flexmojos, vous devrez faire référence à ce dépot depuis le 
         <filename>pom.xml</filename> de votre projet. 
         Pour réaliser ceci, ajoutez l'élément 
         <sgmltag>repositories</sgmltag> indiqué dans <xref linkend="ex-flex-dev-repository"/> au 
@@ -415,7 +415,7 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
   </section>
 
   <section id="flex-dev-sect-creating-with-archetype">
-    <title>Creation d'un projet Flex Mojos à partir d'un archétype</title>
+    <title>Création d'un projet Flex Mojos à partir d'un archétype</title>
 
     <para>Flexmojos a un ensemble d'archétypes qui peuvent être utilisés rapidement pour creer 
     un nouveau projet Flex. Les archétypes ci-dessous sont tous dans le groupe 
@@ -491,7 +491,7 @@ package: org.sonatype.test
 </screen>
 
       <para>En regardant dans le répertoire sample-library/ vous verrez
-      que le projet présente une arborescence comme dans la figure <xref
+      que le projet présente une arborescence comme dans la <xref
       linkend="fig-flex-dev-library-archetype-fs" />.</para>
 
       <figure id="fig-flex-dev-library-archetype-fs">
@@ -568,13 +568,13 @@ package: org.sonatype.test
       <para>L'<xref linkend="fig-flex-dev-simple-lib-pom" /> est très simple, le 
       point clef de ce POM c'est la configuration de <varname>flexmojos-maven-plugin</varname>
        qui positionne <varname>extensions</varname> à
-      <varname>true</varname>. Cette configuration personalise le cycle pour le pacjaging 
+      <varname>true</varname>. Cette configuration personalise le cycle pour le packaging 
       <varname>swc</varname> qui est défini dans le plugin
       <varname>flexmojos-maven-plugin</varname>. L'archétype inclut alors
       la dépendance <varname>flex-framework</varname> ainsi que la dépence de scope test
       <varname>flexmojos-unittest-support</varname>.
       La dépendance <varname>flex-framework</varname> est un POM qui contient
-      les références vers les librairies libraries et les resources requises pour compiler une application Flex.</para>
+      les références vers les librairies et les resources requises pour compiler une application Flex.</para>
 
       <para>Dans l'<xref linkend="fig-flex-dev-simple-lib-pom" />, le packaging
       est primordial. Le type de packaging d'un POM controle le cycle de vie qui est utilisé
@@ -582,10 +582,10 @@ package: org.sonatype.test
        l'élément packaging est l'indice pour rechercher les personalisations liées aux cycle de vie spécifique Flex
       qui sont fournies par le plugin 
       <varname>flexmojos-maven-plugin</varname>. L'autre partie importante de ce
-      POM est lélément build qui précise la localisation du code source Flex
+      POM est l'élément build qui précise la localisation du code source Flex
       ainsi que des tests unitaires. Maintenant, jetons un coup d'oeil à 
-      <xref linkend="ex-flex-dev-lib-as" /> qui contient l'exemple 
-      d'Actionscript créé par l'archetype.</para>
+      l'<xref linkend="ex-flex-dev-lib-as" /> qui contient l'exemple 
+      d'ActionScript créé par l'archétype.</para>
 
       <example id="ex-flex-dev-lib-as">
         <title>App, l'application exemple de l'archétype pour Librairie Flex</title>
@@ -734,7 +734,7 @@ package: org.sonatype.test
 
 </screen>
 
-      <para>Si vous regerdez dans le répertoire sample-application/ vous verrez l'arborescence
+      <para>Si vous regardez dans le répertoire sample-application/ vous verrez l'arborescence
       de fichiers illustrée dans la <xref linkend="fig-flex-dev-dir-app-fs" />.</para>
 
       <figure id="fig-flex-dev-dir-app-fs">
@@ -756,7 +756,7 @@ package: org.sonatype.test
       <para>La génération d'une application Flex via l'archétype produit le POM suivant.</para>
 
       <example id="ex-flex-dev-app-pom">
-        <title>POM généré par l'archétype Flex Application </title>
+        <title>POM généré par l'archétype Application Flex</title>
 
         <programlisting>&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -811,7 +811,7 @@ package: org.sonatype.test
       l'<xref linkend="fig-flex-dev-simple-lib-pom" /> se trouve dans l'élément de 
       <varname>packaging</varname> : <varname>swf</varname> à la place de 
       <varname>swc</varname>. En positionnant le packaging à
-      <varname>swf</varname>, le projet produira une application Flex, à savoir 
+      <varname>swf</varname>, le projet produira une application Flex, à savoir l'application
       <filename>target/sample-application-1.0-SNAPSHOT.swf</filename>. L'application 
 	exemple produit par cet archétype affichera le texte "Hello
       World". Le fichier source <filename>Main.mxml</filename> se trouve dans 
@@ -826,8 +826,8 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>L'archétype produit également un test unitaire flexUnit simple qui ne fait rien d'autre que d'afficher un message de trace. 
-	l'exemple de test unitaire se trouve dans 
+      <para>L'archétype produit également un test unitaire FlexUnit simple qui ne fait rien d'autre que d'afficher un message de trace. 
+	L'exemple de test unitaire se trouve dans 
       <filename>src/test/flex/org/sonatype/test</filename>.</para>
 
       <example>
@@ -912,7 +912,7 @@ package: org.sonatype.test
         </mediaobject>
       </figure>
 
-      <para>Le POM parent du projet multi-modules est simple et affiché ci-dessous.
+      <para>Le POM parent du projet multi-modules est simple et est affiché ci-dessous.
       Il est constitué de références aux modules swc, swf et war.</para>
 
       <example>
@@ -1000,15 +1000,15 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>Le POM du module swf ressemble au POM de l'<xref
-      linkend="ex-flex-dev-app-pom" /> en ajoutant une dépendance à l'artéfact
-      <varname>swc-swc</varname>. Notez que
+      <para>Le POM du module swf est semblable au POM de l'<xref
+      linkend="ex-flex-dev-app-pom" /> avec une dépendance à l'artéfact
+      <varname>swc-swc</varname> en plus. Notez que
       l'<varname>artifactId</varname> dans ce POM ne reflète pas le nom du répertoire qui contient le 
       module ; l'artifactId dans le POM ci-dessous est 
 	<varname>swf-swf</varname>.</para>
 
       <example id="ex-flex-swf-module-pom">
-        <title>MOM du module swf</title>
+        <title>POM du module swf</title>
 
         <programlisting>&lt;project&gt;
 
@@ -1081,7 +1081,7 @@ package: org.sonatype.test
       </warning>
 
       <para>Quand vous déclarer une dépendance vers un SWC, vous devez préciser le type de 
-      dépendencé afin que Maven puisse localiser les artéfacts adéquats dans le dépot distant ou local. 
+      dépendencé afin que Maven puisse localiser les artéfacts adéquats dans le dépôt distant ou local. 
       Dans ce cas, projet
       <varname>swf-swf</varname> dépend d'un SWC qui est généré
       par un projet <varname>swc-swc</varname>. Quand vous ajoutez
@@ -1091,7 +1091,7 @@ package: org.sonatype.test
       <para>Maintenant, jetez un coup d'oeil dans le POM simple du module war.</para>
 
       <example id="ex-flex-war-module-pom">
-        <title>war module POM</title>
+        <title>POM du module war</title>
 
         <programlisting>&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -1171,10 +1171,10 @@ package: org.sonatype.test
   <section id="flex-dev-sect-custom-lifecycle">
     <title>Le cycle de vie de FlexMojos</title>
 
-    <para>Le plguin Maven FlexMojos personalise le cycle de vie sur la base du type de 
-    packaging. Si votre projet a <varname>packaging</varname> de type
+    <para>Le plugin Maven FlexMojos personalise le cycle de vie sur la base du type de 
+    packaging. Si votre projet a un <varname>packaging</varname> de type
     <varname>swc</varname> ou <varname>swf,</varname> alors le plugin FlexMojos 
-    exécute un cycle de vie personalisé si votre configuration de plugin positionne 
+    exécute un cycle de vie personalisé, si toutefois votre configuration de plugin positionne 
     extensions à true. L'<xref linkend="ex-flex-dev-extensions-true" /> illustre
     la configuration de plugin pour flexmojos-maven-plugin avec 
     <varname>extensions</varname> positionné à <varname>true</varname>.</para>
@@ -1225,14 +1225,14 @@ package: org.sonatype.test
         </mediaobject>
       </figure>
 
-      <para>Les goals FlexMojos mise en oeuvre sont les suivants:</para>
+      <para>Les goals FlexMojos participants sont les suivants:</para>
 
       <variablelist>
         <varlistentry>
           <term>flexmojos:compile-swc</term>
 
           <listitem>
-            <para>Ce goal compile en librairie SWC tous les fichiers Actionscript et MXML qui sont dans 
+            <para>Ce goal compile en librairie SWC tous les fichiers ActionScript et MXML qui sont dans 
 	<varname>sourceDirectory</varname>. Un SWC une bibliothèque Adobe qui contient des composants et des 
             resources utilisées dans des Flex applications.</para>
           </listitem>
@@ -1242,7 +1242,7 @@ package: org.sonatype.test
           <term>flexmojos:test-compile</term>
 
           <listitem>
-            <para>Ce goal compile tous les fichiers Actionscript et MXML files qui se trouvent 
+            <para>Ce goal compile tous les fichiers ActionScript et MXML files qui se trouvent 
             dans <varname>testSourceDirectory</varname>.</para>
           </listitem>
         </varlistentry>
@@ -1291,7 +1291,7 @@ package: org.sonatype.test
           <term>flexmojos:compile-swf</term>
 
           <listitem>
-            <para>Ce goal compile en SWF tous les fichiers Actionscript et MXML 
+            <para>Ce goal compile en SWF tous les fichiers ActionScript et MXML 
             du répertoire <varname>sourceDirectory</varname>. Un SWF est un fichier
             qui contient une application qui peut être rendu dans le lecteur 
             Flash Player or le runtime Adobe AIR.</para>
@@ -1302,7 +1302,7 @@ package: org.sonatype.test
           <term>flexmojos:test-compile</term>
 
           <listitem>
-            <para>Ce goal compile tous les fichiers Actionscript et MXML 
+            <para>Ce goal compile tous les fichiers ActionScript et MXML 
             du répertoire <varname>testSourceDirectory</varname>.</para>
           </listitem>
         </varlistentry>
@@ -1329,7 +1329,7 @@ package: org.sonatype.test
         <term>flexmojos:asdoc</term>
 
         <listitem>
-          <para>Génère la documentation pour les fichiers source Actionscript</para>
+          <para>Génère la documentation pour les fichiers source ActionScript</para>
         </listitem>
       </varlistentry>
 
@@ -1337,7 +1337,7 @@ package: org.sonatype.test
         <term>flexmojos:asdoc-report</term>
 
         <listitem>
-          <para>Génère la documentation pour les fichiers source Actionscript sous forme de 
+          <para>Génère la documentation pour les fichiers source ActionScript sous forme de 
           rapport qui peut être inclus dans un site Maven</para>
         </listitem>
       </varlistentry>
@@ -1346,7 +1346,7 @@ package: org.sonatype.test
         <term>flexmojos:compile-swc</term>
 
         <listitem>
-          <para>Compile les sources Flex (Actionscript and MXML) en une librairie SWC
+          <para>Compile les sources Flex (ActionScript et MXML) en une librairie SWC
           pour une intégration dans une application Flex ou AIR</para>
         </listitem>
       </varlistentry>
@@ -1355,7 +1355,7 @@ package: org.sonatype.test
         <term>flexmojos:compile-swf</term>
 
         <listitem>
-          <para>Compile les sources Flex (Actionscript and MXML) en une application SWF  pour lecteur Adobe Flash Player ou runtime Adobe AIR </para>
+          <para>Compile les sources Flex (ActionScript et MXML) en une application SWF  pour lecteur Adobe Flash Player ou runtime Adobe AIR </para>
         </listitem>
       </varlistentry>
 
@@ -1379,7 +1379,7 @@ package: org.sonatype.test
         <term>flexmojos:generate</term>
 
         <listitem>
-          <para>Génère, via Granite GAS3, des fichiers source Actionscript 3 sur la base de classes Java</para>
+          <para>Génère, via Granite GAS3, des fichiers source ActionScript 3 sur la base de classes Java</para>
         </listitem>
       </varlistentry>
 
@@ -1387,7 +1387,7 @@ package: org.sonatype.test
         <term>flexmojos:optimize</term>
 
         <listitem>
-          <para>Goal qui exécute une optimisation des fichiers swcpostérieurment à une inclusion dans SWF. Ce
+          <para>Goal qui exécute une optimisation des fichiers swc, postérieurment à une inclusion dans une application SWF. Ce
           goal est utilisé pour produire des fichiers RSL.</para>
         </listitem>
       </varlistentry>
@@ -1446,7 +1446,7 @@ package: org.sonatype.test
       <varname>asdoc</varname> pour le projet obtenu via l'archétype Flexmojos.</para>
 
       <figure id="fig-flex-dev-actionscript">
-        <title>Documentation ActionScript généré par le plugin FlexMojos</title>
+        <title>Documentation ActionScript générée par le plugin FlexMojos</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -1468,7 +1468,7 @@ package: org.sonatype.test
       <para>FlexMojos présente nombre de goals compilant ActionScript
       et MXML en SWCs and SWFs. Les goals compile-swc et compile-swf sont utilisés
       pour produire les artefacts cible à partie des sources du project. Le goal test-compile est utilisé pour compiler 
- 	les tests unitaires. Dans les projets simples crééspar les archétypes
+ 	les tests unitaires. Dans les projets simples créés par les archétypes
       FlexMojos, les goals compile-swc et compile-swf sont invoqués
       parce que  le projet personalise le cycle de vie et lie 
       compile-swc ou compile-swf à la phase de compilation et test-compile à la phase de
@@ -1546,19 +1546,19 @@ package: org.sonatype.test
         <term>flexmojos:asdoc-report</term>
 
         <listitem>
-          <para>Génère la documentation des source ActionScript en tant que rapport pouvant être inclus dans un site Maven</para>
+          <para>Génère la documentation des sources ActionScript en tant que rapport pouvant être inclus dans un site Maven</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
     <section id="flex-dev-sect-report-asdoc">
-      <title>Génération de la documentation ActionScript</title>
+      <title>Générer le rapport de documentation ActionScript</title>
 
       <para>Pour que l'<varname>asdoc-report</varname> soit intégré
       au build du site Maven, il suffit d'ajouter le code XML suivant à votre POM:</para>
 
       <example>
-        <title>Configuring pour une génération de documentation ActionScript</title>
+        <title>Configuration pour une génération de documentation ActionScript</title>
 
         <programlisting>&lt;reporting&gt;
   &lt;plugins&gt;
@@ -1580,8 +1580,8 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>Quand vous faire la commande <command>mvn site</command>, Maven génèrera cette documentation et la placera dans le menu "Project Reports" comme indiqué dans
-      la<xref linkend="fig-flex-dev-actionscript-report" />.</para>
+      <para>Quand vous faites la commande <command>mvn site</command>, Maven génèrera cette documentation et la placera dans le menu "Project Reports" comme indiqué dans
+      la <xref linkend="fig-flex-dev-actionscript-report" />.</para>
 
       <figure id="fig-flex-dev-actionscript-report">
         <title>Documentation ActionScript incluse dans le site Maven</title>
@@ -1636,7 +1636,7 @@ package: org.sonatype.test
   <section id="flex-dev-sect-dev">
     <title>Developpement et personnalisation de Flexmojos</title>
 
-    <para>Les sections suivantes vous guideront à travers les premières étapes de personnalisation   de Flexmojos voire de contribution au projet lui-même. Flexmojos est plus 
+    <para>Les sections suivantes vous guideront à travers les premières étapes de personnalisation   de Flexmojos, voire de contribution au projet lui-même. Flexmojos est plus 
     qu'un simple outils pour les personnes souhaitant compiler de l'ActionScript
     en artéfacts SWF et SWC ; c'est une communauté de developpeurs. Cette section
     n'est pas pour tout le monde, mais si vous voulez participez, vous êtes les bienvenus.</para>
@@ -1667,7 +1667,7 @@ package: org.sonatype.test
       </figure>
 
       <para>Si vous êtes intéressé par une participation au projet Flexmojos,
-      vous effectuez probablement un checkout de la version courrante sur votre machine. 
+      vous effecturez probablement un checkout de la version courrante sur votre machine. 
 Pour effectuer un checkout du code source Flexmojos en utilisant Subversion,
       saisissez la ligne de commande suivante :</para>
 
