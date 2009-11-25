@@ -2234,21 +2234,27 @@ doesn't make sense to new users.-->
   <section id="assemblies-sect-best-practices">
     <title>Best Practices</title>
 
-    <para>Le plugin Assemly est assez flexible pour permettre de résoudre la plupart des problèmes par différents moyens.
+    <para>Le plugin Assembly est assez flexible pour permettre de résoudre la plupart des problèmes par différents moyens.
     Si vous avez un besoin unique pour votre projet, 
-    il ya de bonnes chances que vous puissiez utiliser directement l'une des méthodes documentées dans ce chapitre pour obtenir votre structure d'assembly désirée.
-    Cette section décrit quelques-unes des bonnes pratiques qui, si elles sont respectées, rendront l'utilisation du plugin Assembly plus productive et moins pénible.</para>  
+    il ya de bonnes chances que vous puissiez utiliser directement l'une des méthodes documentées 
+    dans ce chapitre pour obtenir votre structure d'assembly désirée.
+    Cette section décrit quelques-unes des bonnes pratiques qui, si elles sont respectées, 
+    rendront l'utilisation du plugin Assembly plus productive et moins pénible.</para>  
 
     <section id="assemblies-sect-standard-reusable">
       <title>Descripteurs d'assembly standards et réutilisables</title>
 
       <para>Jusqu'à présent, nous avons principalement parlé des différentes solutions pour construire certains types d'assembly.
       Mais que ferez-vous si vous avez des dizaines de projets qui ont tous besoin d'un type particulier d'assemblage ?
-      En bref, comment pouvons-nous réutiliser les efforts investis sur plusieurs projets sans avoir à copier-coller notre descripteur d'assembly ?</para>
+      En bref, comment pouvons-nous réutiliser les efforts investis sur plusieurs projets 
+      sans avoir à copier-coller notre descripteur d'assembly ?</para>
 
-      <para>Le moyen le plus simple est de créer un artefact standardisé et versionné pour externaliser le descripteur d'assemblage, et de le déployer.
-      Une fois cela fait, vous pouvez configurer le plugin Assembly dans votre <acronym>POM</acronym> pour inclure ce descripteur d'assembly comme une dépendance de plugin.
-      À ce stade, vous pouvez utiliser ce descripteur de l'Assembly par l'intermédiaire de la balise de configuration <sgmltag>descriptorRefs</sgmltag> dans la déclaration du plugin Assembly.
+      <para>Le moyen le plus simple est de créer un artefact standardisé et versionné 
+      pour externaliser le descripteur d'assemblage, et de le déployer.
+      Une fois cela fait, vous pouvez configurer le plugin Assembly dans votre <acronym>POM</acronym> 
+      pour inclure ce descripteur d'assembly comme une dépendance de plugin.
+      À ce stade, vous pouvez utiliser ce descripteur de l'Assembly par l'intermédiaire 
+      de la balise de configuration <sgmltag>descriptorRefs</sgmltag> dans la déclaration du plugin Assembly.
       Pour illustrer ceci, voici, en exemple, ce descripteur d'assemblage :</para>
 
       <programlisting language="xml">&lt;assembly&gt;
@@ -2274,9 +2280,11 @@ doesn't make sense to new users.-->
 &lt;/assembly&gt;</programlisting>
 
       <para>Inclus dans votre projet, 
-      ce descripteur serait un bon moyen de packager le contenu afin qu'il puisse être décompressé directement dans une application Web existante pour s'ajouter à celui-ci
+      ce descripteur serait un bon moyen de packager le contenu afin qu'il puisse être 
+      décompressé directement dans une application web existante pour s'ajouter à celle-ci
       (pour ajouter une fonctionnalité, par exemple). 
-      Toutefois, si votre équipe construit plusieurs de ces projets "web-fragment", vous aurez probablement envie de réutiliser ce descripteur plutôt que de le dupliquer. 
+      Toutefois, si votre équipe construit plusieurs de ces projets "web-fragment", 
+      vous aurez probablement envie de réutiliser ce descripteur plutôt que de le dupliquer. 
       Pour déployer ce descripteur dans son propre artefact, nous allons le mettre dans son propre projet, dans le répertoire 
       <filename>src/main/resources/assemblies</filename>.</para>
 
@@ -2293,7 +2301,7 @@ doesn't make sense to new users.-->
       <para>Notez le chemin vers le fichier descripteur <varname>web-fragment</varname>.  
       Par défaut, Maven inclus les fichiers du répertoire <filename>src/main/resources</filename> dans le JAR final.
       Ainsi, notre descripteur d'assembly sera inclu sans aucune autre configuration de notre part. 
-      Notez également, le préfixe de chemin <filename>assemblies/</filename>, le plugin Assembly        
+      Notez également le préfixe de chemin <filename>assemblies/</filename>, le plugin Assembly        
       s'attend à ce préfixe de chemin pour tous les descripteurs fournis dans le classpath des plugins. 
       Il est important de mettre notre descripteur à l'emplacement relatif approprié. 
       Ainsi, il sera récupéré par le plugin Assembly lors de son exécution.</para>
@@ -2370,14 +2378,17 @@ doesn't make sense to new users.-->
         <listitem>
           <para>Comme nous utilisons des références par le classpath au lieu d'utiliser un fichier local,
           nous devons utiliser la balise <sgmltag>descriptorRefs</sgmltag> à la place de la balise <sgmltag>descriptor</sgmltag>.  
-          Notez également, que même si le descripteur d'assembly est actuellement localisé dans le classpath des plugins dans <filename>assemblies/web-fragment.xml</filename>, 
+          Notez également, que même si le descripteur d'assembly est actuellement localisé 
+          dans le classpath des plugins dans <filename>assemblies/web-fragment.xml</filename>, 
           nous pouvons le référencer sans utiliser le préfixe <filename>assemblies/</filename>.
-          Ceci est rendu possible car le plugin Assembly présume que les descripteurs d'assembly se trouvent effectivement à cet emplacement.</para>
+          Ceci est rendu possible car le plugin Assembly présume que les descripteurs d'assembly 
+          se trouvent effectivement à cet emplacement.</para>
         </listitem>
       </itemizedlist>
 
-      <para>Maintenant, vous êtes libre de réutiliser la configuration du <acronym>POM</acronym> ci-dessus dans autant de projets que vous voulez, 
-      avec l'assurance que la totalité des fragments-web de l'assembly seront pris en compte. 
+      <para>Maintenant, vous êtes libre de réutiliser la configuration du 
+      <acronym>POM</acronym> ci-dessus dans autant de projets que vous voulez, 
+      avec l'assurance que la totalité des fragments web de l'assembly soient pris en compte. 
       Si vous avez besoin de faire des ajustements sur le format de votre assembly - 
       peut-être pour d'inclure d'autres ressources, ou pour affiner les dépendances et <varname>fileSet</varname> - 
       vous pouvez tout simplement incrémenter la version du projet de votre descripteur d'assembly, et le redéployer à nouveau. 
@@ -2397,7 +2408,7 @@ doesn't make sense to new users.-->
 
       <para>Si vous avez ajouté le reste de la configuration du plugin - comme décrit dans l'exemple précédent - 
       dans la section <varname>pluginManagement</varname> du <varname>POM</varname> parent de votre projet, 
-      chaque projet d'héritant de celui-ci peut ajouter une entrée minimaliste comme celle-ci et profiter 
+      chaque projet d'héritant de celui-ci pourra ajouter une entrée minimaliste comme celle-ci et profiter 
       du format d'assemblage avancé dans leurs propres builds.</para>
     </section>
 
@@ -2406,13 +2417,17 @@ doesn't make sense to new users.-->
 
       <para>Comme mentionné ci-dessus, le plugin Assembly fournit plusieurs façons de créer de nombreux formats d'archives. 
       Les Assembly de distribution sont généralement de très bons exemples, 
-      car ils combinent souvent des modules à partir d'un build multimodule, avec leurs dépendances et, éventuellement, d'autres fichiers en plus de ces artefacts. 
-      La distribution vise à inclure ces différentes sources en une seule archive que l'utilisateur pourra télécharger, décompresser, et exécuter. 
-      Toutefois, nous avons également parcouru un certain nombre d'inconvénients potentiels pouvant être provoqués par l'utilisation de la balise <sgmltag>moduleSets</sgmltag> du descripteur d'assembly - 
+      car ils combinent souvent des modules à partir d'un build multimodule, 
+      avec leurs dépendances et, éventuellement, d'autres fichiers en plus de ces artefacts. 
+      La distribution vise à inclure ces différentes sources en une seule archive 
+      que l'utilisateur pourra télécharger, décompresser, et exécuter. 
+      Toutefois, nous avons également parcouru un certain nombre d'inconvénients potentiels 
+      pouvant être provoqués par l'utilisation de la balise <sgmltag>moduleSets</sgmltag> du descripteur d'assembly - 
       les relations parent-enfant entre les <acronym>POM</acronym>s d'un build peuvent, dans certains cas, 
-      rendre indisponlibe les artefacts des modules.</para>
+      rendre indisponible les artefacts des modules.</para>
       
-      <para>Plus précisément, si les <acronym>POM</acronym>s des modules référencent comme leur parent le <acronym>POM</acronym> qui contient la configuration du plugin-assembly, 
+      <para>Plus précisément, si les <acronym>POM</acronym>s des modules référencent 
+      comme leur parent le <acronym>POM</acronym> qui contient la configuration du plugin-assembly, 
       le projet parent devra être construit avant les projets modules lors de l'exécution du build. 
       Or, l'assembly du parent s'attend à trouver les artefacts de ses modules, 
       mais ces projets attendent également la fin de la construction de leur parent.
@@ -2488,12 +2503,17 @@ run before the assembly is generated.
 ...</screen>
 
       <para>Le projet parent - <varname>app-parent</varname> - est le premier à être construit.
-      C'est parce que chacun des autres projets désigne ce <acronym>POM</acronym> comme leur parent, forçant ainsi la construction dans cet ordre.
-      Le module <varname>app-web</varname>, qui est le premier module désigné dans le descripteur d'assembly, n'a pas encore été construit. 
-      Par conséquent, il ne dispose d'aucun des artefacts qui lui sont associés, la construction de l'assembly ne peut réussir.</para>
+      C'est parce que chacun des autres projets désigne ce <acronym>POM</acronym> 
+      comme leur parent, forçant ainsi la construction dans cet ordre.
+      Le module <varname>app-web</varname>, qui est le premier module désigné 
+      dans le descripteur d'assembly, n'a pas encore été construit. 
+      Par conséquent, il ne dispose d'aucun des artefacts qui lui sont associés, 
+      la construction de l'assembly ne peut réussir.</para>
 
-      <para>Une solution de contournement consiste à supprimer la balise <varname>executions</varname> de la déclaration du plugin Assembly. 
-      Celle-ci lie le plugin à la phase <varname>package</varname> du cycle de vie dans le fichier <acronym>POM</acronym> parent. 
+      <para>Une solution de contournement consiste à supprimer la balise 
+      <varname>executions</varname> de la déclaration du plugin Assembly. 
+      Celle-ci lie le plugin à la phase <varname>package</varname> du cycle de vie 
+      dans le fichier <acronym>POM</acronym> parent. 
       Une fois cette suppression effectuée, exécutez ces deux tâches Maven : 
       la première, <varname>package</varname>, permet de construire un projet multimodule ; 
       et un second, <varname>assembly:assembly</varname>, pour invoquer directement le plugin assembly 
@@ -2503,7 +2523,8 @@ run before the assembly is generated.
       <screen>$ <command>mvn package assembly:assembly</command></screen>
 
       <para>Cependant, cette approche présente plusieurs inconvénients. 
-      Premièrement, elle rend le processus d'assemblage plus complexe en lui rajoutant une tâche manuelle qui peut accroître les risques d'erreur. 
+      Premièrement, elle rend le processus d'assemblage plus complexe en lui rajoutant 
+      une tâche manuelle qui peut accroître les risques d'erreur. 
       En outre, cela pourrait signifier que les artefacts joints - 
       qui sont associés en mémoire lors de l'exécution de la construction du projet - 
       ne seront pas accessibles au second passage sans recourir à des fichiers système de référence.</para>
@@ -2514,12 +2535,14 @@ run before the assembly is generated.
       Avec cette approche, vous créez un nouveau module dans votre build dont le seul but est d'effectuer l'assemblage.
       Le <acronym>POM</acronym> de ce module contient des références aux dépendances des autres modules, 
       et il configure le plugin Assembly pour qu'il soit rattaché à la phase <varname>package</varname> de son cycle de vie. 
-      Le descripteur d'assembly lui-même utilise une section <sgmltag>dependencySets</sgmltag> à la place d'un <sgmltag>moduleSets</sgmltag> 
+      Le descripteur d'assembly lui-même utilise une section 
+      <sgmltag>dependencySets</sgmltag> à la place d'un <sgmltag>moduleSets</sgmltag> 
       pour lister les artefacts et déterminer où les inclure dans l'archive résultante.  
       Cette approche évite les inconvénients liés à la relation parent-enfant mentionnés plus haut, 
       et offre l'avantage d'utiliser une section de configuration plus simple dans le descripteur de l'assembly.</para>
       
-      <para>Pour cela, nous pouvons créer une nouvelle structure de projet qui est ressemble étroitement à celle utilisée par l'approche module-set présentée précédemment. 
+      <para>Pour cela, nous pouvons créer une nouvelle structure de projet qui est ressemble étroitement 
+      à celle utilisée par l'approche module-set présentée précédemment. 
       En plus de ce nouveau projet de distribution, vous devriez avoir cinq <acronym>POM</acronym>s au total : 
       <varname>app-parent</varname>, <varname>app-core</varname>, <varname>app-web</varname>,
       <varname>app-addons</varname> et <varname>app-distribution</varname>.
@@ -2558,13 +2581,14 @@ run before the assembly is generated.
 &lt;/project&gt;
 </programlisting>
 
-      <para>Notez que nous avons à inclure les dépendances pour les autres modules dans la structure du projet, 
+      <para>Notez que nous devons inclure les dépendances pour les autres modules dans la structure du projet 
       puisque nous n'avons pas de section <varname>modules</varname> dans ce POM. 
       Aussi, notez que nous n'utilisons pas de dépendance explicite sur <varname>app-core</varname>. 
       Puisqu'il s'agit également d'une dépendance du <varname>app-web</varname>, 
       nous n'avons pas besoin de le traiter (ou, d'éviter de le traiter) à deux reprises.</para>
 
-      <para>Ensuite, lorsque vous déplacerez le descripteur d'assembly <filename>distro.xml</filename> dans le projet <varname>app-distribution</varname>,
+      <para>Ensuite, lorsque vous déplacerez le descripteur d'assembly <filename>distro.xml</filename> 
+      dans le projet <varname>app-distribution</varname>,
       nous devons également modifier l'utilisation de la section <sgmltag>dependencySets</sgmltag> :</para>  
 
       <programlisting language="xml">&lt;assembly&gt;
@@ -2612,7 +2636,7 @@ run before the assembly is generated.
 [INFO] ---------------------------------------------------------------</screen>
 
       <para>Comme vous pouvez le voir, l'approche par dependency-set est beaucoup plus stable et - 
-      aussi longtemps que la logique interne de tri dans Maven ne prenne pas compte des fonctionnalités du plugin Assembly - 
+      aussi longtemps que la logique interne de tri dans Maven ne prend pas compte des fonctionnalités du plugin Assembly - 
       offre moins de possibilités de se tromper lors de l'exécution d'un build.</para>
     </section>
   </section>
