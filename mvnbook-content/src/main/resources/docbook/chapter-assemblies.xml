@@ -2098,17 +2098,19 @@ I can add this back in later.  I didn't want to talk about it without an example
       </section>
     </section>
 
+<!--ERWAN-->
+
     <section id="assemblies-sect-repositories">
       <title>Balise <varname>repositories</varname></title>
 
-      <para>Dans le descripteur d'assembly, la balise <varname>repositories</varname> est un élément un peu plus exotiques,
-      peu d'applications (autre que Maven) peuvent tirer pleinement parti de la structure de répertoires d'un dépôt Maven. 
+      <para>Dans le descripteur d'assembly, la balise <varname>repositories</varname> est un élément un peu plus exotiques.
+      Peu d'applications (autre que Maven) peuvent tirer pleinement parti de la structure de répertoires d'un dépôt Maven. 
       Pour cette raison, et parceque nombre de ces fonctionnalités ressemblent étroitement à la balise <sgmltag>dependencySets</sgmltag>,
       nous ne passerons que très rapidement sur la présentation de cette balise.  
       Dans la plupart des cas, les utilisateurs qui ont compris comment fonctionnent les <sgmltag>dependencySets</sgmltag> n'auront aucun souci à 
-      utiliser la balise <varname>repositories</varname> par l'intermédiaire du plugin Assembly
+      utiliser la balise <varname>repositories</varname> par l'intermédiaire du plugin Assembly.
       Nous n'allons donc pas illustrer cette balise par un cas d'utilisation.
-      Nous allons simplement donner quelques mises en garde pour ceux d'entre vous qui ressentent le besoin d'utiliser la balise <sgmltag>repositories</sgmltag>.</para>
+      Nous allons simplement nous contenter de vous donner quelques mises en garde pour ceux d'entre vous qui ressentent le besoin d'utiliser la balise <sgmltag>repositories</sgmltag>.</para>
 
       <!--TODO: We probably need to motivate why you would ever want to do this.  Right now, this section
 doesn't make sense to new users.-->
@@ -2128,7 +2130,7 @@ doesn't make sense to new users.-->
       ni ceux liés à des artefacts réaligner, ni ceux qui dépendent des artefacts réalignés.
       De ce fait, il est difficile d'imaginer un réel cas d'utilisation pour ce genre de réalignement.</para>
 
-      <para>En général, le plus simple est d'utiliser les mêmes principes que ceux des <sgmltag>dependencySets</sgmltag> que vous ajoutez à votre descripteur d'assembly.
+      <para>En général, le plus simple est d'utiliser les mêmes principes que ceux des <sgmltag>dependencySets</sgmltag> de votre descripteur d'assembly.
       Même si la balise <varname>repositories</varname> supporte d'autres options, 
       elles sont principalement fournies pour des raisons de rétrocompatibilité, et seront probablement dépréciées dans les prochaines releases.</para> 
     </section>
