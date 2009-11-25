@@ -2651,9 +2651,10 @@ run before the assembly is generated.
     l'écriture d'un descripteur d'assembly ne doit pas être trop complexe.</para>
 
     <para>Les assembly sont utiles pour un large éventail de cas d'utilisation. 
-    Elles sont le plus couramment utilisées comme application de distribution. 
+    Elles sont le plus couramment utilisées pour distribuer des applications. 
     Même s'il existe de nombreuses manières différentes d'utiliser le plugin Assembly,
     les deux façons les plus conseillées pour vous éviter des problèmes est d'utiliser
-    des descripteurs d'assemblage standardisés et d'éviter l'utilisation des <varname>moduleSets</varname> lors de la création des distributions.</para>
+    des descripteurs d'assemblage standardisés et d'éviter l'utilisation des 
+    <varname>moduleSets</varname> lors de la création des distributions.</para>
   </section>
 </chapter>
