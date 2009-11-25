@@ -1476,21 +1476,21 @@ I can add this back in later.  I didn't want to talk about it without an example
         <title>Configuration fine : inclusion et exclusion de dépendances</title>
 
         <para>Une dépendance de ressources peut être une simple liste de ressources (CSS, Javascript, images ...) dans un projet
-        qui a une assembly qui crée une archive <acronym>ZIP</acronym>.
+        qui a un assembly qui crée une archive de type <acronym>ZIP</acronym>.
         En fonction des particularités de votre application web,
         vous voudrez distinguer les dépendances de ressources des dépendances de binaires en fonction de leur type.
-        La plupart des applications web vont dépendre d'autres dépendances de type <varname>jar</varname>, 
-        du coup, il est possible de dire avec certitude que toutes les dépendances de type <varname>zip</varname> sont des dépendances de ressources.
-        Ou, nous pourrions avoir une situation où les ressources sont conservées sous un format <varname>jar</varname> mais 
+        La plupart des applications web vont dépendre d'autres dépendances de type <varname>jar</varname>. 
+        Du coup, il est possible de dire avec certitude que toutes les dépendances de type <varname>zip</varname> sont des dépendances de ressources.
+        Or, nous pourrions avoir une situation où les ressources sont conservées sous un format <varname>jar</varname> mais 
         que nous pouvons distinguer les ressources par un tag <varname>resources</varname>.
         Dans tous les cas, nous pouvons spécifier un pattern d'inclusion pour cibler ces dépendances de ressources
         et appliquer une logique différente que celle utilisée pour les binaires. 
         Nous pouvons effectue cette distinction par l'intermédiaire de balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> 
         dans le <sgmltag>dependencySet</sgmltag>.</para>
 
-        <para>Les balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> sont des listes, 
-        cela veut dire qu'elles acceptent des sous éléments du type <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag>.
-        Chaque balise <sgmltag>include</sgmltag> ou <sgmltag>exclude</sgmltag> contient une valeur sous forme de chaîne de caractère, celles-ci pouvant contenir des wildcards.
+        <para>Les balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> sont des listes. 
+        Elles acceptent des sous-éléments du type <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag>.
+        Chaque balise <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag> contient une valeur sous forme de chaîne de caractère et pouvent contenir des wildcards.
         Chaque valeur peut matcher des dépendances selon différents moyens.         
         Généralement, trois formats de pattern sont supportés :</para>
 
@@ -1521,18 +1521,19 @@ I can add this back in later.  I didn't want to talk about it without an example
         </variablelist>
 
         <para>Tous ces formats de patterns supportent l'utilisation de widcard ‘*’, 
-        ils permettent de matcher n'importe quelle sous-section de l'identité et n'est pas limitée à une seule sous-section (sections entre ':').         
+        ils permettent de matcher n'importe quelle sous-section de l'identité et ne se limite pas à une seule sous-section (sections entre ':').         
         En outre, notez que la section classificateur ci-dessus est facultative,
         le pattern matching des dépendances qui n'ont pas de classificateur ne prennent pas en compte la section 'classificateur' de ce pattern.</para>
 
-        <para>Dans l'exemple donné ci-dessus, là où la distinction essentielle est l'artefact de type sip et qu'aucune des dépendances n'a de classificateur,
+        <para>Dans l'exemple donné ci-dessus, là où la distinction essentielle est l'artefact de type sip 
+        et qu'aucune des dépendances n'a de classificateur,
         le pattern suivant matcherait toutes les ressources de type <varname>zip</varname> :</para> 
 
         <programlisting>*:zip</programlisting>
 
         <para>Le pattern ci-dessus utilise la seconde identité de la dépendance : l'id de conflit.
-        Maintenant que nous avons un pattern qui distingue les dépendances ressources des binaires, 
-        nous pouvons modifier notre liste de dépendances pour gérer les archives différemment :</para>  
+        Maintenant que nous avons un pattern qui distingue les dépendances ressources des dépendances binaires, 
+        nous pouvons modifier notre liste de dépendances pour gérer ces archives différemment :</para>  
 
         <example id="ex-complex-dependencySet">
           <title>Utilisation des l'inclusion et d'exclusion de dépendances dans le <sgmltag>dependencySets</sgmltag></title>
@@ -1569,28 +1570,38 @@ I can add this back in later.  I didn't want to talk about it without an example
         </example>
 
         <para>Dans l'<xref linkend="ex-complex-dependencySet" />, 
-        la liste de dépendances scopée <varname>runtime</varname> de notre dernier exemple à été mis à jour pour exclure les dépendances de type ressource.
-        Seules les dépendances de type binaire (les dépendances qui ne sont pas de ZIP) sont ajoutées dans le répertoire <filename>WEB-INF/lib</filename> de l'application. 
-        Les dépendances de type ressource sont rassemblées dans une même liste,        
-        celle-ci est configurée pour copier ses dépendances dans le répertoire ressource de l'application.
-        La balise <sgmltag>includes</sgmltag> du dernier <sgmltag>dependencySet</sgmltag> annule les exclusions du <sgmltag>dependencySet</sgmltag> précédent.
+        la liste de dépendances scopée <varname>runtime</varname> de notre dernier exemple 
+        a été mis à jour pour exclure les dépendances de type ressource.
+        Seules les dépendances de type binaires (les dépendances qui ne sont pas de ZIP) 
+        sont ajoutées dans le répertoire <filename>WEB-INF/lib</filename> de l'application. 
+        Les dépendances de type ressources sont rassemblées dans une même liste.        
+        Celle-ci est configurée pour copier ses dépendances dans le répertoire ressource de l'application.
+        La balise <sgmltag>includes</sgmltag> du dernier <sgmltag>dependencySet</sgmltag> 
+        annule les exclusions du <sgmltag>dependencySet</sgmltag> précédent.
         Ainsi, les dépendances ressources sont incluses en utilisant un seul pattern d'identité : <varname>*:zip</varname>.
-        La dernière balise <sgmltag>dependencySet</sgmltag> fait référence à des ressources partagées et est configurée pour deziper celles-ci à la racine de l'application web.</para>
+        La dernière balise <sgmltag>dependencySet</sgmltag> fait référence à des ressources partagées, 
+        elle est configurée pour deziper celles-ci à la racine de l'application web.</para>
 
-        <para>L'<xref linkend="ex-complex-dependencySet" /> présume que le projet contenant les ressources partagées a un type différent des autres dépendances. 
+        <para>L'<xref linkend="ex-complex-dependencySet" /> présume que le projet contenant 
+        les ressources partagées dispose d'un type différent des autres dépendances. 
         Que se passerait-il si celle-ci avait le même type que celui des autres dépendances ?
         Comment différencieriez-vous cette dépendance ?
-        Dans ce cas, si une dépendance de ressources partagées a été packagée comme un JAR avec le classificateur de type <varname>resources</varname>,  
+        Dans ce cas, si une dépendance de ressources partagées a été packagée comme un JAR 
+        avec le classificateur de type <varname>resources</varname>,  
         vous pouvez changer le pattern d'identité pour qu'il match ces dépendances :</para> 
 
         <programlisting>*:jar:resources</programlisting>
 
         <para>Au lieu de matcher les artefacts de type <varname>zip</varname> sans classificateur,
-        nous matchons ici les artefacts de type <varname>jar</varname> qui possède un classificateur <varname>resources</varname>.</para>   
+        nous matchons ici les artefacts de type <varname>jar</varname> 
+        qui possède un classificateur <varname>resources</varname>.</para>   
 
-        <para>Comme pour la section <sgmltag>fileSets</sgmltag>, <sgmltag>dependencySets</sgmltag> supporte l'utilisation du flag <sgmltag>useStrictFiltering</sgmltag>. 
-        Lorsque celui-ci est activé, n'importe quel pattern qui ne match pas une ou plusieurs dépendances causera l'échec de l'assembly, et donc par conséquent, du build.  
-        Très pratique pour utiliser comment soupape de sécurité, pour vous assurer que les dépendances de votre projet et votre descripteur d'assembly soient correctement synchronisés.  
+        <para>Comme pour la section <sgmltag>fileSets</sgmltag>, <sgmltag>dependencySets</sgmltag> supporte 
+        l'utilisation du flag <sgmltag>useStrictFiltering</sgmltag>. 
+        Lorsque celui-ci est activé, n'importe quel pattern qui ne match pas une ou plusieurs dépendances 
+        causera l'échec de l'assembly, et donc par conséquent, l'échec du build.  
+        Très pratique pour utiliser comme soupape de sécurité, pour vous assurer que les dépendances 
+        de votre projet et votre descripteur d'assembly soient correctement synchronisés.  
         Par défaut, ce flag est désactivé pour des raisons de rétrocompatibilité.</para> 
       </section>
 
@@ -1599,12 +1610,14 @@ I can add this back in later.  I didn't want to talk about it without an example
 
         <para>La section <sgmltag>dependencySet</sgmltag> vous propose deux autres mécanismes pour vous aider dans le choix de vos artefacts :  
         options de sélection transitive et options pour travailler avec des artefacts du projet.
-        Ces deux fonctionnalités proviennent de la nécessité de supporter des configurations existantes qui utilisent une définition un peu plus libérale du mot «dépendance». 
+        Ces deux fonctionnalités proviennent de la nécessité de supporter des configurations existantes 
+        qui utilisent une définition un peu plus libérale du mot "dépendance". 
         Comme premier exemple, examinons l'artefact principal du projet.
-        Typiquement, dans la majorité des cas, il ne doit pas être considéré comme une dépendance.
+        Dans la majorité des cas, il ne doit pas être considéré comme une dépendance.
         Pourtant, les plus anciennes versions du plugin Assembly l'utilisaient dans le calcul des dépendances.
-        Pour fournir une rétrocompatibilité avec cette “fonctionnalité”,
-        la version 2.2 du plugin Assembly dispose d'un flag à mettre dans le <sgmltag>dependencySet</sgmltag>, celui-ci est appelé <sgmltag>useProjectArtifact</sgmltag>,
+        Pour fournir une rétrocompatibilité avec cette "fonctionnalité",
+        la version 2.2 du plugin Assembly dispose d'un flag à mettre dans le <sgmltag>dependencySet</sgmltag>, 
+        celui-ci est appelé <sgmltag>useProjectArtifact</sgmltag>,
         La valeur par défaut de ce flag est <varname>true</varname>. 
         Par défaut, le set de dépendances essayera d'inclure l'artefact du projet dans le calcul de ses dépendances.  
         Si vous préférez gérer l'artefact du projet séparément, affectez ce flag à <varname>false</varname>.</para>
@@ -1620,59 +1633,69 @@ I can add this back in later.  I didn't want to talk about it without an example
         Activer ce flag permet aux patterns qui précisent des classificateurs et des types d'artefacts de matcher les artefacts rattachés.
         Ils partagent la même identité <varname>groupId</varname>/<varname>artifactId</varname>/<varname>version</varname>,
         mais diffèrent de <varname>type</varname> et de <varname>classifier</varname>.
-        Cette fonctionnalité peut s'avérer utilise pour inclure les JARs de Javadoc ou de Source dans une assembly.</para>
+        Cette fonctionnalité peut s'avérer utilise pour inclure les JARs de Javadoc ou de source dans une assembly.</para>
 
         <para>En plus de traiter avec des artefacts du projet,
-        il est également possible de configurer un set de dépendances en utilisant deux flags permettant d'activer la résolution transitive.
-        Le premier, appelé <sgmltag>useTransitiveDependencies</sgmltag> (et activé par défaut), permet d'activer l'inclusion des dépendances transitives lors du matching.
-        Comme exemple pour savoir comment il peut être utilisé, considérer ce qui arrive lorsque votre <acronym>POM</acronym> à une dépendance sur une autre assembly.
-        Cette assembly aura (probablement) un classificateur qui le sépare de l'artefact principal du projet, ce qui en fait une pièce jointe.    
-        Cependant, une particularité du processus de résolution des dépendances Maven que les informations des dépendances transitives pour l'artefact principal
+        il est également possible de configurer un set de dépendances en utilisant 
+        deux flags permettant d'activer la résolution transitive.
+        Le premier, appelé <sgmltag>useTransitiveDependencies</sgmltag> (et activé par défaut), 
+        permet d'activer l'inclusion des dépendances transitives lors du matching.
+        Comme exemple pour savoir comment il peut être utilisé, considérez ce qui arrive lorsque votre <acronym>POM</acronym> 
+        à une dépendance sur une autre assembly.
+        Cette assembly aura (probablement) un classificateur qui permet de le distinguer de l'artefact principal du projet, 
+        ce qui en fait une pièce jointe.    
+        Cependant, une particularité du processus de résolution des dépendances Maven 
+        que les informations des dépendances transitives pour l'artefact principal
         sont toujours utilisées pour résoudre l'artefact de l'assembly.
         Si l'assembly package ses dépendances à l'intérieur de lui-même, 
-        dans ce cas, utiliser la résolution des dépendances transitives dupliquerait effectivement ces dépendances.         
-        Pour éviter cela, nous pouvons simplement affecter le flag <sgmltag>useTransitiveDependencies</sgmltag> à <varname>false</varname>.</para>
+        dans ce cas, utiliser la résolution des dépendances transitives dupliquerait ces dépendances.         
+        Pour éviter cela, nous pouvons simplement utiliser le flag <sgmltag>useTransitiveDependencies</sgmltag> 
+        en le positionnant <varname>false</varname>.</para>
 
-        <para>L'autre flag permettant de résoudre les dépedances dépendances est plus subtil.
+        <para>L'autre flag permettant de résoudre les dépendances est plus subtil.
         Il est appelé <sgmltag>useTransitiveFiltering</sgmltag> et sa valeur par défaut est <varname>false</varname>.
-        Pour comprendre ce que fait ce flag, nous devons d'abord comprendre quelles informations sont disponibles pour un artefact donné lors du processus de résolution des dépendances. 
+        Pour comprendre ce que fait ce flag, nous devons d'abord comprendre quelles informations 
+        sont disponibles pour un artefact donné lors du processus de résolution des dépendances. 
         Quand un artefact est une dépendance d'un autre (qui est, retiré au moins un niveau à partir de votre <acronym>POM</acronym>),
-        elle a ce que Maven appelle un "chemin de dépendances", laquelle est maintenue comme une liste de chaînes de caractère et correspond à l'identité complète de l'artefact 
+        elle a ce que Maven appelle un "chemin de dépendances", laquelle est maintenue 
+        comme une liste de chaînes de caractères et correspond à l'identité complète de l'artefact 
         (<varname>groupId:artifactId:type:[classifier:]version</varname>)
-        de toutes les dépendances entre votre <acronym>POM</acronym> et l'artefact a qui appartient ce chemin.
+        de toutes les dépendances entre votre <acronym>POM</acronym> et l'artefact à qui appartient ce chemin.
         Si vous vous rappelez des trois types d'identités des artefacts disponibles pour pattern matching,
         vous remarquerez que les entrées dans ce chemin de dépendances - l'identité complète de l'artefact  - correspond au troisième type.
-        Lorsque le flag <sgmltag>useTransitiveFiltering</sgmltag> est affecté à <varname>true</varname>, 
+        Lorsque le flag <sgmltag>useTransitiveFiltering</sgmltag> est positionné à <varname>true</varname>, 
         toutes les entrées du chemin de dépendances d'un artefact peuvent agir sur l'inclusion ou l'exclusion de cet artefact.</para>
 
-        <para>Si vous considérez l'utisation de ce filtrage transitif, prennez garde !
+        <para>Si vous envisagez l'utisation de ce filtrage transitif, prennez garde !
         Un artefact peut être inclus à partie de nombreux emplacement dans un graphe de dépendance, mais dans Maven 2.0.9,
         seul le premier chemin de dépendances est utilisé pour ce type de matching.
-        Cela peut conduire à des problèmes subtils dans la collecte des dépendances de votre projet.</para>
+        Cela peut conduire à des problèmes difficiles à résoudre dans la collecte des dépendances de votre projet.</para>
 
         <warning>
-          <para>La plupart des assembly ne nécessitent ce niveau de contrôle sur les sets de dépendances,
-          reflechissez attentivement pour savoir si la vôtre en a vraiment besoin. Astuce : ce n'est probablement pas le cas.</para>
+          <para>La plupart des assembly ne nécessitent ce niveau de contrôle sur les sets de dépendances.
+          Reflechissez attentivement pour savoir si la votre en a vraiment besoin. Astuce : ce n'est probablement pas le cas.</para>
         </warning>
       </section>
 
       <section id="assemblies-sect-unpack">
         <title>Options avancées de dépaquetage</title>
 
-        <para>Comme discuté précédemment, certaines dépendances de projet ont besoin d'être dézippées pour créer une assembly.
-        Dans les exemples ci-dessus, la décision de dézipper ou non était simple.
+        <para>Comme discuté précédemment, certaines dépendances de projet ont besoin d'être dézippées pour créer un assembly.
+        Dans les exemples ci-dessus, la décision de savoir s'il fallait dézipper était simple.
         Il ne tient pas compte de ce qui doit être dépaqueté, ou plus important, de ce qui ne doit pas être dépaqueté. 
         Pour obtenir plus de contrôle sur le processus de dépaquetage,
         vous pouvez configurer la balise <sgmltag>unpackOptions</sgmltag> dans votre <sgmltag>dependencySet</sgmltag>.
         Ainsi, vous avez la possibilité de choisir quels fichiers vous voulez inclure dans votre assembly,
         et quels fichiers doivent être filtrés pour résoudre des expressions à partir des informations du <acronym>POM</acronym>.
-        En fait, les options disponibles pour dépaqueter vos sets de dépendances sont similaires à celles disponibles pour l'inclusion ou l'exclusion de fichier.</para>
+        En fait, les options disponibles pour dépaqueter vos sets de dépendances sont similaires à celles disponibles 
+        pour l'inclusion ou l'exclusion de fichier.</para>
 
         <para>Pour continuer notre exemple d'application web,
         supposons que certaines dépendances de ressources aient été zippées avec un fichier qui décrit les détails de leur licence de distribution.
         Dans le cas de notre application web,
         ces licences se présenteront sous la forme d'un fichier <filename>NOTICES</filename> inclu dans notre paquetage.
-        Pour exclure ce fichier, ajoutons-le simplement aux options de dépaquetage dans le set des dépendances qui gère les artefacts de ressources :</para> 
+        Pour exclure ce fichier, ajoutons-le simplement aux options de dépaquetage dans le set des dépendances 
+        qui gère les artefacts de ressources :</para> 
 
         <example>
           <title>Exclusion de fichiers dans le dépaquetage d'une dépendance</title>
@@ -1700,30 +1723,41 @@ I can add this back in later.  I didn't want to talk about it without an example
 &lt;/assembly&gt;</programlisting>
         </example>
 
-        <para>Notez que le tag <sgmltag>exclude</sgmltag> que nous utilisons ressemble beaucoup à celui de la déclaration du <sgmltag>fileSet</sgmltag>.  
-        Ici, nous interdisons les fichiers qui commencent par le mot <filename>LICENSE</filename> dans les répertoires de nos artefacts de ressources.
-        Vous pouvez comparer la section des options de dépaquetage à un petit <sgmltag>fileSet</sgmltag> appliqué à chaque dépendance qui match ce set.
+        <para>Notez que le tag <sgmltag>exclude</sgmltag> que nous utilisons ressemble beaucoup 
+        à celui de la déclaration du <sgmltag>fileSet</sgmltag>.  
+        Ici, nous interdisons les fichiers qui commencent par le mot <filename>LICENSE</filename> 
+        des répertoires de nos artefacts de ressources.
+        Vous pouvez comparer la section des options de dépaquetage à un petit <sgmltag>fileSet</sgmltag> 
+        appliqué à chaque dépendance qui match ce set.
         En d'autres mots, il s'agit d'un <sgmltag>fileSet</sgmltag> utilisé pour le dépaquetage des dépendances.
-        Tout comme nous avons spécifié un modèle d'exclusion pour les dossiers dans les dépendances de ressources afin de bloquer certains fichiers,
-        vous pouvez également choisir un ensemble restreint de fichiers à inclure en utilisant la section <varname>includes</varname>.
-        Le même code que celui du processus d'inclusion et d'exclusion des <sgmltag>fileSets</sgmltag> peut-être réutilisé pour le traitement des <sgmltag>unpackOptions</sgmltag>.</para>
+        Tout comme nous avons spécifié un modèle d'exclusion pour les dossiers 
+        dans les dépendances de ressources afin de bloquer certains fichiers,
+        vous pouvez également choisir un ensemble restreint de fichiers à inclure 
+        en utilisant la section <varname>includes</varname>.
+        Le même code que celui du processus d'inclusion et d'exclusion des <sgmltag>fileSets</sgmltag> 
+        peut-être réutilisé pour le traitement des <sgmltag>unpackOptions</sgmltag>.</para>
 
         <para>En plus de mécanisme d'inclusion et d'exclusion,
         les options de dépaquetages sur un set de dépendances peuvent également fournir un flag <sgmltag>filtering</sgmltag>,
         par défaut sa valeur est <varname>false</varname>.
         Encore une fois, cela ressemble beaucoup au mécanisme proposé par les sets de fichiers discuté ci-dessus.
-        Les expressions peuvent utiliser soit la syntaxe Maven d'une <varname>\${property}</varname>, soit la syntaxe Ant d'une <varname>@property@</varname>.
+        Les expressions peuvent utiliser, soit la syntaxe Maven d'une <varname>\${property}</varname>, 
+        soit la syntaxe Ant d'une <varname>@property@</varname>.
         Le filtrage des ressources est particulièrement intéressant pour les sets de dépendances.        
-        Car elle permet de créer des templates ressources normalisés et versionnés qui peuvent être personnalisés pour chaque assembly dans lequel ils sont inclus.
-        Une fois que vous maîtrisez la fonctionnalité de filtrage, que vous avez dépaqueté les dépendances qui sont stockées dans des ressources partagées,
-        vous serez en mesure de commencer à abstraire certaines ressources répétées.</para>
+        Elle permet de créer des templates ressources normalisés et versionnés 
+        qui peuvent être personnalisés pour chaque assembly dans lequel ils sont inclus.
+        Une fois que vous maîtrisez la fonctionnalité de filtrage, que vous avez dépaqueté les dépendances 
+        stockées dans des ressources partagées, vous serez en mesure de commencer à abstraire certaines ressources répétées.</para>
       </section>
 
       <section id="assemblies-sect-summarizing">
-        <title>Résumer les sets de dépendances</title>
+        <title>Résumer des sets de dépendances</title>
 
-        <para>Au final, il est important de mentionner que les sets de dépendances supportent les mêmes options de configuration <sgmltag>fileMode</sgmltag> et <sgmltag>directoryMode</sgmltag> que celles des sets de fichiers.
-        Cependant, vous devrez vous rappeler que le <sgmltag>directoryMode</sgmltag> ne sera utilisé que si les dépendances sont dépaquetées.</para>
+        <para>Au final, il est important de mentionner que les sets de dépendances supportent 
+        les mêmes options de configuration <sgmltag>fileMode</sgmltag> et 
+        <sgmltag>directoryMode</sgmltag> que celles des sets de fichiers.
+        Cependant, vous devrez vous rappeler que le <sgmltag>directoryMode</sgmltag> 
+        ne sera utilisé que si les dépendances sont dépaquetées.</para>
       </section>
     </section>
 
