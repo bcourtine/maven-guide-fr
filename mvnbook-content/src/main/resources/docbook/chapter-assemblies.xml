@@ -1312,7 +1312,7 @@ I can add this back in later.  I didn't want to talk about it without an example
 
           <listitem>
             <para>Essaye de résoudre l'expression avec les propriétés
-            système disponiblesm.</para>
+            système disponibles.</para>
           </listitem>
 
           <listitem>
@@ -1321,31 +1321,33 @@ I can add this back in later.  I didn't want to talk about it without an example
           </listitem>
         </orderedlist>
 
-        <para>The <sgmltag>outputDirectory</sgmltag> value is interpolated in
-        much the same way, with the difference being that there is no
-        available <varname>\${artifact.*}</varname> information, only the
-        <varname>\${project.*}</varname> instance for the particular artifact.
-        Therefore, the expressions listed above associated with those classes
-        (1a, 1b, and 3 in the process listing above) are unavailable.</para>
+        <para>La valeur de la balise <sgmltag>outputDirectory</sgmltag> est
+        interpolée de manière assez proche, à la différence près qu'il n'y a
+        pas dinformation du type <varname>\${artifact.*}</varname> disponible.
+        Seules les instances <varname>\${project.*}</varname> des artefacts
+        permettent de résoudre les expressions. Donc les expressions associées
+        à ces patterns ne sont pas disponibles (il s'agit des éléments
+        (1a, 1b, et 3 de la liste ci-dessus).</para>
 
-        <para>How do you know when to use <sgmltag>outputDirectory</sgmltag>
-        and <sgmltag>outputFileNameMapping</sgmltag>? When dependencies are
-        unpacked only the <sgmltag>outputDirectory</sgmltag> is used to
-        calculate the output location. When dependencies are managed as whole
-        files (not unpacked), both <sgmltag>outputDirectory</sgmltag> and
-        <sgmltag>outputFileNameMapping</sgmltag> can be used together. When
-        used together, the result is the equivalent of:</para>
+        <para>Comment sait-on quand utiliser <sgmltag>outputDirectory</sgmltag>
+        et <sgmltag>outputFileNameMapping</sgmltag> ? Quand les dépendances
+        sont décompressées, seul l'<sgmltag>outputDirectory</sgmltag> est
+        utilisé pour calculer l'emplacement final. Quand les dépendances sont gérées
+        comme un tout (c'est à dire non décompressées), les deux éléments
+        <sgmltag>outputDirectory</sgmltag> et <sgmltag>outputFileNameMapping</sgmltag>
+        peuvent être utilisés ensemble. Quand ilsl le sont, le résultat est
+        équivalent à :</para>
 
         <programlisting language="xml">&lt;archive-root-dir&gt;/&lt;outputDirectory&gt;/&lt;outputFileNameMapping&gt;</programlisting>
 
-        <para>When <sgmltag>outputDirectory</sgmltag> is missing, it is not
-        used. When <sgmltag>outputFileNameMapping</sgmltag> is missing, its
-        default value is:
+        <para>Quand l'<sgmltag>outputDirectory</sgmltag> est absent, il n'est pas
+        utilisé. Quand c'est l'<sgmltag>outputFileNameMapping</sgmltag> qui est
+        absent, on prend sa valeur par défaut qui est :
         <code>\${artifact.artifactId}-\${artifact.version}\${dashClassifier?}.\${artifact.extension}</code></para>
       </section>
 
       <section id="assemblies-sect-include-by-scope">
-        <title>Including and Excluding Dependencies by Scope</title>
+        <title>Inclusion et exclusion de dépendancs par scope</title>
 
         <para>In <xref
         linkend="pom-relationships-sect-project-dependencies" />, it was noted
