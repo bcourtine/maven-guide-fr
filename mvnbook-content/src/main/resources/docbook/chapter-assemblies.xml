@@ -342,7 +342,7 @@ Hello, World!</screen>
       nature de produits dérivés.</para>
 
       <para>Comme les assemblies sont (normalement) des artefacts rattachés, chaucun
-      doit avoir son classifier en plus des coordonnées de l'artfact principal pour
+      doit avoir son classifier en plus des coordonnées de l'artefact principal pour
       le distinguer de ce dernier. Par défauut ce classifier est l'identifiant du
       descripteur de l'assembly. Quand on utilise les descripteurs pré-définis
       l'identifiant du descripteur d'assembly est le même que l'identifiant utilisé 
