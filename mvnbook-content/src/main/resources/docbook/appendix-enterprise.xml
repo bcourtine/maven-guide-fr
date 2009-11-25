@@ -2,14 +2,16 @@
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <appendix id="appendix-enterprise" lang="fr">
-  <title>Annexe : Alternatives aux spécifications Sun</title>
+  <title>Annexe : alternatives aux spécifications Sun</title>
 
   <para>Le projet Apache Geronimo maintient les implémentations de plusieurs spécifications de Java EE.
-  Le tableau <xref linkend="table-spec-alternatives" /> liste les <varname>artifactId</varname> et <varname>version</varname> de toutes les spécifications implémentées par le projet Geronimo.
-  Pour utiliser l'une de ces dépendances, utilisez le <varname>groupId</varname> <varname>org.apache.geronimo.specs</varname> et recherchez la version des spécifications que vous désirer utiliser en dépendance.</para>
+  Le tableau <xref linkend="table-spec-alternatives" /> liste les <varname>artifactId</varname> 
+  et <varname>version</varname> de toutes les spécifications implémentées par le projet Geronimo.
+  Pour utiliser l'une de ces dépendances, utilisez le <varname>groupId</varname> <varname>org.apache.geronimo.specs</varname> 
+  et recherchez la version des spécifications que vous désirer utiliser en dépendance.</para>
  
   <note>
-    <para>Tous les artefacts du tableau <xref linkend="table-spec-alternatives" /> possèdent le même <varname>groupId</varname> <varname>org.apache.geronimo.specs</varname>.</para>
+    <para>Tous les artefacts du tableau <xref linkend="table-spec-alternatives" /> possèdent le même <varname>groupId</varname> : <varname>org.apache.geronimo.specs</varname>.</para>
   </note>
 
   <table id="table-spec-alternatives">
@@ -388,8 +390,8 @@
     et cliquez sur l'<varname>artifactId</varname> que vous désirez ajouter.</para>
   </note>
 
-  <para>Pour illustrer l'utilisation du tableau <xref
-  linkend="table-spec-alternatives" />, si vous voulez écrire du code dans votre projet qui nécessite les spécifications <acronym>JTA</acronym> 1.0.1B,
+  <para>Pour illustrer l'utilisation du tableau <xref linkend="table-spec-alternatives" />, 
+  si vous voulez écrire du code dans votre projet qui nécessite les spécifications <acronym>JTA</acronym> 1.0.1B,
   ajoutez la dépendance suivante à votre projet :<example>
       <title>Ajout de JTA 1.0.1B à un projet MavenProject</title>
 

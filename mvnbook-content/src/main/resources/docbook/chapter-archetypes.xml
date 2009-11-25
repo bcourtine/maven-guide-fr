@@ -5,17 +5,17 @@
   <title>Utilisation des archétypes Maven</title>
 
   <section id="archetype-sect-intro">
-    <title>Introduction aux Archetypes Maven</title>
+    <title>Introduction aux archetypes Maven</title>
 
     <para>Un archétype est un template de projet Maven. 
-    Il est utilisé par le plugin Maven Archetype pour créer de nouveaux projets.
-    Les archétypes permettent à des projets open sources comme Apache Wicket ou Apache Cocoon de présenter à leurs utilisateurs 
+    Le plugin Maven Archetype les utilise pour créer de nouveaux projets.
+    Les archétypes permettent à des projets Open Sources comme Apache Wicket ou Apache Cocoon de présenter à leurs utilisateurs 
     les fondations d'une nouvelle application.
     Les archétypes peuvent également être utilisés dans une société pour encourager une standardisation d'un ensemble de projets. 
-    Si vous travaillez dans une société avec de larges équipes de développement, que tous vous projets doivent suivre une même structure, vous pouvez publier un archétype. 
-    Ainsi, n'importe quel membre de l'équipe de développement sera capable de démarrer rapidement un projet qui respectant la structure préconisée. 
-    Vous pouvez créer un nouveau projet à partir d'un archétype en utilisant le plugin Maven Archetype à partir de la ligne de commande ou
-    en utilisant le wizard de création d'un nouveau projet proposé par le plugin <varname>m2eclipse</varname> tel que le présente la partie <xref linkend="eclipse" />.</para> 
+    Si vous travaillez dans une société avec de larges équipes de développement et que tous vous projets doivent suivre une même structure, vous pouvez publier un archétype. 
+    Ainsi, n'importe quel membre de l'équipe de développement sera capable de démarrer rapidement un nouveau projet en respectant la structure préconisée. 
+    Vous pouvez créer un nouveau projet avec un archétype en utilisant le plugin Maven Archetype à partir de la ligne de commande ou
+    en utilisant le wizard de création de nouveau projet proposé par le plugin <varname>m2eclipse</varname> comme le présente la partie <xref linkend="eclipse" />.</para> 
   </section>
 
   <section id="archetype-sect-using">
@@ -121,7 +121,7 @@
 
       <para>Le moyen le plus simple d'utiliser le plugin Maven Archetype pour générer un nouveau projet Maven à partie d'un archétype est d'utiliser le goal 
       <varname>archetype:generate</varname> en mode interactif.
-      Ainsi, le goal <varname>generate</varname> vous demandera de choisir un archétype parmi une liste d'archétypes disponible. 
+      Ainsi, le goal <varname>generate</varname> vous demandera de choisir un archétype parmi une liste d'archétypes disponibles. 
       Par défaut, le mode interactif est activé, la seule chose que vous avez à faire pour générer un nouveau projet est d'exécuter cette simple commande : <command>mvn
       archetype:generate</command>.</para>
 
@@ -176,7 +176,7 @@ Choose archetype:
 41: internal -&gt; gmaven-archetype-mojo
 Choose a number: <command>15 </command></screen>
 
-      <para>La première chose que le goal <varname>archetype:generate</varname> effectue en mode interactif et d'afficher la liste des archétypes disponibles à l'utilisateur.
+      <para>Pour commencer, le goal <varname>archetype:generate</varname> en mode interactif affiche la liste des archétypes disponibles pour l'utilisateur.
       Le plugin Maven Archetype est founit avec un catalogue d'archétypes pour la plupart des types de projets standards (archétypes 10 à 18).
       Le catalogue d'archétypes du plugin peut également être complété par des archétypes tiers, 
       comme des archétypes permettant de générer des projets AppFuse, des plugins Confluence et Jira, des applications Wicket, des applications Scala, des projets Groovy, ...     
@@ -258,16 +258,16 @@ package: org.sonatype.mavenbook
     <title>Archétypes disponibles</title>
 
     <para>Comme de plus en plus de projets adoptent Maven, de plus en plus d'artefacts sont publiés et 
-    fournissent aux utilisateurs un moyen simple de créer des projets à partir de templates existant. 
-    Cette section présente quelques-uns des archétypes de ces archétypes.</para>   
+    fournissent aux utilisateurs un moyen simple de créer des projets à partir de templates existants. 
+    Cette section présente quelques-uns des archétypes.</para>   
 
     <section id="archetype-sect-common-maven">
       <title>Archétypes Maven communs</title>
 
-      <para>La plupart des archétypes les plus simples sont contenus dans le <varname>groupId</varname> <varname>org.apache.maven.archetypes</varname>.
+      <para>La plupart des archétypes les plus simples possèdent le <varname>groupId</varname> : <varname>org.apache.maven.archetypes</varname>.
       Ces archétypes ne possèdent que quelques options et proposent la création de projets relativement basics. 
       Vous pouvez les utiliser pour générer les quelques éléments de structure qui distingue un projet Maven d'un projet non-Maven.
-      Par exemple, l'archétype <varname>webapp</varname> présenté ici, se contente de générer un fichier   
+      Par exemple, l'archétype <varname>webapp</varname> présenté ici se contente de générer un fichier   
       <filename>web.xml</filename> dans le répertoire <filename>\${basedir}/src/main/webapp/WEB-INF</filename>.
       Dans le paragraphe <xref linkend="archetype-sect-third-party" /> vous pouvez effectuer un survol rapide de quelques-uns des archétypes tiers les plus remarquables
       comme ceux d'AppFuse ou de Cocoon.</para>
@@ -279,8 +279,8 @@ package: org.sonatype.mavenbook
 
         <para>L'archétype <varname>quickstart</varname> est un simple projet du type <acronym>JAR</acronym> 
         et d'une simple dépendance sur JUnit.
-        Après avoir généré un projet avec cet archétype, une seule classe sera générée, <classname>App</classname>,
-        dans le package par défaut, avec une méthode <methodname>main()</methodname> qui affiche "Hello World!" sur la sortie standard.  
+        Après avoir généré un projet avec cet archétype, une seule classe sera générée : <classname>App</classname>.
+        Cele-ci sera générée dans le package par défaut et contiendra une méthode <methodname>main()</methodname> qui affiche "Hello World!" sur la sortie standard.  
         Vous aurez également un test unitaire JUnit dans une classe nommée <varname>AppTest</varname> avec une méthode <methodname>testApp()</methodname> dont le code est trivial.</para>              
     
       </section>
@@ -311,7 +311,7 @@ package: org.sonatype.mavenbook
     <section id="archetype-sect-third-party">
       <title>Archétypes tiers notables</title>
 
-      <para>Cette section vous propose un bref aperçu de quelques archétypes fournis par des tiers non associés au projet Maven.
+      <para>Cette section vous propose un bref aperçu de quelques-uns des archétypes fournis par des tiers non associés au projet Maven.
       Si vous recherchez une liste plus complète des archétypes disponibles, jetez un oeil à la liste des archétypes disponibles dans <varname>m2eclipse</varname>.
       <varname>m2eclipse</varname> vous permet de créer un nouveau projet Maven à partir d'une liste grandissante de plus de 80 archétypes pour la plupart des technologies.
       Le chapitre <ulink url="http://www.sonatype.com/books/m2eclipse-book/reference/eclipse-sect-creating-project.html#eclipse-sect-m2e-create-archetype">"Creating
@@ -413,7 +413,7 @@ $ mvn jetty:run-war
 ... (Maven Jetty plugin starts a Servlet Container on port 8080)</screen>
 
         <para>Utiliser un archétype AppFuse pour générer une application web avec une authentification, un système de gestion d'utilisateurs ne devrait pas vous prendre plus de 5 minutes.
-        C'est un exemple de la véritable force de l'utilisation des archétypes Maven pour générer des nouvelles applications.         
+        Voici d'un bon exemple de la véritable force de l'utilisation des archétypes Maven pour générer des nouvelles applications.         
         Nous avons simplifié le processus d'installation d'AppFuse, mais nous avons laissé un peu côté le téléchargement et l'installation de la base de données MySQL.
         Mais il n'y a rien de très compliqué au final dans tout cela, pour plus d'informations vous pouvez vous lire la <ulink
         url="http://appfuse.org/display/APF/AppFuse+QuickStart">documentation du Quickstart d'AppFuse</ulink>.</para>
@@ -465,7 +465,7 @@ $ <command>mvn jetty:run</command>
         pour consulter votre nouvelle application web générée.</para>
 
         <note>
-          <para>Pensez à la puissance des archétypes Maven face à une simple approche 'copier-coller' qui a caractérisé les dernières années de développement web.
+          <para>Pensez à la puissance qu'apportent les archétypes Maven face à une simple approche 'copier-coller' qui a caractérisé les dernières années de développement web.
           Il y a six ans, sans le plugin Maven Archetype,
           vous auriez du parcourir un livre sur AppFuse ou un livre sur Wicket et apprendre comment bien utiliser le framework avant de pouvoir en exécuter un morceau de code dans un conteneur de servlets.            
           Ou alors, vous auriez juste copié collé un projet existant et commencé à le personnaliser selon vos besoins.
@@ -548,7 +548,7 @@ catalogFile null
 </screen>
 
       <para>Si vous êtes intéressés par la création d'un catalogue d'archétypes, 
-      c'est généralement parce que vous êtes un projet open source ou une société qui dispose d'un ensemble d'archétypes à partager.
+      c'est généralement parce que vous êtes un projet Open Source ou une société qui dispose d'un ensemble d'archétypes à partager.
       Ces archétypes sont probablement déjà disponibles dans un repository, vous avez besoin d'explorer ce dépôt et de générer un catalogue.
       En d'autres termes, vous aurez probablement envie de scanner un répertoire sur un dépôt Maven existant 
       et générer un plugin Archetype à la racine du repository.
