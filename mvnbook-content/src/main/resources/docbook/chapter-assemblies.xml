@@ -2187,10 +2187,11 @@ doesn't make sense to new users.-->
       qui vous permettent d'étendre les fonctionnalités du plugin Assembly.
       Précisément, ces composants personnalisés vous permettent de définir et de gérer certains types de fichiers
       qui peuvent être fusionnés à partir de constituants utilisés pour créer votre assembly.
-      Par exemple, nous pouvons utiliser ce mécanisme pour construire un unique <filename>web.xml</filename> à partir de plusieurs fragments 
+      Par exemple, nous pouvons utiliser ce mécanisme pour construire un fichier <filename>web.xml</filename> unique à partir de plusieurs fragments 
       pour l'intégrer à l'assembly.</para>
 
-      <para>La balise <sgmltag>componentDescriptors</sgmltag> permet de référencer des des descripteurs d'assembly externes et de les inclure dans le decripteur courant.
+      <para>La balise <sgmltag>componentDescriptors</sgmltag> permet de référencer 
+      des descripteurs d'assembly externes et de les inclure dans le decripteur courant.
       Les références des composants peuvent-être une des caractéristiques suivantes :</para>
 
       <orderedlist>
@@ -2216,13 +2217,14 @@ doesn't make sense to new users.-->
       </orderedlist>
 
       <para>Lors de la résolution d'un descripteur de composant, le plugin Assembly essaye ces différentes stratégies dans cet ordre précis.
-      La première stratégie qui matche est utilisée.</para>
+      La première stratégie qui matche est alors utilisée.</para>
 
       <para>Les descripteurs de composant peuvent contenir plusieurs fois les mêmes sections disponibles dans le descripteur d'Assembly,
       à l'exception de la balise <sgmltag>moduleSets</sgmltag>.
       Celle-ci est considérée comme spécifique à chaque projet.
       La balise <sgmltag>containerDescriptorHandlers</sgmltag> est également incluse dans le descripteur de composant, nous venons de le présenter. 
-      Les descripteurs de composants ne peuvent pas contenir de formats, d'id d'assembly ou toute autre configuration en rapport avec le répertoire racine de l'archive.
+      Les descripteurs de composants ne peuvent pas contenir de formats, d'id d'assembly 
+      ou toute autre configuration en rapport avec le répertoire racine de l'archive.
       Ils sont tous sont considérés comme propres à un descripteur d'assembly.
       Bien qu'il semble intéressant de permettre le partage de la balise <varname>formats</varname>, 
       cela n'a pas été fait jusqu'à ce jour (version 2.2-beta-2-release du plugin Assembly).</para>
