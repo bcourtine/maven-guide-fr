@@ -13,7 +13,7 @@
     <para>Qu'entendons-nous par différents environnements de build ? La production et le développement sont deux
     environnements typiques. Quand vous travaillez dans l'environnement de développement, votre système est certainement
     configuré pour travailler sur une base de données de développement installée sur le poste local tandis qu'en
-    production, votre système est configuré pour accèder à la base de données de production. Maven permet de définir
+    production, votre système est configuré pour accéder à la base de données de production. Maven permet de définir
     différents environnements de build (profils de build) qui peuvent remplacer n'importe quel paramètre du fichier
     <filename>pom.xml</filename>. Vous pourriez configurer votre application pour lire dans votre base de données de
     développement locale dans un profil "development", et la configurer dans le profil "production" pour lire dans
@@ -27,12 +27,12 @@
 
       <para>La "portabilité" du build est la mesure de la facilité avec laquelle on peut prendre un projet particulier
       et le construire sur différents environnements. Un build qui fonctionne sans aucune configuration particulière ni
-      ni personnalisation des fichiers properties est plus portable qu'un build qui nécessite une un certain travail pour
-      construire le projet à partir de rien. Les projets les plus portables sont bien souvent des projets opensource très
-      utilisés comme Apache Commons ou Apache Velocity qui fonctionnent avec Maven sans personnalisation ou presque.
+      ni personnalisation des fichiers properties est plus portable qu'un build qui nécessite un certain travail pour
+      construire le projet à partir de rien. Les projets les plus portables sont bien souvent des projets Open Source très
+      utilisés comme Apache Commons ou Apache Velocity qui fonctionnent avec Maven sans aucune personnalisation ou presque.
       Pour faire simple, les builds les plus portables fonctionnent immédiatement et les moins portables vous demandent
-      de réaliser des acrobaties dans les fichiers de configuration pour modifier les chemins vers les outils de build
-      en fonction des plateformes. Avant que nousvous dévoilions comment obtenir un build portable, étudions les
+      de réaliser des acrobaties plus ou moins périlleuses dans les fichiers de configuration pour modifier les chemins vers les 
+      outils de build en fonction des plateformes. Avant que nous vous dévoilions comment obtenir un build portable, étudions les
       différents types de portabilité dont nous allons parler.</para>
 
       <section id="profiles-sect-non-portable">
@@ -40,8 +40,8 @@
 
         <para>L'absence de portabilité est exactement ce que les outils de build essayent d'éviter - cependant, 
         n'importe quel outil peut être configuré pour être non-portable (même Maven). Un projet n'est pas portable
-        lorsqu'il ne peut être construit que dans certaines circonstances spécifiques (ex : votre machine locale). A
-        moins que vous travailliez seul et que vous n'envisagiez pas de déployer votre application sur une autre
+        lorsqu'il ne peut être construit que dans certaines circonstances spécifiques (ex : votre machine locale). 
+        À moins que vous travailliez seul et que vous n'envisagiez pas de déployer votre application sur une autre
         machine, il vaut mieux éviter complètement la non-portabilité. Un build non-portable fonctionne seulement sur
         une machine, c'est un build "à usage unique". Maven est conçu pour décourager les buids non-portables en offrant
         la possibilité de personnaliser les builds grâce aux profils.</para>
@@ -54,29 +54,28 @@
         <title>Portabilité sur l'environnement</title>
 
         <para>Un build est qualifié de portable d'un environnement à l'autre s'il possède un mécanisme pour
-        personnaliser le comportement et la configuration en fonction de l'environnement. Par exemple, un projet qui
+        personnaliser son comportement et sa configuration en fonction de l'environnement. Par exemple, un projet qui
         contient une référence à une base de données de test dans un environnement de test et à une base de données de
         production dans un environnement de production, est portable sur ces deux environnements. Il est probable que ce
         build ait différentes propriétés pour chaque environnement. Quand vous changez pour un environnement pour qui
-        n'est pas défini et qui ne possède pas de profile associé, le projet ne fonctionnera pas. Donc un projet n'est
+        n'est pas défini et qui ne possède pas de profil associé, le projet ne fonctionnera pas. Donc un projet n'est
         portable que sur des environnements bien définis.</para>
 
         <para>Quand un nouveau développeur récupère le code source d'un projet dépendant de l'environnement, il devra
-        exécuter le build dans cet environnement ou créer l'environnement adéquat pour réussir à construire le
-        projet.</para>
+        exécuter le build dans cet environnement ou créer l'environnement adéquat pour réussir à construire le projet.</para>
       </section>
 
       <section id="profiles-sect-org-portability">
         <title>Portabilité interne à une organisation</title>
 
-        <para>Le point clef de cet environnement est que seuls quelques uns ont accès à des ressources internes à
-        l'organisation comme le gestionnaire de configuration ou le dépôt interne Maven. Un projet dans une grande
-        entreprise peut dépendre de la présence d'une base de données accessible uniqument pour les développeurs
-        internes. Un projet opensource peut exiger un certain niveau de droits pour pouvoir publier le site web et les
-        artefacts produits sur un dépôt publique.</para>
+        <para>Le point clef de cet environnement est que seuls quelques-uns ont accès à des ressources internes à
+        l'organisation, comme le gestionnaire de configuration ou le dépôt interne Maven. Un projet dans une grande
+        entreprise peut dépendre de la présence d'une base de données accessible uniquement pour les développeurs internes. 
+        Un projet Open Source peut exiger un certain niveau de droits pour pouvoir publier le site web et les
+        artefacts produits sur un dépôt public.</para>
 
         <para>Si vous essayez de construire un projet interne hors du réseau interne de l'entreprise (par exemple de
-        l'autre coté du firewall), le build va échouer. Il se peut que cela vienne de plugins propres à l'entreprise qui
+        l'autre côté du firewall), le build va échouer. Il se peut que cela vienne de plugins propres à l'entreprise qui
         ne sont pas disponibles ou de dépendances du projet inaccessibles car vous n'avez pas les droits nécessaires
         pour accéder au dépôt distant d'entreprise. Un tel projet n'est portable que sur les environnements au sein
         d'une organisation.</para>
@@ -98,7 +97,7 @@
     <section id="profiles-sect-select-level">
       <title>Choisir le bon niveau de portabilité</title>
 
-      <para>Evidemment vous voulez éviter le pire cas : le build non-portable. Vous avez peut-être connu le malheur de
+      <para>Évidemment, vous voulez éviter le pire cas : le build non-portable. Vous avez peut-être connu le malheur de
       travailler ou d'étudier pour une organisation dont les builds des applications critiques sont non-portables. Dans
       une organisation comme celle-là, impossible de déployer une application sans une personne bien spécifique sur une
       machine bien spécifique elle aussi. Avec une telle organisation, il est très difficile d'introduire de nouvelles
@@ -109,29 +108,29 @@
       une situation périlleuse qui est beaucoup plus fréquente qu'on ne le pense. Si vous travaillez dans cette
       organisation, Maven et les profils Maven sont votre porte de sortie.</para>
 
-      <para>A l'autre bout du spectre de la portabilité se trouvent les builds très portables. Ces builds sont des
-      builds très difficiles à réaliser Ils restreignent vos dépendances aux projets et aux outils qui sont librement
+      <para>À l'autre bout du spectre de la portabilité se trouvent les builds très portables. Ces builds sont des
+      builds très difficiles à réaliser. Ils restreignent vos dépendances aux projets et aux outils qui sont librement
       distribuables et facilement accessibles. De nombreux packages commerciaux doivent être exclus des builds les plus
-      portables car ils ne peuvent être téléchargés sans que vous n'ayez à accepter une license spécifique. Cette large
-      portabilité va aussi restreindre les dépendances aux logiciels qui sont distribués sous la forme d'artefacts
+      portables car ils ne peuvent être téléchargés sans que vous n'ayez à accepter une licence spécifique. Cette large
+      portabilité va également restreindre les dépendances aux logiciels qui sont distribués sous la forme d'artefacts
       Maven. Par exemple, si vous dépendez des pilotes JDBC d'Oracle, vos utilisateurs devront les télécharger et les
-      installer manuellement ; ce n'est pas très portable car vous devrez fournir les intructions nécessaires pour
+      installer manuellement ; ce n'est pas très portable car vous devrez fournir les instructions nécessaires pour
       configurer l'environnement afin que les personnes intéressées puissent construire votre application. D'un autre
-      côté, vous pourriez utiliser un pilote JDBC disponible sur le dépôt publique de Maven comme MySQL ou
+      côté, vous pourriez utiliser un pilote JDBC disponible sur le dépôt public de Maven comme MySQL ou
       HSQLDB.</para>
 
       <para>Comme nous l'avons vu précédemment, les projets libres ont intérêt à avoir des builds le plus portable
-      possible. Les builds très portables réduisent le coût de contribution à un projet. Dans un projet libre (comme
-      Maven) on trouve deux groupes d'utilisateurs très distincts : les développeurs et les utilisateurs finaux. Quand
-      un utilisateur final utilise Maven et qu'il décide de contribuer en proposant un patch de Maven, d'utilisateur du
-      produit final d'un build, il doit se deveir capable de construire ce produit. Il doit donc tout d'abord se
-      transformer en développeur, et donc si apprendre à construire ce projet est trop compliqué, alors il perdra de sa
-      motivation à contribuer au projet. Avec un projet très portable, un utilisateur n'a pas à connaitre les arcanes
-      du build d'un projet pour se tranformer en développeur, il peut télécharger le code source, le modifier,
+      possible. Les builds très portables réduisent le coût de contribution d'un projet. Dans un projet libre (comme
+      Maven), on trouve deux groupes d'utilisateurs très distincts : les développeurs et les utilisateurs finaux. Quand
+      un utilisateur final utilise Maven et qu'il décide de contribuer en proposant un patch à Maven, d'utilisateur du
+      produit final d'un build, il doit se devenir capable de construire ce produit par lui-même. Il doit donc tout d'abord se
+      transformer en développeur, et donc, si apprendre à construire ce projet est trop compliqué, alors il perdra de sa
+      motivation à contribuer au projet. Avec un projet très portable, un utilisateur n'a pas à connaître les arcanes
+      du build d'un projet pour se transformer en développeur, il peut télécharger le code source, le modifier,
       construire son artefact et proposer sa contribution sans avoir à demander de l'aide pour configurer son
       environnement. Plus le coût d'entrée pour contribuer à un projet libre est bas et plus le nombre de contributions
       augmente, surtout ces petites contributions qui font la différence pour la réussite d'un projet. Une des
-      conséquences de l'adoption de Maven par un grand nombre de projets opensource est que contribuer à ces projets est
+      conséquences de l'adoption de Maven par un grand nombre de projets Open Source est que contribuer à ces projets est
       devenu beaucoup plus facile.</para>
     </section>
   </section>
