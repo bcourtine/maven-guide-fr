@@ -623,7 +623,7 @@
     exemple, nous indiquons la version de la dépendance dans la section <sgmltag>dependencyManagement</sgmltag> de
     <varname>simple-parent</varname> car cette dépendance est liée à Hibernate et c'est là qu'on déclare la version
     d'Hibernate. Un jour va arriver où vous allez vouloir changer la version d'Hibernate pour votre projet. Mettre la
-    version de <varname>persistence-api</varname> à coté de la version d'Hibernate permettra d'éviter d'oublier de la
+    version de <varname>persistence-api</varname> à côté de la version d'Hibernate permettra d'éviter d'oublier de la
     mettre à jour lorsque vous éditerez le <acronym>POM</acronym> parent pour modifier la version d'Hibernate.</para>
 
     <para>Si vous regardez le résultat du <varname>dependency:</varname><varname>analyze</varname> pour le module

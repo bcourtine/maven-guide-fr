@@ -556,7 +556,7 @@ Installing ~/mvn-examples-1.0/assemblies/as-dependencies/project-parent/\
       <para>Cet exemple illustre comment les capacités de base du plugin Maven
       Assembly peuvent être combinées sans avoir recours à un descripteur 
       d'assembly. Il crée une unique archive qui contient les répertoires
-      de plusieurs projets les uns à coté des autres. Cette fois, le 
+      de plusieurs projets les uns à côté des autres. Cette fois, le 
       <varname>jar-with-dependencies</varname> est juste un format de stockage
       et nous n'avons pas besoin de spécifier l'attribut de
       manifest <varname>Main-Class</varname>. Pour construire ce paquet, nous

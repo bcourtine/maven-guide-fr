@@ -216,7 +216,7 @@
     <para>Bien sûr, Maven est une alternative à Ant, mais <ulink url="http://ant.apache.org">Apache Ant </ulink>
     continue à être un outil excellent, et largement utilisé. Il fut le champion des builds Java pendant des années, et
     vous pouvez intégrer vos scripts Ant au build Maven de votre projet très facilement. C'est une utilisation très
-    commune dans un projet Maven. D'un autre coté, tandis que de plus en plus de projets open source migrent vers la
+    commune dans un projet Maven. D'un autre côté, tandis que de plus en plus de projets open source migrent vers la
     plateforme de gestion de projet Maven, les développeurs se rendent compte que Maven ne fait pas que simplifier la
     gestion du build, il permet l'émergence d'une interface commune entre les développeurs et les projets logiciels.
     Maven est plus une plateforme qu'un outil, lorsque vous considérez Maven comme une alternative à Ant, vous comparez
@@ -234,13 +234,13 @@
 
     <para>Bien que Maven soit une alternative à ces outils, la communauté doit abandonner cet esprit de lutte sanglante
     pour s'approprier utilisateurs et développeurs. C'est peut-être ainsi que ça se passe entre grosses entreprises,
-    mais cela ne correspond pas à la manière de faire des communautés opensource. Les gros titres tels que "Qui sera le
+    mais cela ne correspond pas à la manière de faire des communautés Open Source. Les gros titres tels que "Qui sera le
     vainqueur ? Ant ou Maven ?" ne sont pas très constructifs. Si vous exigez de nous une réponse, bien sûr que nous
     dirons que Maven est une meilleure alternative que Ant comme technologie fondamentale pour un build ; en même temps,
     les frontières de Maven changent tout le temps, et la communauté Maven cherche en permanence de nouvelles voies pour
     le rendre plus œcuménique, plus interopérable, plus coopératif. Les principes au cœur de Maven sont le build
     déclaratif, la gestion des dépendances, les dépôts, la réutilisation universelle grâce aux plugins, cependant la
-    concrétisation de ces idées n'a que peu d'importance par rapport au fait que la communauté opensource collabore pour
+    concrétisation de ces idées n'a que peu d'importance par rapport au fait que la communauté Open Source collabore pour
     améliorer l'efficacité des builds à "l'échelle de l'entreprise".</para>
   </section>
 

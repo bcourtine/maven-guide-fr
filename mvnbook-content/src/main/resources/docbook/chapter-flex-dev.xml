@@ -51,8 +51,8 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         <title>Faire référence depuis le POM au dépôt Flexmojos de Sonatype</title>
 
         <para>Flexmojos depend de quelques artifacts qui ne sont actuellement pas disponible depuis le dépôt central Maven.
-Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour utiliser Flexmojos, vous devrez faire référence à ce dépot depuis le 
-        <filename>pom.xml</filename> de votre projet. 
+        Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour utiliser Flexmojos, vous devrez faire 
+        référence à ce dépôt depuis le <filename>pom.xml</filename> de votre projet. 
         Pour réaliser ceci, ajoutez l'élément 
         <sgmltag>repositories</sgmltag> indiqué dans <xref linkend="ex-flex-dev-repository"/> au 
         <filename>pom.xml</filename> de votre projet.</para>
@@ -93,7 +93,7 @@ Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour u
 
         <para>Au lieu de pointer directement vers le dépôt Flexmojos de Sonatype,
         Sonatype recommande d'insatller un gestionnaire de dépôt et de le mettre
-        en proxy du dépôt publique de Sonatype. Quand vous mettez en place un
+        en proxy du dépôt public de Sonatype. Quand vous mettez en place un
         proxy d'un dépôt distant avec un gestionnaire de dépôt comme Nexus,
         vous gagnez un niveau supplémentaire de contrôle et de stabilité qu'il
         n'est pas possible d'atteindre lorsque votre build dépend directement
@@ -105,7 +105,7 @@ Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour u
         url="http://www.sonatype.com/books/nexus-book/reference/install.html">Installation
         chapter in Repository Management with Nexus</ulink>. Une fois Nexus
         installé et démarré, effectuez les opérations suivantes pour lui ajouter
-        une fonction de proxy du dépôt publique de Sonatype.</para>
+        une fonction de proxy du dépôt public de Sonatype.</para>
 
         <para>Pour ajouter un nouveau proxy d'un dépôt, cliquez sur le lien
         <guimenuitem>Repositories</guimenuitem> sous
@@ -134,7 +134,7 @@ Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour u
         </figure>
 
         <para>Une fois que vous avez créé ce nouveau dépôt proxy, il vous faut
-        le configurer pour qu'il pointe vers le dépôt publique Flexmojos de
+        le configurer pour qu'il pointe vers le dépôt public Flexmojos de
         Sonatype. Sélectionnez ce nouveau dépôt puis sélectionnez l'onglet de
         Configuration en bas de la fenêtre. Remplissez les champs suivants avec les
         valeurs suivantes comme montré dans <xref

@@ -217,7 +217,7 @@
 
       <callout arearefs="coDef-profiles-compile-4" id="coRef-profiles-compile-4">
         <para>Nous surchargeons la configuration du plugin Maven Compiler. Nous nous assurons que le bytecode produit
-        par le profil de production ne contient pas les informations de deboggage et qu'il a été optimisé par le
+        par le profil de production ne contient pas les informations de débogage et qu'il a été optimisé par le
         compilateur.</para>
       </callout>
     </calloutlist>
@@ -516,7 +516,7 @@
     <filename>profiles.xml</filename>, dans le fichier <filename>~/.m2/settings.xml</filename> ou dans le fichier
     <filename>\${M2_HOME}/conf/settings.xml</filename>. Avec ces quatre possibilités, il est difficile de savoir quels
     sont les profils disponibles pour un projet sans avoir à parcourir les quatre fichiers en question. Pour faciliter
-    la gestion des profils, connaitre ceux qui sont disponibles et où ils sont définis, il existe le goal du plugin
+    la gestion des profils, connaître ceux qui sont disponibles et où ils sont définis, il existe le goal du plugin
     Maven Help <literal>active-profiles</literal> qui liste l'ensemble des profils actifs et où ils sont définis. Voici
     les instructions pour exécuter le goal <literal>active-profiles</literal> :</para>
 
@@ -545,7 +545,7 @@ The following profiles are active:
 
       <para>Une des principales raisons à l'utilisation de profils Maven est de fournir la configuration
       spécifique à un environnement. Dans un environnement de développement, vous voudrez produire du bytecode avec les
-      informations nécessaires pour le déboggage et vous voudrez configurer votre système pour qu'il utilise une base de
+      informations nécessaires pour le débogage et vous voudrez configurer votre système pour qu'il utilise une base de
       données de dévelopement. Dans un environnement de prodution, vous souhaiterez produire un JAR signé et configurer
       votre système pour qu'il utilise la base de données de production. Dans ce chapitre, nous avons défini un certain
       nombre d'environnements avec des identifiants comme <literal>dev</literal> et <literal>prod</literal>. On peut

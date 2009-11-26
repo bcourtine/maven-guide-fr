@@ -913,7 +913,7 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
 
       <para>C'est très pratique, mais il est agréable de savoir de quoi se compose exactement le classpath de votre
       projet. Même si le projet ne dépend que de quelques bibliothèques dont Dom4J, Log4J, Jaxen, et Velocity, il dépend
-      aussi de dépendances transitives. Si vous avez besoin de connaitre la composition de votre classpath, vous pouvez
+      aussi de dépendances transitives. Si vous avez besoin de connaître la composition de votre classpath, vous pouvez
       utiliser le plugin Maven Dependency pour afficher une<indexterm>
           <primary>Dependency plugin</primary>
         </indexterm><indexterm>
@@ -951,7 +951,7 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
       n'avons inclus que quatre bibliothèques comme dépendances directes, nous avons en fait 15 dépendances. Dom4J
       dépend de Xerces et des XML Parser <acronym>API</acronym>s, Jaxen dépend de la présence de Xalan dans le
       classpath. Le plugin Dependency va afficher la combinaison finale des dépendances utilisées pour compiler votre
-      projet. Si vous voulez connaitre l'arbre complet des dépendances de votre projet, vous pouvez exécuter le goal
+      projet. Si vous voulez connaître l'arbre complet des dépendances de votre projet, vous pouvez exécuter le goal
       <varname>dependency:</varname><varname>tree</varname>.</para>
 
       <screen>$ <command>mvn dependency:tree</command>

@@ -32,7 +32,7 @@ Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)</screen></p
     écrits et testés avec les versions officielles du Java Development Kit téléchargées depuis le site internet de Sun
     Microsystems. Si vous êtes sous GNU/Linux, vous pouvez avoir besoin de télécharger le <acronym>JDK</acronym> de Sun
     vous-même et vérifier qu'il s'agit de la version que vous utilisez (en exécutant la commande <command>java -version
-    </command>). Maintenant que Sun a mis Java en opensource, cela devrait s'améliorer et nous devrions rapidement
+    </command>). Maintenant que Sun a mis Java en Open Source, cela devrait s'améliorer et nous devrions rapidement
     trouver la <acronym>JRE</acronym> et le <acronym>JDK</acronym> de Sun par défaut même dans les distributions
     puristes de GNU/Linux. En attendant ce jour, vous pouvez avoir à le télécharger.</para>
   </section>
