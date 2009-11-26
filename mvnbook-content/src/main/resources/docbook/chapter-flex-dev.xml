@@ -231,7 +231,7 @@ Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour u
         et lui ajouter le XML suivant.</para>
 
         <example id="ex-flex-dev-settings-local-nexus">
-          <title>Settings XML for Local Nexus Instance</title>
+          <title>Configuration de l'instance Nexus dans le fichier settings.xml</title>
 
           <programlisting>&lt;settings&gt;
   &lt;mirrors&gt;
@@ -273,10 +273,11 @@ Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour u
 </programlisting>
         </example>
 
-        <para>This XML file configures Maven to consult a single public
-        repository group for all configured repositories and plugin
-        repositories. It is a simple way to guarantee that every request for
-        an artifact is made through your Nexus installation.</para>
+        <para>Ce fichier XML configure Maven pour qu'il aille
+        consulter le groupe de dépôts publique plutôt que les 
+        dépôts d'artefacts et de plugins configurés par ailleurs.
+        C'est une façon simple de garantir que toute demande
+        d'artefact passe par le Nexus installé.</para>
       </section>
     </section>
 
