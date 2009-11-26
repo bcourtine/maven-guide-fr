@@ -367,7 +367,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
 
       <para>Le mode batch est nécessaire lorsque vous devez exécuter Maven dans un environnement d'intégration continue
       sans interactions possibles. Quand vous exécutez Maven en mode non-interactif, celui-ci n'accepte aucune entrée
-      utilisateur. Au lieu de celà, il utilise les valeurs par défaut 'intelligentes' lorsqu'il a besoin d'entrées.</para>
+      utilisateur. Au lieu de cela, il utilise les valeurs par défaut 'intelligentes' lorsqu'il a besoin d'entrées.</para>
     </section>
 
     <section id="running-sect-deps-option">
@@ -469,7 +469,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       <title>Builds non-récursifs</title>
 
       <para>Parfois vous voudrez exécuter Maven sans qu'il descende dans tous les sous-modules d'un projet. Vous pouvez
-      obtenir celà grâce à l'option suivante :</para>
+      obtenir cela grâce à l'option suivante :</para>
 
       <variablelist>
         <varlistentry>

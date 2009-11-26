@@ -76,7 +76,7 @@
         artefacts produits sur un dépôt publique.</para>
 
         <para>Si vous essayez de construire un projet interne hors du réseau interne de l'entreprise (par exemple de
-        l'autre coté du firewall), le build va échouer. Il se peut que celà vienne de plugins propres à l'entreprise qui
+        l'autre coté du firewall), le build va échouer. Il se peut que cela vienne de plugins propres à l'entreprise qui
         ne sont pas disponibles ou de dépendances du projet inaccessibles car vous n'avez pas les droits nécessaires
         pour accéder au dépôt distant d'entreprise. Un tel projet n'est portable que sur les environnements au sein
         d'une organisation.</para>
@@ -262,7 +262,7 @@
       Maven peut surcharger presque tout ce que vous pouvez trouver dans un fichier <filename>pom.xml</filename>. Le
       <acronym>POM</acronym> Maven possède une balise appelée <sgmltag>profiles</sgmltag> qui contient les différentes
       configurations d'un projet, et dans cette balise se trouve une balise <sgmltag>profile</sgmltag> qui définit chacun d'entre eux.
-      Chaque profil doit avoir une balise <sgmltag>id</sgmltag>, celà mis à part il peut contenir presque tous les
+      Chaque profil doit avoir une balise <sgmltag>id</sgmltag>, cela mis à part il peut contenir presque tous les
       éléments que l'on peut trouver sous la balise <sgmltag>project</sgmltag>. Le document <acronym>XML</acronym> qui
       suit nous montre toutes les balises qu'un profil peut surcharger.</para>
 
@@ -315,7 +315,7 @@
     disponibles que pour Java 6 et son moteur de scripts défini dans la <ulink
     url="http://jcp.org/en/jsr/detail?id=223">JSR-223</ulink>. Une fois que vous avez séparé le bloc de code qui utilise
     le moteur de scripts dans un projet Maven à part, vous voulez que les personnes qui utilisent Java 5 puissent
-    construire votre projet sans essayer de construire l'extension spécifique Java 6. Vous pouvez faire celà au moyen
+    construire votre projet sans essayer de construire l'extension spécifique Java 6. Vous pouvez faire cela au moyen
     d'un profil Maven qui ajoute le module de gestion des scripts uniquement lorsque le build se fait sur un
     <acronym>JDK</acronym> Java 6. Tout d'abord, jettons un oeil à la structure des répertoires de notre projet et
     comment nous souhaitons que les développeurs construisent notre système.</para>
@@ -559,7 +559,7 @@ The following profiles are active:
       alors créer un profil dans votre fichier <filename>settings.xml</filename> qui définirait une propriété
       <varname>environment.</varname><varname>type</varname> avec pour valeur <literal>dev</literal> sur votre machine
       de développement. Ainsi, chaque projet doit définir un profil <literal>dev</literal> activé par la même variable
-      d'environnement. Voyons comment appliquer tout celà : le fichier <filename>settings.xml</filename> suivant définit
+      d'environnement. Voyons comment appliquer tout cela : le fichier <filename>settings.xml</filename> suivant définit
       un profil dans <filename>~/.m2/settings.xml</filename> qui spécifie la valeur <literal>dev</literal> pour la
       propriété <varname>environment.</varname><varname>type</varname>.</para>
 
@@ -662,13 +662,13 @@ The following profiles are active:
 
       <para>Cette bonne pratique est la conséquence de la section précédente. Dans la partie <xref
       linkend="ex-profile-envtype-pom" xrefstyle="select:title" />, le profil de production ne contient pas la propriété
-      <varname>database.password</varname>. J'ai fait celà délibéremment pour illustrer le fait de stocker les mots de
+      <varname>database.password</varname>. J'ai fait cela délibéremment pour illustrer le fait de stocker les mots de
       passe dans votre fichier <filename>settings.xml</filename>. Si vous développez une application dans une grande
       organisation qui accorde de l'importance à la sécurité, il est probable que la majorité des développeurs ne
       connaissent pas le mot de passe de production de la base de données. C'est la norme dans une organisation qui
       trace des lignes infranchissables entre équipe de développement et équipe de production. Les développeurs ont accès
       aux environnements de développement et de pré-production, mais ils pourraient ne pas avoir (ou ne pas vouloir)
-      accès à la base de données de production. Il y a un certain nombre de raisons pour lesquelles celà aurait un
+      accès à la base de données de production. Il y a un certain nombre de raisons pour lesquelles cela aurait un
       sens, particulièrement si une organisation gère des données sensibles financières, médicales ou autres. Dans ce
       scénario, l'environnement de production ne pourrait être utilisé que par le responsable technique ou par un
       membre de l'équipe de production. Quand ils exécutent le build avec la valeur <literal>prod</literal> pour la
@@ -817,7 +817,7 @@ The following profiles are active:
         </example></para>
 
       <para>Dans ce fichier <filename>pom.xml</filename> chaque profil n'a pas besoin d'inclure une balise
-      <sgmltag>build</sgmltag> pour configurer le plugin Jar. Au lieu de celà, le profil est activé par la famille à
+      <sgmltag>build</sgmltag> pour configurer le plugin Jar. Au lieu de cela, le profil est activé par la famille à
       laquelle appartient le système d'exploitation, et valorise la propriété <varname>envClassifier</varname> soit à
       <literal>win</literal> soit à <literal>linux</literal>. Cette propriété <varname>envClassifier</varname> est
       référencée dans la balise <sgmltag>build</sgmltag> du fichier <filename>pom.xml</filename> pour ajouter un
