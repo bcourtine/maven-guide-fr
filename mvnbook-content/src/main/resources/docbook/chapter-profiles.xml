@@ -141,7 +141,7 @@
     <para>Un profil dans Maven est un ensemble alternatif de valeurs qui définissent ou surchargent les valeurs par défaut.
     En utilisant un profil, vous pouvez personnaliser un build pour différents environnements. Les profils sont
     configurés dans le fichier <filename>pom.xml</filename> et possèdent un identifiant. Vous pouvez ensuite exécuter 
-    Maven en précisant en la ligne de commande le profil à utiliser. Le <filename>pom.xml</filename> suivant utilise
+    Maven en précisant sur la ligne de commande le profil à utiliser. Le <filename>pom.xml</filename> suivant utilise
     un profil <literal>production</literal> pour écraser les paramètres par défaut du plugin Compiler.</para>
 
     <example>
@@ -203,21 +203,21 @@
       </callout>
 
       <callout arearefs="coDef-profiles-compile-2" id="coRef-profiles-compile-2">
-        <para>Chaque profil doit avoir un élément <sgmltag>id</sgmltag>. Cet element <sgmltag>id</sgmltag> contient le
+        <para>Chaque profil doit avoir un élément <sgmltag>id</sgmltag>. Cette balise <sgmltag>id</sgmltag> contient le
         nom qui est utilisé pour invoquer ce profil en ligne de commande. Un profil est invoqué en passant
         l'argument <command>-P&lt;profile_id&gt;</command> à la ligne de commande Maven.</para>
       </callout>
 
       <callout arearefs="coDef-profiles-compile-3" id="coRef-profiles-compile-3">
         <para>Un élément <sgmltag>profile</sgmltag> peut contenir de nombreux éléments présents dans l'élément
-        <sgmltag>project</sgmltag> d'un POM. Dans cet exemple, nous surchrgeons le comportement du plugin Compiler et nous
+        <sgmltag>project</sgmltag> d'un POM. Dans cet exemple, nous surchargeons le comportement du plugin Compiler et nous
         devons écraser la configuration du plugin qui se trouve normalement dans l'élément
         <sgmltag>build</sgmltag>/<sgmltag>plugins</sgmltag>.</para>
       </callout>
 
       <callout arearefs="coDef-profiles-compile-4" id="coRef-profiles-compile-4">
         <para>Nous surchargeons la configuration du plugin Maven Compiler. Nous nous assurons que le bytecode produit
-        par le profil de production ne contient pas les informtions de deboggage et qu'il a été optimisé par le
+        par le profil de production ne contient pas les informations de deboggage et qu'il a été optimisé par le
         compilateur.</para>
       </callout>
     </calloutlist>
@@ -250,8 +250,8 @@
 </screen>
 
     <para>Cet extrait de la sortie en mode debug de Maven nous montre la configuration du plugin Compiler avec le profil
-    de production. Comme nous pouvons le voir, la variable <varname>debug</varname> est à faux et la variable
-    <varname>optimize</varname> est à vrai.</para>
+    de production. Comme nous pouvons le voir, la variable <varname>debug</varname> est à <varname>false</varname> et la variable
+    <varname>optimize</varname> est à <varname>true</varname>.</para>
 
     <section id="profiles-sect-overriding-pom">
       <title>Surcharger un POM</title>
@@ -261,7 +261,7 @@
       Maven peut surcharger presque tout ce que vous pouvez trouver dans un fichier <filename>pom.xml</filename>. Le
       <acronym>POM</acronym> Maven possède une balise appelée <sgmltag>profiles</sgmltag> qui contient les différentes
       configurations d'un projet, et dans cette balise se trouve une balise <sgmltag>profile</sgmltag> qui définit chacun d'entre eux.
-      Chaque profil doit avoir une balise <sgmltag>id</sgmltag>, cela mis à part il peut contenir presque tous les
+      Chaque profil doit avoir une balise <sgmltag>id</sgmltag>, cela mit à part, il peut contenir presque tous les
       éléments que l'on peut trouver sous la balise <sgmltag>project</sgmltag>. Le document <acronym>XML</acronym> qui
       suit nous montre toutes les balises qu'un profil peut surcharger.</para>
 
@@ -293,9 +293,9 @@
         </example></para>
 
       <para>Un profil peut donc redéfinir tous ces éléments. Il peut redéfinir le nom de l'artefact final, les
-      dépendances et le build d'un projet via la en surchargeant la configuration de plugins. Un profil peut aussi
-      redéfinir les paramètres de distribution ; par exemple, si pour une étape de validation vous
-      devez publier vos artefacts sur un serveur de pré-production vous allez créer un profil de validation qui va
+      dépendances et le build d'un projet via en surchargeant la configuration des plugins. Un profil peut aussi
+      redéfinir les paramètres de distribution. Par exemple, si pour une étape de validation vous
+      devez publier vos artefacts sur un serveur de pré-production, vous allez créer un profil de validation qui va
       surcharger la balise <sgmltag>distributionManagement</sgmltag>.</para>
     </section>
   </section>
