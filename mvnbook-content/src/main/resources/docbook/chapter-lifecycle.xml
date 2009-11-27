@@ -31,8 +31,8 @@
     <section id="lifecycle-sect-clean">
       <title>Cycle de vie Clean (clean)</title>
 
-      <para>Le premier cycle de vie auquel vous vous intéresserez est le cycle de vie le plus simple de Maven. 
-      L'exécution de la commande <command>mvn clean</command> invoque le cycle de vie 'clean', celui-ci contient trois phases :</para>
+      <para>Le premier cycle de vie auquel nous allons nous intéresser est le cycle de vie le plus simple de Maven.
+      L'exécution de la commande <command>mvn clean</command> invoque le cycle de vie 'clean'. Celui-ci contient trois phases :</para>
 
       <itemizedlist>
         <listitem>
@@ -50,7 +50,7 @@
 
       <para>La phase la plus intéressante de ce cycle de vie est celle nommée <varname>clean</varname>.
       Le goal 'clean' du plugin Clean (<varname>clean:clean</varname>) est attaché à la phase <varname>clean</varname> du cycle de vie <varname>clean</varname>.
-      Le goal <varname>clean:clean</varname> efface les traces de la dernière construction en supprimant le répertoire de build.
+      Le goal <varname>clean:clean</varname> efface les traces laissées par la dernière construction en supprimant le répertoire de build.
       Si vous n'avez pas modifié l'emplacement du répertoire de build, celui-ci se trouve par défaut dans le répertoire <filename>\${basedir}/target</filename>.
       Lorsque vous exécutez le goal <varname>clean:clean</varname>, vous ne l'exécutez pas directement avec <command>mvn clean:clean</command>, 
       vous l'utilisez par l'intermédiaire de la phase <varname>clean</varname> du cycle de vie du même nom. 
@@ -180,15 +180,15 @@
     </section>
 
     <section id="lifecycle-sect-default">
-      <title>Lifecycle par défaut(default)</title>
+      <title>Cycle de vie par défaut (default)</title>
 
-      <para>La plupart des utilisateurs Maven seront familiers avec le cycle de vie par défaut. 
-      C'est un modèle général de process de build pour une application.
+      <para>La plupart des utilisateurs Maven sont familiers avec le cycle de vie par défaut. 
+      C'est un modèle général de processus de build pour une application.
       Ce cycle de vie commence par la phase <varname>validate</varname> et se termine avec la phase <varname>deploy</varname>. 
       Les phases du cycle de vie Maven par défaut sont présentées dans le <xref linkend="tbl-default-lifecycle" />.</para>
 
       <table id="tbl-default-lifecycle">
-        <title>Phase du cycle de vie Maven</title>
+        <title>Phases du cycle de vie Maven</title>
 
         <tgroup cols="2">
           <thead>
@@ -227,7 +227,7 @@
             <row>
               <entry>process-resources</entry>
 
-              <entry>Copie et traite les ressources dans leur répertoire destination, pour les rendre prêtes pour le packaging</entry>
+              <entry>Copie et traite les ressources dans leur répertoire destination, afin qu'elles soient prêtes pour le packaging</entry>
             </row>
 
             <row>
@@ -239,7 +239,7 @@
             <row>
               <entry>process-classes</entry>
 
-              <entry>Traitre a posteriori les fichiers générés par la compilation, pour modifier du bytecode par exemple</entry>
+              <entry>Traitre à posteriori les fichiers générés par la compilation, pour modifier du bytecode par exemple</entry>
             </row>
 
             <row>
@@ -257,26 +257,26 @@
             <row>
               <entry>generate-test-resources</entry>
 
-              <entry>Crée les ressources pour le test</entry>
+              <entry>Génère les ressources pour les tests</entry>
             </row>
 
             <row>
               <entry>process-test-resources</entry>
 
-              <entry>Copie et traite les ressources dans le répertoire destination des tests</entry>
+              <entry>Copie et traite les ressources de test dans le répertoire destination des tests</entry>
             </row>
 
             <row>
               <entry>test-compile</entry>
 
-              <entry>Compile le code source des tests dans le répertoire destination</entry>
+              <entry>Compile le code source des tests dans le répertoire destination des tests</entry>
             </row>
 
             <row>
               <entry>test</entry>
 
               <entry>Exécute les tests en utilisant le framework de test approprié. 
-              Le code de ces tests ne doit pas être requis par le packaging ni le déploiement.</entry> 
+              Le code de ces tests ne doit pas être nécessaire au packaging ni au déploiement.</entry>
             </row>
 
             <row>
@@ -320,13 +320,13 @@
             <row>
               <entry>install</entry>
 
-              <entry>Installe le package dans le repository local, celui-ci pourra ainsi être utilisé comme dépendance par d'autres projets locaux</entry>
+              <entry>Installe le package dans le dépôt local, celui-ci pourra ainsi être utilisé comme dépendance par d'autres projets locaux</entry>
             </row>
 
             <row>
               <entry>deploy</entry>
 
-              <entry>Copie le package final sur le repository distant. Permet de partager le package à d'autres utilisateurs et projets (souvent pertinent pour une vraie release)</entry>
+              <entry>Copie le package final sur le dépôt distant. Permet de partager le package avec d'autres utilisateurs et projets (souvent pertinent pour une vraie livraison)</entry>
             </row>
           </tbody>
         </tgroup>
