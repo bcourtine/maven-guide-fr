@@ -1175,12 +1175,12 @@ java -jar simple-cmd-2.3.1.jar %*
 
       <para>La plupart des cycles de vie rattachent le goal test du plugin Surefire à leur phase test. 
       Le plugin Surefire est un plugin Maven permettant d'exécuter des tests unitaires. 
-      Le comportement par défaut du plugin Surefire est de rechercher toutes les class terminant par '*Test'
+      Le comportement par défaut du plugin Surefire est de rechercher toutes les class se terminant par '*Test'
       dans le répertoire source des tests, puis de les exécuter comme des tests <ulink url="http://www.junit.org">JUnit</ulink>.
       Le plugin Surefire peut également être configuré pour exécuter des tests unitaires <ulink url="http://www.testng.org">TestNG</ulink>.</para> 
 
       <para>Après avoir exécuté la commande <command>mvn test</command>, 
-      vous aurez probablement noté que le plugin Surefire ait produit des rapports d'exécution dans le répertoire <filename>target/surefire-reports</filename>.  
+      vous aurez probablement noté que le plugin Surefire a produit des rapports d'exécution dans le répertoire <filename>target/surefire-reports</filename>.  
       Ce répertoire de rapports contient deux fichiers pour chaque test exécuté par le plugin :
       un fichier <acronym>XML</acronym> qui contient les informations d'exécution du test,
       un fichier texte qui contient la sortie des tests unitaires. 
@@ -1189,10 +1189,10 @@ java -jar simple-cmd-2.3.1.jar %*
       Ce répertoire <filename>surefire-reports/</filename> est également utilisé durant la génération du site
       pour créer un résumé 'facile à lire' du résultat des tests unitaires.</para>
 
-      <para>Si vous travaillez sur un projet qui contient des tests unitaires qui échouent,
-      mais que vous voulez tout de même générer votre artefact, vous devez configurer le plugin Surefire pour qu'il continue le build même en cas d'échec.
+      <para>Si vous travaillez sur un projet qui contient des tests unitaires qui échouent, mmais que vous
+      voulez tout de même générer votre artefact, vous devez configurer le plugin Surefire pour qu'il poursuive le build même en cas d'échec.
       Le comportement par défaut est d'arrêter le build lorsqu'un test unitaire échoue.      
-      Pour modifier ce comportement, vous devez affecter la propriété <varname>testFailureIgnore</varname> à 'true' du plugin Surefire.</para>
+      Pour modifier ce comportement, vous devez affecter la propriété <varname>testFailureIgnore</varname> du plugin Surefire à 'true'.</para>
 
       <example>
         <title>Configurez le plugin Surefire pour ignorer les tests en échec</title>
@@ -1215,8 +1215,8 @@ java -jar simple-cmd-2.3.1.jar %*
 
       <screen>$ mvn install -Dmaven.test.skip=true</screen>
 
-      <para>La variable <varname>maven.test.skip</varname> agit sur les plugins Compiler et Surefire,
-      en précisant cette variable, vous demandez à Maven d'ignorer les tests.</para>
+      <para>La variable <varname>maven.test.skip</varname> agit sur les plugins Compiler et 
+      Surefire. En précisant cette variable, vous demandez à Maven d'ignorer les tests.</para>
 
     </section>
 
