@@ -1150,13 +1150,13 @@ java -jar simple-cmd-2.3.1.jar %*
       <para>La phase <varname>test-compile</varname> est quasiment identique à la phase <varname>compile</varname>.
       La seule différence est que <varname>test-compile</varname> appelle <varname>compile:testCompile</varname> pour compiler le code source des tests.  
       Si vous n'avez pas personnalisé les répertoires par défaut du Super <acronym>POM</acronym>,
-      <varname>compile:testCompile</varname> compilera le code source contenu dans le répertoire <filename>src/test/java</filename> dans <filename>target/test-classes</filename>.</para> 
+      <varname>compile:testCompile</varname> compilera le code source contenu du répertoire <filename>src/test/java</filename> dans <filename>target/test-classes</filename>.</para>
 
       <para>Comme pour le répertoire du code source, si vous désirez personnaliser l'emplacement du code source des tests ou du répertoire destination de la compilation,
       vous pouvez surcharger <varname>testSourceDirectory</varname> et <varname>testOutputDirectory</varname>.
       Si vous voulez stocker le code source de vos tests dans <filename>src-test/</filename> au lieu du répertoire <filename>src/test/java</filename>
-      et que vous voulez enregistrer le bytecode dans le répertoire <filename>classes-test/</filename> au lieu <filename>target/test-classes</filename>,
-      utilisez la configuration suivante.</para> 
+      et que vous voulez enregistrer le bytecode dans le répertoire <filename>classes-test/</filename> au
+      lieu <filename>target/test-classes</filename>, utilisez la configuration suivante.</para>
 
       <example>
         <title>Modifier l'emplacement du code source et du bytecode des tests</title>
