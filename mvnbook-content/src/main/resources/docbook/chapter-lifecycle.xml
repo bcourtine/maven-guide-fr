@@ -387,12 +387,12 @@
     <title>Cycles de vie spécifiques par type de package</title>
 
     <para>Des goals spécifiques sont rattachés à chaque phase en fonction du packaging du projet.
-    Un projet du type <varname>jar</varname> ne dispose pas des mêmes goals par défaut qu'un projet du type <varname>war</varname>.  
+    Un projet de type <varname>jar</varname> ne dispose pas des mêmes goals par défaut qu'un projet de type <varname>war</varname>.
     La balise <sgmltag>packaging</sgmltag> influe donc sur les étapes requises pour construire un projet.      
-    Pour illustrer cela, prenons en exemple avec deux projets :
-    l'un avec un packaging du type <varname>pom</varname> et l'autre avec un packaging du type <varname>jar</varname>.   
+    Pour illustrer cela, prenons un exemple avec deux projets :
+    l'un avec un packaging de type <varname>pom</varname> et l'autre avec un packaging de type <varname>jar</varname>.
     Le projet avec le packaging de type <varname>pom</varname> lancera le goal <varname>site:attach-descriptor</varname> durant la phase <varname>package</varname>,
-    alors que le projet du type <varname>jar</varname> exécutera le goal <varname>jar:jar</varname>.</para>
+    alors que le projet de type <varname>jar</varname> exécutera le goal <varname>jar:jar</varname>.</para>
 
     <para>Les paragraphes suivants décrivent le cycle de vie pour tous les types de packaging disponibles dans Maven.
     Ils vous permettront de trouver quels goals sont rattachés au cycle de vie par défaut.</para> 
