@@ -405,7 +405,7 @@
       <xref linkend="tbl-jar-lifecycle" />.</para>
 
       <table id="tbl-jar-lifecycle">
-        <title>Goals par défaut pour le packaging du type JAR</title>
+        <title>Goals par défaut pour le packaging de type JAR</title>
 
         <tgroup cols="2">
           <thead>
