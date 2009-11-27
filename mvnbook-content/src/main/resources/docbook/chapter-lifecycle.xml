@@ -899,20 +899,19 @@
       <title>Traiter les resources</title>
 
       <para>La plupart des cycles de vie rattachent le goal <varname>resources:resources</varname> à la phase <varname>process-resources</varname>.
-      La phase <varname>process-resources</varname> "traite" les ressources et les copies dans le répertoire destination.
-      Si vous n'avez pas personnalisé les répertoires par défaut définis dans le Super <acronym>POM</acronym>,
-      Maven copiera les fichiers du répertoire <filename>\${basedir}/src/main/resources</filename> au répertoire
-      <filename>\${basedir}/target/classes</filename> ou au répertoire définit dans <filename>\${project.build.outputDirectory}</filename>.
+      La phase <varname>process-resources</varname> "traite" les ressources et les copie dans le répertoire destination.
+      Si vous n'avez pas personnalisé les répertoires par défaut définis dans le Super <acronym>POM</acronym>, Maven copiera
+      les fichiers du répertoire <filename>\${basedir}/src/main/resources</filename> dans le répertoire
+      <filename>\${basedir}/target/classes</filename> ou dans le répertoire défini dans <filename>\${project.build.outputDirectory}</filename>.
       En plus de les copier, Maven peut également appliquer des filtres aux ressources pour remplacer certains de leurs éléments.
       Tout comme dans le <acronym>POM</acronym> où les variables étaient définies par la notation <varname>\${...}</varname>,
       vous pouvez référencer des variables dans les ressources de votre projet en utilisant cette même syntaxe.
       Couplée aux profils, cette fonctionnalité peut être utilisée pour construire des artefacts configurés pour différentes plateformes de déploiement. 
-      C'est quelque chose de courant d'avoir besoin de construire des artefacts multi-environnement, 
-      un projet à souvent plusieurs cibles : développement, tests, recette, production.    
+      Il est courant d'avoir besoin de construire des artefacts multi-environnement, en effet, 
+      un projet a souvent plusieurs environnements cibles : développement, tests, recette, production.
       Pour plus d'informations à propos des profils, consultez le <xref linkend="profiles" />.</para>
 
-      <para>Pour illustrer le filtering des ressources, prenons l'exemple d'un projet possédant un fichier <acronym>XML</acronym> 
-      dans le répertoire <filename>src/main/resources/META-INF/service.xml</filename>.  
+      <para>Pour illustrer ce filtrage des ressources, prenons l'exemple d'un projet possédant un fichier <acronym>XML</acronym> : <filename>src/main/resources/META-INF/service.xml</filename>.
       Vous voulez externaliser certaines variables de configuration dans un fichier properties. 
       En d'autres termes, vous voulez référencer l'<acronym>URL</acronym> <acronym>JDBC</acronym>, l'utilisateur et le mot de passe de votre base de données,
       sans directement mettre ces valeurs en dur dans le fichier <filename>service.xml</filename>.
@@ -950,13 +949,13 @@ jdbc.password=
 </programlisting>
       </example>
 
-      <para>Pour configurer le filtre des ressources avec le fichier <filename>default.properties</filename>,
+      <para>Pour configurer le filtrage des ressources avec le fichier <filename>default.properties</filename>,
       nous avons besoin de préciser deux choses dans le <acronym>POM</acronym> du projet :
-      une liste de fichier de propriétés dans la balise <sgmltag>filters</sgmltag> de la configuration du build
+      une liste de fichiers de propriétés dans la balise <sgmltag>filters</sgmltag> de la configuration du build
       et un booléen qui permet à Maven de savoir si un répertoire doit être filtré. 
       Le comportement par défaut de Maven est de ne pas effectuer de filtre mais de juste copier les ressources dans le répertoire destination :
-      vous devez donc configurer explicitement le filtre des ressources. 
-      Ce comportement par défaut permet d'éviter les mauvaises surprises comme, par exemple, le filtrer sans que vous le désiriez de fichiers contenant des éléments <varname>\${...}</varname>.</para> 
+      vous devez donc configurer explicitement le filtrage des ressources.
+      Ce comportement par défaut permet d'éviter les mauvaises surprises comme, par exemple, filtrer sans que vous le désiriez des fichiers contenant des éléments <varname>\${...}</varname>.</para>
 
       <para><example>
           <title>Filtrage des ressources (remplacer les propriétés)</title>
@@ -1011,7 +1010,7 @@ jdbc.password=
       vous pouvez placer tous vos scripts dans un répertoire du type <filename>src/main/command</filename>.
       Dans la configuration des ressources du <acronym>POM</acronym> suivant, 
       vous verrez comment nous pouvons utiliser le filtrage des ressources et 
-      utiliser une référence vers une variable pour modifier le nom du <acronym>JAR</acronym>.  
+      avec une référence vers une variable pour modifier le nom du <acronym>JAR</acronym>.
       Pour plus d'informations sur le plugin Maven Assembly, consultez le <xref linkend="assemblies" />.</para>      
 
       <para><example id="ex-filter-script">
@@ -1064,7 +1063,7 @@ java -jar simple-cmd-2.3.1.jar %*
 
       <para>La possibilité de personnaliser le filtrage pour un sous-ensemble spécifique de ressources 
       est l'une des raisons de séparer vos ressources par type sur un projet. 
-      Plus un projet est complexe, plus il sera avantageux de séparer les ressources dans répertoires multiples.
+      Plus un projet est complexe, plus il sera avantageux de séparer les ressources dans différents répertoires.
       L'alternative au fait de conserver différentes sortes de ressources nécessitant différentes configurations de filtre dans des répertoires différents
       est d'utiliser un ensemble complexe de pattern 'include' et 'exclude' pour différencier les types de configuration.
       Cette seconde solution est beaucoup plus complexe à maintenir et à mettre en place.</para>
