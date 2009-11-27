@@ -10,12 +10,12 @@
     <para>
     Maven modélise les projets en entités qui sont définies par un <acronym>POM</acronym>.
     Le <acronym>POM</acronym> capture donc l'identité d'un projet : Quel est son contenu ?
-    De quel genre de packaging a t-il besoin ? Le projet a-t-il un parent ? Quelles sont ses dépendances ? 
+    De quel type de packaging a t-il besoin ? Le projet a-t-il un parent ? Quelles sont ses dépendances ?
     Nous avons exploré les principes de description d'un projet dans les chapitres précédents,
     mais nous n'avons pas introduit le mécanisme qui permet à Maven d'agir sur ces objets.
-    Dans Maven, les "actions" (ou verbe) sont représentés par des goals. Ceux-ci sont packagés dans des plugins qui sont attachés à des phases du cycle de vie du build.
-    Le cycle de vie Maven se compose d'une séquence de phases nommées dont : <varname>prepare-resources</varname>, <varname>compile</varname>, <varname>package</varname>, <varname>install</varname>.
-    Il y a donc, entre autres, une phase qui capture la compilation et une autre le packaging. 
+    Dans Maven, les "actions" (ou verbe) sont représentées par des goals. Ceux-ci sont packagés dans des plugins qui sont attachés à des phases du cycle de vie du build.
+    Le cycle de vie Maven se compose d'une séquence de phases nommées comme <varname>prepare-resources</varname>, <varname>compile</varname>, <varname>package</varname> ou <varname>install</varname>.
+    Il y a donc, entre autres, une phase pour la compilation et une autre pour le packaging.
     Il existe également des phases du type <varname>pre-</varname> et <varname>post-</varname>. 
     Celles-ci peuvent être utilisées, par exemple, pour enregistrer des goals devant être exécutés avant la compilation 
     ou effectuer certaines tâches après l'exécution d'une phase spécifique.
@@ -26,7 +26,7 @@
     Ces goals sont choisis et rattachés en fonction du type de packaging de leur projet. 
     Il existe trois types de cycle de vie : clean, default (quelquefois appelé build) et site.
     Dans ce chapitre, vous allez apprendre comment Maven rattache des goals aux phases de ces cycles de vie et comment personnaliser un cycle de vie. 
-    Vous connaîtrez également les différentes phases du cycle de vie par défaut.</para>
+    Vous apprendrez également les différentes phases du cycle de vie par défaut.</para>
 
     <section id="lifecycle-sect-clean">
       <title>Cycle de vie Clean (clean)</title>
