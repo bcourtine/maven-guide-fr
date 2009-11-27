@@ -597,8 +597,8 @@
       <para>Les <acronym>EJB</acronym>s (Enterprise Java Beans) proposent un mécanisme standard d'accès aux données.
       Ils proposent une approche orientée modèle (model-driven development) pour le développement d'applications Java d'entreprise.   
       Maven fournit un support pour les <acronym>EJB</acronym> 2 et 3.
-      Les pamarètres par défaut du plugin recherchent la présence des fichiers de configuration <acronym>EJB</acronym> 2.1,
-      vous devez configurer le plugin <acronym>EJB</acronym> pour packager spécifiquement un <acronym>EJB3</acronym>,
+      Les paramètres par défaut du plugin recherchent la présence des fichiers de configuration <acronym>EJB</acronym> 2.1,
+      vous devez configurer le plugin <acronym>EJB</acronym> pour packager spécifiquement un <acronym>EJB3</acronym>.
       Les goals par défaut pour des projets du type <acronym>EJB</acronym> sont présentés dans le <xref linkend="tbl-ejb-lifecycle" />.</para>
 
       <table id="tbl-ejb-lifecycle">
