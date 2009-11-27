@@ -337,7 +337,7 @@
       <title>Cycle de vie Site (site)</title>
 
       <para>Maven fait plus que construire des artefacts,
-      il peut également générer de la documentation et différents rapports d'un ou plusieurs projets.
+      il peut également produire de la documentation et différents rapports d'un ou plusieurs projets.
       La documentation du projet et la génération du site web ont un cycle de vie séparé. 
       Celui-ci contient quatre phases :</para>
 
@@ -367,13 +367,13 @@
         </listitem>
 
         <listitem>
-          <para>site-deploy -site:deploy</para>
+          <para>site-deploy - site:deploy</para>
         </listitem>
       </orderedlist>
 
       <para>Le type de packaging n'a aucune influence sur ce cycle de vie. 
       Les types de packaging influent sur la création des artefacts, pas sur le type de site généré. 
-      Le plugin Site lance l'exécution de la génération d'un document <ulink url="http://maven.apache.org/doxia/">Doxia</ulink> et de différents plugins permettant de générer des rapports.
+      Le plugin Site lance l'exécution de la production d'un document <ulink url="http://maven.apache.org/doxia/">Doxia</ulink> et de différents plugins permettant de générer des rapports.
       Vous pouvez générer un site à partir d'un projet Maven en exécutant la commande suivante :</para>
 
       <screen>$ <command>mvn site</command>
