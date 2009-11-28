@@ -559,7 +559,7 @@ package: org.sonatype.test
       les références vers les librairies et les resources requises pour compiler une application Flex.</para>
 
       <para>Dans l'<xref linkend="fig-flex-dev-simple-lib-pom" />, le packaging
-      est primordial. Le type de packaging d'un POM controle le cycle de vie qui est utilisé
+      est primordial. Le type de packaging d'un POM contrôle le cycle de vie qui est utilisé
       pour produire le résultat de build. La valeur <varname>swc</varname> dans 
        l'élément packaging est l'indice pour rechercher les personalisations liées aux cycle de vie spécifique Flex
       qui sont fournies par le plugin 

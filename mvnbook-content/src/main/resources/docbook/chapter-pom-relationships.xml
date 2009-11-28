@@ -557,7 +557,7 @@
         bonne pratique. Si vous êtes en train de développer un logiciel, vous pouvez être amené à utiliser RELEASE ou
         LATEST comme une facilité pour ne pas à mettre à jour les numéros de version lorsqu'une bibliothèque tierce est
         déployée. Quand vous livrer un logiciel, vous devriez toujours vous assurer que votre projet dépend de versions
-        spéciques pour limiter l'impact sur votre build d'un déploiement d'artefacts hors de votre controle. Utilisez
+        spéciques pour limiter l'impact sur votre build d'un déploiement d'artefacts hors de votre contrôle. Utilisez
         donc LATEST et RELEASE prudemment, voire pas du tout.</para>
 
         <para>Depuis la version 2.0.9 de Maven, les numéros de version des plugins qui constituent le cœur de Maven sont
