@@ -746,7 +746,7 @@
       Pour ce faire, vous devez commencer par créer un mot de passe maître et stocker celui-ci dans un fichier de <filename>security-settings.xml</filename> à l'emplacement <filename>~/.m2/settings-security.xml</filename>. 
       Vous pouvez ensuite utiliser ce dernier pour chiffrer vos autres mots de passe, ceux que vous deviez stocker en clair dans vos Settings Maven (<filename>~/.m2/settings.xml</filename>).</para>
 
-      <para>Pour illustrer cette fonctionnalité, regardons le processus utilisé par Maven utilise pour récupérer un mot de passe non chiffré d'un serveur
+      <para>Pour illustrer cette fonctionnalité, regardons le processus utilisé par Maven pour récupérer le mot de passe non chiffré d'un serveur
       à partir des paramètres Maven d'un utilisateur. La <xref linkend="fig-settings-unencrypted" /> présente ce processus. 
       Un utilisateur peut faire référence à un serveur en utilisant un identifiant dans le <varname>POM</varname> d'un projet, Maven recherche alors le serveur correspondant dans ses settings. 
       Une fois trouvé, Maven utilisera le mot de passe associé à celui-ci. 
@@ -767,7 +767,7 @@
         </mediaobject>
       </figure>
 
-      <para>Maintenant, regardons comment Maven utilise des mots de passe chiffrés, la <xref linkend="fig-settings-encrypted" /> présente ce processus.</para>
+      <para>Maintenant, regardons comment Maven utilise des mots de passe chiffrés. La <xref linkend="fig-settings-encrypted" /> présente ce processus.</para>
 
       <figure id="fig-settings-encrypted">
         <title>Stockage d'un mot de passe crypté dans les Settings Maven</title>
@@ -790,7 +790,7 @@
       <screen>$ <command>mvn -emp mypassword</command>
 {rsB56BJcqoEHZqEZ0R1VR4TIspmODx1Ln8/PVvsgaGw=}</screen>
 
-      <para>Maven affiche alors une copie de la version chiffrée du mot de passe sur la sortie stantand. 
+      <para>Maven affiche alors une copie de la version chiffrée du mot de passe sur la sortie stantard. 
       Copiez celui-ci et collez-le dans le fichier <filename>~/.m2/settings-security.xml</filename> comme le montre l'exemple suivant.</para>
 
       <example id="ex-settings-master-password">
@@ -827,10 +827,10 @@
 &lt;/settings&gt;</programlisting>
       </example>
 
-      <para>Lorsque vous exécutez un build Maven qui à besoin d'interagir avec le gestionnaire de repository, 
+      <para>Lorsque vous exécutez un build Maven qui a besoin d'interagir avec le gestionnaire de repository, 
       Maven récupérera le mot de passe principal à partir du fichier <filename>~/.m2/settings-security.xml</filename> 
       et utilisera celui-ci pour déchiffrer le mot de passe stocké dans votre fichier <filename>~/.m2/settings.xml</filename>. 
-      Maven utilisera ce dernier pour se connecter au serveur.</para>
+      Maven utilisera ce mot de passe déchiffré pour se connecter au serveur.</para>
 
       <para>Quels en sont les bénéfices d'un tel mécanisme ? 
       Il vous permet d'éviter de stocker en clair vos mots de passe dans le fichier <filename>~/.m2/settings.xml</filename>. 

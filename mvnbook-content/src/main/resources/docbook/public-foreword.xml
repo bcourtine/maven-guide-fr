@@ -614,7 +614,7 @@
 
         <listitem>
           <para>Correction de problèmes d'espacement dans l'Appendix B, et vérification que les
-          coordonnées GA de l'artéfact Geronimo ne dépassent pas sur la colonne version.
+          coordonnées GA de l'artefact Geronimo ne dépassent pas sur la colonne version.
           (
             <ulink
           url="https://issues.sonatype.org/browse/MVNDEF-2">MVNDEF-2

@@ -917,7 +917,7 @@ $ <command>mkdir src/main/resources</command>
 
       <para>Ensuite, écrivons une <acronym>CSS</acronym> personnalisée pour notre skin.
       Celle-ci doit se trouver à l'emplacement suivant : <filename>src/main/resources/css/maven-theme.css</filename>.
-      Contrairement au fichier <filename>site.css</filename> qui se retrouvera au coeur des sources du projet, 
+      Contrairement au fichier <filename>site.css</filename> qui se retrouvera au cœur des sources du projet, 
       le fichier <filename>maven-theme.css</filename> sera empaqueté dans un <acronym>JAR</acronym> stocké dans votre dépôt local. 
       Pour que ce fichier soit inclus dans le <acronym>JAR</acronym> du skin,
       il doit se trouver dans le répertoire principal des ressources du projet : <filename>src/main/resources</filename>.</para>

@@ -1522,7 +1522,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
     variable <varname>location</varname> pour afficher les prévisions météo provenant du <classname>WeatherDAO</classname>.
     Ce template utilise une structure de contrôle Velocity, <code>#foreach</code>, pour itérer sur chaque élément de la variable <varname>weathers</varname>.
     Chaque élément de la liste <varname>weathers</varname> est assigné à une variable nommée <varname>weather</varname>. 
-    Le coeur de la boucle, entre <code>#foreach</code> et <code>#end</code>, permet d'afficher les informations de chaque prévision.</para> 
+    Le cœur de la boucle, entre <code>#foreach</code> et <code>#end</code>, permet d'afficher les informations de chaque prévision.</para> 
 
     <para>Nous venons de voir les implémentations de nos deux <classname>Controller</classname>. 
     Nous venons également de voir comment ils référencent les beans des modules <varname>simple-weather</varname> et <varname>simple-persist</varname>.

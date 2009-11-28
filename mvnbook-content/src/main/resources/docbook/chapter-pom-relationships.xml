@@ -19,7 +19,7 @@
     <title>Le POM</title>
 
     <para>Les projets Maven, les dépendances, les builds, les artefacts : tous sont des objets qu'il va falloir
-    modèliser et décrire. Ces objets sont décrits dans un fichier <acronym>XML</acronym> appelé Modèle Objet de Projet.
+    modéliser et décrire. Ces objets sont décrits dans un fichier <acronym>XML</acronym> appelé Modèle Objet de Projet.
     Le <acronym>POM</acronym> indique à Maven quel type de projet il va devoir traiter et comment il va devoir
     s'adapter pour transformer les sources pour produire le résultat attendu. Ainsi comme le fichier 
     <filename moreinfo="none">web.xml</filename> décrit, configure et personnalise une application web Java, c'est
@@ -43,7 +43,7 @@
     moreinfo="none">pom.xml</filename>, mais c'est là que les similarités s'arrêtent. Si vous regardez un <filename
     moreinfo="none">pom.xml</filename> Maven, la plus grande partie du <acronym>POM</acronym> se compose de
     descriptions. Où se trouve le code source ? Où sont les ressources ? Quel est le packaging ? Si vous regardez un
-    fichier <filename moreinfo="none">build.xml</filename> pour Ant, vous verrez quelquechose d'entièrement différent.
+    fichier <filename moreinfo="none">build.xml</filename> pour Ant, vous verrez quel quechose d'entièrement différent.
     Vous verrez des instructions explicites pour des tâches comme la compilation de classes Java. Le
     <acronym>POM</acronym> Maven est déclaratif, et même si vous pouvez y inclure des personnalisations
     procédurales via le plugin Maven Ant, en général vous n'aurez pas besoin de vous plonger dans les délicats
@@ -51,7 +51,7 @@
 
     <para>Le <acronym>POM</acronym> n'est pas spécifique à la construction de projets Java. Même si la plupart des
     exemples de ce livre sont des applications Java, il n'y a rien de spécifique à Java dans la définition d'un Modèle
-    Objet de Projet Maven. Si effectivement les plugins par défaut de Maven permettent de construire des artéfacts sous
+    Objet de Projet Maven. Si effectivement les plugins par défaut de Maven permettent de construire des artefacts sous
     forme de <acronym>JAR</acronym> à partir d'un ensemble de sources, de tests et de ressources, rien ne vous empêche
     de définir un <acronym>POM</acronym> pour un projet qui contient des sources C# et produit un binaire Microsoft
     propriétaire avec des outils Microsoft. De même, rien ne vous empêche d'utiliser un <acronym>POM</acronym> pour un
@@ -557,7 +557,7 @@
         bonne pratique. Si vous êtes en train de développer un logiciel, vous pouvez être amené à utiliser RELEASE ou
         LATEST comme une facilité pour ne pas à mettre à jour les numéros de version lorsqu'une bibliothèque tierce est
         déployée. Quand vous livrer un logiciel, vous devriez toujours vous assurer que votre projet dépend de versions
-        spéciques pour limiter l'impact sur votre build d'un déploiement d'artefacts hors de votre controle. Utilisez
+        spéciques pour limiter l'impact sur votre build d'un déploiement d'artefacts hors de votre contrôle. Utilisez
         donc LATEST et RELEASE prudemment, voire pas du tout.</para>
 
         <para>Depuis la version 2.0.9 de Maven, les numéros de version des plugins qui constituent le cœur de Maven sont

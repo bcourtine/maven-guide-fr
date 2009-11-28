@@ -303,7 +303,7 @@
   <section id="profiles-sect-activation">
     <title>Activation de profil</title>
 
-    <para>Dans la section précédente nous vous avons présenté comment créer un profil qui redéfinit le comportement par
+    <para>Dans la section précédente, nous vous avons présenté comment créer un profil qui redéfinit le comportement par
     défaut selon un environnement cible spécifique. Le build précédent était configuré par défaut pour le développement,
     et le profil <literal>production</literal> existe pour apporter les éléments de configuration propres à
     l'environnement de production. Que se passe t'il si vous devez adapter votre build selon le système d'exploitation
@@ -316,14 +316,14 @@
     le moteur de scripts dans un projet Maven à part, vous voulez que les personnes qui utilisent Java 5 puissent
     construire votre projet sans essayer de construire l'extension spécifique Java 6. Vous pouvez faire cela au moyen
     d'un profil Maven qui ajoute le module de gestion des scripts uniquement lorsque le build se fait sur un
-    <acronym>JDK</acronym> Java 6. Tout d'abord, jettons un oeil à la structure des répertoires de notre projet et
+    <acronym>JDK</acronym> Java 6. Tout d'abord, jetons un oeil à la structure des répertoires de notre projet et
     comment nous souhaitons que les développeurs construisent notre système.</para>
 
     <para>Lorsque l'on exécute la commande <command>mvn install</command> avec un <acronym>JDK</acronym> Java 6, nous
     voulons que le build construise le projet <literal>simple-script</literal>, si par contre cette commande est
     exécutée sur Java 5 il faut exclure le projet <literal>simple-script</literal> du build. Si vous n'excluez pas le
     projet <literal>simple-script</literal> de votre build en Java 5, celui-ci va échouer car Java 5 ne fournit pas la
-    classe <classname>ScriptEngine</classname>. Etudions plus en détail le fichier <filename>pom.xml</filename> du
+    classe <classname>ScriptEngine</classname>. Étudions plus en détail le fichier <filename>pom.xml</filename> du
     projet de bibliothèque :</para>
 
     <example>
@@ -366,7 +366,7 @@
     </example>
 
     <para>Si vous exécutez la commande <command>mvn install</command> en Java 6, vous vous apercevrez que Maven
-    descent dans le sous-répertoire <filename>simple-script</filename> pour y construire le projet
+    descend dans le sous-répertoire <filename>simple-script</filename> pour y construire le projet
     <literal>simple-script</literal>. Si vous exécutez la même commande <command>mvn install</command> en Java 5, le
     build n'essayera pas de construire le sous-module <literal>simple-script</literal>. Analysons cette configuration
     d'activation en détail :</para>
@@ -443,7 +443,7 @@
 
       <calloutlist>
         <callout arearefs="coDef-profiles-active2-1" id="coRef-profiles-active2-1">
-          <para>La balise <sgmltag>activeByDefault</sgmltag> controle si ce profil est actif par défaut.</para>
+          <para>La balise <sgmltag>activeByDefault</sgmltag> contrôle si ce profil est actif par défaut.</para>
         </callout>
 
         <callout arearefs="coDef-profiles-active2-2" id="coRef-profiles-active2-2">
@@ -504,7 +504,7 @@
         </example></para>
 
       <para>Attention au point d'exclamation qui préfixe le nom de la propriété. Le point d'exclamation est souvent
-      appelé le caractère "bang" cet signifie "non". Ce profil est activé quand aucune propriété
+      appelé le caractère "bang" ce qui signifie "non". Ce profil est activé quand aucune propriété
       <varname>\${environment.</varname><varname>type}</varname> n'est définie.</para>
     </section>
   </section>
@@ -546,7 +546,7 @@ The following profiles are active:
       <para>Une des principales raisons à l'utilisation de profils Maven est de fournir la configuration
       spécifique à un environnement. Dans un environnement de développement, vous voudrez produire du bytecode avec les
       informations nécessaires pour le débogage et vous voudrez configurer votre système pour qu'il utilise une base de
-      données de dévelopement. Dans un environnement de prodution, vous souhaiterez produire un JAR signé et configurer
+      données de développement. Dans un environnement de prodution, vous souhaiterez produire un JAR signé et configurer
       votre système pour qu'il utilise la base de données de production. Dans ce chapitre, nous avons défini un certain
       nombre d'environnements avec des identifiants comme <literal>dev</literal> et <literal>prod</literal>. On peut
       faire plus simple en définissant des profils qui seront activés par des propriétés de l'environnement et en
@@ -634,9 +634,9 @@ The following profiles are active:
       <varname>database.user</varname> qui pourraient être utilisées pour configurer un plugin Maven ailleurs dans le
       fichier <filename>pom.xml</filename>. Il existe de nombreux plugins qui peuvent manipuler une base de données,
       exécuter du SQL, ou comme le plugin Maven Hibernate3, peuvent générer un ensemble d'objets annotés utilisés par les
-      frameworks de persitance. Certains de ces plugins peuvent être configurés dans un fichier
+      frameworks de persistance. Certains de ces plugins peuvent être configurés dans un fichier
       <filename>pom.xml</filename> grâce à ces propriétés. Ces propriétés peuvent aussi être utilisées pour filtrer des
-      ressources. Dans cet exemple, comme nous avons définit un profil dans le fichier
+      ressources. Dans cet exemple, comme nous avons défini un profil dans le fichier
       <filename>~/.m2/settings.xml</filename> qui spécifie la valeur <literal>dev</literal> pour
       <varname>environment.</varname><varname>type</varname>, le profil de développement sera toujours actif à chaque
       exécution de Maven sur cette machine. Par contre, si nous voulions modifier ce comportement par défaut, nous
@@ -645,11 +645,11 @@ The following profiles are active:
 
       <screen>~/examples/profiles $ <command>mvn install -Denvironment.type=prod</command></screen>
 
-      <para>Spécifier une propriété en ligne de commande surchagera la valeur par défaut définie dans le fichier
+      <para>Spécifier une propriété en ligne de commande surchargera la valeur par défaut définie dans le fichier
       <filename>~/.m2/settings.xml</filename>. Nous aurions pu aussi définir un profil avec un <sgmltag>id</sgmltag>
       "dev" et l'invoquer directement avec l'argument <command>-P</command> en ligne de commande, mais l'utilisation de
       cette propriété <varname>environment.</varname><varname>type</varname> nous permet d'écrire de nouveaux fichiers
-      <filename>pom.xml</filename> en respectant ce standard. Tous vos projets pourraient possèder un profil qui serait
+      <filename>pom.xml</filename> en respectant ce standard. Tous vos projets pourraient posséder un profil qui serait
       activé par la même propriété <varname>environment.</varname><varname>type</varname> définie dans les fichiers
       <filename>~/.m2/settings.xml</filename> de chaque développeur. Ainsi, les développeurs peuvent partager une
       configuration commune pour le développement sans avoir à la définir dans des fichiers
@@ -661,14 +661,14 @@ The following profiles are active:
 
       <para>Cette bonne pratique est la conséquence de la section précédente. Dans la partie <xref
       linkend="ex-profile-envtype-pom" xrefstyle="select:title" />, le profil de production ne contient pas la propriété
-      <varname>database.password</varname>. J'ai fait cela délibéremment pour illustrer le fait de stocker les mots de
+      <varname>database.password</varname>. J'ai fait cela délibérément pour illustrer le fait de stocker les mots de
       passe dans votre fichier <filename>settings.xml</filename>. Si vous développez une application dans une grande
       organisation qui accorde de l'importance à la sécurité, il est probable que la majorité des développeurs ne
       connaissent pas le mot de passe de production de la base de données. C'est la norme dans une organisation qui
       trace des lignes infranchissables entre équipe de développement et équipe de production. Les développeurs ont accès
       aux environnements de développement et de pré-production, mais ils pourraient ne pas avoir (ou ne pas vouloir)
       accès à la base de données de production. Il y a un certain nombre de raisons pour lesquelles cela aurait un
-      sens, particulièrement si une organisation gère des données sensibles financières, médicales ou autres. Dans ce
+      sens, particulièrement, si une organisation gère des données sensibles financières, médicales ou autres. Dans ce
       scénario, l'environnement de production ne pourrait être utilisé que par le responsable technique ou par un
       membre de l'équipe de production. Quand ils exécutent le build avec la valeur <literal>prod</literal> pour la
       propriété <varname>environment.</varname><varname>type</varname>, ils vont devoir définir cette variable dans leur
@@ -696,7 +696,7 @@ The following profiles are active:
       passe de production. Quand le build du projet est exécuté, le profil de production est activé par la propriété
       <varname>environment.</varname><varname>type</varname> et la propriété <varname>database.password</varname> est
       remplie. Ainsi, vous pouvez mettre toute la configuration spécifique à la production dans le fichier
-      <filename>pom.xml</filename> du projet et retirer seulement le mot de passe nécessaire pour accèder à la base
+      <filename>pom.xml</filename> du projet et retirer seulement le mot de passe nécessaire pour accéder à la base
       de données de production.</para>
 
       <note>
@@ -709,12 +709,12 @@ The following profiles are active:
       <title>Classifieurs de plateforme</title>
 
       <para>Supposons que vous avez une bibliothèque ou un projet qui produit des artefacts spécifiques selon la
-      plateforme. Même si Java est indépendant de la plateforme, parfois vous pourriez avoir besoin d'écrire du code qui
-      invoque du code natif, spécifique à une plateforme. Vous pourriez aussi avoir écrit du code C compilé avec le
+      plateforme. Même si Java est indépendant de la plateforme, parfois vous pouvez avoir besoin d'écrire du code qui
+      invoque du code natif, spécifique à une plateforme. Vous pouvez aussi avoir écrit du code C compilé avec le
       plugin Maven Native et que vous voulez produire un artefact qualifié selon la plateforme sur
-      laquelle il a été construit. Vous pouvez définir un classifier avec le plugin Maven Assembly ou le plugin Maven
+      laquelle il a été construit. Vous pouvez définir un classificateur avec le plugin Maven Assembly ou le plugin Maven
       Jar. Le fichier <filename>pom.xml</filename> suivant produit un artefact qualifié grâce à des profils activés
-      selon le système d'exploitation. Pour plus d'informations sur le plugin Maven Assembly vous pouvez consulter le
+      en fonction du système d'exploitation. Pour plus d'informations sur le plugin Maven Assembly vous pouvez consulter le
       <xref linkend="assemblies" />.</para>
 
       <para><example>
@@ -766,8 +766,8 @@ The following profiles are active:
 
       <para>Si le système d'exploitation fait partie de la famille Windows, ce fichier <filename>pom.xml</filename>
       qualifie l'artefact Jar avec "-win". Si le système d'exploitation est un membre de la famille Unix, l'artefact est
-      qualifié avec "-linux". Ce fichier <filename>pom.xml</filename> apermet donc d'ajouter les qualifieurs aux artefacts,
-      mais il est plus verbeux que nécessaire car il recopie la configuration du plugin Maven Jar dans les deux profils.
+      qualifié avec "-linux". Ce fichier <filename>pom.xml</filename> permet donc d'ajouter des classificateurs aux artefacts,
+      mais il est plus verbeux que nécessaire, car il recopie la configuration du plugin Maven Jar dans les deux profils.
       Cet exemple pourrrait être réecrit en utilisant des variables pour réduire la redondance :</para>
 
       <para><example>
@@ -820,7 +820,7 @@ The following profiles are active:
       laquelle appartient le système d'exploitation, et valorise la propriété <varname>envClassifier</varname> soit à
       <literal>win</literal> soit à <literal>linux</literal>. Cette propriété <varname>envClassifier</varname> est
       référencée dans la balise <sgmltag>build</sgmltag> du fichier <filename>pom.xml</filename> pour ajouter un
-      classifieur à l'artefact JAR produit par le projet. Ainsi l'artefact JAR produit s'appellera
+      classificateur à l'artefact JAR produit par le projet. Ainsi l'artefact JAR produit s'appellera
       <code>\${finalName}-\${envClassifier}.jar </code>et sera utilisé comme dépendance grâce à la syntaxe suivante
       :</para>
 
@@ -844,11 +844,11 @@ The following profiles are active:
 
     <para>Lorsqu'ils sont utilisés judicieusement, les profils facilitent grandement la configuration du build pour
     différentes plateformes. Si quelque part dans votre build vous avez besoin de définir un chemin spécifique à une
-    plateforme pour un serveur d'application, vous pouvez mettre ces éléments de configuration dans un profil qui sera
+    plateforme pour un serveur d'applications, vous pouvez mettre ces éléments de configuration dans un profil qui sera
     activé selon la nature de votre système d'exploitation. Si vous avez un projet qui doit produire différents
     artefacts pour différents environnements, vous pouvez personnaliser le comportement du build selon les différents
     environnements et plateformes par des profils spécifiques à ceux-ci. L'utilisation de profils permet de rendre les
-    builds portables, il n'est plus nécessaire de réecrire votre logique de construction pour l'adapter à un nouvel
+    builds portables, il n'est plus nécessaire de réécrire votre logique de construction pour l'adapter à un nouvel
     environnement. Surchargez la configuration qui doit être modifiée et partagez celle qui peut l'être.</para>
   </section>
 </chapter>
