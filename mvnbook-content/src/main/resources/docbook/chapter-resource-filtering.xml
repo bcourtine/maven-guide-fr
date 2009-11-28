@@ -9,11 +9,11 @@
 
     <para>Au travers de ce livre, vous avez pu rencontrer des propriétés utilisées dans des fichiers <acronym>POM</acronym>.
     Les dépendances d'un build multimodule peuvent être référencées par les propriétés comme <varname>\${project.groupId}</varname> et
-    <varname>\${project.version}</varname>, et n'importe quelle partie du <acronym>POM</acronym> peut être référencé en préfixant la variable par "project.".   
+    <varname>\${project.version}</varname>, et n'importe quelle partie du <acronym>POM</acronym> peut être référencé ene préfixant la variable par "project.".
     Les variables d'environnement et propriétés Système Java peuvent également être référencées, tout comme les valeurs définies dans le fichier <filename>~/.m2/settings.xml</filename>.
     Nous allons parcourir dans ce chapitre l'ensemble des valeurs possibles et nous verrons comment ces propriétés peuvent être utilisées pour créer des build portables.</para>     
 
-    <para>Si vous avez déjà utilisé des références à des propriétés dans votre <acronym>POM</acronym>,  
+    <para>Si vous avez déjà utilisé des références de propriétés dans votre <acronym>POM</acronym>,
     vous devriez savoir que cette fonctionnalité est appelée 'filtrage des ressources'. 
     Celle-ci permet de remplacer les références des propriétés dans n'importe quel fichier stocké dans <filename>src/main/resources</filename>. 
     Par défaut, cette fonctionnalité est désactivée pour éviter des filtrages accidentels.

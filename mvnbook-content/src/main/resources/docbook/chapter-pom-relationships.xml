@@ -37,7 +37,7 @@
     vous aurez le plus souvent un fichier <filename moreinfo="none">Makefile</filename> contenant toutes les instructions
     explicites pour produire un binaire à partir des sources. Quand vous utilisez Apache Ant, vous avez très probablement 
     un fichier <filename moreinfo="none">build.xml</filename> qui contient les instructions explicites pour nettoyer,
-    compiler, packager et déployer une application. <emphasis>make</emphasis>, Ant, et Maven ont en commun le fait qu'ils
+    compiler, packager et déployer une application. <emphasis>make</emphasis>, Ant, et Maven ont en commun le fait qu'il
     leur faut un fichier avec un nom pré-déterminé, qu'il s'agisse de <filename
     moreinfo="none">Makefile</filename>, <filename moreinfo="none">build.xml</filename>, ou <filename
     moreinfo="none">pom.xml</filename>, mais c'est là que les similarités s'arrêtent. Si vous regardez un <filename
@@ -400,7 +400,7 @@
       <acronym>POM</acronym> du projet en cours. Maven commence par le Super <acronym>POM</acronym> et surcharge la
       configuration par défaut avec un ou plusieurs <acronym>POM</acronym>s parents. Puis il surcharge la configuration
       résultante avec les valeurs du <acronym>POM</acronym> du projet. Au final, vous obtenez un <acronym>POM</acronym>
-      effectif qui est le résultat du mélange de plusieurs <acronym>POM</acronym>s. Si vous voulez voir le
+      effectif qui est le résultat de la combinaison de plusieurs <acronym>POM</acronym>s. Si vous voulez voir le
       <acronym>POM</acronym> effectif d'un projet, vous allez devoir exécuter le goal <varname>effective-pom</varname>
       du plugin Maven Help dont nous avons parlé précédemment dans la <xref
       linkend="installation-sect-help-plugin-install" />. Pour lancer le goal <varname>effective-pom</varname>, exécutez
@@ -484,7 +484,7 @@
 
       <para>Si votre numéro de version respecte le format
       <varname>&lt;majeure&gt;.</varname><varname>&lt;mineure&gt;.</varname><varname>&lt;incrémentale&gt;-&lt;qualifieur&gt;</varname>
-      alors vos versions seront ordonnées correctement, "1.2.3" sera donc bien considérée comme plus récente que
+      alors vos versions seront correctement ordonnées, "1.2.3" sera donc bien considérée comme plus récente que
       "1.0.2". La comparaison se fera en utilisant les valeurs numériques des versions majeure, mineure et incrémentale.
       Si votre numéro de version ne respecte pas ce standard, alors vos versions seront comparées comme des chaînes de
       caractères ; la chaîne "1.0.1b" sera comparée à la chaîne "1.2.0b".</para>
@@ -551,9 +551,9 @@
         <title>Les versions LATEST et RELEASE</title>
 
         <para>Quand vous dépendez d'un plugin ou d'une bibliothèque, vous pouvez utiliser LATEST ou RELEASE comme
-        numéroe de version. LATEST indique que la version correspond à la dernière version déployée d'un artefact sur un
+        numéro de version. LATEST indique que la version correspond à la dernière version déployée d'un artefact sur un
         dépôt particulier, qu'il s'agisse d'une version stable ou d'une version snapshot. RELEASE indique la dernière
-        version stable déployée sur le dépôt. En général, dépendre d'une version explicitée d'un artefact n'est pas une
+        version stable déployée sur le dépôt. En général, dépendre d'une version explicite d'un artefact n'est pas une
         bonne pratique. Si vous êtes en train de développer un logiciel, vous pouvez être amené à utiliser RELEASE ou
         LATEST comme une facilité pour ne pas à mettre à jour les numéros de version lorsqu'une bibliothèque tierce est
         déployée. Quand vous livrer un logiciel, vous devriez toujours vous assurer que votre projet dépend de versions
@@ -663,7 +663,7 @@
       <note>
         <para>Vous pouvez rencontrer d'anciens builds qui utilisent <varname>\${pom.xxx}</varname> ou simplement
         <varname>\${xxx}</varname> pour référencer des propriétés du <acronym>POM</acronym>. Ces méthodes ont été
-        marquées comme abandonnées, et vous ne devriez n'utiliser que <varname>\${project.xxx}</varname>.</para>
+        marquées comme abandonnées, et vous ne devriez utiliser que <varname>\${project.xxx}</varname>.</para>
       </note>
 
       <para>En plus de ces trois variables implicites, vous pouvez référencer <indexterm>
