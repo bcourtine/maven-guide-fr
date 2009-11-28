@@ -145,7 +145,7 @@ Options:
     </section>
 
     <section id="running-sect-version-option">
-      <title>Affiher les informations relatives à la version</title>
+      <title>Afficher les informations relatives à la version</title>
 
       <para>Pour afficher les informations sur la version de Maven, voici l'option à utiliser :</para>
 
