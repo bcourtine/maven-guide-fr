@@ -303,7 +303,7 @@
   <section id="profiles-sect-activation">
     <title>Activation de profil</title>
 
-    <para>Dans la section précédente nous vous avons présenté comment créer un profil qui redéfinit le comportement par
+    <para>Dans la section précédente, nous vous avons présenté comment créer un profil qui redéfinit le comportement par
     défaut selon un environnement cible spécifique. Le build précédent était configuré par défaut pour le développement,
     et le profil <literal>production</literal> existe pour apporter les éléments de configuration propres à
     l'environnement de production. Que se passe t'il si vous devez adapter votre build selon le système d'exploitation
@@ -316,14 +316,14 @@
     le moteur de scripts dans un projet Maven à part, vous voulez que les personnes qui utilisent Java 5 puissent
     construire votre projet sans essayer de construire l'extension spécifique Java 6. Vous pouvez faire cela au moyen
     d'un profil Maven qui ajoute le module de gestion des scripts uniquement lorsque le build se fait sur un
-    <acronym>JDK</acronym> Java 6. Tout d'abord, jettons un oeil à la structure des répertoires de notre projet et
+    <acronym>JDK</acronym> Java 6. Tout d'abord, jetons un oeil à la structure des répertoires de notre projet et
     comment nous souhaitons que les développeurs construisent notre système.</para>
 
     <para>Lorsque l'on exécute la commande <command>mvn install</command> avec un <acronym>JDK</acronym> Java 6, nous
     voulons que le build construise le projet <literal>simple-script</literal>, si par contre cette commande est
     exécutée sur Java 5 il faut exclure le projet <literal>simple-script</literal> du build. Si vous n'excluez pas le
     projet <literal>simple-script</literal> de votre build en Java 5, celui-ci va échouer car Java 5 ne fournit pas la
-    classe <classname>ScriptEngine</classname>. Etudions plus en détail le fichier <filename>pom.xml</filename> du
+    classe <classname>ScriptEngine</classname>. Étudions plus en détail le fichier <filename>pom.xml</filename> du
     projet de bibliothèque :</para>
 
     <example>
@@ -366,7 +366,7 @@
     </example>
 
     <para>Si vous exécutez la commande <command>mvn install</command> en Java 6, vous vous apercevrez que Maven
-    descent dans le sous-répertoire <filename>simple-script</filename> pour y construire le projet
+    descend dans le sous-répertoire <filename>simple-script</filename> pour y construire le projet
     <literal>simple-script</literal>. Si vous exécutez la même commande <command>mvn install</command> en Java 5, le
     build n'essayera pas de construire le sous-module <literal>simple-script</literal>. Analysons cette configuration
     d'activation en détail :</para>
@@ -443,7 +443,7 @@
 
       <calloutlist>
         <callout arearefs="coDef-profiles-active2-1" id="coRef-profiles-active2-1">
-          <para>La balise <sgmltag>activeByDefault</sgmltag> controle si ce profil est actif par défaut.</para>
+          <para>La balise <sgmltag>activeByDefault</sgmltag> contrôle si ce profil est actif par défaut.</para>
         </callout>
 
         <callout arearefs="coDef-profiles-active2-2" id="coRef-profiles-active2-2">
@@ -504,7 +504,7 @@
         </example></para>
 
       <para>Attention au point d'exclamation qui préfixe le nom de la propriété. Le point d'exclamation est souvent
-      appelé le caractère "bang" cet signifie "non". Ce profil est activé quand aucune propriété
+      appelé le caractère "bang" ce qui signifie "non". Ce profil est activé quand aucune propriété
       <varname>\${environment.</varname><varname>type}</varname> n'est définie.</para>
     </section>
   </section>
