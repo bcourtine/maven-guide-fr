@@ -710,7 +710,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       <sgmltag>outputDirectory</sgmltag>, <sgmltag>outputDirectoryMapping</sgmltag> ou
       <sgmltag>outputFileNameMapping</sgmltag> des différentes sections du descripteur.
       Ces éléments sont conservés sous leur forme primitive pour permettre d'appliquer
-      les données spécifiques à chaque artéfacts ou module pour la résolution des
+      les données spécifiques à chaque artefacts ou module pour la résolution des
       expressions.</para>
     </section>
 

@@ -34,7 +34,7 @@
 
       <para>Pour configurer votre environnement Maven pour utiliser Flexmojos, vous avez deux options: vous pouvez faire référence au dépôt Flexmojos de Sonotype directement dans le fichier 
   <filename>pom.xml</filename>, ou vous pouvez installer Nexus et ajouter le dépôt Sonatype pour Flexmojos en tant que dépôt proxy dans votre propre gestionnaire de dépôts.
-  Alors que l'option la plus directe conciste à faire référence directement au dépôt, télécharger et installer Nexus vous procurera le contrôle et la flexibilité dont vous avez besoin pour câcher et gérer les artéfacts générés par vos propres builds.
+  Alors que l'option la plus directe conciste à faire référence directement au dépôt, télécharger et installer Nexus vous procurera le contrôle et la flexibilité dont vous avez besoin pour câcher et gérer les artefacts générés par vos propres builds.
 Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-dessous la <xref linkend="flex-dev-sect-direct-repo"/>. Si vous êtes intéressés par une solution à long terme qui peut être déployée pour servir de support à une equipe de développement, allez à la  
       <xref linkend="flex-dev-sect-proxy-nexus"/>.</para>
 
@@ -51,7 +51,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         <title>Faire référence depuis le POM au dépôt Flexmojos de Sonatype</title>
 
         <para>Flexmojos depend de quelques artifacts qui ne sont actuellement pas disponible depuis le dépôt central Maven.
-        Ces artéfacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour utiliser Flexmojos, vous devrez faire 
+        Ces artefacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour utiliser Flexmojos, vous devrez faire 
         référence à ce dépôt depuis le <filename>pom.xml</filename> de votre projet. 
         Pour réaliser ceci, ajoutez l'élément 
         <sgmltag>repositories</sgmltag> indiqué dans <xref linkend="ex-flex-dev-repository"/> au 
@@ -409,7 +409,7 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
         <term>flexmojos-archetypes-library</term>
 
         <listitem>
-          <para>Crée un simple projet de librairie Flex qui crée un artéfact
+          <para>Crée un simple projet de librairie Flex qui crée un artefact
           SWC</para>
         </listitem>
       </varlistentry>
@@ -418,7 +418,7 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
         <term>flexmojos-archetypes-application</term>
 
         <listitem>
-          <para>Crée un simple projet Flex qui crée un artéfact SWF</para>
+          <para>Crée un simple projet Flex qui crée un artefact SWF</para>
         </listitem>
       </varlistentry>
 
@@ -983,7 +983,7 @@ package: org.sonatype.test
       </example>
 
       <para>Le POM du module swf est semblable au POM de l'<xref
-      linkend="ex-flex-dev-app-pom" /> avec une dépendance à l'artéfact
+      linkend="ex-flex-dev-app-pom" /> avec une dépendance à l'artefact
       <varname>swc-swc</varname> en plus. Notez que
       l'<varname>artifactId</varname> dans ce POM ne reflète pas le nom du répertoire qui contient le 
       module ; l'artifactId dans le POM ci-dessous est 
@@ -1063,7 +1063,7 @@ package: org.sonatype.test
       </warning>
 
       <para>Quand vous déclarer une dépendance vers un SWC, vous devez préciser le type de 
-      dépendencé afin que Maven puisse localiser les artéfacts adéquats dans le dépôt distant ou local. 
+      dépendencé afin que Maven puisse localiser les artefacts adéquats dans le dépôt distant ou local. 
       Dans ce cas, projet
       <varname>swf-swf</varname> dépend d'un SWC qui est généré
       par un projet <varname>swc-swc</varname>. Quand vous ajoutez
@@ -1135,7 +1135,7 @@ package: org.sonatype.test
       <filename>target/war-war-1.0-SNAPSHOT</filename>.</para>
 
       <para>Pour construire l'application web multimodule, exécutez <command>mvn
-      install</command> depuis le répertoire racine. Ceci doit générer les artéfacts
+      install</command> depuis le répertoire racine. Ceci doit générer les artefacts
       <varname>swc-swc</varname>, <varname>swf-swf</varname> et
       <varname>war-war</varname> et produire le fichier WAR 
 	<filename>/target/war-war-1.0-SNAPSHOT.war</filename> qui contient
@@ -1620,7 +1620,7 @@ package: org.sonatype.test
 
     <para>Les sections suivantes vous guideront à travers les premières étapes de personnalisation   de Flexmojos, voire de contribution au projet lui-même. Flexmojos est plus 
     qu'un simple outils pour les personnes souhaitant compiler de l'ActionScript
-    en artéfacts SWF et SWC ; c'est une communauté de developpeurs. Cette section
+    en artefacts SWF et SWC ; c'est une communauté de developpeurs. Cette section
     n'est pas pour tout le monde, mais si vous voulez participez, vous êtes les bienvenus.</para>
 
     <section id="flex-dev-sect-get-source">

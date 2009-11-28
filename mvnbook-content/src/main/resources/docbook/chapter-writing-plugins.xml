@@ -23,19 +23,19 @@
     vous n'aurez donc probablement pas besoin d'écrire de plugins.  
     Cela dit, si votre projet comporte des demandes très spécifiques qui vous obligent à personnaliser le comportement de Maven, 
     vous pouvez alors vous lancer dans la création d'un plugin.
-    Modifier le code du coeur de Maven est aussi peu connu des développeurs que de modifier la stack TCP/IP d'un système d'exploitation,
+    Modifier le code du cœur de Maven est aussi peu connu des développeurs que de modifier la stack TCP/IP d'un système d'exploitation,
     c'est du moins ce que pensent la majorité des utilisateurs.</para>    
 
     <para>Avant de commencer à écrire votre plugin, vous devez en apprendre un peu plus sur les entrailles de Maven.  
     Comment gère t-il des composants logiciels ? Qu'est-ce qu'un Plugin ? Comment puis-je personnaliser un cycle de vie ?
-    Cette section répond à certaines de ces questions et introduit les concepts clés du coeur de Maven.  
+    Cette section répond à certaines de ces questions et introduit les concepts clés du cœur de Maven.  
     Apprendre à écrire un plugin Maven est le moyen le plus simple pour personnaliser Maven.
     Si vous vous demandiez par où démarrer pour comprendre le code de Maven, vous avez trouvé la bonne ligne de départ.</para>
 
     <section id="writing-plugins-ioc">
       <title>Qu'est ce que l'inversion de contrôle ?</title>
 
-      <para>Le coeur de Maven est basé sur un  conteneur d'inversion de contrôle (<acronym>IoC</acronym>) nommé Plexus. 
+      <para>Le cœur de Maven est basé sur un  conteneur d'inversion de contrôle (<acronym>IoC</acronym>) nommé Plexus. 
       Que fait-il ? Il s'agit d'un système de gestion des relations entre composants. 
       Bien qu'il existe un livre dédié sur l'<acronym>IoC</acronym> écrit par Martin Fowler, 
       le concept et le terme ont été si lourdement surchargés au cours des dernières années 
