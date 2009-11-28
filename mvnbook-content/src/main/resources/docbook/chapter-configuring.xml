@@ -181,7 +181,7 @@ compiler:testCompile
 </screen>
 
       <para>En passant l'argument <varname>-Ddetail</varname> au goal <varname>help:describe</varname>,
-      vous demandez à Maven d'afficher tous les goals ainsi que tous leurs paramètres d'un plugin.</para>   
+      vous demandez à Maven d'afficher tous les goals d'un plugin avec tous leurs paramètres.</para>
 
     </section>
 
@@ -258,7 +258,7 @@ compiler:testCompile
       L'<xref linkend="ex-config-plugin-exec-params" />  montre comment passer un paramètre de configuration au goal exécuté
       par le plugin <varname>AntRun</varname> durant la phase de validation.
       Cette exécution héritera ainsi des paramètres de la balise <varname>configuration</varname> du plugin dont les valeurs
-      seront mergées avec celles définies dans la l'exécution personnalisée.</para>
+      seront fusionnées avec celles définies dans l'exécution personnalisée.</para>
 
       <example id="ex-config-plugin-exec-params">
         <title>Surcharge des paramètres de configuration d'une exécution</title>
@@ -295,8 +295,8 @@ compiler:testCompile
       Le descripteur <filename>bin.xml</filename> sera utilisé durant le cycle de vie,
       et <varname>jar-with-dependencies</varname> sera utilisé lors de l'exécution de la commande <command>mvn assembly:assembly</command> à partir de la console.</para>
 
-      <example id="ex-configure-plugin-default-cli" label="" lang="">
-        <title>Configuration des paramètres d'un plugin pour une exécution en ligne de commande</title>
+      <example id="ex-configure-plugin-default-cli">
+        <title>Configuration d'un plugin pour une exécution en ligne de commande</title>
 
         <programlisting>&lt;plugin&gt;
   &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;
@@ -339,7 +339,7 @@ compiler:testCompile
       à la phase <varname>package</varname> du cycle de vie par défaut.
       Vous pouvez personnaliser les paramètres de configuration d'une exécution comme le présente l'<xref linkend="ex-configure-default-param" />.</para>
 
-      <example id="ex-configure-default-param" label="">
+      <example id="ex-configure-default-param">
         <title>Configuration d'un paramètres pour l'exécution d'un goal par défaut</title>
 
         <programlisting>&lt;plugin&gt;
@@ -378,7 +378,7 @@ compiler:testCompile
       avec des valeurs de configuration différentes pour certains paramètres.   
       L'<xref linkend="ex-configure-two-default-param" /> montre comment configurer le goal <varname>resources:resources</varname>
       pour qu'il ne tienne pas compte des répertoires vides tout en configurant le goal <varname>resources:testResources</varname>
-      pour qu'il en tienne compte.</para>
+      pour qu'il les prenne en compte.</para>
 
       <example id="ex-configure-two-default-param">
         <title>Configurer deux paramètres d'un goal d'un plugin</title>
