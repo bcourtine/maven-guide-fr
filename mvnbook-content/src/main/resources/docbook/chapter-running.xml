@@ -13,7 +13,7 @@
 
     <para>La section qui va suivre donne, en détail, les différentes options en ligne de commande pour Maven.</para>
 
-    <section id="running-sect-define-prop" label="">
+    <section id="running-sect-define-prop">
       <title>Définition de propriété</title>
 
       <para>Pour définir une propriété, vous devez utiliser l'option suivante sur la ligne de commande :</para>
@@ -42,7 +42,7 @@ $ <command>mvn install -Dmaven.test.skip=true</command></screen>
       les profils de build Maven, lisez le <xref linkend="profiles" />.</para>
     </section>
 
-    <section id="running-sect-help-option" label="">
+    <section id="running-sect-help-option">
       <title>Obtenir de l'aide</title>
 
       <para>Pour obtenir la liste des différents paramètres de la ligne de commande, utilisez l'option de ligne de
@@ -185,7 +185,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       </example>
     </section>
 
-    <section id="running-sect-offline-option" label="">
+    <section id="running-sect-offline-option">
       <title>Travailler en mode déconnecté</title>
 
       <para>Si vous devez utiliser Maven sans connexion réseau, vous devez utiliser l'option suivante
@@ -239,7 +239,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       </variablelist>
     </section>
 
-    <section id="running-sect-encrypt-option" label="">
+    <section id="running-sect-encrypt-option">
       <title>Chiffrer les mots de passe</title>
 
       <para>Les commandes Maven suivantes vous permettent de chiffrer les mots de passe enregistrés dans vos
@@ -350,7 +350,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       <command>-e</command>.</para>
     </section>
 
-    <section id="running-sect-batch-option" label="">
+    <section id="running-sect-batch-option">
       <title>Exécution de Maven en mode batch</title>
 
       <para>Pour exécuter Maven en mode batch, utilisez l'option suivante :</para>
@@ -465,7 +465,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       url="http://maven.apache.org/guides/introduction/introduction-to-plugin-registry.html">http://maven.apache.org/guides/introduction/introduction-to-plugin-registry.html</ulink>.</para>
     </section>
 
-    <section id="running-sect-norecurse-option" label="">
+    <section id="running-sect-norecurse-option">
       <title>Builds non-récursifs</title>
 
       <para>Parfois vous voudrez exécuter Maven sans qu'il descende dans tous les sous-modules d'un projet. Vous pouvez
