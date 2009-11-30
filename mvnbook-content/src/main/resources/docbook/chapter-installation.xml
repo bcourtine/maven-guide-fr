@@ -208,7 +208,7 @@ OS name: "mac os x" version: "10.5.6" arch: "i386" Family: "unix"</screen>
     linkend="foot-installation-mebibytes" />, cette taille réduite a été obtenue car le cœur de Maven a été conçu pour
     récupérer à la demande plugins et dépendances depuis des dépôts distants. Lorsque vous commencez à utiliser Maven,
     celui-ci va télécharger les plugins depuis un dépôt local décrit dans <xref linkend="installation-sect-user" />.
-    Comme vous êtes curieux, jettons un œil au répertoire d'installation de Maven. <footnote
+    Comme vous êtes curieux, jetons un œil au répertoire d'installation de Maven. <footnote
         id="foot-installation-mebibytes">
         <para>Avez-vous déjà acheté un disque dur de 200 Go pour vous rendre compte qu'une fois installé il faisait
         moins de 200 GiB ? Les ordinateurs fonctionnent en Gibibytes, mais les boutiques vendent des produits en
