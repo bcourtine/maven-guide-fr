@@ -8,14 +8,14 @@
     <title>Introduction</title>
 
     <para>Maven fournit des plugins qui sont utilisés pour créer des
-    archives dans les formats les plus courants, et qui seront pour la
-    plupart utilisées comme dépendances d'autres projets. Par exemples
+    archives dans les formats les plus courants, et qui seront, pour la
+    plupart, utilisées comme dépendances d'autres projets. Par exemples,
     nous avons les plugins <acronym>JAR</acronym>, <acronym>WAR</acronym>,
     <acronym>EJB</acronym> et <acronym>EAR</acronym>. Comme nous l'avons
     déjà vu dans le <xref linkend="lifecycle" /> ces plugins correspondent
     à différents formats de packaging de projet, chacun avec son processus
     de build légérement différent. Même si Maven supporte les différents
-    formats standards de packagaing grâce à ses plugins et des cycles de vie
+    formats standards de packaging grâce à ses plugins et des cycles de vie
     personnalisés, il va arriver un moment où vous aurez besoin de créer une
     archive ou un répertoire avec une structure qui lui est propre. Ces archives
     personnalisées sont appelées Assemblies Maven.</para>
@@ -27,23 +27,23 @@
     de la manière dont le projet doit être utilisé. Essentiellement, il s'agit
     d'archives qui fournissent un moyen simple pour les utilisateurs d'installer
     ou d'utiliser le produit du projet. Dans certains cas, cela peut signifier
-    fournir un serveur d'application comme Jety avec l'application Web. Dans d'autres,
-    il s'agit de fournir un paquet contenant le code source, la documentation de l'API
+    fournir un serveur d'application comme Jetty avec l'application Web. Dans d'autres,
+    il s'agit de fournir un paquet contenant le code source et la documentation de l'API
     avec le binaire compilé comme par exemple un fichier jar. C'est souvent lorsque
     vous êtes en train de construire la version distribuable d'un produit que les assemblies
-    vont pouvoir vous aider. Par exemple, les produits comme Nexus dont on parle plus
+    vont pouvoir vous aider. Par exemple, les produits comme Nexus, dont on parle plus
     en détail dans <ulink
     url="http://www.sonatype.com/books/nexus-book/reference/">Repository
     Management with Nexus</ulink>, sont le résultat de plusieurs énormes projets
     Maven multimodules, et c'est un assembly Maven qui a construit l'archive finale
     que vous téléchargez depuis Sonatype.</para>
 
-    <para>Dans la plupart des cas, le plugin Assembly est idéallement taillé
+    <para>Dans la plupart des cas, le plugin Assembly est idéalement taillé
     pour construire des packages distribuables de projets. Cependant, les assemblies
-    ne sont pas forcéemnt des archives distribuables ; les assemblies doivent apporter
+    ne sont pas forcément des archives distribuables ; les assemblies doivent apporter
     aux utilisateurs de Maven la flexibilité dont ils ont besoin pour produire des
     achives personnalisées de tout type.
-    Essentiellement, les assemblies doivent combler les trous entre les formats
+    En bref, les assemblies doivent combler les trous laissés par les formats
     standards d'archive fournis par les types de packaging des projets. Bien sûr,
     vous pourriez écrire un plugin Maven complet pour produire votre propre
     format d'archive, avec une nouvelle association au cycle de vie et la
