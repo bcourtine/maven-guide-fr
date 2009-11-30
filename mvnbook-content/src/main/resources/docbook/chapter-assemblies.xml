@@ -61,16 +61,16 @@
     <varname>single</varname>. J'ai cité ces deux goals de manière différente pour
     indiquer qu'on ne les utilise pas de la même manière. Le goal
     <varname>assembly:assembly</varname> est conçu pour être invoqué directement
-    depuis la ligne de commande et il ne doit jamais être lié à une hase du cycle 
+    depuis la ligne de commande et il ne doit jamais être lié à une phase du cycle
     de vie. Au contraire, le mojo <varname>single</varname> est lui conçu pour
     faire partie de votre build de tous les jours et doit être rattaché à une phase
     du cycle de vie du build de votre projet.</para>
 
-    <para>La raison de cette différence est que le le goal 
+    <para>La raison de cette différence est que le goal 
     <varname>assembly:assembly</varname> est ce que Maven appelle un mojo
     aggrégateur ; c'est à dire un mojo qui a été conçu pour pour être exécuté
     au plus une fois dans un build, quelque soit le nombre de projets qui sont
-    construits. Il prend sa configuration du projet racine - habituellement
+    construits. Il tire sa configuration du projet racine - habituellement
     le <acronym>POM</acronym> de plus haut niveau ou la ligne de commande.
     Quand il est rattaché à un cycle de vie, un mojo aggrégateur peut provoquer
     de désagréables effets secondaires. Il peut forcer l'exécution de la phase
@@ -82,20 +82,20 @@
     être appelé seul en ligne de commande. Ne rattachez jamais l'exécution de
     <varname>assembly:assembly</varname> à une phase du cycle de vie.
     <varname>assembly:assembly</varname> était le goal originel du plugin Assembly
-    et il n'a jamais été conçu pour faire partie du processus standard de build
+    et il n'a jamais été conçu pour faire partie du processus de build standard 
     d'un projet. Quand il est devenu clair que les archives produites par assembly
     étaient une exigence légitime des projets le mojo <varname>single</varname> a été
     développé. Ce mojo suppose qu'il a été rattaché à la bonne partie du processus
-    de build et que donc il aura accès aux fichiers et artefacts du projetdont il
+    de build et que donc il aura accès aux fichiers et artefacts du projet dont il
     a besoin pour s'exécuter au sein d'un grand projet Maven multimodule. Dans un
-    environnemet multimodule il s'exécutera autant de fois qu'il est lié aux
-    <acronym>POM</acronym>s des différetes modules. Contrairement à
+    environnement multimodule il s'exécutera autant de fois qu'il est lié aux
+    <acronym>POM</acronym>s des différents modules. Contrairement à
     <varname>assembly:assembly</varname>, <varname>single</varname> ne forcera
     jamais l'exécution d'une étape du cycle de vie en avance de phase.</para>
 
     <para>Le plugin Assembly propose plusieurs autres goals en plus de ces deux là.
-    Cependant le détail de ces autres mojos dépasse le cadre de ce chapitre, parce
-    qu'ils servent des cas d'utilisation obsoletes ou exotiques et parce qu'on a
+    Cependant le détail de ces autres mojos dépasse le cadre de ce chapitre, car 
+    ils servent pour des cas d'utilisation obsoletes ou exotiques et qu'on a
     très rarement besoin d'eux. Autant que possible, pour produire vos packages
     utilisez <varname>assembly:assembly</varname> depuis la ligne de commande et
     <varname>single</varname> pour rattacher cette opération aux phases du cycle
@@ -105,11 +105,11 @@
       <title>Les descripteurs Assembly prédéfinis</title>
 
       <para>Nombreux sont ceux qui choisissent de créer leurs propres recettes -
-      appelées descripteurs assembly - cependant cela n'est pas forcément
+      appelées descripteurs d'assembly - cependant cela n'est pas forcément
       nécessaire. Le plugin Assembly fournit des descripteurs prêts à l'emploi
-      pour plusieurs types communs d'archives. Vous pouvez donc les utiliser
+      pour plusieurs types d'archive communs. Vous pouvez donc les utiliser
       immédiatement sans écrire une ligne de configuration. Voici la liste
-      des descripteurs assembly prédéfinis dans le plugin Maven Assembly :</para>
+      des descripteurs d'assembly prédéfinis dans le plugin Maven Assembly :</para>
 
       <variablelist>
         <varlistentry>
@@ -118,7 +118,7 @@
           <listitem>
             <para>Le descripteur <varname>bin</varname> est utilisé pour packager
             les fichiers <filename>LICENSE</filename>, <filename>README</filename>
-            et <filename>NOTICE</filename> du projet avec on artefact principal, pour
+            et <filename>NOTICE</filename> du projet avec son artefact principal, pour
             peu que ce dernier soit un jar. Vous pouvez voir cela comme la plus petite
             distribution binaire pour un projet autoporté.</para>
           </listitem>
@@ -131,9 +131,9 @@
             <para>Le descripteur <varname>jar-with-dependencies</varname> construit
             une archive <acronym>JAR</acronym> avec le contenu du jar du projet principal
             et les contenus des dépendances d'exécution de ce projet. Associé avec la bonne
-            définition de la <varname>Main-Class</varname> Manifest ( dont on parle dans
-            “Plugin Configuration” ci-dessous), ce descripteur permet de produire un jar exécutable
-            autoporté de votre projet, même si ce projet a des dépendances.</para>
+            définition de la <varname>Main-Class</varname>  dans le fichier Manifest ( dont on parle dans
+            “Configuration du Plugin” ci-dessous), ce descripteur permet de produire un jar exécutable
+            autosuffisant votre projet, même si ce dernier possède des dépendances.</para>
           </listitem>
         </varlistentry>
 
@@ -142,7 +142,7 @@
 
           <listitem>
             <para>Le descripteur <varname>project</varname> construit une archive
-            à partir de la structure du répertoire du projet telle qu'elle existe sur
+            à partir de la structure de répertoire du projet telle qu'elle existe sur
             votre système de fichier, et probablement dans votre outil de gestion de 
             configuration. Bien sûr, le répertoire <filename>target</filename> n'est
             pas pris en compte ainsi que les fichiers de métadonnées comme les
@@ -163,7 +163,7 @@
             <filename>README</filename> et <filename>NOTICE</filename> qui se trouvent
             dans le répertoire racine du projet. Ce descripteur produit une archive 
             qui peut être construite par Maven dans la plupart des cas. Cependant,
-            comme il suppose que tout le code source et les ressources sont dans le 
+            il suppose que tout le code source et les ressources sont dans le 
             répertoire standard <filename>src</filename> et donc il peut oublier
             les fichiers et les répertoires non-standards même s'ils sont critiques
             pour le build.</para>
@@ -179,19 +179,19 @@
       l'invoquer directement depuis la ligne de commande ou le configurer comme
       un élément standard de votre processus de build en le rattachant à une
       phase du cycle de vie du build de votre projet. L'invocation directe a son
-      utilité , particulièrement pour les assemblies qui ne font pas partie des
+      utilité, particulièrement pour les assemblies qui ne font pas partie des
       principaux délivrables de votre projet. Dans la plupart des cas, vous
       voudrez produire les assemblies de votre projet au cours de son processus
       de build standard. Ainsi vos packagings personnalisés sont inclus lorsque
       votre projet est installé ou deployé dans les dépôts Maven et ils sont donc
       toujours disponibles pour vos utilisateurs.</para>
 
-      <para>Comme exemple d'inocation directe du plugin Assembly, imaginez que vous
+      <para>Comme exemple d'invocation directe du plugin Assembly, imaginez que vous
       voulez livrer une copie de votre projet que l'on puisse construire à partir des
-      sources. Au lieu de le déployer le produit final du build vous voulez aussi
+      sources. Au lieu de déployer uniquement le produit final du build vous voulez aussi
       inclure le code source. Ce n'est pas une opération que vous avez besoin de répeter
       souvent, donc ça n'a pas de sens que d'ajouter cette configuration à votre
-      <sgmltag>POM</sgmltag>. AU lieu de cela, vous pouvez utiliser la commande
+      <sgmltag>POM</sgmltag>. Au lieu de cela, vous pouvez utiliser la commande
       suivante : </para>
       <screen>$ <command>mvn -DdescriptorId=project assembly:single</command> 
 ...
@@ -206,7 +206,7 @@
 
       <para>Imaginez que vous voulez produire un <acronym>JAR</acronym>
       exécutable à partir de votre projet. Si votre projet est autoporté
-      et sans dépendacevous pouvez obtenir ce résultat à partir de votre
+      et sans dépendance vous pouvez obtenir ce résultat à partir de votre
       artefact avec un peu de configuration du plugin <acronym>JAR</acronym>.
       Cependant, la plupart des projets ont des dépendances et celles-ci
       doivent être incorporées pour obtenir un <acronym>JAR</acronym> exécutable.
@@ -277,7 +277,7 @@
       configuration ci-dessus. Premièrement, nous utilisons l'élément 
       <sgmltag>descriptorRefs</sgmltag> dans configuration plutôt que
       le paramètre <sgmltag>descriptorId</sgmltag> que nous avions utilisé
-      précédemment. cela nous permet de construire différents packages
+      précédemment. Cela nous permet de construire différents packages
       durant la même exécution du plugin Assembly tout en supportant
       notre cas d'utilisation avec très peu de configuration supplémentaire.
       Deuxièmement, la balise <sgmltag>archive</sgmltag> sous
@@ -289,7 +289,7 @@
 
       <para>Maintenant, vous pouvez produire un <acronym>JAR</acronym> exécutable
       simplement en exécutant la commande <command>mvn package</command>. Après,
-      nous listerons le contenu du répertoire<filename>target</filename> pour
+      nous listerons le contenu du répertoire <filename>target</filename> pour
       vérifier que le <acronym>JAR</acronym> exécutable a bien été généré. Enfin,
       pour prouver qu'il s'agit bien d'un <acronym>JAR</acronym> exécutable, nous
       essayerons de l'exécuter :</para>
@@ -316,7 +316,7 @@ Hello, World!</screen>
       <para>Des traces présentées ci-dessus vous pouvez voir 
       que maintenant le build normal du projet produit un nouvel
       artefact en plus du principal fichier <acronym>JAR</acronym>.
-      Ce nouvel artefact à le classifer <varname>jar-with-dependencies</varname>.
+      Ce nouvel artefact a le classifer <varname>jar-with-dependencies</varname>.
       Enfin, nous avons vérifié que ce nouveau <acronym>JAR</acronym>
       est réellement exécutable et que son exécution produit le résutat
       attendu : l'affichage de “Hello, World!”</para>
