@@ -369,24 +369,24 @@ Hello, World!</screen>
     </section>
 
     <section id="assemblies-sect-assembling-via-depend">
-      <title>Construction d'assemblies via des assemblies dépendances</title>
+      <title>Construction d'assemblies à partir d'assemblies dépendances</title>
 
       <para>Assez perturbant ce titre n'est ce pas ? Essayons de mettre en place
       un scénario pour expliquer cette notion d'assemblage d'assembly. Imaginez que
       vous voulez construire une archive qui elle-même contient des assemblies d'un
-      projet. Supposons que vous avez un build multimodule et que vous voulez
+      projet. Supposons que vous ayez un build multimodule et que vous vouliez
       déployer un assembly qui contient un ensemble d'assemblies de ce projet
-      liés entre eux. Dans l'exemple de cette section nous créons un package
-      qui rassemble des répertoires "constructibles" du projet pour des
-      sous-projets qui sont utilisés ensembles. Pour essayer de rester simple nous
+      liés entre eux. Dans l'exemple de cette section, nous créons un package
+      qui rassemble des répertoires "constructibles" des sous-modules 
+      d'un projet qui sont utilisés ensembles. Pour essayer de rester simple nous
       utiliserons les descripteurs d'assembly dont nous venons de parler -
       <varname>project</varname> et <varname>jar-with-dependencies</varname>.
-      Dans cet exemple particulier nous supposons que chaque projet construit
-      son assembly en plus de l'artefact <acronym>JAR</acronym> principal.
-      Nous supposerons aussi que cahque projet de ce build multimodule rattache
+      Dans cet exemple particulier nous supposerons que chaque projet construit
+      son assembly en plus de son artefact <acronym>JAR</acronym> principal.
+      Nous supposerons aussi que chaque projet de ce build multimodule rattache
       le goal <varname>single</varname> à la phase <varname>package</varname> et
       qu'il utilise la balise <sgmltag>descriptorRef</sgmltag>. Tous les projets
-      de ce build multimodule hérite de la configuration du fichier
+      de ce build multimodule héritent de la configuration du fichier
       <filename>pom.xml</filename> de plus haut niveau et notamment de sa
       balise <sgmltag>pluginManagement</sgmltag> qui est décrite dans l'<xref
       linkend="ex-top-pom-assembly" />.</para>
@@ -425,7 +425,7 @@ Hello, World!</screen>
       </example>
 
       <para>Le <acronym>POM</acronym> de chaque projet référence le plugin dont la
-      configuration est décrite dans <xref linkend="ex-top-pom-assembly" /> par une
+      configuration est décrite dans l'<xref linkend="ex-top-pom-assembly" /> par une
       déclaration minimale dans son build comme le montre l' <xref
       linkend="ex-activating-assembly" />.</para>
 
@@ -442,9 +442,9 @@ Hello, World!</screen>
 </programlisting>
       </example>
 
-      <para>Pour produire l'ensemble des assemblies de projet, exécutez la commande
+      <para>Pour produire l'ensemble des assemblies du projet, exécutez la commande
       <command>mvn install</command> depuis le répertoire racine. Vous devriez voir
-      Maven installer les artefacts avec des classifiers dans votre dépôt.</para>
+      Maven installer les artefacts avec des classifieurs dans votre dépôt.</para>
 
       <screen>$ <command>mvn install</command>
 ...
@@ -466,13 +466,13 @@ Installing ~/mvn-examples-1.0/assemblies/as-dependencies/project-parent/\
 
       <para>Lorsque vous exécutez <varname>install</varname>, Maven va copier
       l'artefact principal de chaque projet ainsi que chaque assembly dans
-      votre dépôt Maven local. Tous cesartefacts sont maintenant disponibles
+      votre dépôt Maven local. Tous ces artefacts sont maintenant disponibles
       comme dépendance pour d'autres projets localement. Si votre but final
       est de créer un paquet qui inclut les assemblies de différents projets
       vous pouvez créer un autre projet qui référence comme dépendances les
-      assemblies de ce projet. Ce projet chapeau prend la responsabilité
+      assemblies de ces projets. Ce projet chapeau prend la responsabilité
       de construire l'assembly englobant tous les autres. Le
-      <acronym>POM</acronym> de ce projet chapeau d'empaquetage ressemblerait
+      <acronym>POM</acronym> de ce projet assembly chapeau ressemblerait
       au document XML décrit dans l'<xref linkend="ex-bundling-pom" />.</para>
 
       <example id="ex-bundling-pom">
@@ -533,28 +533,28 @@ Installing ~/mvn-examples-1.0/assemblies/as-dependencies/project-parent/\
 </programlisting>
       </example>
 
-      <para>Le <acronym>POM</acronym> de ce projet chapeau d'empaquetage 
-      fait référence à deux assemblies des projets 
-      <varname>first-project</varname> et <varname>second-project</varname>.
-      Au lieu de référencer l'artefact princiapl de chaque projet, le
-      <acronym>POM</acronym> de ce projet d'empaquetage spécifie un
+      <para>Le <acronym>POM</acronym> de ce projet assembly chapeau fait
+      référence aux assemblies des projets <varname>first-project</varname>
+      et <varname>second-project</varname>.
+      Au lieu de référencer l'artefact principal de chaque projet, le
+      <acronym>POM</acronym> de ce projet assembly spécifie un classifieur 
       <varname>project</varname> et un type <varname>zip</varname>.
-      Cela indique à Maven qu'il v devoir résoudre une archive de
+      Cela indique à Maven qu'il va devoir résoudre une archive de
       type <acronym>ZIP</acronym> qui a été créée par l'assembly
-      <varname>project</varname>. Remarquez que le projet d'empaquetage
+      <varname>project</varname>. Remarquez que le projet assembly 
       produit lui-même un assembly <varname>jar-with-dependencies</varname>. 
-      <varname>jar-with-dependencies</varname> ne produit pas un paquet 
-      particulièrement élégant puisqu'il construit un fichier <acronym>JAR</acronym>
-      contenant toutes les dépendances dépaquettées.
+      L'assembly produit par <varname>jar-with-dependencies</varname> n'est pas une archive
+      particulièrement élégante puisqu'il construit un fichier <acronym>JAR</acronym>
+      contenant toutes les dépendances décompressées.
       <varname>jar-with-dependencies</varname> demande à Maven de récupérer toutes
-      les dépendances , de les décompresser et ensuite de créer une archive
+      les dépendances, de les décompresser et ensuite de créer une archive
       unique en y incluant le résultat du projet courant. Dans ce projet, cela
       produit un unique fichier <acronym>JAR</acronym> qui aggrège les contenus des
       assemblies de <varname>first-project</varname> et de
       <varname>second-project</varname>.</para>
 
       <para>Cet exemple illustre comment les capacités de base du plugin Maven
-      Assembly peuvent être combinées sans avoir recours à un descripteur 
+      Assembly peuvent être combinées sans nécessiter un descripteur
       d'assembly. Il crée une unique archive qui contient les répertoires
       de plusieurs projets les uns à côté des autres. Cette fois, le 
       <varname>jar-with-dependencies</varname> est juste un format de stockage
@@ -571,8 +571,8 @@ Installing ~/mvn-examples-1.0/assemblies/as-dependencies/project-parent/\
 </screen>
 
       <para>Pour vérifier que l'assembly <varname>project-bundle</varname>
-      contient bien les élémnts dépaquettés des assemblies dépendances
-      exécutez la commande <command>jar tf</command> :</para>
+      contient bien les éléments décompressés et combinés des assemblies
+      dépendances, exécutez la commande <command>jar tf</command> :</para>
 
       <screen>$ <command>jar tf \
   target/project-bundle-1.0-SNAPSHOT-jar-with-dependencies.jar</command>
@@ -586,9 +586,9 @@ second-project-1.0-SNAPSHOT/src/main/java/org/sonatype/mavenbook/App.java
 second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</screen>
 
       <para>Maintenant que vous avez lu cette section son titre devrait
-      avoir un peu plus de sens. Vous avez assemblé les assemblies de deux
-      projects dans un assembly grâce à un projet d'empaquetage dépendant
-      de chcun de ces assemblies.</para>
+      avoir un peu plus de sens. Vous avez combiné les assemblies de deux
+      projects dans un assembly grâce à un projet assembly dépendant
+      de chacun de ces assemblies.</para>
     </section>
   </section>
 
