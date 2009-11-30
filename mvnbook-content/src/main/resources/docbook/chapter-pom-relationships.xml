@@ -21,7 +21,7 @@
     <para>Les projets Maven, les dépendances, les builds, les artefacts : tous sont des objets qu'il va falloir
     modéliser et décrire. Ces objets sont décrits dans un fichier <acronym>XML</acronym> appelé Modèle Objet de Projet.
     Le <acronym>POM</acronym> indique à Maven quel type de projet il va devoir traiter et comment il va devoir
-    s'adapter pour transformer les sources pour produire le résultat attendu. Ainsi comme le fichier 
+    s'adapter pour transformer les sources pour produire le résultat attendu. Ainsi, comme le fichier 
     <filename moreinfo="none">web.xml</filename> décrit, configure et personnalise une application web Java, c'est
      la présence d'un fichier<indexterm>
         <primary>pom.xml file</primary>
@@ -43,7 +43,7 @@
     moreinfo="none">pom.xml</filename>, mais c'est là que les similarités s'arrêtent. Si vous regardez un <filename
     moreinfo="none">pom.xml</filename> Maven, la plus grande partie du <acronym>POM</acronym> se compose de
     descriptions. Où se trouve le code source ? Où sont les ressources ? Quel est le packaging ? Si vous regardez un
-    fichier <filename moreinfo="none">build.xml</filename> pour Ant, vous verrez quel quechose d'entièrement différent.
+    fichier <filename moreinfo="none">build.xml</filename> pour Ant, vous verrez quelque chose d'entièrement différent.
     Vous verrez des instructions explicites pour des tâches comme la compilation de classes Java. Le
     <acronym>POM</acronym> Maven est déclaratif, et même si vous pouvez y inclure des personnalisations
     procédurales via le plugin Maven Ant, en général vous n'aurez pas besoin de vous plonger dans les délicats
@@ -58,12 +58,12 @@
     livre technique. En effet, le source de ce livre et ses exemples sont répartis dans un projet Maven multimodule qui
     utilise l'un des nombreux plugins Maven pour Docbook afin d'appliquer une feuille <acronym>XSL</acronym> Docbook
     standard à un ensemble de chapitres présents sous la forme de fichiers <acronym>XML</acronym>. Certains ont créé des
-    plugins Maven pour transformer du code Adobe Flex en <acronym>SWC</acronym>s et <acronym>SWF</acronym>s. Enfin,
-    certains utilisent Maven pour contruire des projets écrits en C.</para>
+    plugins Maven pour transformer du code Adobe Flex en <acronym>SWC</acronym>s et <acronym>SWF</acronym>s ; 
+    d'autres utilisent Maven pour construire des projets écrits en C.</para>
 
     <para>Nous avons donc établi que le <acronym>POM</acronym> décrit et déclare, et qu'il se différencie de Ant ou de
     Make en ce qu'il de fournit pas d'instructions explicites. Nous avons vu que les concepts du <acronym>POM</acronym>
-    ne sont pas propres à Java. Regardons tout cela plus en détails au travers de la <xref linkend="fig-pom" /> pour une
+    ne sont pas propres à Java. Regardons tout cela plus en détail au travers de la <xref linkend="fig-pom" /> pour une
     analyse du contenu d'un <acronym>POM</acronym>.</para>
 
     <para><figure id="fig-pom">
@@ -88,7 +88,7 @@
         <term>Informations générales sur le projet</term>
 
         <listitem>
-          <para>Cette catégorie regroupe le nom l'<acronym>URL</acronym> et la license du<indexterm>
+          <para>Cette catégorie regroupe le nom l'<acronym>URL</acronym> et la licence du<indexterm>
               <primary>project information (in pom.xml)</primary>
             </indexterm><indexterm>
               <primary>licensing information (project information)</primary>
@@ -100,13 +100,13 @@
               <primary>pom.xml file</primary>
 
               <secondary>project information in</secondary>
-            </indexterm> projet, l'organisation qui le produit ce projet, et  une liste de développeurs et de
+            </indexterm> projet, l'organisation qui le produit ce projet, et une liste de développeurs et de
             contributeurs.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>Configuration du Build</term>
+        <term>Configuration du build</term>
 
         <listitem>
           <para>Dans cette section, nous configurons le build Maven<indexterm>
@@ -122,7 +122,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term>Environnement du Build</term>
+        <term>Environnement du build</term>
 
         <listitem>
           <para>L'environnement du build consiste en un ensemble de profils qui peuvent être<indexterm>
@@ -132,7 +132,7 @@
 
               <secondary>build environment</secondary>
             </indexterm> activés pour être utilisés dans différents environnements. Par exemple, au cours du
-          développement vous pouvez vouloir déployer sur un serveur qui sera différent de celui sur lequel vous déployerez
+          développement vous pouvez vouloir déployer sur un serveur qui sera différent de celui sur lequel vous déploierez
           en production. L'environnement de build adapte la configuration du build
           pour un environnement spécifique et il s'accompagne souvent d'un fichier<indexterm>
               <primary>settings.xml file</primary>
@@ -146,7 +146,7 @@
         <term>Relations entre POM</term>
 
         <listitem>
-          <para>Un projet est rarement isolé; il dépend souvent d'autres projets, hérite d'une configuration de
+          <para>Un projet est rarement isolé. Il dépend souvent d'autres projets, hérite d'une configuration de
           <acronym>POM</acronym> de projets parent, définit ses propres coordonnées, et peut comporter des
           sous-modules.</para>
         </listitem>
@@ -156,7 +156,7 @@
     <section id="pom-relationships-sect-super-pom">
       <title>Le Super POM</title>
 
-      <para>Avant de se plonger dans des exemples de <acronym>POM</acronym>s, jettons un rapide coup d'œil au Super
+      <para>Avant de se plonger dans des exemples de <acronym>POM</acronym>s, jetons un rapide coup d'œil au Super
       <acronym>POM</acronym>. Tous les <acronym>POM</acronym>s de projet Maven étendent le Super <acronym>POM</acronym>
       qui définit un ensemble de valeurs par défaut partagé par tous les projets. Ce Super <acronym>POM</acronym> fait
       partie de l'installation de Maven, et se trouve dans le fichier
@@ -335,7 +335,7 @@
 
         <callout arearefs="coDef-super-4" id="coRef-super-4">
           <para>Depuis la version 2.0.9 de Maven les versions par défaut des plugins du cœur sont définies dans le Super
-          <acronym>POM</acronym>. cela a été mis en place pour apporter une certaine stabilité aux utilisateurs qui ne
+          <acronym>POM</acronym>. Cela a été mis en place pour apporter une certaine stabilité aux utilisateurs qui ne
           précisent pas de version dans leurs <acronym>POM</acronym>s.</para>
         </callout>
       </calloutlist>
@@ -380,7 +380,7 @@
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>Un <acronym>POM</acronym> aussi simple serait plus qu'adéquat pour un projet très simple—par exemple, une
+      <para>Un <acronym>POM</acronym> aussi simple serait plus qu'adéquat pour un projet très simple — par exemple, une
       bibliothèque Java qui produirait un fichier <acronym>JAR</acronym>. Ce <acronym>POM</acronym> ne fait aucune
       référence à un autre projet, ne dépend de rien et il lui manque des informations basiques comme son nom et une
       <acronym>URL</acronym>. Si vous créiez un tel fichier et un sous-répertoire <filename
@@ -398,7 +398,7 @@
       d'autres <acronym>POM</acronym>s, vous devez toujours voir un <acronym>POM</acronym> Maven comme la combinaison du
       Super <acronym>POM</acronym>, plus tous les <acronym>POM</acronym>s parents intermédiaires et enfin le
       <acronym>POM</acronym> du projet en cours. Maven commence par le Super <acronym>POM</acronym> et surcharge la
-      configuration par défaut avec un ou plusieurs <acronym>POM</acronym>s parents. Puis il surcharge la configuration
+      configuration par défaut avec un ou plusieurs <acronym>POM</acronym>s parents. Puis, il surcharge la configuration
       résultante avec les valeurs du <acronym>POM</acronym> du projet. Au final, vous obtenez un <acronym>POM</acronym>
       effectif qui est le résultat de la combinaison de plusieurs <acronym>POM</acronym>s. Si vous voulez voir le
       <acronym>POM</acronym> effectif d'un projet, vous allez devoir exécuter le goal <varname>effective-pom</varname>
@@ -416,20 +416,20 @@
     <section id="pom-relationships-sect-real-poms">
       <title>Véritables POMs</title>
 
-      <para>Plutôt que de taper un ensemble de <acronym>POM</acronym>s convenus <indexterm>
+      <para>Plutôt que de taper un ensemble de <acronym>POM</acronym>s convenu <indexterm>
           <primary>real POMs</primary>
         </indexterm> pour vous guider pas-à-pas, vous pouvez regarder les exemples fournis dans <xref
-      linkend="part-example" />. Maven est un véritable caméléon ; vous pouvez choisir et utiliser ce dont vous voulez
+      linkend="part-example" />. Maven est un véritable caméléon, vous pouvez choisir et utiliser ce dont vous voulez
       profiter. Certains projets libres peuvent accorder de l'importance à la possibilité de lister les développeurs et
       les contributeurs, de pouvoir produire une documentation claire pour un projet et de pouvoir gérer
       automatiquement les livraisons grâce au plugin Maven Release. Par contre, pour quelqu'un qui travaille dans
       le contexte d'une petite équipe au sein d'une entreprise, les capacités de Maven pour gérer les distributions ou lister
       les développeurs peuvent avoir un moindre intérêt. La suite de ce chapitre va traiter les caractéristiques du
-      <acronym>POM</acronym> en lui même. Au lieu de vous bombarder avec un listing de 10 pages contenant tout un
+      <acronym>POM</acronym> en lui-même. Au lieu de vous bombarder avec un listing de 10 pages contenant tout un
       ensemble de <acronym>POM</acronym>s , nous allons nous concentrer sur la création d'une bonne référence pour
       chacune des sections spécifiques du <acronym>POM</acronym>. Dans ce chapitre, nous allons parler des relations
       entre les <acronym>POM</acronym>s mais sans ajouter un nouvel exemple pour l'illustrer. Si vous voulez un tel
-      exemple vous le trouverez dans le <xref linkend="multimodule-web-spring" />.</para>
+      exemple, vous le trouverez dans le <xref linkend="multimodule-web-spring" />.</para>
     </section>
   </section>
 
@@ -479,7 +479,7 @@
       <para>Suivre ces préconisations pour les numéros de version prend tout son sens lorsque vous commencez à utiliser
       des intervalles pour vos versions dans les <acronym>POM</acronym>s. Les intervalles de versions qui sont abordés
       dans la <xref linkend="pom-relationships-sect-version-ranges" />, vous permettent de spécifier une dépendance dont
-      la version est comprise dans cet intervalle. cela n'est possible que parce que Maven est capable de trier les
+      la version est comprise dans cet intervalle. Cela n'est possible que parce que Maven est capable de trier les
       versions en se basant sur le format de numéro de version dont nous venons de parler.</para>
 
       <para>Si votre numéro de version respecte le format
@@ -504,7 +504,7 @@
         mettre “alpha-10” avant “alpha-2”. Ceci est dû à un problème connu dans la façon dont Maven traite les numéros
         de version.</para>
 
-        <para>Maven doit en théorie considèrer le nombre après le qualifieur comme le numéro du build. En d'autres
+        <para>Maven doit, en théorie, considérer le nombre après le qualifieur comme le numéro du build. En d'autres
         termes, le qualifieur devrait être "alpha", et le numéro du build 2. Même si Maven a été conçu pour séparer le
         numéro du build du qualifieur, cette fonctionnalité ne fonctionne pas actuellement. En conséquence, "alpha-2" et
         "alpha-10" sont comparés comme des chaînes de caractères, ce qui positionne "alpha-10" avant "alpha-2"
@@ -514,7 +514,7 @@
       </section>
 
       <section id="pom-relationships-sect-snapshot-versions">
-        <title>Les version SNAPSHOT</title>
+        <title>Les versions SNAPSHOT</title>
 
         <para>Les numéros de versions dans Maven peuvent contenir une chaîne de caractères pour indiquer que le
         <indexterm>
@@ -527,11 +527,11 @@
         23:08 <acronym>UTC</acronym>. En d'autres termes, quand vous déployez un snapshot, vous ne livrez pas un composant
         logiciel ; vous livrez un instantané d'un composant.</para>
 
-        <para>Pourquoi utiliser cette fontionnalité ? Les versions SNAPSHOT sont utilisées pour les projets en cours de
+        <para>Pourquoi utiliser cette fonctionnalité ? Les versions SNAPSHOT sont utilisées pour les projets en cours de
         développement. Si votre projet dépend d'un composant logiciel en cours de développement, vous pouvez dépendre
         d'une version SNAPSHOT, Maven essayera alors de télécharger périodiquement la dernière version snapshot du dépôt
-        lorsque vous lancerez votre build. De même, si la prochaine livraison de votre système sera la
-        version "1.4", tant que votre projet n'est pas livré définitivement il devrait être en version
+        lorsque vous lancerez votre build. De même, si la prochaine livraison de votre système est la
+        version "1.4", tant que votre projet n'est pas livré définitivement, il devrait être en version
         "1.4-SNAPSHOT".</para>
 
         <para>Par défaut, Maven ne va pas vérifier la présence de versions SNAPSHOT sur les dépôts distants. Pour
@@ -638,10 +638,10 @@
           <listitem>
             <para>La variable <varname>project</varname> permet d'accéder au<indexterm>
                 <primary>project variable</primary>
-              </indexterm> <acronym>POM</acronym>. Vous pouvez utiliser un chemin pavé de points (.) pour référencer la
+              </indexterm> <acronym>POM</acronym>. Vous pouvez utiliser un chemin pavé de points ('.') pour référencer la
             valeur d'un élément du <acronym>POM</acronym>. Par exemple, dans cette section nous avons utilisé le
             <varname>groupId</varname> et l'<varname>artifactId</varname> pour définir la valeur de l'élément
-            <sgmltag>finalName</sgmltag> dans la configuation du build. La syntaxe pour cette référence était :
+            <sgmltag>finalName</sgmltag> dans la configuration du build. La syntaxe pour cette référence était :
             <code>\${project.groupId}-\${project.</code><code>artifactId}</code>.</para>
           </listitem>
         </varlistentry>
@@ -780,7 +780,7 @@
     <literal>test</literal> lorsque vous n'avez besoin de cette bibliothèque que pour compiler et exécuter les tests. La
     dernière dépendance de l'<xref linkend="ex-dependency" /> est une dépendance sur l'<acronym>API</acronym> Servlet
     2.4. Cette dernière dépendance se trouve dans le scope <literal>provided</literal>. Vous pouvez utiliser le scope
-    <literal>provided</literal> quand votre application a besoin d'une bibliothèques à la compilation ainsi que pour les
+    <literal>provided</literal> quand votre application a besoin d'une bibliothèque à la compilation ainsi que pour les
     tests et que cette bibliothèque est fournie par un conteneur à l'exécution.</para>
 
     <section id="pom-relationships-sect-dependency-scope">
@@ -794,7 +794,7 @@
           <secondary>scope of</secondary>
         </indexterm>cinq scopes de dépendance : <literal>compile</literal>, <literal>test</literal> et
       <literal>provided</literal>. Le scope contrôle dans quel classpath vont se retrouver les dépendances et quelles
-      seront celles qui seront intégrées à l'application. Regardons ces scopes plus en détails :</para>
+      seront celles qui seront intégrées à l'application. Regardons ces scopes plus en détail :</para>
 
       <variablelist>
         <varlistentry>
@@ -819,7 +819,7 @@
               </indexterm>exemple, si vous développez une application web, vous aurez besoin de l'<acronym>API</acronym>
             Servlet dans votre classpath pour pouvoir compiler une servlet, mais vous ne voudrez pas inclure
             l'<acronym>API</acronym> Servlet dans votre fichier <acronym>WAR</acronym> ; le <acronym>JAR</acronym> de
-            l'<acronym>API</acronym> Servlet est fourni par votre serveur d'application ou par votre conteneur de
+            l'<acronym>API</acronym> Servlet est fourni par votre serveur d'applications ou par votre conteneur de
             servlet. Les dépendances du scope <literal>provided</literal> font partie du classpath de compilation (mais
             pas de celui d'exécution). Elles ne sont pas transitives et ne seront pas packagées avec
             l'application.</para>
@@ -876,8 +876,7 @@
             cet artefact est toujours présent et donc il ne sera pas cherché dans un dépôt. Si vous utilisez le scope
             <literal>system</literal>, vous devez automatiquement lui adjoindre une balise
             <sgmltag>systemPath</sgmltag>. Il est important de noter que l'utilisation de ce scope n'est pas recommandée
-            (vous devriez toujours essayer de référencer des dépendances qui se trouvent dans un dépôt Maven publique ou
-            privé).</para>
+            (vous devriez toujours essayer de référencer des dépendances qui se trouvent dans un dépôt Maven public ou privé).</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -892,7 +891,7 @@
           <primary>dependencies</primary>
 
           <secondary>optional</secondary>
-        </indexterm>de cache. Au lieu d'écrire votre propre système de cache en partant de rien vous voulez utiliser
+        </indexterm>de cache. Au lieu d'écrire votre propre système de cache en partant de zéro, vous voulez utiliser
       certaines des bibliothèques existantes qui gèrent un cache sur le système de fichiers ou un cache distribué.
       Supposons encore que vous voulez permettre à l'utilisateur final de choisir entre un cache sur le système de
       fichiers et un cache distribué en mémoire. Vous voulez utiliser la bibliothèque libre EHCache (<ulink
@@ -962,7 +961,7 @@
   &lt;/dependencies&gt;
 &lt;/project&gt;</programlisting>
 
-      <para>Dans un monde idéal vous ne devriez pas avoir besoin de dépendances optionnelles. Au lieu d'avoir un gros
+      <para>Dans un monde idéal, vous ne devriez pas avoir besoin de dépendances optionnelles. Au lieu d'avoir un gros
       projet avec un ensemble de dépendances optionnelles, vous devriez isoler le code <phrase
       role="keep-together">spécifique à EHCache</phrase> dans un sous-module <varname>my-project-ehcache</varname> et le
       code <phrase role="keep-together">spécifique à SwarmCache</phrase> dans un autre sous-module
@@ -987,7 +986,7 @@
         </indexterm>dépendance, vous pouvez définir un ensemble de versions acceptables pour une dépendance donnée. Par
       exemple, vous pouvez configurer votre projet pour qu'il dépende de JUnit 3.8 ou supérieure, ou toutes les versions
       de JUnit comprises entre 1.2.10 et 1.2.14. Pour cela vous devez entourer les numéros de versions avec les
-      caractères suivantes :</para>
+      caractères suivants :</para>
       <variablelist>
         <varlistentry>
           <term role="plain">(, )</term>
@@ -1002,7 +1001,7 @@
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>Par exemple si vous voulez accéder aux versions de <code>JUnit </code>supérieures ou égales à 3.8 mais
+      <para>Par exemple, si vous voulez accéder aux versions de <code>JUnit </code>supérieures ou égales à 3.8 mais
       inférieures à 4.0, vous déclareriez votre dépendance comme dans l'<xref linkend="ex-dep-range" />.</para>
 
       <para><example id="ex-dep-range">
@@ -1048,13 +1047,13 @@
 
       <note>
         <para>Quand vous déclarez une version "normale" telle que la version 3.8.2 de Junit, Maven voit cette déclaration
-        comme comme "accepter toute version, mais en préferrant la version 3.8.2". Ce qui signifie que
+        comme "accepter toute version, mais en préférant la version 3.8.2". Ce qui signifie que
         lorsqu'un conflit est détecté, Maven s'autorise l'utilisation des algorithmes de résolution de conflit pour
         choisir la meilleure version. Si vous spécifiez [3.8.2], cela indique que seule la version 3.8.2 sera utilisée
         et aucune autre. Si ailleurs il se trouve une dépendance qui spécifie [3.8.1], le build va échouer en vous
         indiquant le conflit en question. Nous vous précisons tout cela pour que vous soyez au courant de cette option,
-        mais n'utilisez là que lorsque c'est véritablement nécessaire. Pour résoudre ces conflits de version il est
-        préferrable de passer par la balise <sgmltag>dependencyManagement</sgmltag>.</para>
+        mais n'utilisez là que lorsque c'est véritablement nécessaire. Pour résoudre ces conflits de version, il est
+        préferable de passer par la balise <sgmltag>dependencyManagement</sgmltag>.</para>
       </note>
     </section>
 
@@ -1081,7 +1080,7 @@
       recouvrements qui pourraient arriver. Par exemple, si Maven s'aperçoit que deux projets dépendent des mêmes
       <varname>groupId</varname> et <varname>artifactId</varname>, il va automatiquement trouver la dépendance à
       utiliser, en favorisant toujours la version la plus récente. Même si tout cela semble fort pratique, il existe un
-      certain nombre de cas où les dépendances transitives peuvent entrainer des problèmes de configuration. Dans ce
+      certain nombre de cas où les dépendances transitives peuvent entraîner des problèmes de configuration. Dans ce
       cas, vous pouvez utiliser l'exclusion de dépendance.</para>
 
       <section id="pom-relationships-sect-transitive-scope">
@@ -1093,8 +1092,8 @@
 
             <secondary>transitive dependencies and</secondary>
           </indexterm>dépendance dans le projet, mais aussi le comportement transitif de cette dépendance.
-          La manière la plus simple de présenter tout cela est sous la forme d'un tableau, comme celui de
-        l'<xref linkend="table-transitive-dep-and-scope" />. Les scopes dans la première ligne représentent le scope
+          La manière la plus simple de présenter tout cela est sous la forme d'un tableau, comme celui du 
+        <xref linkend="table-transitive-dep-and-scope" />. Les scopes dans la première ligne représentent le scope
         d'une dépendance transitive. Les scopes dans la colonne de gauche représentent le scope de la dépendance
         directe. L'intersection des lignes et des colonnes donne le scope de la dépendance transitive. Une cellule vide
         indique que la dépendance transitive ne sera pas prise en compte.</para>
@@ -1197,7 +1196,7 @@
     <section id="pom-relationships-sect-conflict">
       <title>Résolution des conflits</title>
 
-      <para>A certains moments vous aurez besoin d'exclure une dépendance<indexterm>
+      <para>À certains moments, vous aurez besoin d'exclure une dépendance<indexterm>
           <primary>conflict, dependency</primary>
         </indexterm><indexterm>
           <primary>resolving dependency conflicts</primary>
@@ -1238,7 +1237,7 @@
       fonctionnalité. Par exemple, si vous dépendez d'une bibliothèque qui elle-même dépend de l'<acronym>API</acronym>
       <acronym>JTA</acronym> de Sun, vous pouvez vouloir remplacer cette dépendance transitive. Hibernate en est un bon
       exemple. Hibernate dépend du <acronym>JAR</acronym> de l'<acronym>API</acronym> <acronym>JTA</acronym> de Sun qui
-      n'est pas disponible sur le dépôt central de Maven car il n'est pas librement distribuable. Heureusement le projet
+      n'est pas disponible sur le dépôt central de Maven car il n'est pas librement distribuable. Heureusement, le projet
       Apache Geronimo a créé une implémentation indépendante de cette bibliothèque qui est librement redistribuable.
       Pour remplacer une dépendance transitive par une autre, vous devrez exclure la dépendance transitive et ajouter
       l'autre dépendance à votre projet. L'<xref linkend="ex-exclude-replace" /> donne un exemple d'un tel
@@ -1268,7 +1267,7 @@
       </example>
 
       <para>Dans l'<xref linkend="ex-exclude-replace" />, rien n'indique que la dépendance
-      <varname>geronimo-jta_1.1_spec</varname> en remplace une autre, il se trouve juste que c'est une bibliothèque qui
+      <varname>geronimo-jta_1.1_spec</varname> en remplace une autre, il se trouve juste qu'il s'agit d'une bibliothèque qui
       présente la même <acronym>API</acronym> que la dépendance <acronym>JTA</acronym> originale. Voici d'autres raisons
       pour lesquelles vous voudriez exclure ou remplacer des dépendances transitives :</para>
 
@@ -1296,7 +1295,7 @@
         <listitem>
           <para>Pour exclure une dépendance qui peut être une <acronym>API</acronym> avec plusieurs implémentations.
           C'est le cas présenté dans l'<xref linkend="ex-exclude-replace" /> ; où une <acronym>API</acronym> de Sun qui
-          demande une acceptation d'une license et une installation manuelle dans un dépôt personnel (le
+          demande une acceptation d'une licence et une installation manuelle dans un dépôt personnel (le
           <acronym>JAR</acronym> <acronym>JTA</acronym> de Sun) peut être remplacée par une version librement
           redistribuable de la même <acronym>API</acronym> disponible sur le dépôt central de Maven (l'implémentation
           <acronym>JTA</acronym> de Geronimo).</para>
@@ -1309,9 +1308,9 @@
 
       <para>Une fois que vous vez adopté Maven dans votre multinationale, vous allez vous demander
       s'il n'existe pas une meilleure manière de gérer les versions des dépendances dans vos deux cent vingt projets
-      Maven inter-dépendants. Si chaque projet qui utilise une dépendance comme le connecteur Java de MySQL doit gérer
-      dans son coin le numéro de version de cette dépendance, vous allez au devant de graves problèmes le jour où
-      vous allez faire évoluer cette version. Puisque les numéros de version sont répartis sur l'ensemble d'arbre du projet,
+      Maven interdépendants. Si chaque projet qui utilise une dépendance comme le connecteur Java de MySQL doit gérer
+      dans son coin le numéro de version de cette dépendance, vous allez au-devant de graves problèmes le jour où
+      vous allez faire évoluer cette version. Puisque les numéros de version sont répartis sur l'ensemble d'arbres du projet,
       vous allez devoir éditer à la main chacun des fichiers <filename>pom.xml</filename> qui fait référence à cette
       dépendance pour être sûr de mettre à jour ce numéro de version partout. Même avec des commandes comme
       <command>find</command>, <command>xargs</command>, et <command>awk</command>, vous risquez d'oublier un
@@ -1405,7 +1404,7 @@
     <varname>projet-a</varname>.</para>
 
     <para>Les relations d'un projet ne se limitent pas aux dépendances et à déterminer tout ce qui est lui nécessaire pour
-    construire un artefact. Maven sait modèliser les relations d'un projet vers son parent et entre sous-modules. Cette
+    construire un artefact. Maven sait modéliser les relations d'un projet vers son parent et entre sous-modules. Cette
     section présente les différentes relations qui peuvent exister entre projets et comment les configurer.</para>
 
     <section id="pom-relationships-sect-more-coordinates">
@@ -1444,7 +1443,7 @@
             <varname>artifactId</varname>s sont uniques pour un <varname>groupId</varname> donné.</para>
 
             <note>
-              <para>Si l'utilisation des '.'s est très courante pour les <varname>groupId</varname>s, vous devriez
+              <para>Si l'utilisation des '.' est très courante pour les <varname>groupId</varname>s, vous devriez
               éviter d'en utiliser pour les <varname>artifactId</varname>s. En effet, cela peut provoquer des problèmes
               lors de l'interprétation d'un nom complet jusqu'aux sous-composants.</para>
             </note>
@@ -1472,8 +1471,8 @@
           <term>classifier</term>
 
           <listitem>
-            <para>On utilise un classifier lorsqu'on livre le même code mais sous la forme de plusieurs artefacts
-            distincts pour des raisons techiques. Par exemple, si vous voulez construire deux arterfacts d'un
+            <para>On utilise un classifier lorsqu'on livre le même code, mais sous la forme de plusieurs artefacts
+            distincts pour des raisons techniques. Par exemple, si vous voulez construire deux arterfacts d'un
             <acronym>JAR</acronym>, un compilé avec le compilateur Java 1.4 et un autre avec le compilateur
             Java 6, vous utiliserez le classifier pour produire deux <acronym>JAR</acronym>s différents avec la
             même combinaison groupId:artifactId:version. Si votre projet utilise des extensions en code natif, vous
@@ -1484,8 +1483,8 @@
         </varlistentry>
       </variablelist>
 
-      <para>Dans ce livre, lorsque nous évoquons des dépendances, nous utilisons souvent le fomat simplifié suivant pour
-      décire une dépendance : <varname>groupId</varname>:<varname>artifactId</varname>:<varname>version</varname>.
+      <para>Dans ce livre, lorsque nous évoquons des dépendances, nous utilisons souvent le format simplifié suivant pour
+      décrire une dépendance : <varname>groupId</varname>:<varname>artifactId</varname>:<varname>version</varname>.
       Pour référencer la version 2.5 de Spring, nous utiliserions
       <varname>org.</varname><varname>springframework:</varname><varname>spring:</varname><varname>2.5</varname>. Quand
       vous demandez à Mave d'afficher une liste des dépendances grâce au plugin Maven Dependency, vous verrez que Maven
@@ -1515,8 +1514,8 @@
           </mediaobject>
         </figure></para>
 
-      <para>La structure des répertoires sur le système de fichier suit les relations entre les modules. L'ensemble des
-      projets illustré par la figure <xref linkend="fig-multiproject" /> aurait la structure de répertoire suivante
+      <para>La structure des répertoires sur le système de fichiers suit les relations entre les modules. L'ensemble des
+      projets illustré par la figure <xref linkend="fig-multiproject" /> aurait la structure de répertoires suivante
       :</para>
 
       <programlisting>top-parent-project/pom.xml
@@ -1530,7 +1529,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <acronym>POM</acronym>. Par exemple, le projet
       <varname>org.sonatype.mavenbook:</varname><varname>top-parent-project</varname> est un projet multimodule avec un
       packaging de type <varname>pom</varname>. Le fichier <filename>pom.xml</filename> du
-      projet<varname>top-parent-project</varname> doit possèder la balise <sgmltag>modules</sgmltag> suivante :</para>
+      projet<varname>top-parent-project</varname> doit posséder la balise <sgmltag>modules</sgmltag> suivante :</para>
 
       <example>
         <title>Balise modules du projet top-parent-project</title>
@@ -1547,7 +1546,7 @@ top-parent-project/project-c/pom.xml</programlisting>
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>Quand Maven va le <acronym>POM</acronym> du projet <varname>top-parent-project</varname> il analyse la
+      <para>Quand Maven va le <acronym>POM</acronym> du projet <varname>top-parent-project</varname>, il analyse la
       balise modules pour s'apercevoir que le projet <varname>top-parent-project</varname> référence les projets
       <varname>subparent-parent-project</varname> et <varname>project-c</varname>. Maven va alors traiter les fichiers
       <filename>pom.xml</filename> dans chacun de ces sous-répertoires. Maven répète cette opération pour chacun des
@@ -1569,7 +1568,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       </example>
 
       <para>Attention au fait que nous appelons "modules" les projets qui composent un projet multimodule et non
-      projets "enfants" ou "fils". Nous agissons ainsi délibérement pour ne pas confondre les projets qui sont liés dans
+      projets "enfants" ou "fils". Nous agissons ainsi délibérément pour ne pas confondre les projets qui sont liés dans
       un projet multimodule de ceux qui héritent d'un même <acronym>POM</acronym>.</para>
     </section>
 
@@ -1589,7 +1588,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       du <acronym>POM</acronym> du projet <varname>a-parent</varname>.</para>
 
       <example id="ex-inheritance">
-        <title>Héritage entre projet</title>
+        <title>Héritage entre projets</title>
 
         <programlisting language="xml">&lt;project&gt;
   &lt;parent&gt;
@@ -1620,12 +1619,12 @@ top-parent-project/project-c/pom.xml</programlisting>
             </imageobject>
           </mediaobject>
         </figure>Quand un projet spécifie un projet parent, Maven utilise le <acronym>POM</acronym> de ce parent comme
-      point de départ avant de traiter le <acronym>POM</acronym> du projet courrant. Il hérite de tout, jusqu'au
+      point de départ avant de traiter le <acronym>POM</acronym> du projet courant. Il hérite de tout, jusqu'au
       <varname>groupId</varname> et au numéro de <varname>version</varname>. Vous pouvez remarquer que le
       <varname>project-a</varname> ne spécifie aucun des deux, le <varname>groupId</varname> et la
       <varname>version</varname> sont tous les deux hérités du projet <varname>a-parent</varname>. Lorsqu'une balise
       parent est présente, tout ce qu'un <acronym>POM</acronym> a besoin de définir est l'<varname>artifactId</varname>.
-      cela n'est pas obligatoire, le <varname>project-a</varname> peut avoir un <varname>groupId</varname> et une
+      Cela n'est pas obligatoire, le <varname>project-a</varname> peut avoir un <varname>groupId</varname> et une
       <varname>version</varname> différents de ceux du parent, mais s'ils ne sont pas définis alors Maven utilisera ceux
       du <acronym>POM</acronym> parent. Si vous commencez à utiliser Maven pour gérer et construire de gros projets
       multimodules, vous aurez souvent à créer des projets qui auront un même <varname>groupId</varname> et une même
@@ -1677,8 +1676,8 @@ top-parent-project/project-c/pom.xml</programlisting>
 
       <para>Maven assume que le <acronym>POM</acronym> parent est disponible dans le dépôt local ou dans le répertoire
       parent (<filename>../pom.xml</filename>) du projet courant. Si aucune de ces options n'est valide ce comportement
-      par défaut peut être redéfini par la balise <sgmltag>relativePath</sgmltag>. Par exemple, certaines organsations
-      préferrent une structure à plat des projets où le fichier <filename>pom.xml</filename> du projet parent ne se
+      par défaut peut être redéfini par la balise <sgmltag>relativePath</sgmltag>. Par exemple, certaines organisations
+      préfèrent une structure à plat des projets où le fichier <filename>pom.xml</filename> du projet parent ne se
       trouve pas dans le répertoire parent d'un projet fils. Il peut se trouver dans un répertoire au même niveau que
       celui du projet. Si votre projet fils se trouve dans le répertoire <filename>./projet-a</filename> et que le
       projet parent se trouve dans <filename>./a-parent</filename>, vous préciserez dans le <acronym>POM</acronym> le
@@ -1700,8 +1699,8 @@ top-parent-project/project-c/pom.xml</programlisting>
     <title>Les bonnes pratiques du POM</title>
 
     <para>Maven peut être utilisé pour tout gérer, depuis des systèmes composés d'un projet tout simple à des systèmes
-    comprenant des dizaines de sous-modules liés les uns aux autres. Pour utiliser Maven il ne suffit pas d'apprendre la
-    syntaxe nécessaire à sa configuration, il faut apprendre le "Maven Way" (la "manière Maven") —un ensemble de bonnes
+    comprenant des dizaines de sous-modules liés les uns aux autres. Pour utiliser Maven, il ne suffit pas d'apprendre la
+    syntaxe nécessaire à sa configuration, il faut apprendre le "Maven Way" (la "manière Maven"). Il s'agit d'un ensemble de bonnes
     pratiques pour organiser et construire des projets avec Maven. Cette section essaye d'en donner certains éléments
     pour vous éviter d'avoir à creuser dans les strates de fils de discussions des listes de diffusion de Maven qui se
     sont accumulées au cours des années.</para>
@@ -1716,7 +1715,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       projet qui utilise Hibernate, Spring et MySQL vous pourriez créer un <acronym>POM</acronym> spécial qui ne fait
       rien d'autre que de déclarer un ensemble de dépendances communes. Vous pourriez ainsi créer un projet
       <varname>persistence-deps</varname> (un raccourci pour Dépendances de Persistence) et déclarer dans chaque projet
-      qui nécessite une fonction de persistence, une dépendance à ce projet:</para>
+      qui nécessite une fonction de persistance, une dépendance à ce projet :</para>
 
       <para><example>
           <title>Consolidation des dépendances dans un projet POM</title>
@@ -1758,7 +1757,7 @@ top-parent-project/project-c/pom.xml</programlisting>
 </programlisting>
         </example></para>
 
-      <para>Si vous créez ce projet dans un répertoire <varname>persistence-deps</varname>, tout ce que vous avez à fair
+      <para>Si vous créez ce projet dans un répertoire <varname>persistence-deps</varname>, tout ce que vous avez à faire
       ensuite est d'écrire ce fichier <filename>pom.xml</filename> et d'exécuter la commande <command>mvn
       install</command>. Comme c'est un projet dont le packaging est de type <varname>pom</varname>, ce
       <acronym>POM</acronym> s'installe dans votre dépôt local. Vous pouvez maintenant ajouter ce projet comme
@@ -1800,7 +1799,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       référencer autant de <acronym>POM</acronym> de dépendance selon ses besoins.</para>
 
       <note>
-        <para>Maven utilise le niveau d'une dépendance dans l'arbre lorsqu'il résoud un conflit, ne retenant que la
+        <para>Maven utilise le niveau d'une dépendance dans l'arbre lorsqu'il résout un conflit, ne retenant que la
         dépendance la plus proche. Cette technique de regroupement de dépendances les fait descendre d'un niveau dans
         l'arbre. Ne l'oubliez pas lorsque vous devez choisir entre regrouper des dépendances dans un fichier 
         <filename>pom.xml</filename> ou utiliser la balise<sgmltag>dependencyManagement</sgmltag> dans un
@@ -1809,7 +1808,7 @@ top-parent-project/project-c/pom.xml</programlisting>
     </section>
 
     <section id="pom-relationships-sect-multi-vs-inherit">
-      <title>Multimodule ou Héritage</title>
+      <title>Multimodule ou héritage</title>
 
       <para>Il existe une différence entre hériter d'un projet parent et<indexterm>
           <primary>multimodule projects, in general</primary>
@@ -1827,7 +1826,7 @@ top-parent-project/project-c/pom.xml</programlisting>
           <primary>module inheritance</primary>
 
           <secondary>choosing multimodule projects instead of</secondary>
-        </indexterm> être géré dans un projet multimodule. Un projet parent trasfert sa configuration à ses enfants. Un
+        </indexterm> être géré dans un projet multimodule. Un projet parent transfert sa configuration à ses enfants. Un
       projet multimodule gère un ensemble de sous-projets ou modules. Les relations dans un projet multimodule vont du
       haut vers le bas. Quand vous configurez un projet multimodule, vous indiquez tout simplement que votre build doit
       intégrer les modules spécifiés. Les builds multimodules servent à regrouper un ensemble de modules dans un même
@@ -1880,10 +1879,10 @@ top-parent-project/project-c/pom.xml</programlisting>
         de haut niveau qui sert de parent par défaut quand un projet n'a aucune raison d'en dépendre d'un autre.
         Dans ce livre, par exemple, il n'y a aucune raison pour que les projets <varname>book-examples</varname> et
         <varname>book-chapters</varname> partagent le même <acronym>POM</acronym> parent. Il s'agit de projets
-        complètements différents avec leurs propres dépendances et configurations. Ils utilisent des plugins très
+        complètement différents avec leurs propres dépendances et configurations. Ils utilisent des plugins très
         différents pour construire ce que vous êtres en train de lire. Le <acronym>POM</acronym>
         <varname>sonatype</varname> permet à une organisation de personnaliser le comportement par défaut de Maven et de
-        fournir des informations propres à l'organisation pour le déploiement et les profiles.</para>
+        fournir des informations propres à l'organisation pour le déploiement et les profils.</para>
       </section>
 
       <section id="pom-relationships-sect-multi-module-enterprise">
@@ -1911,12 +1910,12 @@ top-parent-project/project-c/pom.xml</programlisting>
           </mediaobject>
         </figure>
 
-        <para>De quoi s'agit il ? Essayons de donner un sens à toutes ces flêches. Tout d'abord, regardons
+        <para>De quoi s'agit-il ? Essayons de donner un sens à toutes ces flèches. Tout d'abord, regardons
         <varname>big-system</varname>. Le projet <varname>big-system</varname> pourrait être le projet dans lequel vous
-        exécuteriez la commande <command>mvn package</command> pour contruire et tester le système dans son entier. Le
+        exécuteriez la commande <command>mvn package</command> pour construire et tester le système dans son entier. Le
         projet <varname>big-system</varname> référence les sous-modules <varname>client-side</varname> et
         <varname>server-side</varname>. Chacun de ces projets regroupe le code qui s'exécute côté serveur et côté
-        client. Concentrons nous le projet <varname>server-side</varname>. Sous ce projet <varname>server-side</varname>
+        client. Concentrons-nous sur le projet <varname>server-side</varname>. Sous ce projet <varname>server-side</varname>
         se trouve un projet appelé <varname>server-lib</varname> et un projet multimodule <varname>web-apps</varname>.
         Sous <varname>web-apps</varname> nous retrouvons deux applications web Java : <varname>client-web</varname> et
         <varname>admin-web</varname>.</para>
@@ -1930,12 +1929,12 @@ top-parent-project/project-c/pom.xml</programlisting>
         <varname>server-lib</varname>. Cette dépendance sera définie comme une dépendance de <varname>web-apps</varname>
         vers <varname>server-lib</varname>. Puisque <varname>client-web</varname> et <varname>admin-web</varname>
         partagent toutes les deux cette configuration en héritant de <varname>web-apps</varname>, ces
-        deux projets auront des <acronym>POM</acronym>s succints contenant tout au plus les identifiants, le parent et
+        deux projets auront des <acronym>POM</acronym>s succincts contenant tout au plus les identifiants, le parent et
         le nom de l'artefact final.</para>
 
         <para>Maintenant, concentrons-nous sur la relation parent/enfant de <varname>web-apps</varname> et
         <varname>server-lib</varname> vers <varname>server-side</varname>. Dans ce cas-ci, supposons qu'il existe deux
-        groupes de développeurs séparés, l'un qui travaille surle code côté serveur et l'autre sur le code côté
+        groupes de développeurs séparés, l'un qui travaille sur le code côté serveur et l'autre sur le code côté
         client. La liste des développeurs serait configurée dans le POM du projet <varname>server-side</varname> et
         héritée par ses projets fils : <varname>web-apps</varname>, <varname>server-lib</varname>,
         <varname>client-web</varname> et <varname>admin-web</varname>. Nous pourrions aussi imaginer que le projet
@@ -1954,7 +1953,7 @@ top-parent-project/project-c/pom.xml</programlisting>
         le répertoire du projet <varname>big-system</varname> et exécutez la commande <command>mvn package</command>. Si
         vous regardez attentivement la figure vous noterez qu'il n'existe pas de relation parent/enfant entre les
         projets <varname>server-side</varname> et <varname>big-system</varname>. Pourquoi donc ? L'héritage de
-        <acronym>POM</acronym> est très puissant mais il ne doit pas être utilisé à tord et à travers. Quand le partage de
+        <acronym>POM</acronym> est très puissant, mais il ne doit pas être utilisé à tort et à travers. Quand le partage de
         dépendances et de configuration a du sens, il faut utiliser la relation parent/enfant. Mais elle n'a pas de sens
         lorsque les deux projets sont très différents. Ce qui est le cas, par exemple, des projets
         <varname>server-side</varname> et <varname>client-side</varname>. Il est tout à fait possible de concevoir un
@@ -1968,12 +1967,12 @@ top-parent-project/project-c/pom.xml</programlisting>
         <para>Il existe un certain point, dont la position dépend de votre style et de votre expérience, au-delà duquel
         vous estimerez que la duplication de configuration est acceptable pour garder des projets comme
         <varname>client-side</varname> et <varname>server-side</varname> indépendants . Concevoir un système qui se
-        compose de dizaines de projets sur plus de cinq niveaux d'héritage de POM  n'est pas la meilleure idée qu'on
+        compose de dizaines de projets sur plus de cinq niveaux d'héritage de POM n'est pas la meilleure idée qu'on
         puisse avoir. Dans une telle configuration, vous n'avez pas dupliqué votre dépendance à Log4J, mais vous devrez
         naviguer entre les cinq niveaux de POM pour comprendre comment Maven calcule votre POM effectif. Toute cette
         complexité pour éviter d'avoir à dupliquer cinq fois les quelques lignes d'une dépendance. Avec Maven, il y a
-        toujours "une manière Maven de faire" mais il en existe bien d'autres. Au final tout est question de
-        préferrences et de style. Dans la plupart des cas vous n'aurez pas de soucis si vos sous-modules déclarent le
+        toujours "une manière Maven de faire", mais il en existe bien d'autres. Au final, tout est question de
+        préférences et de style. Dans la plupart des cas vous n'aurez pas de soucis si vos sous-modules déclarent le
         même projet comme parent, mais il se peut que votre utilisation de Maven évolue dans temps.</para>
       </section>
     </section>
