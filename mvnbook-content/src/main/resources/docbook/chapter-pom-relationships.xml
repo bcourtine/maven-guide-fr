@@ -1443,7 +1443,7 @@
             <varname>artifactId</varname>s sont uniques pour un <varname>groupId</varname> donné.</para>
 
             <note>
-              <para>Si l'utilisation des '.'s est très courante pour les <varname>groupId</varname>s, vous devriez
+              <para>Si l'utilisation des '.' est très courante pour les <varname>groupId</varname>s, vous devriez
               éviter d'en utiliser pour les <varname>artifactId</varname>s. En effet, cela peut provoquer des problèmes
               lors de l'interprétation d'un nom complet jusqu'aux sous-composants.</para>
             </note>
@@ -1471,8 +1471,8 @@
           <term>classifier</term>
 
           <listitem>
-            <para>On utilise un classifier lorsqu'on livre le même code mais sous la forme de plusieurs artefacts
-            distincts pour des raisons techiques. Par exemple, si vous voulez construire deux arterfacts d'un
+            <para>On utilise un classifier lorsqu'on livre le même code, mais sous la forme de plusieurs artefacts
+            distincts pour des raisons techniques. Par exemple, si vous voulez construire deux arterfacts d'un
             <acronym>JAR</acronym>, un compilé avec le compilateur Java 1.4 et un autre avec le compilateur
             Java 6, vous utiliserez le classifier pour produire deux <acronym>JAR</acronym>s différents avec la
             même combinaison groupId:artifactId:version. Si votre projet utilise des extensions en code natif, vous
@@ -1483,8 +1483,8 @@
         </varlistentry>
       </variablelist>
 
-      <para>Dans ce livre, lorsque nous évoquons des dépendances, nous utilisons souvent le fomat simplifié suivant pour
-      décire une dépendance : <varname>groupId</varname>:<varname>artifactId</varname>:<varname>version</varname>.
+      <para>Dans ce livre, lorsque nous évoquons des dépendances, nous utilisons souvent le format simplifié suivant pour
+      décrire une dépendance : <varname>groupId</varname>:<varname>artifactId</varname>:<varname>version</varname>.
       Pour référencer la version 2.5 de Spring, nous utiliserions
       <varname>org.</varname><varname>springframework:</varname><varname>spring:</varname><varname>2.5</varname>. Quand
       vous demandez à Mave d'afficher une liste des dépendances grâce au plugin Maven Dependency, vous verrez que Maven
@@ -1514,8 +1514,8 @@
           </mediaobject>
         </figure></para>
 
-      <para>La structure des répertoires sur le système de fichier suit les relations entre les modules. L'ensemble des
-      projets illustré par la figure <xref linkend="fig-multiproject" /> aurait la structure de répertoire suivante
+      <para>La structure des répertoires sur le système de fichiers suit les relations entre les modules. L'ensemble des
+      projets illustré par la figure <xref linkend="fig-multiproject" /> aurait la structure de répertoires suivante
       :</para>
 
       <programlisting>top-parent-project/pom.xml
@@ -1529,7 +1529,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <acronym>POM</acronym>. Par exemple, le projet
       <varname>org.sonatype.mavenbook:</varname><varname>top-parent-project</varname> est un projet multimodule avec un
       packaging de type <varname>pom</varname>. Le fichier <filename>pom.xml</filename> du
-      projet<varname>top-parent-project</varname> doit possèder la balise <sgmltag>modules</sgmltag> suivante :</para>
+      projet<varname>top-parent-project</varname> doit posséder la balise <sgmltag>modules</sgmltag> suivante :</para>
 
       <example>
         <title>Balise modules du projet top-parent-project</title>
@@ -1546,7 +1546,7 @@ top-parent-project/project-c/pom.xml</programlisting>
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>Quand Maven va le <acronym>POM</acronym> du projet <varname>top-parent-project</varname> il analyse la
+      <para>Quand Maven va le <acronym>POM</acronym> du projet <varname>top-parent-project</varname>, il analyse la
       balise modules pour s'apercevoir que le projet <varname>top-parent-project</varname> référence les projets
       <varname>subparent-parent-project</varname> et <varname>project-c</varname>. Maven va alors traiter les fichiers
       <filename>pom.xml</filename> dans chacun de ces sous-répertoires. Maven répète cette opération pour chacun des
@@ -1568,7 +1568,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       </example>
 
       <para>Attention au fait que nous appelons "modules" les projets qui composent un projet multimodule et non
-      projets "enfants" ou "fils". Nous agissons ainsi délibérement pour ne pas confondre les projets qui sont liés dans
+      projets "enfants" ou "fils". Nous agissons ainsi délibérément pour ne pas confondre les projets qui sont liés dans
       un projet multimodule de ceux qui héritent d'un même <acronym>POM</acronym>.</para>
     </section>
 
@@ -1588,7 +1588,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       du <acronym>POM</acronym> du projet <varname>a-parent</varname>.</para>
 
       <example id="ex-inheritance">
-        <title>Héritage entre projet</title>
+        <title>Héritage entre projets</title>
 
         <programlisting language="xml">&lt;project&gt;
   &lt;parent&gt;
@@ -1619,12 +1619,12 @@ top-parent-project/project-c/pom.xml</programlisting>
             </imageobject>
           </mediaobject>
         </figure>Quand un projet spécifie un projet parent, Maven utilise le <acronym>POM</acronym> de ce parent comme
-      point de départ avant de traiter le <acronym>POM</acronym> du projet courrant. Il hérite de tout, jusqu'au
+      point de départ avant de traiter le <acronym>POM</acronym> du projet courant. Il hérite de tout, jusqu'au
       <varname>groupId</varname> et au numéro de <varname>version</varname>. Vous pouvez remarquer que le
       <varname>project-a</varname> ne spécifie aucun des deux, le <varname>groupId</varname> et la
       <varname>version</varname> sont tous les deux hérités du projet <varname>a-parent</varname>. Lorsqu'une balise
       parent est présente, tout ce qu'un <acronym>POM</acronym> a besoin de définir est l'<varname>artifactId</varname>.
-      cela n'est pas obligatoire, le <varname>project-a</varname> peut avoir un <varname>groupId</varname> et une
+      Cela n'est pas obligatoire, le <varname>project-a</varname> peut avoir un <varname>groupId</varname> et une
       <varname>version</varname> différents de ceux du parent, mais s'ils ne sont pas définis alors Maven utilisera ceux
       du <acronym>POM</acronym> parent. Si vous commencez à utiliser Maven pour gérer et construire de gros projets
       multimodules, vous aurez souvent à créer des projets qui auront un même <varname>groupId</varname> et une même
@@ -1676,8 +1676,8 @@ top-parent-project/project-c/pom.xml</programlisting>
 
       <para>Maven assume que le <acronym>POM</acronym> parent est disponible dans le dépôt local ou dans le répertoire
       parent (<filename>../pom.xml</filename>) du projet courant. Si aucune de ces options n'est valide ce comportement
-      par défaut peut être redéfini par la balise <sgmltag>relativePath</sgmltag>. Par exemple, certaines organsations
-      préferrent une structure à plat des projets où le fichier <filename>pom.xml</filename> du projet parent ne se
+      par défaut peut être redéfini par la balise <sgmltag>relativePath</sgmltag>. Par exemple, certaines organisations
+      préfèrent une structure à plat des projets où le fichier <filename>pom.xml</filename> du projet parent ne se
       trouve pas dans le répertoire parent d'un projet fils. Il peut se trouver dans un répertoire au même niveau que
       celui du projet. Si votre projet fils se trouve dans le répertoire <filename>./projet-a</filename> et que le
       projet parent se trouve dans <filename>./a-parent</filename>, vous préciserez dans le <acronym>POM</acronym> le
