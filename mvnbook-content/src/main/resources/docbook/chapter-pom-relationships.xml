@@ -780,7 +780,7 @@
     <literal>test</literal> lorsque vous n'avez besoin de cette bibliothèque que pour compiler et exécuter les tests. La
     dernière dépendance de l'<xref linkend="ex-dependency" /> est une dépendance sur l'<acronym>API</acronym> Servlet
     2.4. Cette dernière dépendance se trouve dans le scope <literal>provided</literal>. Vous pouvez utiliser le scope
-    <literal>provided</literal> quand votre application a besoin d'une bibliothèques à la compilation ainsi que pour les
+    <literal>provided</literal> quand votre application a besoin d'une bibliothèque à la compilation ainsi que pour les
     tests et que cette bibliothèque est fournie par un conteneur à l'exécution.</para>
 
     <section id="pom-relationships-sect-dependency-scope">
@@ -794,7 +794,7 @@
           <secondary>scope of</secondary>
         </indexterm>cinq scopes de dépendance : <literal>compile</literal>, <literal>test</literal> et
       <literal>provided</literal>. Le scope contrôle dans quel classpath vont se retrouver les dépendances et quelles
-      seront celles qui seront intégrées à l'application. Regardons ces scopes plus en détails :</para>
+      seront celles qui seront intégrées à l'application. Regardons ces scopes plus en détail :</para>
 
       <variablelist>
         <varlistentry>
@@ -819,7 +819,7 @@
               </indexterm>exemple, si vous développez une application web, vous aurez besoin de l'<acronym>API</acronym>
             Servlet dans votre classpath pour pouvoir compiler une servlet, mais vous ne voudrez pas inclure
             l'<acronym>API</acronym> Servlet dans votre fichier <acronym>WAR</acronym> ; le <acronym>JAR</acronym> de
-            l'<acronym>API</acronym> Servlet est fourni par votre serveur d'application ou par votre conteneur de
+            l'<acronym>API</acronym> Servlet est fourni par votre serveur d'applications ou par votre conteneur de
             servlet. Les dépendances du scope <literal>provided</literal> font partie du classpath de compilation (mais
             pas de celui d'exécution). Elles ne sont pas transitives et ne seront pas packagées avec
             l'application.</para>
@@ -876,8 +876,7 @@
             cet artefact est toujours présent et donc il ne sera pas cherché dans un dépôt. Si vous utilisez le scope
             <literal>system</literal>, vous devez automatiquement lui adjoindre une balise
             <sgmltag>systemPath</sgmltag>. Il est important de noter que l'utilisation de ce scope n'est pas recommandée
-            (vous devriez toujours essayer de référencer des dépendances qui se trouvent dans un dépôt Maven publique ou
-            privé).</para>
+            (vous devriez toujours essayer de référencer des dépendances qui se trouvent dans un dépôt Maven public ou privé).</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -892,7 +891,7 @@
           <primary>dependencies</primary>
 
           <secondary>optional</secondary>
-        </indexterm>de cache. Au lieu d'écrire votre propre système de cache en partant de rien vous voulez utiliser
+        </indexterm>de cache. Au lieu d'écrire votre propre système de cache en partant de zéro, vous voulez utiliser
       certaines des bibliothèques existantes qui gèrent un cache sur le système de fichiers ou un cache distribué.
       Supposons encore que vous voulez permettre à l'utilisateur final de choisir entre un cache sur le système de
       fichiers et un cache distribué en mémoire. Vous voulez utiliser la bibliothèque libre EHCache (<ulink
@@ -962,7 +961,7 @@
   &lt;/dependencies&gt;
 &lt;/project&gt;</programlisting>
 
-      <para>Dans un monde idéal vous ne devriez pas avoir besoin de dépendances optionnelles. Au lieu d'avoir un gros
+      <para>Dans un monde idéal, vous ne devriez pas avoir besoin de dépendances optionnelles. Au lieu d'avoir un gros
       projet avec un ensemble de dépendances optionnelles, vous devriez isoler le code <phrase
       role="keep-together">spécifique à EHCache</phrase> dans un sous-module <varname>my-project-ehcache</varname> et le
       code <phrase role="keep-together">spécifique à SwarmCache</phrase> dans un autre sous-module
@@ -987,7 +986,7 @@
         </indexterm>dépendance, vous pouvez définir un ensemble de versions acceptables pour une dépendance donnée. Par
       exemple, vous pouvez configurer votre projet pour qu'il dépende de JUnit 3.8 ou supérieure, ou toutes les versions
       de JUnit comprises entre 1.2.10 et 1.2.14. Pour cela vous devez entourer les numéros de versions avec les
-      caractères suivantes :</para>
+      caractères suivants :</para>
       <variablelist>
         <varlistentry>
           <term role="plain">(, )</term>
@@ -1002,7 +1001,7 @@
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>Par exemple si vous voulez accéder aux versions de <code>JUnit </code>supérieures ou égales à 3.8 mais
+      <para>Par exemple, si vous voulez accéder aux versions de <code>JUnit </code>supérieures ou égales à 3.8 mais
       inférieures à 4.0, vous déclareriez votre dépendance comme dans l'<xref linkend="ex-dep-range" />.</para>
 
       <para><example id="ex-dep-range">
@@ -1048,13 +1047,13 @@
 
       <note>
         <para>Quand vous déclarez une version "normale" telle que la version 3.8.2 de Junit, Maven voit cette déclaration
-        comme comme "accepter toute version, mais en préferrant la version 3.8.2". Ce qui signifie que
+        comme "accepter toute version, mais en préférant la version 3.8.2". Ce qui signifie que
         lorsqu'un conflit est détecté, Maven s'autorise l'utilisation des algorithmes de résolution de conflit pour
         choisir la meilleure version. Si vous spécifiez [3.8.2], cela indique que seule la version 3.8.2 sera utilisée
         et aucune autre. Si ailleurs il se trouve une dépendance qui spécifie [3.8.1], le build va échouer en vous
         indiquant le conflit en question. Nous vous précisons tout cela pour que vous soyez au courant de cette option,
-        mais n'utilisez là que lorsque c'est véritablement nécessaire. Pour résoudre ces conflits de version il est
-        préferrable de passer par la balise <sgmltag>dependencyManagement</sgmltag>.</para>
+        mais n'utilisez là que lorsque c'est véritablement nécessaire. Pour résoudre ces conflits de version, il est
+        préferable de passer par la balise <sgmltag>dependencyManagement</sgmltag>.</para>
       </note>
     </section>
 
@@ -1081,7 +1080,7 @@
       recouvrements qui pourraient arriver. Par exemple, si Maven s'aperçoit que deux projets dépendent des mêmes
       <varname>groupId</varname> et <varname>artifactId</varname>, il va automatiquement trouver la dépendance à
       utiliser, en favorisant toujours la version la plus récente. Même si tout cela semble fort pratique, il existe un
-      certain nombre de cas où les dépendances transitives peuvent entrainer des problèmes de configuration. Dans ce
+      certain nombre de cas où les dépendances transitives peuvent entraîner des problèmes de configuration. Dans ce
       cas, vous pouvez utiliser l'exclusion de dépendance.</para>
 
       <section id="pom-relationships-sect-transitive-scope">
@@ -1093,8 +1092,8 @@
 
             <secondary>transitive dependencies and</secondary>
           </indexterm>dépendance dans le projet, mais aussi le comportement transitif de cette dépendance.
-          La manière la plus simple de présenter tout cela est sous la forme d'un tableau, comme celui de
-        l'<xref linkend="table-transitive-dep-and-scope" />. Les scopes dans la première ligne représentent le scope
+          La manière la plus simple de présenter tout cela est sous la forme d'un tableau, comme celui du 
+        <xref linkend="table-transitive-dep-and-scope" />. Les scopes dans la première ligne représentent le scope
         d'une dépendance transitive. Les scopes dans la colonne de gauche représentent le scope de la dépendance
         directe. L'intersection des lignes et des colonnes donne le scope de la dépendance transitive. Une cellule vide
         indique que la dépendance transitive ne sera pas prise en compte.</para>
@@ -1197,7 +1196,7 @@
     <section id="pom-relationships-sect-conflict">
       <title>Résolution des conflits</title>
 
-      <para>A certains moments vous aurez besoin d'exclure une dépendance<indexterm>
+      <para>À certains moments, vous aurez besoin d'exclure une dépendance<indexterm>
           <primary>conflict, dependency</primary>
         </indexterm><indexterm>
           <primary>resolving dependency conflicts</primary>
@@ -1238,7 +1237,7 @@
       fonctionnalité. Par exemple, si vous dépendez d'une bibliothèque qui elle-même dépend de l'<acronym>API</acronym>
       <acronym>JTA</acronym> de Sun, vous pouvez vouloir remplacer cette dépendance transitive. Hibernate en est un bon
       exemple. Hibernate dépend du <acronym>JAR</acronym> de l'<acronym>API</acronym> <acronym>JTA</acronym> de Sun qui
-      n'est pas disponible sur le dépôt central de Maven car il n'est pas librement distribuable. Heureusement le projet
+      n'est pas disponible sur le dépôt central de Maven car il n'est pas librement distribuable. Heureusement, le projet
       Apache Geronimo a créé une implémentation indépendante de cette bibliothèque qui est librement redistribuable.
       Pour remplacer une dépendance transitive par une autre, vous devrez exclure la dépendance transitive et ajouter
       l'autre dépendance à votre projet. L'<xref linkend="ex-exclude-replace" /> donne un exemple d'un tel
@@ -1268,7 +1267,7 @@
       </example>
 
       <para>Dans l'<xref linkend="ex-exclude-replace" />, rien n'indique que la dépendance
-      <varname>geronimo-jta_1.1_spec</varname> en remplace une autre, il se trouve juste que c'est une bibliothèque qui
+      <varname>geronimo-jta_1.1_spec</varname> en remplace une autre, il se trouve juste qu'il s'agit d'une bibliothèque qui
       présente la même <acronym>API</acronym> que la dépendance <acronym>JTA</acronym> originale. Voici d'autres raisons
       pour lesquelles vous voudriez exclure ou remplacer des dépendances transitives :</para>
 
@@ -1309,9 +1308,9 @@
 
       <para>Une fois que vous vez adopté Maven dans votre multinationale, vous allez vous demander
       s'il n'existe pas une meilleure manière de gérer les versions des dépendances dans vos deux cent vingt projets
-      Maven inter-dépendants. Si chaque projet qui utilise une dépendance comme le connecteur Java de MySQL doit gérer
-      dans son coin le numéro de version de cette dépendance, vous allez au devant de graves problèmes le jour où
-      vous allez faire évoluer cette version. Puisque les numéros de version sont répartis sur l'ensemble d'arbre du projet,
+      Maven interdépendants. Si chaque projet qui utilise une dépendance comme le connecteur Java de MySQL doit gérer
+      dans son coin le numéro de version de cette dépendance, vous allez au-devant de graves problèmes le jour où
+      vous allez faire évoluer cette version. Puisque les numéros de version sont répartis sur l'ensemble d'arbres du projet,
       vous allez devoir éditer à la main chacun des fichiers <filename>pom.xml</filename> qui fait référence à cette
       dépendance pour être sûr de mettre à jour ce numéro de version partout. Même avec des commandes comme
       <command>find</command>, <command>xargs</command>, et <command>awk</command>, vous risquez d'oublier un
