@@ -479,7 +479,7 @@
       <para>Suivre ces préconisations pour les numéros de version prend tout son sens lorsque vous commencez à utiliser
       des intervalles pour vos versions dans les <acronym>POM</acronym>s. Les intervalles de versions qui sont abordés
       dans la <xref linkend="pom-relationships-sect-version-ranges" />, vous permettent de spécifier une dépendance dont
-      la version est comprise dans cet intervalle. cela n'est possible que parce que Maven est capable de trier les
+      la version est comprise dans cet intervalle. Cela n'est possible que parce que Maven est capable de trier les
       versions en se basant sur le format de numéro de version dont nous venons de parler.</para>
 
       <para>Si votre numéro de version respecte le format
@@ -504,7 +504,7 @@
         mettre “alpha-10” avant “alpha-2”. Ceci est dû à un problème connu dans la façon dont Maven traite les numéros
         de version.</para>
 
-        <para>Maven doit en théorie considèrer le nombre après le qualifieur comme le numéro du build. En d'autres
+        <para>Maven doit, en théorie, considérer le nombre après le qualifieur comme le numéro du build. En d'autres
         termes, le qualifieur devrait être "alpha", et le numéro du build 2. Même si Maven a été conçu pour séparer le
         numéro du build du qualifieur, cette fonctionnalité ne fonctionne pas actuellement. En conséquence, "alpha-2" et
         "alpha-10" sont comparés comme des chaînes de caractères, ce qui positionne "alpha-10" avant "alpha-2"
@@ -514,7 +514,7 @@
       </section>
 
       <section id="pom-relationships-sect-snapshot-versions">
-        <title>Les version SNAPSHOT</title>
+        <title>Les versions SNAPSHOT</title>
 
         <para>Les numéros de versions dans Maven peuvent contenir une chaîne de caractères pour indiquer que le
         <indexterm>
@@ -527,11 +527,11 @@
         23:08 <acronym>UTC</acronym>. En d'autres termes, quand vous déployez un snapshot, vous ne livrez pas un composant
         logiciel ; vous livrez un instantané d'un composant.</para>
 
-        <para>Pourquoi utiliser cette fontionnalité ? Les versions SNAPSHOT sont utilisées pour les projets en cours de
+        <para>Pourquoi utiliser cette fonctionnalité ? Les versions SNAPSHOT sont utilisées pour les projets en cours de
         développement. Si votre projet dépend d'un composant logiciel en cours de développement, vous pouvez dépendre
         d'une version SNAPSHOT, Maven essayera alors de télécharger périodiquement la dernière version snapshot du dépôt
-        lorsque vous lancerez votre build. De même, si la prochaine livraison de votre système sera la
-        version "1.4", tant que votre projet n'est pas livré définitivement il devrait être en version
+        lorsque vous lancerez votre build. De même, si la prochaine livraison de votre système est la
+        version "1.4", tant que votre projet n'est pas livré définitivement, il devrait être en version
         "1.4-SNAPSHOT".</para>
 
         <para>Par défaut, Maven ne va pas vérifier la présence de versions SNAPSHOT sur les dépôts distants. Pour
@@ -638,10 +638,10 @@
           <listitem>
             <para>La variable <varname>project</varname> permet d'accéder au<indexterm>
                 <primary>project variable</primary>
-              </indexterm> <acronym>POM</acronym>. Vous pouvez utiliser un chemin pavé de points (.) pour référencer la
+              </indexterm> <acronym>POM</acronym>. Vous pouvez utiliser un chemin pavé de points ('.') pour référencer la
             valeur d'un élément du <acronym>POM</acronym>. Par exemple, dans cette section nous avons utilisé le
             <varname>groupId</varname> et l'<varname>artifactId</varname> pour définir la valeur de l'élément
-            <sgmltag>finalName</sgmltag> dans la configuation du build. La syntaxe pour cette référence était :
+            <sgmltag>finalName</sgmltag> dans la configuration du build. La syntaxe pour cette référence était :
             <code>\${project.groupId}-\${project.</code><code>artifactId}</code>.</para>
           </listitem>
         </varlistentry>
