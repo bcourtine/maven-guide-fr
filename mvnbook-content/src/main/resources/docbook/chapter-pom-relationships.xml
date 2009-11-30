@@ -1699,8 +1699,8 @@ top-parent-project/project-c/pom.xml</programlisting>
     <title>Les bonnes pratiques du POM</title>
 
     <para>Maven peut être utilisé pour tout gérer, depuis des systèmes composés d'un projet tout simple à des systèmes
-    comprenant des dizaines de sous-modules liés les uns aux autres. Pour utiliser Maven il ne suffit pas d'apprendre la
-    syntaxe nécessaire à sa configuration, il faut apprendre le "Maven Way" (la "manière Maven") —un ensemble de bonnes
+    comprenant des dizaines de sous-modules liés les uns aux autres. Pour utiliser Maven, il ne suffit pas d'apprendre la
+    syntaxe nécessaire à sa configuration, il faut apprendre le "Maven Way" (la "manière Maven"). Il s'agit d'un ensemble de bonnes
     pratiques pour organiser et construire des projets avec Maven. Cette section essaye d'en donner certains éléments
     pour vous éviter d'avoir à creuser dans les strates de fils de discussions des listes de diffusion de Maven qui se
     sont accumulées au cours des années.</para>
@@ -1715,7 +1715,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       projet qui utilise Hibernate, Spring et MySQL vous pourriez créer un <acronym>POM</acronym> spécial qui ne fait
       rien d'autre que de déclarer un ensemble de dépendances communes. Vous pourriez ainsi créer un projet
       <varname>persistence-deps</varname> (un raccourci pour Dépendances de Persistence) et déclarer dans chaque projet
-      qui nécessite une fonction de persistence, une dépendance à ce projet:</para>
+      qui nécessite une fonction de persistance, une dépendance à ce projet :</para>
 
       <para><example>
           <title>Consolidation des dépendances dans un projet POM</title>
@@ -1757,7 +1757,7 @@ top-parent-project/project-c/pom.xml</programlisting>
 </programlisting>
         </example></para>
 
-      <para>Si vous créez ce projet dans un répertoire <varname>persistence-deps</varname>, tout ce que vous avez à fair
+      <para>Si vous créez ce projet dans un répertoire <varname>persistence-deps</varname>, tout ce que vous avez à faire
       ensuite est d'écrire ce fichier <filename>pom.xml</filename> et d'exécuter la commande <command>mvn
       install</command>. Comme c'est un projet dont le packaging est de type <varname>pom</varname>, ce
       <acronym>POM</acronym> s'installe dans votre dépôt local. Vous pouvez maintenant ajouter ce projet comme
@@ -1799,7 +1799,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       référencer autant de <acronym>POM</acronym> de dépendance selon ses besoins.</para>
 
       <note>
-        <para>Maven utilise le niveau d'une dépendance dans l'arbre lorsqu'il résoud un conflit, ne retenant que la
+        <para>Maven utilise le niveau d'une dépendance dans l'arbre lorsqu'il résout un conflit, ne retenant que la
         dépendance la plus proche. Cette technique de regroupement de dépendances les fait descendre d'un niveau dans
         l'arbre. Ne l'oubliez pas lorsque vous devez choisir entre regrouper des dépendances dans un fichier 
         <filename>pom.xml</filename> ou utiliser la balise<sgmltag>dependencyManagement</sgmltag> dans un
@@ -1808,7 +1808,7 @@ top-parent-project/project-c/pom.xml</programlisting>
     </section>
 
     <section id="pom-relationships-sect-multi-vs-inherit">
-      <title>Multimodule ou Héritage</title>
+      <title>Multimodule ou héritage</title>
 
       <para>Il existe une différence entre hériter d'un projet parent et<indexterm>
           <primary>multimodule projects, in general</primary>
@@ -1826,7 +1826,7 @@ top-parent-project/project-c/pom.xml</programlisting>
           <primary>module inheritance</primary>
 
           <secondary>choosing multimodule projects instead of</secondary>
-        </indexterm> être géré dans un projet multimodule. Un projet parent trasfert sa configuration à ses enfants. Un
+        </indexterm> être géré dans un projet multimodule. Un projet parent transfert sa configuration à ses enfants. Un
       projet multimodule gère un ensemble de sous-projets ou modules. Les relations dans un projet multimodule vont du
       haut vers le bas. Quand vous configurez un projet multimodule, vous indiquez tout simplement que votre build doit
       intégrer les modules spécifiés. Les builds multimodules servent à regrouper un ensemble de modules dans un même
@@ -1879,10 +1879,10 @@ top-parent-project/project-c/pom.xml</programlisting>
         de haut niveau qui sert de parent par défaut quand un projet n'a aucune raison d'en dépendre d'un autre.
         Dans ce livre, par exemple, il n'y a aucune raison pour que les projets <varname>book-examples</varname> et
         <varname>book-chapters</varname> partagent le même <acronym>POM</acronym> parent. Il s'agit de projets
-        complètements différents avec leurs propres dépendances et configurations. Ils utilisent des plugins très
+        complètement différents avec leurs propres dépendances et configurations. Ils utilisent des plugins très
         différents pour construire ce que vous êtres en train de lire. Le <acronym>POM</acronym>
         <varname>sonatype</varname> permet à une organisation de personnaliser le comportement par défaut de Maven et de
-        fournir des informations propres à l'organisation pour le déploiement et les profiles.</para>
+        fournir des informations propres à l'organisation pour le déploiement et les profils.</para>
       </section>
 
       <section id="pom-relationships-sect-multi-module-enterprise">
@@ -1910,12 +1910,12 @@ top-parent-project/project-c/pom.xml</programlisting>
           </mediaobject>
         </figure>
 
-        <para>De quoi s'agit il ? Essayons de donner un sens à toutes ces flêches. Tout d'abord, regardons
+        <para>De quoi s'agit-il ? Essayons de donner un sens à toutes ces flèches. Tout d'abord, regardons
         <varname>big-system</varname>. Le projet <varname>big-system</varname> pourrait être le projet dans lequel vous
-        exécuteriez la commande <command>mvn package</command> pour contruire et tester le système dans son entier. Le
+        exécuteriez la commande <command>mvn package</command> pour construire et tester le système dans son entier. Le
         projet <varname>big-system</varname> référence les sous-modules <varname>client-side</varname> et
         <varname>server-side</varname>. Chacun de ces projets regroupe le code qui s'exécute côté serveur et côté
-        client. Concentrons nous le projet <varname>server-side</varname>. Sous ce projet <varname>server-side</varname>
+        client. Concentrons-nous sur le projet <varname>server-side</varname>. Sous ce projet <varname>server-side</varname>
         se trouve un projet appelé <varname>server-lib</varname> et un projet multimodule <varname>web-apps</varname>.
         Sous <varname>web-apps</varname> nous retrouvons deux applications web Java : <varname>client-web</varname> et
         <varname>admin-web</varname>.</para>
@@ -1929,12 +1929,12 @@ top-parent-project/project-c/pom.xml</programlisting>
         <varname>server-lib</varname>. Cette dépendance sera définie comme une dépendance de <varname>web-apps</varname>
         vers <varname>server-lib</varname>. Puisque <varname>client-web</varname> et <varname>admin-web</varname>
         partagent toutes les deux cette configuration en héritant de <varname>web-apps</varname>, ces
-        deux projets auront des <acronym>POM</acronym>s succints contenant tout au plus les identifiants, le parent et
+        deux projets auront des <acronym>POM</acronym>s succincts contenant tout au plus les identifiants, le parent et
         le nom de l'artefact final.</para>
 
         <para>Maintenant, concentrons-nous sur la relation parent/enfant de <varname>web-apps</varname> et
         <varname>server-lib</varname> vers <varname>server-side</varname>. Dans ce cas-ci, supposons qu'il existe deux
-        groupes de développeurs séparés, l'un qui travaille surle code côté serveur et l'autre sur le code côté
+        groupes de développeurs séparés, l'un qui travaille sur le code côté serveur et l'autre sur le code côté
         client. La liste des développeurs serait configurée dans le POM du projet <varname>server-side</varname> et
         héritée par ses projets fils : <varname>web-apps</varname>, <varname>server-lib</varname>,
         <varname>client-web</varname> et <varname>admin-web</varname>. Nous pourrions aussi imaginer que le projet
@@ -1953,7 +1953,7 @@ top-parent-project/project-c/pom.xml</programlisting>
         le répertoire du projet <varname>big-system</varname> et exécutez la commande <command>mvn package</command>. Si
         vous regardez attentivement la figure vous noterez qu'il n'existe pas de relation parent/enfant entre les
         projets <varname>server-side</varname> et <varname>big-system</varname>. Pourquoi donc ? L'héritage de
-        <acronym>POM</acronym> est très puissant mais il ne doit pas être utilisé à tord et à travers. Quand le partage de
+        <acronym>POM</acronym> est très puissant, mais il ne doit pas être utilisé à tort et à travers. Quand le partage de
         dépendances et de configuration a du sens, il faut utiliser la relation parent/enfant. Mais elle n'a pas de sens
         lorsque les deux projets sont très différents. Ce qui est le cas, par exemple, des projets
         <varname>server-side</varname> et <varname>client-side</varname>. Il est tout à fait possible de concevoir un
@@ -1967,12 +1967,12 @@ top-parent-project/project-c/pom.xml</programlisting>
         <para>Il existe un certain point, dont la position dépend de votre style et de votre expérience, au-delà duquel
         vous estimerez que la duplication de configuration est acceptable pour garder des projets comme
         <varname>client-side</varname> et <varname>server-side</varname> indépendants . Concevoir un système qui se
-        compose de dizaines de projets sur plus de cinq niveaux d'héritage de POM  n'est pas la meilleure idée qu'on
+        compose de dizaines de projets sur plus de cinq niveaux d'héritage de POM n'est pas la meilleure idée qu'on
         puisse avoir. Dans une telle configuration, vous n'avez pas dupliqué votre dépendance à Log4J, mais vous devrez
         naviguer entre les cinq niveaux de POM pour comprendre comment Maven calcule votre POM effectif. Toute cette
         complexité pour éviter d'avoir à dupliquer cinq fois les quelques lignes d'une dépendance. Avec Maven, il y a
-        toujours "une manière Maven de faire" mais il en existe bien d'autres. Au final tout est question de
-        préferrences et de style. Dans la plupart des cas vous n'aurez pas de soucis si vos sous-modules déclarent le
+        toujours "une manière Maven de faire", mais il en existe bien d'autres. Au final, tout est question de
+        préférences et de style. Dans la plupart des cas vous n'aurez pas de soucis si vos sous-modules déclarent le
         même projet comme parent, mais il se peut que votre utilisation de Maven évolue dans temps.</para>
       </section>
     </section>
