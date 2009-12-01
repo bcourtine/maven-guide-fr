@@ -769,9 +769,6 @@ This mojo doesn't have any component requirements.
 
       <screen>$ <command>mvn help:describe -Dplugin=compiler -Dmojo=compile -Dfull</command></screen>
 
-      <note>
-        <para>Quoi ? Un Mojo ? Chez Maven, le goal d'un Plugin s'appelle un "Mojo".</para>
-      </note>
     </section>
   </section>
 </chapter>

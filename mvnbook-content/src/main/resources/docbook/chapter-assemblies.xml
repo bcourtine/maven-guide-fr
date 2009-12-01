@@ -593,17 +593,17 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
   </section>
 
   <section id="assemblies-sect-overview-descriptor">
-    <title>Vue d'ensmble du descripteur d'assembly</title>
+    <title>Vue d'ensemble du descripteur d'assembly</title>
 
-    <para>Quand les descripteurs d'assembly standard dont nous avons parlé 
+    <para>Quand les descripteurs d'assembly standards dont nous avons parlé
     dans la <xref linkend="assemblies-sect-basics" /> ne sont pas pertinents,
-    vous allez avoir besoin  de définir votre propre descripteur. Un 
+    il va vous falloir définir votre propre descripteur. Un
     descripteur d'assembly est un document XML qui définit la structure et
     les contenus d'un assembly. Ce descripteur se compose de cinq sections
     principales de configuration et de deux sections additionnelles : une
     pour spécifier des fragments de descripteur d'assembly standard, que l'on
     appelle descripteurs de composant, et une autre pour définir des classes
-    de traitement personnalisé de fichier pour aider à gérer la production
+    de traitement de fichiers personnalisé pour aider à gérer la production
     de l'assembly.</para>
 
     <variablelist>
@@ -612,7 +612,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
 
         <listitem>
           <para>Cette section contient les informations nécessaires à tous
-          les assemblies plus quelques options de configuration pour
+          les assemblies associées à quelques options de configuration pour
           l'archive finale, comme le chemin de base à utiliser pour toutes les
           entrées d'archive. Pour que le descripteur soit valide vous devez
           spécifier l'identifiant de l'assembly, au moins un format et au moins
