@@ -612,7 +612,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
 
         <listitem>
           <para>Cette section contient les informations nécessaires à tous
-          les assemblies associées à quelques options de configuration pour
+          les assemblies ainsi que quelques options de configuration pour
           l'archive finale, comme le chemin de base à utiliser pour toutes les
           entrées d'archive. Pour que le descripteur soit valide vous devez
           spécifier l'identifiant de l'assembly, au moins un format et au moins
@@ -621,44 +621,44 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       </varlistentry>
 
       <varlistentry>
-        <term>Information de fichier</term>
+        <term>Informations concernant les fichiers</term>
 
         <listitem>
           <para>La configuration de ce segment du descripteur d'assembly
-          s'applique aux fichiers du système de fichier contenus dans les
+          concerne les fichiers du système de fichier contenus dans les
           répertoires du projet. Ce segment se compose de deux sections
           principales : <sgmltag>files</sgmltag> et <sgmltag>fileSets</sgmltag>.
           Vous pouvez utiliser les balises <sgmltag>files</sgmltag> et
-          <sgmltag>fileSets</sgmltag> pour controler quels fichiers seront
+          <sgmltag>fileSets</sgmltag> pour contrôler quels fichiers seront
           inclus ou exclus de l'assembly et avec quelles permissions.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>Informations de dépendance</term>
+        <term>Informations concernant les dépendances</term>
 
         <listitem>
           <para>Presque tous les projets, quelque soit leur taille, dépendent
           d'autres projets. Durant la création d'archives de distribution, les
           dépendances d'un projet sont souvent ajoutées dans l'assembly du
           produit final. Cette section gère la manière dont les dépendances sont 
-          ajoutées dans l'archive finale. Cette dans cette section que vous 
-          configurez si dépendances doivent être décompressées, ajoutées 
+          ajoutées dans l'archive finale. C'est dans cette section que vous
+          configurez si les dépendances doivent être décompressées, ajoutées
           directement au répertoire <filename>lib/</filename> ou renommées.
-          Cette section vous permet aussi de controler quelles dépendances doivent
+          Cette section vous permet aussi de contrôler quelles dépendances doivent
           être ajoutées à l'assembly et avec quelles permissions.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>Information de dépôt</term>
+        <term>Informations concernant les dépôts</term>
 
         <listitem>
-          <para>Parfois il est utile d'isoler l'ensemble des arefacts nécessaires
+          <para>Parfois il est utile d'isoler l'ensemble des artefacts nécessaires
           à la construction d'un projet, qu'il s'agisse d'artefacts de dépendance,
           des <acronym>POM</acronym>s des artefacts de dépendance ou même d'un POM
           ancêtre du projet (le <acronym>POM</acronym> parent, son parent, etc.).
-          Cette sectionvous permet d'inclure une ou plusieurs structures de répertoires
+          Cette section vous permet d'inclure une ou plusieurs structures de répertoires
           de dépôt d'artefact dans votre assembly avec différentes options de 
           configuration. Le plugin Assembly n'est pas capable d'inclure les artefacts
           de plugin dans ces dépôts pour l'instant.</para>
@@ -666,7 +666,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       </varlistentry>
 
       <varlistentry>
-        <term>Information de module</term>
+        <term>Informations concernant les modules</term>
 
         <listitem>
           <para>Cette section du descripteur d'assembly vous permet de profiter
@@ -687,10 +687,10 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
   <section id="assemblies-sect-descriptor">
     <title>Le descripteur d'assembly</title>
 
-    <para>This section is a tour of the assembly descriptor which contains
-    some guidelines for developing a custom assembly descriptor. The Assembly
-    plugin is one of the largest plugins in the Maven ensemble, and one of the
-    most flexible.</para>
+    <para>Cette section présente une vision générale de ce qu'est un descripteur
+    d'assembly et donne les grandes lgines à suivre lorsque l'on écrit son
+    propre descripteur. Le plugin Assembly est l'un des plus gros plugins de
+    l'écosystème Maven, mais aussi l'un des plus souples.</para>
 
     <section id="assemblies-sect-prop-refs">
       <title>Référence de propriété dans un descripteur d'assembly</title>
