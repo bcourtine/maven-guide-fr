@@ -695,16 +695,16 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
     <section id="assemblies-sect-prop-refs">
       <title>Référence de propriété dans un descripteur d'assembly</title>
 
-      <para>Toutes les propriétés dont nous avons parlé dans le <xref
-      linkend="resource-filtering-sect-properties" /> peut être
-      référencée dans un descripteur d'assembly. Avant qu'un descripteur
+      <para>Toutes les propriétés dont nous avons parlé dans la <xref
+      linkend="resource-filtering-sect-properties" /> peuvent être
+      référencées dans un descripteur d'assembly. Avant qu'un descripteur
       d'assembly soit utilisé par Maven, il doit être interpolé en utilisant les
       données du <acronym>POM</acronym> et de l'environnement de build. Toutes
-      les propriétés du <acronym>POM</acronym> suuportées pour l'interpolation
+      les propriétés du <acronym>POM</acronym> supportées pour l'interpolation
       sont utilisables dans les descripteurs d'assembly, qu'il s'agisse de 
       propriétés du <acronym>POM</acronym>, de valeurs d'éléments du
-      <acronym>POM</acronym>, de propriétés système ou définies par
-      l'utilisateur et de variables d'environnement du système d'exploitation.</para>
+      <acronym>POM</acronym>, de propriétés système, de propriétés définies par
+      l'utilisateur ou de variables d'environnement du système d'exploitation.</para>
 
       <para>Les seules exceptions à cette étape d'interpolation sont les balises 
       <sgmltag>outputDirectory</sgmltag>, <sgmltag>outputDirectoryMapping</sgmltag> ou
@@ -719,12 +719,12 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
 
       <para>Tout assembly a besoin obligatoirement de deux données :
       la balise <sgmltag>id</sgmltag> et la liste des formats d'archive à produire.
-      En pratique il faut en plus au moins une autre section du descripteur - 
-      car la plupart des assembleurs vont se bloquer s'il y a aucun fichier à
-      incorporer - mais sans une balise <sgmltag>format</sgmltag> et une
+      En pratique il faut y ajouter au moins une autre section du descripteur 
+      &mdash; car la plupart des archiveurs vont se bloquer s'il y a aucun fichier à
+      incorporer &mdash; mais sans une balise <sgmltag>format</sgmltag> et une
       balise <sgmltag>id</sgmltag> il n'y a aucune archive à réaliser. La
       balise <sgmltag>id</sgmltag> est utilisée à la fois pour le nom et le
-      classifier dans le dépôt Maven de l'artefact de l'archive produite.
+      classifieur dans le dépôt Maven de l'artefact de l'archive produite.
       Le format détermine quel composant archiveur sera utilisé pour
       produire l'archive assembly finale. Tous les descripteurs d'assembly doivent
       contenir une balise <sgmltag>id</sgmltag> et au moins une balise
@@ -806,10 +806,10 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       </itemizedlist>
 
       <para>L'<varname>id</varname> et le <varname>format</varname> sont
-      indispensables car il vont faire partie des coordonnées de l'archive
+      indispensables car ils vont faire partie des coordonnées de l'archive
       assemblée. L'exemple de <xref linkend="ex-required-assembly" /> va
-      créer un artefact d'assemblyde type <varname>zip</varname> avec comme
-      classifier <varname>bundle</varname>.</para>
+      créer un artefact d'assembly de type <varname>zip</varname> avec comme
+      classifieur <varname>bundle</varname>.</para>
     </section>
   </section>
 
