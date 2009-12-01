@@ -818,7 +818,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
 
     <para>En théorie, l'<varname>id</varname> et le <varname>format</varname>
     sont les seuls éléments obligatoires pour un descripteur d'assembly valide ;
-    cependant la plupart des composants archiveurs 'assembly échoueront s'ils
+    cependant la plupart des composants archiveurs d'assembly échoueront s'ils
     n'ont pas au moins un fichier à inclure dans l'archive finale. La définition
     des fichiers à inclure dans l'assembly se fait dans les cinq sections principales
     du descripteur d'assembly : <sgmltag>files</sgmltag>,
