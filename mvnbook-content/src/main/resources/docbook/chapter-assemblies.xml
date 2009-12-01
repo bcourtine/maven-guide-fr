@@ -1211,11 +1211,11 @@ I can add this back in later.  I didn't want to talk about it without an example
 
         <para>Cela aura pour effet de mettre chaque dépendance  dans un
         répertoire dont le nom correspond au <sgmltag>groupId</sgmltag>
-        de l'artefact de chacune d'entre elles.</para>
+        de son artefact.</para>
 
         <para>Si vous voulez aller plus loin dans la personnalisation et que 
-        vous souhaitez retirer le numéro de version de toutes les dépendances.
-        Il suffit de configurer le renommage de chaque dépendance grâce à la
+        vous souhaitez retirer le numéro de version du nom de fichier des dépendances.
+        Il suffit de configurer le renommage des dépendances grâce à la
         balise <sgmltag>outputFileNameMapping</sgmltag> comme suit :</para>
 
         <programlisting language="xml">&lt;assembly&gt;
@@ -1241,11 +1241,11 @@ I can add this back in later.  I didn't want to talk about it without an example
 
         <para>Comme nous l'avons déjà mentionné dans la 
         <xref linkend="assemblies-sect-prop-refs" /> aucun de ces éléments
-        n'est interpolé avec le reste du descritpeur d'assembly. En effet,
+        n'est interpolé avec le reste du descripteur d'assembly. En effet,
         leurs valeurs brutes doivent être traitées par des interpréteurs
         d'expression d'artefact spécifiques.</para>
 
-        <para>Les expressions utilisables pour ces deux ééments sont légèrement
+        <para>Les expressions utilisables pour ces deux éléments sont légèrement
         différentes. Les expressions <varname>\${project.*}</varname>,
         <varname>\${pom.*}</varname> et <varname>\${*}</varname> qui sont
         disponibles dans le <acronym>POM</acronym> et dans le reste du descripteur
