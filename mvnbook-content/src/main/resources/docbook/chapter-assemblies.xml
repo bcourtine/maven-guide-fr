@@ -824,7 +824,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
     du descripteur d'assembly : <sgmltag>files</sgmltag>,
     <sgmltag>fileSets</sgmltag>, <sgmltag>dependencySets</sgmltag>,
     <sgmltag>repositories</sgmltag> et <sgmltag>moduleSets</sgmltag>.
-    Pour explorer ces sections le plus efficacement possibl nous allons commencer
+    Pour explorer ces sections le plus efficacement possible nous allons commencer
     par étudier la plus simple : <sgmltag>files</sgmltag>. Puis nous traiterons
     les deux sections les plus utilisées <sgmltag>fileSets</sgmltag> et
     <sgmltag>dependencySets</sgmltag>. Une fois que vous avez compris le
@@ -835,7 +835,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
     <section id="assemblies-sect-files">
       <title>Section <sgmltag>files</sgmltag></title>
 
-      <para>La <sgmltag>files</sgmltag> est la partie la plus simple du descripteur
+      <para>La section <sgmltag>files</sgmltag> est la partie la plus simple du descripteur
       d'assembly, elle a été conçue pour les fichiers qui ont une position
       relative au répertoire du projet. Avec cette section vous avez un total
       contrôle sur les fichiers qui seront inclus dans votre assembly, quel
@@ -860,21 +860,21 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       </example>
 
       <para>Supposons que vous construisiez le projet <varname>my-app</varname>
-      dans sa version <varname>1.0</varname>, <xref linkend="ex-assembly-files" />
+      dans sa version <varname>1.0</varname>, la configuration de l'<xref linkend="ex-assembly-files" />, 
       permet d'inclure le <acronym>JAR</acronym> de votre projet dans le répertoire
       <filename>lib/</filename> de l'assembly, en supprimant le numéro de version
-      du nom du fichier renommé en <filename>my-app.jar</filename>. Ensuite,
-      il faudrait rendre ce <acronym>JAR</acronym> lisible par tout le monde et 
-      éditable par l'utilisateur qui le possède (c'est ce que le mode 0644 signifie
-      pour les fichiers avec la notation de permission Unix sur quatre chiffres).
+      pour obtenir au final un fichier renommé en <filename>my-app.jar</filename>. Ensuite,
+      il faut rendre ce <acronym>JAR</acronym> lisible par tout le monde et 
+      éditable son propriétaire (c'est ce que qur répresente le mode 0644
+      pour les fichiers avec le format sur quatre chiffres des permissions Unix).
       Pour plus d'informations sur le format de la valeur de la balise 
-      <sgmltag>fileMode</sgmltag>, allez consulter l'explication de Wikipédia <ulink
+      <sgmltag>fileMode</sgmltag>, consultez l'explication de Wikipédia sur le <ulink
       url="http://en.wikipedia.org/wiki/File_system_permissions#Octal_notation_and_additional_permissions">système
-      Octal de représentation des droits</ulink>.</para>
+      octal de représentation des droits</ulink>.</para>
 
-      <para>Vous pouvez construire un assembly très complexe avec ces fichiers,
-      si vous connaissez la liste complète des fichiers à inclure. Même si
-      vous ne connaissez pas la liste de tous les fichiers à inclure au
+      <para>Vous pouvez construire un assembly très complexe avec ces balises 
+      <sgmltag>file</sgmltag>, si vous connaissez la liste exhaustive des fichiers
+      à inclure. Même si  vous ne connaissez pas cette liste  au
       lancement du build, vous pouvez très facilement utiliser un plugin
       Maven personnalisé pour produire ce descripteur d'assembly avec des
       références comme celui ci-dessus. Si la section <sgmltag>files</sgmltag>
@@ -884,7 +884,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       plupart du temps vous allez travailler sur des groupes de fichiers et de 
       dépendances grâce à la balise <sgmltag>fileSets</sgmltag>. Les quatre
       sections suivantes sont conçues pour vous permettre de sélectionner des
-      listes de fichiers selon des critères particuliers.</para>
+      listes de fichiers correspondant à des critères particuliers.</para>
     </section>
 
     <section id="assemblies-sect-filesets">
@@ -892,13 +892,13 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
 
       <para>Comme pour la section <sgmltag>files</sgmltag>, les
       <sgmltag>fileSets</sgmltag> correspondent à des fichiers qui ont une
-      position relative par rapport à la structure de répertoires du projet.
+      position relative par rapport aux répertoires du projet.
       Cependant, au contraire de la section <sgmltag>files</sgmltag>,
-      <sgmltag>fileSets</sgmltag> décrit des ensembles de fichiers dont
+      <sgmltag>fileSets</sgmltag> décrit des ensembles de fichiers, dont
       le nom et le chemin respectent (ou ne respectent pas) un certain
-      format et la structure de répertoire dans laquelle ils se trouvent.
+      format, et les répertoires dans lesquels on peut les trouver.
       La forme la plus simple de <sgmltag>fileSet</sgmltag> spécifie
-      uniqument le répertoire où se trouvent les fichiers :</para>
+      uniquement un répertoire où se trouvent les fichiers :</para>
 
       <programlisting language="xml">&lt;assembly&gt;
   ...
@@ -910,7 +910,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
   ...
 &lt;/assembly&gt;</programlisting>
 
-      <para>Cet ensemble de fichiers contient tout le contenu du répertoire
+      <para>Cet ensemble de fichiers se compose de tout le contenu du répertoire
       <filename>src/main/java</filename> de notre projet. Il profite des
       valeurs par défauts des nombreux paramètres de cette section, aussi
       regardons les brièvement.</para>
@@ -920,7 +920,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       défaut, le répertoire de destination (que l'on peut préciser au moyen
       de la balise <sgmltag>outputDirectory</sgmltag>) est le même que le
       répertoire source (dans notre cas, <filename>src/main/java</filename>).
-      De plus, nous n'avons pas pécifier de format à respecter pour l'inclusion
+      De plus, nous n'avons pas spécifié de format à respecter pour l'inclusion
       ou l'exclusion de fichiers. Dans ce cas, le comportement par défaut est
       de sélectionner tous les fichiers qui se trouvent dans le répertoire
       source avec quelques exceptions importantes. Les exceptions à cette règle sont
@@ -929,7 +929,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       <sgmltag>useDefaultExcludes</sgmltag> est à <varname>true</varname>, ce qui
       est le cas par défaut. Lorsque l'option <sgmltag>useDefaultExcludes</sgmltag>
       est activée, les répertoires tels que <filename>.svn/</filename> et
-      <filename>CVS/</filename> sont exclus d'office pour l'ajout dans l'archive
+      <filename>CVS/</filename> sont exclus d'office de la liste des fichiers à inclure dans l'archive
       assembly. La <xref linkend="assemblies-sect-default-excludes" /> présente une
       liste détaillée des formats d'exclusion par défaut.</para>
 
@@ -964,7 +964,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       de chemin et de nom de fichier. Ces formats peuvent avoir un ou plusieurs
       jokers comme ‘**’ qui correspond à un ou plusieurs répertoires, ‘*’ qui
       correspond à une partie d'un nom de fichier ou ‘?’ qui remplace
-      un caractère quelqconque dans un nom de fichier. L'<xref
+      un caractère quelconque dans un nom de fichier. L'<xref
       linkend="ex-explicit-fileSet" /> utilise une balise <sgmltag>fileMode</sgmltag>
       pour spécifier que les fichiers de ce groupe devront être lisibles par tous mais
       éditables uniquement par le propriétaire. Comme la balise <sgmltag>fileSet</sgmltag>
@@ -974,23 +974,23 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       sur un répertoire pour pouvoir en lister le contenu, il faut
       s'assurer que les répertoires sont bien exécutables en plus d'être
       lisibles. Comme pour les fichiers, seul le propriétaire peut modifier
-      les répertoires et leurs contenus dans ce cas.</para>
+      les répertoires et leurs contenus dans cet exemple.</para>
 
       <para>La balise <sgmltag>fileSet</sgmltag> possède des options supplémentaires.
-      Premièrement, il peut contenir une balise <sgmltag>excludes</sgmltag>
+      Premièrement, elle peut contenir une balise <sgmltag>excludes</sgmltag>
       de la même forme que la balise <sgmltag>includes</sgmltag>. Les patterns
       d'exclusion vous permettent d'exclure des fichiers spécifiques d'un
-      <sgmltag>fileSet</sgmltag> qui correspondent à ce modèle. Les patterns
-      d'inclusion prennent le pas sur les formats d'exclusion. Vous pouvez aussi
+      <sgmltag>fileSet</sgmltag> s'ils correspondent au pattern spécifié. Les patterns
+      d'inclusion prennent le pas sur ceux d'exclusion. Vous pouvez aussi
       mettre à <varname>true</varname> l'élément <sgmltag>filtering</sgmltag> si
-      vous voulez remplacer les expressions dans les fichiers inclus par les
+      vous voulez remplacer les expressions dans les fichiers aisi sélectionnés par les
       valeurs des propriétés. Les expressions sont délimitées soit par
-      <varname>\${</varname> et <varname>}</varname> (expression standard Maven
-      comme par exemple <varname>\${project.groupId}</varname>) ou par
-      <varname>@</varname> suivi de <varname>@</varname> (expression standard Ant
-      comme par exemple <varname>@project.groupId@</varname>). Vous pouvez
+      <varname>\${</varname> et <varname>}</varname> (expression standard Maven,
+      par exemple <varname>\${project.groupId}</varname>) ou par
+      <varname>@</varname> suivi de <varname>@</varname> (expression standard Ant,
+      par exemple <varname>@project.groupId@</varname>). Vous pouvez
       choisir la fin de ligne dans vos fichiers grâce à la balise
-      <sgmltag>lineEnding</sgmltag> ; les valeurs autorisées pour la balise
+      <sgmltag>lineEnding</sgmltag>. Les valeurs autorisées pour la balise
       <sgmltag>lineEnding</sgmltag> sont :</para>
 
       <variablelist>
@@ -998,7 +998,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
           <term>keep</term>
 
           <listitem>
-            <para>Conserve la fin de ligne des fihiers originaux. (C'est la
+            <para>Conserve la fin de ligne des fichiers originaux. (C'est la
             valeur par défaut).</para>
           </listitem>
         </varlistentry>
@@ -1007,7 +1007,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
           <term>unix</term>
 
           <listitem>
-            <para>Fins de ligne de type Unix</para>
+            <para>Fin de ligne de type Unix</para>
           </listitem>
         </varlistentry>
 
@@ -1015,7 +1015,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
           <term>lf</term>
 
           <listitem>
-            <para>Juste un caractère de nouvelle la ligne</para>
+            <para>Juste le caractère Nouvelle Ligne</para>
           </listitem>
         </varlistentry>
 
@@ -1023,7 +1023,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
           <term>dos</term>
 
           <listitem>
-            <para>Fins de ligne de type MS-DOS</para>
+            <para>Fin de ligne de type MS-DOS</para>
           </listitem>
         </varlistentry>
 
@@ -1031,7 +1031,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
           <term>crlf</term>
 
           <listitem>
-            <para>Retour à la ligne suivi du caractère Nouvelle Ligne</para>
+            <para>Caractère Retour à la Ligne suivi du caractère Nouvelle Ligne</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1046,7 +1046,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       n'est pas satisfait. En d'autres termes, si vous avez un pattern d'inclusion qui
       inclut un fichier d'un build et que ce fichier est absent alors, lorsque 
       la balise <sgmltag>useStrictFiltering</sgmltag> est à <sgmltag>true</sgmltag>
-      Maven fera échouer le build sil ne trouve pas le fichier à inclure.</para>
+      le build Maven échouera lorsqu'il ne trouvera pas ce fichier.</para>
 
       <!--TODO: JCasey, I had to take the statement about Ant Expressions out because I couldn't verify it.
 I can add this back in later.  I didn't want to talk about it without an example.  - TIM-->
@@ -1057,19 +1057,19 @@ I can add this back in later.  I didn't want to talk about it without an example
       <sgmltag>fileSets</sgmltag></title>
 
       <para>Quand vous utilisez les patterns d'exclusion par défaut, le plugin Maven
-      Assembly va ignorer d'autres fichiers que les répertoires <acronym>SVN</acronym>
+      Assembly va ignorer d'autres fichiers en plus des répertoires <acronym>SVN</acronym>
       et <acronym>CVS</acronym>. Par défaut, les patterns d'exclusion sont la classe
        <ulink
       url="http://svn.codehaus.org/plexus/plexus-utils/trunk/src/main/java/org/codehaus/plexus/util/DirectoryScanner.java">DirectoryScanner</ulink>
       du projet <ulink
       url="http://plexus.codehaus.org/plexus-utils/">plexus-utils</ulink>
       hébergé chez Codehaus. La liste des patterns d'exclusion est définie sous la forme d'un
-      tableau statique <classname>String</classname> appelé <varname>DEFAULTEXCLUDES</varname>
+      tableau statique de <classname>String</classname>s appelé <varname>DEFAULTEXCLUDES</varname>
       dans <classname>DirectoryScanner</classname>. Le contenu de cette variable est présenté
-      dans <xref linkend="ex-default-excludes" />.</para>
+      dans l'<xref linkend="ex-default-excludes" />.</para>
 
       <example id="ex-default-excludes">
-        <title>Définitions des patterns d'exclu de Plexus Utils</title>
+        <title>Définitions des patterns d'exclusion de Plexus Utils</title>
 
         <programlisting language="java">   public static final String[] DEFAULTEXCLUDES = {
         // Miscellaneous typical temporary files
@@ -1112,13 +1112,13 @@ I can add this back in later.  I didn't want to talk about it without an example
       </example>
 
       <para>Ce tableau de patterns par défaut exclut les fichiers temporaire d'
-      editeurs tels que <ulink url="http://www.gnu.org/software/emacs/">GNU
-      Emacs</ulink>, les fichiers temporaires les plus classqies sous Mac et
+      éditeurs tels que <ulink url="http://www.gnu.org/software/emacs/">GNU
+      Emacs</ulink>, les fichiers temporaires les plus classiques sous Mac et
       les fichiers des outils de gestion de configuration (même si
       Visual SourceSafe est plus une malédiction qu'un outil de gestion de
       configuration). Si vous avez besoin de redéfinir ces patterns d'exclusion
       par défaut, mettez <sgmltag>useDefaultExcludes</sgmltag> à
-      <varname>false</varname> et définissez votre propre lsite de patterns
+      <varname>false</varname> et définissez votre propre liste de patterns
       d'exclusion dans votre descripteur d'assembly.</para>
     </section>
 
