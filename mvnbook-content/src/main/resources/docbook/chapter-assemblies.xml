@@ -1125,7 +1125,7 @@ I can add this back in later.  I didn't want to talk about it without an example
     <section id="assemblies-sect-output-algorithm">
       <title>Section <sgmltag>dependencySets</sgmltag></title>
 
-      <para>Une des exigences les plus demandée pour les assemblies est l'ajout
+      <para>Une des fonctionnalités les plus demandée pour les assemblies est l'ajout
       des dépendances d'un projet dans l'archive assembly. Les balises
       <sgmltag>files</sgmltag> et <sgmltag>fileSets</sgmltag> traitent les fichiers
       de votre projet, cependant une dépendance n'est pas un fichier qui se 
@@ -1134,7 +1134,7 @@ I can add this back in later.  I didn't want to talk about it without an example
       dépendance sont une notion abstraite, il n'ont pas un chemin bien défini
       et sont résolus en utilisant un ensemble symbolique de coordonnées Maven.
       Puisque <sgmltag>file</sgmltag> et
-      <sgmltag>fileSet</sgmltag> exigent un chemin réél, les dépendances seront incluses ou
+      <sgmltag>fileSet</sgmltag> exigent un chemin réel, les dépendances seront incluses ou
       excluses d'un assembly par une combinaison de coordonnées Maven et de scope.</para>
 
       <para>La forme la plus simple de la balise <sgmltag>dependencySet</sgmltag> est
@@ -1149,7 +1149,7 @@ I can add this back in later.  I didn't want to talk about it without an example
 &lt;/assembly&gt;</programlisting>
 
       <para>La balise <sgmltag>dependencySet</sgmltag> ci-dessus va rechercher
-      toutes les dépedances d'exécution de votre projet (le scope runtime scope
+      toutes les dépendances d'exécution de votre projet (le scope runtime scope
       inclut le contenu du scope compile implicitement), et va ensuite les ajouter
       au répertoire racine de l'archive assembly. Elle va aussi copier l'artefact
       principal de votre projet, s'il existe, dans ce répertoire racine.</para>
@@ -1158,7 +1158,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         <para>Une minute ? Je pensais que la balise <sgmltag>dependencySet</sgmltag>
         gérait l'inclusion des dépendances de mon projet, pas son archive principale ?
         Cet effet secondaire non-intuitif était un bug très utilisé de la version 
-        2.1 du plugin Assembly plugin, et, comme Maven accorde une très grande importance
+        2.1 du plugin Assembly, et, comme Maven accorde une très grande importance
         à la compatibilité ascendante, ce comportement non-intuitif et incorrect a du
         être présevé pour la version 2.2. Vous pouvez interdire ce comportement
         en mettant à <varname>false</varname> la balise <sgmltag>useProjectArtifact</sgmltag>.</para>
@@ -1166,20 +1166,20 @@ I can add this back in later.  I didn't want to talk about it without an example
 
       <para>Même si l'ensemble des dépendances par défaut peut être très utile sans
       configuration supplémentaire, cette section du descripteur d'assembly supporte
-      un de nombreuses options de configuration pour vous permettre d'adapter son
-      comportement à vosdemandes spécifiques. Par exemple, la première chose que 
+      de nombreuses options de configuration pour vous permettre d'adapter son
+      comportement à vos besoins spécifiques. Par exemple, la première chose que
       vous pourriez vouloir faire par rapport à cette liste de dépendances est 
       d'exclure l'artefact du projet en mettant <sgmltag>useProjectArtifact</sgmltag> 
       à <varname>false</varname> (sa valeur par défaut est à
       <varname>true</varname> pour des raisons historiques). Cela vous permettra de
       gérer le résultat du build de votre projet indépendamment des fichiers des 
-      dépendances. Aussi, vous pourriez choisir de décompresser les dépendances en 
+      dépendances. De même, vous pouvez choisir de décompresser les dépendances en
       mettant la balise <sgmltag>unpack</sgmltag> à <varname>true</varname> (elle
       est à <varname>false</varname> par défaut). Lorsque l'option unpack est activée,
-      le plugin Assembly va décompressé les contenus des dépnedances dans le répetoire
+      le plugin Assembly va décompresser les contenus des dépendances dans le répetoire
       racine de l'archive.</para>
 
-      <para>A partir maintenant, vous pouvez faire plusieurs choses avec cet
+      <para>À partir maintenant, vous pouvez faire plusieurs choses avec cet
       ensemble de dépendances. Les sections qui vont suivre présentent comment
       définir l'endroit où seront enregistées ces dépendances et comment inclure
       et exclure des dépendances selon leur scope. Enfin, nous nous étendrons
