@@ -1672,21 +1672,21 @@ I can add this back in later.  I didn't want to talk about it without an example
       <section id="assemblies-sect-unpack">
         <title>Options avancées de dépaquetage</title>
 
-        <para>Comme discuté précédemment, certaines dépendances de projet ont besoin d'être dézippées pour créer un assembly.
-        Dans les exemples ci-dessus, la décision de savoir s'il fallait dézipper était simple.
-        Il ne tient pas compte de ce qui doit être dépaqueté, ou plus important, de ce qui ne doit pas être dépaqueté. 
+        <para>Comme nous l'avons vu précédemment, certaines dépendances de projet ont besoin d'être décompressées durant la création d'un assembly.
+        Dans les exemples ci-dessus, la décision de savoir s'il fallait décompresser ou pas était simple.
+        Elle ne tient pas compte de ce qui doit être dépaqueté, ou plus important, de ce qui ne doit pas l'être.
         Pour obtenir plus de contrôle sur le processus de dépaquetage,
         vous pouvez configurer la balise <sgmltag>unpackOptions</sgmltag> dans votre <sgmltag>dependencySet</sgmltag>.
         Ainsi, vous avez la possibilité de choisir quels fichiers vous voulez inclure dans votre assembly,
         et quels fichiers doivent être filtrés pour résoudre des expressions à partir des informations du <acronym>POM</acronym>.
-        En fait, les options disponibles pour dépaqueter vos sets de dépendances sont similaires à celles disponibles 
+        En fait, les options disponibles pour dépaqueter vos ensembles de dépendances sont similaires à celles disponibles
         pour l'inclusion ou l'exclusion de fichier.</para>
 
         <para>Pour continuer notre exemple d'application web,
         supposons que certaines dépendances de ressources aient été zippées avec un fichier qui décrit les détails de leur licence de distribution.
         Dans le cas de notre application web,
         ces licences se présenteront sous la forme d'un fichier <filename>NOTICES</filename> inclu dans notre paquetage.
-        Pour exclure ce fichier, ajoutons-le simplement aux options de dépaquetage dans le set des dépendances 
+        Pour exclure ce fichier, ajoutons-le simplement aux options de dépaquetage dans la balise <sgmltag>dependencySet</sgmltag> 
         qui gère les artefacts de ressources :</para> 
 
         <example>
@@ -1715,26 +1715,26 @@ I can add this back in later.  I didn't want to talk about it without an example
 &lt;/assembly&gt;</programlisting>
         </example>
 
-        <para>Notez que le tag <sgmltag>exclude</sgmltag> que nous utilisons ressemble beaucoup 
-        à celui de la déclaration du <sgmltag>fileSet</sgmltag>.  
-        Ici, nous interdisons les fichiers qui commencent par le mot <filename>LICENSE</filename> 
+        <para>Notez que la balise <sgmltag>exclude</sgmltag> que nous utilisons ressemble beaucoup
+        à celle de la déclaration du <sgmltag>fileSet</sgmltag>.
+        Ici, nous excluons les fichiers qui commencent par le mot <filename>LICENSE</filename>
         des répertoires de nos artefacts de ressources.
-        Vous pouvez comparer la section des options de dépaquetage à un petit <sgmltag>fileSet</sgmltag> 
-        appliqué à chaque dépendance qui match ce set.
+        Vous pouvez considèrer la section des options de dépaquetage comme une seconde balise <sgmltag>fileSet</sgmltag>
+        appliquée à chaque dépendance faisant partie de cet ensemble.
         En d'autres mots, il s'agit d'un <sgmltag>fileSet</sgmltag> utilisé pour le dépaquetage des dépendances.
         Tout comme nous avons spécifié un modèle d'exclusion pour les dossiers 
         dans les dépendances de ressources afin de bloquer certains fichiers,
         vous pouvez également choisir un ensemble restreint de fichiers à inclure 
         en utilisant la section <varname>includes</varname>.
-        Le même code que celui du processus d'inclusion et d'exclusion des <sgmltag>fileSets</sgmltag> 
-        peut-être réutilisé pour le traitement des <sgmltag>unpackOptions</sgmltag>.</para>
+        La même configuration que celle définissant inclusions et exclusions dans les <sgmltag>fileSets</sgmltag>
+        peut-être utilisée dans le cas de balises <sgmltag>unpackOptions</sgmltag>.</para>
 
         <para>En plus de mécanisme d'inclusion et d'exclusion,
-        les options de dépaquetages sur un set de dépendances peuvent également fournir un flag <sgmltag>filtering</sgmltag>,
-        par défaut sa valeur est <varname>false</varname>.
-        Encore une fois, cela ressemble beaucoup au mécanisme proposé par les sets de fichiers discuté ci-dessus.
-        Les expressions peuvent utiliser, soit la syntaxe Maven d'une <varname>\${property}</varname>, 
-        soit la syntaxe Ant d'une <varname>@property@</varname>.
+        les options de dépaquetages sur une liste de dépendances peuvent également utiliser un flag <sgmltag>filtering</sgmltag>,
+        dont la valeur par défaut est <varname>false</varname>.
+        Encore une fois, cela ressemble beaucoup au mécanisme proposé par les ensembles de fichiers discuté ci-dessus.
+        Les expressions peuvent utiliser, soit la syntaxe Maven : <varname>\${property}</varname>,
+        soit la syntaxe Ant : <varname>@property@</varname>.
         Le filtrage des ressources est particulièrement intéressant pour les sets de dépendances.        
         Elle permet de créer des templates ressources normalisés et versionnés 
         qui peuvent être personnalisés pour chaque assembly dans lequel ils sont inclus.
