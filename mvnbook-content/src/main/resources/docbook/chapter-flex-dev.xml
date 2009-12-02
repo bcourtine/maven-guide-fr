@@ -615,7 +615,7 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>Pour exécuter ce build, allez au répertoire du projet sample-library et lancer la commande : 
+      <para>Pour exécuter ce build, allez au répertoire du projet <varname>sample-library</varname> et lancer la commande : 
       run mvn install.</para>
 
       <screen>$ <command>mvn install</command> 
@@ -1158,16 +1158,16 @@ package: org.sonatype.test
   <section id="flex-dev-sect-custom-lifecycle">
     <title>Le cycle de vie de FlexMojos</title>
 
-    <para>Le plugin Maven FlexMojos personalise le cycle de vie sur la base du type de 
+    <para>Le plugin Maven FlexMojos personnalise le cycle de vie sur la base du type de 
     packaging. Si votre projet a un <varname>packaging</varname> de type
     <varname>swc</varname> ou <varname>swf,</varname> alors le plugin FlexMojos 
-    exécute un cycle de vie personalisé, si toutefois votre configuration de plugin positionne 
-    extensions à true. L'<xref linkend="ex-flex-dev-extensions-true" /> illustre
-    la configuration de plugin pour flexmojos-maven-plugin avec 
-    <varname>extensions</varname> positionné à <varname>true</varname>.</para>
+    exécute un cycle de vie personnalisé, si toutefois votre configuration de plugin positionne 
+    extensions à <varname>true</varname>. L'<xref linkend="ex-flex-dev-extensions-true" /> illustre
+    la configuration de plugin pour le <varname>flexmojos-maven-plugin</varname> avec 
+    <varname>extensions</varname> positionnées à <varname>true</varname>.</para>
 
     <example id="ex-flex-dev-extensions-true">
-      <title>Configuration de l'élément extensions à true pour un cycle de vie personalisé Flex</title>
+      <title>Configuration de l'élément extensions à true pour un cycle de vie personnalisé Flex</title>
 
       <programlisting>  &lt;build&gt;
     &lt;sourceDirectory&gt;src/main/flex&lt;/sourceDirectory&gt;
@@ -1191,7 +1191,7 @@ package: org.sonatype.test
     <section id="flex-dev-sect-lifecycle-swc">
       <title>Le cycle de vie SWC</title>
 
-      <para>Quand le packaging est swc, FlexMojos execute le cycle de vie
+      <para>Quand le packaging est swc, FlexMojos exécute le cycle de vie
       illustré dans la <xref linkend="fig-flex-dev-swc-lifecycle" />. Les goals surlignés
       sont des goals spécifiques au plugin FlexMojos, les goals qui ne sont pas
       surlignés sont des goals standards du plugin Core Maven.</para>
@@ -1212,7 +1212,7 @@ package: org.sonatype.test
         </mediaobject>
       </figure>
 
-      <para>Les goals FlexMojos participants sont les suivants:</para>
+      <para>Les goals FlexMojos participants sont les suivants :</para>
 
       <variablelist>
         <varlistentry>
@@ -1220,8 +1220,8 @@ package: org.sonatype.test
 
           <listitem>
             <para>Ce goal compile en librairie SWC tous les fichiers ActionScript et MXML qui sont dans 
-	<varname>sourceDirectory</varname>. Un SWC une bibliothèque Adobe qui contient des composants et des 
-            resources utilisées dans des Flex applications.</para>
+	          <varname>sourceDirectory</varname>. Un SWC une bibliothèque Adobe qui contient des composants et des 
+            ressources utilisées dans des Flex applications.</para>
           </listitem>
         </varlistentry>
 
@@ -1238,7 +1238,7 @@ package: org.sonatype.test
           <term>flexmojos:test-run</term>
 
           <listitem>
-            <para>Ce goal execute les tests unitaires en utilisant le lecteur Flash Player. Ce 
+            <para>Ce goal exécute les tests unitaires en utilisant le lecteur Flash Player. Ce 
             goal ne peut s'exécuter que si Flash Player a correctement été configuré comme 
             décrit dans la <xref
             linkend="flex-dev-sect-configuring-unit-tests" />.</para>
@@ -1250,7 +1250,7 @@ package: org.sonatype.test
     <section id="flex-dev-sect-lifecycle-swf">
       <title>Le cycle de vie SWF</title>
 
-      <para>Quand le packaging est swf, FlexMojos execute le lifecycle
+      <para>Quand le packaging est swf, FlexMojos exécute le lifecycle
       de vie illustré dans la <xref linkend="fig-flex-dev-swf-lifecycle" />. Les goals
       surlignés sont spécifiques au plugin FlexMojos, les goals qui ne sont pas
       surlignés sont des goals standards du plugin Core Maven.</para>
@@ -1298,7 +1298,8 @@ package: org.sonatype.test
           <term>flexmojos:test-run</term>
 
           <listitem>
-            <para>Ce goal execute les tests unitaires en utilisant le lecteur Flash Player. Ce goal ne peut être exécuté que si le lecteur Flash Player a correctement été configuré comme décrit dans la <xref
+            <para>Ce goal exécute les tests unitaires en utilisant le lecteur Flash Player. 
+            Ce goal ne peut être exécuté que si le lecteur Flash Player a correctement été configuré comme décrit dans la <xref
             linkend="flex-dev-sect-configuring-unit-tests" />.</para>
           </listitem>
         </varlistentry>
@@ -1316,7 +1317,7 @@ package: org.sonatype.test
         <term>flexmojos:asdoc</term>
 
         <listitem>
-          <para>Génère la documentation pour les fichiers source ActionScript</para>
+          <para>Génère la documentation pour les fichiers sources ActionScript</para>
         </listitem>
       </varlistentry>
 
@@ -1324,7 +1325,7 @@ package: org.sonatype.test
         <term>flexmojos:asdoc-report</term>
 
         <listitem>
-          <para>Génère la documentation pour les fichiers source ActionScript sous forme de 
+          <para>Génère la documentation pour les fichiers sources ActionScript sous forme de 
           rapport qui peut être inclus dans un site Maven</para>
         </listitem>
       </varlistentry>
@@ -1366,7 +1367,7 @@ package: org.sonatype.test
         <term>flexmojos:generate</term>
 
         <listitem>
-          <para>Génère, via Granite GAS3, des fichiers source ActionScript 3 sur la base de classes Java</para>
+          <para>Génère, via Granite GAS3, des fichiers sources ActionScript 3 sur la base de classes Java</para>
         </listitem>
       </varlistentry>
 
@@ -1374,7 +1375,7 @@ package: org.sonatype.test
         <term>flexmojos:optimize</term>
 
         <listitem>
-          <para>Goal qui exécute une optimisation des fichiers swc, postérieurment à une inclusion dans une application SWF. Ce
+          <para>Goal qui exécute une optimisation des fichiers swc, postérieurement à une inclusion dans une application SWF. Ce
           goal est utilisé pour produire des fichiers RSL.</para>
         </listitem>
       </varlistentry>
@@ -1383,7 +1384,7 @@ package: org.sonatype.test
         <term>flexmojos:sources</term>
 
         <listitem>
-          <para>Génère un JAR contenant tous les sources du projet Flex
+          <para>Génère un JAR contenant toutes les sources du projet Flex
           </para>
         </listitem>
       </varlistentry>
@@ -1423,13 +1424,13 @@ package: org.sonatype.test
     </variablelist>
 
     <section id="flex-dev-sect-gen-asdoc">
-      <title>Génération de la documentation ActionScript </title>
+      <title>Génération de la documentation ActionScript</title>
 
       <para>Vous pouvez exécuter les goals asdoc ou asdoc-report pour générer
-      la documentation des source ActionScript. Une fois générée, la
+      la documentation des sources ActionScript. Une fois générée, la
       documentation est sauvegardée en HTML dans le répertoire 
       <filename>\${basedir}/target/asdoc</filename>. La <xref
-      linkend="fig-flex-dev-actionscript" /> illustre le résultat issu de d'exécution du goal
+      linkend="fig-flex-dev-actionscript" /> illustre le résultat issu de l'exécution du goal
       <varname>asdoc</varname> pour le projet obtenu via l'archétype Flexmojos.</para>
 
       <figure id="fig-flex-dev-actionscript">
@@ -1453,16 +1454,17 @@ package: org.sonatype.test
       <title>Compilation des sources Flex</title>
 
       <para>FlexMojos présente nombre de goals compilant ActionScript
-      et MXML en SWCs and SWFs. Les goals compile-swc et compile-swf sont utilisés
-      pour produire les artefacts cible à partie des sources du project. Le goal test-compile est utilisé pour compiler 
- 	les tests unitaires. Dans les projets simples créés par les archétypes
-      FlexMojos, les goals compile-swc et compile-swf sont invoqués
-      parce que  le projet personalise le cycle de vie et lie 
-      compile-swc ou compile-swf à la phase de compilation et test-compile à la phase de
-      test-compile. Si vous avez besoin de configurer les options du compilateur
+      et MXML en SWCs and SWFs. Les goals <varname>compile-swc</varname> et <varname>compile-swf</varname> sont utilisés
+      pour produire les artefacts cible à partie des sources du projet. Le goal <varname>test-compile</varname> est utilisé pour compiler 
+ 	    les tests unitaires. Dans les projets simples créés par les archétypes
+      FlexMojos, les goals <varname>compile-swc</varname> et <varname>compile-swf</varname> sont invoqués
+      parce que le projet personnalise le cycle de vie et lie 
+      <varname>compile-swc</varname> ou <varname>compile-swf</varname> à la phase de compilation et <varname>test-compile</varname> à la phase de
+      <varname>test-compile</varname>. Si vous avez besoin de configurer les options du compilateur
       FlexMojos, vous le ferez à travers les options de configuration du plugin FlexMojos.
-	Par exemple, si vous voulez que l'application avec le POM
-      illustré dans l'<xref linkend="ex-flex-dev-app-pom" /> ignore les warnings de compilation au niveau du code et utilise des propriétés personalisées de fonte,
+	    Par exemple, si vous voulez que l'application avec le POM
+      illustré dans l'<xref linkend="ex-flex-dev-app-pom" /> ignore les warnings de compilation au niveau du code 
+      et utilise des propriétés personnalisées de fonte,
       vous pouvez utiliser une configuration de plugin illustrée dans l'<xref
       linkend="ex-flex-dev-customizing-compiler" />.</para>
 
@@ -1510,8 +1512,8 @@ package: org.sonatype.test
       <title>Génération des fichiers de projet Flex Builder</title>
 
       <para>Pour générer les fichiers de projet Flex Builder pour un projet FlexMojos,
-      configurez les groupes de plugin comme dérit dans la <xref
-      linkend="flex-dev-sect-plugin-group" /> et lancer le goal
+      configurez les groupes de plugin comme décrit dans la <xref
+      linkend="flex-dev-sect-plugin-group" /> et lancez le goal
       <varname>flexbuilder</varname> :</para>
 
       <screen>$ <command>mvn flexmojos:flexbuilder</command></screen>
@@ -1542,7 +1544,7 @@ package: org.sonatype.test
       <title>Générer le rapport de documentation ActionScript</title>
 
       <para>Pour que l'<varname>asdoc-report</varname> soit intégré
-      au build du site Maven, il suffit d'ajouter le code XML suivant à votre POM:</para>
+      au build du site Maven, il suffit d'ajouter le code XML suivant à votre POM :</para>
 
       <example>
         <title>Configuration pour une génération de documentation ActionScript</title>
@@ -1567,7 +1569,7 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>Quand vous faites la commande <command>mvn site</command>, Maven génèrera cette documentation et la placera dans le menu "Project Reports" comme indiqué dans
+      <para>Quand vous faites la commande <command>mvn site</command>, Maven générera cette documentation et la placera dans le menu "Project Reports" comme indiqué dans
       la <xref linkend="fig-flex-dev-actionscript-report" />.</para>
 
       <figure id="fig-flex-dev-actionscript-report">
@@ -1586,8 +1588,8 @@ package: org.sonatype.test
         </mediaobject>
       </figure>
 
-      <para>Si vous avez besoin de transmettre quelqu'option de configuration que ce soit au goal
-      asdoc-report, il vous faudra ajouter un élément de configuration 
+      <para>Si vous avez besoin de transmettre des options de configuration au goal
+      <varname>asdoc-report</varname>, il vous faudra ajouter un élément de configuration 
       <varname>reportSets</varname> comme indiqué dans l'<xref
       linkend="ex-flex-dev-config-asdoc-report" />.</para>
 
@@ -1621,20 +1623,20 @@ package: org.sonatype.test
   </section>
 
   <section id="flex-dev-sect-dev">
-    <title>Developpement et personnalisation de Flexmojos</title>
+    <title>Développement et personnalisation de Flexmojos</title>
 
-    <para>Les sections suivantes vous guideront à travers les premières étapes de personnalisation   de Flexmojos, voire de contribution au projet lui-même. Flexmojos est plus 
-    qu'un simple outils pour les personnes souhaitant compiler de l'ActionScript
-    en artefacts SWF et SWC ; c'est une communauté de developpeurs. Cette section
-    n'est pas pour tout le monde, mais si vous voulez participez, vous êtes les bienvenus.</para>
+    <para>Les sections suivantes vous guideront à travers les premières étapes de personnalisation de Flexmojos, voire de contribution au projet lui-même. Flexmojos est plus 
+    qu'un simple outil pour les personnes souhaitant compiler de l'ActionScript
+    en artefacts SWF et SWC ; c'est une communauté de développeurs. Cette section
+    n'est pas pour tout le monde, mais si vous voulez participer, vous êtes les bienvenus.</para>
 
     <section id="flex-dev-sect-get-source">
       <title>Obtenir le code source Flexmojos </title>
 
-      <para>Flexmojos est un projet open-source hébergé par Sonatype
+      <para>Flexmojos est un projet Open Source hébergé par Sonatype
       et le code source de Flexmojos est stocké dans le repository Subversion de la forge Sonatype.
-	 Vous pouvez visualiser le contenu du repository Subversion de Flexmojos en ouvrant, dans un navigateur web, le lien
-       <ulink
+	    Vous pouvez visualiser le contenu du repository Subversion de Flexmojos en ouvrant, dans un navigateur web, le lien
+      <ulink
       url="http://svn.sonatype.org/flexmojos/trunk">http://svn.sonatype.org/flexmojos/trunk</ulink>.</para>
 
       <figure id="flex-dev-svn-repo">
@@ -1654,7 +1656,7 @@ package: org.sonatype.test
       </figure>
 
       <para>Si vous êtes intéressé par une participation au projet Flexmojos,
-      vous effecturez probablement un checkout de la version courrante sur votre machine. 
+      vous effectuerez probablement un checkout de la version courante sur votre machine. 
 Pour effectuer un checkout du code source Flexmojos en utilisant Subversion,
       saisissez la ligne de commande suivante :</para>
 
