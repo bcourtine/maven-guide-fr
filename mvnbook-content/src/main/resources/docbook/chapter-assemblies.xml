@@ -1463,19 +1463,17 @@ I can add this back in later.  I didn't want to talk about it without an example
         la prochaine section nous allons essayer de développer cette idée.</para>
       </section>
 
-      <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
-
       <section id="assemblies-sect-fine-tune">
         <title>Configuration fine : inclusion et exclusion de dépendances</title>
 
         <para>Une dépendance de ressources peut être une simple liste de ressources (CSS, Javascript, images ...) dans un projet
-        qui a un assembly qui crée une archive de type <acronym>ZIP</acronym>.
+        dont un assembly crée une archive de type <acronym>ZIP</acronym>.
         En fonction des particularités de votre application web,
-        vous voudrez distinguer les dépendances de ressources des dépendances de binaires en fonction de leur type.
+        vous voudrez distinguer les dépendances de ressources des dépendances de binaires grâce à leur type.
         La plupart des applications web vont dépendre d'autres dépendances de type <varname>jar</varname>. 
         Du coup, il est possible de dire avec certitude que toutes les dépendances de type <varname>zip</varname> sont des dépendances de ressources.
         Or, nous pourrions avoir une situation où les ressources sont conservées sous un format <varname>jar</varname> mais 
-        que nous pouvons distinguer les ressources par un tag <varname>resources</varname>.
+        que nous pouvons distinguer les ressources par un classifieur <varname>resources</varname>.
         Dans tous les cas, nous pouvons spécifier un pattern d'inclusion pour cibler ces dépendances de ressources
         et appliquer une logique différente que celle utilisée pour les binaires. 
         Nous pouvons effectue cette distinction par l'intermédiaire de balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> 
@@ -1483,8 +1481,8 @@ I can add this back in later.  I didn't want to talk about it without an example
 
         <para>Les balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> sont des listes. 
         Elles acceptent des sous-éléments du type <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag>.
-        Chaque balise <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag> contient une valeur sous forme de chaîne de caractère et pouvent contenir des wildcards.
-        Chaque valeur peut matcher des dépendances selon différents moyens.         
+        Chaque balise <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag> contient une valeur sous forme de chaîne de caractère et pouvent contenir des caractères jokers.
+        Les dépndances peuvent respecter ces patterns de plusieurs façons.
         Généralement, trois formats de pattern sont supportés :</para>
 
         <variablelist>
@@ -1508,24 +1506,25 @@ I can add this back in later.  I didn't want to talk about it without an example
             <term><varname>groupId:artifactId:type[:classifier]:version</varname> - identité complète de l'artefact</term>
 
             <listitem>
-              <para>Si vous avez un récupérer un artefact bien spécifique, vous pouvez renseigner l'intégralité des coordonnées.</para>
+              <para>Si vous avez à récupérer un artefact bien spécifique, vous pouvez renseigner l'intégralité des coordonnées.</para>
             </listitem>
           </varlistentry>
         </variablelist>
 
-        <para>Tous ces formats de patterns supportent l'utilisation de widcard ‘*’, 
-        ils permettent de matcher n'importe quelle sous-section de l'identité et ne se limite pas à une seule sous-section (sections entre ':').         
-        En outre, notez que la section classificateur ci-dessus est facultative,
-        le pattern matching des dépendances qui n'ont pas de classificateur ne prennent pas en compte la section 'classificateur' de ce pattern.</para>
+        <para>Tous ces formats de patterns supportent l'utilisation du joker ‘*’,
+        il permet de remplacer n'importe quelle sous-section de l'identité et 
+        peut être employé dans plusieurs sous-sections (bloc entre ':').
+        En outre, notez que la section classifieur du pattern ci-dessus est facultative,
+        les dépendances qui n'ont pas de classifieur ne prennent pas en compte la section 'classificateur' de ce pattern.</para>
 
-        <para>Dans l'exemple donné ci-dessus, là où la distinction essentielle est l'artefact de type sip 
-        et qu'aucune des dépendances n'a de classificateur,
-        le pattern suivant matcherait toutes les ressources de type <varname>zip</varname> :</para> 
+        <para>Dans l'exemple donné ci-dessus, la distinction essentielle est le type <varname>zip</varname> de l'artefact 
+        et il faut noter qu'aucune des dépendances n'a de classifieur,
+        le pattern suivant serait respecté par toutes les ressources de type  :</para>
 
         <programlisting>*:zip</programlisting>
 
         <para>Le pattern ci-dessus utilise la seconde identité de la dépendance : l'id de conflit.
-        Maintenant que nous avons un pattern qui distingue les dépendances ressources des dépendances binaires, 
+        Maintenant que nous avons un pattern qui distingue les dépendances de ressources des dépendances de binaires,
         nous pouvons modifier notre liste de dépendances pour gérer ces archives différemment :</para>  
 
         <example id="ex-complex-dependencySet">
@@ -1563,8 +1562,8 @@ I can add this back in later.  I didn't want to talk about it without an example
         </example>
 
         <para>Dans l'<xref linkend="ex-complex-dependencySet" />, 
-        la liste de dépendances scopée <varname>runtime</varname> de notre dernier exemple 
-        a été mis à jour pour exclure les dépendances de type ressource.
+        la liste de dépendances du scope <varname>runtime</varname> de notre dernier exemple
+        a été mise à jour pour exclure les dépendances de type ressource.
         Seules les dépendances de type binaires (les dépendances qui ne sont pas de ZIP) 
         sont ajoutées dans le répertoire <filename>WEB-INF/lib</filename> de l'application. 
         Les dépendances de type ressources sont rassemblées dans une même liste.        
