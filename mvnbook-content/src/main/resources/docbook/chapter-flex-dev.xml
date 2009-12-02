@@ -475,7 +475,7 @@ package: org.sonatype.test
 [INFO] BUILD SUCCESSFUL
 </screen>
 
-      <para>En regardant dans le répertoire <varname>sample-library/<varname>, vous verrez
+      <para>En regardant dans le répertoire <varname>sample-library/</varname>, vous verrez
       que le projet présente une arborescence comme dans la <xref
       linkend="fig-flex-dev-library-archetype-fs" />.</para>
 
