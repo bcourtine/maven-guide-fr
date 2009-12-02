@@ -1564,36 +1564,36 @@ I can add this back in later.  I didn't want to talk about it without an example
         <para>Dans l'<xref linkend="ex-complex-dependencySet" />, 
         la liste de dépendances du scope <varname>runtime</varname> de notre dernier exemple
         a été mise à jour pour exclure les dépendances de type ressource.
-        Seules les dépendances de type binaires (les dépendances qui ne sont pas de ZIP) 
+        Seules les dépendances binaires (c'est à dire celles qui ne sont pas de type <varname>zip</varname>)
         sont ajoutées dans le répertoire <filename>WEB-INF/lib</filename> de l'application. 
-        Les dépendances de type ressources sont rassemblées dans une même liste.        
-        Celle-ci est configurée pour copier ses dépendances dans le répertoire ressource de l'application.
+        Les dépendances de ressources sont regroupées dans un seul ensemble de dépendances.
+        Cet ensemble est configuré pour copier ses dépendances dans le répertoire ressource de l'application.
         La balise <sgmltag>includes</sgmltag> du dernier <sgmltag>dependencySet</sgmltag> 
         annule les exclusions du <sgmltag>dependencySet</sgmltag> précédent.
         Ainsi, les dépendances ressources sont incluses en utilisant un seul pattern d'identité : <varname>*:zip</varname>.
         La dernière balise <sgmltag>dependencySet</sgmltag> fait référence à des ressources partagées, 
-        elle est configurée pour deziper celles-ci à la racine de l'application web.</para>
+        elle est configurée pour décompresser celles-ci à la racine de l'application web.</para>
 
         <para>L'<xref linkend="ex-complex-dependencySet" /> présume que le projet contenant 
         les ressources partagées dispose d'un type différent des autres dépendances. 
-        Que se passerait-il si celle-ci avait le même type que celui des autres dépendances ?
+        Que se passerait-il si celles-ci avaient le même type que celui des autres dépendances ?
         Comment différencieriez-vous cette dépendance ?
         Dans ce cas, si une dépendance de ressources partagées a été packagée comme un JAR 
         avec le classificateur de type <varname>resources</varname>,  
-        vous pouvez changer le pattern d'identité pour qu'il match ces dépendances :</para> 
+        vous pouvez changer le pattern d'identité pour qu'il filtre cette dépendance :</para>
 
         <programlisting>*:jar:resources</programlisting>
 
-        <para>Au lieu de matcher les artefacts de type <varname>zip</varname> sans classificateur,
-        nous matchons ici les artefacts de type <varname>jar</varname> 
-        qui possède un classificateur <varname>resources</varname>.</para>   
+        <para>Au lieu d'accepter les artefacts de type <varname>zip</varname> sans classifieur,
+        nous retenons ici les artefacts de type <varname>jar</varname>
+        avec un classifieur <varname>resources</varname>.</para>
 
         <para>Comme pour la section <sgmltag>fileSets</sgmltag>, <sgmltag>dependencySets</sgmltag> supporte 
         l'utilisation du flag <sgmltag>useStrictFiltering</sgmltag>. 
-        Lorsque celui-ci est activé, n'importe quel pattern qui ne match pas une ou plusieurs dépendances 
-        causera l'échec de l'assembly, et donc par conséquent, l'échec du build.  
-        Très pratique pour utiliser comme soupape de sécurité, pour vous assurer que les dépendances 
-        de votre projet et votre descripteur d'assembly soient correctement synchronisés.  
+        Lorsque celui-ci est activé, n'importe quel pattern qui n'accepte aucune dépendance
+        fera échouer l'assembly, et donc par conséquent, le build. Cela est très pratique
+        comme soupape de sécurité, pour vous assurer que les dépendances
+        de votre projet et votre descripteur d'assembly sont bien synchronisés.
         Par défaut, ce flag est désactivé pour des raisons de rétrocompatibilité.</para> 
       </section>
 
