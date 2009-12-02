@@ -1601,7 +1601,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         <title>Dépendances transitives, pièces jointes et artefacts de projet</title>
 
         <para>La section <sgmltag>dependencySet</sgmltag> vous propose deux autres mécanismes pour vous aider dans le choix de vos artefacts :  
-        options de sélection transitive et options pour travailler avec des artefacts du projet.
+         la sélection de dépendances transitives et la possibilité de travailler avec des artefacts du projet.
         Ces deux fonctionnalités proviennent de la nécessité de supporter des configurations existantes 
         qui utilisent une définition un peu plus libérale du mot "dépendance". 
         Comme premier exemple, examinons l'artefact principal du projet.
@@ -1609,9 +1609,9 @@ I can add this back in later.  I didn't want to talk about it without an example
         Pourtant, les plus anciennes versions du plugin Assembly l'utilisaient dans le calcul des dépendances.
         Pour fournir une rétrocompatibilité avec cette "fonctionnalité",
         la version 2.2 du plugin Assembly dispose d'un flag à mettre dans le <sgmltag>dependencySet</sgmltag>, 
-        celui-ci est appelé <sgmltag>useProjectArtifact</sgmltag>,
+        celui-ci est appelé <sgmltag>useProjectArtifact</sgmltag>.
         La valeur par défaut de ce flag est <varname>true</varname>. 
-        Par défaut, le set de dépendances essayera d'inclure l'artefact du projet dans le calcul de ses dépendances.  
+        Par défaut, un ensemble de dépendances prendra en compte l'artefact du projet dans la sélection de ses dépendances.
         Si vous préférez gérer l'artefact du projet séparément, affectez ce flag à <varname>false</varname>.</para>
 
         <tip>
@@ -1622,50 +1622,50 @@ I can add this back in later.  I didn't want to talk about it without an example
         <para>Comme extension naturelle à l'inclusion d'un artefact projet, 
         les artefacts rattachés à un projet peuvent également être gérés par un  <sgmltag>dependencySet</sgmltag> en utilisant
         le flag <sgmltag>useProjectAttachments</sgmltag> (celui-ci est désactivé par défaut). 
-        Activer ce flag permet aux patterns qui précisent des classificateurs et des types d'artefacts de matcher les artefacts rattachés.
+        Activer ce flag permet aux patterns qui précisent des classifieurs et des types d'artefacts de prendre en compte les artefacts rattachés.
         Ils partagent la même identité <varname>groupId</varname>/<varname>artifactId</varname>/<varname>version</varname>,
-        mais diffèrent de <varname>type</varname> et de <varname>classifier</varname>.
-        Cette fonctionnalité peut s'avérer utilise pour inclure les JARs de Javadoc ou de source dans un assembly.</para>
+        mais diffèrents <varname>type</varname> et <varname>classifier</varname>.
+        Cette fonctionnalité peut s'avérer utile pour inclure les JARs de Javadoc ou de source dans un assembly.</para>
 
         <para>En plus de traiter avec des artefacts du projet,
-        il est également possible de configurer un set de dépendances en utilisant 
-        deux flags permettant d'activer la résolution transitive.
+        il est également possible de prendre en compte les dépendances transitives pour calculer
+        un ensemble de dépendances grâce à deux paramètres.
         Le premier, appelé <sgmltag>useTransitiveDependencies</sgmltag> (et activé par défaut), 
-        permet d'activer l'inclusion des dépendances transitives lors du matching.
+        permet d'activer l'inclusion des dépendances transitives lors de la sélection par pattern.
         Comme exemple pour savoir comment il peut être utilisé, considérez ce qui arrive lorsque votre <acronym>POM</acronym> 
-        à une dépendance sur une autre assembly.
-        Cette assembly aura (probablement) un classificateur qui permet de le distinguer de l'artefact principal du projet, 
+        a une dépendance sur un autre assembly.
+        Cet assembly aura (probablement) un classifieur qui permet de le distinguer de l'artefact principal du projet, 
         ce qui en fait une pièce jointe.    
-        Cependant, une particularité du processus de résolution des dépendances Maven 
+        Cependant, une particularité du processus de résolution des dépendances Maven est 
         que les informations des dépendances transitives pour l'artefact principal
         sont toujours utilisées pour résoudre l'artefact de l'assembly.
-        Si l'assembly package ses dépendances à l'intérieur de lui-même, 
+        Si l'assembly package les dépendances en lui,
         dans ce cas, utiliser la résolution des dépendances transitives dupliquerait ces dépendances.         
         Pour éviter cela, nous pouvons simplement utiliser le flag <sgmltag>useTransitiveDependencies</sgmltag> 
-        en le positionnant <varname>false</varname>.</para>
+        en le positionnant à <varname>false</varname>.</para>
 
         <para>L'autre flag permettant de résoudre les dépendances est plus subtil.
         Il est appelé <sgmltag>useTransitiveFiltering</sgmltag> et sa valeur par défaut est <varname>false</varname>.
         Pour comprendre ce que fait ce flag, nous devons d'abord comprendre quelles informations 
         sont disponibles pour un artefact donné lors du processus de résolution des dépendances. 
-        Quand un artefact est une dépendance d'un autre (qui est, retiré au moins un niveau à partir de votre <acronym>POM</acronym>),
-        elle a ce que Maven appelle un "chemin de dépendances", laquelle est maintenue 
-        comme une liste de chaînes de caractères et correspond à l'identité complète de l'artefact 
+        Quand un artefact est une dépendance d'un autre (c'est à dire avec au moins un niveau intermédiaire entre lui et votre <acronym>POM</acronym>),
+        il possède ce que Maven appelle un "chemin de dépendances". Il s'agit d'une liste de chaînes de caractères
+        qui correspondent à l'identité complète de chaque artefact
         (<varname>groupId:artifactId:type:[classifier:]version</varname>)
-        de toutes les dépendances entre votre <acronym>POM</acronym> et l'artefact à qui appartient ce chemin.
-        Si vous vous rappelez des trois types d'identités des artefacts disponibles pour pattern matching,
-        vous remarquerez que les entrées dans ce chemin de dépendances - l'identité complète de l'artefact  - correspond au troisième type.
+        de dépendances entre cet artefact et votre <acronym>POM</acronym>.
+        Si vous vous rappelez des trois types d'identités des artefacts disponibles pour écrire un pattern,
+        vous remarquerez que les entrées dans ce chemin de dépendances - l'identité complète de l'artefact - correspondent au troisième type.
         Lorsque le flag <sgmltag>useTransitiveFiltering</sgmltag> est positionné à <varname>true</varname>, 
         toutes les entrées du chemin de dépendances d'un artefact peuvent agir sur l'inclusion ou l'exclusion de cet artefact.</para>
 
         <para>Si vous envisagez l'utisation de ce filtrage transitif, prennez garde !
-        Un artefact peut être inclus à partie de nombreux emplacement dans un graphe de dépendance, mais dans Maven 2.0.9,
-        seul le premier chemin de dépendances est utilisé pour ce type de matching.
+        Un artefact peut être inclus à partir de nombreux emplacement dans un graphe de dépendance, mais dans Maven 2.0.9,
+        seul le premier chemin de dépendances est utilisé pour ce type de sélection.
         Cela peut conduire à des problèmes difficiles à résoudre dans la collecte des dépendances de votre projet.</para>
 
         <warning>
-          <para>La plupart des assembly ne nécessitent ce niveau de contrôle sur les sets de dépendances.
-          Reflechissez attentivement pour savoir si la votre en a vraiment besoin. Astuce : ce n'est probablement pas le cas.</para>
+          <para>La plupart des assemblies ne nécessitent pas ce niveau de contrôle sur les listes de dépendances.
+          Réflêchissez attentivement pour savoir si vous en avez vraiment besoin. Astuce : ce n'est probablement pas le cas.</para>
         </warning>
       </section>
 
