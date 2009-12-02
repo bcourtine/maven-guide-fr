@@ -7,56 +7,55 @@
   <section id="flex-dev-sect-intro">
     <title>Introduction</title>
 
-    <para>Ce chapître propose un apperçu du projet Flexmojos pour les personnes intéressées par l'utilistion de Maven pour développer des applications Flex ainsi que des librairies.</para>
+    <para>Ce chapitre propose un aperçu du projet Flexmojos pour les personnes intéressées par l'utilisation de Maven pour développer des applications et des bibliothèques Flex.</para>
   </section>
 
   <section id="flex-dev-sect-config-build">
     <title>Configuration de l'environnement de build pour Flexmojos</title>
 
-    <para>Avant que vous ne tentiez de compiler des libriaries et des appilcations Flex avec Maven, vous devrez réaliser deux tâches de configuration:</para>
+    <para>Avant que vous ne tentiez de compiler des librairies et des applications Flex avec Maven, vous devrez réaliser deux tâches de configuration :</para>
 
     <itemizedlist>
       <listitem>
-        <para>Configurer vos paramètres Maven afin de référencer un dépôt qui contienne le framework Flex</para>
+        <para>Configurez vos paramètres Maven afin de référencer un dépôt qui contienne le framework Flex</para>
       </listitem>
 
       <listitem>
-        <para>Ajouter Flash Player à votre PATH afin de permettre les tests unitaires Flex</para>
+        <para>Ajoutez Flash Player à votre PATH afin de permettre les tests unitaires Flex</para>
       </listitem>
 
       <listitem>
-        <para>(Optionnel) Configurer vos paramètres Maven pour inclure le group de plugin de Sonatype</para>
+        <para>(Optionnel) Configurez vos paramètres Maven pour inclure le group de plugin de Sonatype</para>
       </listitem>
     </itemizedlist>
 
     <section id="flex-dev-sect-referencing-repo-with-flex">
-      <title>Faire référence à un dépôt contenant le Framework Flex </title>
+      <title>Faire référence à un dépôt contenant le Framework Flex</title>
 
       <para>Pour configurer votre environnement Maven pour utiliser Flexmojos, vous avez deux options: vous pouvez faire référence au dépôt Flexmojos de Sonotype directement dans le fichier 
   <filename>pom.xml</filename>, ou vous pouvez installer Nexus et ajouter le dépôt Sonatype pour Flexmojos en tant que dépôt proxy dans votre propre gestionnaire de dépôts.
-  Alors que l'option la plus directe conciste à faire référence directement au dépôt, télécharger et installer Nexus vous procurera le contrôle et la flexibilité dont vous avez besoin pour câcher et gérer les artefacts générés par vos propres builds.
-Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-dessous la <xref linkend="flex-dev-sect-direct-repo"/>. Si vous êtes intéressés par une solution à long terme qui peut être déployée pour servir de support à une equipe de développement, allez à la  
+  Alors que l'option la plus directe consiste à faire référence directement au dépôt, télécharger et installer Nexus vous procurera le contrôle et la flexibilité dont vous avez besoin pour cacher et gérer les artefacts générés par vos propres builds.
+Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-dessous la <xref linkend="flex-dev-sect-direct-repo"/>. Si vous êtes intéressés par une solution à long terme qui peut être déployée pour servir de support à une équipe de développement, allez à la  
       <xref linkend="flex-dev-sect-proxy-nexus"/>.</para>
 
       <para>Si votre organisation utilise déjà la solution Nexus de Sonatype en tant que proxy
       pour les dépôts distants, vous avez probablement un fichier 
-      <filename>~/.m2/settings.xml</filename> personalisé qui pointe vers un seul groupe 
-      Nexus. 
+      <filename>~/.m2/settings.xml</filename> personnalisé qui pointe vers un seul groupe Nexus. 
       Si telle est votre situation, vous devrez ajouter au groupe référencé par votre équipe de développement un dépôt proxy 
       pour le groupe de dépôts de Flexmojos avec l'adresse <ulink url="${flexmojos.repository}">${flexmojos.repository}</ulink>.
-      Ajouter un dépôt proxy pour ce groupe distant et ensuite ajouter ce groupe au groupe public de votre installation Nexus, donnera aux clients de l'instance Nexus un accès aux artefacts Sonatype repository.sonatype.org.
+      Ajouter un dépôt proxy pour ce groupe distant et ensuite ajouter ce groupe au groupe public de votre installation Nexus, 
+      donnera aux clients de l'instance Nexus un accès aux artefacts Sonatype <varname>repository.sonatype.org</varname>.
     </para>
 
       <section id="flex-dev-sect-direct-repo">
         <title>Faire référence depuis le POM au dépôt Flexmojos de Sonatype</title>
 
-        <para>Flexmojos depend de quelques artifacts qui ne sont actuellement pas disponible depuis le dépôt central Maven.
+        <para>Flexmojos dépend de quelques artefacts qui ne sont actuellement pas disponibles depuis le dépôt central Maven.
         Ces artefacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour utiliser Flexmojos, vous devrez faire 
         référence à ce dépôt depuis le <filename>pom.xml</filename> de votre projet. 
         Pour réaliser ceci, ajoutez l'élément 
         <sgmltag>repositories</sgmltag> indiqué dans <xref linkend="ex-flex-dev-repository"/> au 
         <filename>pom.xml</filename> de votre projet.</para>
-
 
         <example id="ex-flex-dev-repository">
           <title>Ajouter une référence au dépôt Flexmojos de Sonatype au sein du POM</title>
@@ -85,23 +84,24 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
 </programlisting>
         </example>
 
-        <para>Le XML illustré dans <xref linkend="ex-flex-dev-repository"/>, ajoutera ce dépôt  à la liste des dépots que consultera Maven quand il tentera de télécharger les artefacts et les plugins. </para>
+        <para>Le XML illustré dans <xref linkend="ex-flex-dev-repository"/>, ajoutera ce dépôt  à la liste des dépôts que consultera Maven 
+        quand il tentera de télécharger les artefacts et les plugins. </para>
       </section>
 
       <section id="flex-dev-sect-proxy-nexus">
         <title>Proxyfier le dépôt Flexmojos de Sonatype avec Nexus</title>
 
         <para>Au lieu de pointer directement vers le dépôt Flexmojos de Sonatype,
-        Sonatype recommande d'insatller un gestionnaire de dépôt et de le mettre
+        Sonatype recommande d'installer un gestionnaire de dépôt et de le mettre
         en proxy du dépôt public de Sonatype. Quand vous mettez en place un
         proxy d'un dépôt distant avec un gestionnaire de dépôt comme Nexus,
         vous gagnez un niveau supplémentaire de contrôle et de stabilité qu'il
         n'est pas possible d'atteindre lorsque votre build dépend directement
         de ressources externes. En plus de ce contrôle et de cette stabilité,
-        un gestionnaire de dépôt fournit aussi une cibl pour le déploiement
+        un gestionnaire de dépôt fournit aussi une cible pour le déploiement
         des artefacts binaires produits par vos builds. Les instructions pour
         télécharger, installer et configurer Nexus sont disponibles dans le
-        livre <ulink
+        <ulink
         url="http://www.sonatype.com/books/nexus-book/reference/install.html">Installation
         chapter in Repository Management with Nexus</ulink>. Une fois Nexus
         installé et démarré, effectuez les opérations suivantes pour lui ajouter
@@ -113,7 +113,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         <guimenu>Nexus</guimenu> de la partie gauche de l'interface
         utilisateur de Nexus. Ce click sur <guimenuitem>Repositories</guimenuitem>
         va charger le panneau <guilabel>Repositories</guilabel>. Dans ce panneau
-        <guilabel>Repositories</guilabel> panel, clicquez sur le bouton
+        <guilabel>Repositories</guilabel> panel, cliquez sur le bouton
         <guibutton>Add..</guibutton> et sélectionnez Proxy Repository comme le
         montre la <xref linkend="fig-flex-dev-add-proxy-repos" />.</para>
 
@@ -137,7 +137,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         le configurer pour qu'il pointe vers le dépôt public Flexmojos de
         Sonatype. Sélectionnez ce nouveau dépôt puis sélectionnez l'onglet de
         Configuration en bas de la fenêtre. Remplissez les champs suivants avec les
-        valeurs suivantes comme montré dans <xref
+        valeurs suivantes comme le montre la <xref
         linkend="fig-flex-dev-sonatype-public-proxy" />.</para>
 
         <itemizedlist>
@@ -150,7 +150,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
           </listitem>
 
           <listitem>
-            <para>The Remote Storage Location prend pour valeur <ulink
+            <para>The "Remote Storage Location" prend pour valeur <ulink
             url="${flexmojos.repository}">${flexmojos.repository}</ulink></para>
           </listitem>
         </itemizedlist>
@@ -176,9 +176,9 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         <guibutton>Save</guibutton> pour enregistrer le dépôt proxy et commencez
         à proxyfier le dépôt Sonatype Flexmojos. Nexus est fourni avec un groupe
         public repository, qui combine plusieurs dépôts en un seul point d'entrée
-        pour les clients Maven. Pour complèter votre configurationde ce nouveau
-        dépôt proxy, vous devez ajouter ce nouveau dépôt proxy au groupe
-        Nexus public. POur ce fairen allez à la liste des dépôts qui
+        pour les clients Maven. Pour compléter la configuration de ce nouveau
+        dépôt proxy, vous devez ajouter celui-ci au groupe
+        Nexus public. Pour ce faire, allez à la liste des dépôts qui
         devrait être visible dans le haut du panneau Repositories comme le
         montre <xref linkend="fig-flex-dev-sonatype-public-proxy" />. Cliquez sur le
         groupe Public Repositories puis sur l'onglet Configuration tab en bas du
@@ -187,8 +187,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         linkend="fig-flex-dev-adding-sonatype-to-group" />.</para>
 
         <figure id="fig-flex-dev-adding-sonatype-to-group">
-          <title>Ajout du proxy de Sonatype Flexmojos au groupe Public
-          Repositories</title>
+          <title>Ajout du proxy de Sonatype Flexmojos au groupe Public Repositories</title>
 
           <mediaobject>
             <imageobject role="web">
@@ -210,7 +209,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         <guilabel>Ordered Group Repositories</guilabel>. Cliquez sur le bouton
         <guibutton>Save</guibutton> et vous aurez ajouté avec succès un proxy
         du dépôt Sonatype Flexmojos repository à votre installation de Nexus.
-        A chaque fois qu'un client va demander un artefact à ce groupe de dépôt, si
+        À chaque fois qu'un client va demander un artefact à ce groupe de dépôt, si
         Nexus ne l'a pas déjà mis en cache il va le demander au dépôt
         Sonatype Flexmojos situé à <ulink
         url="${flexmojos.repository}">${flexmojos.repository}</ulink>. Votre
@@ -218,15 +217,15 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         récupérés depuis le dépôt Sonatype Flexmojos. Ce cache local vous donne
         plus de contrôle et rend l'environnement de build plus stable. Si vous
         montez une équipe de développeurs qui dépend des artefacts du dépôt
-        publique de Sonatype, vous aurez ainsi un environnement de build
+        public de Sonatype, vous aurez ainsi un environnement de build
         autonome qui ne dépendra pas de la disponibilité du dépôt de
-        Sonatype une fois que les rtefacts nécessaires auront été mis en
+        Sonatype une fois que les artefacts nécessaires auront été mis en
         cache par votre instance de Nexus.</para>
 
         <para>La dernière étape consiste à faire pointer votre installation de
         Maven vers l'instance de Nexus que vous venez de configurer. Vous
         devez donc modifier votre configuration Maven pour qu'il utilise
-        le groupe du dépôt Nexus comme mirroir pour tous les dépôts. Pour cela,
+        le groupe du dépôt Nexus comme miroir pour tous les dépôts. Pour cela,
         vous devez éditer votre fichier <filename>~/.m2/settings.xml</filename>
         et lui ajouter le XML suivant.</para>
 
@@ -274,7 +273,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         </example>
 
         <para>Ce fichier XML configure Maven pour qu'il aille
-        consulter le groupe de dépôts publique plutôt que les 
+        consulter le groupe de dépôts publics plutôt que les 
         dépôts d'artefacts et de plugins configurés par ailleurs.
         C'est une façon simple de garantir que toute demande
         d'artefact passe par le Nexus installé.</para>
@@ -287,7 +286,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
       <para>Flexmojos s'attend à pouvoir lancer le lecteur autonome Flash Play
       pour l'exécution des tests unitaires. Pour que cela soit opérationnel, il vous faudra ou bien ajouter le lecteur Flash Player à votre PATH, or alors indiquer
       la localisation de l'exécutable Flash Player lors du build en utilisant l'option
-      <varname>-DflashPlayer.command</varname>. Au moment de l'exécution d'un test unitaire, Flex Mojos s'attend à pouvoir lancer l'exécutable Flash Player en fonction de la platforme:</para>
+      <varname>-DflashPlayer.command</varname>. Au moment de l'exécution d'un test unitaire, Flex Mojos s'attend à pouvoir lancer l'exécutable Flash Player en fonction de la platforme :</para>
 
       <variablelist>
         <varlistentry>
@@ -295,7 +294,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
 
           <listitem>
             <para>FlexMojos tentera de lancer le binaire <filename>FlashPlayer.exe</filename>.
-	 Pour permettre l'exécution des tests unitiares, ajoutez à votre PATH le répertoire contenant
+	           Pour permettre l'exécution des tests unitiares, ajoutez à votre PATH le répertoire contenant
             <filename>FlashPlayer.exe</filename>,  ou alors préciser la localisation du binaire
             <filename>FlashPlayer.exe</filename> via l'option de ligne de commande Maven 
             <varname>-DflashPlayer.command=${filepath}</varname>.</para>
@@ -307,7 +306,8 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
 
           <listitem>
             <para>FlexMojos tentera de lancer l'application "Flash Player". 
-	    Pour permettre l'exécution des tests unitiares, ajoutez le répertoire contenant "Flash Player" à votre PATH, ou alors préciser le chemin de l'exécutable via l'option de ligne de commande Maven <varname>-DflashPlayer.command=${filepath}</varname>.</para>
+	          Pour permettre l'exécution des tests unitaires, ajoutez le répertoire contenant "Flash Player" à votre PATH, 
+            ou alors préciser le chemin de l'exécutable via l'option de ligne de commande Maven <varname>-DflashPlayer.command=${filepath}</varname>.</para>
           </listitem>
         </varlistentry>
 
@@ -316,7 +316,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
 
           <listitem>
             <para>FlexMojos tentera de lancer l'exécutable
-            <filename>flashplayer</filename>. Pour permettre l'exécution des tests unitiares, ajoutez le répertoire contenant 
+            <filename>flashplayer</filename>. Pour permettre l'exécution des tests unitaires, ajoutez le répertoire contenant 
             <filename>flashplayer</filename> à votre PATH, ou alors préciser le chemin de l'exécutable via l'option de ligne de commande Maven 
             <varname>-DflashPlayer.command=${filepath}</varname>.</para>
           </listitem>
@@ -330,30 +330,33 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         url="http://en.wikipedia.org/wiki/Xvfb">Xvfb</ulink>.</para>
       </note>
 
-      <para>Si vous avez déja développé des applicaiton Flash avec Adobe Flash
-      CS4 ou avec Adobe Flex Builder ou bien si vous visionez du contenu flash dans un navigateur, 	alors il est probableque Flash Player soit installé quelque part sur votre station de travail.
-	Bien qu'il soit possible de configurer Maven pour utiliser l'un de ces players
+      <para>Si vous avez déjà développé des applications Flash avec Adobe Flash
+      CS4 ou avec Adobe Flex Builder ou bien si vous visionnez du contenu flash dans un navigateur, 
+      alors il est probable que Flash Player soit installé quelque part sur votre station de travail.
+	    Bien qu'il soit possible de configurer Maven pour utiliser l'un de ces players
       pour la campagne de tests unitaires Flex, vous préférerez vous assurer que vous lancer bien 
-      la version debug de Flash Player. Pour minimiser les risques d'incompatibilité, vous devriez télécharger l'un des Flash Player listés ci-dessous et l'installer sur votre station de travail. Téléchargement de Flash Player en fonction de l'environnement:</para>
+      la version debug de Flash Player. Pour minimiser les risques d'incompatibilité, 
+      vous devriez télécharger l'un des Flash Player listés ci-dessous et l'installer sur votre station de travail. 
+      Téléchargement de Flash Player en fonction de l'environnement :</para>
 
       <itemizedlist>
         <listitem>
-          <para>Windows: <ulink
+          <para>Windows : <ulink
           url="http://download.macromedia.com/pub/flashplayer/updaters/10/flashplayer_10_sa_debug.exe">http://download.macromedia.com/pub/flashplayer/updaters/10/flashplayer_10_sa_debug.exe</ulink></para>
         </listitem>
 
         <listitem>
-          <para>Mac OSX: <ulink
+          <para>Mac OSX : <ulink
           url="http://download.macromedia.com/pub/flashplayer/updaters/10/flashplayer_10_sa_debug.app.zip">http://download.macromedia.com/pub/flashplayer/updaters/10/flashplayer_10_sa_debug.app.zip</ulink></para>
         </listitem>
 
         <listitem>
-          <para>Linux: <ulink
+          <para>Linux : <ulink
           url="http://download.macromedia.com/pub/flashplayer/updaters/10/flash_player_10_linux_dev.tar.gz">http://download.macromedia.com/pub/flashplayer/updaters/10/flash_player_10_linux_dev.tar.gz</ulink></para>
         </listitem>
       </itemizedlist>
 
-      <para>Lancer la commande suivante pour instaler ce player et l'ajouter à votre PATH sur une machine OSX:</para>
+      <para>Lancez la commande suivante pour installer ce player et l'ajouter à votre PATH sur une machine OSX :</para>
 
       <screen>$ <command>wget http://download.macromedia.com/pub/flashplayer/updaters/10/\
 flashplayer_10_sa_debug.app.zip</command>
@@ -361,15 +364,16 @@ $ <command>unzip flashplayer_10_sa_debug.app.zip</command>
 $ <command>sudo cp -r Flash\ Player.app /Applications/</command>
 $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</command></screen>
 
-      <para>Plutôt que d'ajouter en ligne de commande le chemin de Flash Player à votre PATH, vous devriez configurer votre environment. En OSX, il vous suffit d'ajouter la dernière commande d'export à votre fichier <filename>~/.bash_profile</filename>.</para>
+      <para>Plutôt que d'ajouter en ligne de commande le chemin de Flash Player à votre PATH, vous devriez configurer votre environnement. 
+      Sur OSX, il vous suffit d'ajouter la dernière commande d'export à votre fichier <filename>~/.bash_profile</filename>.</para>
     </section>
 
     <section id="flex-dev-sect-plugin-group">
       <title>Ajouter FlexMojos aux groupes de plugins de votre configuration Maven </title>
 
-      <para>Si vous executez des goals FlexMojos en ligne de commande, vous trouverez
+      <para>Si vous exécutez des goals FlexMojos en ligne de commande, vous trouverez
       que c'est plus pratique d'ajouter les groupes de plugins Sonatype à votre configuration Maven.
- 	Pour le faire, éditer le fichier <filename>~/.m2/settings.xml</filename>
+ 	    Pour le faire, éditer le fichier <filename>~/.m2/settings.xml</filename>
       et ajouter les groupes de plugins suivants :</para>
 
       <example>
@@ -383,12 +387,13 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
       </example>
 
       <para>Une fois que vous avez ajouté ces groupes de plugins à votre configuration Maven, 
-      vous pouvez invoquer les goals FlexMojos en utilisant le prefixe de plugin <varname>flexmojos</varname>. Sans cette configuration, invocation du goal <varname>flexbuilder</varname> nécessite la 
-      ligne de commande suivante:</para>
+      vous pouvez invoquer les goals FlexMojos en utilisant le préfixe de plugin <varname>flexmojos</varname>. 
+      Sans cette configuration, invocation du goal <varname>flexbuilder</varname> nécessite la 
+      ligne de commande suivante :</para>
 
       <screen>$ <command>mvn org.sonatype.flexmojos:flexmojos-maven-plugin:3.2.0:flexbuilder</command></screen>
 
-      <para>Avec le groupe org.sonatype.plugins dans votre configuration Maven, le même goal peut être invoqué comme suit:</para>
+      <para>Avec le groupe org.sonatype.plugins dans votre configuration Maven, le même goal peut être invoqué comme suit :</para>
 
       <screen>$ <command>mvn flexmojos:flexbuilder</command></screen>
     </section>
@@ -399,18 +404,17 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
   <section id="flex-dev-sect-creating-with-archetype">
     <title>Création d'un projet Flex Mojos à partir d'un archétype</title>
 
-    <para>Flexmojos a un ensemble d'archétypes qui peuvent être utilisés rapidement pour creer 
+    <para>Flexmojos a un ensemble d'archétypes qui peuvent être utilisés rapidement pour créer 
     un nouveau projet Flex. Les archétypes ci-dessous sont tous dans le groupe 
     <package>org.sonatype.flexmojos</package> avec version 
-    <varname>${flexmojos.version}</varname>:</para>
+    <varname>${flexmojos.version}</varname> :</para>
 
     <variablelist>
       <varlistentry>
         <term>flexmojos-archetypes-library</term>
 
         <listitem>
-          <para>Crée un simple projet de librairie Flex qui crée un artefact
-          SWC</para>
+          <para>Crée un simple projet de librairie Flex qui crée un artefact SWC</para>
         </listitem>
       </varlistentry>
 
@@ -437,8 +441,7 @@ $ <command>export PATH=/Applications/Flash\ Player.app/Contents/MacOS:${PATH}</c
     <section id="flex-dev-sect-library-archetype">
       <title>Création d'une librairie Flex</title>
 
-      <para>Pour créer un projet de librairie Flex, il suffit d'exécuter la commande en ligne
-      suivante :</para>
+      <para>Pour créer un projet de librairie Flex, il suffit d'exécuter la commande en ligne suivante :</para>
 
       <screen>$ <command>mvn archetype:generate \
     -DarchetypeRepository=http://repository.sonatype.org/content/groups/public \
@@ -472,7 +475,7 @@ package: org.sonatype.test
 [INFO] BUILD SUCCESSFUL
 </screen>
 
-      <para>En regardant dans le répertoire sample-library/ vous verrez
+      <para>En regardant dans le répertoire <varname>sample-library/</varname>, vous verrez
       que le projet présente une arborescence comme dans la <xref
       linkend="fig-flex-dev-library-archetype-fs" />.</para>
 
@@ -493,7 +496,7 @@ package: org.sonatype.test
       </figure>
 
       <para>Le produit du seul archétype Lirairie Flex contient 
-      trois fichiers: un POM, un fichier source et un fichier de test unitaire. Regardons chacun de ces
+      trois fichiers : un POM, un fichier source et un fichier de test unitaire. Regardons chacun de ces
       trois fichiers. Premièrement, le Project Object Model (POM).</para>
 
       <example id="fig-flex-dev-simple-lib-pom">
@@ -549,20 +552,20 @@ package: org.sonatype.test
 
       <para>L'<xref linkend="fig-flex-dev-simple-lib-pom" /> est très simple, le 
       point clef de ce POM c'est la configuration de <varname>flexmojos-maven-plugin</varname>
-       qui positionne <varname>extensions</varname> à
-      <varname>true</varname>. Cette configuration personalise le cycle pour le packaging 
+      qui positionne <varname>extensions</varname> à
+      <varname>true</varname>. Cette configuration personnalise le cycle pour le packaging 
       <varname>swc</varname> qui est défini dans le plugin
       <varname>flexmojos-maven-plugin</varname>. L'archétype inclut alors
-      la dépendance <varname>flex-framework</varname> ainsi que la dépence de scope test
+      la dépendance <varname>flex-framework</varname> ainsi que la dépendance de scope test
       <varname>flexmojos-unittest-support</varname>.
       La dépendance <varname>flex-framework</varname> est un POM qui contient
-      les références vers les librairies et les resources requises pour compiler une application Flex.</para>
+      les références vers les librairies et les ressources requises pour compiler une application Flex.</para>
 
       <para>Dans l'<xref linkend="fig-flex-dev-simple-lib-pom" />, le packaging
       est primordial. Le type de packaging d'un POM contrôle le cycle de vie qui est utilisé
       pour produire le résultat de build. La valeur <varname>swc</varname> dans 
-       l'élément packaging est l'indice pour rechercher les personalisations liées aux cycle de vie spécifique Flex
-      qui sont fournies par le plugin 
+      l'élément packaging est l'indice pour rechercher les personnalisations liées aux cycles de vie spécifiques Flex
+      qui sont fournies par le plugin
       <varname>flexmojos-maven-plugin</varname>. L'autre partie importante de ce
       POM est l'élément build qui précise la localisation du code source Flex
       ainsi que des tests unitaires. Maintenant, jetons un coup d'oeil à 
@@ -589,7 +592,7 @@ package: org.sonatype.test
       l'<xref linkend="ex-flex-dev-test-app" />.</para>
 
       <example id="ex-flex-dev-test-app">
-        <title>Test unitaire de la classe App pour l'archetype de Librairie Flex</title>
+        <title>Test unitaire de la classe App pour l'archétype de Librairie Flex</title>
 
         <programlisting>package org.sonatype.test {
 
@@ -667,21 +670,25 @@ See COPYRIGHT file
 </screen>
 
       <note>
-        <para>Pour pouvoir exécuter les tests unitaires Flex il vous faudra  configurer votre variable d'enrironnement PATH
-        afin d'inclure le lecteur Flash Player. Pour plus d'information concernant  la configuration de FlexMojos pour les tests unitiares, se référer à la <xref
+        <para>Pour pouvoir exécuter les tests unitaires Flex il vous faudra  configurer votre variable d'environnement PATH
+        afin d'inclure le lecteur Flash Player. Pour plus d'information concernant  
+        la configuration de FlexMojos pour les tests unitaires, se référer à la <xref
         linkend="flex-dev-sect-configuring-unit-tests" />.</para>
       </note>
 
-      <para>Quand vous exécuter la commande <command>mvn install</command> pour ce projet, vous
+      <para>Quand vous exécutez la commande <command>mvn install</command> pour ce projet, vous
       pouvez noter dans l'output que Maven et le plugin Flexmojos prennent en charge
-      la gestion de toutes les librairies et dépendances pour le compilateur Flex. De la même façon que Maven est excellent pour aider les développeurs Java à gérer le contenu d'un classpath Java, Maven peut aider les développeurs Flex a gérer la complexité de génération des paths. Vous avez peut-être été surpris quand votre projet Flexmojos a démarré un navigateur web ou un lecteur Flash Player et l'a utilisé pour exécuter l'application TestApp construit à partir de votre code source.</para>
+      la gestion de toutes les librairies et dépendances pour le compilateur Flex. 
+      De la même façon que Maven est excellent pour aider les développeurs Java à gérer le contenu d'un classpath Java, 
+      Maven peut aider les développeurs Flex à gérer la complexité de génération des paths. 
+      Vous avez peut-être été surpris quand votre projet Flexmojos a démarré un navigateur web ou un lecteur Flash Player 
+      et l'a utilisé pour exécuter l'application TestApp construite à partir de votre code source.</para>
     </section>
 
     <section id="flex-dev-sect-application-archetype">
       <title>Création d'une application Flex</title>
 
-      <para>Pour créer une application Flex à partir d'un archétype Maven, lancer la 
-       commande suivante :</para>
+      <para>Pour créer une application Flex à partir d'un archétype Maven, lancer la commande suivante :</para>
 
       <screen>$ <command>mvn archetype:generate \
     -DarchetypeRepository=http://repository.sonatype.org/content/groups/public \
@@ -720,7 +727,7 @@ package: org.sonatype.test
       de fichiers illustrée dans la <xref linkend="fig-flex-dev-dir-app-fs" />.</para>
 
       <figure id="fig-flex-dev-dir-app-fs">
-        <title>Structure de fichiers issu de l'archétype pour application Flex</title>
+        <title>Structure de fichiers issue de l'archétype pour application Flex</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -795,7 +802,7 @@ package: org.sonatype.test
       <varname>swc</varname>. En positionnant le packaging à
       <varname>swf</varname>, le projet produira une application Flex, à savoir l'application
       <filename>target/sample-application-1.0-SNAPSHOT.swf</filename>. L'application 
-	exemple produit par cet archétype affichera le texte "Hello
+	    exemple produite par cet archétype affichera le texte "Hello
       World". Le fichier source <filename>Main.mxml</filename> se trouve dans 
       <filename>src/main/flex</filename>.</para>
 
@@ -809,8 +816,7 @@ package: org.sonatype.test
       </example>
 
       <para>L'archétype produit également un test unitaire FlexUnit simple qui ne fait rien d'autre que d'afficher un message de trace. 
-	L'exemple de test unitaire se trouve dans 
-      <filename>src/test/flex/org/sonatype/test</filename>.</para>
+	    L'exemple de test unitaire se trouve dans <filename>src/test/flex/org/sonatype/test</filename>.</para>
 
       <example>
         <title>test unitaire de Main.mxml</title>
@@ -836,7 +842,7 @@ package: org.sonatype.test
     </section>
 
     <section id="flex-dev-sect-multimodule-archetype">
-      <title>Creating d'un projet multimodule : application web avec dépendance Flex</title>
+      <title>Creating d'un projet multimodule : application web avec une dépendance Flex</title>
 
       <para>La ligne de commande suivante crée un projet multimodule contenant un projet de librairie Flex
  référencée par une application Flex qui elle-même est référencée par une application web : </para>
@@ -875,11 +881,10 @@ package: org.sonatype.test
 </screen>
 
       <para>Si vous regardez dans le répertoire <filename>sample-multimodule/</filename>, 
-	vous verrez une arborescence qui contient trois projets
-       swc, swf et war.</para>
+	    vous verrez une arborescence qui contient trois projets swc, swf et war.</para>
 
       <figure id="fig-flex-dev-multimodule-archetype-fs">
-        <title>Arborescence de fichiers issu de l'archétype multimodule Flex</title>
+        <title>Arborescence de fichiers issue de l'archétype multimodule Flex</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -986,8 +991,7 @@ package: org.sonatype.test
       linkend="ex-flex-dev-app-pom" /> avec une dépendance à l'artefact
       <varname>swc-swc</varname> en plus. Notez que
       l'<varname>artifactId</varname> dans ce POM ne reflète pas le nom du répertoire qui contient le 
-      module ; l'artifactId dans le POM ci-dessous est 
-	<varname>swf-swf</varname>.</para>
+      module ; l'artifactId dans le POM ci-dessous est <varname>swf-swf</varname>.</para>
 
       <example id="ex-flex-swf-module-pom">
         <title>POM du module swf</title>
@@ -1057,17 +1061,17 @@ package: org.sonatype.test
 
       <warning>
         <para>Dans l'<xref linkend="ex-flex-swf-module-pom" />, la dépendance vers
-        "swf-swc" doit être changé pour "swc-swc". C'est un bug dans l'archétype multimodule Flex 
-	qui est présent dans la version 
+        "swf-swc" doit être changée pour "swc-swc". C'est un bug dans l'archétype multimodule Flex 
+	      qui est présent dans la version 
         ${flexmojos.version} de FlexMojos. Il sera corrigé dans la version FlexMojos 3.2.0.</para>
       </warning>
 
-      <para>Quand vous déclarer une dépendance vers un SWC, vous devez préciser le type de 
-      dépendencé afin que Maven puisse localiser les artefacts adéquats dans le dépôt distant ou local. 
+      <para>Quand vous déclarez une dépendance vers un SWC, vous devez préciser le type de 
+      dépendance afin que Maven puisse localiser les artefacts adéquats dans le dépôt distant ou local. 
       Dans ce cas, projet
       <varname>swf-swf</varname> dépend d'un SWC qui est généré
       par un projet <varname>swc-swc</varname>. Quand vous ajoutez
-      la dépendence au projet <varname>swf-swf</varname>, le plugin FlexMojos
+      la dépendance au projet <varname>swf-swf</varname>, le plugin FlexMojos
       ajoutera le fichier SWC approprié dans le chemin des bibliothèques de compilation Flex.</para>
 
       <para>Maintenant, jetez un coup d'oeil dans le POM simple du module war.</para>
@@ -1121,7 +1125,7 @@ package: org.sonatype.test
       <warning>
         <para>Dans l'<xref linkend="ex-flex-war-module-pom" />, la dépendance vers 
         "war-swf" doit être remplacée par "swf-swf". C'est un bug dans l'archétype multimodule Flex 
-	qui est présent dans la version 
+	      qui est présent dans la version 
         ${flexmojos.version} de FlexMojos. Il sera corrigé dans la version FlexMojos 3.2.0.</para>
       </warning>
 
@@ -1130,7 +1134,7 @@ package: org.sonatype.test
       <varname>copy-flex-resources</varname> pour ce projet. Le goal
       <varname>copy-flex-resources</varname> fera une copie de l'application SWF 
       à la racine de l'application web. Dans ce projet, l'exécution du build
-      et la production du WAR fera une copie du fichier 
+      et la production du WAR feront une copie du fichier 
       <filename>swf-swf-1.0-SNAPSHOT.swf</filename> dans le répertoire racine de l'application web 
       <filename>target/war-war-1.0-SNAPSHOT</filename>.</para>
 
@@ -1138,13 +1142,14 @@ package: org.sonatype.test
       install</command> depuis le répertoire racine. Ceci doit générer les artefacts
       <varname>swc-swc</varname>, <varname>swf-swf</varname> et
       <varname>war-war</varname> et produire le fichier WAR 
-	<filename>/target/war-war-1.0-SNAPSHOT.war</filename> qui contient
+	    <filename>/target/war-war-1.0-SNAPSHOT.war</filename> qui contient
       le <filename>swf-swf-1.0-SNAPSHOT.swf</filename> à la racine de 
       l'application web.</para>
 
       <note>
-        <para>Pour pouvoir exécuter les tests unitaires Flex il vous faudra  configurer votre variable d'enrironnement PATH
-        afin d'inclure le lecteur Flash Player. Pour plus d'information concernant  la configuration de FlexMojos pour les tests unitiares, se référer à la <xref
+        <para>Pour pouvoir exécuter les tests unitaires Flex, il vous faudra configurer votre variable d'environnement PATH
+        afin d'inclure le lecteur Flash Player. Pour plus d'information concernant la configuration de FlexMojos pour les tests unitaires, 
+        se référer à la <xref
         linkend="flex-dev-sect-configuring-unit-tests" />.</para>
       </note>
     </section>
