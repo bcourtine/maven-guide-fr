@@ -1240,7 +1240,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         <title>Interpolation de propriétés pour l'emplacement des dépendances</title>
 
         <para>Comme nous l'avons déjà mentionné dans la 
-        <xref linkend="assemblies-sect-prop-refs" /> aucun de ces éléments
+        <xref linkend="assemblies-sect-prop-refs" />, aucun de ces éléments
         n'est interpolé avec le reste du descripteur d'assembly. En effet,
         leurs valeurs brutes doivent être traitées par des interpréteurs
         d'expression d'artefact spécifiques.</para>
@@ -1250,7 +1250,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         <varname>\${pom.*}</varname> et <varname>\${*}</varname> qui sont
         disponibles dans le <acronym>POM</acronym> et dans le reste du descripteur
         le sont aussi dans ces deux cas. Pour la balise <sgmltag>outputFileNameMapping</sgmltag>
-        le traitement suivant est appliqué pour résoudre les expressios :</para>
+        le traitement suivant est appliqué pour résoudre les expressions :</para>
 
         <orderedlist>
           <listitem>
@@ -1260,7 +1260,7 @@ I can add this back in later.  I didn't want to talk about it without an example
             <orderedlist numeration="loweralpha">
               <listitem>
                 <para>Recherche dans l'instance <classname>Artifact</classname>
-                de la dépendance (résoud :
+                de la dépendance (résolution des attributs :
                 <varname>groupId</varname>, <varname>artifactId</varname>,
                 <varname>version</varname>, <varname>baseVersion</varname>,
                 <varname>scope</varname>, <varname>classifier</varname> et
@@ -1269,19 +1269,19 @@ I can add this back in later.  I didn't want to talk about it without an example
 
               <listitem>
                 <para>Recherche dans l'instance <classname>ArtifactHandler</classname>
-                de la dépednace (résoud : <varname>expression</varname>)</para>
+                de la dépedance (résolution de : <varname>expression</varname>)</para>
               </listitem>
 
               <listitem>
                 <para>Recherche dans l'instance du projet associé à l'artefact
-                de la dépendance (résoud : principalement les propriétés du POM)</para>
+                de la dépendance (résolution : principalement les propriétés du POM)</para>
               </listitem>
             </orderedlist>
           </listitem>
 
           <listitem>
             <para>Si l'expression correspond au pattern 
-            <varname>\${pom.*}</varname> or
+            <varname>\${pom.*}</varname> ou
             <varname>\${project.*}</varname>:</para>
 
             <orderedlist numeration="loweralpha">
@@ -1296,7 +1296,7 @@ I can add this back in later.  I didn't want to talk about it without an example
             <para>Si l'expression correspond au pattern
             <varname>\${dashClassifier?}</varname> et que l'instance 
             <classname>Artifact</classname> de la dépendance a un classifier,
-            résoud jusqu'au classfier précédé d'un tiret (-classifier).
+            résoud jusqu'au classifieur précédé d'un tiret (-classifier).
             Sinon résoud comme étant une chaine vide.</para>
           </listitem>
 
@@ -1322,12 +1322,12 @@ I can add this back in later.  I didn't want to talk about it without an example
         </orderedlist>
 
         <para>La valeur de la balise <sgmltag>outputDirectory</sgmltag> est
-        interpolée de manière assez proche, à la différence près qu'il n'y a
-        pas dinformation du type <varname>\${artifact.*}</varname> disponible.
+        interpolée de manière assez semblable, à la différence près qu'il n'y a
+        pas d'information du type <varname>\${artifact.*}</varname> disponible.
         Seules les instances <varname>\${project.*}</varname> des artefacts
         permettent de résoudre les expressions. Donc les expressions associées
         à ces patterns ne sont pas disponibles (il s'agit des éléments
-        (1a, 1b, et 3 de la liste ci-dessus).</para>
+        1a, 1b, et 3 de la liste ci-dessus).</para>
 
         <para>Comment sait-on quand utiliser <sgmltag>outputDirectory</sgmltag>
         et <sgmltag>outputFileNameMapping</sgmltag> ? Quand les dépendances
@@ -1335,7 +1335,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         utilisé pour calculer l'emplacement final. Quand les dépendances sont gérées
         comme un tout (c'est à dire non décompressées), les deux éléments
         <sgmltag>outputDirectory</sgmltag> et <sgmltag>outputFileNameMapping</sgmltag>
-        peuvent être utilisés ensemble. Quand ilsl le sont, le résultat est
+        peuvent être utilisés ensemble. Quand ils le sont, le résultat est
         équivalent à :</para>
 
         <programlisting language="xml">&lt;archive-root-dir&gt;/&lt;outputDirectory&gt;/&lt;outputFileNameMapping&gt;</programlisting>
@@ -1347,7 +1347,7 @@ I can add this back in later.  I didn't want to talk about it without an example
       </section>
 
       <section id="assemblies-sect-include-by-scope">
-        <title>Inclusion et exclusion de dépendancs par scope</title>
+        <title>Inclusion et exclusion de dépendance par scope</title>
 
         <para>Dans la <xref
         linkend="pom-relationships-sect-project-dependencies" />, nous avons
@@ -1356,9 +1356,9 @@ I can add this back in later.  I didn't want to talk about it without an example
         processus de build. Par exemple, les dépendances dans le scope 
         <varname>test</varname> ne font pas partie du classpath au moment
         de la compilation du code source du projet ; par contre elles font 
-        partie du classpath de compilation des tests unitaires. Cela parce
-        que le code source de votre projet ne devrait pas contenir du code
-        spécifique pour les tests car tester n'est pas une des fonctions de
+        partie du classpath de compilation des tests unitaires. C'est fait 
+        ainsi car le code source de votre projet ne devrait pas contenir du code
+        spécifique pour les tests. En effet, tester n'est pas une des fonctions de
         votre projet (c'est une fonction du processus de build du projet).
         De même, les dépendances dans le scope <varname>provided</varname>
         doivent être présentes dans l'environnement où sera déployé le 
@@ -1372,25 +1372,25 @@ I can add this back in later.  I didn't want to talk about it without an example
         <para>Dans cette même <xref
         linkend="pom-relationships-sect-project-dependencies" />, nous avions
         vu que les scopes de dépendances en induisent d'autres. Par exemple,
-        le scope de dépendance <varname>runtime</varname> inclus les
+        le scope de dépendance <varname>runtime</varname> inclut les
         dépendances du scope <varname>compile</varname>, car toutes les
         dépendances utilisées au moment de la compilation (sauf celles du scope
         <varname>provided</varname>) seront nécessaires pour l'exécution du code.
         Les manières dont un scope d'une dépendance directe affecte le scope
         des dépendances transitives sont très complexes. Dans un descripteur
         d'assembly Maven, nous pouvons utiliser les scopes pour filtrer des
-        ensemble de dépendances et leurs appliquer diffrents traitements.</para>
+        ensemble de dépendances et leurs appliquer des traitements différents .</para>
 
         <para>Par exemple, si nous projetons de packager une application web
-        avec <ulink url="http://www.mortbay.org/jetty-6/">Jetty</ulink> pour
-        créer une application autonome, nous allons devoir inclure toutes
-        les dépendances du scope provided quelque par dans les répertoires
-        du Jetty que nous incluons. Cela nous assurera que ces dépendances
-        provided sont effectivement présentes dans l'environnement d'exécution.
+        avec <ulink url="http://www.mortbay.org/jetty-6/">Jetty</ulink> et
+        créer ainsi une application autonome, nous allons devoir inclure toutes
+        les dépendances du scope provided dans les répertoires du Jetty
+        que nous intégrons. Cela nous assurera que ces dépendances <varname>provided</varname>
+        sont effectivement présentes dans l'environnement d'exécution.
         Les dépendances d'exécution qui ne font pas partie du scope
         <varname>provided</varname> continuent à aller dans le répertoire
         <filename>WEB-INF/lib</filename>, donc ces deux ensembles de dépendances
-        doivent être traités distinctement. Ces blocs de dpéendances
+        doivent être traités distinctement. Ces blocs de dépendances
         ressemblent au dcument XML qui suit.</para>
 
         <example>
@@ -1415,35 +1415,35 @@ I can add this back in later.  I didn't want to talk about it without an example
         </example>
 
         <para>Les dépendances du scope <varname>provided</varname> sont ajoutées
-        au répertoire <filename>lib/</filename> à la racine de l'assembly, ce
-        répertoire  va contenir l'ensemble des bibliothèques qui seront incluses 
+        au répertoire <filename>lib/</filename> situé à la racine de l'assembly.
+        Ce répertoire  va contenir l'ensemble des bibliothèques qui seront incluses
         dans le classpath global d'exécution de Jetty. Nous utilisons un
         sous-répertoire dont le nom est l'<varname>artifactId</varname> du projet
         pour retrouver plus facilement d'où vient une bibliothèque particulière. Les
         dépendances d'exécution sont incluses dans le répertoire 
         <filename>WEB-INF/lib</filename> de l'application web, qui se trouve dans
-        le sous-répertoire standard de Jetty <filename>webapps/</filename>
-        et dont le nom est donné par une configuration de la propriété 
+        le sous-répertoire standard de Jetty : <filename>webapps/</filename>, 
+        et dont le nom est donné par la configuration de la propriété
         <varname>webContextName</varname> du <acronym>POM</acronym>.
         Ce que nous venons de faire dans cet exemple est de séparer les
         dépendances spécifiques à l'application de celles qui sont
         présentes dans le classpath global d'un conteneur de servlets.</para>
 
-        <para>Cependant, séparer en ne tenant compet que du scope peut s'avérer
+        <para>Cependant, séparer en ne tenant compte que du scope peut s'avérer
         insuffisant, notamment dans le cas d'applications web. Il est
         tout à fait concevable qu'une ou plusieurs des dépendances pour
         l'exécution soient un assemblage de resurces standardisées et
         non-compilées qui seront utilisées par l'application web. Par
         exemple nous pourrions avoir un ensemble d'applications qui
         réutiliseraient le même ensemble de fichiers de Javascript,
-        CSS, SWF et d'image. Pour faciliter la standardisation de ces ressources,
+        CSS, SWF et d'images. Pour faciliter la standardisation de ces ressources,
         une bonne pratique consiste à les mettre dans une archive et de les
-        déployer sur un dépôt Maven. A partir de ce moment là, elles peuvent
-        petre référencées comme une dépendance Maven standard - éventuellement
-        avec une dépendance de type <varname>zip</varname> - normalement dans
+        déployer sur un dépôt Maven. À partir de ce moment là, elles peuvent
+        être référencées comme une dépendance Maven standard - éventuellement
+        comme une dépendance de type <varname>zip</varname> - normalement dans
         le scope  <varname>runtime</varname>. Souvenez-vous qu'il s'agit de
         ressources et non d'une dépendance  du code de l'application vers un
-        binaire ; et donc il n'est pas approprié de les inclure dans le répertoire
+        binaire ; et donc il ne faut pas les inclure dans le répertoire
         <filename>WEB-INF/lib</filename>. Ces archives de ressources doivent
         être séparées des dépendances binaires d'exécution et décompressées 
         à la racine de l'application web. Pour pouvoir effectuer ce type de
@@ -1456,11 +1456,11 @@ I can add this back in later.  I didn't want to talk about it without an example
         <varname>provided</varname> dans le répertoire <filename>lib/</filename>,
         les dépendances du scope <varname>runtime</varname> dans
         <filename>webapps/&lt;contextName&gt;/WEB-INF/lib</filename>
-        et enfin décompresse une dépendance d'exécution spécifique à la racine de votre
-        application web. Vous pouvez faire tout ça car le plugin Assembly 
-        vous permet de définir plusieurs patterns d'inclusion et d'exclusion
-        pour un même élément <sgmltag>dependencySet</sgmltag>. Dans la prochaine section
-        nous allons essayer de développer cette idée.</para>
+        et enfin décompresse une dépendance particulière du scope <varname>runtime</varname>
+        à la racine de votre application web. Nous pouvons réaliser tout ça
+        car le plugin Assembly permet de définir plusieurs patterns d'inclusion
+        et d'exclusion pour un même élément <sgmltag>dependencySet</sgmltag>. Dans
+        la prochaine section nous allons essayer de développer cette idée.</para>
       </section>
 
       <!-- ***************** Erwan > DEBUT DE MA PARTIE ******************** -->
