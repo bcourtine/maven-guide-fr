@@ -1754,37 +1754,37 @@ I can add this back in later.  I didn't want to talk about it without an example
     </section>
 
     <section id="assemblies-sect-modulesets">
-      <title>Balise <sgmltag>moduleSets</sgmltag></title>
+      <title>La balise <sgmltag>moduleSets</sgmltag></title>
 
-      <para>Les builds multimodule sont généralement rassemblés en utilisant les balises 
+      <para>Les builds multimodules sont généralement liés par les balises
       <varname>parent</varname> et <varname>modules</varname> dans les <acronym>POM</acronym>s. 
       Typiquement, les <acronym>POM</acronym>s parents spécifient leurs fils dans une section <sgmltag>modules</sgmltag>,
       qui, en temps normal, aura pour effet de les inclure dans la procédure d'exécution du build du projet parent.   
-      La relation entre ses deux projets, et comment elle a été contruite, 
+      La relation entre ces deux projets, et comment elle a été contruite,
       peut avoir des implications importantes sur la manière dont le plugin Assembly participe à ce processus. 
       Nous discuterons de cela un peu plus tard.
-      Pour l'instant, contentons-nous de garder à l'esprit la relation parent-module 
-      telle que nous l'avions vu dans la section <sgmltag>moduleSets</sgmltag>.</para>  
+      Pour l'instant, contentons-nous de garder à l'esprit la relation parent-enfant 
+      pendant que nous disctons de la section <sgmltag>moduleSets</sgmltag>.</para>
 
       <!--TODO: I think we need a simple example of how/why this would be used.-->
 
       <para>Les projets sont construits sous la forme d'un projet multimodule 
       parce qu'ils font partie d'un système plus vaste.
       Ces projets sont conçus pour être utilisés ensemble, un module unique 
-      dans un grand build n'a peu de valeur en lui-même.
+      dans un build important n'a que peu de valeur en lui-même.
       De cette façon, la structure du build du projet est liée à la façon 
       dont nous espérons que ce projet (et ses modules) soit utilisé.
       Si vous considérez le projet du point de vue de l'utilisateur, 
       il semble logique que l'objectif final de ce build soit de construire et distribuer un seul fichier 
-      qu'ils pourront directement déployer sans trop de soucis. 
-      Comme les builds multimodule Maven s'appuient habituellement sur une structure top-down,
-      où des informations de dépendances, des configurations de plugin et bien d'autres informations 
-      sont héritées du projet parent à l'enfant, il semble naturel que la tâche de transformation 
-      de ces modules dans un fichier unique et distribuable doive incomber au projet de plus haut dans la hiérarchie.
-      Voilà où la balise <sgmltag>moduleSet</sgmltag> intervient.</para>
+      qu'il pourra directement déployer sans trop de soucis.
+      Comme les builds multimodules Maven s'appuient habituellement sur une structure top-down,
+      où les informations de dépendances, les configurations de plugin et bien d'autres informations
+      sont héritées du projet parent par l'enfant, il semble naturel que la tâche de transformation
+      de ces modules en un fichier unique et distribuable doive incomber au projet de plus haut niveau 
+      dans la hiérarchie. C'est là qu'intervient la balise <sgmltag>moduleSet</sgmltag>.</para>
 
-      <para>Les sets de modules permettent l'inclusion de ressources dans l'assembly final, 
-      celles-ci dépendent de chaque module dans la structure du projet. 
+      <para>Les ensembles de modules permettent l'inclusion de ressources appartenant à chacun des
+      modules du projet dans l'assembly fina.
       Tout comme vous pouvez choisir un groupe de fichiers à inclure dans un assembly 
       en utilisant les balises <sgmltag>fileSet</sgmltag> et <sgmltag>dependencySet</sgmltag>,
       vous pouvez inclure un set de fichiers et de ressources en utilisant un <sgmltag>moduleSet</sgmltag> 
