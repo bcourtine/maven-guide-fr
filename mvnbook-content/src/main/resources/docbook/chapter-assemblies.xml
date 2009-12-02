@@ -1730,26 +1730,26 @@ I can add this back in later.  I didn't want to talk about it without an example
         peut-être utilisée dans le cas de balises <sgmltag>unpackOptions</sgmltag>.</para>
 
         <para>En plus de mécanisme d'inclusion et d'exclusion,
-        les options de dépaquetages sur une liste de dépendances peuvent également utiliser un flag <sgmltag>filtering</sgmltag>,
+        les options de dépaquetage sur une liste de dépendances peuvent également utiliser un flag <sgmltag>filtering</sgmltag>,
         dont la valeur par défaut est <varname>false</varname>.
         Encore une fois, cela ressemble beaucoup au mécanisme proposé par les ensembles de fichiers discuté ci-dessus.
         Les expressions peuvent utiliser, soit la syntaxe Maven : <varname>\${property}</varname>,
         soit la syntaxe Ant : <varname>@property@</varname>.
-        Le filtrage des ressources est particulièrement intéressant pour les sets de dépendances.        
-        Elle permet de créer des templates ressources normalisés et versionnés 
-        qui peuvent être personnalisés pour chaque assembly dans lequel ils sont inclus.
-        Une fois que vous maîtrisez la fonctionnalité de filtrage, que vous avez dépaqueté les dépendances 
-        stockées dans des ressources partagées, vous serez en mesure de commencer à abstraire certaines ressources répétées.</para>
+        Le filtrage des ressources est particulièrement intéressant pour les ensembles de dépendances.
+        Elle permet de créer des modèles de ressources normalisés et versionnés
+        qui peuvent être personnalisés à chaque intégration à un assembly.
+        Une fois que vous maîtrisez cette fonctionnalité de filtrage, que vous avez dépaqueté les dépendances
+        de ressources partagées, vous serez en mesure de commencer à éliminer et centraliser certaines ressources partagées.</para>
       </section>
 
       <section id="assemblies-sect-summarizing">
-        <title>Résumer des sets de dépendances</title>
+        <title>Résumé des ensembles de dépendances</title>
 
-        <para>Au final, il est important de mentionner que les sets de dépendances supportent 
+        <para>Au final, il est important de mentionner que les ensembles de dépendances supportent
         les mêmes options de configuration <sgmltag>fileMode</sgmltag> et 
-        <sgmltag>directoryMode</sgmltag> que celles des sets de fichiers.
-        Cependant, vous devrez vous rappeler que le <sgmltag>directoryMode</sgmltag> 
-        ne sera utilisé que si les dépendances sont dépaquetées.</para>
+        <sgmltag>directoryMode</sgmltag> que les ensembles de fichiers.
+        Cependant, vous devrez vous rappeler que l'option <sgmltag>directoryMode</sgmltag>
+        ne sera utilisée que si les dépendances sont dépaquetées.</para>
       </section>
     </section>
 
