@@ -1784,51 +1784,49 @@ I can add this back in later.  I didn't want to talk about it without an example
       dans la hiérarchie. C'est là qu'intervient la balise <sgmltag>moduleSet</sgmltag>.</para>
 
       <para>Les ensembles de modules permettent l'inclusion de ressources appartenant à chacun des
-      modules du projet dans l'assembly fina.
-      Tout comme vous pouvez choisir un groupe de fichiers à inclure dans un assembly 
+      modules du projet dans l'assembly final. Tout comme vous pouvez choisir un groupe de fichiers à inclure dans un assembly
       en utilisant les balises <sgmltag>fileSet</sgmltag> et <sgmltag>dependencySet</sgmltag>,
-      vous pouvez inclure un set de fichiers et de ressources en utilisant un <sgmltag>moduleSet</sgmltag> 
+      vous pouvez inclure un ensemble de fichiers et de ressources en utilisant la balise <sgmltag>moduleSet</sgmltag>
       pour se référer aux modules d'un build multimodule.
-      Cela est rendu possible grâce aux deux types d'inclusion spécifique aux modules : l'un basé sur les fichiers, l'autre sur les artefacts. 
+      Cela est rendu possible grâce aux deux types d'inclusion spécifiques aux modules : l'un basé sur les fichiers, l'autre sur les artefacts.
       Avant d'entrer dans les particularités ces deux types d'inclusion de modules ressources dans un assembly,
-      parlons un peu de comment sélectionner les modules à traiter.</para>
+      regardons un peu de comment sélectionner les modules à traiter.</para>
 
       <section id="assemblies-sect-module-selection">
         <title>Sélection des modules</title>
 
-        <para>Maintenant, vous devriez commencer à maîtriser les patterns <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag>, 
-        ils sont également utilisés dans les descripteurs d'assembly pour filter les fichiers et les dépendances. 
+        <para>Maintenant, vous devriez commencer à maîtriser les patterns <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag>.
+        Ils sont également utilisés dans les descripteurs d'assembly pour sélectionner les fichiers et les dépendances.
         Dans un descripteur d'assembly, lorsque vous faites référence à des modules, 
         vous pouvez également utiliser ces patterns <sgmltag>includes</sgmltag>/<sgmltag>excludes</sgmltag> 
-        pour définir les règles qui s'appliquent sur différents sets de modules. 
-        La particularité des partterns <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> 
-        d'un <sgmltag>moduleSet</sgmltag> est qu'ils ne permettent pas d'utiliser de wildcards. 
-        (Du moins dans Maven 2.2-beta-2, cette fonctionnalité n'a pas été beaucoup demandée, elle n'a donc pas été implémentée.)
+        pour définir les règles qui s'appliquent sur différents ensembles de modules.
+        La particularité des patterns <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> 
+        d'un <sgmltag>moduleSet</sgmltag> est qu'ils ne permettent pas d'utiliser de jokers.
+        (Du moins dans Maven 2.2-beta-2, cette fonctionnalité n'ayant pas été très demandée, elle n'a donc pas été implémentée.)
         À la place de cela, chaque balise <varname>include</varname> et <varname>exclude</varname> 
         correspond simplement au <varname>groupId</varname> et à l'<varname>artifactId</varname> du module, 
-        séparé par un caractère ':', comme ceci :</para>   
+        séparés par un caractère ':' ainsi :</para>
 
         <programlisting>groupId:artifactId</programlisting>
 
         <para>En plus des balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag>,
         le <sgmltag>moduleSet</sgmltag> propose d'autres outils de sélection : 
         le flag <sgmltag>includeSubModules</sgmltag> (dont la valeur par défaut est <varname>true</varname>).
-        La relation parent-enfant d'une structure multimodule n'est pas limitée à deux tiers d'un projet. 
-        En fait, vous pouvez inclure n'importe quel nombre de tiers, ou de couche, dans votre build. 
-        Chaque projet qui est un module du module du projet courant est considéré comme un sous-module.
+        La relation parent-enfant d'une structure multimodule n'est pas limitée à deux niveaux d'un projet.
+        En fait, vous pouvez inclure un module, peu importe son niveau de profondeur dans votre build.
+        Chaque projet qui est un module d'un module du projet courant est considéré comme un sous-module.
         Dans certains cas, vous souhaitez construire chaque module séparément (y compris les sous-modules).
         Pour cela, affectez simplement la valeur du flag <sgmltag>useSubModules</sgmltag> à <varname>true</varname>.</para>
 
-        <para>Lorsque vous essayez d'inclure des fichiers dans la structure de répertoires de chaque module, 
+        <para>Lorsque vous essayez d'inclure des fichiers de la structure de répertoires de chaque module,
         vous souhaitez déclarer cette structure de répertoires une seule fois. 
-        Si votre structure de répertoires du projet reflète celle des relations du module 
-        parents qui sont inclus dans les <acronym>POM</acronym>s, 
-        cette approche permet aux patterns de fichiers comme <varname>**/src/main/java</varname> 
-        de s'appliquer non seulement aux répertoires directs de ce module, 
-        mais également pour les répertoires de ses propres modules.
-        Dans le cas ou ne voudriez pas traiter les sous-modules directement 
-        (ils seront traités à la place comme des sous-répertoires dans les modules de votre projet),
-        affectez la valeur du flag <sgmltag>useSubModules</sgmltag> à <varname>false</varname>.</para>
+        Si votre structure de répertoires du projet correspond aux déclarations des relations parent-enfant
+        défiies dans les <acronym>POM</acronym>s, alors les patterns de fichiers
+        comme <varname>**/src/main/java</varname> peuvent s'appliquer non seulement aux répertoires 
+        directs de ce module, mais également pour les répertoires de ses propres modules.
+        Dans ce cas, il n'est pas nécessaire de traiter les sous-modules directement
+        (ils seront traités comme des sous-répertoires des modules de votre projet), et donc il faut
+        affecter la valeur du flag <sgmltag>useSubModules</sgmltag> à <varname>false</varname>.</para>
 
         <para>Une fois que nous avons déterminé comment la sélection module doit s'exécuter sur l'ensemble des modules, 
         nous sommes prêts à choisir ce qu'ils doivent contenir.
