@@ -1948,29 +1948,27 @@ I can add this back in later.  I didn't want to talk about it without an example
         <title>Balise <varname>binaries</varname></title>
 
         <para>Tout comme la balise <sgmltag>sources</sgmltag> se charge de l'inclusion des sources d'un module,
-        la balise <sgmltag>binaries</sgmltag> se charge d'inclure les sorties du build d'un module, ou ses artefacts. 
+        la balise <sgmltag>binaries</sgmltag> se charge d'inclure le résultat du build d'un module, ou ses artefacts.
         Bien que cette section fonctionne essentiellement comme une façon de 
         spécifier un <sgmltag>dependencySets</sgmltag> à appliquer à chaque module de la série,
         quelques fonctionnalités propres aux artefacts des modules méritent d'être explorées : 
         <sgmltag>attachmentClassifier</sgmltag> et <sgmltag>includeDependencies</sgmltag>. 
-        En plus de cela, la balise <sgmltag>binaries</sgmltag> contient une option 
-        similaire à la balise <sgmltag>dependencySet</sgmltag>,
-        qui a trait à la manipulation de l'artefact du module lui-même.
-        Il s'agit : <sgmltag>unpack</sgmltag>, <sgmltag>outputFileNameMapping</sgmltag>, 
+        En plus de cela, la balise <sgmltag>binaries</sgmltag> contient des options de configuration 
+        similaires à la balise <sgmltag>dependencySet</sgmltag>,
+        en rapport avec la manipulation de l'artefact du module lui-même.
+        Il s'agit des balises : <sgmltag>unpack</sgmltag>, <sgmltag>outputFileNameMapping</sgmltag>,
         <sgmltag>outputDirectory</sgmltag>, <sgmltag>directoryMode</sgmltag> et <sgmltag>fileMode</sgmltag>. 
-        Enfin, les binaires d'un module peuvent contenir une balise <sgmltag>dependencySets</sgmltag> 
+        Enfin, ces balises <sgmltag>binaries</sgmltag> d'un module peuvent contenir une balise <sgmltag>dependencySets</sgmltag>
         pour spécifier comment les dépendances de chaque module doivent être incluses dans l'assembly. 
         D'abord, jetons un coup d'oeil à la façon dont ces options peuvent être 
         utilisées pour gérer les artefacts propres au module.</para>
 
-        <para>Supposons que nous voulons inclure JARs de Javadoc pour chacun de nos modules à l'intérieur de notre assembly.
-        Dans ce cas, nous ne nous soucions pas de l'inclusion des dépendances, 
-        nous voulons simplement ajouter le JAR de la Javadoc.
-        Toutefois, comme ce JAR un peu particulier est toujours présent en tant que pièce jointe de l'artefact principal, 
-        nous devons spécifier le classificateur à utiliser pour le récupérer.
-        Pour simplifier, nous ne couvrirons pas dépaquetage les JARs de Javadoc des modules, 
-        puisque la configuration est exactement la même que celle utilisée pour les dépendances, 
-        comme nous l'avons abordé précédemment dans ce chapitre.
+        <para>Supposons que nous voulons inclure les <varname>jar</varname>s de Javadoc de nos modules dans notre assembly.
+        Dans ce cas, nous ne nous soucions pas de l'inclusion des dépendances, nous voulons simplement ajouter le <varname>jar</varname> de la Javadoc.
+        Toutefois, comme ce <varname>jar</varname> un peu particulier est toujours présent en tant que pièce jointe de l'artefact principal,
+        nous devons spécifier le classifieur à utiliser pour le récupérer.
+        Pour simplifier, nous ne couvrirons pas dépaquetage des <varname>jar</varname>s de Javadoc des modules,
+        puisque la configuration est exactement la même que celle utilisée pour les dépendances que nous avons déjà traitée dans ce chapitre.
         Le <varname>moduleSet</varname> devrait ressembler à l'<xref linkend="ex-include-javadoc-moduleset" />.</para>
 
         <example id="ex-include-javadoc-moduleset">
@@ -1997,17 +1995,17 @@ I can add this back in later.  I didn't want to talk about it without an example
         nous n'utilisons aucune sorte de pattern de fichier qui pourrait correspondre 
         à des structures de sous-répertoire à l'intérieur du module.
         Pour chaque module, la balise <sgmltag>attachmentClassifier</sgmltag> récupére l'artefact 
-        qui lui est attaché grâce au classificateur Javadoc.
+        qui lui est attaché avec le classifieur Javadoc.
         La balise <sgmltag>includeDependencies</sgmltag> signale au plugin Assembly 
-        que l'on n'est pas intéressé par les dépendances des modules, nous récupérons juste les pièces jointes.  
+        que les dépendances des modules ne nous intéressent pas, nous récupérons juste les pièces jointes.
         Enfin, la balise <sgmltag>outputDirectory</sgmltag> demande au plugin Assembly 
-        de mettre tous les JARs de JAvadoc dans un répertoire nommé 
+        de mettre tous les <varname>jar</varname>s de Javadoc dans un répertoire nommé
         <filename>apidoc-jars/</filename> en dehors du répertoire de l'assembly.</para>
 
-        <para>Bien que nous ne faisons rien de très compliqué dans cet exemple,
-        il est important de noter que les mêmes changements de l'exécution de l'algorithme de résolution des expressions, 
-        dont nous avions parlé à propos de la balise <sgmltag>outputDirectoryMapping</sgmltag> 
-        de la balise <varname>sources</varname>, s'appliquent également ici.
+        <para>Nous ne faisons rien de très compliqué dans cet exemple. Cependant,
+        il est important de noter que les mêmes changements pour la résolution des expressions,
+        dont nous avons parlé à propos de la balise <sgmltag>outputDirectoryMapping</sgmltag> 
+        de la section <varname>sources</varname>, s'appliquent également ici.
         Tout ce qui est accessible par <varname>\${artifact.*}</varname> dans la 
         configuration de la balise <sgmltag>outputFileNameMapping</sgmltag> du 
         <sgmltag>dependencySet</sgmltag> est également disponible dans <varname>\${module.*}</varname>.  
@@ -2015,11 +2013,10 @@ I can add this back in later.  I didn't want to talk about it without an example
         utilisée directement dans une balise <sgmltag>binaries</sgmltag>.</para>
 
         <para>Enfin, examinons un exemple dans lequel nous voulons simplement 
-        traiter l'artefact du module et ses dépendances <varname>runtime</varname>.
-        Dans ce cas, nous voulons séparer la configuration de l'artefact pour chaque module 
-        dans un set et une structure de répertoire séparés, 
+        traiter l'artefact du module et ses dépendances dans le scope <varname>runtime</varname>.
+        Dans ce cas, nous voulons mettre les artefacts de chaque module une structure de répertoires séparée,
         en fonction de l'<varname>artifactId</varname> et de la <varname>version</varname> des modules.
-        Le <varname>moduleSet</varname> reste simple, il ressemble au code de l'<xref linkend="ex-the-big-include" /> :</para>
+        Cette configuration du <varname>moduleSet</varname> reste simple et ressemble au code de l'<xref linkend="ex-the-big-include" /> :</para>
 
         <example id="ex-the-big-include">
           <title>Inclusion des artefacts d'un module et de ses dépendances dans un assembly</title>
@@ -2045,15 +2042,15 @@ I can add this back in later.  I didn't want to talk about it without an example
         <para>Dans l'<xref linkend="ex-the-big-include" />, nous utilisons la balise <sgmltag>dependencySet</sgmltag> en la laissant vide.
         Comme vous devez inclure toutes les dépendances, par défaut, vous n'avez pas besoin d'effectuer de configuration. 
         Lorsque la balise <sgmltag>outputDirectory</sgmltag> est spécifiée dans la balise <varname>binaires</varname>,
-        toutes les dépendances devraient être incluses aux côtés de l'artefact du module dans le même répertoire.
+        toutes les dépendances vont être incluses dans le même répertoire, aux côtés de l'artefact du module.
         Ainsi, nous n'avons pas besoin le configurer tout cela dans le <varname>dependencySet</varname>.</para>  
 
         <para>La plupart du temps, les binaires d'un module restent assez simples.
         Dans les deux parties
         - la partie principale, chargée de la manipulation de l'artefact du module lui-même, 
-        des ensembles de dépendances, et qui est chargé des dépendances du module -  
-        les options de configuration restent très similaires à celles des sets de dépendances.
-        Bien entendu, la balise <varname>binaires</varname> fournie également des options pour contrôler 
+        et la partie chargée des ensembles de dépendances, et qui traite les dépendances du module -
+        les options de configuration restent très similaires à celles des ensembles de dépendances.
+        Bien entendu, la balise <varname>binaires</varname> fournit également des options pour contrôler
         quelles dépendances sont incluses et quel artefact principal de projet vous souhaitez utiliser.</para>
 
         <para>Comme pour la balise <varname>source</varname>, la balise <varname>binaries</varname> 
