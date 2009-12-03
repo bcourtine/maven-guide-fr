@@ -2093,12 +2093,12 @@ I can add this back in later.  I didn't want to talk about it without an example
     <section id="assemblies-sect-repositories">
       <title>Balise <varname>repositories</varname></title>
 
-      <para>Dans le descripteur d'assembly, la balise <varname>repositories</varname> est un élément un peu plus exotiques.
-      Peu d'applications (autre que Maven) peuvent tirer pleinement parti de la structure de répertoires d'un dépôt Maven. 
-      Pour cette raison, et parceque nombre de ces fonctionnalités ressemblent étroitement à la balise <sgmltag>dependencySets</sgmltag>,
-      nous ne passerons que très rapidement sur la présentation de cette balise.  
+      <para>Dans le descripteur d'assembly, la balise <varname>repositories</varname> est un élément un peu plus exotique.
+      Peu d'applications (autre que Maven) peuvent profiter pleinement de la structure de répertoires d'un dépôt Maven.
+      Pour cette raison, et parce que nombre de ces fonctionnalités ressemblent étroitement à la balise <sgmltag>dependencySets</sgmltag>,
+      nous passerons très rapidement sur la présentation de cette balise.  
       Dans la plupart des cas, les utilisateurs qui ont compris comment fonctionnent les <sgmltag>dependencySets</sgmltag> n'auront aucun souci à 
-      utiliser la balise <varname>repositories</varname> par l'intermédiaire du plugin Assembly.
+      utiliser la balise <varname>repositories</varname> du plugin Assembly.
       Nous n'allons donc pas illustrer cette balise par un cas d'utilisation.
       Nous allons simplement nous contenter de vous donner quelques mises en garde pour ceux d'entre vous qui ressentent le besoin d'utiliser la balise <sgmltag>repositories</sgmltag>.</para>
 
@@ -2106,18 +2106,18 @@ I can add this back in later.  I didn't want to talk about it without an example
 doesn't make sense to new users.-->
 
       <para>Cela dit, nous avons deux fonctionnalités à mentionner en particulier à propos des balises <varname>repositories</varname>.
-      La première est le flag <sgmltag>includeMetadata</sgmltag>. 
-      Lorsque activé ce flag, les métadatas sont inclus, comme la liste des versions réelles qui correspondent aux versions virtuelles <varname>-SNAPSHOT</varname>. 
+      La première est le flag <sgmltag>includeMetadata</sgmltag>. Lorsque ce flag est activé les métadonnées, comme la liste des versions réelles
+      qui correspondent aux versions virtuelles <varname>-SNAPSHOT</varname>, sont incluses.
       Par défaut ce flag est désactivé.
-      À l'heure actuelle, seules les métadatas incluses lorsque ce flag est à <varname>true</varname> sont téléchargées comme informations à partir du dépôt centra Maven.</para> 
+      À l'heure actuelle, les seules métadonnées incluses lorsque ce flag est à <varname>true</varname> sont celles téléchargées comme informations à partir du dépôt central de Maven.</para>
 
       <para>La seconde fonctionnalité est appelée <sgmltag>groupVersionAlignments</sgmltag>. 
       Ici encore, cette balise représente une liste de configurations individuelles <sgmltag>groupVersionAlignment</sgmltag>,
-      dont le but est de normaliser tous les artefacts inclus pour un <varname>groupId</varname> particulier pour utiliser une seule <varname>version</varname>. 
+      dont le but est de normaliser tous les artefacts inclus pour un <varname>groupId</varname> particulier de manière à n'utiliser qu'une seule <varname>version</varname>.
       Chaque entrée se compose de deux éléments obligatoires : un <varname>id</varname> et une <varname>version</varname>,
       ainsi qu'une section optionnelle appelée <sgmltag>excludes</sgmltag> qui fournit une liste d'<varname>artifactId</varname> qui doivent être exclus de ce réalignement.
       Malheureusement, ce remaniement ne semble pas modifier les <acronym>POM</acronym>s impliqués dans le dépôt,
-      ni ceux liés à des artefacts réaligner, ni ceux qui dépendent des artefacts réalignés.
+      ni ceux liés à des artefacts réalignés, ni ceux qui dépendent des artefacts réalignés.
       De ce fait, il est difficile d'imaginer un réel cas d'utilisation pour ce genre de réalignement.</para>
 
       <para>En général, le plus simple est d'utiliser les mêmes principes que ceux des <sgmltag>dependencySets</sgmltag> de votre descripteur d'assembly.
