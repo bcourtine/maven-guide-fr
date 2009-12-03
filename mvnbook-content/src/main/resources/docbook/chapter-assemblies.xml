@@ -1911,13 +1911,12 @@ I can add this back in later.  I didn't want to talk about it without an example
         Affecter le flag <sgmltag>excludeSubModuleDirectories</sgmltag> à <varname>false</varname>
         permet d'appliquer les mêmes patterns de fichiers sur les structures de répertoires du module
         en cours de traitement et sur ses sous-modules.
-        Enfin, dans l'<xref linkend="ex-include-exclude-moduleSet" />,
-        nous ne sommes pas intéressés à n'importe quelle sortie de la procédure de build de ce set de module.
-        Nous avons exclu le répertoire <varname>target/</varname> de tous les modules.</para>         
+        Enfin, dans l'<xref linkend="ex-include-exclude-moduleSet" />, le résultat produit par chacun des modules
+        ne nous intéresse pas. Nous avons donc exclu le répertoire <varname>target/</varname> de tous les modules.</para>
 
-        <para>Ca vaut également le coup de mentionner que la balise <sgmltag>sources</sgmltag> supporte les éléments du type <sgmltag>fileSet</sgmltag> directement dans celle-ci ou dans ses sous-balises imbriquées.    
+        <para>Il est intéressant de mentionner que la balise <sgmltag>sources</sgmltag> peut inclure des éléments de type <sgmltag>fileSet</sgmltag> directement ou dans ses sous-balises imbriquées.
         Ces balises de configuration sont utilisées pour fournir une rétrocompatibilité avec les anciennes versions du plugin Assembly (versions 2.1 et précédentes)
-        qui ne prenaient pas en charge plusieurs sets de fichiers pour un même module sans créer de <varname>modulesSet</varname> séparés.
+        qui ne prenaient pas en charge plusieurs ensembles de fichiers pour un même module sans créer de <varname>modulesSet</varname> séparés.
         Elles sont dépréciées, vous ne devez pas les utiliser.</para>
 
       </section>
@@ -1925,7 +1924,7 @@ I can add this back in later.  I didn't want to talk about it without an example
       <section id="assemblies-sect-interpolate-modulesets">
         <title>Interpolation de l'<sgmltag>outputDirectoryMapping</sgmltag> dans les <sgmltag>moduleSets</sgmltag></title>
 
-        <para>Dans l'<xref linkend="assemblies-sect-output-location" />, 
+        <para>Dans la <xref linkend="assemblies-sect-output-location" />,
         nous avons utilisé la balise <sgmltag>outputDirectoryMapping</sgmltag> 
         pour changer le nom du répertoire sous lequel est inclue chaque source des modules. 
         Les expressions contenues dans cette balise sont résolues exactement de la même manière 
