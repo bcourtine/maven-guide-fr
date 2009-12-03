@@ -1837,7 +1837,7 @@ I can add this back in later.  I didn't want to talk about it without an example
       <section id="assemblies-sect-sources-section">
         <title>Balise <varname>sources</varname></title>
 
-        <para>Supposez que vous désirez inclure les sources de tous les modules dans votre assembly, 
+        <para>Supposez que vous désirez inclure le code sources de tous les modules dans votre assembly,
         mais que vous voulez exclure un module en particulier.
         Peut-être avez-vous un projet appelé <varname>secret-sauce</varname> 
         qui contient du code secret et sensible que vous ne voulez pas distribuer dans votre projet.
@@ -1882,36 +1882,35 @@ I can add this back in later.  I didn't want to talk about it without an example
         <para>Dans l'<xref linkend="ex-include-exclude-moduleSet" />,
         puisque nous devons gérer les sources de chaque module,
         il est plus simple de traiter seulement les modules directs du projet en cours,
-        en manipulant les sous-modules avec le widlcard chemin/fichier. 
+        en manipulant les sous-modules avec le joker sur le chemin/fichier.
         Renseignez l'élément <sgmltag>includeSubModules</sgmltag> à <varname>false</varname>.
-        Ainsi, nous n'avons donc pas à nous soucier de sous-modules qui apparaissent dans le répertoire racine de l'archive d'assemblage.
+        Ainsi, nous n'avons donc pas à nous soucier de l'apparition de sous-modules dans le répertoire racine de l'archive assebly.
         La balise <sgmltag>exclude</sgmltag> s'occupera d'exclure votre module secret <varname>secret-sauce</varname>.</para>
 
-        <para>Normalement, les sources du module sont incluses dans l'assembly 
-        dans un sous-répertoire qui est nommé âpres <varname>artifactId</varname> du module.  
-        Toutefois, comme Maven permet aux modules qui ne sont pas dans des répertoires nommés 
-        d'après l'<varname>artifactId</varname> du module du projet,
-        il est souvent préférable d'utiliser une expression <varname>\${module.basedir.name}</varname> 
-        pour préserver le nom du répertoire du module courant.
+        <para>Normalement, les sources d'un module sont incluses dans l'assembly
+        dans un sous-répertoire qui porte le nom de l'<varname>artifactId</varname> du module.
+        Toutefois, comme Maven permet d'avoir des modules dans des répertoires dont le nom ne correspond
+        pas à leur <varname>artifactId</varname>, il est souvent préférable d'utiliser une
+        expression <varname>\${module.basedir.name}</varname> pour préserver le nom du répertoire du module courant.
         (<varname>\${module.basedir.name}</varname> revient au même que d'appeler 
         la méthode <methodname>MavenProject.getBasedir().getName()</methodname>).
         Il est important de se rappeler que les modules ne sont pas nécessairement des sous-répertoires du projet qui les déclare.
-        Si votre projet possède une structure un peu étrange, 
+        Si votre projet possède une structure un peu particulière,
         vous pouvez avoir besoin de recourir à la déclaration de balises <sgmltag>moduleSet</sgmltag> spéciales 
         qui sauront comprendre et tenir compte des particularités de votre projet.</para>    
 
         <warning>
           <para>Pour essayer de minimiser les particularités votre projet, comme Maven est flexible,
-          si vous vous prenez à faire trop de configuration, c'est qu'il y a probablement un moyen plus facile d'y arriver.</para>
+          si vous vous surprenez à écrire trop de configuration, c'est qu'il y a probablement un moyen plus facile d'y arriver.</para>
         </warning>
 
-        <para>Continuons à parcourir l'<xref linkend="ex-include-exclude-moduleSet" />,
-        tant que nous traitons pas les sous-modules de manière explicite,
-        nous devons faire en sorte que les répertoires de sous-module ne sont pas exclus 
-        des répertoires sources que nous utilisons pour chaque module direct.
+        <para>Continuons à parcourir l'<xref linkend="ex-include-exclude-moduleSet" />.
+        Comme nous ne traitons pas les sous-modules de manière explicite,
+        nous devons faire en sorte que les répertoires des sous-modules ne soient pas exclus
+        des répertoires sources que nous avons pour chaque module direct.
         Affecter le flag <sgmltag>excludeSubModuleDirectories</sgmltag> à <varname>false</varname>
-        permet d'appliquer les mêmes patterns de fichiers sur les structures de répertoires 
-        dans un sous-module de celui qu'on est en train de traiter.  
+        permet d'appliquer les mêmes patterns de fichiers sur les structures de répertoires du module
+        en cours de traitement et sur ses sous-modules.
         Enfin, dans l'<xref linkend="ex-include-exclude-moduleSet" />,
         nous ne sommes pas intéressés à n'importe quelle sortie de la procédure de build de ce set de module.
         Nous avons exclu le répertoire <varname>target/</varname> de tous les modules.</para>         
