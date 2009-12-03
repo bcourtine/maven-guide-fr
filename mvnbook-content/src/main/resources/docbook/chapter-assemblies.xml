@@ -1482,7 +1482,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         <para>Les balises <sgmltag>includes</sgmltag> et <sgmltag>excludes</sgmltag> sont des listes. 
         Elles acceptent des sous-éléments du type <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag>.
         Chaque balise <sgmltag>include</sgmltag> et <sgmltag>exclude</sgmltag> contient une valeur sous forme de chaîne de caractère et pouvent contenir des caractères jokers.
-        Les dépndances peuvent respecter ces patterns de plusieurs façons.
+        Les dépendances peuvent respecter ces patterns de plusieurs façons.
         Généralement, trois formats de pattern sont supportés :</para>
 
         <variablelist>
@@ -1935,11 +1935,11 @@ I can add this back in later.  I didn't want to talk about it without an example
         <para>Dans l'<xref linkend="ex-include-exclude-moduleSet" />, vous avons 
         utilisé l'expression <varname>\${module.basedir.name}</varname>. 
         Vous avez peut-être remarqué que le début de cette expression, <varname>module</varname>,
-        n'est pas listé dans l'algorithme de résolution des mappings de la section <xref linkend="assemblies-sect-output-algorithm" />.
-        Cet objet root est spécifique à la configuration des <sgmltag>moduleSets</sgmltag>.
-        Il fonctionne de la même manière que les réléférences à <varname>\${artifact.*}</varname> 
-        disponibles dans la balise <sgmltag>outputFileNameMapping</sgmltag>,
-        à l'exception qu'il s'applique aux instances <classname>MavenProject</classname>, 
+        n'est pas listé dans l'algorithme de résolution des expressions de la section <xref linkend="assemblies-sect-output-algorithm" />.
+        Cet objet à la base de cette expression est spécifique à la configuration des <sgmltag>moduleSets</sgmltag>.
+        Il fonctionne de la même manière que les références à <varname>\${artifact.*}</varname> 
+        disponibles pour la balise <sgmltag>outputFileNameMapping</sgmltag>,
+        à la différence qu'il s'applique aux instances <classname>MavenProject</classname>,
         <classname>Artifact</classname> et <classname>ArtifactHandler</classname> du module
         au lieu de celles d'un artefact de dépendance.</para>
       </section>
