@@ -2075,18 +2075,18 @@ I can add this back in later.  I didn't want to talk about it without an example
         en particulier si le <acronym>POM</acronym> parent utilise les binaires de ces modules.</para>
 
         <para>Maven 2.0.9 trie les projets d'un build multimodule en fonction de leurs dépendances, 
-        avec des dépendances d'un projet construit avant celui-ci.
+        de manière à construire les dépendances d'un projet avant celui-ci.
         Le problème est que l'élément parent est considéré comme une dépendance, 
         ce qui signifie que le build du projet parent doit être effectué avant que le projet enfant soit construit.
-        Si une partie du build de ce parent inclus la création d'un assembly qui utilise les binaires des modules, 
+        Si une partie du build de ce parent inclut la création d'un assembly qui utilise les binaires des modules,
         ces binaires ne seront pas encore créés et ne pourront donc pas être inclus.
         Cela provoquera ainsi l'échec de la construction de l'assembly. 
         Il s'agit d'une question complexe et subtile.
-        Elle limite sérieusement l'utilité de la section <varname>binaires</varname> module du descripteur d'assembly. 
+        Elle limite sérieusement l'utilité de la section <varname>binaires</varname> de la partie module du descripteur d'assembly.
         En fait, à ce sujet, un bug a été créé sur le gestionnaire d'anomalie du plugin Assembly : <ulink
         url="http://jira.codehaus.org/browse/MASSEMBLY-97">http://jira.codehaus.org/browse/MASSEMBLY-97</ulink>.
         Il faut espérer que les futures versions de Maven vont trouver un moyen de réparer cette fonctionnalité, 
-        puisque la relation parent-first n'est pas forcément nécessaire.</para>
+        puisque l'obligation de construire le parent en premier n'est pas forcément nécessaire.</para>
       </section>
     </section>
 
