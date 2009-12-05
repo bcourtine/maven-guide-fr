@@ -203,21 +203,19 @@ OS name: "mac os x" version: "10.5.6" arch: "i386" Family: "unix"</screen>
   <section id="installation-sect-details">
     <title>Détails de l'Installation de Maven</title>
 
-    <para>L'archive à télécharger de Maven a une taille d'environ 1.5 MiB <footnoteref
-    linkend="foot-installation-mebibytes" />, cette taille réduite a été obtenue car le cœur de Maven a été conçu pour
-    récupérer à la demande plugins et dépendances depuis des dépôts distants. Lorsque vous commencez à utiliser Maven,
-    celui-ci va télécharger les plugins depuis un dépôt local décrit dans <xref linkend="installation-sect-user" />.
-    Comme vous êtes curieux, jetons un œil au répertoire d'installation de Maven. <footnote
+    <para>L'archive à télécharger de Maven a une taille d'environ 1.5 MiB <footnote
         id="foot-installation-mebibytes">
         <para>Avez-vous déjà acheté un disque dur de 200 Go pour vous rendre compte qu'une fois installé il faisait
         moins de 200 GiB ? Les ordinateurs fonctionnent en Gibibytes, mais les boutiques vendent des produits en
         Gigaoctets. MiB représente des Mebibyte soit 2 <superscript>20</superscript> ou 1024
-        <superscript>2</superscript>. Ces mesures standardisées sont validées et reconnues par 
+        <superscript>2</superscript>. Ces mesures standardisées sont validées et reconnues par
         l'<acronym>IEEE</acronym>, le <acronym>CIPM</acronym>, et l'<acronym>IEC</acronym>. Pour plus d'informations sur
         Kibibytes, Mebibytes, Gibibytes, et Tebibytes, lisez <ulink
         url="http://en.wikipedia.org/wiki/Mebibyte">http://en.wikipedia.org/wiki/Mebibyte </ulink>,</para>
-      </footnote></para>
-
+      </footnote>, cette taille réduite a été obtenue car le cœur de Maven a été conçu pour
+    récupérer à la demande plugins et dépendances depuis des dépôts distants. Lorsque vous commencez à utiliser Maven,
+    celui-ci va télécharger les plugins depuis un dépôt local décrit dans <xref linkend="installation-sect-user" />.
+    Comme vous êtes curieux, jetons un œil au répertoire d'installation de Maven.</para>
     <screen>/usr/local/maven $<command>ls -p1</command>
 LICENSE.txt
 NOTICE.txt
@@ -226,7 +224,6 @@ bin/
 boot/
 conf/
 lib/</screen>
-
     <para>Le fichier <filename>LICENSE.txt</filename> contient la licence logicielle pour <indexterm>
         <primary>LICENSE.txt file</primary>
       </indexterm>Apache Maven. Cette licence sera détaillée dans la <xref linkend="installation-sect-license" />.
