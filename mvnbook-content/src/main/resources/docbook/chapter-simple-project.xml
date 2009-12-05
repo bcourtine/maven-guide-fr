@@ -805,7 +805,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       références à des dépôts Maven personnalisés gérés par votre organisation. Il existe de nombreux produits sur le
       marché pour permettre à des organisations de gérer et maintenir des miroirs des dépôts Maven publics.</para>
 
-      <para>Qu'est ce qui fait d'un dépôt Maven un dépôt Maven ? Un dépôt Maven est un ensemble d'artefacts de projet
+      <para>Quelles sont les caractéristiques d'un dépôt qui en font un dépôt Maven ? Un dépôt Maven est un ensemble d'artefacts de projet
       rangés selon une structure de répertoires correspondant aux coordonnées Maven. Vous pouvez voir cette organisation
       en ouvrant un navigateur internet et en parcourant le dépôt central de Maven sur <ulink
       url="http://repo1.maven.org/maven2/">http://repo1.maven.org/maven2/</ulink>. Vous verrez qu'un artefact ayant
