@@ -72,27 +72,26 @@ Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)</screen></p
           <secondary sortas="Mac OS X">sur Mac OS X</secondary>
         </indexterm> <indexterm>
           <primary>Mac OS X, installer Maven sur</primary>
-        </indexterm> depuis <ulink url="http://maven.apache.org/download.html"> </ulink>. Télécharger la version
+        </indexterm> depuis <ulink url="http://maven.apache.org/download.html">http://maven.apache.org/download.html</ulink>. Télécharger la version
       courante de Maven dans le format qui vous convient le mieux. Choisissez l'emplacement où vous voulez l'installer
       et décompressez l'archive à cet endroit. Si vous avez décompressé l'archive dans le répertoire
       <filename>/usr/local/apache-maven-${maven.version}</filename>, vous pouvez vouloir créer un lien symbolique afin
       de vous faciliter la vie et éviter d'avoir à modifier l'environnement.</para>
 
       <screen>/usr/local %<command moreinfo="none">cd /usr/local</command>
-      /usr/local %<command moreinfo="none">ln -s apache-maven-${maven.version} maven</command>
-      /usr/local %<command>export M2_HOME=/usr/local/maven</command>
-      /usr/local %<command>export PATH=\${M2_HOME}/bin:\${PATH}</command></screen>
+/usr/local %<command moreinfo="none">ln -s apache-maven-${maven.version} maven</command>
+/usr/local %<command>export M2_HOME=/usr/local/maven</command>
+/usr/local %<command>export PATH=\${M2_HOME}/bin:\${PATH}</command></screen>
 
       <para>Une fois Maven installé, il vous reste quelques petites choses à faire afin de pouvoir l'utiliser
       correctement. Vous devez ajouter le répertoire <filename moreinfo="none">bin</filename> de la distribution (dans
       notre exemple, <filename moreinfo="none">/usr/local/maven/bin</filename>) au PATH de votre système. Vous devez
       aussi positionner la variable d'environnement <varname>M2_HOME<indexterm>
           <primary>M2_HOME environement variable</primary>
-
           <secondary>Maven installation et</secondary>
         </indexterm> <indexterm>
           <primary>PATH variable, Maven installation et</primary>
-        </indexterm></varname> sur le répertoire racine de votre installation (pour notre exemple, <filename
+        </indexterm></varname>sur le répertoire racine de votre installation (pour notre exemple, <filename
       moreinfo="none">/usr/local/maven</filename>).</para>
 
       <note>
