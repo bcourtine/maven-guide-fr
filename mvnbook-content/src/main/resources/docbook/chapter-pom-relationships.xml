@@ -1802,7 +1802,7 @@ top-parent-project/project-c/pom.xml</programlisting>
         <para>Maven utilise le niveau d'une dépendance dans l'arbre lorsqu'il résout un conflit, ne retenant que la
         dépendance la plus proche. Cette technique de regroupement de dépendances les fait descendre d'un niveau dans
         l'arbre. Ne l'oubliez pas lorsque vous devez choisir entre regrouper des dépendances dans un fichier 
-        <filename>pom.xml</filename> ou utiliser la balise<sgmltag>dependencyManagement</sgmltag> dans un
+        <filename>pom.xml</filename> ou utiliser la balise <sgmltag>dependencyManagement</sgmltag> dans un
         <acronym>POM</acronym> parent.</para>
       </note>
     </section>
