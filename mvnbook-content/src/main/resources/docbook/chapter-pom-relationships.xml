@@ -477,7 +477,7 @@
       "beta-01".</para>
 
       <para>Suivre ces préconisations pour les numéros de version prend tout son sens lorsque vous commencez à utiliser
-      des intervalles pour vos versions dans les <acronym>POM</acronym>s. Les intervalles de versions qui sont abordés
+      des intervalles pour vos versions dans les <acronym>POM</acronym>s. Les intervalles de versions seront abordés
       dans la <xref linkend="pom-relationships-sect-version-ranges" />. Ils permettent de spécifier une dépendance dont
       la version est comprise dans cet intervalle. Cela n'est possible que parce que Maven est capable de trier les
       versions en se basant sur le format de numéro de version dont nous venons de parler.</para>
