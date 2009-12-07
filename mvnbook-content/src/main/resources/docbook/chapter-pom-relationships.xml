@@ -1607,7 +1607,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <acronym>POM</acronym> du projet <varname>a-parent</varname> et celui du <varname>project-a</varname>. Les
       héritages implicites et explicites du <varname>project-a</varname> sont présentés dans <xref
       linkend="fig-inheritance" />. <figure id="fig-inheritance">
-          <title>Héritage pour les projets a-parent et project-a</title>
+          <title>Héritage pour les projets <varname>a-parent</varname> et <varname>project-a</varname></title>
 
           <mediaobject>
             <imageobject role="web">
