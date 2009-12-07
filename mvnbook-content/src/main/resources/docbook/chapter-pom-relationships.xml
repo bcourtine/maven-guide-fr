@@ -1046,14 +1046,14 @@
       "[1.2]" signifie uniquement la version 1.2, et rien d'autre.</para>
 
       <note>
-        <para>Quand vous déclarez une version "normale" telle que la version 3.8.2 de Junit, Maven voit cette déclaration
+        <para>Quand vous déclarez une version "normale" telle que la version 3.8.2 de JUnit, Maven voit cette déclaration
         comme "accepter toute version, mais en préférant la version 3.8.2". Ce qui signifie que
         lorsqu'un conflit est détecté, Maven s'autorise l'utilisation des algorithmes de résolution de conflit pour
         choisir la meilleure version. Si vous spécifiez [3.8.2], cela indique que seule la version 3.8.2 sera utilisée
         et aucune autre. Si ailleurs il se trouve une dépendance qui spécifie [3.8.1], le build va échouer en vous
         indiquant le conflit en question. Nous vous précisons tout cela pour que vous soyez au courant de cette option,
         mais n'utilisez là que lorsque c'est véritablement nécessaire. Pour résoudre ces conflits de version, il est
-        préferable de passer par la balise <sgmltag>dependencyManagement</sgmltag>.</para>
+        préférable de passer par la balise <sgmltag>dependencyManagement</sgmltag>.</para>
       </note>
     </section>
 
