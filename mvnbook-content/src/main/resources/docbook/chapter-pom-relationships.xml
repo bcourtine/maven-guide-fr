@@ -1072,7 +1072,7 @@
       du <varname>projet-c</varname>, alors le <varname>projet-c</varname> est une dépendance transitive du
       <varname>projet-a</varname>. Si le <varname>projet-c</varname> dépendait du <varname>projet-d</varname>, alors le
       <varname>projet-d</varname> serait lui aussi une dépendance transitive du <varname>projet-a</varname>. Un des
-      grands intérêts de Maven et qu'il sait gérer les dépendances transitives et il évite ainsi au développeur d'avoir à
+      grands intérêts de Maven et qu'il sait gérer les dépendances transitives.  Il évite ainsi au développeur d'avoir à
       gérer l'ensemble des dépendances nécessaires pour compiler et exécuter une application. Vous pouvez ainsi dépendre
       uniquement de Spring sans avoir à gérer toutes les dépendances de Spring.</para>
 
