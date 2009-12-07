@@ -7,7 +7,7 @@
   <section id="pom-relationships-sect-intro">
     <title>Introduction</title>
 
-    <para>Ce chapitre traite du concept au cœur de Maven —le Project Object Model (Modèle Objet de Projet)<indexterm class="startofrange"
+    <para>Ce chapitre traite du concept au cœur de Maven — le Project Object Model (Modèle Objet de Projet)<indexterm class="startofrange"
         id="pom1">
         <primary>POM (Project Object Model)</primary>
       </indexterm>. C'est dans ce <acronym>POM</acronym> que sont déclarées l'identité et la structure d'un projet, que
@@ -21,7 +21,7 @@
     <para>Les projets Maven, les dépendances, les builds, les artefacts : tous sont des objets qu'il va falloir
     modéliser et décrire. Ces objets sont décrits dans un fichier <acronym>XML</acronym> appelé Modèle Objet de Projet.
     Le <acronym>POM</acronym> indique à Maven quel type de projet il va devoir traiter et comment il va devoir
-    s'adapter pour transformer les sources pour produire le résultat attendu. Ainsi, comme le fichier 
+    s'adapter pour transformer les sources et produire le résultat attendu. Ainsi, comme le fichier 
     <filename moreinfo="none">web.xml</filename> décrit, configure et personnalise une application web Java, c'est
      la présence d'un fichier<indexterm>
         <primary>pom.xml file</primary>
@@ -62,7 +62,7 @@
     d'autres utilisent Maven pour construire des projets écrits en C.</para>
 
     <para>Nous avons donc établi que le <acronym>POM</acronym> décrit et déclare, et qu'il se différencie de Ant ou de
-    Make en ce qu'il de fournit pas d'instructions explicites. Nous avons vu que les concepts du <acronym>POM</acronym>
+    Make en ne fournissant pas d'instructions explicites. Nous avons vu que les concepts du <acronym>POM</acronym>
     ne sont pas propres à Java. Regardons tout cela plus en détail au travers de la <xref linkend="fig-pom" /> pour une
     analyse du contenu d'un <acronym>POM</acronym>.</para>
 
@@ -100,7 +100,7 @@
               <primary>pom.xml file</primary>
 
               <secondary>project information in</secondary>
-            </indexterm> projet, l'organisation qui le produit ce projet, et une liste de développeurs et de
+            </indexterm> projet, l'organisation qui produit ce projet, et une liste de développeurs et de
             contributeurs.</para>
         </listitem>
       </varlistentry>
@@ -136,8 +136,8 @@
           en production. L'environnement de build adapte la configuration du build
           pour un environnement spécifique et il s'accompagne souvent d'un fichier<indexterm>
               <primary>settings.xml file</primary>
-            </indexterm> <filename moreinfo="none">settings.xml personnalisé</filename> dans <filename
-          moreinfo="none">~/.m2</filename>. Ce fichier settings.xml est détaillé dans le <xref linkend="profiles" /> et
+            </indexterm> <filename moreinfo="none">settings.xml</filename> personnalisé dans le répertoire <filename
+          moreinfo="none">~/.m2</filename>. Ce fichier <filename>settings.xml</filename> est détaillé dans le <xref linkend="profiles" /> et
           dans la <xref linkend="appendix-settings-sect-details" />.</para>
         </listitem>
       </varlistentry>
@@ -162,7 +162,7 @@
       partie de l'installation de Maven, et se trouve dans le fichier
       <filename>maven-${maven.version}-uber.jar</filename> du répertoire <filename>\${M2_HOME}/lib</filename>. Si
       vous regardez ce fichier <acronym>JAR</acronym>, vous y trouverez un fichier <filename>pom-4.0.0.xml</filename>
-      dans le package <package>org.apache.maven.project </package>. Le Super <acronym>POM</acronym> de Maven est
+      dans le package <package>org.apache.maven.project</package>. Le Super <acronym>POM</acronym> de Maven est
       présenté dans l'<xref linkend="ex-super-pom" />.</para>
 
       <example id="ex-super-pom">
@@ -402,7 +402,7 @@
       résultante avec les valeurs du <acronym>POM</acronym> du projet. Au final, vous obtenez un <acronym>POM</acronym>
       effectif qui est le résultat de la combinaison de plusieurs <acronym>POM</acronym>s. Si vous voulez voir le
       <acronym>POM</acronym> effectif d'un projet, vous allez devoir exécuter le goal <varname>effective-pom</varname>
-      du plugin Maven Help dont nous avons parlé précédemment dans la <xref
+      du plugin Maven Help dont nous parlerons dans la <xref
       linkend="installation-sect-help-plugin-install" />. Pour lancer le goal <varname>effective-pom</varname>, exécutez
       la commande suivante dans un répertoire contenant un fichier <filename moreinfo="none">pom.xml</filename> :</para>
 
@@ -466,7 +466,7 @@
           <primary>project versions, about</primary>
         </indexterm> version stable qui est utilisé pour regrouper et ordonner les distributions. Les versions dans Maven
       se décomposent ainsi : version majeure, version mineure, version incrémentale et qualifieur. Dans un numéro de
-      version ces différents éléments se présentent selon le format suivant :</para>
+      version, ces différents éléments se présentent selon le format suivant :</para>
 
       <screen>&lt;version majeure&gt;.&lt;version mineure&gt;.&lt;version incrémentale&gt;-&lt;qualifieur&gt;</screen>
 
@@ -478,7 +478,7 @@
 
       <para>Suivre ces préconisations pour les numéros de version prend tout son sens lorsque vous commencez à utiliser
       des intervalles pour vos versions dans les <acronym>POM</acronym>s. Les intervalles de versions qui sont abordés
-      dans la <xref linkend="pom-relationships-sect-version-ranges" />, vous permettent de spécifier une dépendance dont
+      dans la <xref linkend="pom-relationships-sect-version-ranges" />. Ils permettent de spécifier une dépendance dont
       la version est comprise dans cet intervalle. Cela n'est possible que parce que Maven est capable de trier les
       versions en se basant sur le format de numéro de version dont nous venons de parler.</para>
 
@@ -539,7 +539,7 @@
         snapshots au travers des balises XML <sgmltag>repository</sgmltag> ou <sgmltag>pluginRepository</sgmltag> dans
         le <acronym>POM</acronym>.</para>
 
-        <para>Lorsque vous livrez un projet vos devriez remplacer toutes vos dépendances sur des versions SNAPSHOT par
+        <para>Lorsque vous livrez un projet vous devriez remplacer toutes vos dépendances sur des versions SNAPSHOT par
         des dépendances vers des versions stables. Si un projet dépend d'un SNAPSHOT, il n'est pas stable car
         ses dépendances peuvent évoluer dans le temps. Les artefacts publiés sur les dépôts Maven stables comme <ulink
         url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2</ulink> ne peuvent pas dépendre de versions
@@ -699,7 +699,7 @@
               chargeant depuis des fichiers externes. Si vous définissez une propriété <varname>fooBar</varname>
               dans votre fichier <filename moreinfo="none">pom.xml</filename>, cette propriété est référencée par
             <varname>\${fooBar}</varname>. Ces propriétés de configuration sont très pratiques lorsque pour construire
-            votre système vous devez filtrer des ressources que vous déployez sur différentes plateformes. Voici la
+            votre système, vous devez filtrer des ressources que vous déployez sur différentes plateformes. Voici la
             syntaxe pour déclarer <literal>\${foo}=bar</literal> dans un <acronym>POM</acronym>:</para>
 
             <programlisting language="xml">&lt;properties&gt;
@@ -985,7 +985,7 @@
           <primary>ranges for dependency versions</primary>
         </indexterm>dépendance, vous pouvez définir un ensemble de versions acceptables pour une dépendance donnée. Par
       exemple, vous pouvez configurer votre projet pour qu'il dépende de JUnit 3.8 ou supérieure, ou toutes les versions
-      de JUnit comprises entre 1.2.10 et 1.2.14. Pour cela vous devez entourer les numéros de versions avec les
+      de JUnit comprises entre 1.2.10 et 1.2.14. Pour cela, vous devez entourer les numéros de versions avec les
       caractères suivants :</para>
       <variablelist>
         <varlistentry>
@@ -1046,14 +1046,14 @@
       "[1.2]" signifie uniquement la version 1.2, et rien d'autre.</para>
 
       <note>
-        <para>Quand vous déclarez une version "normale" telle que la version 3.8.2 de Junit, Maven voit cette déclaration
+        <para>Quand vous déclarez une version "normale" telle que la version 3.8.2 de JUnit, Maven voit cette déclaration
         comme "accepter toute version, mais en préférant la version 3.8.2". Ce qui signifie que
         lorsqu'un conflit est détecté, Maven s'autorise l'utilisation des algorithmes de résolution de conflit pour
         choisir la meilleure version. Si vous spécifiez [3.8.2], cela indique que seule la version 3.8.2 sera utilisée
         et aucune autre. Si ailleurs il se trouve une dépendance qui spécifie [3.8.1], le build va échouer en vous
         indiquant le conflit en question. Nous vous précisons tout cela pour que vous soyez au courant de cette option,
         mais n'utilisez là que lorsque c'est véritablement nécessaire. Pour résoudre ces conflits de version, il est
-        préferable de passer par la balise <sgmltag>dependencyManagement</sgmltag>.</para>
+        préférable de passer par la balise <sgmltag>dependencyManagement</sgmltag>.</para>
       </note>
     </section>
 
@@ -1072,7 +1072,7 @@
       du <varname>projet-c</varname>, alors le <varname>projet-c</varname> est une dépendance transitive du
       <varname>projet-a</varname>. Si le <varname>projet-c</varname> dépendait du <varname>projet-d</varname>, alors le
       <varname>projet-d</varname> serait lui aussi une dépendance transitive du <varname>projet-a</varname>. Un des
-      grands intérêts de Maven et qu'il sait gérer les dépendances transitives et il évite ainsi au développeur d'avoir à
+      grands intérêts de Maven et qu'il sait gérer les dépendances transitives.  Il évite ainsi au développeur d'avoir à
       gérer l'ensemble des dépendances nécessaires pour compiler et exécuter une application. Vous pouvez ainsi dépendre
       uniquement de Spring sans avoir à gérer toutes les dépendances de Spring.</para>
 
@@ -1282,8 +1282,8 @@
 
         <listitem>
           <para>Un artefact n'est pas utilisé dans votre projet et la dépendance transitive n'a pas été rendue
-          optionnelle. Dans ce cas, vous voulez exclure cette dépendance car elle n'est pas nécessaire à votre projet et
-          que vous essayez de réduire le nombre de bibliothèques que vous redistribuez avec votre application.</para>
+          optionnelle. Dans ce cas, vous voulez exclure cette dépendance non requise pour votre projet 
+          car vous essayez de réduire le nombre de bibliothèques que vous redistribuez avec votre application.</para>
         </listitem>
 
         <listitem>
@@ -1306,11 +1306,11 @@
     <section id="pom-relationships-sect-dep-manage">
       <title>Gestion des dépendances</title>
 
-      <para>Une fois que vous vez adopté Maven dans votre multinationale, vous allez vous demander
+      <para>Une fois que vous avez adopté Maven dans votre multinationale, vous allez vous demander
       s'il n'existe pas une meilleure manière de gérer les versions des dépendances dans vos deux cent vingt projets
       Maven interdépendants. Si chaque projet qui utilise une dépendance comme le connecteur Java de MySQL doit gérer
       dans son coin le numéro de version de cette dépendance, vous allez au-devant de graves problèmes le jour où
-      vous allez faire évoluer cette version. Puisque les numéros de version sont répartis sur l'ensemble d'arbres du projet,
+      vous allez faire évoluer cette version. Puisque les numéros de version sont répartis sur toute l'arborescence du projet,
       vous allez devoir éditer à la main chacun des fichiers <filename>pom.xml</filename> qui fait référence à cette
       dépendance pour être sûr de mettre à jour ce numéro de version partout. Même avec des commandes comme
       <command>find</command>, <command>xargs</command>, et <command>awk</command>, vous risquez d'oublier un
@@ -1321,7 +1321,7 @@
       <sgmltag>dependencyManagement</sgmltag> dans un <acronym>POM</acronym> parent de haut niveau d'une organisation ou
       d'un projet. L'utilisation de la balise <sgmltag>dependencyManagement</sgmltag> dans un fichier
       <filename>pom.xml</filename> vous permet de référencer une dépendance dans un projet fils sans avoir à spécifier
-      la version. Maven va parcourir la hiérarchie des poms jusqu'à ce qu'il trouve un projet avec une balise
+      la version. Maven va parcourir la hiérarchie des POMs jusqu'à ce qu'il trouve un projet avec une balise
       <sgmltag>dependencyManagement</sgmltag>, il utilisera alors la version déclarée dans cette balise
       <sgmltag>dependencyManagement</sgmltag>.</para>
 
