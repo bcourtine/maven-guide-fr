@@ -1675,7 +1675,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       de haut niveau.</para>
 
       <para>Maven assume que le <acronym>POM</acronym> parent est disponible dans le dépôt local ou dans le répertoire
-      parent (<filename>../pom.xml</filename>) du projet courant. Si aucune de ces options n'est valide ce comportement
+      parent (<filename>../pom.xml</filename>) du projet courant. Si aucune de ces options n'est valide, ce comportement
       par défaut peut être redéfini par la balise <sgmltag>relativePath</sgmltag>. Par exemple, certaines organisations
       préfèrent une structure à plat des projets où le fichier <filename>pom.xml</filename> du projet parent ne se
       trouve pas dans le répertoire parent d'un projet fils. Il peut se trouver dans un répertoire au même niveau que
