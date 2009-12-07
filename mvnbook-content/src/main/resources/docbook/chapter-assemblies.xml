@@ -2128,42 +2128,44 @@ doesn't make sense to new users.-->
     <section id="assemblies-sect-managing-root">
       <title>Gestion du répertoire racine de l'assembly</title>
 
-      <para>Maintenant que nous avons parcouru les principales fonctionnalités du déscripteur d'assembly,
+      <para>Maintenant que nous avons parcouru les principales fonctionnalités du descripteur d'assembly,
       nous pouvons clôturer les discussions sur le contenu de ce descripteur et terminer avec quelque chose de plus léger :
       le nommage du répertoire racine et la manipulation des répertoires de site.</para>
 
-      <para>Il est souvent important d'avoir le contrôle sur le nom du répertoire racine de votre assembly, 
-      ou de savoir a minima où on se trouve celui-ci.
+      <para>Il est souvent important de pouvoir définir le nom du répertoire racine de votre assembly,
+      ou, a minima, de savoir où il se trouve.
       Deux options de configurations sont disponibles dans le descripteur d'assembly 
       pour vous permettre de gérer le répertoire racine de vos archives :
       <sgmltag>includeBaseDirectory</sgmltag> et <sgmltag>baseDirectory</sgmltag>.
-      Dans le cas de JAR execuratables, vous n'avez pas besoin de répertoire racine. 
-      Pour ceci, il vous suffit d'inclure la balise <sgmltag>includeBaseDirectory</sgmltag> à <varname>false</varname>
+      Dans le cas de fichier jar executable, vous n'avez pas besoin de répertoire racine.
+      Pour cela, il vous suffit d'ajouter la balise <sgmltag>includeBaseDirectory</sgmltag> et de la mettre à <varname>false</varname>
       (sa valeur par défaut est <varname>true</varname>). 
       Ainsi, vous obtiendrez une archive, qui une fois dépaquetée, peut contenir plusieurs répertoires. 
-      Ce type d'archives est considéré comme invalide, vous devez les dépaqueter avant de les utiliser.</para>
+      Ce type d'archive, avec plusieurs répertoires à la racine, est considéré comme une mauvaise pratique
+      pour les archives que vous devez dépaqueter avant de pouvoir les utiliser. Cependant, dans le cas d'une
+      archive à utiliser telle quelle, comme un jar exécutable, cela est acceptable.</para>
 
-      <para>Dans les autres cas, vous voudrez garantir le nom de votre répertoire 
+      <para>Dans les autres cas, vous voudrez garantir le nom du répertoire
       racine de votre archive quelque soient les informations contenues dans votre <acronym>POM</acronym> (comme la version par exemple).
-      Par défaut, la balise <sgmltag>baseDirectory</sgmltag> à pour valeur <varname>\${project.artifactId}-\${project.version}</varname>.
-      Cependant, vous pouvez modifier cette valeur aisemment avec n'importe quelle expression provenant du <acronym>POM</acronym>,
+      Par défaut, la balise <sgmltag>baseDirectory</sgmltag> a pour valeur <varname>\${project.artifactId}-\${project.version}</varname>.
+      Il est aisé de changer cette valeur en combinant chaines de caractères et expressions interpolées à partir du <acronym>POM</acronym>, comme
       par exemple : <varname>\${project.groupId}-\${project.artifactId}</varname>.    
       Cette fonctionnalité peut s'avèrer très pratique pour les équipes de documentation (tout le monde en a, n'est-ce pas ?).</para>
 
       <para>Continuons avec la présentation d'un autre flag de configuration : <sgmltag>includeSiteDirectory</sgmltag>.
       Par défaut, celui-ci a pour valeur <varname>false</varname>.  
-      Si le build de votre projet construit répertoire racine pour un site 
+      Si le build de votre projet construit le répertoire racine pour un site
       en utilisant le cycle de vie ou les goals du plugin Maven Site,  
-      la sortie de celui-ci peut être inclus à l'assembly en positionnant ce flag à <varname>false</varname>.       
-      Cependant, celle fonctionnalité est un peu limitée,
-      comme on se contente d'inclure le répertoire <sgmltag>outputDirectory</sgmltag> 
-      dans la section reporting du <acronym>POM</acronym> courant (par défaut, <filename>target/site</filename>)
-      sans prendre en considération d'éventuels autres répertoires qui pourraient être disponibles dans d'autres modules.
+      le site ainsi produit peut être inclus à l'assembly en positionnant ce flag à <varname>true</varname>.
+      Cependant, celle fonctionnalité est un peu limitée
+      car on se contente d'inclure le répertoire <sgmltag>outputDirectory</sgmltag>
+      de la section reporting du <acronym>POM</acronym> courant (par défaut, <filename>target/site</filename>)
+      sans prendre en considération les répertoires des éventuels autres modules.
       Utilisez cette option si vous le désirez, mais vous pouvez obtenir le même résultat 
       en utilisant un <sgmltag>fileSet</sgmltag> ou un <sgmltag>moduleSet</sgmltag>.
       Il s'agit ici encore d'un autre exemple de configuration legacy supportée par le plugin Assembly pour assurer la rétrocompatibilité.       
       Vos besoins peuvent évoluer, si vous désirer inclure un site provenant de plusieurs modules, privilégiez l'utilisation des 
-      <sgmltag>fileSet</sgmltag> ou des <sgmltag>moduleSet</sgmltag> à la place d'activer le flag  <sgmltag>includeSiteDirectory</sgmltag>.</para>
+      <sgmltag>fileSet</sgmltag> ou des <sgmltag>moduleSet</sgmltag> plutôt que d'activer le flag  <sgmltag>includeSiteDirectory</sgmltag>.</para>
 
     </section>
 
