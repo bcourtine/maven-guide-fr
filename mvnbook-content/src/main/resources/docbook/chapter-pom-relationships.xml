@@ -7,7 +7,7 @@
   <section id="pom-relationships-sect-intro">
     <title>Introduction</title>
 
-    <para>Ce chapitre traite du concept au cœur de Maven —le Project Object Model (Modèle Objet de Projet)<indexterm class="startofrange"
+    <para>Ce chapitre traite du concept au cœur de Maven — le Project Object Model (Modèle Objet de Projet)<indexterm class="startofrange"
         id="pom1">
         <primary>POM (Project Object Model)</primary>
       </indexterm>. C'est dans ce <acronym>POM</acronym> que sont déclarées l'identité et la structure d'un projet, que
@@ -21,7 +21,7 @@
     <para>Les projets Maven, les dépendances, les builds, les artefacts : tous sont des objets qu'il va falloir
     modéliser et décrire. Ces objets sont décrits dans un fichier <acronym>XML</acronym> appelé Modèle Objet de Projet.
     Le <acronym>POM</acronym> indique à Maven quel type de projet il va devoir traiter et comment il va devoir
-    s'adapter pour transformer les sources pour produire le résultat attendu. Ainsi, comme le fichier 
+    s'adapter pour transformer les sources et produire le résultat attendu. Ainsi, comme le fichier 
     <filename moreinfo="none">web.xml</filename> décrit, configure et personnalise une application web Java, c'est
      la présence d'un fichier<indexterm>
         <primary>pom.xml file</primary>
