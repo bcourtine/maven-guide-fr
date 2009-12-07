@@ -162,7 +162,7 @@
       partie de l'installation de Maven, et se trouve dans le fichier
       <filename>maven-${maven.version}-uber.jar</filename> du répertoire <filename>\${M2_HOME}/lib</filename>. Si
       vous regardez ce fichier <acronym>JAR</acronym>, vous y trouverez un fichier <filename>pom-4.0.0.xml</filename>
-      dans le package <package>org.apache.maven.project </package>. Le Super <acronym>POM</acronym> de Maven est
+      dans le package <package>org.apache.maven.project</package>. Le Super <acronym>POM</acronym> de Maven est
       présenté dans l'<xref linkend="ex-super-pom" />.</para>
 
       <example id="ex-super-pom">
@@ -402,7 +402,7 @@
       résultante avec les valeurs du <acronym>POM</acronym> du projet. Au final, vous obtenez un <acronym>POM</acronym>
       effectif qui est le résultat de la combinaison de plusieurs <acronym>POM</acronym>s. Si vous voulez voir le
       <acronym>POM</acronym> effectif d'un projet, vous allez devoir exécuter le goal <varname>effective-pom</varname>
-      du plugin Maven Help dont nous avons parlé précédemment dans la <xref
+      du plugin Maven Help dont nous parlerons dans la <xref
       linkend="installation-sect-help-plugin-install" />. Pour lancer le goal <varname>effective-pom</varname>, exécutez
       la commande suivante dans un répertoire contenant un fichier <filename moreinfo="none">pom.xml</filename> :</para>
 
