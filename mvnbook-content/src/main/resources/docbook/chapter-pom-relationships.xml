@@ -1529,7 +1529,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <acronym>POM</acronym>. Par exemple, le projet
       <varname>org.sonatype.mavenbook:</varname><varname>top-parent-project</varname> est un projet multimodule avec un
       packaging de type <varname>pom</varname>. Le fichier <filename>pom.xml</filename> du
-      projet<varname>top-parent-project</varname> doit posséder la balise <sgmltag>modules</sgmltag> suivante :</para>
+      projet <varname>top-parent-project</varname> doit posséder la balise <sgmltag>modules</sgmltag> suivante :</para>
 
       <example>
         <title>Balise modules du projet top-parent-project</title>
