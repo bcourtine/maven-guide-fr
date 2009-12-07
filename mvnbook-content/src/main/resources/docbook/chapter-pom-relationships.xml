@@ -1515,7 +1515,7 @@
         </figure></para>
 
       <para>La structure des répertoires sur le système de fichiers suit les relations entre les modules. L'ensemble des
-      projets illustré par la figure <xref linkend="fig-multiproject" /> aurait la structure de répertoires suivante
+      projets illustré par la <xref linkend="fig-multiproject" /> aurait la structure de répertoires suivante
       :</para>
 
       <programlisting>top-parent-project/pom.xml
