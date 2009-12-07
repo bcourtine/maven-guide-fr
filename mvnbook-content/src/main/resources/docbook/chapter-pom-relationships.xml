@@ -62,7 +62,7 @@
     d'autres utilisent Maven pour construire des projets écrits en C.</para>
 
     <para>Nous avons donc établi que le <acronym>POM</acronym> décrit et déclare, et qu'il se différencie de Ant ou de
-    Make en ce qu'il de fournit pas d'instructions explicites. Nous avons vu que les concepts du <acronym>POM</acronym>
+    Make en ne fournissant pas d'instructions explicites. Nous avons vu que les concepts du <acronym>POM</acronym>
     ne sont pas propres à Java. Regardons tout cela plus en détail au travers de la <xref linkend="fig-pom" /> pour une
     analyse du contenu d'un <acronym>POM</acronym>.</para>
 
