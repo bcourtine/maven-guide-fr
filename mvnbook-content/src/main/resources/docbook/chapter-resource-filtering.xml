@@ -7,9 +7,9 @@
   <section id="resource-filtering-sect-intro">
     <title>Introduction</title>
 
-    <para>Au travers de ce livre, vous avez pu rencontrer des propriétés utilisées dans des fichiers <acronym>POM</acronym>.
-    Les dépendances d'un build multimodule peuvent être référencées par les propriétés comme <varname>\${project.groupId}</varname> et
-    <varname>\${project.version}</varname>, et n'importe quelle partie du <acronym>POM</acronym> peut être référencé ene préfixant la variable par "project.".
+    <para>En lisant ce ce livre, vous avez été confronté à l'utilisation de propriétés dans des fichiers <acronym>POM</acronym>.
+    Ainsi, les dépendances d'un build multimodule peuvent être référencées par les propriétés comme <varname>\${project.groupId}</varname> et
+    <varname>\${project.version}</varname>, et n'importe quelle partie du <acronym>POM</acronym> peut être référencée en préfixant la variable par "project.".
     Les variables d'environnement et propriétés Système Java peuvent également être référencées, tout comme les valeurs définies dans le fichier <filename>~/.m2/settings.xml</filename>.
     Nous allons parcourir dans ce chapitre l'ensemble des valeurs possibles et nous verrons comment ces propriétés peuvent être utilisées pour créer des build portables.</para>     
 
