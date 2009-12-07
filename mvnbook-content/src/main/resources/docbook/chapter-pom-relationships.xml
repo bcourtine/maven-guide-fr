@@ -1714,7 +1714,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       Spring et du pilote <acronym>JDBC</acronym> pour MySQL. Au lieu d'avoir à déclarer ces dépendances dans chaque
       projet qui utilise Hibernate, Spring et MySQL vous pourriez créer un <acronym>POM</acronym> spécial qui ne fait
       rien d'autre que de déclarer un ensemble de dépendances communes. Vous pourriez ainsi créer un projet
-      <varname>persistence-deps</varname> (un raccourci pour Dépendances de Persistence) et déclarer dans chaque projet
+      <varname>persistence-deps</varname> (un raccourci pour Dépendances de Persistance) et déclarer dans chaque projet
       qui nécessite une fonction de persistance, une dépendance à ce projet :</para>
 
       <para><example>
