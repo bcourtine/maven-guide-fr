@@ -100,7 +100,7 @@
               <primary>pom.xml file</primary>
 
               <secondary>project information in</secondary>
-            </indexterm> projet, l'organisation qui le produit ce projet, et une liste de développeurs et de
+            </indexterm> projet, l'organisation qui produit ce projet, et une liste de développeurs et de
             contributeurs.</para>
         </listitem>
       </varlistentry>
@@ -136,8 +136,8 @@
           en production. L'environnement de build adapte la configuration du build
           pour un environnement spécifique et il s'accompagne souvent d'un fichier<indexterm>
               <primary>settings.xml file</primary>
-            </indexterm> <filename moreinfo="none">settings.xml personnalisé</filename> dans <filename
-          moreinfo="none">~/.m2</filename>. Ce fichier settings.xml est détaillé dans le <xref linkend="profiles" /> et
+            </indexterm> <filename moreinfo="none">settings.xml</filename> personnalisé dans le répertoire <filename
+          moreinfo="none">~/.m2</filename>. Ce fichier <filename>settings.xml</filename> est détaillé dans le <xref linkend="profiles" /> et
           dans la <xref linkend="appendix-settings-sect-details" />.</para>
         </listitem>
       </varlistentry>
