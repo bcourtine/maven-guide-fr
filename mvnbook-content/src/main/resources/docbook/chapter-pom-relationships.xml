@@ -539,7 +539,7 @@
         snapshots au travers des balises XML <sgmltag>repository</sgmltag> ou <sgmltag>pluginRepository</sgmltag> dans
         le <acronym>POM</acronym>.</para>
 
-        <para>Lorsque vous livrez un projet vos devriez remplacer toutes vos dépendances sur des versions SNAPSHOT par
+        <para>Lorsque vous livrez un projet vous devriez remplacer toutes vos dépendances sur des versions SNAPSHOT par
         des dépendances vers des versions stables. Si un projet dépend d'un SNAPSHOT, il n'est pas stable car
         ses dépendances peuvent évoluer dans le temps. Les artefacts publiés sur les dépôts Maven stables comme <ulink
         url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2</ulink> ne peuvent pas dépendre de versions
