@@ -1487,7 +1487,7 @@
       décrire une dépendance : <varname>groupId</varname>:<varname>artifactId</varname>:<varname>version</varname>.
       Pour référencer la version 2.5 de Spring, nous utiliserions
       <varname>org.</varname><varname>springframework:</varname><varname>spring:</varname><varname>2.5</varname>. Quand
-      vous demandez à Mave d'afficher une liste des dépendances grâce au plugin Maven Dependency, vous verrez que Maven
+      vous demandez à Maven d'afficher une liste des dépendances grâce au plugin Maven Dependency, vous verrez que Maven
       a tendance à produire des traces en utilisant cette écriture simplifiée.</para>
     </section>
 
