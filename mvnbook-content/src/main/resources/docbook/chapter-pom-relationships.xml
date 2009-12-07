@@ -1306,11 +1306,11 @@
     <section id="pom-relationships-sect-dep-manage">
       <title>Gestion des dépendances</title>
 
-      <para>Une fois que vous vez adopté Maven dans votre multinationale, vous allez vous demander
+      <para>Une fois que vous avez adopté Maven dans votre multinationale, vous allez vous demander
       s'il n'existe pas une meilleure manière de gérer les versions des dépendances dans vos deux cent vingt projets
       Maven interdépendants. Si chaque projet qui utilise une dépendance comme le connecteur Java de MySQL doit gérer
       dans son coin le numéro de version de cette dépendance, vous allez au-devant de graves problèmes le jour où
-      vous allez faire évoluer cette version. Puisque les numéros de version sont répartis sur l'ensemble d'arbres du projet,
+      vous allez faire évoluer cette version. Puisque les numéros de version sont répartis sur toute l'arborescence du projet,
       vous allez devoir éditer à la main chacun des fichiers <filename>pom.xml</filename> qui fait référence à cette
       dépendance pour être sûr de mettre à jour ce numéro de version partout. Même avec des commandes comme
       <command>find</command>, <command>xargs</command>, et <command>awk</command>, vous risquez d'oublier un
