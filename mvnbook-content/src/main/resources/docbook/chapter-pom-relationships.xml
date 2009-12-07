@@ -699,7 +699,7 @@
               chargeant depuis des fichiers externes. Si vous définissez une propriété <varname>fooBar</varname>
               dans votre fichier <filename moreinfo="none">pom.xml</filename>, cette propriété est référencée par
             <varname>\${fooBar}</varname>. Ces propriétés de configuration sont très pratiques lorsque pour construire
-            votre système vous devez filtrer des ressources que vous déployez sur différentes plateformes. Voici la
+            votre système, vous devez filtrer des ressources que vous déployez sur différentes plateformes. Voici la
             syntaxe pour déclarer <literal>\${foo}=bar</literal> dans un <acronym>POM</acronym>:</para>
 
             <programlisting language="xml">&lt;properties&gt;
