@@ -1576,7 +1576,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <title>Héritage de projet</title>
 
       <para>Parfois, nous voulons qu'un projet hérite de certaines valeurs d'un POM parent. Vous pourriez être en train
-      de construire un énorme sytème, et vous ne voulez pas répéter les mêmes balises de dépendance encore et encore.
+      de construire un énorme système, et vous ne voulez pas répéter les mêmes balises de dépendance encore et encore.
       Vous pouvez éviter de vous répéter dans vos projets par l'héritage grâce à la balise <sgmltag>parent</sgmltag>.
       Quand un projet spécifie un parent, il hérite de l'ensemble des informations du POM du projet parent. Il peut
       redéfinir les valeurs du POM parent et en ajouter.</para>
