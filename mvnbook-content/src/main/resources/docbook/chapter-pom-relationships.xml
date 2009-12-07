@@ -1321,7 +1321,7 @@
       <sgmltag>dependencyManagement</sgmltag> dans un <acronym>POM</acronym> parent de haut niveau d'une organisation ou
       d'un projet. L'utilisation de la balise <sgmltag>dependencyManagement</sgmltag> dans un fichier
       <filename>pom.xml</filename> vous permet de référencer une dépendance dans un projet fils sans avoir à spécifier
-      la version. Maven va parcourir la hiérarchie des poms jusqu'à ce qu'il trouve un projet avec une balise
+      la version. Maven va parcourir la hiérarchie des POMs jusqu'à ce qu'il trouve un projet avec une balise
       <sgmltag>dependencyManagement</sgmltag>, il utilisera alors la version déclarée dans cette balise
       <sgmltag>dependencyManagement</sgmltag>.</para>
 
