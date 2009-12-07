@@ -1456,7 +1456,7 @@
           <listitem>
             <para>Quand un artefact est délivré, on lui affecte un numéro de version. Ce numéro de version peut être un
             identifiant numérique tel que "1.0", "1.1.1" ou "1.1.2-alpha-01". Vous pouvez aussi utiliser ce que l'on
-            appelle une version snapshot. Une version snapshot est ue version d'un composant en cours de développement.
+            appelle une version snapshot. Une version snapshot est une version d'un composant en cours de développement.
             Les numéros de version snapshot se terminent toujours par SNAPSHOT ; par exemple "1.0-SNAPSHOT",
             "1.1.1-SNAPSHOT" ou "1-SNAPSHOT". La <xref linkend="pom-relationships-sect-version-build-numbers" /> décrit
             les numéros de versions et les intervalles de versions.</para>
