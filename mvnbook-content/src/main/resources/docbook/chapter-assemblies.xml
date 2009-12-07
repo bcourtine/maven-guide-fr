@@ -2215,9 +2215,9 @@ doesn't make sense to new users.-->
       à l'exception de la balise <sgmltag>moduleSets</sgmltag>.
       Celle-ci est considérée comme spécifique à chaque projet.
       La balise <sgmltag>containerDescriptorHandlers</sgmltag>, dont nous avons parlébrièvement, est également incluse dans le descripteur de composant.
-      Les descripteurs de composants ne peuvent pas contenir de formats, d'id d'assembly 
+      Les descripteurs de composants ne peuvent pas contenir de format, d'id d'assembly 
       ou toute autre configuration en rapport avec le répertoire racine de l'archive.
-      En effet, ces éléments sont tous sont considérés comme propres à un descripteur d'assembly.
+      En effet, ces éléments sont tous considérés comme propres à un descripteur d'assembly.
       Bien qu'il semble intéressant de permettre le partage de la balise <varname>formats</varname>, 
       cela n'a pas été fait jusqu'à ce jour (version 2.2-beta-2-release du plugin Assembly).</para>
     </section>
@@ -2226,7 +2226,7 @@ doesn't make sense to new users.-->
   <section id="assemblies-sect-best-practices">
     <title>Best Practices</title>
 
-    <para>Le plugin Assembly est assez flexible pour permettre de résoudre la plupart des problèmes par différents moyens.
+    <para>Le plugin Assembly est assez flexible pour permettre de résoudre la plupart des problèmes de différentes manières.
     Si vous avez un besoin unique pour votre projet, 
     il ya de bonnes chances que vous puissiez utiliser directement l'une des méthodes documentées 
     dans ce chapitre pour obtenir votre structure d'assembly désirée.
@@ -2237,17 +2237,17 @@ doesn't make sense to new users.-->
       <title>Descripteurs d'assembly standards et réutilisables</title>
 
       <para>Jusqu'à présent, nous avons principalement parlé des différentes solutions pour construire certains types d'assembly.
-      Mais que ferez-vous si vous avez des dizaines de projets qui ont tous besoin d'un type particulier d'assemblage ?
+      Mais que ferez-vous si vous avez des dizaines de projets qui ont tous besoin d'un type particulier d'assembly ?
       En bref, comment pouvons-nous réutiliser les efforts investis sur plusieurs projets 
       sans avoir à copier-coller notre descripteur d'assembly ?</para>
 
       <para>Le moyen le plus simple est de créer un artefact standardisé et versionné 
-      pour externaliser le descripteur d'assemblage, et de le déployer.
+      pour externaliser le descripteur d'assembly, et de le déployer.
       Une fois cela fait, vous pouvez configurer le plugin Assembly dans votre <acronym>POM</acronym> 
       pour inclure ce descripteur d'assembly comme une dépendance de plugin.
       À ce stade, vous pouvez utiliser ce descripteur de l'Assembly par l'intermédiaire 
       de la balise de configuration <sgmltag>descriptorRefs</sgmltag> dans la déclaration du plugin Assembly.
-      Pour illustrer ceci, voici, en exemple, ce descripteur d'assemblage :</para>
+      Pour illustrer ceci, voici, en exemple, ce descripteur d'assembly :</para>
 
       <programlisting language="xml">&lt;assembly&gt;
   &lt;id&gt;war-fragment&lt;/id&gt;
@@ -2273,12 +2273,12 @@ doesn't make sense to new users.-->
 
       <para>Inclus dans votre projet, 
       ce descripteur serait un bon moyen de packager le contenu afin qu'il puisse être 
-      décompressé directement dans une application web existante pour s'ajouter à celle-ci
+      décompressé directement dans une application web existante pour fusionner avec celle-ci
       (pour ajouter une fonctionnalité, par exemple). 
       Toutefois, si votre équipe construit plusieurs de ces projets "web-fragment", 
       vous aurez probablement envie de réutiliser ce descripteur plutôt que de le dupliquer. 
-      Pour déployer ce descripteur dans son propre artefact, nous allons le mettre dans son propre projet, dans le répertoire 
-      <filename>src/main/resources/assemblies</filename>.</para>
+      Pour déployer ce descripteur dans son propre artefact, nous allons le mettre dans le répertoire 
+      <filename>src/main/resources/assemblies</filename> d'un projet qui lui sera dédié.</para>
 
       <para>La structure de projet de cet artefact <varname>assembly-descriptor</varname> devrait ressembler à cela :</para>
 
@@ -2298,7 +2298,7 @@ doesn't make sense to new users.-->
       Il est important de mettre notre descripteur à l'emplacement relatif approprié. 
       Ainsi, il sera récupéré par le plugin Assembly lors de son exécution.</para>
 
-      <para>Souvenez-vous, ce projet est maintenant séparé de votre projet <varname>web-fragment</varname>.
+      <para>Souvenez-vous, ce projet est maintenant en dehors de votre projet <varname>web-fragment</varname>.
       Le descripteur d'assembly possède son propre artefact avec sa propre version et, peut-être, son propre cycle de release.
       Une fois que vous avez installé ce nouveau projet via Maven, vous pourrez le référencer dans vos projets <varname>web-fragment</varname>.  
       Pour plus de clarté, le processus devrait ressembler à ceci : </para>
@@ -2317,7 +2317,7 @@ doesn't make sense to new users.-->
 [INFO] Total time: 5 seconds
 (...)</screen>
 
-      <para>Comme notre projet <varname>web-fragment-descriptor</varname> ne contient pas de sources, 
+      <para>Comme notre projet <varname>web-fragment-descriptor</varname> ne contient pas de code source,
       le JAR résultant ne contiendra rien d'autre que notre descripteur d'assembly <varname>web-fragment</varname>.
       Maintenant, utilisons ce nouvel artefact :</para>
 
@@ -2364,16 +2364,16 @@ doesn't make sense to new users.-->
       <itemizedlist>
         <listitem>
           <para>Nous devons inclure la déclaration de la dépendance vers notre <varname>web-fragment-descriptor</varname>
-          au niveau de la déclaration des plugins afin d'avoir accès au descripteur d'Assembly par l'intermédiaire de classpath du plugin.</para>
+          au niveau de la déclaration des plugins afin d'avoir accès au descripteur d'Assembly par l'intermédiaire du classpath du plugin.</para>
         </listitem>
 
         <listitem>
-          <para>Comme nous utilisons des références par le classpath au lieu d'utiliser un fichier local,
+          <para>Comme nous utilisons des références du classpath plutôt qu'un fichier local,
           nous devons utiliser la balise <sgmltag>descriptorRefs</sgmltag> à la place de la balise <sgmltag>descriptor</sgmltag>.  
-          Notez également, que même si le descripteur d'assembly est actuellement localisé 
-          dans le classpath des plugins dans <filename>assemblies/web-fragment.xml</filename>, 
+          Notez également, que même si le descripteur d'assembly se trouve en fait 
+          dans <filename>assemblies/web-fragment.xml</filename> dans le classpath du plugin,
           nous pouvons le référencer sans utiliser le préfixe <filename>assemblies/</filename>.
-          Ceci est rendu possible car le plugin Assembly présume que les descripteurs d'assembly 
+          Ceci est rendu possible car le plugin Assembly suppose que les descripteurs d'assembly
           se trouvent effectivement à cet emplacement.</para>
         </listitem>
       </itemizedlist>
@@ -2382,9 +2382,9 @@ doesn't make sense to new users.-->
       <acronym>POM</acronym> ci-dessus dans autant de projets que vous voulez, 
       avec l'assurance que la totalité des fragments web de l'assembly soient pris en compte. 
       Si vous avez besoin de faire des ajustements sur le format de votre assembly - 
-      peut-être pour d'inclure d'autres ressources, ou pour affiner les dépendances et <varname>fileSet</varname> - 
-      vous pouvez tout simplement incrémenter la version du projet de votre descripteur d'assembly, et le redéployer à nouveau. 
-      Les <acronym>POM</acronym>s référençant l'artefact <varname>assembly-descriptor</varname> peuvent ainsi adopter cette nouvelle version du descripteur s'ils en sont capables.</para>
+      peut-être pour d'inclure d'autres ressources, ou pour affiner les dépendances ou le <varname>fileSet</varname> -
+      vous pouvez tout simplement incrémenter la version du projet de votre descripteur d'assembly, et le déployer à nouveau. 
+      Les <acronym>POM</acronym>s référençant l'artefact <varname>assembly-descriptor</varname> peuvent ainsi adopter cette nouvelle version du descripteur s'ils le souhaitent.</para>
 
       <para>Un dernier point concernant la réutilisation de l'<varname>assembly-descriptor</varname> : vous souhaiterez peut-être partager la configuration du plugin. 
       Pour cela, ajoutez la configuration ci-dessus à la section <varname>pluginManagement</varname> de votre <acronym>POM</acronym> parent, 
@@ -2399,9 +2399,9 @@ doesn't make sense to new users.-->
 (...)</programlisting>
 
       <para>Si vous avez ajouté le reste de la configuration du plugin - comme décrit dans l'exemple précédent - 
-      dans la section <varname>pluginManagement</varname> du <varname>POM</varname> parent de votre projet, 
-      chaque projet d'héritant de celui-ci pourra ajouter une entrée minimaliste comme celle-ci et profiter 
-      du format d'assemblage avancé dans leurs propres builds.</para>
+      dans la section <varname>pluginManagement</varname> du <varname>POM</varname> parent de votre projet,
+      tous les projets qui en héritent profiteront du format d'assemblage avancé dans leurs propres builds
+      en ajoutant ces quelques lignes.</para>
     </section>
 
     <section id="assemblies-set-dist-assemblies">
