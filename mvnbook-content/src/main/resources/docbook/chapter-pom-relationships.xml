@@ -1657,7 +1657,7 @@ top-parent-project/project-c/pom.xml</programlisting>
         </listitem>
 
         <listitem>
-          <para>les exécutions de plugin (les exécutions qui ont la même id sont fusionnées)</para>
+          <para>les exécutions de plugin (les exécutions qui ont le même id sont fusionnées)</para>
         </listitem>
 
         <listitem>
