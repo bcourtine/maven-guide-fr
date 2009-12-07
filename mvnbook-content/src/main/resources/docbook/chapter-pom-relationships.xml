@@ -1546,7 +1546,7 @@ top-parent-project/project-c/pom.xml</programlisting>
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>Quand Maven va le <acronym>POM</acronym> du projet <varname>top-parent-project</varname>, il analyse la
+      <para>Quand Maven parse le <acronym>POM</acronym> du projet <varname>top-parent-project</varname>, il analyse la
       balise modules pour s'apercevoir que le projet <varname>top-parent-project</varname> référence les projets
       <varname>subparent-parent-project</varname> et <varname>project-c</varname>. Maven va alors traiter les fichiers
       <filename>pom.xml</filename> dans chacun de ces sous-répertoires. Maven répète cette opération pour chacun des
