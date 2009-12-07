@@ -1456,7 +1456,7 @@
           <listitem>
             <para>Quand un artefact est délivré, on lui affecte un numéro de version. Ce numéro de version peut être un
             identifiant numérique tel que "1.0", "1.1.1" ou "1.1.2-alpha-01". Vous pouvez aussi utiliser ce que l'on
-            appelle une version snapshot. Une version snapshot est ue version d'un composant en cours de développement.
+            appelle une version snapshot. Une version snapshot est une version d'un composant en cours de développement.
             Les numéros de version snapshot se terminent toujours par SNAPSHOT ; par exemple "1.0-SNAPSHOT",
             "1.1.1-SNAPSHOT" ou "1-SNAPSHOT". La <xref linkend="pom-relationships-sect-version-build-numbers" /> décrit
             les numéros de versions et les intervalles de versions.</para>
@@ -1487,7 +1487,7 @@
       décrire une dépendance : <varname>groupId</varname>:<varname>artifactId</varname>:<varname>version</varname>.
       Pour référencer la version 2.5 de Spring, nous utiliserions
       <varname>org.</varname><varname>springframework:</varname><varname>spring:</varname><varname>2.5</varname>. Quand
-      vous demandez à Mave d'afficher une liste des dépendances grâce au plugin Maven Dependency, vous verrez que Maven
+      vous demandez à Maven d'afficher une liste des dépendances grâce au plugin Maven Dependency, vous verrez que Maven
       a tendance à produire des traces en utilisant cette écriture simplifiée.</para>
     </section>
 
@@ -1496,7 +1496,7 @@
 
       <para>Les projets multimodules sont des projets qui se composent d'un ensemble de modules à construire. Le
       packaging d'un projet multimodule a toujours pour valeur <varname>pom</varname>, et ce projet produit rarement un
-      artefact. Un projet multimodule n'existe que pour regrouper un ensemble de projets dans un même build. <xref
+      artefact. Un projet multimodule n'existe que pour regrouper un ensemble de projets dans un même build. La <xref
       linkend="fig-multiproject" /> nous montre une hiérarchie de projets qui se compose de deux projets parents avec un
       packaging de type <varname>pom</varname>, et de trois projets de type <varname>jar</varname>.</para>
 
@@ -1515,7 +1515,7 @@
         </figure></para>
 
       <para>La structure des répertoires sur le système de fichiers suit les relations entre les modules. L'ensemble des
-      projets illustré par la figure <xref linkend="fig-multiproject" /> aurait la structure de répertoires suivante
+      projets illustré par la <xref linkend="fig-multiproject" /> aurait la structure de répertoires suivante
       :</para>
 
       <programlisting>top-parent-project/pom.xml
@@ -1529,10 +1529,10 @@ top-parent-project/project-c/pom.xml</programlisting>
       <acronym>POM</acronym>. Par exemple, le projet
       <varname>org.sonatype.mavenbook:</varname><varname>top-parent-project</varname> est un projet multimodule avec un
       packaging de type <varname>pom</varname>. Le fichier <filename>pom.xml</filename> du
-      projet<varname>top-parent-project</varname> doit posséder la balise <sgmltag>modules</sgmltag> suivante :</para>
+      projet <varname>top-parent-project</varname> doit posséder la balise <sgmltag>modules</sgmltag> suivante :</para>
 
       <example>
-        <title>Balise modules du projet top-parent-project</title>
+        <title>Balise modules du projet <varname>top-parent-project</varname></title>
 
         <programlisting language="xml">&lt;project&gt;
   &lt;groupId&gt;org.sonatype.mavenbook&lt;/groupId&gt;
@@ -1546,7 +1546,7 @@ top-parent-project/project-c/pom.xml</programlisting>
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>Quand Maven va le <acronym>POM</acronym> du projet <varname>top-parent-project</varname>, il analyse la
+      <para>Quand Maven parse le <acronym>POM</acronym> du projet <varname>top-parent-project</varname>, il analyse la
       balise modules pour s'apercevoir que le projet <varname>top-parent-project</varname> référence les projets
       <varname>subparent-parent-project</varname> et <varname>project-c</varname>. Maven va alors traiter les fichiers
       <filename>pom.xml</filename> dans chacun de ces sous-répertoires. Maven répète cette opération pour chacun des
@@ -1555,7 +1555,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <sgmltag>modules</sgmltag> suivante :</para>
 
       <example>
-        <title>Balise modules du projet subparent-parent-project</title>
+        <title>Balise modules du projet <varname>subparent-parent-project</varname></title>
 
         <programlisting language="xml">&lt;project&gt;
   ...
@@ -1576,7 +1576,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <title>Héritage de projet</title>
 
       <para>Parfois, nous voulons qu'un projet hérite de certaines valeurs d'un POM parent. Vous pourriez être en train
-      de construire un énorme sytème, et vous ne voulez pas répéter les mêmes balises de dépendance encore et encore.
+      de construire un énorme système, et vous ne voulez pas répéter les mêmes balises de dépendance encore et encore.
       Vous pouvez éviter de vous répéter dans vos projets par l'héritage grâce à la balise <sgmltag>parent</sgmltag>.
       Quand un projet spécifie un parent, il hérite de l'ensemble des informations du POM du projet parent. Il peut
       redéfinir les valeurs du POM parent et en ajouter.</para>
@@ -1607,7 +1607,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <acronym>POM</acronym> du projet <varname>a-parent</varname> et celui du <varname>project-a</varname>. Les
       héritages implicites et explicites du <varname>project-a</varname> sont présentés dans <xref
       linkend="fig-inheritance" />. <figure id="fig-inheritance">
-          <title>Héritage pour les projets a-parent et project-a</title>
+          <title>Héritage pour les projets <varname>a-parent</varname> et <varname>project-a</varname></title>
 
           <mediaobject>
             <imageobject role="web">
@@ -1657,7 +1657,7 @@ top-parent-project/project-c/pom.xml</programlisting>
         </listitem>
 
         <listitem>
-          <para>les exécutions de plugin (les exécutions qui ont la même id sont fusionnées)</para>
+          <para>les exécutions de plugin (les exécutions qui ont le même id sont fusionnées)</para>
         </listitem>
 
         <listitem>
@@ -1675,7 +1675,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       de haut niveau.</para>
 
       <para>Maven assume que le <acronym>POM</acronym> parent est disponible dans le dépôt local ou dans le répertoire
-      parent (<filename>../pom.xml</filename>) du projet courant. Si aucune de ces options n'est valide ce comportement
+      parent (<filename>../pom.xml</filename>) du projet courant. Si aucune de ces options n'est valide, ce comportement
       par défaut peut être redéfini par la balise <sgmltag>relativePath</sgmltag>. Par exemple, certaines organisations
       préfèrent une structure à plat des projets où le fichier <filename>pom.xml</filename> du projet parent ne se
       trouve pas dans le répertoire parent d'un projet fils. Il peut se trouver dans un répertoire au même niveau que
@@ -1714,7 +1714,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       Spring et du pilote <acronym>JDBC</acronym> pour MySQL. Au lieu d'avoir à déclarer ces dépendances dans chaque
       projet qui utilise Hibernate, Spring et MySQL vous pourriez créer un <acronym>POM</acronym> spécial qui ne fait
       rien d'autre que de déclarer un ensemble de dépendances communes. Vous pourriez ainsi créer un projet
-      <varname>persistence-deps</varname> (un raccourci pour Dépendances de Persistence) et déclarer dans chaque projet
+      <varname>persistence-deps</varname> (un raccourci pour Dépendances de Persistance) et déclarer dans chaque projet
       qui nécessite une fonction de persistance, une dépendance à ce projet :</para>
 
       <para><example>
@@ -1791,7 +1791,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <varname>mysql:</varname><varname>mysql-java-connector</varname> puis mettre à jour le numéro de version. Tous les
       projets qui dépendent de <varname>persistence-deps</varname> utiliseront <acronym>JTDS</acronym> s'ils décident
       d'utiliser la nouvelle version. La consolidation des dépendances est une bonne pratique qui permet de réduire la
-      taille des fichiers <filename>pom.xml</filename> qui ont d'un grand nombre de dépendances. Si vous devez
+      taille des fichiers <filename>pom.xml</filename> qui ont un grand nombre de dépendances. Si vous devez
       partager un grand nombre de dépendances entre plusieurs projets, vous pouvez aussi établir des relations
       parent-enfant entre ceux-ci et extraire toutes les dépendances communes dans le projet parent. La limite de cette
       approche parent-enfant est qu'un projet peut n'avoir qu'un seul parent. Parfois, il est donc plus simple de
@@ -1802,7 +1802,7 @@ top-parent-project/project-c/pom.xml</programlisting>
         <para>Maven utilise le niveau d'une dépendance dans l'arbre lorsqu'il résout un conflit, ne retenant que la
         dépendance la plus proche. Cette technique de regroupement de dépendances les fait descendre d'un niveau dans
         l'arbre. Ne l'oubliez pas lorsque vous devez choisir entre regrouper des dépendances dans un fichier 
-        <filename>pom.xml</filename> ou utiliser la balise<sgmltag>dependencyManagement</sgmltag> dans un
+        <filename>pom.xml</filename> ou utiliser la balise <sgmltag>dependencyManagement</sgmltag> dans un
         <acronym>POM</acronym> parent.</para>
       </note>
     </section>
@@ -1928,7 +1928,7 @@ top-parent-project/project-c/pom.xml</programlisting>
         projets <varname>client-web</varname> et <varname>admin-web</varname> doivent aussi dépendre de
         <varname>server-lib</varname>. Cette dépendance sera définie comme une dépendance de <varname>web-apps</varname>
         vers <varname>server-lib</varname>. Puisque <varname>client-web</varname> et <varname>admin-web</varname>
-        partagent toutes les deux cette configuration en héritant de <varname>web-apps</varname>, ces
+        partagent tous les deux cette configuration en héritant de <varname>web-apps</varname>, ces
         deux projets auront des <acronym>POM</acronym>s succincts contenant tout au plus les identifiants, le parent et
         le nom de l'artefact final.</para>
 
