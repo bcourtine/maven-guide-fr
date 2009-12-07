@@ -1532,7 +1532,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       projet <varname>top-parent-project</varname> doit posséder la balise <sgmltag>modules</sgmltag> suivante :</para>
 
       <example>
-        <title>Balise modules du projet top-parent-project</title>
+        <title>Balise modules du projet <varname>top-parent-project</varname></title>
 
         <programlisting language="xml">&lt;project&gt;
   &lt;groupId&gt;org.sonatype.mavenbook&lt;/groupId&gt;
