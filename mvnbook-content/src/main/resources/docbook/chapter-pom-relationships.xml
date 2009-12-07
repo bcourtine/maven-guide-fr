@@ -466,7 +466,7 @@
           <primary>project versions, about</primary>
         </indexterm> version stable qui est utilisé pour regrouper et ordonner les distributions. Les versions dans Maven
       se décomposent ainsi : version majeure, version mineure, version incrémentale et qualifieur. Dans un numéro de
-      version ces différents éléments se présentent selon le format suivant :</para>
+      version, ces différents éléments se présentent selon le format suivant :</para>
 
       <screen>&lt;version majeure&gt;.&lt;version mineure&gt;.&lt;version incrémentale&gt;-&lt;qualifieur&gt;</screen>
 
