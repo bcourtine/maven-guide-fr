@@ -2175,16 +2175,16 @@ doesn't make sense to new users.-->
 
       <para>Terminons l'exploration du descripteur d'assembly avec la présentation de deux dernières balises :  
       <sgmltag>containerDescriptorHandlers</sgmltag> et <sgmltag>componentDescriptors</sgmltag>. 
-      La balise <sgmltag>containerDescriptorHandlers</sgmltag> fait référence à des composants 
-      qui vous permettent d'étendre les fonctionnalités du plugin Assembly.
+      La balise <sgmltag>containerDescriptorHandlers</sgmltag> prend en compte des composants
+      vous permettant d'étendre les fonctionnalités du plugin Assembly.
       Précisément, ces composants personnalisés vous permettent de définir et de gérer certains types de fichiers
-      qui peuvent être fusionnés à partir de constituants utilisés pour créer votre assembly.
+      qui peuvent être le produit de la fusion de différents éléments utilisés lors de lacréation de votre assembly.
       Par exemple, nous pouvons utiliser ce mécanisme pour construire un fichier <filename>web.xml</filename> unique à partir de plusieurs fragments 
       pour l'intégrer à l'assembly.</para>
 
       <para>La balise <sgmltag>componentDescriptors</sgmltag> permet de référencer 
-      des descripteurs d'assembly externes et de les inclure dans le decripteur courant.
-      Les références des composants peuvent-être une des caractéristiques suivantes :</para>
+      des descripteurs d'assembly externes et de les inclure dans le descripteur courant.
+      Les références vers ses composants peuvent être sous l'une des formes suivantes :</para>
 
       <orderedlist>
         <listitem>
@@ -2209,15 +2209,15 @@ doesn't make sense to new users.-->
       </orderedlist>
 
       <para>Lors de la résolution d'un descripteur de composant, le plugin Assembly essaye ces différentes stratégies dans cet ordre précis.
-      La première stratégie qui matche est alors utilisée.</para>
+      La première stratégie qui fonctionne est alors utilisée.</para>
 
-      <para>Les descripteurs de composant peuvent contenir plusieurs fois les mêmes sections disponibles dans le descripteur d'Assembly,
+      <para>Les descripteurs de composant peuvent contenir les mêmes sections qu'un descripteur d'Assembly,
       à l'exception de la balise <sgmltag>moduleSets</sgmltag>.
       Celle-ci est considérée comme spécifique à chaque projet.
-      La balise <sgmltag>containerDescriptorHandlers</sgmltag> est également incluse dans le descripteur de composant, nous venons de le présenter. 
+      La balise <sgmltag>containerDescriptorHandlers</sgmltag>, dont nous avons parlébrièvement, est également incluse dans le descripteur de composant.
       Les descripteurs de composants ne peuvent pas contenir de formats, d'id d'assembly 
       ou toute autre configuration en rapport avec le répertoire racine de l'archive.
-      Ils sont tous sont considérés comme propres à un descripteur d'assembly.
+      En effet, ces éléments sont tous sont considérés comme propres à un descripteur d'assembly.
       Bien qu'il semble intéressant de permettre le partage de la balise <varname>formats</varname>, 
       cela n'a pas été fait jusqu'à ce jour (version 2.2-beta-2-release du plugin Assembly).</para>
     </section>

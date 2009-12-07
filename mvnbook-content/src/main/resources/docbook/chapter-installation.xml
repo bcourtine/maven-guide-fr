@@ -366,7 +366,7 @@ $ mvn one:convert</screen>
   <section id="installation-sect-getting-help">
     <title>Obtenir de l'Aide avec Maven</title>
 
-    <para>Même si ce livre essaye de se rapprocher d’une référence compréhensible, nous oublierons certains sujets :
+    <para>Même si ce livre essaye de se rapprocher d’une référence complète, nous oublierons certains sujets :
     nous ne couvrirons pas certaines situations particulières ainsi que certaines astuces. Le cœur de Maven est très
     simple, cependant la véritable valeur ajoutée de Maven s'effectue par l'intermédiaire de ces plugins, et étant donné
     leur nombre nous n'arriverons pas à tous les couvrir en un seul ouvrage. Vous allez rencontrer des problèmes et des
