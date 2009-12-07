@@ -1928,7 +1928,7 @@ top-parent-project/project-c/pom.xml</programlisting>
         projets <varname>client-web</varname> et <varname>admin-web</varname> doivent aussi dépendre de
         <varname>server-lib</varname>. Cette dépendance sera définie comme une dépendance de <varname>web-apps</varname>
         vers <varname>server-lib</varname>. Puisque <varname>client-web</varname> et <varname>admin-web</varname>
-        partagent toutes les deux cette configuration en héritant de <varname>web-apps</varname>, ces
+        partagent tous les deux cette configuration en héritant de <varname>web-apps</varname>, ces
         deux projets auront des <acronym>POM</acronym>s succincts contenant tout au plus les identifiants, le parent et
         le nom de l'artefact final.</para>
 
