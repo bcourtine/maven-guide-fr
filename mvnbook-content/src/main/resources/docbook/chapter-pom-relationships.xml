@@ -1496,7 +1496,7 @@
 
       <para>Les projets multimodules sont des projets qui se composent d'un ensemble de modules à construire. Le
       packaging d'un projet multimodule a toujours pour valeur <varname>pom</varname>, et ce projet produit rarement un
-      artefact. Un projet multimodule n'existe que pour regrouper un ensemble de projets dans un même build. <xref
+      artefact. Un projet multimodule n'existe que pour regrouper un ensemble de projets dans un même build. La <xref
       linkend="fig-multiproject" /> nous montre une hiérarchie de projets qui se compose de deux projets parents avec un
       packaging de type <varname>pom</varname>, et de trois projets de type <varname>jar</varname>.</para>
 
