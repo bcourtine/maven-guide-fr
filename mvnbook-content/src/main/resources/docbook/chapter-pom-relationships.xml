@@ -985,7 +985,7 @@
           <primary>ranges for dependency versions</primary>
         </indexterm>dépendance, vous pouvez définir un ensemble de versions acceptables pour une dépendance donnée. Par
       exemple, vous pouvez configurer votre projet pour qu'il dépende de JUnit 3.8 ou supérieure, ou toutes les versions
-      de JUnit comprises entre 1.2.10 et 1.2.14. Pour cela vous devez entourer les numéros de versions avec les
+      de JUnit comprises entre 1.2.10 et 1.2.14. Pour cela, vous devez entourer les numéros de versions avec les
       caractères suivants :</para>
       <variablelist>
         <varlistentry>
