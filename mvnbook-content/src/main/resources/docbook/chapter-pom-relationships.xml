@@ -1555,7 +1555,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <sgmltag>modules</sgmltag> suivante :</para>
 
       <example>
-        <title>Balise modules du projet subparent-parent-project</title>
+        <title>Balise modules du projet <varname>subparent-parent-project</varname></title>
 
         <programlisting language="xml">&lt;project&gt;
   ...
