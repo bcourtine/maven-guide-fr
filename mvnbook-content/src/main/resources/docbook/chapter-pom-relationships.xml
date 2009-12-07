@@ -1282,8 +1282,8 @@
 
         <listitem>
           <para>Un artefact n'est pas utilisé dans votre projet et la dépendance transitive n'a pas été rendue
-          optionnelle. Dans ce cas, vous voulez exclure cette dépendance car elle n'est pas nécessaire à votre projet et
-          que vous essayez de réduire le nombre de bibliothèques que vous redistribuez avec votre application.</para>
+          optionnelle. Dans ce cas, vous voulez exclure cette dépendance non requise pour votre projet 
+          car vous essayez de réduire le nombre de bibliothèques que vous redistribuez avec votre application.</para>
         </listitem>
 
         <listitem>
