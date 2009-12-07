@@ -1791,7 +1791,7 @@ top-parent-project/project-c/pom.xml</programlisting>
       <varname>mysql:</varname><varname>mysql-java-connector</varname> puis mettre à jour le numéro de version. Tous les
       projets qui dépendent de <varname>persistence-deps</varname> utiliseront <acronym>JTDS</acronym> s'ils décident
       d'utiliser la nouvelle version. La consolidation des dépendances est une bonne pratique qui permet de réduire la
-      taille des fichiers <filename>pom.xml</filename> qui ont d'un grand nombre de dépendances. Si vous devez
+      taille des fichiers <filename>pom.xml</filename> qui ont un grand nombre de dépendances. Si vous devez
       partager un grand nombre de dépendances entre plusieurs projets, vous pouvez aussi établir des relations
       parent-enfant entre ceux-ci et extraire toutes les dépendances communes dans le projet parent. La limite de cette
       approche parent-enfant est qu'un projet peut n'avoir qu'un seul parent. Parfois, il est donc plus simple de
