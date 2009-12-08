@@ -59,7 +59,7 @@
 
         <listitem>
           <para>Les variables d'environement, comme <varname>PATH</varname> et <varname>M2_HOME</varname>,
-          peuvent être référencées en utilisant le préfixe <varname>env.*</varname> prefix.</para>
+          peuvent être référencées en utilisant le préfixe <varname>env.*</varname>.</para>
         </listitem>
       </varlistentry>
 
@@ -68,7 +68,7 @@
 
         <listitem>
           <para>Les propriétés pouvant être récupérées par la méthode <methodname>System.getProperty()</methodname>
-          peuvent être utilisées comme propriété Maven.</para> 
+          peuvent être utilisées directement comme propriété Maven.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -85,7 +85,7 @@
       Quand vous référencez une propriété en utilisant l'une de ces variables implicites,
       vous utilisez la notation avec des 'points' pour référencer la propriété du bean <classname>Model</classname> correspondante.
       Par exemple, lorsque nous utilisons <varname>\${project.version}</varname>,
-      en fait, vous invoquez la méthode <methodname>getVersion()</methodname> de l'instance du <classname>Model</classname> qui est exposée en <varname>project</varname>.</para>
+      en fait, vous invoquez la méthode <methodname>getVersion()</methodname> de l'instance du <classname>Model</classname> qui est exposée via la variable <varname>project</varname>.</para>
 
       <para>Le <acronym>POM</acronym> est également représenté dans le document <filename>pom.xml</filename> disponible dans tous les projets Maven.
       Tout ce qui se trouve dans le <acronym>POM</acronym> peut donc être utilisé en propriété.
@@ -101,7 +101,7 @@
           <listitem>
             <para>La majorité des projets multimodule partagent les mêmes <varname>groupId</varname> et <varname>version</varname>.
             Lorsque vous déclarez une interdépendance entre deux modules possédant les mêmes <varname>groupId</varname> et <varname>version</varname>,
-            c'est souvent une bonne idée d'utiliser des propriétés pour référencer ces valeurs :</para>
+            c'est souvent une bonne idée que d'utiliser des propriétés pour référencer ces valeurs :</para>
 
             <programlisting language="xml">&lt;dependencies&gt;
   &lt;dependency&gt;
@@ -117,9 +117,9 @@
           <term><varname>project.artifactId</varname></term>
 
           <listitem>
-            <para>L'<varname>artefactId</varname> d'un projet est souvent utilisé pour le nom du package généré.
+            <para>L'<varname>artefactId</varname> d'un projet est souvent utilisé pour le nom de l'archive résultant du projet.
             Par exemple, dans un projet avec un packaging du type <acronym>WAR</acronym>, 
-            vous voudrez peut-être générer un fichier <acronym>WAR</acronym> sans sa version. 
+            vous voudrez peut-être produire un fichier <acronym>WAR</acronym> sans que sa version apparaisse dans son nom.
             Pour cela, utilisez la propriété <varname>project.artifactId</varname> dans votre <acronym>POM</acronym> comme ceci :</para>
 
             <programlisting language="xml">&lt;build&gt;
@@ -134,7 +134,7 @@
 
           <listitem>
             <para>Les nom et description du projet sont souvent utilisés dans la documentation.
-            Au lieu d'avoir à maintenir ce contenu à plusieurs endroits, vois pouvez utiliser ces propriétés.</para>
+            Au lieu d'avoir à maintenir ce contenu à plusieurs endroits, vous pouvez utiliser ces propriétés.</para>
 
           </listitem>
         </varlistentry>
@@ -144,7 +144,7 @@
 
           <listitem>
             <para>Vous ne devez jamais utiliser la valeur en dur <filename>target/classes</filename> pour référencer le répertoire destination de Maven.
-            Une bonne pratique consiste à utiliser des propriétés pour références ce genre de répertoire.</para>
+            Une bonne pratique consiste à utiliser des propriétés pour référencer ce genre de répertoire.</para>
 
             <itemizedlist>
               <listitem>
@@ -198,20 +198,20 @@
       À partir de la Javadoc de cette classe, vous devriez pouvoir naviguer sur les différentes propriétés du <acronym>POM</acronym> que vous pouvez utiliser. 
       Par exemple, si vous désirez référencer le répertoire destination du build, 
       vous pouvez donc utiliser cette Javadoc pour trouver quelle propriété référencer : <methodname>model.getBuild().getOutputDirectory()</methodname>.
-      Cette méthode est utilisable en propriété par l'intermédiaire de la notation suivante : 
+      Cette méthode est accessible sous la forme d'une propriété par l'intermédiaire de la notation suivante :
       <varname>\${project.build.outputDirectory}</varname>.</para>
 
-      <para>Pour plus d'informations à propos du module Model de Maven, le module qui définit la structure du <acronym>POM</acronym>,
-      consultez la page du projet Model de Maven à l'adresse <ulink
+      <para>Pour plus d'informations à propos du module Maven Model, le module qui définit la structure du <acronym>POM</acronym>,
+      consultez la page du projet Maven Model à l'adresse <ulink
       url="http://maven.apache.org/ref/${maven.version}/maven-model">http://maven.apache.org/ref/${maven.version}/maven-model</ulink>.</para>
     </section>
 
     <section id="resource-filtering-sect-settings-properties">
       <title>Propriétés des Settings Maven</title>
 
-      <para>Vous pouvez également référencer n'importe quelle propriété définie dans le préférences Maven locales, ce fichier de préférence se trouve d'ordinatire dans le fichier <filename>~/.m2/settings.xml</filename>.   
+      <para>Vous pouvez également référencer n'importe quelle propriété définie dans le fichier des préférences Maven locales. Ces préférences locales se trouvent d'ordinaire dans le fichier <filename>~/.m2/settings.xml</filename>.
       En général, ce fichier contient des configuration spécifiques aux utilisateurs comme par exemple : l'emplacement du dépôt local, des différents serveurs,
-      du choix des profils et des différents mirroirs.</para>
+      et des différents mirroirs, ainsi que les différents profils.</para>
 
       <para>La liste complète des propriétés des paramètres utilisateurs est disponible à cette adresse <ulink
       url="http://maven.apache.org/ref/${maven.version}/maven-settings/settings.html">http://maven.apache.org/ref/${maven.version}/maven-settings/settings.html</ulink>.</para>
@@ -228,7 +228,7 @@
           <term><varname>env.PATH</varname></term>
 
           <listitem>
-            <para>Contient la valeur courante du <varname>PATH</varname> dans lequel Maven s'est lancé.
+            <para>Contient la valeur courante du <varname>PATH</varname> dans l'environnement dans lequel Maven est lancé.
             Ce <varname>PATH</varname> contient la liste des répertoires utilisés pour rechercher les scripts et exécutables.</para>
           </listitem>
         </varlistentry>
@@ -238,7 +238,7 @@
 
           <listitem>
             <para>(Sur les systèmes *nix ) cette variable définie le répertoire <varname>home</varname> de l'utilisateur.
-            Nous vous conseillons cependant d'utiliser la propriété <varname>\${user.home}</varname> qui produit le même résultat.</para>
+            Nous vous conseillons cependant d'utiliser la propriété <varname>\${user.home}</varname> qui donne le même résultat.</para>
           </listitem>
         </varlistentry>
 
@@ -248,7 +248,7 @@
           <listitem>
             <para>Cette propriété contient le chemin vers le répertoire d'installation Java. 
             Elle peut pointer soit vers un <acronym>JDK</acronym> (Java Development Kit), soit vers une <acronym>JRE</acronym> (Java Runtime Environment).
-            Nous vous conseillons également d'utiliser la propriété <varname>\${java.home}</varname> qui produit le même résultat.</para>
+            Nous vous conseillons également d'utiliser la propriété <varname>\${java.home}</varname> qui donne, là encore, le même résultat.</para>
           </listitem>
         </varlistentry>
 
@@ -262,7 +262,7 @@
       </variablelist>
 
       <para>Si vous avez le choix, privilégez l'utilisation des propriétés système Java.
-      Préférez donc l'utilisation de la propriété <varname>\${user.home}</varname> à la place de <varname>\${env.HOME}</varname>.  
+      Préférez donc l'utilisation de la propriété <varname>\${user.home}</varname> à celle de <varname>\${env.HOME}</varname>.
       Cela vous permet d'augmenter la portabilité de votre build en le faisant adhérer davantage au paradigme <acronym>WORA</acronym> (Write-One-Run-Anywhere) mis en avant par Java.</para>
     </section>
 
@@ -290,19 +290,19 @@
             <row>
               <entry><varname>java.version</varname></entry>
 
-              <entry>Version du JRE</entry>
+              <entry>Version de la JRE</entry>
             </row>
 
             <row>
               <entry><varname>java.vendor</varname></entry>
 
-              <entry>Fabriquant du JRE</entry>
+              <entry>Fabriquant de la JRE</entry>
             </row>
 
             <row>
               <entry>java.vendor.url</entry>
 
-              <entry>URL du fabriquant du JRE</entry>
+              <entry>URL du fabriquant de la JRE</entry>
             </row>
 
             <row>
@@ -350,25 +350,25 @@
             <row>
               <entry><varname>java.specification.version</varname></entry>
 
-              <entry>Version des spécifications du JRE</entry>
+              <entry>Version des spécifications de la JRE</entry>
             </row>
 
             <row>
               <entry><varname>java.specification.vendor</varname></entry>
 
-              <entry>Frabriquant des spécifications du JRE</entry>
+              <entry>Frabriquant des spécifications de la JRE</entry>
             </row>
 
             <row>
               <entry><varname>java.specification.name</varname></entry>
 
-              <entry>Nom des spécifications du JRE</entry>
+              <entry>Nom des spécifications de la JRE</entry>
             </row>
 
             <row>
               <entry><varname>java.class.version</varname></entry>
 
-              <entry>JVersion du format des classes</entry>
+              <entry>Version du format des classes</entry>
             </row>
 
             <row>
@@ -428,7 +428,7 @@
             <row>
               <entry><varname>user.home</varname></entry>
 
-              <entry>Home de l'utilisateur</entry>
+              <entry>Répertoire personnel de l'utilisateur</entry>
             </row>
 
             <row>
@@ -480,7 +480,7 @@
       L'exemple ci-dessous montre comment définir une propriété à partir d'un profil dans un <acronym>POM</acronym> Maven.</para>
 
       <example>
-        <title>Propriété utilisateur déinie dans une profil d'un POM</title>
+        <title>Propriété utilisateur définie dans un profil d'un POM</title>
 
         <programlisting language="xml">&lt;project&gt;
   ...
@@ -496,8 +496,8 @@
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>L'exemple précédent présente comment définir une propriété utilisateur définie dans un profil.
-      Pour plus d'information à propos des propriétés utilisateurs et de profils, consultez le <xref linkend="profiles" />.</para>
+      <para>L'exemple précédent présente comment définir une propriété utilisateur dans un profil.
+      Pour plus d'information à propos des propriétés utilisateurs et des profils, consultez le <xref linkend="profiles" />.</para>
     </section>
   </section>
 
