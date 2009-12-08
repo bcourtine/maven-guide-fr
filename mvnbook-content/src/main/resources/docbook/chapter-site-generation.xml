@@ -9,27 +9,27 @@
 
     <para>Les applications les mieux réussies sont rarement l'oeuvre d'un seul homme.
     Les équipes sont souvent découpées en cellules pouvant aller d'une poignée de personnes dans un bureau 
-    à des équipes de plusieurs centaines de personnes réparties sur un environnement distribué. 
-    La plupart des projets Open Source (comme Maven) réussissent ou échouent en fonction de la présence d'une documentation bien écrite et largement distribuée.  
+    à des armées de plusieurs centaines de personnes réparties sur un environnement distribué.
+    La réussite ou l'échec de la plupart des projets Open Source (comme Maven) dépend l'existence ou non d'une documentation bien écrite pour un public très distribué de développeurs et d'utilisateurs.
     Dans chaque environnement, il est important que les projets disposent d'un moyen simple pour publier et maintenir leur documentation en ligne.      
     Le développement d'applications est avant tout un exercice de collaboration et de communication,
-    la publication d'un site Maven est l'un des chemins qui permettent de s'assurer que votre projet communique avec ses utilisateurs.</para>
+    la publication d'un site Maven est l'une des manières de s'assurer d'une bonne communication entre votre projet et ses utilisateurs.</para>
  
     <para>Pour un projet Open Source, un site Internet est souvent le point de départ tant pour les communautés de développeurs que pour les utilisateurs.
-    Là où les utilisateurs finaux recherchent sur le site du projet des tutoriaux, des guides utilisateurs, la documentation de <acronym>API</acronym> et les archives de la mailing-list,
+    Là où les utilisateurs finaux recherchent sur le site du projet des tutoriaux, des guides utilisateur, la documentation de <acronym>API</acronym> et les archives de la mailing-list,
     les développeurs y recherchent des documents de conception, des rapports de code, un gestionnaire d'anomalies ou les release notes.      
-    Les plus larges des projets Open Sources peuvent intégrer des wikis, des gestionnaires d'anomalies et des systèmes d'intégration continue
-    qui permettent d'élargir le scope de la documentation en ligne avec des éléments qui reflètent l'état présent du développement.
-    Si un nouveau projet Open Source a un site non suffisant pour transmettre des renseignements fondamentaux à ces utilisateurs potentiels,
-    c'est souvent le premier signe d'un échec, il aura probablement du mal à être adopté.
-    En d'autres termes, pour un projet Open Source, le site et la documentation sont primordiaux autant pour la formation de la communauté que pour le code lui-même.</para>    
+    Les plus grands des projets Open Source peuvent intégrer des wikis, des gestionnaires d'anomalies et des systèmes d'intégration continue
+    qui permettent d'augmenter la couverture de la documentation en ligne avec des éléments qui reflètent l'état présent du développement.
+    Si le site d'un nouveau projet Open Source se révèle incapable de fournir les renseignements de base à ses utilisateurs potentiels,
+    c'est souvent le signe avant-coureur d'un futur échec, ce projet aura probablement du mal à être adopté.
+    En d'autres termes, pour un projet Open Source, le site et la documentation sont aussi essentiels pour la formation de la communauté que le code lui-même.</para>
 
     <para>Maven peut être utilisé pour créer des sites web de projet qui contiennent des informations aussi bien pour les utilisateurs finaux que les développeurs. 
-    Maven peut générer une multitude de rapports : résultat des tests unitaires, dépendances inter-package, et rapport qualité.      
-    Maven vous donne la possibilité d'écrire de simples pages web et de rendre ces pages au sein d'un template projet élaboré.
+    Maven peut générer une multitude de rapports, des résultats des tests unitaires à un rapport sur la qualité du code en passant par des rapports sur les dépendances inter-package.
+    Maven vous donne la possibilité d'écrire de simples pages web et d'afficher ces pages au travers d'un modèle élaboré pour le projet.
     Maven peut publier le contenu d'un site sous plusieurs formats : <acronym>XHTML</acronym> et <acronym>PDF</acronym>.
     Maven peut être utilisé pour générer la documentation de l'API de votre projet mais aussi pour embarquer la Javadoc et le code source dans l'archive binaire de votre projet.     
-    Une fois que vous avez généré toute la documentation de votre projet, Maven vous permet également de publier votre site sur un serveur distant.</para>  
+    Une fois que vous avez produit toute la documentation de votre projet, Maven vous permet également de publier votre site sur un serveur distant.</para>
 
   </section>
 
