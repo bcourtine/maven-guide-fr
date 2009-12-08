@@ -506,20 +506,20 @@
 
     <para>Vous pouvez utiliser Maven pour remplacer des variables dans les ressources d'un projet par leur véritable valeur.
     Lorsque cette fonctionnalité de filtrage des ressources est activée,
-    Maven scanne les ressources pour rechercher des références à des propriétés.
-    Lorsque Maven trouve l'une de ces références, il remplace celle-ci par la valeur appropriée par un mécanisme similaire aux propriétés définies dans un <acronym>POM</acronym>.      
-    Cette fonctionnalité est très pratique pour paramétrer un build avec différentes valeurs de configuration selon la platform cible.</para>
+    Maven parcourt les ressources à la recherche de références à des propriétés.
+    Lorsque Maven trouve l'une de ces références, il remplace celle-ci par la valeur appropriée selon un mécanisme similaire aux propriétés définies dans un <acronym>POM</acronym>.
+    Cette fonctionnalité est très pratique pour paramétrer un build avec différentes valeurs de configuration selon la plateforme cible.</para>
 
     <para>Il est fréquent qu'un fichier <filename>.properties</filename> ou qu'un document <acronym>XML</acronym> présent dans le répertoire <filename>src/main/resources</filename>  
     contienne des références vers des ressources externes du type base de données ou emplacement réseau 
-    qui doivent être configurés différemment en fonction de l'environnement cible.
+    qui doivent être configurées différemment en fonction de l'environnement cible.
     Par exemple, un système qui fait appel à une base de données aura un fichier de configuration qui contiendra
     l'URL <acronym>JDBC</acronym>, le nom d'utilisateur et le mot de passe permettant de s'y connecter.
     Si vous avez besoin d'utiliser une base de données différente en développement, 
     vous pouvez soit utiliser une technologie du type <varname>JNDI</varname> pour externaliser votre configuration, 
-    soit utilisez un mécanisme de build qui sait remplacer les différentes variables avec des valeurs dépendances de la plateforme cible.</para>   
+    soit utiliser un mécanisme de build qui saura remplacer les différentes variables par les valeurs correspondant à la plateforme cible.</para>
 
-    <para>En utilisant le filtrage des ressources, vous pouvez référencer des propriétés Maven et les utiliser dans les profils pour définir différentes valeurs de configuration en fonction des environnements cibles.  
+    <para>En utilisant le filtrage des ressources, vous pouvez référencer des propriétés Maven et les spécifier dans les profils pour définir différentes valeurs de configuration selon les environnements cibles.
     Pour illustrer cela, prenons l'exemple d'un projet qui utilise Spring pour configurer une <classname>BasicDataSource</classname> à partir du projet <ulink
     url="http://commons.apache.org/dbcp">Commons DBCP</ulink>. 
     Ce projet contient un fichier nommé <filename>applicationContact.xml</filename> dans le répertoire <filename>src/main/resources</filename> qui
@@ -550,7 +550,7 @@
     <para>Votre programme utilisera ce fichier lors de son exécution.
     Avant cela, votre build remplacera les références des différentes propriétés (<varname>jdbc.url</varname>, <varname>jdbc.username</varname>, ...) par les valeurs définies dans votre fichier <varname>pom.xml</varname>.
     Le filtrage des ressources est désactivé par défaut pour vous éviter de mauvaises surprises. 
-    Pour activer cette fonctionnalité, vous devez modifier le contenu de la balise <varname>resources</varname> dans votre <acronym>POM</acronym>.  
+    Aussi, pour activer cette fonctionnalité, vous devez modifier le contenu de la balise <varname>resources</varname> dans votre <acronym>POM</acronym>.
     Dans l'<xref linkend="ex-filter-pom" />, le <acronym>POM</acronym> définit les variables utilisées dans l'<xref linkend="ex-filter-spring" />
     et active le filtrage des ressources pour tout le répertoire <filename>src/main/resources</filename>.</para>
 
@@ -591,7 +591,7 @@
     <para>Les quatre variables sont définies dans la balise <sgmltag>properties</sgmltag> et le filtrage des ressources est activé pour les ressources du répertoire <filename>src/main/resources</filename>. 
     Pour activer la fonctionnalité de filtrage, vous devez affecter la valeur <varname>true</varname> à la balise <sgmltag>filtering</sgmltag> pour chaque répertoire que vous désirez filtrer. 
     La construction d'un projet contenant les ressources de l'<xref linkend="ex-filter-spring" /> et le POM de l'<xref linkend="ex-filter-pom" />
-    provoquera la création du fichier suivant dans le répertoire <varname>target/classes</varname> dans lequel vous remarquerez que toutes les propriétés ont bien été remplacées :</para>
+    va créer dans le répertoire <varname>target/classes</varname> le fichier suivant, vous remarquerez d'ailleurs que toutes les propriétés ont bien été remplacées :</para>
 
     <screen>$ <command>mvn install</command>
 ...
@@ -609,9 +609,9 @@ $ <command>cat target/classes/applicationContext.xml</command>
     <para>Le <acronym>POM</acronym> de l'<xref linkend="ex-filter-pom" /> définit également le profil <varname>production</varname>.
     Celui-ci surcharge les propriétés par défaut avec des valeurs appropriées à l'environnement de production.
     Dans ce <acronym>POM</acronym>, la configuration par défaut des connexions à la base de données cible une base de données MySQL locale installée sur la machine du développeur.
-    Lorsque ce projet est construit avec le profil 'production' activé, Maven mettra à jour cette configuration pour se connecter à une base de données Oracle en utilisant un autre driver, une autre URL, utilisateur et mot de passe.     
-    Si vous construisez un projet avec la ressource de l'<xref linkend="ex-filter-spring" /> et du POM de l'<xref linkend="ex-filter-pom" /> et le profil 'production' activé
-    et que vous affichez le contenu des ressources du répertoire <varname>target/classes</varname>,
+    Lorsque ce projet est construit avec le profil 'production' activé, Maven mettra à jour cette configuration pour se connecter à une base de données Oracle en utilisant un autre driver, une autre URL, et un autre couple utilisateur / mot de passe.
+    Si vous construisez un projet avec la ressource de l'<xref linkend="ex-filter-spring" />, le POM de l'<xref linkend="ex-filter-pom" /> et le profil 'production' activé
+    lorsque vous listerez le contenu du répertoire <varname>target/classes</varname> 
     vous constaterez qu'il contient un fichier correctement filtré avec les valeurs de production :</para>
 
     <screen>$ <command>mvn -Pproduction install</command>
