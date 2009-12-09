@@ -217,12 +217,12 @@ $ mvn site:run</screen>
     <section id="site-generation-sect-custom-nav">
       <title>Personnaliser le menu navigation</title>
 
-      <para>Pour personnalisez le contenu du menu navigation, utilisez la balise <sgmltag>menu</sgmltag> avec une sous-balise <sgmltag>item</sgmltag>.
+      <para>Pour personnaliser le contenu du menu navigation, utilisez la balise <sgmltag>menu</sgmltag> avec une sous-balise <sgmltag>item</sgmltag>.
       La balise <sgmltag>menu</sgmltag> ajoute une section au menu gauche de navigation.
       Chaque <sgmltag>item</sgmltag> représente un lien dans ce menu.</para>
 
       <para><example>
-          <title>Création d'Items de menu dans le descripteur de site</title>
+          <title>Descripteur de site avec ajout d'entrées dans le menu</title>
 
           <programlisting language="xml">&lt;project name="Sample Project"&gt;
   ...
@@ -243,12 +243,12 @@ $ mvn site:run</screen>
         </example></para>
 
       <para>Les balises <sgmltag>item</sgmltag> peuvent également être imbriquées.
-      En imbriquant vos items, vous créez un sous-menu pliant dans le menu navigation. 
+      En imbriquant vos items, vous créez un sous-menu dans le menu navigation sous la forme d'un arbre extensible ou rétractable.
       L'exemple suivant ajoute un lien "Developer Resources" qui pointe vers la page <filename>/developer/index.html</filename>.
-      Quand un utilisateur regardera cette page, les menus au dessus de l'item sélectionné seront développés.</para>
+      Quand un utilisateur regardera cette page, les menus au dessus de l'éléemnt sélectionné seront développés.</para>
 
       <para><example>
-          <title>Ajouter un Lien au Menu du Site</title>
+          <title>Ajout d'un lien au menu du site</title>
 
           <programlisting language="xml">&lt;project name="Sample Project"&gt;
   ...
@@ -268,10 +268,10 @@ $ mvn site:run</screen>
 </programlisting>
         </example></para>
 
-      <para>Lorsqu'un item a son attribut<sgmltag>collapse</sgmltag> affecté à <varname>true</varname>, 
-      Maven pliera celui-ci jusqu'à ce qu'un utilisateur consulte une page spécifique.
+      <para>Lorsque l'attribut <sgmltag>collapse</sgmltag> d'un <sgmltag>item</sgmltag> a pour valeur <varname>true</varname>,
+      Maven pliera celui-ci jusqu'à ce qu'un utilisateur consulte cette page particulière.
       Dans l'exemple précédent, lorsque l'utilisateur ne regarde pas la page "Developer Resources",
-      Maven n'affiche pas les liens "System Architecture" et "Embedder's Guide" links.
+      Maven n'affiche pas les liens "System Architecture" et "Embedder's Guide".
       À la place, il affichera une flèche pointant sur le lien "Developer Resources".
       Quand l'utilisateur regardera cette page, ces liens s'afficheront avec une flèche pointée vers le bas.</para>
 
@@ -282,12 +282,12 @@ $ mvn site:run</screen>
     <title>Structure de répertoire d'un site</title>
 
     <para>Maven place tous les documents du site dans le répertoire <filename>src/site</filename>. 
-    Les documents avec des formats similaires sont regroupés dans des sous répertoires de celui-ci. 
+    Les documents avec des formats similaires sont regroupés dans des sous-répertoires de celui-ci.
     Ainsi, les fichiers <acronym>APT</acronym> se trouvent dans le répertoire <filename>src/site/apt</filename>,
-    les fichiers <acronym>FML</acronym> dans <filename>src/site/fml</filename> et les documenta XDoc dans <filename>src/site/xdoc</filename>.   
+    les fichiers <acronym>FML</acronym> dans <filename>src/site/fml</filename> et les documents XDoc dans <filename>src/site/xdoc</filename>.
     Le descripteur de site se trouve à l'emplacement <filename>src/site/site.xml</filename> 
     et toutes les références sont stockées dans le répertoire <filename>src/site/resources</filename>.
-    Lorsque le plugin Maven Site construit un site web, it copie tout le contenu de ce répertoire à la racine du site.     
+    Lorsque le plugin Maven Site construit un site web, il copie tout le contenu de ce répertoire à la racine du site.
     Si vous stockez une image dans <filename>src/site/resources/images/test.png</filename>,
     vous pouvez l'utiliser dans votre site en utilisant le chemin relatif <filename>images/test.png</filename>.</para>
 
@@ -295,7 +295,7 @@ $ mvn site:run</screen>
     <acronym>HTML</acronym>, <acronym>XHTML</acronym>, et XDoc.  
     Notez que le contenu <acronym>XHTML</acronym> est simplement stocké dans le répertoire dédié aux ressources.     
     Le fichier <filename>architecture.html</filename> ne sera donc pas traité par Doxia, mais simplement copié dans le répertoire destination.
-    Vous pouvez utiliser ce principe pour inclure du contenu <acronym>HTML</acronym> brut que vous ne voulez pas templatiser ou formater par Doxia ni par le plugin Maven Site.</para>  
+    Vous pouvez utiliser ce principe pour inclure du contenu <acronym>HTML</acronym> brut sur lequel vous ne voulez pas appliquer de modèlet ou que vous ne voulez pas formater avec Doxia ou le plugin Maven Site.</para>  
     
     <screen>sample-project
 +- src/
@@ -324,8 +324,8 @@ $ mvn site:run</screen>
       +- site.xml
 </screen>
 
-    <para>Notez que la documentation développeurs est stockée dans le fichier <filename>src/site/apt/developer/embedding.apt</filename>.
-    Celui-ci se trouve dans un sous répertoire d'<filename>apt</filename>, il en sera de même pour sa page <acronym>HTML</acronym> correspondante.  
+    <para>Notez que la documentation pour les développeurs se trouve dans le fichier <filename>src/site/apt/developer/embedding.apt</filename>.
+    Celui-ci se trouve dans un sous-répertoire d'<filename>apt</filename>, il en sera de même pour sa page <acronym>HTML</acronym> correspondante.
     Quand le plugin Site effectue le rendu du répertoire <filename>src/site/apt</filename>, 
     il génère les fichiers <acronym>HTML</acronym> dans des répertoires relatifs à la racine du site. 
     Si un fichier se trouve dans le répertoire <filename>apt</filename>, son fichier généré se trouvera à la racine du site web.
