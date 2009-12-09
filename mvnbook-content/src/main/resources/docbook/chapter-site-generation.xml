@@ -560,19 +560,19 @@ Welcome to Sample Project
   <section id="site-generation-sect-site-appearance">
     <title>Personnaliser l'apparence de votre site</title>
 
-    <para>Le template Maven par défaut laisse beaucoup à désirer. 
-    Si vous voulez personnaliser votre site de projet au delà de l'ajout de contenu, d'options dans le menu navigation et de modification des logos,
-    Maven offre plusieurs mécanismes qui le permettent. Il est ainsi possible de modifier plus en profondeur la structure et la décoration du site web.
-    Pour effectuer de petites modifications, l'ajout d'une <acronym>CSS</acronym> <filename>site.css</filename> est souvent suffiante.
+    <para>Le modèle Maven par défaut laisse beaucoup à désirer.
+    Si vous voulez personnaliser le site de votre projet au delà de l'ajout de contenu, d'options dans le menu navigation et de modification des logos,
+    Maven vous offre plusieurs mécanismes qui le permettent. Il est ainsi possible de modifier plus en profondeur la structure et l'aspect du site web.
+    Pour effectuer de petites modifications, l'ajout d'un fichier <filename>site.css</filename> est souvent suffisant.
     Cependant, si vous voulez que ces modifications soient réutilisables, ou si vous désirez modifier le <acronym>XHTML</acronym> généré, 
-    la création d'un 'skin' Maven est souvent nécessaire.</para>
+    la création d'une 'skin' Maven est souvent nécessaire.</para>
 
     <section id="site-generation-sect-site-css">
       <title>Personnaliser la CSS du site</title>
 
-      <para>Le moyen le plus simple pour personnaliser l'apparence de votre site est de fournir à votre projet une <acronym>CSS</acronym> <filename>site.css</filename>.
-      Tout comme pour les images ou pour le contenu <acronym>XHTML</acronym>, ce fichier <acronym>CSS</acronym> doit se trouver dans le répertoire <filename>src/site/resources/css</filename>.   
-      Avec cette <acronym>CSS</acronym>, il vous est possible de modifier la disposition et le style des textes de votre site. 
+      <para>Le moyen le plus simple pour personnaliser l'apparence de votre site est de fournir à votre projet un fichier <filename>site.css</filename>.
+      Tout comme pour les images ou pour le contenu <acronym>XHTML</acronym>, cette feuille de style doit se trouver dans le répertoire <filename>src/site/resources/css</filename>.
+      Avec ce fichier <acronym>CSS</acronym>, il vous est possible de modifier la disposition et le style des textes de votre site.
       Il vous est également possible d'ajouter une image de fond ou de personnaliser les images de vos listes.   
       Par exemple, si vous décidez de faire ressortir davantage le titre du menu, vous pourriez utiliser le style suivant dans le fichier 
       <filename>src/site/resources/css/site.css</filename> : </para>
@@ -589,14 +589,14 @@ Welcome to Sample Project
 }
 </screen>
 
-      <para>Après la régénération de votre site,
+      <para>Après une nouvelle génération de votre site,
       le titre de votre menu sera ainsi tramé par un fond gris et séparé du reste du menu par un peu plus d'espace. 
       En utilisant ce fichier, n'importe quel élément de la structure d'un site Maven peut être décoré par l'intermédiaire de styles personnalisés.
-      Lorsque vous modifiez le fichier <filename>site.css</filename> d'un projet Maven, les modifications impacteront son site uniquement.
-      Si vous désirez effectuer des modifications à appliquer sur plusieurs projets, vous pouvez créer un skin personnalisé.</para> 
+      Lorsque vous modifiez le fichier <filename>site.css</filename> d'un projet Maven, les modifications impactent uniquement son site.
+      Si vous désirez effectuer des modifications qui s'appliquent sur plusieurs projets, vous pouvez créer uns skin personnalisée.</para>
 
       <tip>
-        <para>Il n'existe pas de bonne documentation sur la structure du template par défaut d'un site Maven. 
+        <para>Il n'existe pas de bonne documentation sur la structure du modèle par défaut d'un site Maven.
         Si vous essayez de personnaliser le style de votre projet Maven, le mieux est d'utiliser une extension Firefox comme Firebug 
         pour vous aider à naviguer dans le <acronym>DOM</acronym> de vos pages web.</para>
       </tip>
