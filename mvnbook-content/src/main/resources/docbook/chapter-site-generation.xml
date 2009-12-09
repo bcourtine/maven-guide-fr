@@ -34,7 +34,7 @@
   </section>
 
   <section id="site-generation-sect-building">
-    <title>Contruire un site projet avec Maven</title>
+    <title>Contruire le site d'un projet avec Maven</title>
 
     <para>Pour illustrer le processus de construction du site web d'un projet, créons un projet en utilisant le plugin Archetype :</para>
 
@@ -42,8 +42,8 @@
 </screen>
 
     <para>Cette commande crée un projet Maven minimaliste qui contient une classe Java dans le répertoire <filename>src/main/java</filename> et un simple <acronym>POM</acronym>.  
-    Ensuite, vous pouvez construire le site en exécutant la commande <commande>mvn site</commande>. 
-    Pour construire le site et afficher le résultat dans un navigateur web, vous pouvez utiliser la commande <commande>mvn site:run</commande>.
+    Ensuite, vous pouvez construire le site en exécutant la commande <command>mvn site</command>. 
+    Pour construire le site et afficher le résultat dans un navigateur web, vous pouvez utiliser la commande <command>mvn site:run</command>.
     Celle-ci construira le site et démarrera une instance de Jetty.</para>
 
     <screen>$ <command>cd sample-project</command>
@@ -74,7 +74,7 @@ $ <command>mvn site:run</command>
     linkend="fig-simple-site" />.</para>
 
     <figure id="fig-simple-site">
-      <title>Site Généré par Maven</title>
+      <title>Site généré par Maven</title>
 
       <screenshot>
         <mediaobject>
@@ -90,30 +90,30 @@ $ <command>mvn site:run</command>
       </screenshot>
     </figure>
 
-    <para>Si vous cliquez sur ce site web, vous constaterez qu'il n'est pas très pratique pour un vrai site de projet.
-    Il ne contient ... juste rien du tout (et n'est pas très joli).
-    Tant que le projet <varname>sample-project</varname> n'a pas été configuré pour afficher la liste des développeurs, le gestionnaire d'anomalies ou le code source,
+    <para>Si vous cliquez sur ce site web, vous constaterez qu'il n'est pas très pratique comme véritable site de projet.
+    Il ne contient aucne information (et n'est pas très joli).
+    Tant que le projet <varname>sample-project</varname> n'est pas configuré pour afficher la liste des développeurs, le gestionnaire d'anomalies ou le code source,
     toutes les pages du projet ne contiendront aucune information intéressante.
     Même la page d'index du site est vide de contenu, elle affiche un message indiquant qu'aucune description n'a été associée à ce projet. 
     Pour personnaliser ce site, vous devez commencer par ajouter du contenu à votre projet et dans votre <acronym>POM</acronym>.</para>
 
     <para>Si vous décidez d'utiliser le plugin Maven Site pour construire le site de votre projet, vous voudrez donc le personnaliser.
     Vous voudrez renseigner les champs du <acronym>POM</acronym> qui permettent de lister les personnes participant au projet. 
-    Vous voudrez personnaliser également le menu à gauche du site et les liens visible en haut de la page. 
-    Pour personnaliser le contenu du site, dont le menu de navigation, vous devez éditer le descripteur de site.</para>
+    Vous voudrez personnaliser également le menu gauche du site et les liens affichés en haut de la page.
+    Pour personnaliser le contenu de ce site, dont le menu de navigation, vous devez éditer le descripteur de site.</para>
 
   </section>
 
   <section id="site-generation-sect-custom-descript">
     <title>Personnaliser le descripteur de site</title>
 
-    <para>Quand vous ajoutez du contenu à votre site, vous voudrez modifier le menu gauche de navigation qui est généré avec votre site.
-    Le descripteur suivant personnalise le logo affiché dans le coin haut-gauche de votre site. 
+    <para>Quand vous ajoutez du contenu à votre site, vous allez vouloir modifier le menu gauche de navigation qui est généré avec votre site.
+    Le descripteur suivant personnalise le logo affiché dans le coin en haut à gauche de votre site.
     En plus de personnaliser l'entête de votre site,
     ce même descripteur ajoute une entrée dans le menu de navigation : un simple lien vers une page de présentation générale.</para>   
 
     <para><example>
-        <title>Un Descripteur de Site Initial</title>
+        <title>Descripteur de site initial</title>
 
         <programlisting language="xml">&lt;project name="Sample Project"&gt;
   &lt;bannerLeft&gt;
@@ -162,7 +162,7 @@ $ mvn site:run</screen>
     linkend="fig-custom-simple" />.</para>
 
     <figure id="fig-custom-simple">
-      <title>Site Web Personnalisé du Projet d'Exemple</title>
+      <title>Site web personnalisé du projet </title>
 
       <screenshot>
         <mediaobject>
@@ -181,13 +181,13 @@ $ mvn site:run</screen>
     </figure>
 
     <section id="site-generation-sect-custom-header">
-      <title>Personnaliser les images des entêtes du site</title>
+      <title>Personnaliser les images des en-têtes du site</title>
 
-      <para>Pour personnaliser les éléments graphiques qui apparaissent dans les coins haut-gauche et haut-droit de la page, 
+      <para>Pour personnaliser les éléments graphiques qui apparaissent dans les coins en haut à gauche et en haut à droite de la page,
       vous pouvez utiliser les balises <sgmltag>bannerLeft</sgmltag> et <sgmltag>bannerRight</sgmltag> du descripteur de site.</para>
 
       <para><example>
-          <title>Ajouter au Descripteur les Images Gauche et Droite en haut du Site</title>
+          <title>Descripteur avec ajout d'images en haut à gauche et à droite du site</title>
 
           <programlisting language="xml">&lt;project name="Sample Project"&gt;
 
@@ -208,9 +208,9 @@ $ mvn site:run</screen>
         </example></para>
 
       <para>Les deux balises <sgmltag>bannerLeft</sgmltag> et <sgmltag>bannerRight</sgmltag> sont configurées avec :
-      un nom (<sgmltag>name</sgmltag>), un empacement d'image (<sgmltag>src</sgmltag>) et un lien (<sgmltag>href</sgmltag>).  
+      un nom (<sgmltag>name</sgmltag>), un empalcement d'image (<sgmltag>src</sgmltag>) et un lien (<sgmltag>href</sgmltag>).
       Dans le descripteur de site ci-dessus, le plugin Maven Site utilisera les images 
-      <filename>banner-left.png</filename> et <filename>banner-right.png</filename> pour le coins haut-gauche et haut-droit du site.
+      <filename>banner-left.png</filename> et <filename>banner-right.png</filename> pour le coins en haut à gauche et en haut à droite du site.
       Maven recherchera ces images dans le répertoire <filename>\${basedir}/src/site/resources/images</filename>.</para>
     </section>
 
@@ -268,7 +268,7 @@ $ mvn site:run</screen>
 </programlisting>
         </example></para>
 
-      <para>Lorsqu'un item a son attribut<sgmltag>collapse</sgmltag> affecté à <varname>true</varname>, 
+      <para>Lorsqu'un item a son attribut<sgmltag>collapse</sgmltag> affecté à <varname>true</varname>, 
       Maven pliera celui-ci jusqu'à ce qu'un utilisateur consulte une page spécifique.
       Dans l'exemple précédent, lorsque l'utilisateur ne regarde pas la page "Developer Resources",
       Maven n'affiche pas les liens "System Architecture" et "Embedder's Guide" links.
