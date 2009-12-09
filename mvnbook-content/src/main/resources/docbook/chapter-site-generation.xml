@@ -336,16 +336,16 @@ $ mvn site:run</screen>
     <title>Écrire la documentation d'un projet</title>
 
     <para>Maven utilise en moteur de traitement de documentation appelé Doxia. 
-    Doxia peut transformer plusieurs formats de fichiers dans un même modèle de document, 
-    manipuler ces modèles et effectuer le rendu dans plusieurs formats de sorties dont
+    Doxia peut transformer différents formats de fichiers avec un même modèle de document,
+    manipuler ces modèles et effectuer le rendu dans différents formats de sorties dont
     <acronym>PDF</acronym> ou <acronym>XHTML</acronym>.
     Pour écrire un document pour votre projet, vous devez écrire votre contenu dans un format reconnu par Doxia. 
-    À ce jour, Doxia supporte la plupart des formats "plain text" (autrement dit "Almost Plain Text", ou <acronym>APT</acronym>), 
+    À ce jour, Doxia supporte la plupart des formats "plein texte" (autrement dit "Almost Plain Text", ou <acronym>APT</acronym>),
     XDoc (format de la documentation de Maven 1.x), <acronym>XHTML</acronym> 
     et <acronym>FML</acronym> (utilisé pour écrire des <acronym>FAQ</acronym>).</para>
 
-    <para>Ce chapitre effectue une présentation succincte du format <acronym>APT</acronym>.
-    Pour une plus de préciser sur ce format, pour une introduction à XDoc ou à <acronym>FML</acronym>, 
+    <para>Ce chapitre présente succinctement le format <acronym>APT</acronym>.
+    Pour une plus de précisions sur ce format, ou pour une introduction à XDoc ou à <acronym>FML</acronym>,
     consultez les ressources suivantes :</para>
 
     <itemizedlist>
@@ -402,15 +402,14 @@ Welcome to Sample Project
       </example>
 
       <para>Si le document <acronym>APT</acronym> de l'<xref linkend="ex-apt" /> est placé dans  
-      <filename>src/site/apt/index.apt</filename>, le plugin Maven Site parserait l'<acronym>APT</acronym> en utilisant Doxia 
-      et produirait du contenu <acronym>XHTML</acronym> : le fichier <filename>index.html</filename>.</para>
+      <filename>src/site/apt/index.apt</filename>, le plugin Maven Site en analysera le contenu <acronym>APT</acronym> avec Doxia
+      et produira un fichier <filename>index.html</filename> contenant le <acronym>XHTML</acronym> généré.</para>
     </section>
 
     <section id="site-generation-sect-fml-example">
       <title>Exemple de fichier FML</title>
 
-      <para>Beaucoup de projets contiennent une FAQ (Frequently Asked Questions)
-      L'<xref linkend="ex-fml" /> affiche un exemple de document <acronym>FML</acronym>.</para> 
+      <para>Beaucoup de projets contiennent une FAQ (Foire Aux Questions). L'<xref linkend="ex-fml" /> présente un exemple de document <acronym>FML</acronym>.</para>
 
       <para><example id="ex-fml">
           <title>Document FML (FAQ Markup Language)</title>
@@ -457,15 +456,15 @@ Welcome to Sample Project
     <title>Déployez le site de votre projet</title>
 
     <para>Une fois que la documentation de votre projet est écrite et que vous êtes fier du site que vous avez créé,
-    vous désirerez le déployer sur un serveur.     
+    il vous faut le déployer sur un serveur.
     Pour déployer un site, vous pouvez utiliser le plugin Maven Site.
-    Celui-ci propose différentes méthodes pour envoyer votre site sur un serveur distant, dont
-    <acronym>FTP</acronym>, <acronym>SCP</acronym> et  <acronym>DAV</acronym>.
+    Celui-ci propose différentes méthodes pour déployer votre site sur un serveur distant, dont
+    <acronym>FTP</acronym>, <acronym>SCP</acronym> et <acronym>DAV</acronym>.
     Par exemple, pour déployer votre site via <acronym>DAV</acronym>, configurez la balise <sgmltag>distributionManagement</sgmltag>
     dans votre <acronym>POM</acronym> comme ceci : </para>
 
     <para><example>
-        <title>Configurer le déploiement d'un Site</title>
+        <title>Configurer le déploiement d'un site</title>
 
         <programlisting language="xml">&lt;project&gt;
   ...
@@ -480,26 +479,25 @@ Welcome to Sample Project
 </programlisting>
       </example></para>
 
-    <para>L'url contenue dans une sous balise de la section <sgmltag>distributionManagement</sgmltag> est préfixée 
-    par un indicateur <varname>dav</varname>. Celui-ci configure le plugin Maven Site d'effectuer le déploiement du site vers
-    une <acronym>URL</acronym> qui est capable de comprendre le protocole <acronym>WebDAV</acronym>.  
+    <para>L'url contenue dans une balise incluse de la section <sgmltag>distributionManagement</sgmltag> est préfixée
+    par un indicateur <varname>dav</varname>. Celui-ci indique au plugin Maven Site qu'il va lui falloir déployer le site vers
+    une <acronym>URL</acronym> avec le protocole <acronym>WebDAV</acronym>.
     Une fois la configuration effectuée dans le <acronym>POM</acronym> de votre projet <varname>sample-project</varname>,
     vous pouvez lancer le déploiement via la commande suivante :</para> 
 
-    <screen>$ mvn clean site-deploy
-</screen>
+    <screen>$ mvn clean site-deploy</screen>
 
     <para>Si vous disposez d'un serveur configuré pour comprendre le protocole <acronym>WebDAV</acronym>,
     Maven déploiera le site de votre projet sur ce serveur distant.
-    Si vous déployez ce site sur un serveur visible par le public, 
-    vous devrez probablement ajouter à la configuration votre authentification pour l'accès sécurisé. 
+    Si vous déployez ce site sur un serveur accessible au public,
+    vous devrez probablement ajouter de la configuration d'authentification pour l'accès sécurisé.
     Si votre serveur serveur vous demande un identifiant et un mot de passe (ou tout autre moyen d'authentification),
-    vous pouvez configurer ses valeurs dans votre fichier <filename>~/.m2/settings.xml</filename>).</para>
+    vous pouvez configurer ces valeurs dans votre fichier <filename>~/.m2/settings.xml</filename>.</para>
 
     <section id="site-generation-sect-server-auth">
-      <title>Configurer l'Authentification de votre Serveur</title>
+      <title>Configurer l'authentification de votre serveur</title>
 
-      <para>Pour configurer votre indentifiant et mot de passe au déploiement du site dans le fichier <filename>$HOME/.m2/settings.xml</filename>, 
+      <para>Pour configurer votre identifiant et votre mot de passe pour le déploiement du site dans le fichier <filename>$HOME/.m2/settings.xml</filename>,
       inspirez vous de l'<xref linkend="ex-site-authetification" /> :</para>
 
       <para><example id="ex-site-authetification">
@@ -522,19 +520,19 @@ Welcome to Sample Project
 
       <para>La section authentification peut contenir différents types d'éléments.
       Par exemple, si vous utilisez un déploiement par <acronym>SCP</acronym>, vous voudrez peut-être utiliser une authentification par clé publique.  
-      Pour cela, vous disposez de balises spécifiques  : <sgmltag>publicKey</sgmltag> et <sgmltag>passphrase</sgmltag>.
-      Il vous est toujours possible de configurer la balise 'indentifiant', en fonction de la configuration de votre serveur.</para>  
+      Pour cela, utilisez les balises spécifiques <sgmltag>publicKey</sgmltag> et <sgmltag>passphrase</sgmltag> plutôt que <sgmltag>password</sgmltag>.
+      Il se peut que vous deviez configurer l'élément <sgmltag>username</sgmltag> selon la configuration de votre serveur.</para>
     </section>
 
     <section id="site-generation-sect-modes">
-      <title>Configurer les droits des fichiers et dossiers</title>
+      <title>Configurer les permissions des fichiers et dossiers</title>
 
-      <para>Si vous travaillez dans un groupe conséquent de développeurs,
-      vous voudrez vous assurer que les dossiers de votre site Internet se retrouvent avec des droits utilisateur et des permissions de groupe convenables après leur déploiement.
-      Pour configurer ces modes lors du déploiement, inspirez-vous du fichier <filename>$HOME/.m2/settings.xml</filename> suivant :</para>
+      <para>Si vous travaillez dans un groupe de développeurs conséquent,
+      vous voudrez vous assurer que les dossiers de votre site Internet ont les bonnes permissions utilisateur et groupe après leur déploiement.
+      Pour configurer ces permissions lors du déploiement, inspirez-vous du fichier <filename>$HOME/.m2/settings.xml</filename> suivant :</para>
 
       <para><example>
-          <title>Configurer les droits des fichiers et répertoires sur un serveur distant</title>
+          <title>Configurer les permissions des fichiers et répertoires sur un serveur distant</title>
 
           <programlisting language="xml">&lt;settings&gt;
   ...
@@ -552,10 +550,10 @@ Welcome to Sample Project
 </programlisting>
         </example></para>
 
-      <para>Les préférences ci-dessus rendent les répertoires lisibles et modifiables par son créateur et les membres de son groupe.
-      Les utilisateurs anonymes pourront quant à eux lire et lister le contenu du répertoire. 
-      De la même manière, le créateur et les membres de son groupe disposeront d'un accès en lecture et écriture sur n'importe quel fichier,
-      alors que les utilisateurs anonymes disposeront d'un accès en lecture.</para>
+      <para>Les préférences ci-dessus rendent les répertoires lisibles et modifiables par leur propirétairer et les membres de son groupe.
+      Les utilisateurs anonymes, quant à eux, pourront uniquement lire et lister le contenu du répertoire.
+      De la même manière, le propriétaire et les membres de son groupe disposeront d'un accès en lecture et écriture sur n'importe quel fichier,
+      alors que les utilisateurs anonymes disposeront d'un accès en lecture seule.</para>
     </section>
   </section>
 
