@@ -855,13 +855,13 @@ $ <command>cp -rf \
     <section id="site-generation-sect-reusable-skin">
       <title>Réutilisation des skins</title>
 
-      <para>Si votre entreprise créé de nombreux sites Maven,
-      vous voudrez probablement réutiliser vos templates et <acronym>CSS</acronym> personnalisés sur plusieurs projets.
+      <para>Si votre entreprise crée de nombreux sites Maven,
+      vous voudrez probablement réutiliser vos modèles et vos feuilles <acronym>CSS</acronym> personnalisés sur d'autres projets.
       Pour cela, Maven vous propose un mécanisme vous permettant de créer des skins.
-      Les skins du plugin Maven Site permettent de packager les ressources et les templates pour les réunitiser sur plusieurs projets.
-      Ils vous permettent ainsi d'éviter de dupliquer ces ressources à chaque utilisation.</para> 
+      Les skins du plugin Maven Site permettent de packager les ressources et les templates pour les réunitiser sur différents projets.
+      Elles vous permettent ainsi d'éviter de dupliquer ces ressources à chaque utilisation.</para>
 
-      <para>Plus rapide que de définir votre propre skin, vous pouvez également utiliser l'un des skins alternatifs fournis par Maven.
+      <para>Plus rapide que de définir votre propre skin, vous pouvez également utiliser l'une des skins alternatives fournies par Maven.
       Chaque skin propose son propre layout pour la navigation, le contenu, les logos et les templates :</para>
 
       <itemizedlist>
@@ -884,12 +884,12 @@ $ <command>cp -rf \
       <para>Pour obtenir la liste complète des skins disponibles, rendez-vous à l'adresse suivante : <ulink
       url="http://repo1.maven.org/maven2/org/apache/maven/skins/">http://repo1.maven.org/maven2/org/apache/maven/skins/</ulink>.</para>
 
-      <para>La création de skin passe par la simple personnalisation du fichier <filename>maven-theme.css</filename> dans un projet Maven.
-      Ainsi, il peut être identifié par un <varname>groupId</varname>, un <varname>artifactId</varname> et une <varname>version</varname>.
-      Il peut également contenir des ressources (comme des images) et replacer le template du site par défaut (template écrit en Velocity).
+      <para>La création d'une skin consiste simplement à construire un projet Maven qui contienne votre personnalisation de la feuille de style <filename>maven-theme.css</filename>.
+      Ainsi, elle peut être identifiée par le triplet <varname>groupId</varname>, <varname>artifactId</varname> et <varname>version</varname>.
+      Elle peut également contenir des ressources (comme des images) et remplacer le modèle du site par défaut (modèle décrit en utilisant la syntaxe Velocity).
       Cela permet de générer des structures de page <acronym>XHTML</acronym> complètement différentes de celle proposée par défaut.
       Dans la plupart des cas, la personnalisation de la <acronym>CSS</acronym> peut s'avérer suffisante.  
-      Pour illustrer cela, créons un skin pour le projet <varname>sample-project</varname>, dont l'une des premières étapes sera de personnaliser le fichier <filename>maven-theme.css</filename>.</para> 
+      Pour illustrer cela, créons une skin pour le projet <varname>sample-project</varname>. La première étape consiste en la personnalisation de la feuille de style <filename>maven-theme.css</filename>.</para>
 
       <para>Avant de commencer à écrire cette <acronym>CSS</acronym>, nous devons créer un projet Maven séparé.
       Celui-ci sera référencé par le descripteur de site du projet <varname>sample-project</varname>.
@@ -900,9 +900,9 @@ $ <command>cp -rf \
         -DgroupId=org.sonatype.mavenbook</command>
 </screen>
 
-      <para>Cette commande créée un projet (et un répertoire) appelé <varname>sample-site-skin</varname>.
-      Rendez-vous dans celui-ci et supprimez tout le code source et les tests qui y ont été générés.
-      Créez-y ensuite un répertoire pour stoker vos ressources (du skin) :</para>
+      <para>Cette commande crée un projet (et un répertoire) appelé <varname>sample-site-skin</varname>.
+      Rendez vous dans celui-ci et supprimez tout le code source et les tests qui y ont été générés.
+      Créez-y ensuite un répertoire pour y mettre les ressources (de la skin) :</para>
 
       <screen>$ <command>cd sample-site-skin</command>
 $ <command>rm -rf src/main/java src/test</command>
