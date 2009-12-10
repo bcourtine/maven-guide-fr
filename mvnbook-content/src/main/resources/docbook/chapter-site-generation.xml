@@ -983,7 +983,7 @@ $ <command>mkdir src/main/resources</command>
   <section id="site-generation-sect-tips-tricks">
     <title>Trucs et Astuces</title>
 
-    <para>Dans cette section, nous allons passer en revue quelques trucs et astuces à utiliser pour création de votre site Maven.</para>
+    <para>Dans cette section, nous allons passer en revue quelques trucs et astuces à utiliser pour la création de votre site Maven.</para>
 
     <section id="site-generation-sect-inject-xhtml">
       <title>Intecter du XHTML dans le HEAD</title>
@@ -993,7 +993,7 @@ $ <command>mkdir src/main/resources</command>
       L'exemple suivant ajoute un lien vers un flux RSS sur toutes les pages du site du projet <varname>sample-project</varname>.</para>
 
       <para><example>
-          <title>Intecter du XHTML dans la balise HEAD</title>
+          <title>Injecter du XHTML dans la balise HEAD</title>
 
           <programlisting language="xml">&lt;project name="Hello World"&gt;
   ...
