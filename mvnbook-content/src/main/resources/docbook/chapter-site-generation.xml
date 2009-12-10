@@ -603,26 +603,26 @@ Welcome to Sample Project
     </section>
 
     <section id="site-generation-sect-custom-template">
-      <title>Créer un template de site personnalisé</title>
+      <title>Créer un modèle de site personnalisé</title>
 
-      <para>Si la structure du site Maven par défaut ne vous convient pas, vous pouvez toujours personnaliser son template. 
-      Grâce à cela, il est possible d'avoir le contrôle complet de la sortie du plugin Maven.
-      Il est également possible de personnaliser le template du site de telle sorte que vous ne reconnaissiez pas la structure du template par défaut.</para>
+      <para>Si la structure du site Maven par défaut ne vous convient pas, vous pouvez toujours personnaliser son modèle.
+      Grâce à cela, il est possible de contrôler complètement le résultat du plugin Maven Site.
+      Il est également possible de personnaliser le modèle du site de telle sorte que vous ne reconnaissiez pas la structure du modèle par défaut.</para>
 
-      <para>Le plugin Maven Site utilise le moteur de rendering Doxia, qui utilise à son tour en interne un template Velocity pour effectuer le rendu de chaque page.
-      Pour changer la structure d'une page, il est possible de configurer le plugin Site à partir du <acronym>POM</acronym> pour utiliser un template personnalisé.  
-      Comme le template du site est relativement complexe, il est préférable de disposer d'un bon point de départ pour effectuer votre personnalisation. 
-      Commencez par copier le template Velocity, fournit par défaut à partir du fichier
+      <para>Le plugin Maven Site utilise le moteur de rendu Doxia, qui utilise à son tour en interne un modèle Velocity pour effectuer le rendu de chaque page.
+      Pour changer la structure d'une page, il est possible de configurer le plugin Site à partir du <acronym>POM</acronym> pour utiliser un modèle personnalisé.
+      Comme le modèle du site est relativement complexe, il est préférable de disposer d'un bon point de départ pour effectuer votre personnalisation.
+      Commencez par copier le modèle Velocity par défaut de Doxia, qui est disponible sur le dépôt Subversion de Doxia, 
       <ulink url="http://svn.apache.org/viewvc/maven/doxia/doxia-sitetools/trunk/doxia-site-renderer/src/main/resources/org/apache/maven/doxia/siterenderer/resources/default-site.vm?revision=595592">default-site.vm</ulink>
-      du répository Subversion Doxia, dans le fichier <filename>src/site/site.vm</filename>.   
+      dans le fichier <filename>src/site/site.vm</filename>.   
       Ce fichier s'appuie donc une syntaxe Velocity.
-      Velocity est un simple language de templating. 
-      Il supporte la définition de macros et qui permet l'accès aux méthodes des objets et propriétés en utilisant une notation simple.
-      La présentation en profondeur de la notation utilisée par ce framework ne sera pas effectuée dans ce livre, 
+      Velocity est un language simple pour écrire et appliquer des modèles.
+      Il supporte la définition de macros et permet l'accès aux méthodes et propriétés des objets en utilisant un formalisme simple.
+      Une présentation plus détaillée de la syntaxe de ce framework n'est pas l'objet de ce livre, aussi,
       pour plus d'informations sur Velocity, référez-vous au site officiel du projet à l'adresse suivante  
       <ulink url="http://velocity.apache.org">http://velocity.apache.org</ulink>.</para>
 
-      <para>Si le template <filename>default-site.xml</filename> est assez complexe, 
+      <para>Si le modèle <filename>default-site.xml</filename> est assez complexe,
       les modifications nécessaires à la personnalisation du menu gauche sont relativement simples.
       Si vous voulez modifier l'apparence d'un <sgmltag>menuItem</sgmltag>, rechercher la macro Velocity du même nom.
       Elle se trouve dans une section qui ressemble à cela :</para>  
@@ -634,8 +634,8 @@ Welcome to Sample Project
 #end
 </screen>
 
-      <para>Si vous replacez la définition de la macro par celle affiche ci-dessous, 
-      vous injecterez du javascript dans chaque élément du menu qui permet de fermer et d'ouvrir l'arbre sans avoir à recharger entièrement la page :</para> 
+      <para>Si vous replacez la définition de la macro par celle présentée ci-dessous,
+      vous injecterez du javascript dans chaque élément du menu pour fermer et ouvrir l'arbre sans avoir à recharger entièrement la page :</para>
 
       <screen>#macro ( menuItem $item $listCount )
   #set ( $collapse = "none" )
@@ -697,16 +697,16 @@ Welcome to Sample Project
 
       <para>Cette modification rajoute un nouveau paramètre à la macro <varname>menuItem</varname>. 
       Pour que cette modification fonctionne, vous devez donc mettre à jour toutes les références à cette macro; 
-      dans le cas contraire, le <acronym>XHTML</acronym> généré sera erroné.
-      Pour effectuer ces mises à jour, propagez la même modification que celle de la macro <varname>mainMenu</varname>.
-      Trouvez la macro en recherchant quelque chose ressemble à cela :</para>
+      dans le cas contraire, le <acronym>XHTML</acronym> résultant sera incorrect ou incomplet.
+      Pour effectuer ces mises à jour, apportez la même modification à la macro <varname>mainMenu</varname>.
+      Trouvez cette macro en recherchant un bloc semblable à celui-là :</para>
 
       <screen>#macro ( mainMenu $menus )
   ...
 #end
 </screen>
 
-      <para>Replacez maintenant la macro <varname>mainMenu</varname> avec cette implémentation :</para>
+      <para>Remplacez maintenant la macro <varname>mainMenu</varname> avec cette implémentation :</para>
 
       <screen>#macro ( mainMenu $menus )
   #set ( $counter = 0 )
@@ -731,7 +731,7 @@ Welcome to Sample Project
       Un clic sur un de ces éléments racines permet aux utilisateurs d'afficher l'arbre complet dans devoir attendre le chargement de la page.</para>   
 
       <para>La mise à jour de la macro <varname>menuItem</varname> rajoute un appel à une fonction javascript <methodname>expand()</methodname>.
-      Cette fonction doit donc être ajoutée au template <acronym>XHTML</acronym> principal, par exemple en bas de la base.
+      Cette fonction doit donc être ajoutée au template <acronym>XHTML</acronym> principal, par exemple en bas du modèle.
       Recherchez la section avec un contenu ressemblant à ceci :</para>  
 
       <screen>  &lt;head&gt;
@@ -742,7 +742,7 @@ Welcome to Sample Project
   &lt;/head&gt;
 </screen>
 
-      <para>et replacez-la avec ce contenu  :</para>
+      <para>et remplacez-la avec ce contenu  :</para>
 
       <screen>  &lt;head&gt;
     ...
@@ -772,11 +772,11 @@ Welcome to Sample Project
   &lt;/head&gt;
 </screen>
 
-      <para>Après avoir modifié le template du site, vous devez mettre à jour le <acronym>POM</acronym> de votre projet pour qu'il utilise votre nouveau template. 
-      Pour personnaliser le template du site, vous devez utiliser la balise <sgmltag>templateDirectory</sgmltag> dans les propriétés de configuration du plugin Maven Site.</para>
+      <para>Après avoir modifié le modèle du site, vous devez mettre à jour le <acronym>POM</acronym> de votre projet pour qu'il utilise votre nouveau modèle.
+      Pour personnaliser le modèle du site, vous devez utiliser la balise <sgmltag>templateDirectory</sgmltag> dans les propriétés de configuration du plugin Maven Site.</para>
 
       <para><example>
-          <title>Personnaliser le template d'une page dans le POM du projet</title>
+          <title>Personnaliser le modèle de page dans le POM du projet</title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
@@ -797,9 +797,9 @@ Welcome to Sample Project
         </example></para>
 
       <para>Vous devriez pouvoir maintenant regénérer le site de votre projet.
-      En effectuant cela, vous pourez remarquer que les ressources et <acronym>CSS</acronym> du site Maven manquent. 
+      En effectuant cela, vous pourrez remarquer que les ressources et <acronym>CSS</acronym> du site Maven manquent.
       Lorsqu'un projet Maven personnalise le template du site, le plugin Maven Site s'attend que le projet fournisse toutes les images et <acronym>CSS</acronym>.
-      Pour rassembler les ressources de votre projet, le plus simple reste de les copier à partir du site Doxia utilisé par défaut.
+      Pour obtenir les ressources initiales pour le site de votre projet, le plus simple reste de les copier à partir du dépot Subversion du projet de modèle par défaut de Doxia.
       Cela peut se faire en exécutant les commandes suivantes :</para>
 
       <screen>$ <command>svn co \
@@ -814,10 +814,10 @@ $ <command>cp -rf \
       sample-project/src/site/resources</command>
 </screen>
 
-      <para>Récupérer le projet <varname>doxia-site-renderer</varname> et copiez toutes les ressources dans le répertoire <filename>src/site/resources</filename> de votre projet.</para>  
+      <para>Récupérez le projet <varname>doxia-site-renderer</varname> et copiez toutes ses ressources dans le répertoire <filename>src/site/resources</filename> de votre projet.</para>
       
-      <para>Lorsque vous regénérez un site, vous noterez également que certains éléments du menu ne posséderont pas de style CSS.
-      Cela est dû à une mauvaise intégration entre la <acronym>CSS</acronym> du site et votre template personnalisé.
+      <para>Lorsque vous regénérez un site, vous pouvez remarquer également que certains éléments du menu ne possédent pas de style <acronym>CSS</acronym>.
+      Cela est dû à une mauvaise intégration entre la <acronym>CSS</acronym> du site et votre modèle personnalisé.
       Pour corriger cela, modifiez votre fichier <filename>site.css</filename> pour changer la couleur de vos liens dans le menu en ajoutant les lignes suivantes :</para>
 
       <screen>li.collapsed, li.expanded, a:link {
@@ -826,10 +826,10 @@ $ <command>cp -rf \
 </screen>
 
       <para>Après avoir regénéré le site, la couleur du lien du menu devrait être réparée.
-      Si vous appliquez le nouveau template au projet <varname>sample-project</varname> de ce chapitre,
+      Si vous appliquez le nouveau modèle au projet <varname>sample-project</varname> de ce chapitre,
       vous noterez que le menu s'affiche maintenant sous la forme d'un arbre.
-      Un clic sur "Developer Resources" ne vous emmène plus sur la page du même nom; à la place, son sous-menu est affiché.   
-      Du coup, tant que vous l'avez pas modifié l'élément "Developer Resources" en un sous-menu dynamique,
+      Un clic sur "Developer Resources" ne vous emmène plus sur la page du même nom ; à la place, son sous-menu est affiché.
+      Du coup, suite à la modification de l'élément "Developer Resources" en un sous-menu dynamique,
       vous ne pouvez plus accéder à la page <filename>developer/index.apt</filename>.
       Le plus simple reste donc d'ajouter au sous-menu un élément "Overview" qui pointe sur cette même page :</para>
 
