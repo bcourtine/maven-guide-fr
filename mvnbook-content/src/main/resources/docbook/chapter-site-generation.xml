@@ -1018,7 +1018,7 @@ $ <command>mkdir src/main/resources</command>
       <para>Si vous travaillez sur un projet développé par une entreprise, vous voudrez probablement ajouter des liens en dessous du logo de votre projet.
       Supposons que votre projet appartienne à l'Apache Software Foundation. 
       Par exemple, vous voudrez ajouter un lien vers le site web officiel juste en dessous de votre logo, 
-      mais également un lien vers le site de votre projet parent.
+      mais également un lien vers le site de projet parent du votre.
       Pour ajouter des liens en dessous du logo d'un site, ajoutez une balise <sgmltag>links</sgmltag> à la balise <sgmltag>body</sgmltag> du descripteur de site.
       Ensuite, à chaque balise <sgmltag>item</sgmltag> correspond un lien dans la barre juste en dessous du logo du projet.      
       Dans l'exemple suivant, nous désirons créer un lien vers l'Apache Software Foundation et un lien vers le projet Apache Maven.</para>
@@ -1044,12 +1044,11 @@ $ <command>mkdir src/main/resources</command>
     <section id="site-generation-add-breadcumbs">
       <title>Ajouter un chemin de navigation à votre site</title>
 
-      <para>Si vos pages sont liées par une hiérarchie, vous voudrez probablement mettre en place un chemin de navigation
-      pour ajouter un contexte à vos utilisateurs et leur donner un moyen de naviguer facilement dans les pages et catégories parentes. 
+      <para>Si vos pages sont organisées hiérarchiquement, vous voudrez probablement mettre en place un chemin de navigation
+      que vos utilisateurs sachent dans quel contexte ils se trouvent et qu'ils puissent naviguer facilement dans les pages et les catégories.
       Pour configurer un chemin de navigation, ajoutez la balise <sgmltag>breadcrumbs</sgmltag> à la balise <sgmltag>body</sgmltag> dans votre descripteur de site.  
-      Ainsi, chaque balise <sgmltag>item</sgmltag> qu'elle contient affichera un lien dans le menu de navigation. 
-      Au fur et à mesure que l'on plonge dans la hiérarchie, le chemin se met à jour avec les différentes balises <sgmltag>item</sgmltag>.   
-      Les éléments du chemin de navigation sont affichés en fonction du niveau dans la hiérarchie de pages, du niveau le plus haut à celui le plus bas.
+      Ainsi, chaque balise <sgmltag>item</sgmltag> de ce chemin de fer affichera un lien en respectant l'ordre dans lequel ces balises ont été mises.
+      Les éléments du chemin de navigation doivent donc être ordonnés en fonction du niveau dans la hiérarchie de pages, du niveau le plus haut à celui le plus bas.
       Dans l'exemple suivant, dans le descripteur de site, l'élément Codehaus contiendra un élément Mojo.</para> 
 
       <para><example>
@@ -1071,9 +1070,9 @@ $ <command>mkdir src/main/resources</command>
     </section>
 
     <section id="site-generation-sect-add-project-version">
-      <title>Ajoutez la version de votre projet</title>
+      <title>Ajouter la version de votre projet</title>
 
-      <para>Lorsque vous documentez un projet qui propose plusieurs versions, c'est souvent important de lister les versions du projet sur toutes les pages du site.
+      <para>Lorsque vous documentez un projet qui propose plusieurs versions, c'est souvent important de mettre la version du projet sur chacune des pages du site.
       Pour afficher la version de votre projet sur le site web, ajoutez simplement la balise <sgmltag>version</sgmltag> à votre descripteur de site :</para> 
 
       <para><example>
@@ -1089,7 +1088,7 @@ $ <command>mkdir src/main/resources</command>
 
       <para>Ce morceau de code XML permet d'afficher la version 
       (dans le cas du projet <varname>sample-project</varname>, on affichera "Version: 1.0-SNAPSHOT")
-      dans le coin haut-gauche de votre site, juste à côté de la dernière date de publication.
+      dans le coin en haut à gauche de votre site, juste à côté de la dernière date de publication.
       Il est possible d'afficher la version de votre projet aux positions suivantes :</para>      
 
       <variablelist>
@@ -1129,16 +1128,16 @@ $ <command>mkdir src/main/resources</command>
           <term>none</term>
 
           <listitem>
-            <para>Supprime complétement l'affichage de la version</para>
+            <para>Masque complétement la version</para>
           </listitem>
         </varlistentry>
       </variablelist>
     </section>
 
     <section id="site-generation-sect-mod-pubdate">
-      <title>Modifier le Format et l'Emplacement de la Date de Publication</title>
+      <title>Modifier le format et l'emplacement de la date de publication</title>
 
-      <para>Vous voudrez peut-être modifier le format ou repositionner la date "Last Published" affiché sur votre projet.
+      <para>Vous voudrez peut-être modifier le format ou repositionner l'affichage de la date de publication "Last Published" sur le site de votre projet.
       Comme nous venons de le faire pour la version dans l'astuce précédente, 
       vous pouvez choisir l'emplacement de la date de publication en utilisant l'une de ces positions :</para>
 
@@ -1185,7 +1184,7 @@ $ <command>mkdir src/main/resources</command>
       </variablelist>
 
       <para><example>
-          <title>Positionner la Date de Publication</title>
+          <title>Positionner la date de publication</title>
 
           <programlisting language="xml">&lt;project name="Sample Project"&gt;
   ...
@@ -1195,7 +1194,7 @@ $ <command>mkdir src/main/resources</command>
 </programlisting>
         </example></para>
 
-      <para>Par défaut, la date de publication sera affichée au format <varname>MM/dd/yyyy</varname>.
+      <para>Par défaut, la date de publication sera affichée selon le format <varname>MM/dd/yyyy</varname>.
       Il est possible de modifier celui-ci en utilisant la notation standard présentée dans la Javadoc de la classe <classname>java.text.SimpleDateFormat</classname>
       (pour plus d'informations, consultez la Javadoc de la classe <ulink url="http://java.sun.com/j2se/1.5.0/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</ulink>)   
       Par exemple, pour modifier le format de la date pour qu'il utilise le masque <varname>yyyy-MM-dd</varname>, utilisez la balise <sgmltag>publishDate</sgmltag> suivante.</para>       
@@ -1213,15 +1212,15 @@ $ <command>mkdir src/main/resources</command>
     </section>
 
     <section id="site-generation-sect-doxia-macros">
-      <title>Utilisez des macros Doxia</title>
+      <title>Utiliser des macros Doxia</title>
 
-      <para>En plus de ces fonctionnalités avancées de templating, Doxia fournit également un moteur de macros.
-      Celui-ci permet de déclender l'injection de contenu dynamique pour chaque entrée.
-      Prenons un exemple pour illuster l'utilisation de ce moteur, la macro <varname>snipet</varname>. 
-      Cette macro vous permet d'injecter un extrait de code dans le source d'un fichier disponible via <acronym>HTTP</acronym>.
+      <para>En plus de ces fonctionnalités avancées de rendu, Doxia fournit également un moteur de macros.
+      Celui-ci permet de déclencher l'injection de contenu dynamique pour chaque entrée.
+      Prenons un exemple pour illuster l'utilisation de ce moteur, la macro <varname>snipet</varname> qui
+      permet à un document de récupérer un  extrait de code depuis un fichier disponible via <acronym>HTTP</acronym>.
       En utilisant cette macro, un petit morceau d'<acronym>APT</acronym> peut etre transformé en <acronym>XHTML</acronym>. 
       Le morceau de code <acronym>APT</acronym> suivant appelle la macro <varname>snipet</varname>.
-      Notez que ce code doit rester sur une seule ligne, un antislash peut tout de même être inséré pour faire des retours à la ligne lors de son affichage.</para>   
+      Notez que ce code doit être sur une seule ligne, un antislash peut tout de même être inséré pour faire des retours à la ligne lors de son affichage.</para>
 
       <screen>%{snippet|id=modello-model|url=http://svn.apache.org/repos/asf/maven/\
 archetype/trunk/maven-archetype/maven-archetype-model/src/main/\
@@ -1229,7 +1228,7 @@ mdo/archetype.mdo}
 </screen>
 
       <para><example>
-          <title>Sortie du la macro snippet en XHTML</title>
+          <title>Résultat de la macro snippet en XHTML</title>
 
           <programlisting language="xml">&lt;div class="source"&gt;&lt;pre&gt;
 
@@ -1267,13 +1266,13 @@ mdo/archetype.mdo}
         </example></para>
 
       <warning>
-        <para>Les macros Doxia NE PEUVENT PAS être utilisées dans des documents <acronym>APT</acronym>. 
-        Dans le cas contraire, le parseur <acronym>APT</acronym> ignorera celles-ci.</para>
+        <para>Les macros Doxia NE DOIVENT PAS être indentées dans les documents <acronym>APT</acronym>.
+        Si vous le faites, le parseur <acronym>APT</acronym> ignorera ces macros complètement.</para>
 
       </warning>
 
       <para>Pour plus d'information sur l'utilisation de la macro <varname>snipet</varname>,
-      référez-vous au Guide de cette macro sur le Site Maven à l'adresse suivante <ulink
+      référez-vous au guide de cette macro sur le Site Maven à l'adresse suivante <ulink
       url="http://maven.apache.org/guides/mini/guide-snippet-macro.html">http://maven.apache.org/guides/mini/guide-snippet-macro.html</ulink>.</para>
 
     </section>
