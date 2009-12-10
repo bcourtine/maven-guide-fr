@@ -19,18 +19,18 @@
     vous n'avez pas vu beaucoup d'exemples de code portant sur la personnalisation de Maven.
     En fait, vous n'en avez pas vu du tout. 
     Maven a été pensé pour que 99% de ses utilisateurs n'aient jamais besoin d'écrire le moindre plugin pour personnaliser Maven.
-    En effet, il existe bon nombre de plugins existants et ceux-ci peuvent être configurés pour répondre à la majorité des exigences, 
+    En effet, il existe de nombre de plugins et ceux-ci peuvent être configurés pour répondre à la grande majorité des cas, 
     vous n'aurez donc probablement pas besoin d'écrire de plugins.  
     Cela dit, si votre projet comporte des demandes très spécifiques qui vous obligent à personnaliser le comportement de Maven, 
     vous pouvez alors vous lancer dans la création d'un plugin.
-    Modifier le code du cœur de Maven est aussi peu connu des développeurs que de modifier la stack TCP/IP d'un système d'exploitation,
-    c'est du moins ce que pensent la majorité des utilisateurs.</para>    
+    Modifier le code du cœur de Maven est considéré comme hors de leur portée par la plupart des développeurs, comme
+    s'il s'agissait de modifier la pile TCP/IP d'un système d'exploitation.</para>
 
-    <para>Avant de commencer à écrire votre plugin, vous devez en apprendre un peu plus sur les entrailles de Maven.  
-    Comment gère t-il des composants logiciels ? Qu'est-ce qu'un Plugin ? Comment puis-je personnaliser un cycle de vie ?
+    <para>Avant de commencer à écrire votre plugin, vous devez en apprendre un peu plus sur les entrailles de Maven : 
+    Comment gère t-il les composants logiciels ? Qu'est-ce qu'un plugin ? Comment puis-je personnaliser un cycle de vie ?
     Cette section répond à certaines de ces questions et introduit les concepts clés du cœur de Maven.  
-    Apprendre à écrire un plugin Maven est le moyen le plus simple pour personnaliser Maven.
-    Si vous vous demandiez par où démarrer pour comprendre le code de Maven, vous avez trouvé la bonne ligne de départ.</para>
+    Apprendre à écrire un plugin Maven est le moyen le plus simple de personnaliser Maven.
+    Si vous vous demandiez par où démarrer pour comprendre le code de Maven, vous avez trouvé le bon point de départ.</para>
 
     <section id="writing-plugins-ioc">
       <title>Qu'est ce que l'inversion de contrôle ?</title>
@@ -38,37 +38,37 @@
       <para>Le cœur de Maven est basé sur un  conteneur d'inversion de contrôle (<acronym>IoC</acronym>) nommé Plexus. 
       Que fait-il ? Il s'agit d'un système de gestion des relations entre composants. 
       Bien qu'il existe un livre dédié sur l'<acronym>IoC</acronym> écrit par Martin Fowler, 
-      le concept et le terme ont été si lourdement surchargés au cours des dernières années 
-      qu'il en devient difficile de trouver une bonne définition de la notion sans que ça soit une auto-référence.
-      Au lieu de recourir à une citation Wikipédia, nous allons résumer l'inversion de contrôle et l'ingection de dépendances par l'intermédiaire d'une analogie.</para>
+      le concept et le terme ont été si souvent utilisés à bon et à mauvais escient ces dernières années
+      qu'il devient difficile de trouver une bonne définition de cette notion sans que s'agisse d'une auto-référence.
+      Au lieu de recourir à une citation Wikipédia, nous allons résumer l'inversion de contrôle et l'injection de dépendances par l'intermédiaire d'une analogie.</para>
 
-      <para>Supposons que vous devez connecter une série de composants hi-fi ensemble  
+      <para>Supposons que vous devez connecter une série de composants hi-fi ensemble.
       Imaginez donc plusieurs composants stéréo branchés à une Playstation 3 et un TiVo qui doivent s'interfacer à la fois avec un boîtier Apple TV et à une télévision LCD 50 pouces.
       Vous venez de ramener tout ce matériel d'un magasin d'électronique à la maison et vous avez acheté les câbles pour connecter tout cela.
-      Vous déballez donc l'ensemble de ces éléments, vous les installez à leur bonne endroit, 
-      puis vous commencez à accrocher les cinquante mille câbles coaxiaux et prises stéréo à cinquante mille entrées numériques.       
+      Vous déballez donc l'ensemble de ces éléments, vous les installez chacun à leur place,
+      puis vous commencez à brancher les milliers de câbles coaxiaux et de prises stéréo aux milliers d'entrées numériques et analogiques.
       Éloignez-vous de votre Home cinéma et allumez la télé, vous venez de réaliser de l'injection de dépendances, et vous étiez vous-même un conteneur d'inversion de contrôle.</para>       
 
       <para>Quel est le rapport avec tout ça ? Transposons cette analogie en Java.
-      Votre Playstation 3 et votre bean Java fournissent tous les deux une interface.
-      La Playstation 3 à deux entrées : l'alimentation et la fiche réseau, et une sortie vers la TV.
-      Votre bean Java possède trois propriétés : <varname>power</varname>, <varname>network</varname> et <varname>tvOutput</varname>.
-      Quand vous ouvrez la boîte de votre Playstation 3, le manuel ne vous décrit pas en détail comment la connecter à tous les différents types de téléviseurs. 
-      De même, votre bean Java fournit une liste de propriétés sans pour autant expliquer une recette explicite pour créer et gérer un système complet de composants.         
-      Dans un conteneur d'<acronym>IoC</acronym> comme Plexus, il vous incombe de déclarer les relations entre les composants en vous contentant de fournir une interface d'entrée et de sortie.
-      Vous n'instanciez pas d'objets, Plexus s'en charge. Le code de votre application n'est pas responsable de la gestion des états des composants, contrairement à Plexus. 
+      Votre Playstation 3 comme votre Java Bean fournissent tous les deux une interface.
+      La Playstation 3 à deux entrées : l'alimentation et la prise réseau, et une sortie vers la TV.
+      Votre Java Bean possède trois propriétés : <varname>power</varname>, <varname>network</varname> et <varname>tvOutput</varname>.
+      Quand vous ouvrez la boîte de votre Playstation 3, le manuel ne vous décrit pas en détail comment la connecter à tous les types de téléviseurs. 
+      De même, votre bean Java fournit une liste de propriétés sans pour autant vous donner une recette explicite pour créer et gérer un système complet de composants.
+      Dans un conteneur d'<acronym>IoC</acronym> tel que Plexus, il vous incombe de déclarer les relations dans un ensemble de composants qui fournit une interface d'entrée et de sortie.
+      Vous n'instanciez pas d'objets, Plexus s'en charge. Le code de votre application n'est pas responsable de la gestion des états des composants, c'est le rôle de Plexus.
       Lorsque vous démarrez Maven, Plexus est démarré pour gérer un système d'éléments connexes, comme votre système stéréo.</para>
 
       <para>Quels sont les avantages apportés par l'utilisation d'un conteneur <acronym>IoC</acronym> ?
       Quel est l'avantage d'acheter des composants stéréo distincts ?
       Si l'un des composants se casse, vous pouvez le remplacer sans avoir à dépenser les 15 000 € nécessaires pour remplacer l'ensemble de votre système.
-      Si votre téléviseur vous lâche, vous pouvez la remplacer sans que cela n'affecte le lecteur CD.
-      Et le plus important pour vous, vos composants de votre chaîne hi-fi coûtent moins chers et sont plus fiables 
-      car les fabricants peuvent se contenter de construire des composants en s'appuyant un ensemble d'entrées et sorties connues. 
+      Si votre téléviseur vous lâche, vous pouvez le remplacer sans que cela n'affecte le lecteur CD.
+      Et le plus important pour vous, les composants de votre chaîne hi-fi coûtent moins chers et sont plus fiables
+      car les fabricants peuvent se contenter de construire des composants en s'appuyant un ensemble d'entrées et de sorties connues.
       Les conteneurs d'inversion de contrôle et d'injection de dépendances encouragent donc la catégorisation et l'émergence de standards.
       L'industrie du logiciel aime s'imaginer comme source de toutes les nouvelles idées, 
-      mais l'injection de dépendances et de l'inversion de contrôle ne sont réellement que des nouveaux mots pour définir des concepts bien connus : la catégorisation et le remplacement de machines.      
-      Si vous voulez en savoir plus sur l'<acronym>IoC</acronym> et l'injection de dépendances, vous pouvez vous renseigner sur le modèle T, le gin de coton ou l'émergence d'un standard pour le chemin de fer au 19ème siècle.</para>
+      mais l'injection de dépendances et l'inversion de contrôle ne sont réellement que de nouveaux mots pour définir des concepts bien connus : la standardisation et l'interchangabilité des apppareils.
+      Si vous voulez en savoir plus sur l'<acronym>IoC</acronym> et l'injection de dépendances, vous pouvez vous renseigner sur la Ford T, le Cotton Gin ou l'émergence d'un standard pour le chemin de fer au 19ème siècle.</para>
     </section>
 
     <section id="writing-plugins-intro-plexus">
