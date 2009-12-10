@@ -916,15 +916,15 @@ $ <command>mkdir src/main/resources</command>
       <para>Ensuite, écrivons une <acronym>CSS</acronym> personnalisée pour notre skin.
       Celle-ci doit se trouver à l'emplacement suivant : <filename>src/main/resources/css/maven-theme.css</filename>.
       Contrairement au fichier <filename>site.css</filename> qui se retrouvera au cœur des sources du projet, 
-      le fichier <filename>maven-theme.css</filename> sera empaqueté dans un <acronym>JAR</acronym> stocké dans votre dépôt local. 
-      Pour que ce fichier soit inclus dans le <acronym>JAR</acronym> du skin,
+      le fichier <filename>maven-theme.css</filename> sera empaqueté dans un <acronym>JAR</acronym> installé dans votre dépôt local.
+      Pour que ce fichier soit inclus dans le <acronym>JAR</acronym> de la skin,
       il doit se trouver dans le répertoire principal des ressources du projet : <filename>src/main/resources</filename>.</para>
 
-      <para>Comme avec le template par défaut, démarrez votre skin en personnalisant la <acronym>CSS</acronym> existante est un bon point de départ.
-      Copiez donc cette <acronym>CSS</acronym> du skin par défaut dans le fichier <filename>maven-theme.css</filename> de votre projet.  
+      <para>Comme pour la personnalisation du modèle, commencer en personnalisant la <acronym>CSS</acronym> existante est une bonne idée.
+      Copiez donc cette <acronym>CSS</acronym> de la skin par défaut dans le fichier <filename>maven-theme.css</filename> de votre projet.
       Pour récupérer une copie de ce fichier, enregistrez le contenu du fichier <ulink
       url="http://svn.apache.org/viewvc/maven/skins/trunk/maven-default-skin/src/main/resources/css/maven-theme.css?view=co">maven-theme.css</ulink>
-      dans votre répertoire <filename>src/main/resources/css/</filename> de votre projet skin.</para> 
+      dans le répertoire <filename>src/main/resources/css/</filename> de votre projet skin.</para>
 
       <para>Une fois ce fichier récupéré, personnalisez-le en utilisant la <acronym>CSS</acronym> de votre ancien fichier <filename>site.css</filename>.
       Remplacez le bloc <varname>#navcolumn h5</varname> par le code ci-dessous :</para>       
@@ -941,7 +941,7 @@ $ <command>mkdir src/main/resources</command>
 }
 </screen>
 
-      <para>Ceci effectué, construisez l'artefact de votre projet <varname>sample-site-skin</varname> et installez le <acronym>JAR</acronym> produit dans votre dépôt local.
+      <para>Ceci fait, construisez l'artefact de votre projet <varname>sample-site-skin</varname> et installez le <acronym>JAR</acronym> produit dans votre dépôt local.
       Pour cela, exécutez la commande suivante :</para>  
       
       <screen>$ mvn clean install
@@ -949,17 +949,17 @@ $ <command>mkdir src/main/resources</command>
 
       <para>Revenez ensuite dans le répertoire du projet <filename>sample-project</filename>.
       Si vous avez déjà personnalisé le fichier <filename>site.css</filename> en début de ce chapitre, 
-      renommez-le en <filename>site.css.bak</filename> plus ne plus qu'il soit utilisé par le plugin Maven Site :</para> 
+      renommez-le en <filename>site.css.bak</filename> pour qu'il ne soit pas utilisé par le plugin Maven Site :</para>
       
       <screen>$ mv src/site/resources/css/site.css src/site/resources/css/site.css.bak
 </screen>
 
-      <para>Pour utilisez votre skin <varname>sample-site-skin</varname> dans le site du projet <varname>sample-project</varname>,
+      <para>Pour utiliser votre skin <varname>sample-site-skin</varname> dans le site du projet <varname>sample-project</varname>,
       ajoutez la référence à cet artefact (<varname>sample-site-skin</varname>) dans le descripteur de site de votre projet (<varname>sample-project</varname>).        
       Pour référencer une skin dans votre site, utilisez la balise du même nom :</para>
 
       <para><example>
-          <title>Configurer un skin personnalisé dans le descripteur de site</title>
+          <title>Configurer une skin personnalisée dans le descripteur de site</title>
 
           <programlisting language="xml">&lt;project name="Sample Project"&gt;
   ...
@@ -972,10 +972,10 @@ $ <command>mkdir src/main/resources</command>
 </programlisting>
         </example></para>
 
-      <para>Vous pouvez comparer le skin de votre site à une dépendance.
-      Les skins sont par un <varname>groupId</varname> et un <varname>artifactId</varname> comme n'importe quel artefact.
-      Utiliser un skin pour votre site vous permet de consolider les personnalisations d'un projet
-      pour réutiliser ses <acronym>CSS</acronym> et template aussi facilement que n'importe quel autre artefact.</para>  
+      <para>Vous pouvez considérer la skin de votre site comme une dépendance.
+      Les skins ont un <varname>groupId</varname> et un <varname>artifactId</varname> comme n'importe quel artefact.
+      Utiliser une skin pour votre site vous permet de consolider les personnalisations d'un projet
+      pour réutiliser les <acronym>CSS</acronym> et modèles aussi facilement que pour n'importe quel autre artefact.</para>
 
     </section>
   </section>
