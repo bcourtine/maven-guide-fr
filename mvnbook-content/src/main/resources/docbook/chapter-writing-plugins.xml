@@ -184,20 +184,20 @@
   <section id="writing-plugins-sect-plugin-descriptor">
     <title>Descripteur de Plugin</title>
 
-    <para>Un plugin Maven contient une 'carte' qui permet Maven s'y retrouver dans les Mojos et la configuration de celui-ci. 
-    Ce descripteur de plugin se trouve dans le fichier <acronym>JAR</acronym> du plugin à l'emplacement <filename>META-INF/maven/plugin.xml</filename>. 
-    Quand Maven charge un plugin, il commence par lire ce fichier <acronym>XML</acronym> puis instancie et configure les objets du plugin pour rendre les Mojos disponibles.</para>
+    <para>Un plugin Maven contient une 'carte' qui indique à Maven les différents Mojos et donne leur configuration.
+    Ce descripteur de plugin se trouve dans le fichier <acronym>JAR</acronym> du plugin, à l'emplacement <filename>META-INF/maven/plugin.xml</filename>.
+    Quand Maven charge un plugin, il commence par lire ce fichier <acronym>XML</acronym> puis instancie et configure les objets du plugin pour en rendre les Mojos disponibles.</para>
 
     <para>Lorsque vous écrivez des plugins Maven, nous n'avez quasiment jamais besoin de vous soucier du descripteur.
     Dans le <xref linkend="lifecycle" />,
-    les goals du lifecycle rattachés au type de packaging <varname>maven-plugin</varname>
+    les goals du cycle de vie rattachés au type de packaging <varname>maven-plugin</varname>
     montrent que le goal <varname>plugin:descriptor</varname> est rattaché à la phase <varname>generate-resources</varname>. 
     Ce goal génère un descripteur de plugin à partir de annotations présentes dans le code source du plugin.     
-    Dans la suite du chapitre, nous verrons comment les Mojos sont annotés ainsi que les impacts (de ces annotations) sur le fichier <filename>META-INF/maven/plugin.xml</filename>.</para>    
+    Dans la suite du chapitre, nous verrons comment les Mojos sont annotés et comment le contenu de ces annotations se retrouve dans le fichier <filename>META-INF/maven/plugin.xml</filename>.</para>    
 
-    <para>L'<xref linkend="ex-plugin-desc" /> montre le descripteur de plugin du plugin Maven Zip. 
-    Comme son nom l'indique, ce plugin permet d'effectuer des Zips à partir du répertoire de sortie.
-    Normalement, vous ne devriez jamais à avoir écrire votre propre plugin pour effectuer des archives avec Maven.
+    <para>L'<xref linkend="ex-plugin-desc" /> montre le descripteur du plugin Maven Zip. 
+    Comme son nom l'indique, ce plugin permet de construire des archives Zips à partir des résultats du build.
+    Normalement, vous ne devriez jamais à avoir écrire votre propre plugin pour construire des archives avec Maven.
     Utilisez simplement le plugin Maven Assembly, il est capable de produire des archives dans de multiples formats. 
     Regardez le descripteur de site suivant, cela vous donnera une idée de ce genre de fichier.</para>
 
