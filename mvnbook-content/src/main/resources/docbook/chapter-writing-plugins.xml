@@ -80,36 +80,36 @@
       En utilisant l'injection de dépendances dans une application utilisant la programmation par interface, 
       vous pouvez créer des composants qui n'ont aucune liaison particulière avec les différentes implémentations de vos services. 
       Bien que votre code utilise des interfaces, 
-      vous pouvez capturer les dépendances entre les classes et les composants dans un fichier <acronym>XML</acronym> qui définit les composants, 
+      vous pouvez décrire les dépendances entre les classes et les composants dans un fichier <acronym>XML</acronym> qui définit les composants,
       les classes d'implémentation et les relations entre vos composants.
-      En d'autres termes, vous pouvez écrire des composants isolés et déléguer la définition de leurs liaisons en utilisant un fichier <acronym>XML</acronym>. 
+      En d'autres termes, vous pouvez écrire des composants isolés et les lier entre eux en utilisant un fichier <acronym>XML</acronym>.
       Dans Plexus, les différents composants d'un système sont définis par un document <acronym>XML</acronym> qui se trouve dans
       <filename>META-INF/plexus/components.xml</filename>.</para>
       
-      <para>Dans un conteneur Java <acronym>IoC</acronym>, il existe plusieurs moyens d'injecter des dépendances dans un objet : injection par constructeur, setter ou propriétés. 
+      <para>Dans un conteneur Java <acronym>IoC</acronym>, il existe plusieurs moyens d'injecter des dépendances dans un objet : injection par constructeur, accesseur ou propriété.
       Bien que Plexus soit capable d'utiliser ces trois techniques d'injection de dépendances, Maven en utilise seulement deux :
-      l'injection par propriété et par setter.</para>
+      l'injection par propriété et par accesseur.</para>
 
       <variablelist>
         <varlistentry>
           <term>Injection par constructeur</term>
 
           <listitem>
-            <para>L'injection par constructeur permet de populer des objets à la création de l'objet.
+            <para>L'injection par constructeur permet de fournir des objets nécessaires lors de la création de l'objet.
             Par exemple, si vous avec un objet du type <classname>Person</classname> 
             qui possède un constructeur <methodname>Person(String name, Job job)</methodname>, 
-            vous pouvez y passer deux valeurs, soit deux dépendances.</para>
+            vous pouvez lui passer ainsi deux valeurs, donc deux dépendances.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>Injection par setter</term>
+          <term>Injection par accesseur</term>
 
           <listitem>
-            <para>Ce type d'injection utilise les setters des propriétés des beans Java pour populer ses dépendances. 
+            <para>Ce type d'injection utilise les accesseurs des propriétés des Java Beans pour remplir ses dépendances.
             Par exemple, si vous avec un objet du type <classname>Person</classname> 
             qui possède deux propriétés <varname>name</varname> et <varname>job</varname>,
-            un conteneur <acronym>IoC</acronym> utilisant l'injection par setter créera une instance de la classe <classname>Person</classname>
+            un conteneur <acronym>IoC</acronym> utilisant l'injection par accesseur créera une instance de la classe <classname>Person</classname>
             en utilisant le constructeur par défaut et appellera ensuite les méthodes 
             <methodname>setName()</methodname> et <methodname>setJob()</methodname>.</para>
           </listitem>
@@ -119,11 +119,11 @@
           <term>Injection par propriété</term>
 
           <listitem>
-            <para>Les deux types d'injection précédents se basent sur l'appel de méthodes et constructeur publics.
-            En utilisant l'injection par propriétés, un conteneur <acronym>IoC</acronym> peut populer les dépendances de composants
-            en utilisant directement les propriétés.
+            <para>Les deux types d'injection précédents se basent sur l'appel de méthodes et constructeurs publics.
+            En utilisant l'injection par propriété, un conteneur <acronym>IoC</acronym> peut remplir les dépendances d'un composant
+            en utilisant directement ses propriétés.
             Par exemple, si vous avec un objet du type <classname>Person</classname> qui contient deux propriétés <varname>name</varname> et <varname>job</varname>, 
-            votre conteneur <acronym>IoC</acronym> utilisera ces champs directement pour populer les dépendances 
+            votre conteneur <acronym>IoC</acronym> utilisera ces champs directement pour remplir les dépendances
             (i.e. <code>person.name = "Thomas"; person.job = job;</code>)</para>
           </listitem>
         </varlistentry>
@@ -134,23 +134,25 @@
       <title>Pourquoi Plexus ?</title>
 
       <para>Spring est le conteneur <acronym>IoC</acronym> le plus populaire du moment.
-      Il a un bon argument à faire valoir, il a affecté "l'écosystème Java" en forçant les entreprises comme Sun Microsystems
-      à donner plus contrôle à la communauté open source.
-      Mais Spring n'est pas le seul conteneur <acronym>IoC</acronym> open source, il en existe de plusieurs 
+      Il a de bons arguments à faire valoir : il a affecté "l'écosystème Java" en forçant les entreprises comme Sun Microsystems
+      à donner plus contrôle à la communauté open source et en permettant d'ouvrir les standards par son "bus" orienté composant sur lequel on vient se brancher.
+      Mais Spring n'est pas le seul conteneur <acronym>IoC</acronym> open source, il en existe d'autres 
       (comme <ulink url="http://www.picocontainer.org/">PicoContainer</ulink>).</para>
 
       <para>Il y a des années, quand Maven a été créé, Spring n'était pas si mature.
-      L'équipe initiale des commiters Maven étaient plus familier avec un autre conteneur <acronym>IoC</acronym> : Plexus, qu'ils avaient d'ailleurs inventé.
-      Ils sont donc partis sur ce choix.
+      L'équipe initiale des développeurs Maven connaissait bien le conteneur Plexus, qu'elle avait d'ailleurs inventé, et donc c'est ce dernier qu'elle choisit.
       S'il n'est pas aussi populaire que Spring, il en est pas pour autant moins efficace.
-      Comme Plexus a été créé par les commiters initaux de Maven, il répond parfaitement à ses besoins.
-      Après la lecture de ce chapitre, vous en connaîtrez plus sur le fonctionnement de Plexus. 
+      Comme Plexus a été créé par la même personne que celle qui est à l'origine de Maven, il répond parfaitement à ses besoins.
+      Après la lecture de ce chapitre, vous en saurez plus sur le fonctionnement de Plexus.
       Si vous avez déjà utilisé un conteneur <acronym>IoC</acronym>, vous pourrez noter les similarités et les différences de ce conteneur.</para>
 
       <note>
         <para>Si Maven est basé sur Plexus, cela ne veut pas dire que la communauté Maven est "anti-Spring"
         (nous avons d'ailleurs consacré un chapitre complet à Spring dans cet ouvrage).
-        La question "pourquoi vous n'avez pas utilisé Spring ?" revient assez souvent pour que nous effectuons cet aparté.</para>
+        La question "Pourquoi vous n'avez pas utilisé Spring ?" revient assez souvent pour que nous effectuons cet aparté.
+        Nous le savons, Spring est la star, et c'est mérité. Cependant, nous avons une tâche dans notre
+        liste qui consiste à introduire (et documenter) Plexus auprès des développeurs : dans
+        l'industrie logicielle c'est toujours bien d'avoir le choix.</para>
       </note>
     </section>
 
@@ -161,11 +163,17 @@
       Un Mojo peut se comparer à un goal Maven, d'ailleurs derrière chaque goal se cache un Mojo.
       Au goal <varname>compiler:compile</varname> correspond la classe <classname>CompilerMojo</classname> dans le plugin Maven Compiler, 
       le goal <varname>jar:jar</varname> correspond à la classe <classname>JarMojo</classname> du plugin Maven Jar...
-      Losque vous écrivez votre propre plugin, vous regroupez un ensemble de Mojos (ou goals) dans un unique artefact.</para>
+      Lorsque vous écrivez votre propre plugin, vous regroupez un ensemble de Mojos (ou goals) dans un seul artefact.<footnote
+          id="foot-mojo-def">
+          <para>"mojo." The American Heritage® Dictionary of the English
+          Language, Fourth Edition. Houghton Mifflin Company, 2004.
+          Answers.com 02 Mar. 2008. <ulink
+          url="http://www.answers.com/topic/mojo-1">http://www.answers.com/topic/mojo-1</ulink></para>
+        </footnote></para>
 
       <note>
         <para>Mojo ? Qu'est-ce qu'un Mojo ? Le mot mojo définit dans le dictionnaire par plusieurs définitions comme un "charme magique ou un sort", 
-        une "amulette, souvent dans un sac en flanelle de faible capacité contenant un ou plusieurs objets magiques" et du "magnétisme personnel, charme".
+        une "amulette, souvent dans un petit sac de flanelle contenant un ou plusieurs objets magiques" et du "magnétisme personnel, charme".
         Maven utilise le terme Mojo comme jeu de mots autour du terme Pojo (Plain-old Java Object), un Pojo Maven est donc appelé Mojo.</para> 
       </note>
 
