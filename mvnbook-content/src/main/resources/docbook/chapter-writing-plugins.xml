@@ -637,7 +637,7 @@
 
       <para>Dans ce chapitre, nous allons vous présenter comment écrire des Mojos en Java.
       Chaque Mojo de votre projet doit implémenter l'interface <classname>org.apache.maven.plugin.Mojo</classname>,
-      l'exemple suivant présente la classe <classname>Mojo</classname> qui implémente cette interface <classname>Mojo</classname> par l'intermédiaire de la classe <classname>org.apache.maven.plugin.AbstractMojo</classname>.   
+      l'exemple suivant présente une classe <classname>Mojo</classname> qui implémente cette interface <classname>Mojo</classname> par l'intermédiaire de la classe <classname>org.apache.maven.plugin.AbstractMojo</classname>.
       Avant de rentrer dans le code de ce Mojo, commençons par regarder les méthodes de l'interface <classname>Mojo</classname> :</para>
 
       <variablelist>
@@ -648,7 +648,7 @@
           <listitem>
             <para>Chaque implémentation de <classname>Mojo</classname> doit fournir un moyen de communiquer son avancement.
             L'exécution du goal a t-elle réussi ? Ou, au contraire, une erreur est-elle survenue durant l'exécution du goal ?
-            Lorsque Maven charge et exécute un Mojo, il appelle la méthode <methodname>setLog()</methodname> et fournit ainsi une instance de logger à utiliser dans le plugin.</para>    
+            Lorsque Maven charge et exécute un Mojo, il appelle la méthode <methodname>setLog()</methodname> et passe ainsi au plugin ainsi un journal pour y écrire ses traces.</para>
           </listitem>
         </varlistentry>
 
@@ -657,7 +657,7 @@
 
           <listitem>
             <para>Comme nous venons de voir, Maven appelle la méthode <methodname>setLog()</methodname> avant d'exécuter votre <classname>Mojo</classname>,  
-            votre <classname>Mojo</classname> peut donc récupérer le logger injecté par l'intermédiaire de la méthode <methodname>getLog()</methodname>.
+            celui-ci peut donc récupérer le journal injecté par l'intermédiaire de la méthode <methodname>getLog()</methodname>.
             Au lieu d'afficher l'avancement sur la sortie standard ou dans la console, il est préférable d'utiliser les méthodes de l'objet <classname>Log</classname>.</para>  
           </listitem>
         </varlistentry>
@@ -667,16 +667,16 @@
           org.apache.maven.plugin.MojoExecutionException</methodname></term>
 
           <listitem>
-            <para>Cette méthode est appelée par Maven lors de l'exécution du goal.</para> 
+            <para>Cette méthode est appelée par Maven au moment de lancer l'exécution du goal.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
       <para>L'interface <classname>Mojo</classname> est responsable de deux choses : 
-      afficher le résultat de l'exécution d'un goal et l'exécuter.
+      exécuter un goal et en tracer les résultats.
       Lorsque vous écrivez un plugin, vous pouvez faire hériter vos Mojos de la classe <classname>AbstractMojo</classname>. 
       <classname>AbstractMojo</classname> implémente les méthodes <varname>setLog()</varname> et <varname>getLog()</varname>.
-      Reste à implémenter la méthode <methodname>execute()</methodname>qui est déclarée comme abstraite dans cette classe mère.  
+      Il vous reste donc à implémenter la méthode <methodname>execute()</methodname> qui est déclarée comme abstraite dans cette classe mère.
       L'<xref linkend="ex-simple-echomojo" /> présente une implémentation simple d'un <classname>Mojo</classname> qui se contente d'afficher un message dans la console.</para> 
 
       <example id="ex-simple-echomojo">
@@ -710,7 +710,7 @@ public class EchoMojo extends AbstractMojo
 </programlisting>
       </example>
 
-      <para>Si vous créez ce Mojo dans un <varname>\${basedir}</varname> sous <filename>src/main/java</filename> à l'emplacement 
+      <para>Si vous créez ce Mojo dans le répertoire <varname>\${basedir}</varname> sous <filename>src/main/java</filename> à l'emplacement
       <filename>org/sonatype/mavenbook/mojo/EchoMojo.java</filename> dans le projet créé précédemment et que vous exécutez la commande <command>mvn install</command>,  
       vous devriez être capable d'appeler votre directement goal à partir de la ligne de commande :</para>
 
@@ -723,7 +723,7 @@ public class EchoMojo extends AbstractMojo
       <screen>$ <command>mvn org.sonatype.mavenbook.plugins:first-maven-plugin:1.0-SNAPSHOT:echo \
              -Decho.message="The Eagle has Landed"</command></screen>
 
-      <para>Cette ligne de commande exécute le goal  <classname>EchoMojo</classname> et affiche le message "The Eagle has Landed".</para>
+      <para>Cette ligne de commande exécute le goal <classname>EchoMojo</classname> et affiche le message "The Eagle has Landed".</para>
 
     </section>
 
