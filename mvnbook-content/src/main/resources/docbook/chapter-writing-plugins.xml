@@ -574,14 +574,14 @@
     <title>Écrire un plugin personnalisé</title>
 
     <para>Pour écrire un plugin, vous devez créer un ou plusieurs Mojo (goal).
-    Chaque Mojo est représentée par une classe Java qui contient des annotations pour indiquer à Maven générer le descripteur de plugin.
+    Chaque Mojo est représenté par une classe Java qui contient des annotations pour indiquer à Maven comment générer le descripteur de plugin.
     Avant de commencer à écrire vos classes Mojo, vous devez commencer par créer un projet Maven avec le type de packaging approprié.</para>   
 
     <section id="writing-plugins-sect-creating-plugin-project">
       <title>Création d'un projet Plugin</title>
 
       <para>Pour créer un projet Plugin, vous pouvez utiliser le plugin Maven Archetype.
-      La ligne de commande suivante se chargera de générer un projet possédant <varname>org.sonatype.mavenbook.plugins</varname> comme <varname>groupId</varname>,
+      La ligne de commande suivante se chargera de générer un projet yant pour <varname>groupId</varname> <varname>org.sonatype.mavenbook.plugins</varname>,
       et <varname>first-maven-plugin</varname> comme <varname>artifactId</varname> :</para> 
 
       <screen>$ <command>mvn archetype:create \
@@ -593,7 +593,7 @@
       <para>Le plugin Archetype va créer ainsi le répertoire nommé <varname>my-first-plugin</varname> qui contiendra le POM suivant.</para>
 
       <example>
-        <title>Le POM d'un projet Plugin</title>
+        <title>Le POM d'un projet de plugin</title>
 
         <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -619,17 +619,17 @@
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>L'élément le plus important d'un POM de projet Plugin est la balise <varname>packaging</varname>, celle-ci doit contenir la valeur  
+      <para>L'élément le plus important d'un POM de projet de plugin est la balise <varname>packaging</varname>, celle-ci doit contenir la valeur
       <varname>maven-plugin</varname>.
       Ce type de packaging personnalise le cycle de vie Maven pour inclure les goals nécessaires à la création du descripteur de plugin.
       Le cycle de vie Plugin a été présenté dans le <xref linkend="lifecycle-sect-plugin-lifecycle" />,
-      il ressemble fortement au cycle de vie Jar malgré ces trois exceptions :
+      il ressemble fortement au cycle de vie Jar à ces trois exceptions près :
       le goal <varname>plugin:descriptor</varname> est rattaché à la phase <varname>generate-resources</varname>, 
       le goal <varname>plugin:addPluginArtifactMetadata</varname> est rattaché à la phase <varname>package</varname>,
       et le goal <varname>plugin:updateRegistry</varname> est rattaché à la phase <varname>install</varname>.</para>
 
-      <para>L'autre partie importante d'un POM de projet Plugin est la dépendance sur Maven Plugin API.
-      Ici, le projet dépend de la version 2.0 du <varname>maven-plugin-api</varname> et possède une autre également une dépendance JUnit pour les tests.</para> 
+      <para>L'autre partie importante d'un POM de projet de plugin est la dépendance sur Maven Plugin API.
+      Ici, le projet dépend de la version 2.0 de <varname>maven-plugin-api</varname> et ainsi que de JUnit pour les tests unitaires.</para>
     </section>
 
     <section id="writing-plugins-simple-java-mojo">
