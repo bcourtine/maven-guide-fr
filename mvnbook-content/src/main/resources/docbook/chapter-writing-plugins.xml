@@ -872,12 +872,12 @@ public class EchoMojo extends AbstractMojo
     </section>
 
     <section id="writing-plugins-sect-logging">
-      <title>Log à partir d'un Plugin</title>
+      <title>Les traces d'un plugin</title>
 
       <para>Maven s'occupe de connecter votre mojo à un logger en appelant la méthode <methodname>setLog()</methodname> avant l'exécution de votre Mojo.
       Il fournit une implémentation de la classe <classname>org.apache.maven.monitor.logging.Log</classname>.
       Cette classe expose des méthodes qui vous pouvez utiliser pour afficher des informations à vos utilisateurs.
-      La classe <classname>Log</classname> fournit plusieurs niveaux de log, elle propose donc un mécanisme similaire à l'<acronym>API</acronym> fournie par <ulink
+      La classe <classname>Log</classname> fournit plusieurs niveaux de trace, elle propose donc un mécanisme similaire à l'<acronym>API</acronym> fournie par <ulink
       url="http://logging.apache.org/">Log4J</ulink>. 
       Ces différents niveaux sont utilisables par l'intermédiaire de plus méthodes dédiées : debug, info, error et warn.
       Afin de sauver les arbres, nous ne listerons ici que les méthodes du niveau degug.</para>
@@ -895,7 +895,7 @@ public class EchoMojo extends AbstractMojo
           <term><methodname>void debug( CharSequence message, Throwable t )</methodname></term>
 
           <listitem>
-            <para>Affiche un message en utilisant le niveau debug et inclu une stack trace à partir d'un <classname>Throwable</classname>
+            <para>Affiche un message en utilisant le niveau debug et ajoute une trace de l'état de la pile à partir d'une <classname>Throwable</classname>
             <classname>Exception</classname> ou <classname>Error</classname>)</para>
           </listitem>
         </varlistentry>
@@ -904,7 +904,7 @@ public class EchoMojo extends AbstractMojo
           <term><methodname>void debug( Throwable t )</methodname></term>
 
           <listitem>
-            <para>Affiche la stack trace du <classname>Throwable</classname> (<classname>Exception</classname> ou <classname>Error</classname>)</para>
+            <para>Affiche la trace de l'état de la pile de la<classname>Throwable</classname> (<classname>Exception</classname> ou <classname>Error</classname>)</para>
           </listitem>
         </varlistentry>
       </variablelist>
