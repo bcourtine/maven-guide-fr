@@ -198,7 +198,7 @@
     <para>L'<xref linkend="ex-plugin-desc" /> montre le descripteur du plugin Maven Zip. 
     Comme son nom l'indique, ce plugin permet de construire des archives Zips à partir des résultats du build.
     Normalement, vous ne devriez jamais à avoir écrire votre propre plugin pour construire des archives avec Maven.
-    Utilisez simplement le plugin Maven Assembly, il est capable de produire des archives dans de multiples formats. 
+    Utilisez simplement le plugin Maven Assembly, il est capable de produire des archives dans de multiples formats.
     Regardez le descripteur de site suivant, cela vous donnera une idée de ce genre de fichier.</para>
 
     <!--TODO: Reference Assembly Plugin Chapter-->
@@ -291,8 +291,8 @@
           <term>groupId, artifactId, version</term>
 
           <listitem>
-            <para>Comme tout artefact dans Maven, les plugins doivent posséder des coordonnées uniques.
-            Le <sgmltag>groupId</sgmltag>, <sgmltag>artifactId</sgmltag> et la <sgmltag>version</sgmltag> sont utilisés pour identifier le plugin dans le dépôt Maven.</para> 
+            <para>Comme tout artefact Maven, un plugin doit posséder sont triplet de coordonnées unique.
+            Le <sgmltag>groupId</sgmltag>, l'<sgmltag>artifactId</sgmltag> et la <sgmltag>version</sgmltag> sont utilisés pour identifier le plugin dans le dépôt Maven.</para>
           </listitem>
         </varlistentry>
 
@@ -301,9 +301,9 @@
 
           <listitem>
             <para>Cet élément contrôle le préfixe utilisé pour référencer les différents goals d'un plugin.
-            Si vous regardez au descripteur du plugin Compiler, vous verrez que la valeur du <varname>goalPrefix</varname> est <varname>compiler</varname>.
-            De la même manière, si vous regardez le descripteur du plugin Jar, il possédera un <varname>goalPrefix</varname> à <varname>jar</varname>.
-            Il est important de choisir un préfixe qui n'existe pas pour votre nouveau plugin.</para>
+            Si vous regardez le descripteur du plugin Compiler, vous verrez que la valeur du <varname>goalPrefix</varname> est <varname>compiler</varname>.
+            De la même manière, si vous regardez le descripteur du plugin Jar, son <varname>goalPrefix</varname> aura pour valeur <varname>jar</varname>.
+            Pour votre nouveau plugin il est important de choisir un préfixe qui n'existe pas.</para>
           </listitem>
         </varlistentry>
 
@@ -314,7 +314,7 @@
             <para>C'est une propriété legacy qui n'est plus utilisée par Maven.
             Elle reste présente dans le système pour assurer la compatibilité avec les plugins les plus anciens.
             Les anciennes versions du Maven utilisaient un mécanisme de chargement des dépendances des plugins dans un <classname>ClassLoader</classname> isolé.
-            Maven utilise de manière intensive le projet <ulink url="http://classworlds.codehaus.org/">ClassWorlds</ulink> provenant de la communauté the <ulink url="http://www.codehaus.org">Codehaus</ulink>
+            Maven utilise de manière intensive le projet <ulink url="http://classworlds.codehaus.org/">ClassWorlds</ulink> provenant de la communauté <ulink url="http://www.codehaus.org">Codehaus</ulink>
             pour créer une hiérarchie de <classname>ClassLoader</classname> qui est modélisée par un objet <classname>ClassRealm</classname>.               
             N'hésitez pas à ignorer cette propriété et à laisser sa valeur à <varname>false</varname>.</para>              
           </listitem>
@@ -324,9 +324,9 @@
           <term>inheritedByDefault</term>
 
           <listitem>
-            <para>Si cette propriété est affectée à <varname>true</varname>, il vous est possible de configurer vos mojo à partir des projets parents du plugin. 
-            Si vous configurez un mojo pour être exécuté durant une phase spécifique dans un projet parent et que cette propriété est settée à <varname>true</varname>,
-            l'exécution prendra bien en compte celui-ci. À l'inverse, l'exécution n'en tiendra pas compte.</para>
+            <para>Si cette propriété est à <varname>true</varname>, il vous est possible de configurer vos mojos dans un projet enfant en reprenant la configuration définie dans son projet parent.
+            Si vous configurez un mojo pour être exécuté durant une phase spécifique dans un projet parent et que cette propriété est à <varname>true</varname>,
+            l'exécution de celui-ci aura lieu dans le projet fils. À l'inverse, si cette propriété est à <varname>false</varname>, l'exécution ne tiendra pas compte du projet fils.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -336,7 +336,7 @@
       <title>Configuration du Mojo</title>
 
       <para>Vient ensuite la déclaration de chaque Mojo.
-      La balise <varname>plugin</varname> contient un sous balise <varname>mojos</varname> qui contient un élément par mojo présent dans le plugin. 
+      La balise <varname>plugin</varname> contient une balise <varname>mojos</varname> possèdant un élément par mojo présent dans le plugin.
       Chaque balise <varname>mojo</varname> contient les éléments suivants :</para>
 
       <variablelist>
@@ -354,7 +354,7 @@
           <term>description</term>
 
           <listitem>
-            <para>Cette balise contient la description du goal. Celle-ci est utilisée par le plugin Help pour générer la documentation du plugin.</para>
+            <para>Cette balise contient la description du goal. Celle-ci est utilisée par le plugin Help pour produire la documentation du plugin.</para>
           </listitem>
         </varlistentry>
 
@@ -363,9 +363,9 @@
 
           <listitem>
             <para>Si vous affectez cette propriété à <varname>true</varname>, 
-            le goal pourra seulement s'exécuter s'il est appelé directement par la ligne de commande par un utilisateur.
-            Si quelqu'un essaye de rattacher ce goal à une phase du cycle de cie dans un <acronym>POM</acronym>, Maven affichera un message d'erreur.             
-            La valeur par défaut pour est propriété est <varname>false</varname>.</para>
+            le goal pourra seulement s'exécuter s'il est appelé directement en la ligne de commande par un utilisateur.
+            Si quelqu'un essaye de rattacher ce goal à une phase du cycle de vie dans un <acronym>POM</acronym>, Maven affichera un message d'erreur.
+            La valeur par défaut pour cette propriété est <varname>false</varname>.</para>
 
             <!--TODO: Might want some justification.-->
           </listitem>
@@ -396,12 +396,12 @@
 
           <listitem>
             <para>Un descripteur de Mojo dont la valeur de la balise <varname>aggregator</varname> est affectée à <varname>true</varname> 
-            est censé s'exécuter qu'une seule fois durant une exécution Maven.
+            est censé n're lancé qu'une seule fois durant une exécution Maven.
             Ce flag a été créé pour donner la possibilité aux développeurs de plugins d'agréger la sortie d'une série de builds.
             Par exemple, on peut utiliser celui-ci pour créer un plugin qui agrège un rapport sur tous les projets d'un build.
             Un goal qui possède ce flag <varname>aggregator</varname> positionné à <varname>true</varname> doit être lancé uniquement à partir d'un projet haut-niveau d'un build Maven.
             La valeur par défaut de cette propriété est <varname>false</varname>.
-            Elle est marquée comme <varname>depracated</varname> pour les prochaines releases.</para>    
+            Elle est marquée comme <varname>deprecated</varname> pour les prochaines releases.</para>
           </listitem>
         </varlistentry>
 
@@ -409,9 +409,9 @@
           <term>requiresOnline</term>
 
           <listitem>
-            <para>Spécifie si un goal donné peut s'exécuter en mode offline (option <varname>-o</varname> de la ligne de commande).
-            Si un goal nécessite l'utilisation de ressources réseau et que ce flag est activé, Maven affichera une erreur si le goal est exécuté en mode offline.
-            La valeur par défaut pour cette propriété est <varname>false</varname>.</para>
+            <para>Spécifie si un goal donné peut s'exécuter en mode hors connexion (option <varname>-o</varname> de la ligne de commande).
+            Si un goal nécessite l'utilisation de ressources réseau et que ce flag est activé, Maven affichera une erreur si le goal est exécuté en mode hors connexion.
+            La valeur par défaut de cette propriété est <varname>false</varname>.</para>
           </listitem>
         </varlistentry>
 
@@ -420,7 +420,7 @@
 
           <listitem>
             <para>Si cette propriété est positionnée à <varname>true</varname>,
-            un mojo configuré dans un pom parent reprendra cette configuration pour le projet enfant.  
+            un mojo configuré dans un projet parent reprendra cette configuration pour le projet enfant.
             Si vous configurez un mojo pour s'exécuter dans une phase spécifique d'un projet parent et que ce flag est activé,
             cette exécution sera héritée pour le projet enfant. 
             Cette propriété est positionnée par défaut à <varname>false</varname>.</para>
@@ -452,7 +452,7 @@
             <para>Java est le langage par défaut d'un Mojo Maven.
             Cette propriété contrôle le <classname>ComponentFactory</classname> utilisé par Plexus pour créer et instancier le Mojo. 
             Ce chapitre se concentre sur l'écriture de plugin Java, cependant notez qu'il est possible d'utiliser d'autres langages : Groovy, Beanshell, Ruby...             
-            Dans le cas où vous utiliseriez un de ces langages alternatifs, vous auriez utilisé cet élément.</para>
+            Dans le cas où vous utiliseriez un de ces langages alternatifs, vous auriez à configurer cet élément.</para>
           </listitem>
         </varlistentry>
 
@@ -462,8 +462,8 @@
           <listitem>
             <para>Cette propriété est une propriété de configuration de composants Plexus,
             elle permet de contrôler la stratégie utilisée par Plexus pour gérer ses instances de composants.
-            Dans Maven, tous les mojos sont configurés par l'intermédiaire d'un  <varname>instantiationStrategy</varname> du <varname>per-lookup</varname>.   
-            Une nouvelle instance du composant (mojo) est crée à chaque récupération de celui-ci à partir de Plexus.</para>
+            Dans Maven, tous les mojos sont configurés avec une <varname>instantiationStrategy</varname> ayant pour valeur <varname>per-lookup</varname>.
+            Une nouvelle instance du composant (mojo) est créée à chaque fois qu'on demande à Plexus de nous le fournir.</para>
           </listitem>
         </varlistentry>
 
