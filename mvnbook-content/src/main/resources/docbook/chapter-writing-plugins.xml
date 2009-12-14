@@ -184,7 +184,7 @@
   <section id="writing-plugins-sect-plugin-descriptor">
     <title>Descripteur de Plugin</title>
 
-    <para>Un plugin Maven contient une 'carte' qui indique à Maven les différents Mojos et donne leur configuration.
+    <para>Un plugin Maven contient une 'carte' qui donne à Maven le chemin des différents Mojos et leur configuration.
     Ce descripteur de plugin se trouve dans le fichier <acronym>JAR</acronym> du plugin, à l'emplacement <filename>META-INF/maven/plugin.xml</filename>.
     Quand Maven charge un plugin, il commence par lire ce fichier <acronym>XML</acronym> puis instancie et configure les objets du plugin pour en rendre les Mojos disponibles.</para>
 
@@ -269,8 +269,8 @@
 </programlisting>
     </example>
 
-    <para>Un descripteur de site contient trois parties : la configuration haut-niveau qui contient les éléments du type  
-    <sgmltag>groupId</sgmltag> et <sgmltag>artifactId</sgmltag>, la déclaration des mojos et les dépendances. 
+    <para>Un descripteur de site se compose de trois parties : la configuration haut-niveau qui contient les éléments du type
+    <sgmltag>groupId</sgmltag> et <sgmltag>artifactId</sgmltag>, la déclaration des mojos et la déclaration des dépendances.
     Regardons chacune de ces sections dans le détail.</para>
 
     <section id="writing-plugins-top-level-elements">
