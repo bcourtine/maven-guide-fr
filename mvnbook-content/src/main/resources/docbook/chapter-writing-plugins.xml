@@ -473,7 +473,7 @@
           <listitem>
             <para>Il s'agit du choix de la stratégie utilisée par Maven pour exécuter un Mojo.
             Les différentes valeurs utilisables dans cet élément sont <varname>once-per-session</varname> et <varname>always</varname>.   
-            Note : cette propriété est dorénavant <varname>depracated</varname> et n'est plus utilisée par Maven, elle sera supprimée dans les prochaines releases.</para>
+            Note : cette propriété est dorénavant <varname>deprecated</varname> et n'est plus utilisée par Maven, elle sera supprimée dans les prochaines releases.</para>
           </listitem>
         </varlistentry>
 
@@ -481,7 +481,7 @@
           <term>parameters</term>
 
           <listitem>
-            <para>Cette balise décrit tous les paramètres du Mojo.
+            <para>Cette balise décrit chacun des paramètres du Mojo.
             Quel est son nom ? Quel est son type ? Est-il obligatoire ?
             Chaque paramètre possède les éléments suivants :</para>
 
@@ -507,7 +507,7 @@
 
                 <listitem>
                   <para>Indique si le paramètre est obligatoire. 
-                  Affecté à <varname>true</varname>, le paramètre de doit être passé au goal exécuté avec une valeur non null.</para>  
+                  Affecté à <varname>true</varname>, le paramètre doit obligatoirement être passé au goal exécuté avec une valeur non nulle.</para>
                 </listitem>
               </varlistentry>
 
@@ -526,7 +526,7 @@
                 <term>description</term>
 
                 <listitem>
-                  <para>Courte description utilisée lors de la génération de la documentation du plugin (utilisé par le plugin Help)</para>
+                  <para>Courte description utilisée lors de la génération de la documentation du plugin (utilisée par le plugin Help)</para>
                 </listitem>
               </varlistentry>
             </variablelist>
@@ -537,9 +537,9 @@
           <term>configuration</term>
 
           <listitem>
-            <para>Cet élément fournit les valeurs par défaut de tous les paramètres du Mojo utilisant la notation Maven.
+            <para>Cet élément fournit les valeurs par défaut de tous les paramètres du Mojo utilisant la notation pour les expressions Maven.
             Cet exemple fournit la valeur par défaut des paramètres Mojo <varname>baseDir</varname> et <varname>buildDirectory</varname>. 
-            Dans cet élément, l'implémentation spécifie le type (<classname>java.io.File</classname>), la valeur du paramètre peut contenir soit une valeur par défaut harcodée soit une référence à une propriété Maven.</para> 
+            Dans cet élément, l'implémentation spécifie le type (<classname>java.io.File</classname>), la valeur du paramètre peut contenir soit une valeur par défaut en dur soit une référence à une propriété Maven.</para>
           </listitem>
         </varlistentry>
 
@@ -547,10 +547,10 @@
           <term>requirements</term>
 
           <listitem>
-            <para>Voila de quoi rendre intéressant le descripteur de plugin.
+            <para>C'est ici que le descripteur de plugin devient intéressant.
             Un Mojo est un composant géré par Plexus. 
             Grâce à cela, il est possible de référencer n'importe quel autre composant géré par Plexus. 
-            Cet propriété permet de définir les dépendances vers d'autres composants Plexus.</para>
+            Cette propriété permet de définir des dépendances vers d'autres composants Plexus.</para>
 
             <!--TODO: Insert an XREF to an example?-->
           </listitem>
@@ -558,7 +558,7 @@
       </variablelist>
 
       <para>Même s'il est intéressant de savoir comment lire un descripteur de plugin, vous ne devriez pratiquement jamais avoir à en écrire un.
-      Les descripteurs de plugin sont générés automatiquement à partir d'annotations présentes dans le code source du mojo.</para>
+      Les descripteurs de plugin sont générés automatiquement à partir d'annotations présentes dans le code source du Mojo.</para>
     </section>
 
     <section id="writing-plugins-sect-plugin-depend">
