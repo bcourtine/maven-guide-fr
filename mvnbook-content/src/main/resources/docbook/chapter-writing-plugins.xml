@@ -730,26 +730,26 @@ public class EchoMojo extends AbstractMojo
     <section id="writing-plugins-sect-plugin-prefix">
       <title>Configuration d'un préfixe de Plugin</title>
 
-      <para>Spécifier le <varname>groupId</varname>, l'<varname>artifactId</varname>, la <varname>version</varname> et <varname>goal</varname> est un peu lourd (c'est le moindre que l'on puisse dire). 
+      <para>Spécifier à chaque fois le <varname>groupId</varname>, l'<varname>artifactId</varname>, la <varname>version</varname> et <varname>goal</varname> est un peu lourd (c'est le moindre que l'on puisse dire).
       Pour éviter cela, vous avez la possibilité d'utiliser un préfixe de plugin. Par exemple, au lieu de taper :</para>
 
-      <screen>$ mvn org.apache.maven.plugins:maven-jar-plugin:2.2:jar</screen>
+      <screen>$ mvn org.apache.maven.plugins:maven-jar-plugin:2.3:jar</screen>
 
       <para>Vous pouvez utiliser le préfixe <varname>jar</varname>. Ainsi, la ligne de commande devient beaucoup plus digeste : <command>mvn jar:jar</command>.
-      Comment Maven sait transformer <varname>jar:jar</varname> en <varname>org.apache.mven.plugins:maven-jar:2.3</varname> ?
-      Maven regarde dans un fichier du repository pour obtenir la liste des plugins pour un <varname>groupId</varname> spécifique.
+      Comment Maven sait-il transformer <varname>jar:jar</varname> en <varname>org.apache.mven.plugins:maven-jar:2.3</varname> ?
+      Maven regarde dans un fichier du dépôt Maven pour obtenir la liste des plugins pour un <varname>groupId</varname> spécifique.
       Par défaut, Maven est configuré pour rechercher les plugins dans deux groupes : 
       <varname>org.apache.maven.plugins</varname> et <varname>org.codehaus.mojo</varname>.
       Lorsque vous spécifiez un nouveau préfixe comme <command>mvn hibernate3:hbm2ddl</command>,
-      Maven scanne les métadonnées du répository à la recherche du plugin approprié.
-      Maven commence par scanner les groupes  <varname>org.apache.maven.plugins</varname> à la recherche du préfixe <varname>hibernate3</varname>.
-      S'il n'y trouve pas de préfixe <varname>hibernate3</varname>, il continuera par scanner les métadonnées du groupe <varname>org.codehaus.mojo</varname>.</para>  
+      Maven scanne les métadonnées du dépôt Maven à la recherche du plugin approprié.
+      Maven commence par parcourir les groupes  <varname>org.apache.maven.plugins</varname> à la recherche du préfixe <varname>hibernate3</varname>.
+      S'il n'y trouve pas de préfixe <varname>hibernate3</varname>, il continuera en parcourant les métadonnées du groupe <varname>org.codehaus.mojo</varname>.</para>
 
-      <para>Lorsque Maven scanne les métadonnées d'un <varname>groupId</varname>,
-      il récupére le fichier <acronym>XML</acronym> à partir du répository dans lequel sont contenus les métadonnées des artefacts contenu dans un groupe.
+      <para>Lorsque Maven parcourt les métadonnées d'un <varname>groupId</varname>,
+      il récupére deuis le dépôt Maven le fichier <acronym>XML</acronym> qui contient les métadonnées des artefacts de ce groupe.
       Ce fichier <acronym>XML</acronym> est spécifique à chaque dépôt.
       Si vous n'avez pas configuré de dépôt, Maven se contentera de chercher dans les métadonnées du groupe <varname>org.apache.maven.plugins</varname>
-      dans votre repository local (<filename>~/.m2/repository</filename>) dans le fichier
+      dans votre dépôt Maven local (<filename>~/.m2/repository</filename>) dans le fichier
       <filename>org/apache/maven/plugins/maven-metadata-central.xml</filename>.
       L'<xref linkend="ex-maven-metadata" /> présente une partie du fichier <acronym>XML</acronym> <filename>maven-metadata-central.xml</filename> du groupe 
       <varname>org.apache.maven.plugin</varname>.</para>
@@ -782,20 +782,19 @@ public class EchoMojo extends AbstractMojo
 
       <para>Comme vous pouvez le voir dans l'<xref linkend="ex-maven-metadata" />,
       c'est ce fichier <filename>maven-metadata-central.xml</filename> qui rend possible l'exécution de la commande <command>mvn surefire:test</command>.   
-      Maven scanne <varname>org.apache.maven.plugins</varname> et <varname>org.codehaus.mojo</varname> :
-      les plugins du groupe <varname>org.apache.maven.plugins</varname> sont considérés comme des plugins core Maven,
-      alors que les plugins du groupe <varname>org.apache.maven.plugins</varname> sont considérés comme des plugins moins importants.
-      Le projet Apache Maven gère le groupe <varname>org.apache.maven.plugins</varname>, et un autre projet open source qui se charge du projet Codehaus Mojo. 
-      Pour publier vos plugins avec votre <varname>groupId</varname>,
-      vous désirez que Maven scanne automatiquement votre propre préfixe de plugin pour votre nouveau <varname>groupId</varname>. 
-      Pour cela, vous pouvez personnaliser les groupes scannés par Maven à partir de vos Settings Maven.</para>
+      Maven parcourt <varname>org.apache.maven.plugins</varname> et <varname>org.codehaus.mojo</varname> :
+      les plugins du groupe <varname>org.apache.maven.plugins</varname> sont considérés comme des plugins du cœur Maven,
+      alors que les plugins du groupe <varname>org.codehaus.mojo</varname> sont considérés comme des plugins moins importants.
+      Le projet Apache Maven gère le groupe <varname>org.apache.maven.plugins</varname>, et c'est une communauté open source indépendante qui a la charge du projet Codehaus Mojo.
+      Si vous désirez publier vos plugins avec votre <varname>groupId</varname>, et que Maven parcourt 
+      automatiquement le préfixe de plugin de votre nouveau <varname>groupId</varname>, vous pouvez personnaliser les groupes traités par Maven dans vos fichiers Maven de configuration personnelle.</para>
 
       <para>Pour exécuter votre goal echo <varname>first-maven-plugin</varname> en utilisant la commande <varname>first:echo</varname>,
-      ajoutez le groupId <varname>org.sonatype.mavenbook.plugins</varname> dans votre fichier <filename>~/.m2/settings.xml</filename> comme montré dans l'<xref linkend="ex-plugin-groups" />.
-      Ainsi, un nouveau groupe sera ajouté en début de liste des groupes scannés par Maven.</para>
+      ajoutez le groupId <varname>org.sonatype.mavenbook.plugins</varname> dans votre fichier <filename>~/.m2/settings.xml</filename> comme le montre l'<xref linkend="ex-plugin-groups" />.
+      Ainsi, un nouveau groupe sera ajouté en début de liste des groupes analysés par Maven.</para>
        
       <example id="ex-plugin-groups">
-        <title>Personnaliser les groupes de Plugin dans les Settings Maven</title>
+        <title>Personnaliser les groupes de plugins dans les Settings Maven</title>
 
         <programlisting language="xml">&lt;settings&gt;
   ...
@@ -808,14 +807,14 @@ public class EchoMojo extends AbstractMojo
       <para>Ceci fait, vous pouvez maintenant exécuter votre goal par l'intermédiaire de la commande <command>mvn first:echo</command>
       à partir de n'importe quel répertoire. Vous constaterez que Maven saura interpréter correctement votre préfixe.   
       Cela fonctionne car le projet respecte certaines conventions de nommage.
-      Si votre projet plugin a un <varname>artifactId</varname> qui suit les patterns <varname>maven-first-plugin</varname> ou
+      Si votre projet plugin a un <varname>artifactId</varname> qui respecte le format <varname>maven-first-plugin</varname> ou
       <varname>first-maven-plugin</varname>, Maven affectera automatiquement le préfixe <varname>first</varname> à votre plugin. 
-      En d'autres mots, lorsque le plugin Maven Plugin généré le descripteur de plugin de votre plugin et que vous n'avez pas spéficifié de <varname>goalPrefix</varname> dans votre projet,        
-      le goal <varname>plugin:descriptor</varname> récupérera le préfixe de votre plugin à partir de son <varname>artifactId</varname> lorsqu'il suit l'un des patterns suivants :</para>
+      En d'autres termes, lorsque le plugin Maven Plugin a généré le descripteur de votre plugin et que vous n'avez pas spéficifié de <varname>goalPrefix</varname> dans votre projet,
+      le goal <varname>plugin:descriptor</varname> récupérera le préfixe de votre plugin à partir de son <varname>artifactId</varname> lorsqu'il suit l'un des formats suivants :</para>
 
       <itemizedlist>
         <listitem>
-          <para><varname>\${prefix}-maven-plugin</varname>, OR</para>
+          <para><varname>\${prefix}-maven-plugin</varname>, OU</para>
         </listitem>
 
         <listitem>
@@ -823,13 +822,13 @@ public class EchoMojo extends AbstractMojo
         </listitem>
       </itemizedlist>
 
-      <para>Si vous désirez mettre explicitement un préfixe de plugin, you avez besoin de configurer le plugin Maven Plugin.
+      <para>Si vous désirez définir explicitement un préfixe de plugin, you avez besoin de configurer le plugin Maven Plugin.
       Le plugin Maven Plugin est responsable de la construction du descripteur de plugin et doit également effectuer certaines tâches durant les phases de packaging et de chargement. 
       Le plugin Maven Plugin est configurable comme n'importe quel autre plugin via la balise <varname>build</varname>.
       Pour configurer le préfixe de votre plugin, ajoutez le code XML dans la balise <varname>build</varname> du projet <varname>first-maven-plugin</varname>.</para>  
 
       <example id="ex-plugin-prefix">
-        <title>Configuration d'un préfixe de Plugin</title>
+        <title>Configuration d'un préfixe de plugin</title>
 
         <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -866,10 +865,10 @@ public class EchoMojo extends AbstractMojo
 &lt;/project&gt;</programlisting>
       </example>
 
-      <para>L'<xref linkend="ex-plugin-prefix" /> configure le préfixe du plugin à <varname>blah</varname>. 
+      <para>L'<xref linkend="ex-plugin-prefix" /> configure le préfixe du plugin pour qu'il prenne la valeur <varname>blah</varname>.
       Si vous avez ajouté le groupe <varname>org.sonatype.mavenbook.plugins</varname> à la liste des groupes 
       <sgmltag>pluginGroups</sgmltag> de votre fichier <filename>~/.m2/settings.xml</filename>, 
-      vous devriez pouvoir exécuter le <classname>EchoMojo</classname> en lançant la commande suivante <command>mvn echo:blah</command>.</para>
+      vous devriez pouvoir exécuter <classname>EchoMojo</classname> en lançant la commande suivante <command>mvn echo:blah</command>.</para>
     </section>
 
     <section id="writing-plugins-sect-logging">
