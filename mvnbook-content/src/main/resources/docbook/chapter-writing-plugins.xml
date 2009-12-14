@@ -564,7 +564,7 @@
     <section id="writing-plugins-sect-plugin-depend">
       <title>Dépendances d'un Plugin</title>
 
-      <para>Pour finir, le descripteur de plugin déclare une liste de dépendances de la même manière qu'un projet Maven le ferait.
+      <para>Pour finir, le descripteur de plugin déclare une liste de dépendances comme le ferait un projet Maven.
       Quand Maven utilise un plugin, toutes ses dépendances sont téléchargées avant d'exécuter un de ses goals.
       Dans cet exemple, le plugin dépend de Jakarta Commons IO version 1.3.2.</para>
     </section>
