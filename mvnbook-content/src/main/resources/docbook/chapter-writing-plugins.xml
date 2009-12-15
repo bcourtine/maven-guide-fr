@@ -911,22 +911,22 @@ public class EchoMojo extends AbstractMojo
 
       <para>Chacun de ces quatre niveaux expose ces trois méthodes.
       Ces quatre niveaux répondent à quatre buts différents.
-      Le niveau debug est dédié aux personnes qui désirent voir une vue très détaillée de ce qui se passe lors de l'exécution d'un Mojo.  
+      Le niveau debug est dédié aux personnes qui désirent une vue très détaillée de ce qui se passe lors de l'exécution d'un Mojo.  
       Vous ne devez donc jamais présumer que vos utilisateurs utilisent ce niveau.
-      Pour cela, il est préférable d'utiliser le niveau info qui est destiné à afficher des messages d'informations généralistes devant s'afficher lors d'une utilisation normale du mojo.
+      Pour cela, il est préférable d'utiliser le niveau info qui est destiné à afficher des messages d'informations généraux lors d'une utilisation normale du mojo.
       Par exemple, si vous construisez un plugin qui compile du code, utilisez ce niveau info pour afficher la sortie du compilateur à l'écran.</para>
 
       <para>Le niveau de logging warn est utilisé pour afficher des événements et messages d'erreurs que votre Mojo pourrait rencontrer.
-      Par exemple, si vous essayez d'exécuter un plugin qui compile du code source Ruby mais que votre code n'est pas disponible, affichez un warning. 
+      Par exemple, si vous essayez d'exécuter un plugin qui compile du code source Ruby mais que ce code n'est pas disponible, affichez un warning.
       Contrairement aux erreurs (qui disposent d'un niveau dédié : error), les warnings ne sont pas destinés à afficher des erreurs bloquantes.          
       Vous utiliseriez plutôt le niveau error lorsque votre Mojo qui doit compiler du code, ne trouve pas de compilateur.
       Dans ce cas, vous voudrez probablement afficher un message d'erreur et lever une exception.
-      Vous pouvez présumer que vos utilisateurs verront les messages en info et tous les messages d'erreurs.</para>
+      Vous pouvez considérer que vos utilisateurs verront les messages en info et tous les messages d'erreurs.</para>
 
     </section>
 
     <section id="writing-plugins-sect-class-annotations">
-      <title>Annotations des Mojo</title>
+      <title>Annotations de Mojo</title>
 
       <para>Dans le plugin <varname>first-maven-plugin</varname>, vous n'avez pas écrit de descripteur de plugin, Maven s'est chargé d'en générer un pour vous.
       Pour cela, Maven utilise les informations du <acronym>POM</acronym> du projet et une liste d'annotations présentes dans votre classe <classname>EchoMojo</classname>.
