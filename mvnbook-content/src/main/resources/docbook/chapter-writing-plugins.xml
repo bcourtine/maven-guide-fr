@@ -1220,7 +1220,7 @@ private Object message;
       <para>Les plugins peuvent avoir des paramètres qui acceptent plusieurs valeurs.
       Jetez un coup d'oeil au <classname>ZipMojo</classname> affiché dans l'<xref linkend="ex-plugin-multivalue" />.
       Les paramètres <varname>includes</varname> et <varname>excludes</varname> acceptent un tableau de <classname>String</classname>  
-      qui spécifient des paramètres d'inclusion et l'exclusion pour créer son fichier <acronym>ZIP</acronym>.</para>
+      qui spécifient des paramètres d'inclusion et l'exclusion pour créer le fichier <acronym>ZIP</acronym>.</para>
 
       <example id="ex-plugin-multivalue">
         <title>Un plugin avec des paramètres multi-valeurs</title>
@@ -1283,7 +1283,7 @@ public class ZipMojo extends AbstractMojo
 }
 </programlisting>
 
-        <para>Pour configurer un paramètre de Moo multi-valeurs, vous pouvez utiliser une liste d'éléments.
+        <para>Pour configurer un paramètre de Mojo multi-valeurs, vous pouvez utiliser une liste d'éléments.
         Si le nom d'un paramètre multi-valeurs est <varname>includes</varname>, vous utiliserez une balise <sgmltag>includes</sgmltag> contenant des éléments <sgmltag>include</sgmltag>.   
         Si le paramètre multi-valeurs est <varname>excludes</varname>, vous utiliserez une balise <sgmltag>excludes</sgmltag> contenant des éléments <sgmltag>exclude</sgmltag>.
         Pour configurer le <classname>ZipMojo</classname> pour qu'il ignore tous les fichiers <varname>.txt</varname> et tous les fichiers qui terminent par un tilde, 
