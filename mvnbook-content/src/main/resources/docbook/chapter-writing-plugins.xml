@@ -1103,11 +1103,11 @@ public class EchoMojo extends AbstractMojo
   </section>
 
   <section id="writing-plugins-sect-mojo-params">
-    <title>Paramètres du Mojo</title>
+    <title>Paramètres d'un Mojo</title>
 
-    <para>Cette notion est aussi importante que celles de la méthode <methodname>execute()</methodname> et des annotations du Mojo.
+    <para>Cette notion est aussi importante que celles de la méthode <methodname>execute()</methodname> et des annotations de Mojo.
     Un Mojo est configuré par l'intermédiaire de paramètres.
-    Cette section se concentre sur des sujets tournant autour de ces paramètres.</para> 
+    Cette section se concentre sur les sujets et la configuration de ces paramètres de Mojo.</para>
 
     <section id="writing-plugins-sect-param-values">
       <title>Affecter des valeurs aux paramètres de Mojo</title>
@@ -1125,8 +1125,8 @@ private Object message;
 
       <para>L'expression par défaut pour ce paramètre est <varname>\${echo.message}</varname>. 
       Cela veut dire que Maven essayera d'utiliser la valeur de la propriété <varname>echo.message</varname> pour affecter la valeur du message.
-      Si cette propriété est nulle, la valeur sera récupérée grâce à l'attribut <varname>default-value</varname> de l'annotation <classname>@parameter</classname>. 
-      Au lieu d'utiliser la propriété <varname>echo.message</varname>, vous pouvez configurer une valeur pour ce message directement à partir de votre <acronym>POM</acronym> de projet.</para>  
+      Si cette propriété est nulle, le paramètre prendra la valeur définie grâce à l'attribut <varname>default-value</varname> de l'annotation <classname>@parameter</classname>.
+      Au lieu d'utiliser la propriété <varname>echo.message</varname>, vous pouvez configurer une valeur pour ce message directement à partir du <acronym>POM</acronym> de votre projet.</para>
       
       <para>Plusieurs moyens existent pour renseigner la valeur du paramètre 'message' de notre <classname>EchoMojo</classname>.
       Premièrement, vous pouvez passer une valeur à partir de la ligne de commande en utilisant la syntaxe suivante (à supposer que vous ayez ajouté
@@ -1134,7 +1134,7 @@ private Object message;
 
       <screen>$ mvn first:echo -Decho.message="Hello Everybody"</screen>
 
-      <para>Vous pouvez également spécifier la valeur de ce message en affectant une propriété dans votre <acronym>POM</acronym> ou dans votre fichier  
+      <para>Vous pouvez également spécifier la valeur de ce message en définissant une propriété dans votre <acronym>POM</acronym> ou dans votre fichier
       <filename>settings.xml</filename>.</para>
 
       <programlisting language="xml">&lt;project&gt;
@@ -1147,7 +1147,7 @@ private Object message;
 
       <para>Ce paramètre peut également être configuré directement par l'intermédiaire d'une valeur de configuration de votre plugin.
       Si vous voulez personnaliser directement le paramètre 'message', vous pouvez utiliser la configuration suivante pour votre build.
-      Celle-ci bypass la propriété <varname>echo.message</varname> et popule le paramètre du Mojo à partir de la configuration du plugin.</para> 
+      Celle-ci court-circuite la propriété <varname>echo.message</varname> et renseigne le paramètre du Mojo à partir de la configuration du plugin.</para>
 
       <programlisting language="xml">&lt;project&gt;
   ...
