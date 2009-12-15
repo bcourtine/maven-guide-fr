@@ -1062,8 +1062,8 @@ public class EchoMojo extends AbstractMojo
       Un test unitaire peut échouer, un checksum <acronym>MD5</acronym> peut échouer, ces deux exemples sont des problèmes,
       mais pas assez important pour arrêter votre build.       
       C'est dans ce type situation que vous devez utiliser <classname>MojoFailureException</classname>.  
-      Maven prévoit plusieurs échappatoires lorsqu'un projet échoue.  
-      En voici es descriptions.</para>
+      Maven prévoit plusieurs comportements différents lorsqu'un projet échoue.
+      En voici les descriptions.</para>
 
 
       <para>Lorsque vous lancez un build Maven, vous pouvez invoquer une série de projets qui peuvent chacun soit réussir soit échouer.
@@ -1083,7 +1083,7 @@ public class EchoMojo extends AbstractMojo
 
           <listitem>
             <para>Mode Fail-at-end : dans ce mode, Maven échouera à la fin du build.
-            Si un projet échoue, Maven continuera l'exécution de son build et affichera l'échec qu'en fin de build.</para> 
+            Si un projet du reactor de Maven échoue, Maven continuera l'exécution de son build et n'affichera l'échec qu'en fin de build.</para>
           </listitem>
         </varlistentry>
 
@@ -1096,7 +1096,7 @@ public class EchoMojo extends AbstractMojo
         </varlistentry>
       </variablelist>
 
-      <para>Vous pourrez vouloir d'ignorer les erreurs si vous exécutez un build d'intégration continu et que vous voulez effectuer votre build en ignorant le système d'échec.
+      <para>Vous pourrez vouloir ignorer les erreurs si vous exécutez un build d'intégration continue et que vous voulez le poursuivre même lorsque le build de l'un des projets échoue.
        En tant que développeur de plugin, vous devez prendre soin de lancer la bonne exception <classname>MojoExecutionException</classname> ou
       <classname>MojoFailureExeception</classname> en fonction de votre type d'erreur.</para>       
     </section>
