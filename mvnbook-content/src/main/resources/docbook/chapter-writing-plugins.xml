@@ -938,7 +938,7 @@ public class EchoMojo extends AbstractMojo
             <term>@goal &lt;goalName&gt;</term>
 
             <listitem>
-              <para>C'est la seule annotation obligatoire, elle fournit un nom unique au goal que vous êtes en train d'écrire.</para>
+              <para>C'est la seule annotation obligatoire, elle donne un nom unique au goal que vous êtes en train d'écrire.</para>
 
             </listitem>
           </varlistentry>
@@ -947,9 +947,10 @@ public class EchoMojo extends AbstractMojo
             <term>@requiresDependencyResolution &lt;requireScope&gt;</term>
 
             <listitem>
-              <para>Marque le mojo comme un mojo qui nécessite des dépendances dans un certain scope : compile, runtime ou test. 
+              <para>Marque le mojo comme un mojo qui nécessite la résolution des dépendances d'un certain scope (explicite ou implicite).
+              Les valeurs autorisées sont : compile, runtime ou test.
               Par exemple, si la valeur de cette annotation est passée à <varname>test</varname>,                
-              on empêche alors Maven d'exécuter ce Mojo si sa dépendance n'est pas résolue dans le scope test.</para>
+               Maven ne peut exécuter ce Mojo qu'une fois que les dépendances du scope test sont résolues.</para>
             </listitem>
           </varlistentry>
 
@@ -959,7 +960,7 @@ public class EchoMojo extends AbstractMojo
             <listitem>
               <para>Marque ce goal comme goal devant être exécuté à l'intérieur d'un projet.
               La valeur par défaut est <literal>true</literal>.
-              À l'opposé, certains plugins comment archétype ne le sont pas.</para>  
+              À l'opposé, certains plugins comme le plugin Archetype ne le sont pas : ils n'ont pas besoin d'un <acronym>POM</acronym> pour s'exécuter.</para>
             </listitem>
           </varlistentry>
 
@@ -977,10 +978,10 @@ public class EchoMojo extends AbstractMojo
             <term>@aggregator (true|false)</term>
 
             <listitem>
-              <para>Un goal possédant cette propriété affectée à <varname>true</varname> est supposé ne s'exécuter qu'une seule fois lors de l'exécution d'un plan Maven.
-              Cette propriété a été créée pour donner la possibilité aux développeurs d'agréger la sortie d'une série de build.
-              Par exemple, si vous voulez créer un plugin qui effectue un rapport consolidant la sortie de projets. 
-              Un goal avec <varname>aggregator</varname> affecté à <varname>true</varname> ne sevrait s'exécuter qu'à partir du projet de plus haut-niveau d'un build Maven.
+              <para>Un goal possédant cette propriété affectée à <varname>true</varname> est supposé ne s'exécuter qu'une seule fois lors d'une exécution de Maven.
+              Cette propriété a été créée pour donner aux développeurs la possibilité d'agréger la sortie d'une série de builds.
+              Par exemple, si vous voulez créer un plugin qui effectue un rapport consolidant la sortie des projets d'un build.
+              Un goal avec <varname>aggregator</varname> affecté à <varname>true</varname> ne devrait s'exécuter qu'à partir du projet de plus haut-niveau d'un build Maven.
               Sa valeur par défaut est <varname>false</varname>.</para>
             </listitem>
           </varlistentry>
@@ -989,8 +990,8 @@ public class EchoMojo extends AbstractMojo
             <term>@requiresOnline (true|false)</term>
 
             <listitem>
-              <para>Spécifie si un goal donné peut s'exécuter en mode offline.
-              Si un goal nécessite l'utilisation de ressources réseau et que ce flag est activé, Maven affichera une erreur si le goal est exécuté en mode offline.
+              <para>Spécifie si un goal donné peut s'exécuter en mode hors connexion.
+              Si un goal nécessite l'utilisation de ressources réseau et que ce flag est activé, Maven affichera une erreur si le goal est exécuté en mode hors connexion.
               La valeur par défaut pour cette propriété est <varname>false</varname>.</para>
             </listitem>
           </varlistentry>
@@ -1000,8 +1001,8 @@ public class EchoMojo extends AbstractMojo
 
             <listitem>
               <para>Si vous affectez cette propriété à <varname>true</varname>, 
-            le goal pourra seulement s'exécuter s'il est appelé directement par la ligne de commande par un utilisateur.
-            Si quelqu'un essaye de rattacher ce goal à une phase du cycle de cie dans un <acronym>POM</acronym>, Maven affichera un message d'erreur.             
+            le goal pourra seulement s'exécuter via un appel direct en ligne de commande par un utilisateur.
+            Si quelqu'un essaye de rattacher ce goal à une phase du cycle de vie dans un <acronym>POM</acronym>, Maven affichera un message d'erreur.
             La valeur par défaut pour est propriété est <varname>false</varname>.</para>
             </listitem>
           </varlistentry>
@@ -1011,7 +1012,7 @@ public class EchoMojo extends AbstractMojo
 
             <listitem>
               <para>Cette annotation spécifie la phase par défaut d'un goal.
-              Si vous n'avez pas spécifié de phase pour exécuter ce goal, Maven rattachera celui-ci à la phase spécifiée par cette annotation.</para> 
+              Si vous n'avez pas spécifié de phase pour exécuter ce goal, Maven rattachera celui-ci à la phase définie par cette annotation.</para>
             </listitem>
           </varlistentry>
 
@@ -1024,7 +1025,7 @@ public class EchoMojo extends AbstractMojo
               Si une phase est fournie, Maven exécutera un cycle de vie parallèle en fin d'une phase spécifique.
               Le résultat de cette exécution parallèle est rendu disponible dans la propriété Maven <varname>\${executedProperty}</varname>.</para>
 
-              <para>La seconde manière d'utiliser cette annotation est pour spécifier explicitement un goal en utilisant la notation <varname>prefix:goal</varname>. 
+              <para>La seconde manière d'utiliser cette annotation est de spécifier explicitement un goal en utilisant la notation <varname>prefix:goal</varname>.
               Lorsque vous spécifiez un goal, Maven exécute celui-ci dans un environnement parallèle, qui n'affecte pas le build Maven courant.</para>                 
 
               <para>La troisième manière d'utiliser cette annotation est de spécifier une phase dans un cycle de vie alternatif en utilisant un identifiant de cycle de vie.</para>
@@ -1037,13 +1038,12 @@ public class EchoMojo extends AbstractMojo
         </variablelist></para>
 
       <para>Si vous regardez le code source du <classname>EchoMojo</classname>,
-      vous noterez que Maven n'utilise pas des annotations standard au format Java 5.
+      vous noterez que Maven n'utilise pas des annotations standards au format Java 5.
       À la place, il utilise les <ulink url="http://commons.apache.org/attributes/">Commons Attributes</ulink>.
-      Commons Attributes fournit un moyen d'utiliser des annotations avant que les annotations Java ne fassent partit des spécifications Java.   
-      Pourquoi ne pas utiliser les annotations Java ?
+      Commons Attributes fournissait un moyen d'utiliser des annotations avant qu'elles ne fassent partie intégrante des spécifications Java.
+      Pourquoi ne pas utiliser les annotations Java  5 ?
       Maven ne les utilise pas car il a été conçu pour des <acronym>JVM</acronym>s pré-Java 5.
-      Comme Maven désire rester compatible avec les versions antérieures de Java, il ne peut pas utiliser les fonctionnalités disponibles dans Java 5.</para> 
-
+      Comme Maven désire rester compatible avec les versions antérieures de Java, il ne peut pas utiliser les fonctionnalités disponibles dans Java 5.</para>
     </section>
 
     <section id="writing-plugins-sect-failure">
