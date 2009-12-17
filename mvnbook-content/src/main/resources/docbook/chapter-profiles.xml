@@ -26,7 +26,7 @@
       <title>Qu'est ce que la Portabilité du Build ?</title>
 
       <para>La "portabilité" du build est la mesure de la facilité avec laquelle on peut prendre un projet particulier
-      et le construire sur différents environnements. Un build qui fonctionne sans aucune configuration particulière ni
+      et le construire sur différents environnements. Un build qui fonctionne sans aucune configuration particulière 
       ni personnalisation des fichiers properties est plus portable qu'un build qui nécessite un certain travail pour
       construire le projet à partir de rien. Les projets les plus portables sont bien souvent des projets Open Source très
       utilisés comme Apache Commons ou Apache Velocity qui fonctionnent avec Maven sans aucune personnalisation ou presque.
@@ -43,7 +43,7 @@
         lorsqu'il ne peut être construit que dans certaines circonstances spécifiques (ex : votre machine locale). 
         À moins que vous travailliez seul et que vous n'envisagiez pas de déployer votre application sur une autre
         machine, il vaut mieux éviter complètement la non-portabilité. Un build non-portable fonctionne seulement sur
-        une machine, c'est un build "à usage unique". Maven est conçu pour décourager les buids non-portables en offrant
+        une machine, c'est un build "à usage unique". Maven est conçu pour décourager les builds non-portables en offrant
         la possibilité de personnaliser les builds grâce aux profils.</para>
 
         <para>Quand un développeur récupère le code source d'un projet non-portable, il n'est pas en mesure de
