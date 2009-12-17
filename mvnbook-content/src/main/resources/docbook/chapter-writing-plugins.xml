@@ -1341,12 +1341,12 @@ private ZipArchiver zipArchiver;</programlisting>
     <section id="writing-plugins-sect-param-annot">
       <title>Paramètres des annotations d'un Mojo</title>
 
-      <para>À moins que vous insistiez pour écrire vos descripteurs de plugin à la main, vous ne devriez pas à avoir à écrire la moindre ligne de <acronym>XML</acronym>.   
+      <para>À moins d'insister pour écrire vos descripteurs de plugin vous-même, vous ne devriez pas à avoir à écrire la moindre ligne de <acronym>XML</acronym>.
       À la place de cela, le plugin Maven Plugin dispose d'un goal <varname>plugin:descriptor</varname> qui est rattaché à la phase <varname>generate-resources</varname>.
       Ce goal génère le descripteur de plugin à partir d'annotations sur votre Mojo.
-      Pour configurer un paramètre de Mojo, vous pouvez utiliser les annotations présentées ci-dessous.
-      Vous pouvez les mettre soit sur des champs privés, soit sur les setters publics du Mojo.
-      En général, la convention veut que l'on configure les plugins Maven en utilisant les annotations directement sur les champs des Mojo.</para>
+      Pour configurer un paramètre de Mojo, vous pouvez utiliser les annotations présentées ci-dessous sur chacun des des champs privés du Mojo.
+      Il est aussi poiisble de mettre ces annotations sur les accesseurs publics du Mojo. Cependant, la convention veut que l'on configure
+      les plugins Maven en utilisant les annotations directement sur les champs.</para>
 
       <variablelist>
         <varlistentry>
@@ -1354,13 +1354,13 @@ private ZipArchiver zipArchiver;</programlisting>
           [expression="\${someExpression}"] [default-value="value"]</term>
 
           <listitem>
-            <para>Marque comme paramètre un champ privé (ou un setter). 
+            <para>Marque comme paramètre un champ privé (ou un accesseur).
             L'<varname>alias</varname> fournit le nom du paramètre.
             Si l'alias n'est pas renseigné, Maven utilise le nom de la variable comme nom du paramètre.
             L'<varname>expression</varname> est l'expression utilisée par Maven pour obtenir une valeur du paramètre.
             L'expression fait souvent référence à une propriété : <varname>\${echo.message}</varname>.
             La valeur par défaut est renseignée par <varname>default-value</varname>, celle-ci est utilisée si aucune valeur ne peut être obtenue à partir de l'expression
-            ou si aucune valeur n'a été fournie par le le plugin configuration dans le <acronym>POM</acronym>.</para>
+            ou si aucune valeur n'a été fournie par la configuration du plugin dans le <acronym>POM</acronym>.</para>
           </listitem>
         </varlistentry>
 
@@ -1368,8 +1368,9 @@ private ZipArchiver zipArchiver;</programlisting>
           <term>@required</term>
 
           <listitem>
-            <para>Si cette annotation est présente, ce paramètre est marqué comme nécessitant une valeur.
-            Si Maven essaye d'exécuter le Mojo sans qu'il soit renseigné, une erreur est lancée.</para>
+            <para>Si cette annotation est présente, ce paramètre doit obligatoirement être renseigné avant
+            l'exécution du Mojo. Si Maven essaye d'exécuter le Mojo alors que ce paramètre est nul alors 
+            Maven va lancer une erreur.</para>
           </listitem>
         </varlistentry>
 
@@ -1377,12 +1378,12 @@ private ZipArchiver zipArchiver;</programlisting>
           <term>@readonly</term>
 
           <listitem>
-            <para>Si cette annotation est présente, l'utilisation ne peut pas directement configurer ce paramètre dans le fichier <acronym>POM</acronym>. 
-            Utilisez cette annotation avec l'attribut expression de l'annosation de ce paramètre.
+            <para>Si cette annotation est présente, alors l'utilisateur ne peut peut pas configurer ce paramètre via le fichier <acronym>POM</acronym>.
+            Cette annotation est utilisée en combinaison avec l'attribut expression de l'annotation de ce paramètre.
             Par exemple, si vous voulez être sure que cette propriété possède la valeur que la propriété 
             <varname>finalName</varname> du <acronym>POM</acronym>,
             vous utiliserez l'expression <varname>\${build.finalName}</varname> et rajouterez l'annotation <classname>@readOnly</classname>. 
-            Ainsi, l'utilisateur ne pourra changer la valeur de ce paramètre en changeant la valeur du <varname>finalName</varname> dans le <acronym>POM</acronym>.</para>  
+            Ainsi, l'utilisateur ne pourra changer la valeur de ce paramètre qu'en changeant la valeur du <varname>finalName</varname> dans le <acronym>POM</acronym>.</para>
           </listitem>
         </varlistentry>
 
@@ -1405,7 +1406,7 @@ private ZipArchiver zipArchiver;</programlisting>
 </programlisting>
 
             <para>Si ces deux annotations ont le même comportement,
-            l'annotation <classname>@component</classname> est le moyen à privilégier pour configurer des dépendances sur des composants Plexus.</para>
+            l'annotation <classname>@component</classname> est à privilégier pour configurer des dépendances sur des composants Plexus.</para>
           </listitem>
         </varlistentry>
 
@@ -1423,7 +1424,7 @@ private ZipArchiver zipArchiver;</programlisting>
   </section>
 
   <section id="writing-plugins-sect-plugins-lifecycle">
-    <title>Plugins cycle de vie Maven</title>
+    <title>Plugins et le cycle de vie Maven</title>
 
     <para>Dans le chapitre <xref linkend="lifecycle" />,
     nous avons vu que les cycles de vie peuvent être personnalisés en fonction des types de packaging. 
