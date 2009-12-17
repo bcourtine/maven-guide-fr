@@ -1314,12 +1314,12 @@ public class ZipMojo extends AbstractMojo
     <section id="writing-plugins-sect-depend-plexus">
       <title>Dépendre de composants Plexus</title>
 
-      <para>Un mojo est un composant managé par un conteneur <acronym>IoC</acronym> appelé Plexus. 
-      Un Mojo peut dépendre d'un autre composant managé par Plexus en déclarant un paramètre de Mojo 
-      et en utilisant les annotations <classname>@parameter</classname> et <classname>@component</classname>. 
-      L'<xref linkend="ex-plugin-multivalue" /> affiche le Mojo <classname>ZipMojo</classname>.
-      Il dépend d'un composant Plexus en utilisant une annotation <classname>@parameter</classname>,  
-      cette dépendance peut-être déclarée en utilisant l'annotation <classname>@component</classname>.</para> 
+      <para>Un Mojo est un composant géré par un conteneur <acronym>IoC</acronym> appelé Plexus.
+      Un Mojo peut dépendre d'un autre composant géré par Plexus en déclarant un paramètre Mojo
+      et en utilisant les annotations <classname>@parameter</classname> ou <classname>@component</classname>.
+      L'<xref linkend="ex-plugin-multivalue" /> présente le Mojo <classname>ZipMojo</classname> qui dépend
+      d'un composant Plexus en utilisant l'annotation <classname>@parameter</classname>. Nous aurions pu
+      déclarer cette dépendance en utilisant l'annotation <classname>@component</classname>.</para>
 
       <example>
         <title>Dépendre de composants Plexus</title>
@@ -1331,9 +1331,9 @@ public class ZipMojo extends AbstractMojo
 private ZipArchiver zipArchiver;</programlisting>
       </example>
 
-      <para>Lorsque Maven instancie ce Mojo, il essaye de récupérer le composant Plexus avec le rôle spécifié.
-      Dans cet exemple, le Mojo sera rattaché au composant ZipArchiver.
-      Celui-ci permet à notre <classname>ZipMojo</classname> de créer des fichiers <acronym>ZIP</acronym>.</para> 
+      <para>Lorsque Maven instancie ce Mojo, il essaye de récupérer le composant Plexus ayant le rôle 
+      et le raccourci de rôle spécifiés. Dans cet exemple, le Mojo sera rattaché au composant ZipArchiver.
+      ce qui permettra à notre <classname>ZipMojo</classname> de créer des fichiers <acronym>ZIP</acronym>.</para>
 
       <!--TODO: OK, we need more here.  How do I get my hands on components?  How to a bundle components?-->
     </section>
