@@ -1488,7 +1488,7 @@ private ZipArchiver zipArchiver;</programlisting>
     </section>
 
     <section id="writing-plugins-sect-custom-lifecycle">
-      <title>Création d'un cycle de vie pesonnalisé</title>
+      <title>Création d'un cycle de vie personnalisé</title>
 
       <para>Un cycle de vie personnalisé doit être packagé dans un plugin dans un fichier 
       <filename>META-INF/maven/lifecycle.xml</filename> dans l'un des dossiers de ressources : par exemple <filename>src/main/resources</filename>.
@@ -1579,17 +1579,17 @@ public class ZipForkMojo extends AbstractMojo
       <para>Une fois que vous avez créé votre propre cycle de vie et que vous l'avez lancé depuis un Mojo,
       la question suivante que vous pouvez vous poser est comment surcharger le cycle de vie par défaut. 
       Comment créer un cycle de vie personnalisé et comment le rattacher à vos projets ?
-      Dans le chapitre <xref linkend="lifecycle" />, nous avons vu que le type de packaging d'un projet définit son cycle de vie.
-      Le comportement différent en fonction des types de packaging.
-      <varname>war</varname> est rattaché à différents goals pour construire le package.
+      Dans le <xref linkend="lifecycle" />, nous avons vu que le type de packaging d'un projet définit son cycle de vie.
+      Le comportement différe selon les types de packaging, ainsi 
+      <varname>war</varname> a rattaché différents goals au cycle de vie pour construire son package.
       Les cycles de vie personnalisés, comme <varname>swf</varname>, provenant du plugin Israfil Flex 3, rattachent différents goals à la phase compile.   
       Lorsque vous créez un cycle de vie personnalisé, vous pouvez rattacher celui-ci à un type de packaging en fournissant une configuration Plexus dans l'archive de votre plugin.</para>      
 
       <para>Pour définir un nouveau cycle de vie pour un nouveau type de packaging, vous devez configurer le composant <classname>LifecycleMapping</classname> dans Plexus. 
       Dans votre projet plugin, créez un fichier <filename>META-INF/plexus/components.xml</filename> sous <filename>src/main/resources</filename>.       
       Éditez ce fichier et ajoutez lui le contenu de l'<xref linkend="ex-override-lifecycle" />.
-      Rentrez le nom du type de packaging dans <varname>role-hint</varname>,
-      et affectez les goals aux phases en utilisant leurs coordonnées (sans la version). 
+      Mettez le nom du type de packaging dans <varname>role-hint</varname>,
+      et rattachez les goals aux phases en utilisant leurs coordonnées (sans la version).
       Vous pouvez associer plusieurs goals à une phase en utilisant une liste séparée par des virgules.</para>   
 
       <para><example id="ex-override-lifecycle">
@@ -1621,7 +1621,7 @@ public class ZipForkMojo extends AbstractMojo
         </example></para>
 
       <para>Si vous créez un plugin qui définit un nouveau type de packaging et un nouveau cycle de vie,
-      vous devez affecter la balise <varname>extensions</varname> à <varname>true</varname> dans le <acronym>POM</acronym> de votre projet. 
+      vous devez affecter la balise <sgmltag>extensions</sgmltag> à <varname>true</varname> dans le <acronym>POM</acronym> de votre projet.
       Cela a pour effet de demander à Maven de scanner votre plugin à la recherche du fichier <filename>components.xml</filename> dans le répertoire <filename>META-INF/plexus</filename>.   
       Ainsi, votre nouveau type de packaging sera rendu disponible dans votre projet.</para>
 
@@ -1644,7 +1644,7 @@ public class ZipForkMojo extends AbstractMojo
 </programlisting>
         </example></para>
 
-      <para>Une fois que vous avez ajouté le plugin avec sa balise extensions activée, vous pourrez utiliser votre nouveau type de packaging. 
+      <para>Une fois que vous avez ajouté le plugin avec sa balise <sgmltag>extensions</sgmltag> activée, vous pourrez utiliser votre nouveau type de packaging.
       Votre projet pourra ainsi exécuter le cycle de vie personnalité associé à celui-ci.</para>
     </section>
   </section>
