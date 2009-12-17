@@ -1427,41 +1427,41 @@ private ZipArchiver zipArchiver;</programlisting>
     <title>Plugins et le cycle de vie Maven</title>
 
     <para>Dans le chapitre <xref linkend="lifecycle" />,
-    nous avons vu que les cycles de vie peuvent être personnalisés en fonction des types de packaging. 
+    nous avons vu que les cycles de vie peuvent être personnalisés en fonction du type de packaging.
     Un plugin peut soit introduire un nouveau type de packaging, soit personnaliser le cycle de vie.
     Dans cette section, nous allons voir comment personnaliser le cycle de vie à partir d'un plugin Maven.
-    Nous verrons également comment dire à un Mojo de s'exécuter sur un cycle de vie parallèle.</para>
+    Nous verrons également comment dire à un Mojo de d'exécuter un cycle de vie parallèle.</para>
 
     <section id="writing-plugins-sect-execute-parallel-lifecycle">
       <title>Exécution dans un cycle de vie parallèle</title>
 
-      <para>Imaginons que vous devez écrire un plugin qui dépend de la sortie du build précédent. 
-      Par exemple, peut-être que le goal du <classname>ZipMojo</classname> ne peut être lancé que si une sortie à inclure dans l'archive existe.
+      <para>Imaginons que vous devez écrire un plugin qui dépend du résultat du build précédent.
+      Par exemple, peut-être que le goal du <classname>ZipMojo</classname> ne peut être lancé que si un élément du résultat existe pour être inclus dans l'archive .
       Il est possible de préciser des goal prérequis en utilisant l'annotation <classname>@execute</classname> sur un Mojo.
-      Cette annotation forcera Maven à exécuter un build parallèle et exécuter un goal ou un cycle de vie sans qu'il n'affecte le build courant.
-      Si vous voulez écrire un Mojo qui peut s'exécuter une fois par jour pour lancer la commande <command>mvn install</command>  
-      et packager la sortie sous un format de distribution personnalisé.
+      Cette annotation forcera Maven à lancer un build parallèle et exécuter un goal ou un cycle de vie dans cette seconde instance de Maven sans que tout cela affecte le build courant.
+      Si vous avez écrit un Mojo que vous exécutez une fois par jour pour lancer la commande <command>mvn install</command>
+      et packager le résultat sous un format de distribution personnalisé.
       Votre descripteur de Mojo peut demander à Maven d'exécuter le cycle de vie par défaut jusqu'à la phase install et d'exposer le 
       résultat de ce projet dans votre mojo en utilisant la propriété <varname>\${executedProject}</varname>.
-      Vous pouvez ensuite référencer cette propriété dans un projet et effectuer ainsi un post processing.</para> 
+      Vous pouvez ensuite référencer cette propriété dans un projet et effectuer ainsi un traitement à posteriori.</para>
 
-      <para>Autre possibilité, si vous avez un goal qui effectue quelque chose de complètement différent du cycle de vie par défaut.
+      <para>Autre possibilité, si vous avez un goal qui effectue quelque chose de complètement indépendant du cycle de vie par défaut.
       Imaginons quelque chose de complètement inattendu,
       vous disposez peut-être d'un goal qui transforme un fichier <acronym>WAV</acronym> en <acronym>MP3</acronym> en utilisant quelque chose comme <acronym>LAME</acronym>.  
-      Avant de faire cela, vous voulez avancer dans un cycle de vie qui transforme un fichier <acronym>MIDI</acronym> en un fichier <acronym>WAV</acronym>.      
-      (l'utilisation de Maven est sans limites)
-      Vous avez donc créé un cycle de vie <varname>midi-sound</varname> et vous voulez utiliser la sortie de la phase <varname>install</varname> de ce cycle de vie 
+      Avant de faire cela, vous voulez parcourir un cycle de vie qui transforme un fichier <acronym>MIDI</acronym> en un fichier <acronym>WAV</acronym> 
+      (vous pouvez faire faire tout ce que vous voulez à Maven, et cet exemple n'est pas aussi "tiré par les cheveux" qu'on pourrait le croire).
+      Vous avez donc créé un cycle de vie <varname>midi-sound</varname> et vous voulez utiliser le résultat de la phase <varname>install</varname> de ce cycle de vie
       dans une application web qui possède un type de packaging <varname>war</varname>.
       Comme votre projet est exécuté dans le cycle de vie <varname>war</varname>,
-      vous devez avoir un goal qui fork le build et exécute votre cycle de vie <varname>midi-source</varname>. 
-      Pour cela, vous auriez annoté votre mojo avec <varname>@execute lifecycle="midi-source" phase="install"</varname>.</para>
+      vous devez avoir un goal qui va lancer votre cycle de vie <varname>midi-source</varname> en parallèle de ce build.
+      Pour cela, vous devez annoter votre mojo avec <varname>@execute lifecycle="midi-source" phase="install"</varname>.</para>
 
       <variablelist>
         <varlistentry>
           <term>@execute goal="&lt;goal&gt;"</term>
 
           <listitem>
-            <para>Cela exécutera un goal donnée dans celui annoté.
+            <para>Cette annotation provoque l'exécution d'un goal donné avant celui annoté.
             Le nom du goal doit être donné en utilisant la notation <varname>prefix:goal</varname>.</para>  
             
           </listitem>
@@ -1471,7 +1471,7 @@ private ZipArchiver zipArchiver;</programlisting>
           <term>@execute phase="&lt;phase&gt;"</term>
 
           <listitem>
-            <para>Un fork sera effectué pour exécuter un cycle de vie alternatif spécifié par la phase donnée avant de continuer l'exécution courante.</para>
+            <para>Un cycle de vie alternatif, spécifié par la phase donnée, sera exécuté en parallèle avant de reprendre l'exécution courante.</para>
           </listitem>
         </varlistentry>
 
@@ -1480,7 +1480,7 @@ private ZipArchiver zipArchiver;</programlisting>
           phase="&lt;phase&gt;"</term>
 
           <listitem>
-            <para>Un cycle de vie alternatif sera exécuté. Un cycle de vie personnalisé peut être défini dans le fichier
+            <para>Cette annotation provoque l'exécution du cycle de vie alternatif. Un cycle de vie personnalisé peut être défini dans le fichier
             <filename>META-INF/maven/lifecycle.xml</filename>.</para>
           </listitem>
         </varlistentry>
