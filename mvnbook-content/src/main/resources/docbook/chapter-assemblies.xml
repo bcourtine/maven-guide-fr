@@ -933,7 +933,7 @@ second-project-1.0-SNAPSHOT/src/test/java/org/sonatype/mavenbook/AppTest.java</s
       assembly. La <xref linkend="assemblies-sect-default-excludes" /> présente une
       liste détaillée des formats d'exclusion par défaut.</para>
 
-      <para>Si vous voulons contrôler plus finement cet ensemble de 
+      <para>Si vous voulez contrôler plus finement cet ensemble de
       fichiers, vous pouvez le spécifier explicitement. L'
       <xref linkend="ex-explicit-fileSet" /> montre une balise
       <sgmltag>fileSet</sgmltag> qui spécifie toutes les valeurs par défaut.</para>
@@ -1821,7 +1821,7 @@ I can add this back in later.  I didn't want to talk about it without an example
         <para>Lorsque vous essayez d'inclure des fichiers de la structure de répertoires de chaque module,
         vous souhaitez déclarer cette structure de répertoires une seule fois. 
         Si votre structure de répertoires du projet correspond aux déclarations des relations parent-enfant
-        défiies dans les <acronym>POM</acronym>s, alors les patterns de fichiers
+        définies dans les <acronym>POM</acronym>s, alors les patterns de fichiers
         comme <varname>**/src/main/java</varname> peuvent s'appliquer non seulement aux répertoires 
         directs de ce module, mais également pour les répertoires de ses propres modules.
         Dans ce cas, il n'est pas nécessaire de traiter les sous-modules directement
