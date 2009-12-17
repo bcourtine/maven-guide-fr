@@ -1491,9 +1491,9 @@ private ZipArchiver zipArchiver;</programlisting>
       <title>Création d'un cycle de vie pesonnalisé</title>
 
       <para>Un cycle de vie personnalisé doit être packagé dans un plugin dans un fichier 
-      <filename>META-INF/maven/lifecycle.xml</filename> dans l'un des dossiers ressources : par exemple <filename>src/main/resources</filename>.
+      <filename>META-INF/maven/lifecycle.xml</filename> dans l'un des dossiers de ressources : par exemple <filename>src/main/resources</filename>.
       Le fichier  <filename>lifecycle.xml</filename> suivant déclare un cycle de vie nommé 
-      <varname>zipcycle</varname>. Celui-ci contient un seul goal, 
+      <varname>zipcycle</varname>. Celui-ci contient un unique goal,
       <varname>zip</varname>, dans une seule phase, <varname>package</varname>.</para>
 
       <para><example>
@@ -1519,7 +1519,7 @@ private ZipArchiver zipArchiver;</programlisting>
 </programlisting>
         </example></para>
 
-      <para>Si vous voulez exécuter la phase <varname>zipcycle</varname> dans un autre build, 
+      <para>Si vous voulez exécuter la phase <varname>zipcycle</varname> au sein d'un autre build,
       vous pouvez créer un <classname>ZipForkMojo</classname> qui utilise l'annotation <classname>@execute</classname>
       pour demander à Maven de traverser la phase <varname>zipcycle</varname> avant l'exécution du build courant.</para>   
 
@@ -1569,8 +1569,8 @@ public class ZipForkMojo extends AbstractMojo
 [INFO] ---------------------------------------------------------------------
 </screen>
 
-      <para>En appelant <varname>zip-fork</varname> à partir d'un autre cycle de vie,
-      Maven exécutera le cycle de vie <varname>zipcycle</varname> et affichera ensuite le message codé dans notre <classname>ZipFormMojo</classname>.</para> 
+      <para>L'exécution de <varname>zip-fork</varname> a créé un nouveau cycle de vie,
+      Maven a ensuite exécuté le cycle de vie <varname>zipcycle</varname> et a affiché le message contenu dans notre <classname>ZipFormMojo</classname>.</para>
     </section>
 
     <section id="writing-plugins-sect-override-default-lifecycle">
