@@ -315,7 +315,7 @@ package: org.sonatype.mavenbook
 
       <para>Cette section vous propose un bref aperçu de quelques-uns des archétypes fournis par des tiers non associés au projet Maven.
       Si vous recherchez une liste plus complète des archétypes disponibles, jetez un oeil à la liste des archétypes disponibles dans <varname>m2eclipse</varname>.
-      <varname>m2eclipse</varname> vous permet de créer un nouveau projet Maven à partir d'une liste grandissante de plus de 80 archétypes pour la plupart des technologies.
+      <varname>m2eclipse</varname> vous permet de créer un nouveau projet Maven à partir d'une liste sans cesse plus nombreuse de plus de 80 archétypes couvrant la plupart des technologies.
       Le chapitre <ulink url="http://www.sonatype.com/books/m2eclipse-book/reference/eclipse-sect-creating-project.html#eclipse-sect-m2e-create-archetype">"Creating
       a Maven Project from a Maven Archetype"</ulink> du livre <ulink
       url="http://www.sonatype.com/books/m2eclipse-book/">"Developing with
