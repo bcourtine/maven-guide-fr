@@ -482,10 +482,10 @@ $ <command>mvn jetty:run</command>
   <section id="archetype-sect-publishing">
     <title>Publication d'archétypes</title>
 
-    <para>Une fois que vous avez généré quelques artefacts, vous voudrez probablement les partager avec le reste du monde.
+    <para>Une fois que vous avez produit quelques artefacts, vous voudrez probablement les partager avec le reste du monde.
     Pour cela, vous devez créer un catalogue d'archétypes.
     Un catalogue d'archétypes est un fichier XML que le plugin Maven Archetype peut consulter pour rechercher des archétypes dans un repository. 
-    L'exemple <xref linkend="archetypes-cocoon-catalog" /> affiche le contenu du catalogue d'archétypes du projet Apache Cocoon qui peut être trouvé à l'adresse <ulink
+    L'<xref linkend="archetypes-cocoon-catalog" /> affiche le contenu du catalogue d'archétypes du projet Apache Cocoon qui peut être trouvé à l'adresse <ulink
     url="http://cocoon.apache.org/archetype-catalog.xml">http://cocoon.apache.org/archetype-catalog.xml</ulink>.</para>
 
     <example id="archetypes-cocoon-catalog">
@@ -497,28 +497,33 @@ $ <command>mvn jetty:run</command>
       &lt;groupId&gt;org.apache.cocoon&lt;/groupId&gt;
       &lt;artifactId&gt;cocoon-22-archetype-block-plain&lt;/artifactId&gt;
       &lt;version&gt;1.0.0&lt;/version&gt;
-      &lt;description&gt;Creates an empty Cocoon block; useful if you want to add another block to a Cocoon application&lt;/description&gt;
+      &lt;description&gt;Creates an empty Cocoon block; useful if you want to add
+                  another block to a Cocoon application&lt;/description&gt;
 
     &lt;/archetype&gt;
     &lt;archetype&gt;
       &lt;groupId&gt;org.apache.cocoon&lt;/groupId&gt;
       &lt;artifactId&gt;cocoon-22-archetype-block&lt;/artifactId&gt;
       &lt;version&gt;1.0.0&lt;/version&gt;
-      &lt;description&gt;Creates a Cocoon block containing some small samples&lt;/description&gt;
+      &lt;description&gt;Creates a Cocoon block containing some small
+                  samples&lt;/description&gt;
     &lt;/archetype&gt;
 
     &lt;archetype&gt;
       &lt;groupId&gt;org.apache.cocoon&lt;/groupId&gt;
       &lt;artifactId&gt;cocoon-22-archetype-webapp&lt;/artifactId&gt;
       &lt;version&gt;1.0.0&lt;/version&gt;
-      &lt;description&gt;Creates a web application configured to host Cocoon blocks. Just add the block dependencies&lt;/description&gt;
+      &lt;description&gt;Creates a web application configured to host Cocoon blocks.
+                  Just add the block dependencies&lt;/description&gt;
     &lt;/archetype&gt;
   &lt;/archetypes&gt;
 
-&lt;/archetype-catalog&gt;</programlisting>Pour générer un tel catalogue, vous devez parcourir un dépôt Maven.
+&lt;/archetype-catalog&gt;</programlisting>
+
+      Pour générer un tel catalogue, vous devez parcourir un dépôt Maven puis produire ce fichier XML catalogue.
       Le plugin Maven Archetype possède un goal nommé <varname>crawl</varname> qui effectue cela.
       En exécutant le goal <varname>archetype:crawl</varname> à partir de la ligne de commande sans argument,
-      le plugin Maven Archetype parcourra votre dépôt local à la recherche d'archétypes et créé un fichier
+      le plugin Maven Archetype va parcourir votre dépôt local à la recherche d'archétypes et créer un fichier
       <varname>archetype-catalog.xml</varname> dans le répertoire <varname>~/.m2/repository</varname>.</para>
 
       <screen>[tobrien@MACBOOK repository]$ mvn archetype:crawl
@@ -549,14 +554,14 @@ catalogFile null
 [INFO] ------------------------------------------------------------------------
 </screen>
 
-      <para>Si vous êtes intéressés par la création d'un catalogue d'archétypes, 
+      <para>Si vous êtes intéressé par la création d'un catalogue d'archétypes, 
       c'est généralement parce que vous êtes un projet Open Source ou une société qui dispose d'un ensemble d'archétypes à partager.
-      Ces archétypes sont probablement déjà disponibles dans un repository, vous avez besoin d'explorer ce dépôt et de générer un catalogue.
-      En d'autres termes, vous aurez probablement envie de scanner un répertoire sur un dépôt Maven existant 
-      et générer un plugin Archetype à la racine du repository.
-      Pour cela, vous aurez besoin de passer le catalogue et le dépôt en paramètre du goal <varname>archetype:crawl</varname>.</para>
+      Ces archétypes sont probablement déjà disponibles dans un dépôt que vous avez besoin d'explorer pour générer un catalogue.
+      En d'autres termes, vous aurez probablement envie de parcourir un répertoire sur un dépôt Maven existant
+      et générer un fichier <varname>archetype-catalog.xml</varname> à la racine du dépôt.
+      Pour cela, il vous faut passer le catalogue et le dépôt en paramètre du goal <varname>archetype:crawl</varname>.</para>
 
-      <para>La ligne de commande permet de créer un fichier catalogue à l'emplacement <varname>/var/www/html/archetype-catalog.xml</varname>,
+      <para>La ligne de commande suivante permet de créer un fichier catalogue à l'emplacement <varname>/var/www/html/archetype-catalog.xml</varname>,
       le dépôt se trouve dans le répertoire <varname>/var/www/html/maven2</varname>.</para> 
 
       <screen>$ mvn archetype:crawl -Dcatalog=/var/www/html/archetype-catalog.xml \
