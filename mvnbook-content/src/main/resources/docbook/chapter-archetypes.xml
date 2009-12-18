@@ -290,7 +290,7 @@ package: org.sonatype.mavenbook
       <section id="archetype-sect-webapp">
         <title>maven-archetype-webapp</title>
 
-        <para>Cet archétype créé un simple projet de type 
+        <para>Cet archétype crée un simple projet de type
         <acronym>WAR</acronym> avec une dépendance sur JUnit.
         Le dossier <filename>\${basedir}/src/main/webapp</filename> contient le squelette minime d'une application web :
         une page <filename>index.jsp</filename> et un fichier <filename>web.xml</filename> le plus simple possible.
@@ -327,10 +327,10 @@ package: org.sonatype.mavenbook
         <title>AppFuse</title>
 
         <para>AppFuse est un framework développé par Matt Raible.
-        Vous pouvez comparer celui-ci à quelque chose comme Rosetta Stone orienté sur des technologies Java comme Spring Framework, Hibernate ou iBatis.
-        En utilisant AppFuse, vous pouvez rapidement créer une application multi-tier qui peut être pluguée sur plusieurs frameworks de présentation web, comme Java Server Faces, Struts ou Tapestry.          
-        En créant AppFuse 2.0, Matt Raible à mis à jour son framework pour qu'il utilise Maven 2 pour utiliser les fonctionnalités de gestion des dépendances et de création d'archétypes.
-        AppFuse 2 fourni les archétypes suivants, tous sont groupés dans le <varname>groupId</varname> <varname>org.appfuse.archetypes</varname> :</para>
+        Vous pouvez le voir comme la Pierre de Rosette des technologies Java les plus connues comme Spring Framework, Hibernate ou iBatis.
+        En utilisant AppFuse, vous pouvez rapidement créer une application multi-tier complète qui peut s'interfacer à plusieurs frameworks de présentation web, comme Java Server Faces, Struts ou Tapestry.
+        En créant AppFuse 2.0, Matt Raible a mis à jour son framework en utilisant Maven 2 pour profiter de ses fonctionnalités de gestion de dépendances et de création d'archétypes.
+        AppFuse 2 fournit les archétypes suivants, tous sont regroupés dans le <varname>groupId</varname> <varname>org.appfuse.archetypes</varname> :</para>
 
         <variablelist>
           <varlistentry>
@@ -373,14 +373,14 @@ package: org.sonatype.mavenbook
             <term><varname>appfuse-core</varname></term>
 
             <listitem>
-              <para>Modèle objet et persistance dans couche présentation.</para>
+              <para>Modèle objet et sa couche de persistance sans couche présentation.</para>
             </listitem>
           </varlistentry>
         </variablelist>
 
-        <para>Les archétypes dont le nom suit le pattern <varname>appfuse-basic-*</varname> correspondent à des applications complètes dans un simple projet Maven. 
-        Les archétypes dont le nom suit le pattern <varname>appfuse-modular-*</varname> correspondent à des applications complètes avec un projet Maven multimodule 
-        qui sépare les objets du modèle, la couche de persistance et la couche présentation.
+        <para>Les archétypes dont l'artifactId respecte le format <varname>appfuse-basic-*</varname> produisent une applications complète correspondant à un unique projet Maven.
+        Les archétypes dont l'artifactId respecte le format <varname>appfuse-modular-*</varname> produisent une applications complète sous la forme d'un projet Maven multimodule
+        qui sépare les objets du modèle métier, la couche de persistance et la couche présentation.
         Voici un exemple permettant de générer une application web modulaire utilisant Spring MVC :</para>
 
         <screen>$ mvn archetype:generate \
@@ -414,11 +414,12 @@ $ cd web
 $ mvn jetty:run-war
 ... (Maven Jetty plugin starts a Servlet Container on port 8080)</screen>
 
-        <para>Utiliser un archétype AppFuse pour générer une application web avec une authentification, un système de gestion d'utilisateurs ne devrait pas vous prendre plus de 5 minutes.
-        Voici d'un bon exemple de la véritable force de l'utilisation des archétypes Maven pour générer des nouvelles applications.         
-        Nous avons simplifié le processus d'installation d'AppFuse, mais nous avons laissé un peu côté le téléchargement et l'installation de la base de données MySQL.
-        Mais il n'y a rien de très compliqué au final dans tout cela, pour plus d'informations vous pouvez vous lire la <ulink
-        url="http://appfuse.org/display/APF/AppFuse+QuickStart">documentation du Quickstart d'AppFuse</ulink>.</para>
+        <para>Il faut moins de cinq minutes entre la génération du projet à partir d'un archétype AppFuse et l'exécution de cette application web avec son authentification et son système de gestion des utilisateurs.
+        Voici d'un bon exemple de la véritable force qu'apporte l'utilisation des archétypes Maven pour générer de nouvelles applications.
+        Nous avons un peu simplifié le processus d'installation d'AppFuse, car nous avons oublié tout ce qui concerne le téléchargement et l'installation de la base de données MySQL.
+        Mais cela n'a rien de très compliqué au final, surtout si vous lisez <ulink
+        url="http://appfuse.org/display/APF/AppFuse+QuickStart">"AppFuse
+        Quickstart Documentation"</ulink>.</para>
       </section>
 
       <section id="archetype-sect-atlassian">
@@ -434,22 +435,21 @@ $ mvn jetty:run-war
         En utilisant l'archétype JIRA, vous créez un projet avec une classe <classname>MyPlugin</classname> vierge et un descripteur <varname>atlassian-plugin.xml</varname> 
         dans le répertoire <filename>\${basedir}/src/main/resources</filename>.</para>
 
-        <para>Pour plus d'information sur le développement de plugins Confluence en utilisant Maven 2, référez-vous à la page <ulink
+        <para>Pour plus d'information sur le développement de plugin Confluence avec Maven 2, référez-vous à la page <ulink
         url="http://confluence.atlassian.com/display/DISC/Developing+Confluence+Plugins+with+Maven+2">"Developing
         Confluence Plugins with Maven 2"</ulink> disponibles sur le wiki du projet.
         De même, pour plus d'informations sur le développement de plugins JIRA en utilisant Maven 2,
         référez-vous à la page <ulink url="http://confluence.atlassian.com/display/DEVNET/How+to+Build+an+Atlassian+Plugin">"How
-        to Build and Atlassian Plugin"</ulink> disponible sur le <varname>Atlassian Developer
-        Network</varname>.</para>
+        to Build and Atlassian Plugin"</ulink> disponible sur l'Atlassian Developer Network.</para>
       </section>
 
       <section id="archetype-sect-wicket">
         <title>Wicket</title>
 
         <para>Apache Wicket est un framework web orienté composant.
-        Il se focalise sur la gestion de l'état de composants serveur écris en Java et en simple <acronym>HTML</acronym>.  
-        Là où un framework comme Spring MVC ou Ruby on Rails se focalise sur la fusion d'objets d'une requête avec une série de template de page,
-        Wicket se focalise plus sur la capture des interactions et sur la structure de la page à partir d'une série de classes <acronym>POJO</acronym> Java. 
+        Il se focalise sur la gestion de l'état de composants serveur écrits en Java et en simple <acronym>HTML</acronym>.
+        Là où un framework comme Spring MVC ou Ruby on Rails se focalise sur la fusion d'objets d'une requête avec une série de modèles de page,
+        Wicket se concentre plutôt sur la capture des interactions et sur la structure de la page à partir d'une série de classes <acronym>POJO</acronym> Java.
         Vous pouvez générer un projet Wicket en utiliser le plugin Maven Archetype :</para> 
 
         <screen>$ <command>mvn archetype:generate</command>
@@ -462,14 +462,14 @@ $ <command>mvn install</command>
 $ <command>mvn jetty:run</command>
 ... (Jetty will start listening on port 8080) ...</screen>
 
-        <para>Tout comme l'archétype AppFuse, cet archétype créé une application web directement exécutable par le plugin Maven Jetty.
-        Une fois lancé, rendez-vous à l'adresse <ulink url="http://localhost:8080/ex-wicket">http://localhost:8080/ex-wicket</ulink>,
-        pour consulter votre nouvelle application web générée.</para>
+        <para>Tout comme l'archétype AppFuse, cet archétype crée une application web directement exécutable par le plugin Maven Jetty.
+        Une fois lancée, rendez-vous à l'adresse <ulink url="http://localhost:8080/ex-wicket">http://localhost:8080/ex-wicket</ulink>,
+        pour consulter votre application web nouvellement produite.</para>
 
         <note>
           <para>Pensez à la puissance qu'apportent les archétypes Maven face à une simple approche 'copier-coller' qui a caractérisé les dernières années de développement web.
           Il y a six ans, sans le plugin Maven Archetype,
-          vous auriez du parcourir un livre sur AppFuse ou un livre sur Wicket et apprendre comment bien utiliser le framework avant de pouvoir en exécuter un morceau de code dans un conteneur de servlets.            
+          vous auriez du parcourir un livre sur AppFuse ou sur Wicket et apprendre comment bien utiliser ces frameworks avant de pouvoir en exécuter le moindre bout de code dans un conteneur de servlets.
           Ou alors, vous auriez juste copié collé un projet existant et commencé à le personnaliser selon vos besoins.
           Avec le plugin Maven Archetype, les développeurs de framework peuvent vous fournir une application personnalisée à vos besoins en quelques minutes. 
           Il s'agit d'un changement profond qui n'a pas encore atteint toutes les entreprises.
