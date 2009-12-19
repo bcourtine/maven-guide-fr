@@ -123,7 +123,7 @@
       possible. Les builds très portables réduisent le coût de contribution d'un projet. Dans un projet libre (comme
       Maven), on trouve deux groupes d'utilisateurs très distincts : les développeurs et les utilisateurs finaux. Quand
       un utilisateur final utilise Maven et qu'il décide de contribuer en proposant un patch à Maven, d'utilisateur du
-      produit final d'un build, il doit se devenir capable de construire ce produit par lui-même. Il doit donc tout d'abord se
+      produit final d'un build, il doit devenir capable de construire ce produit par lui-même. Il doit donc tout d'abord se
       transformer en développeur, et donc, si apprendre à construire ce projet est trop compliqué, alors il perdra de sa
       motivation à contribuer au projet. Avec un projet très portable, un utilisateur n'a pas à connaître les arcanes
       du build d'un projet pour se transformer en développeur, il peut télécharger le code source, le modifier,
