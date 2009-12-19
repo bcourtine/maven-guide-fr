@@ -657,7 +657,7 @@ The following profiles are active:
     </section>
 
     <section id="profiles-sect-protecting-secrets">
-      <title>Protèger les mots de passe</title>
+      <title>Protéger les mots de passe</title>
 
       <para>Cette bonne pratique est la conséquence de la section précédente. Dans la partie <xref
       linkend="ex-profile-envtype-pom" xrefstyle="select:title" />, le profil de production ne contient pas la propriété
