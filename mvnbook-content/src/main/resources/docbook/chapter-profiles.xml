@@ -381,7 +381,7 @@
       </callout>
 
       <callout arch="" arearefs="coDef-profiles-active-2" id="coRef-profiles-active-2">
-        <para>Dans ce profil nous ajoutons le module <literal>simple-script</literal>. L'ajout de ce module fait que
+        <para>Nous ajoutons le module <literal>simple-script</literal> dans ce profil. L'ajout de ce module fait que
         Maven va aller regarder dans le sous-répertoire <filename>simple-script/</filename> à la recherche d'un fichier
         <filename>pom.xml</filename>.</para>
       </callout>
