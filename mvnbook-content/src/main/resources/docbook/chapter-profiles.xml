@@ -293,7 +293,7 @@
         </example></para>
 
       <para>Un profil peut donc redéfinir tous ces éléments. Il peut redéfinir le nom de l'artefact final, les
-      dépendances et le build d'un projet via en surchargeant la configuration des plugins. Un profil peut aussi
+      dépendances et le build d'un projet en surchargeant la configuration des plugins. Un profil peut aussi
       redéfinir les paramètres de distribution. Par exemple, si pour une étape de validation vous
       devez publier vos artefacts sur un serveur de pré-production, vous allez créer un profil de validation qui va
       surcharger la balise <sgmltag>distributionManagement</sgmltag>.</para>
