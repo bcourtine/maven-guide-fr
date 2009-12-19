@@ -222,7 +222,7 @@
       </callout>
     </calloutlist>
 
-    <para>Pour exécuter la commande <command>mvn install</command> avec le profil de <literal>production</literal> vous
+    <para>Pour exécuter la commande <command>mvn install</command> avec le profil de <literal>production</literal>, vous
     devez passer l'argument <command>-Pproduction</command> en ligne de commande. Pour vérifier que le profil de
     <literal>production</literal> surcharge la configuration par défaut du plugin Compiler, exécutez Maven avec les
     options de debug (<command>-X</command>) activées :</para>
