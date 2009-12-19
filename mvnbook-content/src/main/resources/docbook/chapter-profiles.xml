@@ -768,7 +768,7 @@ The following profiles are active:
       qualifie l'artefact Jar avec "-win". Si le système d'exploitation est un membre de la famille Unix, l'artefact est
       qualifié avec "-linux". Ce fichier <filename>pom.xml</filename> permet donc d'ajouter des classificateurs aux artefacts,
       mais il est plus verbeux que nécessaire, car il recopie la configuration du plugin Maven Jar dans les deux profils.
-      Cet exemple pourrrait être réecrit en utilisant des variables pour réduire la redondance :</para>
+      Cet exemple pourrrait être réécrit en utilisant des variables pour réduire la redondance :</para>
 
       <para><example>
           <title>Qualification des artefacts avec des profils activés selon la plateforme d'exécution et en utilisant 
