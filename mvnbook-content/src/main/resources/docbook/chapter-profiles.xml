@@ -563,8 +563,8 @@ The following profiles are active:
       propriété <varname>environment.</varname><varname>type</varname>.</para>
 
       <para><example>
-          <title>Le fichier ~/.m2/settings.xml définit un profil par défaut qui spécifie la propriété
-          environment.type</title>
+          <title>Le fichier <filename> ~/.m2/settings.xml</filename> définit un profil par défaut qui spécifie la propriété
+          <varname>environment.type</varname></title>
 
           <programlisting language="xml">&lt;settings&gt;
   &lt;profiles&gt;
