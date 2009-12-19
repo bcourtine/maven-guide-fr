@@ -815,7 +815,7 @@ The following profiles are active:
 </programlisting>
         </example></para>
 
-      <para>Dans ce fichier <filename>pom.xml</filename> chaque profil n'a pas besoin d'inclure une balise
+      <para>Dans ce fichier <filename>pom.xml</filename>, chaque profil n'a pas besoin d'inclure une balise
       <sgmltag>build</sgmltag> pour configurer le plugin Jar. Au lieu de cela, le profil est activé par la famille à
       laquelle appartient le système d'exploitation, et valorise la propriété <varname>envClassifier</varname> soit à
       <literal>win</literal> soit à <literal>linux</literal>. Cette propriété <varname>envClassifier</varname> est
