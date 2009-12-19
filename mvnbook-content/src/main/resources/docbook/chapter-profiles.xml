@@ -57,7 +57,7 @@
         personnaliser son comportement et sa configuration en fonction de l'environnement. Par exemple, un projet qui
         contient une référence à une base de données de test dans un environnement de test et à une base de données de
         production dans un environnement de production, est portable sur ces deux environnements. Il est probable que ce
-        build ait différentes propriétés pour chaque environnement. Quand vous changez pour un environnement pour qui
+        build ait différentes propriétés pour chaque environnement. Quand vous changez pour un environnement qui
         n'est pas défini et qui ne possède pas de profil associé, le projet ne fonctionnera pas. Donc un projet n'est
         portable que sur des environnements bien définis.</para>
 
