@@ -825,7 +825,7 @@ The following profiles are active:
       :</para>
 
       <para><example>
-          <title>Dépendance ves un artefact qualifié</title>
+          <title>Dépendance vers un artefact qualifié</title>
 
           <programlisting language="xml">
     &lt;dependency&gt;
