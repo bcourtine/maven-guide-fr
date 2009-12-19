@@ -320,7 +320,7 @@
     comment nous souhaitons que les développeurs construisent notre système.</para>
 
     <para>Lorsque l'on exécute la commande <command>mvn install</command> avec un <acronym>JDK</acronym> Java 6, nous
-    voulons que le build construise le projet <literal>simple-script</literal>, si par contre cette commande est
+    voulons que le build construise le projet <literal>simple-script</literal>. Si par contre cette commande est
     exécutée sur Java 5 il faut exclure le projet <literal>simple-script</literal> du build. Si vous n'excluez pas le
     projet <literal>simple-script</literal> de votre build en Java 5, celui-ci va échouer car Java 5 ne fournit pas la
     classe <classname>ScriptEngine</classname>. Étudions plus en détail le fichier <filename>pom.xml</filename> du
