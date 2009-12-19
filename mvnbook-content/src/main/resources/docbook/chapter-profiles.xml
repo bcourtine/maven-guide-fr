@@ -589,7 +589,7 @@ The following profiles are active:
       <literal>dev</literal>.</para>
 
       <para><example id="ex-profile-envtype-pom">
-          <title>Profil d'un projet activé quand environment.type vaut 'dev'</title>
+          <title>Profil d'un projet activé quand <varname>environment.type</varname> vaut <literal>'dev'</literal></title>
 
           <programlisting language="xml">&lt;project&gt;
   ...
