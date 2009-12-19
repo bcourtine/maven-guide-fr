@@ -145,7 +145,7 @@
     un profil <literal>production</literal> pour écraser les paramètres par défaut du plugin Compiler.</para>
 
     <example>
-      <title>Surcharge des paramètres de compilation en production par un un profil Maven</title>
+      <title>Surcharge des paramètres de compilation en production par un profil Maven</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
