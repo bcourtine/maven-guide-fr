@@ -675,7 +675,7 @@ The following profiles are active:
       fichier <filename>settings.xml</filename> comme suit :</para>
 
       <example>
-        <title>Enregistrement de mots de passe dans un profil du fichier settings.xml propre à l'utilisateur</title>
+        <title>Enregistrement de mots de passe dans un profil du fichier <filename>settings.xml</filename> propre à l'utilisateur</title>
 
         <programlisting language="xml">&lt;settings&gt;
   &lt;profiles&gt;
