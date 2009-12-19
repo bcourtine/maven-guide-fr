@@ -546,7 +546,7 @@ The following profiles are active:
       <para>Une des principales raisons à l'utilisation de profils Maven est de fournir la configuration
       spécifique à un environnement. Dans un environnement de développement, vous voudrez produire du bytecode avec les
       informations nécessaires pour le débogage et vous voudrez configurer votre système pour qu'il utilise une base de
-      données de développement. Dans un environnement de prodution, vous souhaiterez produire un JAR signé et configurer
+      données de développement. Dans un environnement de production, vous souhaiterez produire un JAR signé et configurer
       votre système pour qu'il utilise la base de données de production. Dans ce chapitre, nous avons défini un certain
       nombre d'environnements avec des identifiants comme <literal>dev</literal> et <literal>prod</literal>. On peut
       faire plus simple en définissant des profils qui seront activés par des propriétés de l'environnement et en
