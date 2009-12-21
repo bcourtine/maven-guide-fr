@@ -21,41 +21,48 @@
       </listitem>
 
       <listitem>
-        <para>Ajoutez Flash Player à votre PATH afin de permettre les tests unitaires Flex</para>
+        <para>Ajoutez Flash Player à votre PATH pour pouvoir exécuter les tests unitaires Flex</para>
       </listitem>
 
       <listitem>
-        <para>(Optionnel) Configurez vos paramètres Maven pour inclure le group de plugin de Sonatype</para>
+        <para>(Optionnel) Configurez vos paramètres Maven pour inclure le groupe de plugin de Sonatype</para>
       </listitem>
     </itemizedlist>
 
     <section id="flex-dev-sect-referencing-repo-with-flex">
       <title>Faire référence à un dépôt contenant le Framework Flex</title>
 
-      <para>Pour configurer votre environnement Maven pour utiliser Flexmojos, vous avez deux options: vous pouvez faire référence au dépôt Flexmojos de Sonotype directement dans le fichier 
-  <filename>pom.xml</filename>, ou vous pouvez installer Nexus et ajouter le dépôt Sonatype pour Flexmojos en tant que dépôt proxy dans votre propre gestionnaire de dépôts.
-  Alors que l'option la plus directe consiste à faire référence directement au dépôt, télécharger et installer Nexus vous procurera le contrôle et la flexibilité dont vous avez besoin pour cacher et gérer les artefacts générés par vos propres builds.
-Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-dessous la <xref linkend="flex-dev-sect-direct-repo"/>. Si vous êtes intéressés par une solution à long terme qui peut être déployée pour servir de support à une équipe de développement, allez à la  
-      <xref linkend="flex-dev-sect-proxy-nexus"/>.</para>
+      <para>Pour configurer votre environnement Maven pour utiliser Flexmojos, vous avez deux
+      options : vous pouvez faire référence au dépôt Flexmojos de Sonatype directement dans le fichier
+      <filename>pom.xml</filename>, ou vous pouvez installer Nexus et ajouter le dépôt Sonatype pour
+      Flexmojos en tant que dépôt proxy dans votre propre gestionnaire de dépôts. Si l'option la
+      plus simple consiste à faire référence directement au dépôt, télécharger et installer Nexus
+      vous procurera le contrôle et la flexibilité dont vous avez besoin pour cacher et gérer les
+      artefacts générés par vos propres builds. Si vous souhaitez juste commencer rapidement avec
+      Flexmojos, lisez ci-dessous la <xref linkend="flex-dev-sect-direct-repo"/>.
+      Si ce qui vous itéresse est une solution à long terme qui peut être déployée pour servir de
+      support à une équipe de développement, allez à la <xref linkend="flex-dev-sect-proxy-nexus"/>.</para>
 
       <para>Si votre organisation utilise déjà la solution Nexus de Sonatype en tant que proxy
       pour les dépôts distants, vous avez probablement un fichier 
       <filename>~/.m2/settings.xml</filename> personnalisé qui pointe vers un seul groupe Nexus. 
-      Si telle est votre situation, vous devrez ajouter au groupe référencé par votre équipe de développement un dépôt proxy 
-      pour le groupe de dépôts de Flexmojos avec l'adresse <ulink url="${flexmojos.repository}">${flexmojos.repository}</ulink>.
-      Ajouter un dépôt proxy pour ce groupe distant et ensuite ajouter ce groupe au groupe public de votre installation Nexus, 
-      donnera aux clients de l'instance Nexus un accès aux artefacts Sonatype <varname>repository.sonatype.org</varname>.
+      Si telle est votre situation, vous devrez ajouter au groupe référencé par votre équipe de 
+      développement un dépôt proxy pour le groupe du dépôt de Flexmojos avec 
+      l'adresse <ulink url="${flexmojos.repository}">${flexmojos.repository}</ulink>. Ajouter un
+      dépôt proxy pour ce groupe distant et puis ajouter ce groupe au groupe public de votre
+      installation Nexus, donnera aux clients de votre instance Nexus un accès aux artefacts
+      Sonatype <varname>repository.sonatype.org</varname>.
     </para>
 
       <section id="flex-dev-sect-direct-repo">
         <title>Faire référence depuis le POM au dépôt Flexmojos de Sonatype</title>
 
-        <para>Flexmojos dépend de quelques artefacts qui ne sont actuellement pas disponibles depuis le dépôt central Maven.
-        Ces artefacts sont disponibles depuis un dépôt hébergé par Sonatype. Pour utiliser Flexmojos, vous devrez faire 
-        référence à ce dépôt depuis le <filename>pom.xml</filename> de votre projet. 
-        Pour réaliser ceci, ajoutez l'élément 
-        <sgmltag>repositories</sgmltag> indiqué dans <xref linkend="ex-flex-dev-repository"/> au 
-        <filename>pom.xml</filename> de votre projet.</para>
+        <para>Flexmojos dépend de certains artefacts qui ne sont actuellement pas disponibles
+        depuis le dépôt central Maven. Ces artefacts sont disponibles depuis un dépôt hébergé
+        par Sonatype. Pour utiliser Flexmojos, vous devrez faire référence à ce dépôt depuis
+        le <filename>pom.xml</filename> de votre projet. dans ce but, ajoutez l'élément
+        <sgmltag>repositories</sgmltag> indiqué dans <xref linkend="ex-flex-dev-repository"/> dans le
+        fichier <filename>pom.xml</filename> de votre projet.</para>
 
         <example id="ex-flex-dev-repository">
           <title>Ajouter une référence au dépôt Flexmojos de Sonatype au sein du POM</title>
@@ -84,12 +91,13 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
 </programlisting>
         </example>
 
-        <para>Le XML illustré dans <xref linkend="ex-flex-dev-repository"/>, ajoutera ce dépôt  à la liste des dépôts que consultera Maven 
-        quand il tentera de télécharger les artefacts et les plugins. </para>
+        <para>Le XML illustré dans <xref linkend="ex-flex-dev-repository"/>, ajoute ce dépôt à la 
+        liste des dépôts consultés par Maven quand il tente de télécharger les artefacts et
+        les plugins.</para>
       </section>
 
       <section id="flex-dev-sect-proxy-nexus">
-        <title>Proxyfier le dépôt Flexmojos de Sonatype avec Nexus</title>
+        <title>Utiliser Nexus comme proxy du dépôt Flexmojos de Sonatype</title>
 
         <para>Au lieu de pointer directement vers le dépôt Flexmojos de Sonatype,
         Sonatype recommande d'installer un gestionnaire de dépôt et de le mettre
@@ -113,7 +121,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         <guimenu>Nexus</guimenu> de la partie gauche de l'interface
         utilisateur de Nexus. Ce click sur <guimenuitem>Repositories</guimenuitem>
         va charger le panneau <guilabel>Repositories</guilabel>. Dans ce panneau
-        <guilabel>Repositories</guilabel> panel, cliquez sur le bouton
+        <guilabel>Repositories</guilabel>, cliquez sur le bouton
         <guibutton>Add..</guibutton> et sélectionnez Proxy Repository comme le
         montre la <xref linkend="fig-flex-dev-add-proxy-repos" />.</para>
 
@@ -135,9 +143,9 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
 
         <para>Une fois que vous avez créé ce nouveau dépôt proxy, il vous faut
         le configurer pour qu'il pointe vers le dépôt public Flexmojos de
-        Sonatype. Sélectionnez ce nouveau dépôt puis sélectionnez l'onglet de
+        Sonatype. Sélectionnez ce nouveau dépôt puis l'onglet de
         Configuration en bas de la fenêtre. Remplissez les champs suivants avec les
-        valeurs suivantes comme le montre la <xref
+        valeurs indiquées comme le montre la <xref
         linkend="fig-flex-dev-sonatype-public-proxy" />.</para>
 
         <itemizedlist>
@@ -150,7 +158,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
           </listitem>
 
           <listitem>
-            <para>The "Remote Storage Location" prend pour valeur <ulink
+            <para>La "Remote Storage Location" prend pour valeur <ulink
             url="${flexmojos.repository}">${flexmojos.repository}</ulink></para>
           </listitem>
         </itemizedlist>
@@ -173,21 +181,20 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
 
         <para>Une fois que vous avez rempli les champs présentés dans <xref
         linkend="fig-flex-dev-sonatype-public-proxy" /> cliquez sur le bouton
-        <guibutton>Save</guibutton> pour enregistrer le dépôt proxy et commencez
-        à proxyfier le dépôt Sonatype Flexmojos. Nexus est fourni avec un groupe
-        public repository, qui combine plusieurs dépôts en un seul point d'entrée
+        <guibutton>Save</guibutton> pour enregistrer ce dépôt et commencer à l'utiliser
+        comme proxy du dépôt Sonatype Flexmojos. Nexus est fourni avec un groupe
+        public de dépôts, qui regroupe plusieurs dépôts en un seul point d'entrée
         pour les clients Maven. Pour compléter la configuration de ce nouveau
-        dépôt proxy, vous devez ajouter celui-ci au groupe
-        Nexus public. Pour ce faire, allez à la liste des dépôts qui
-        devrait être visible dans le haut du panneau Repositories comme le
-        montre <xref linkend="fig-flex-dev-sonatype-public-proxy" />. Cliquez sur le
-        groupe Public Repositories puis sur l'onglet Configuration tab en bas du
-        panneau Repository. Cliquer que l'onglet Configuration fait apparaître le
-        formulaire de configuration Group configuration comme le montre <xref
+        dépôt proxy, vous devez ajouter celui-ci au groupe Nexus <varname>Public Repositories</varname>.
+        Pour ce faire, allez à la liste des dépôts qui devrait être visible dans le haut du panneau
+        <guilabel>Repositories</guilabel> comme le montre <xref linkend="fig-flex-dev-sonatype-public-proxy" />.
+        Cliquez sur le groupe <guilabel>Public Repositories</guilabel> puis sur l'onglet
+        Configuration en bas du panneau Repository. Cliquer sur l'onglet Configuration fait apparaître
+        le formulaire <guilabel>Group configuration</guilabel> comme le montre <xref
         linkend="fig-flex-dev-adding-sonatype-to-group" />.</para>
 
         <figure id="fig-flex-dev-adding-sonatype-to-group">
-          <title>Ajout du proxy de Sonatype Flexmojos au groupe Public Repositories</title>
+          <title>Ajout du proxy de Sonatype Flexmojos au groupe <varname>Public Repositories</varname></title>
 
           <mediaobject>
             <imageobject role="web">
@@ -208,7 +215,7 @@ Si vous souhaitez juste démarrer rapidement et exécuter Flexmojos, lisez ci-de
         <guilabel>Available Repositories</guilabel> dans la liste
         <guilabel>Ordered Group Repositories</guilabel>. Cliquez sur le bouton
         <guibutton>Save</guibutton> et vous aurez ajouté avec succès un proxy
-        du dépôt Sonatype Flexmojos repository à votre installation de Nexus.
+        du dépôt Sonatype Flexmojos à votre installation de Nexus.
         À chaque fois qu'un client va demander un artefact à ce groupe de dépôt, si
         Nexus ne l'a pas déjà mis en cache il va le demander au dépôt
         Sonatype Flexmojos situé à <ulink
