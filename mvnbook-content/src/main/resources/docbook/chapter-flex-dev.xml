@@ -1294,7 +1294,7 @@ package: org.sonatype.test
             <para>Ce goal compile en un fichier <acronym>SWF</acronym> tous les fichiers ActionScript 
             et MXML du répertoire <varname>sourceDirectory</varname>. Un fichier <acronym>SWF</acronym>
             est un fichier qui contient une application qui peut être exectuée dans le lecteur
-            Flash Player or le l'environnement d'execution Adobe AIR.</para>
+            Flash Player or le l'environnement d'exécution Adobe AIR.</para>
           </listitem>
         </varlistentry>
 
@@ -1358,7 +1358,7 @@ package: org.sonatype.test
 
         <listitem>
           <para>Compile les sources Flex (ActionScript et MXML) en une application 
-          <acronym>SWF</acronym> pour lecteur Adobe Flash Player ou l'environnement d'execution Adobe AIR </para>
+          <acronym>SWF</acronym> pour lecteur Adobe Flash Player ou l'environnement d'exécution Adobe AIR </para>
         </listitem>
       </varlistentry>
 
@@ -1469,18 +1469,18 @@ package: org.sonatype.test
       <title>Compilation des sources Flex</title>
 
       <para>FlexMojos présente nombre de goals compilant ActionScript
-      et MXML en SWCs and SWFs. Les goals <varname>compile-swc</varname> et <varname>compile-swf</varname> sont utilisés
-      pour produire les artefacts cible à partie des sources du projet. Le goal <varname>test-compile</varname> est utilisé pour compiler 
+      et MXML en fichiers SWC et SWF. Les goals <varname>compile-swc</varname> et <varname>compile-swf</varname> sont utilisés
+      pour produire les artefacts à partir des sources du projet. Le goal <varname>test-compile</varname> est utilisé pour compiler
  	    les tests unitaires. Dans les projets simples créés par les archétypes
       FlexMojos, les goals <varname>compile-swc</varname> et <varname>compile-swf</varname> sont invoqués
-      parce que le projet personnalise le cycle de vie et lie 
-      <varname>compile-swc</varname> ou <varname>compile-swf</varname> à la phase de compilation et <varname>test-compile</varname> à la phase de
+      parce que le projet personnalise le cycle de vie et rattache 
+      <varname>compile-swc</varname> ou <varname>compile-swf</varname> à la phase de compilation et <varname>test-compile</varname> à la phase 
       <varname>test-compile</varname>. Si vous avez besoin de configurer les options du compilateur
       FlexMojos, vous le ferez à travers les options de configuration du plugin FlexMojos.
 	    Par exemple, si vous voulez que l'application avec le POM
-      illustré dans l'<xref linkend="ex-flex-dev-app-pom" /> ignore les warnings de compilation au niveau du code 
-      et utilise des propriétés personnalisées de fonte,
-      vous pouvez utiliser une configuration de plugin illustrée dans l'<xref
+      illustré dans l'<xref linkend="ex-flex-dev-app-pom" /> ignore les alertes de compilation au niveau du code
+      et utilise des polices personnalisées,
+      vous pouvez utiliser une configuration de plugin comme celle illustrée dans l'<xref
       linkend="ex-flex-dev-customizing-compiler" />.</para>
 
       <example id="ex-flex-dev-customizing-compiler">
@@ -1533,7 +1533,7 @@ package: org.sonatype.test
 
       <screen>$ <command>mvn flexmojos:flexbuilder</command></screen>
 
-      <para>L'éxécution de ce goal produira les fichiers : <filename>.project</filename>,
+      <para>L'exécution de ce goal produira les fichiers : <filename>.project</filename>,
       <filename>.settings/org.eclipse.core.resources.prefs</filename>,
       <filename>.actionScriptProperties</filename> et
       <filename>.flexLibProperties</filename>.</para>
