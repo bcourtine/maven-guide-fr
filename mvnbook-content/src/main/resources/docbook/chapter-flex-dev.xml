@@ -1170,13 +1170,13 @@ package: org.sonatype.test
   <section id="flex-dev-sect-custom-lifecycle">
     <title>Le cycle de vie de FlexMojos</title>
 
-    <para>Le plugin Maven FlexMojos personnalise le cycle de vie sur la base du type de 
+    <para>Le plugin Maven FlexMojos personnalise le cycle de vie en se basant sur le type de
     packaging. Si votre projet a un <varname>packaging</varname> de type
     <varname>swc</varname> ou <varname>swf,</varname> alors le plugin FlexMojos 
     exécute un cycle de vie personnalisé, si toutefois votre configuration de plugin positionne 
-    extensions à <varname>true</varname>. L'<xref linkend="ex-flex-dev-extensions-true" /> illustre
-    la configuration de plugin pour le <varname>flexmojos-maven-plugin</varname> avec 
-    <varname>extensions</varname> positionnées à <varname>true</varname>.</para>
+    les extensions à <varname>true</varname>. L'<xref linkend="ex-flex-dev-extensions-true" /> illustre
+    la configuration de plugin pour le <varname>flexmojos-maven-plugin</varname> avec la balise
+    <varname>extensions</varname> positionnée à <varname>true</varname>.</para>
 
     <example id="ex-flex-dev-extensions-true">
       <title>Configuration de l'élément extensions à true pour un cycle de vie personnalisé Flex</title>
@@ -1203,10 +1203,10 @@ package: org.sonatype.test
     <section id="flex-dev-sect-lifecycle-swc">
       <title>Le cycle de vie SWC</title>
 
-      <para>Quand le packaging est swc, FlexMojos exécute le cycle de vie
+      <para>Quand le packaging est du type <varname>swc</varname>, FlexMojos exécute le cycle de vie
       illustré dans la <xref linkend="fig-flex-dev-swc-lifecycle" />. Les goals surlignés
-      sont des goals spécifiques au plugin FlexMojos, les goals qui ne sont pas
-      surlignés sont des goals standards du plugin Core Maven.</para>
+      sont des goals spécifiques au plugin FlexMojos, ceux qui ne le sont pas sont des goals standards
+      du plugin Core Maven.</para>
 
       <figure id="fig-flex-dev-swc-lifecycle">
         <title>Le cycle de vie SWC de FlexMojos </title>
@@ -1231,9 +1231,10 @@ package: org.sonatype.test
           <term>flexmojos:compile-swc</term>
 
           <listitem>
-            <para>Ce goal compile en librairie SWC tous les fichiers ActionScript et MXML qui sont dans 
-	          <varname>sourceDirectory</varname>. Un SWC une bibliothèque Adobe qui contient des composants et des 
-            ressources utilisées dans des Flex applications.</para>
+            <para>Ce goal compile en une bibliothèque SWC tous les fichiers ActionScript et MXML
+            présents dans le répertoire <varname>sourceDirectory</varname>. Un fichier
+            <acronym>SWC</acronym> est une bibliothèque Adobe qui contient des composants et des
+            ressources utilisées dans des applications Flex.</para>
           </listitem>
         </varlistentry>
 
@@ -1241,8 +1242,8 @@ package: org.sonatype.test
           <term>flexmojos:test-compile</term>
 
           <listitem>
-            <para>Ce goal compile tous les fichiers ActionScript et MXML files qui se trouvent 
-            dans <varname>testSourceDirectory</varname>.</para>
+            <para>Ce goal compile tous les fichiers ActionScript et MXML qui se trouvent 
+            dans le répertoire <varname>testSourceDirectory</varname>.</para>
           </listitem>
         </varlistentry>
 
@@ -1251,7 +1252,7 @@ package: org.sonatype.test
 
           <listitem>
             <para>Ce goal exécute les tests unitaires en utilisant le lecteur Flash Player. Ce 
-            goal ne peut s'exécuter que si Flash Player a correctement été configuré comme 
+            goal ne peut s'exécuter que sile  Flash Player a été correctement configuré comme
             décrit dans la <xref
             linkend="flex-dev-sect-configuring-unit-tests" />.</para>
           </listitem>
@@ -1262,10 +1263,10 @@ package: org.sonatype.test
     <section id="flex-dev-sect-lifecycle-swf">
       <title>Le cycle de vie SWF</title>
 
-      <para>Quand le packaging est swf, FlexMojos exécute le lifecycle
+      <para>Quand le type depackaging est <varname>swf</varname>, FlexMojos exécute le cycle
       de vie illustré dans la <xref linkend="fig-flex-dev-swf-lifecycle" />. Les goals
-      surlignés sont spécifiques au plugin FlexMojos, les goals qui ne sont pas
-      surlignés sont des goals standards du plugin Core Maven.</para>
+      surlignés sont spécifiques au plugin FlexMojos, ceux qui ne le sont pas
+      sont des goals standards du plugin Core Maven.</para>
 
       <figure id="fig-flex-dev-swf-lifecycle">
         <title>Cycle de vie SWF de FlexMojos</title>
@@ -1290,10 +1291,10 @@ package: org.sonatype.test
           <term>flexmojos:compile-swf</term>
 
           <listitem>
-            <para>Ce goal compile en SWF tous les fichiers ActionScript et MXML 
-            du répertoire <varname>sourceDirectory</varname>. Un SWF est un fichier
-            qui contient une application qui peut être rendu dans le lecteur 
-            Flash Player or le runtime Adobe AIR.</para>
+            <para>Ce goal compile en un fichier <acronym>SWF</acronym> tous les fichiers ActionScript 
+            et MXML du répertoire <varname>sourceDirectory</varname>. Un fichier <acronym>SWF</acronym>
+            est un fichier qui contient une application qui peut être exectuée dans le lecteur
+            Flash Player or le l'environnement d'execution Adobe AIR.</para>
           </listitem>
         </varlistentry>
 
@@ -1311,7 +1312,8 @@ package: org.sonatype.test
 
           <listitem>
             <para>Ce goal exécute les tests unitaires en utilisant le lecteur Flash Player. 
-            Ce goal ne peut être exécuté que si le lecteur Flash Player a correctement été configuré comme décrit dans la <xref
+            Ce goal ne peut être exécuté que si le lecteur Flash Player été a correctement configuré
+            comme décrit dans la <xref
             linkend="flex-dev-sect-configuring-unit-tests" />.</para>
           </listitem>
         </varlistentry>
