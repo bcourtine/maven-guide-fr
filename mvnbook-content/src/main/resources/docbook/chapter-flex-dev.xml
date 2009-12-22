@@ -1331,7 +1331,7 @@ package: org.sonatype.test
         <term>flexmojos:asdoc</term>
 
         <listitem>
-          <para>Génère la documentation pour les fichiers sources ActionScript</para>
+          <para>Génère la documentation pour les fichiers source ActionScript</para>
         </listitem>
       </varlistentry>
 
@@ -1339,7 +1339,7 @@ package: org.sonatype.test
         <term>flexmojos:asdoc-report</term>
 
         <listitem>
-          <para>Génère la documentation pour les fichiers sources ActionScript sous forme de 
+          <para>Génère la documentation pour les fichiers source ActionScript sous la forme d'un
           rapport qui peut être inclus dans un site Maven</para>
         </listitem>
       </varlistentry>
@@ -1348,7 +1348,7 @@ package: org.sonatype.test
         <term>flexmojos:compile-swc</term>
 
         <listitem>
-          <para>Compile les sources Flex (ActionScript et MXML) en une librairie SWC
+          <para>Compile les sources Flex (ActionScript et MXML) en une bibliothèque <acronym>SWC</acronym>
           pour une intégration dans une application Flex ou AIR</para>
         </listitem>
       </varlistentry>
@@ -1357,7 +1357,8 @@ package: org.sonatype.test
         <term>flexmojos:compile-swf</term>
 
         <listitem>
-          <para>Compile les sources Flex (ActionScript et MXML) en une application SWF  pour lecteur Adobe Flash Player ou runtime Adobe AIR </para>
+          <para>Compile les sources Flex (ActionScript et MXML) en une application 
+          <acronym>SWF</acronym> pour lecteur Adobe Flash Player ou l'environnement d'execution Adobe AIR </para>
         </listitem>
       </varlistentry>
 
@@ -1373,7 +1374,7 @@ package: org.sonatype.test
         <term>flexmojos:flexbuilder</term>
 
         <listitem>
-          <para>Génère les fichiers de projet pour un usage dans l'environnement de développement Adobe Flex Builder</para>
+          <para>Génère les fichiers de configuration du projet pour l'environnement de développement Adobe Flex Builder</para>
         </listitem>
       </varlistentry>
 
@@ -1389,8 +1390,9 @@ package: org.sonatype.test
         <term>flexmojos:optimize</term>
 
         <listitem>
-          <para>Goal qui exécute une optimisation des fichiers swc, postérieurement à une inclusion dans une application SWF. Ce
-          goal est utilisé pour produire des fichiers RSL.</para>
+          <para>Goal qui exécute une optimisation des fichiers swc, postérieurement à leur inclusion
+          dans une application <acronym>SWF</acronym>. Ce
+          goal est utilisé pour produire des fichiers <acronym>RSL</acronym>.</para>
         </listitem>
       </varlistentry>
 
@@ -1398,8 +1400,7 @@ package: org.sonatype.test
         <term>flexmojos:sources</term>
 
         <listitem>
-          <para>Génère un JAR contenant toutes les sources du projet Flex
-          </para>
+          <para>Génère un JAR contenant toutes les sources du projet Flex</para>
         </listitem>
       </varlistentry>
 
@@ -1415,7 +1416,7 @@ package: org.sonatype.test
         <term>flexmojos:test-run</term>
 
         <listitem>
-          <para>Exécute les tests utilisant le lecteur Adobe Flash Player</para>
+          <para>Exécute les tests unitaires en utilisant le lecteur Adobe Flash Player</para>
         </listitem>
       </varlistentry>
 
@@ -1423,7 +1424,7 @@ package: org.sonatype.test
         <term>flexmojos:test-swc</term>
 
         <listitem>
-          <para>produit un SWC contenant les classes de test du projet
+          <para>produit un fichier <acronym>SWC</acronym> contenant les classes de test du projet
           </para>
         </listitem>
       </varlistentry>
@@ -1432,7 +1433,7 @@ package: org.sonatype.test
         <term>flexmojos:wrapper</term>
 
         <listitem>
-          <para>Génère un wrapper HTML pour l'application SWF</para>
+          <para>Génère une page HTML qui encapsule l'application <acronym>SWF</acronym></para>
         </listitem>
       </varlistentry>
     </variablelist>
