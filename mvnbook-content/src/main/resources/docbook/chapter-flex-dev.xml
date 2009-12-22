@@ -1534,8 +1534,7 @@ package: org.sonatype.test
       <screen>$ <command>mvn flexmojos:flexbuilder</command></screen>
 
       <para>L'exécution de ce goal produira les fichiers : <filename>.project</filename>,
-      <filename>.settings/org.eclipse.core.resources.prefs</filename>,
-      <filename>.actionScriptProperties</filename> et
+      <filename>.settings/org.eclipse.core.resources.prefs</filename>, <filename>.actionScriptProperties</filename> et
       <filename>.flexLibProperties</filename>.</para>
     </section>
   </section>
