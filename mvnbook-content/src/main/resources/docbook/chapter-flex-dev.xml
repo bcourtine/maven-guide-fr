@@ -679,19 +679,20 @@ See COPYRIGHT file
 </screen>
 
       <note>
-        <para>Pour pouvoir exécuter les tests unitaires Flex il vous faudra  configurer votre variable d'environnement PATH
-        afin d'inclure le lecteur Flash Player. Pour plus d'information concernant  
+        <para>Pour pouvoir exécuter les tests unitaires Flex il vous faudra configurer votre variable
+        d'environnement PATH afin d'inclure le lecteur Flash Player. Pour plus d'information concernant
         la configuration de FlexMojos pour les tests unitaires, se référer à la <xref
         linkend="flex-dev-sect-configuring-unit-tests" />.</para>
       </note>
 
       <para>Quand vous exécutez la commande <command>mvn install</command> pour ce projet, vous
       pouvez noter dans l'output que Maven et le plugin Flexmojos prennent en charge
-      la gestion de toutes les librairies et dépendances pour le compilateur Flex. 
-      De la même façon que Maven est excellent pour aider les développeurs Java à gérer le contenu d'un classpath Java, 
-      Maven peut aider les développeurs Flex à gérer la complexité de génération des paths. 
-      Vous avez peut-être été surpris quand votre projet Flexmojos a démarré un navigateur web ou un lecteur Flash Player 
-      et l'a utilisé pour exécuter l'application TestApp construite à partir de votre code source.</para>
+      la gestion de toutes les bibliothèques et dépendances pour le compilateur Flex.
+      De la même façon que Maven est excellent pour aider les développeurs Java à gérer le contenu 
+      d'un classpath Java, Maven peut aider les développeurs Flex à gérer la complexité de
+      génération des paths. Vous avez peut-être été surpris quand votre projet Flexmojos a démarré
+      un navigateur web ou un lecteur Flash Player et l'a utilisé pour exécuter l'application
+      TestApp construite à partir de votre code source.</para>
     </section>
 
     <section id="flex-dev-sect-application-archetype">
@@ -700,10 +701,10 @@ See COPYRIGHT file
       <para>Pour créer une application Flex à partir d'un archétype Maven, lancer la commande suivante :</para>
 
       <screen>$ <command>mvn archetype:generate \
-    -DarchetypeRepository=http://repository.sonatype.org/content/groups/public \
-    -DarchetypeGroupId=org.sonatype.flexmojos \
-    -DarchetypeArtifactId=flexmojos-archetypes-application \
-    -DarchetypeVersion=${flexmojos.version}</command>
+  -DarchetypeRepository=http://repository.sonatype.org/content/groups/public \
+  -DarchetypeGroupId=org.sonatype.flexmojos \
+  -DarchetypeArtifactId=flexmojos-archetypes-application \
+  -DarchetypeVersion=${flexmojos.version}</command>
 [INFO] Scanning for projects...
 [INFO] Searching repository for plugin with prefix: 'archetype'.
 [INFO] com.sonatype.maven.plugins: checking for updates from central
@@ -736,7 +737,7 @@ package: org.sonatype.test
       de fichiers illustrée dans la <xref linkend="fig-flex-dev-dir-app-fs" />.</para>
 
       <figure id="fig-flex-dev-dir-app-fs">
-        <title>Structure de fichiers issue de l'archétype pour application Flex</title>
+        <title>Structure de fichiers issue de l'archétype Application Flex</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -806,8 +807,8 @@ package: org.sonatype.test
       </example>
 
       <para>La différence entre l'<xref linkend="ex-flex-dev-app-pom" /> et 
-      l'<xref linkend="fig-flex-dev-simple-lib-pom" /> se trouve dans l'élément de 
-      <varname>packaging</varname> : <varname>swf</varname> à la place de 
+      l'<xref linkend="fig-flex-dev-simple-lib-pom" /> se trouve dans le type de
+      <varname>packaging</varname> : <varname>swf</varname> plutôt que 
       <varname>swc</varname>. En positionnant le packaging à
       <varname>swf</varname>, le projet produira une application Flex, à savoir l'application
       <filename>target/sample-application-1.0-SNAPSHOT.swf</filename>. L'application 
@@ -824,11 +825,12 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>L'archétype produit également un test unitaire FlexUnit simple qui ne fait rien d'autre que d'afficher un message de trace. 
-	    L'exemple de test unitaire se trouve dans <filename>src/test/flex/org/sonatype/test</filename>.</para>
+      <para>L'archétype produit également un test unitaire FlexUnit simple qui ne fait rien d'autre 
+      que d'afficher un message de trace. L'exemple de test unitaire se trouve
+      dans <filename>src/test/flex/org/sonatype/test</filename>.</para>
 
       <example>
-        <title>test unitaire de Main.mxml</title>
+        <title>Test unitaire de Main.mxml</title>
 
         <programlisting>package org.sonatype.test 
 {
@@ -851,16 +853,17 @@ package: org.sonatype.test
     </section>
 
     <section id="flex-dev-sect-multimodule-archetype">
-      <title>Creating d'un projet multimodule : application web avec une dépendance Flex</title>
+      <title>Creation d'un projet multimodule : Une application web avec une dépendance Flex</title>
 
-      <para>La ligne de commande suivante crée un projet multimodule contenant un projet de librairie Flex
- référencée par une application Flex qui elle-même est référencée par une application web : </para>
+      <para>La ligne de commande suivante crée un projet multimodule contenant un projet de 
+      bibliothèque Flex référencée par une application Flex qui elle-même est référencée par une
+      application web : </para>
 
       <screen>$ <command>mvn archetype:generate \
-    -DarchetypeRepository=http://repository.sonatype.org/content/groups/public \
-    -DarchetypeGroupId=org.sonatype.flexmojos \
-    -DarchetypeArtifactId=flexmojos-archetypes-modular-webapp \
-    -DarchetypeVersion=${flexmojos.version}</command>
+  -DarchetypeRepository=http://repository.sonatype.org/content/groups/public \
+  -DarchetypeGroupId=org.sonatype.flexmojos \
+  -DarchetypeArtifactId=flexmojos-archetypes-modular-webapp \
+  -DarchetypeVersion=${flexmojos.version}</command>
 [INFO] Scanning for projects...
 [INFO] Searching repository for plugin with prefix: 'archetype'.
 [INFO] com.sonatype.maven.plugins: checking for updates from central
@@ -908,7 +911,7 @@ package: org.sonatype.test
         </mediaobject>
       </figure>
 
-      <para>Le POM parent du projet multimodule est simple et est affiché ci-dessous.
+      <para>Le POM parent du projet multimodule est simple comme vous pouvez le voir ci-dessous.
       Il est constitué de références aux modules swc, swf et war.</para>
 
       <example>
@@ -935,7 +938,7 @@ package: org.sonatype.test
 
       <para>Le projet swc a un POM simple qui ressemble au POM illustré dans 
       l'<xref linkend="fig-flex-dev-simple-lib-pom" />. Notez que
-      l'<varname>artifactId</varname> dans ce POM ne reflète pas le nom de 
+      l'<varname>artifactId</varname> de ce POM ne reflète pas le nom du
       module mais est <varname>swc-swc</varname>.</para>
 
       <example>
@@ -997,9 +1000,9 @@ package: org.sonatype.test
       </example>
 
       <para>Le POM du module swf est semblable au POM de l'<xref
-      linkend="ex-flex-dev-app-pom" /> avec une dépendance à l'artefact
+      linkend="ex-flex-dev-app-pom" /> avec une dépendance vers l'artefact
       <varname>swc-swc</varname> en plus. Notez que
-      l'<varname>artifactId</varname> dans ce POM ne reflète pas le nom du répertoire qui contient le 
+      l'<varname>artifactId</varname> de ce POM ne reflète pas le nom du répertoire qui contient le
       module ; l'artifactId dans le POM ci-dessous est <varname>swf-swf</varname>.</para>
 
       <example id="ex-flex-swf-module-pom">
@@ -1068,19 +1071,19 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
+<!-- TODO Create JIRA as we are now in FlexMojo 3.3.0 -->
       <warning>
         <para>Dans l'<xref linkend="ex-flex-swf-module-pom" />, la dépendance vers
-        "swf-swc" doit être changée pour "swc-swc". C'est un bug dans l'archétype multimodule Flex 
-	      qui est présent dans la version 
-        ${flexmojos.version} de FlexMojos. Il sera corrigé dans la version FlexMojos 3.2.0.</para>
+        "swf-swc" doit être changée en "swc-swc". C'est un bug de l'archétype multimodule Flex
+	     qui est présent dans la version ${flexmojos.version} de FlexMojos. Il sera corrigé dans
+         la version FlexMojos 3.2.0.</para>
       </warning>
 
       <para>Quand vous déclarez une dépendance vers un SWC, vous devez préciser le type de 
       dépendance afin que Maven puisse localiser les artefacts adéquats dans le dépôt distant ou local. 
-      Dans ce cas, projet
-      <varname>swf-swf</varname> dépend d'un SWC qui est généré
-      par un projet <varname>swc-swc</varname>. Quand vous ajoutez
-      la dépendance au projet <varname>swf-swf</varname>, le plugin FlexMojos
+      Dans ce cas, le projet
+      <varname>swf-swf</varname> dépend du SWC produit par le projet <varname>swc-swc</varname>.
+      Quand vous ajoutez la dépendance au projet <varname>swf-swf</varname>, le plugin FlexMojos
       ajoutera le fichier SWC approprié dans le chemin des bibliothèques de compilation Flex.</para>
 
       <para>Maintenant, jetez un coup d'oeil dans le POM simple du module war.</para>
@@ -1141,9 +1144,9 @@ package: org.sonatype.test
       <para>Le POM illustré dans l'<xref linkend="ex-flex-war-module-pom" />
       configure le plugin FlexMojos pour exécuter le goal
       <varname>copy-flex-resources</varname> pour ce projet. Le goal
-      <varname>copy-flex-resources</varname> fera une copie de l'application SWF 
+      <varname>copy-flex-resources</varname> copiera l'application SWF
       à la racine de l'application web. Dans ce projet, l'exécution du build
-      et la production du WAR feront une copie du fichier 
+      et la production du WAR copieront le fichier
       <filename>swf-swf-1.0-SNAPSHOT.swf</filename> dans le répertoire racine de l'application web 
       <filename>target/war-war-1.0-SNAPSHOT</filename>.</para>
 
