@@ -575,7 +575,7 @@ package: org.sonatype.test
       l'élément packaging est l'indice qui indique le cycle de vie
       spécifique Flex dont les spécificités sont fournies par le plugin
       <varname>flexmojos-maven-plugin</varname>. L'autre partie importante de ce
-      POM est l'élément <sgmltag>build<sgmltag> qui précise l'emplacement du code source Flex
+      POM est l'élément <sgmltag>build</sgmltag> qui précise l'emplacement du code source Flex
       ainsi que celui des tests unitaires. Maintenant, jetons un coup d'oeil à
       l'<xref linkend="ex-flex-dev-lib-as" /> qui contient l'exemple de code 
       d'ActionScript créé par l'archétype.</para>

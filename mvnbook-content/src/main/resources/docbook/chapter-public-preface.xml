@@ -153,7 +153,7 @@
 
     <variablelist>
       <varlistentry>
-        <term>Compiler plugin</term>
+        <term>plugin Compiler</term>
 
         <listitem>
           <para>Les plugins Maven commencent par des majuscules.</para>
@@ -179,11 +179,11 @@
       </varlistentry>
 
       <varlistentry>
-        <term>Maven Lifecycle, Maven Standard Directory Layout, Maven Plugin,
-        Project Object Model</term>
+        <term>Cycle de vie Maven, Structure Standard Maven des Répertoires, Plugin Maven,
+        Modèle Objet de Projet (Project Object Model)</term>
 
         <listitem>
-          <para>Les concepts fondamentaux de Maven commencent par des majucules
+          <para>Les concepts fondamentaux de Maven commencent par des majuscules
           lorsqu'il y est fait référence dans le texte.</para>
         </listitem>
       </varlistentry>
