@@ -1449,7 +1449,7 @@ package: org.sonatype.test
       <varname>asdoc</varname> pour le projet obtenu via l'archétype Flexmojos.</para>
 
       <figure id="fig-flex-dev-actionscript">
-        <title>Documentation ActionScript générée par le plugin FlexMojos</title>
+        <title>Documentation ActionScript produite par le plugin FlexMojos</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -1540,7 +1540,7 @@ package: org.sonatype.test
   </section>
 
   <section id="flex-dev-sect-reports">
-    <title>Les rapports du plugin FlexMojos</title>
+    <title>Rapports du plugin FlexMojos</title>
 
     <para>Le plugin Maven FlexMojos propose le rapport suivant :</para>
 
@@ -1549,13 +1549,14 @@ package: org.sonatype.test
         <term>flexmojos:asdoc-report</term>
 
         <listitem>
-          <para>Génère la documentation des sources ActionScript en tant que rapport pouvant être inclus dans un site Maven</para>
+          <para>Produit la documentation du code source ActionScript sous la forme d'un rapport
+          pouvant être intégré dans un site Maven</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
     <section id="flex-dev-sect-report-asdoc">
-      <title>Générer le rapport de documentation ActionScript</title>
+      <title>Produire le rapport de documentation ActionScript</title>
 
       <para>Pour que l'<varname>asdoc-report</varname> soit intégré
       au build du site Maven, il suffit d'ajouter le code XML suivant à votre POM :</para>
@@ -1583,8 +1584,9 @@ package: org.sonatype.test
 </programlisting>
       </example>
 
-      <para>Quand vous faites la commande <command>mvn site</command>, Maven générera cette documentation et la placera dans le menu "Project Reports" comme indiqué dans
-      la <xref linkend="fig-flex-dev-actionscript-report" />.</para>
+      <para>Quand vous exécutez la commande <command>mvn site</command>, Maven générera cette
+      documentation et la placera dans le menu "Project Reports" comme vous pouvez le voir
+      dans la <xref linkend="fig-flex-dev-actionscript-report" />.</para>
 
       <figure id="fig-flex-dev-actionscript-report">
         <title>Documentation ActionScript incluse dans le site Maven</title>
@@ -1602,9 +1604,9 @@ package: org.sonatype.test
         </mediaobject>
       </figure>
 
-      <para>Si vous avez besoin de transmettre des options de configuration au goal
+      <para>Si vous avez besoin de fournir des options de configuration au goal
       <varname>asdoc-report</varname>, il vous faudra ajouter un élément de configuration 
-      <varname>reportSets</varname> comme indiqué dans l'<xref
+      <varname>reportSets</varname> comme le montre l'<xref
       linkend="ex-flex-dev-config-asdoc-report" />.</para>
 
       <example id="ex-flex-dev-config-asdoc-report">
@@ -1639,22 +1641,23 @@ package: org.sonatype.test
   <section id="flex-dev-sect-dev">
     <title>Développement et personnalisation de Flexmojos</title>
 
-    <para>Les sections suivantes vous guideront à travers les premières étapes de personnalisation de Flexmojos, voire de contribution au projet lui-même. Flexmojos est plus 
-    qu'un simple outil pour les personnes souhaitant compiler de l'ActionScript
-    en artefacts SWF et SWC ; c'est une communauté de développeurs. Cette section
-    n'est pas pour tout le monde, mais si vous voulez participer, vous êtes les bienvenus.</para>
+    <para>Les sections suivantes vous guideront à travers les premières étapes de personnalisation 
+    de Flexmojos, voire de contribution au projet lui-même. Flexmojos est plus qu'un simple outil
+    de compilation de l'ActionScript en artefacts SWF et SWC ; c'est une communauté de développeurs.
+    Cette section ne concerne pas tout le monde, mais si quelquechose vous dérange et que vous
+    voulez participer, vous êtes les bienvenus.</para>
 
     <section id="flex-dev-sect-get-source">
       <title>Obtenir le code source Flexmojos </title>
 
-      <para>Flexmojos est un projet Open Source hébergé par Sonatype
-      et le code source de Flexmojos est stocké dans le repository Subversion de la forge Sonatype.
-	    Vous pouvez visualiser le contenu du repository Subversion de Flexmojos en ouvrant, dans un navigateur web, le lien
+      <para>Flexmojos est un projet Open Source hébergé par Sonatype dont le code source est 
+        enregistré dans le dépôt Subversion de la forge Sonatype. Vous pouvez visualiser le contenu
+        du dépôt Subversion de Flexmojos en ouvrant, dans un navigateur web, le lien
       <ulink
       url="http://svn.sonatype.org/flexmojos/trunk">http://svn.sonatype.org/flexmojos/trunk</ulink>.</para>
 
       <figure id="flex-dev-svn-repo">
-        <title>Le repository Subversion de Flexmojos</title>
+        <title>Le dépôt Subversion de Flexmojos</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -1669,10 +1672,9 @@ package: org.sonatype.test
         </mediaobject>
       </figure>
 
-      <para>Si vous êtes intéressé par une participation au projet Flexmojos,
-      vous effectuerez probablement un checkout de la version courante sur votre machine. 
-Pour effectuer un checkout du code source Flexmojos en utilisant Subversion,
-      saisissez la ligne de commande suivante :</para>
+      <para>Si participer au projet Flexmojos vous intéresse, vous récupérerez probablement la
+      version courante du projet sur votre machine. Pour récupérer le code source Flexmojos en
+      utilisant Subversion, saisissez la ligne de commande suivante :</para>
 
       <screen>$ <command>svn co http://svn.sonatype.org/flexmojos/trunk flexmojos</command>
 A flexmojos
