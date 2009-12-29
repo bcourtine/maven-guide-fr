@@ -406,7 +406,8 @@
     <filename>\${basedir}/src/test/java</filename>, ajouter une dépendance de type test sur TestNG ou JUnit, et exécuter
     la commande <command>mvn test</command>. Si vous voulez déployer une application web et non plus un
     <acronym>JAR</acronym>, tout ce que vous avez à faire est de changer le type de votre projet en
-    <varname>war</varname> et de positionner le docroot sur <filename>\${basedir}/src/main/webapp</filename>. Bien sûr,
+    <varname>war</varname> et de positionner le répertoire racine de l'application web sur
+    <filename>\${basedir}/src/main/webapp</filename>. Bien sûr, 
     vous pourriez faire tout cela avec Ant mais vous devriez tout écrire depuis le début. Dans Ant, vous devriez
     commencer par définir où devrait se trouver le fichier <acronym>JAR</acronym> de JUnit, ensuite vous devriez créer
     un classpath qui contienne ce fichier <acronym>JAR</acronym> de JUnit, puis vous devriez indiquer à Ant où devrait
