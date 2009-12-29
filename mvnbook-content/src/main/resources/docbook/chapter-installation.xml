@@ -11,11 +11,11 @@
   un <acronym>JDK</acronym> (Java Development Kit) approprié. Si vous n'êtes intéressé que par l'utilisation  
   elle-même, vous pouvez passer à la suite du livre après avoir lu les paragraphes "<xref linkend="installation-sect-maven-download"
   xrefstyle="select: title" />" et "<xref linkend="installation-sect-maven-install" xrefstyle="select: title" />". Si vous
-  vous intéressez aux détails de votre installation de Maven, ce chapitre y est entièrement consacré, et vous donne une
+  vous intéressez aux détails de votre installation de Maven, ce chapitre y est entièrement consacré et vous donne une
   vision d'ensemble de ce que vous avez installé et de la licence Apache Software License, Version 2.0.</para>
 
   <section id="installation-sect-java">
-    <title>Vérifier votre Installation de Java</title>
+    <title>Vérifier votre installation de Java</title>
 
     <para>Même si Maven (pour les versions inférieures à la 2.1) peut s'exécuter avec Java 1.4, dans ce livre nous
     supposerons que vous avez installé au minimum Java 5. Utilisez la version stable la plus récente du
