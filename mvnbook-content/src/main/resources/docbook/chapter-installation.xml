@@ -181,7 +181,7 @@ C:\Users\tobrien &gt;<command>set PATH=%PATH%;%M2_HOME%\bin</command></screen>
   </section>
 
   <section id="installation-sect-test-install">
-    <title>Tester une Installation Maven</title>
+    <title>Tester une installation Maven</title>
 
     <para>Une fois Maven installé, vous pouvez vérifier sa version en exécutant la commande suivante <command>mvn
     -v</command> en ligne de commande. Si Maven a été correctement installé, vous devriez voir en sortie quelque chose
