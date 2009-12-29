@@ -72,7 +72,7 @@ Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)</screen></p
           <secondary sortas="Mac OS X">sur Mac OS X</secondary>
         </indexterm> <indexterm>
           <primary>Mac OS X, installer Maven sur</primary>
-        </indexterm> depuis <ulink url="http://maven.apache.org/download.html">http://maven.apache.org/download.html</ulink>. Télécharger la version
+        </indexterm> depuis <ulink url="http://maven.apache.org/download.html">http://maven.apache.org/download.html</ulink>. Téléchargez la version
       courante de Maven dans le format qui vous convient le mieux. Choisissez l'emplacement où vous voulez l'installer
       et décompressez l'archive à cet endroit. Si vous avez décompressé l'archive dans le répertoire
       <filename>/usr/local/apache-maven-${maven.version}</filename>, vous pouvez vouloir créer un lien symbolique afin
