@@ -15,7 +15,7 @@
   vision d'ensemble de ce que vous avez installé et de la licence Apache Software License, Version 2.0.</para>
 
   <section id="installation-sect-java">
-    <title>Vérification de votre Installation de Java</title>
+    <title>Vérifier votre Installation de Java</title>
 
     <para>Même si Maven (pour les versions inférieures à la 2.1) peut s'exécuter avec Java 1.4, dans ce livre nous
     supposerons que vous avez installé au minimum Java 5. Utilisez la version stable la plus récente du
