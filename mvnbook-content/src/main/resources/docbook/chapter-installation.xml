@@ -85,7 +85,7 @@ Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)</screen></p
 
       <para>Une fois Maven installé, il vous reste quelques petites choses à faire afin de pouvoir l'utiliser
       correctement. Vous devez ajouter le répertoire <filename moreinfo="none">bin</filename> de la distribution (dans
-      notre exemple, <filename moreinfo="none">/usr/local/maven/bin</filename>) au PATH de votre système. Vous devez
+      notre exemple <filename moreinfo="none">/usr/local/maven/bin</filename>) au PATH de votre système. Vous devez
       aussi positionner la variable d'environnement <varname>M2_HOME<indexterm>
           <primary>M2_HOME environement variable</primary>
           <secondary>Maven installation et</secondary>
@@ -107,8 +107,7 @@ Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)</screen></p
       <filename>.bash_login</filename>.</para>
 
       <programlisting>export M2_HOME=/usr/local/maven
-export PATH=\${M2_HOME}/bin:\${PATH}
-      </programlisting>
+export PATH=\${M2_HOME}/bin:\${PATH}</programlisting>
 
       <para>Maintenant que vous avez mis à jour votre environnement avec ces quelques lignes, vous pouvez exécuter Maven
       en ligne de commande.</para>
