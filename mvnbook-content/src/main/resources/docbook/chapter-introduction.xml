@@ -314,7 +314,7 @@
     même résultat que le simple fichier Ant décrit dans l'<xref linkend="ex-ant-sample" /> est le suivant :</para>
 
     <example id="ex-maven-sample">
-      <title>Simple pom.xml pour Maven</title>
+      <title>Simple fichier pom.xml pour Maven</title>
 
       <programlisting language="xml">&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -333,12 +333,12 @@
 
     <para>Certes, c'est l'exemple de projet le plus simple possible. Il ne contient rien d'autre que du code source et
     produit un <acronym>JAR</acronym>. C'est un projet qui suit les conventions de Maven et qui ne demande aucune
-    dépendance ou personnalisation. Si nous voulons personnaliser le comportement, notre <filename>pom.xml</filename> va
+    dépendance ou personnalisation. Si nous voulons personnaliser le comportement, notre fichier <filename>pom.xml</filename> va
     grossir, et dans les plus gros projets, vous pouvez trouver une collection de <acronym>POM</acronym>s Maven très
     complexes qui contiennent beaucoup de configuration de plugins et de déclarations de dépendances. Mais, même lorsque
     les fichiers <acronym>POM</acronym> de votre projet grossissent, ils contiennent des informations d'une nature
     différente de celles du fichier de build Ant d'un projet de taille similaire. Les <acronym>POM</acronym>s Maven
-    contiennent des déclarations : "C'est un projet <acronym>JAR</acronym>", et "Le code source se trouve dans
+    contiennent des déclarations : "C'est un projet <acronym>JAR</acronym>" ou "Le code source se trouve dans
     <filename>src/main/java</filename>". Les scripts Ant contiennent des instructions explicites : "Ceci est le projet",
     "Le code source se trouve dans <filename>src/main/java</filename>", "Exécuter javac sur ce répertoire, "Mettre les
     résultats dans <filename>target/classes</filename>", "Créer un <acronym>JAR</acronym> à partir de ....", etc. Là où
