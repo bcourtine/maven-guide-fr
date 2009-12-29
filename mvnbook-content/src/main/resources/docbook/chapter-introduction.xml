@@ -56,7 +56,7 @@
     créer votre fichier <acronym>JAR</acronym> distribuable dans <filename>\${basedir}/target</filename>. Même si tout
     cela peut sembler trivial, n'oubliez pas que pour la plupart des scripts Ant vous devez définir les emplacements de
     ces différents répertoires. Ant n'a pas la moindre idée d'où se trouve le code source et les différentes ressources,
-    vous devez le lui indiquer. L'adoption par Maven de ce principe de convention plutôt que configuration va plus loin
+    vous devez le lui indiquer. L'adoption par Maven de ce principe de "convention plutôt que configuration" va plus loin
     que les répertoires, les plugins au cœur de Maven appliquent un ensemble de conventions pour compiler le code
     source, packager les éléments à distribuer, produire des sites web, et bien d'autres traitements. La force de Maven
     vient de ses "convictions", il a un cycle de vie bien défini et un ensemble de plugins de base pour construire et
@@ -103,17 +103,17 @@
     <para>Même si Maven fournit tout un ensemble d'avantages, dont la gestion des dépendances et la réutilisation de
     comportements communs de build par ses plugins, la raison principale de son succès vient de la création d'une
     interface unifiée pour construire un logiciel. Si vous voyez qu'un projet comme <ulink
-    url="http://wicket.apache.org">Apache Wicket</ulink> utilise Maven, vous pouvez supposer qu'après avoir récupérer son code source, 
+    url="http://wicket.apache.org">Apache Wicket</ulink> utilise Maven, vous pouvez supposer qu'après avoir récupéré son code source,
     la commande <command>mvn install</command> vous permettra de le construire sans trop de problèmes. Vous savez où insérer
     la clef de contact, que la pédale d'accélérateur se trouve à droite et le frein à gauche.</para>
   </section>
 
   <section id="installation-sect-universal-reuse">
-    <title>Réutilisation Universelle grâce aux Plugins Maven</title>
+    <title>Réutilisation universelle grâce aux plugins Maven</title>
 
     <para>Le cœur de Maven est assez stupide, il ne sait pas faire grand-chose à part parser quelques documents
     <acronym>XML</acronym> et garder les traces d'un cycle de vie et de l'exécution de quelques plugins. Maven a été conçu pour
-    déléguer la responsabilité du build à un ensemble de Plugins Maven qui vont affecter le Cycle de Vie de Maven et
+    déléguer la responsabilité du build à un ensemble de plugins Maven qui vont affecter le cycle de vie de Maven et
     fournir différentes actions : les goals. Avec Maven, tout se passe dans les goals des plugins, 
     c'est là que le code source est compilé, que le bytecode est packagé, 
     que les sites sont publiés et que toute autre tâche nécessaire à votre build se produit.
@@ -121,7 +121,7 @@
     <acronym>WAR</acronym> ou en exécution de tests JUnit ; la plus grande partie de l'intelligence de Maven se trouve
     dans les plugins, plugins qui sont récupérés du dépôt Maven. En effet, la première fois que vous exécutez une
     commande comme <command>mvn install</command> avec une installation de Maven vierge, elle télécharge les plugins Maven
-    de base du dépôt Central Maven Repository. C'est plus qu'une astuce pour réduire la taille de la distribution Maven
+    de base du dépôt Maven Central. C'est plus qu'une astuce pour réduire la taille de la distribution Maven
     à télécharger, c'est par ce moyen que vous pouvez mettre à jour un plugin pour apporter de nouvelles possibilités au
     build de votre projet. C'est parce que Maven récupère les dépendances et les plugins depuis des dépôts distants que
     vous pouvez réutiliser une logique de build universelle.</para>
