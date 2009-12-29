@@ -270,7 +270,7 @@ lib/</screen>
           <term>~/.m2/settings.xml</term>
 
           <listitem>
-            <para>Un fichier contenant la configuration propre à l'utilisateur, pour l'authentification, les dépôts, et
+            <para>Un fichier contenant la configuration propre à l'utilisateur, pour l'authentification, les dépôts et
             les différentes informations nécessaires à la personnalisation du comportement de Maven.</para>
           </listitem>
         </varlistentry>
