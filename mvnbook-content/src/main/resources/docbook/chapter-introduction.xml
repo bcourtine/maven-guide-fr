@@ -159,17 +159,17 @@
 
     <variablelist>
       <varlistentry>
-        <term>La Gestion des Dépendances</term>
+        <term>La gestion des dépendances</term>
 
         <listitem>
-          <para>Puisque chaque projet est identifié de manière unique par un identifiant de groupe, un identifiant
+          <para>Puisque chaque projet est identifié de manière unique par un triplet composé d'un identifiant de groupe, un identifiant
           d'artefact et un numéro de version, les projets peuvent utiliser ces coordonnées pour déclarer leurs
           dépendances.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>Des Dépôts Distants</term>
+        <term>Des dépôts distants</term>
 
         <listitem>
           <para>En liaison avec la gestion de dépendance, nous pouvons utiliser les coordonnées définies dans le Project
@@ -178,7 +178,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term>Réutilisation Universelle de la Logique de Build</term>
+        <term>Réutilisation universelle de la logique de build</term>
 
         <listitem>
           <para>Les plugins contiennent toute la logique de traitement. Ils s'appuient sur les données et paramètres de
@@ -193,14 +193,14 @@
         <listitem>
           <para>Les outils tels qu'Eclipse, NetBeans, et IntelliJ ont maintenant un endroit unique pour aller récupérer
           les informations sur un projet. Avant Maven, chaque <acronym>EDI</acronym> conservait à sa manière ce qui
-          était, plus ou moins, son propre Project Object Model ( <acronym>POM</acronym>). Maven a standardisé cette
+          était, plus ou moins, son propre Project Object Model (POM</acronym>). Maven a standardisé cette
           description, et alors que chaque EDI continue à maintenir ses propres fichiers décrivant le projet, ils
           peuvent être facilement générés à partir du modèle.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>Facilités pour la Recherche et le Filtrage des Artefacts Projet</term>
+        <term>Facilités pour la recherche et le filtrage des artefacts d'un projet</term>
 
         <listitem>
           <para>Des outils tels que Nexus vous permettent d'indexer et de rechercher les contenus d'un dépôt à partir
