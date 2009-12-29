@@ -159,7 +159,7 @@ from http://www.apache.org/dist/maven/binaries
 C:\Users\tobrien &gt;<command>set PATH=%PATH%;%M2_HOME%\bin</command></screen>
 
       <para><!--TODO: Document process of setting environment variables in the window control panel system dialog.-->Définir
-      ces variables d'environnement en ligne de commande vont vous permettre d'exécuter Maven dans la même console. Mais
+      ces variables d'environnement en ligne de commande va vous permettre d'exécuter Maven dans la même console. Mais
       à moins de les définir comme des variables du Système avec le Panneau de Configuration, vous devrez exécuter ces
       deux lignes à chaque fois que vous vous connecterez à votre système. Vous devriez modifier ces deux variables avec
       le Panneau de Configuration de Microsoft Windows.</para>
