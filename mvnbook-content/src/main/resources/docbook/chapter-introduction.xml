@@ -314,7 +314,7 @@
     même résultat que le simple fichier Ant décrit dans l'<xref linkend="ex-ant-sample" /> est le suivant :</para>
 
     <example id="ex-maven-sample">
-      <title>Un Simple pom.xml pour Maven</title>
+      <title>Simple pom.xml pour Maven</title>
 
       <programlisting language="xml">&lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
