@@ -11,7 +11,7 @@
   de composants tiers. C'est un outil qui a fortement allégé le fardeau quotidien
   de la gestion des dépendances vers les bibliothèques tierces pour des millions
   d'ingénieurs, et a permis à de nombreuses organisations de se sortir de l'ornière
-  de la gestion du build du projet pour atteindre un monde où l'effort
+  de la gestion du build de projet pour atteindre un monde où l'effort
   requis pour construire et maintenir un logiciel n'est plus le facteur limitant dans
   sa conception.</para>
 
@@ -30,13 +30,13 @@
 
     <para>Prenez le, lisez le contenu de ses pages. Une fois arrivé à la fin d'une page,
     vous voudrez soit cliquer sur le lien, si vous regardez la version <acronym>HTML</acronym>,
-    ou alors, si vous avez la vesion imprimée, vous souleverez un coin de la page et 
+    ou alors, si vous avez la version imprimée, vous souleverez un coin de la page et
     vous la tournerez. Si vous êtes assis à côté d'un ordinateur, vous pouvez taper
     certains des exemples et suivre au fur et à mesure. Par pitié, ne lancez pas ce
     gros volume à la tête de quelqu'un sous le coup de la colère.</para>
 
-    <para>Ce livre se compose de trois parties: Introduction, <xref
-    linkend="part-example" />, et <xref linkend="part-reference" />. L'introduction se
+    <para>Ce livre se compose de trois parties: une Introduction, une <xref
+    linkend="part-example" />, et une <xref linkend="part-reference" />. L'introduction se
     compose de deux chapitres: <xref linkend="introduction" /> et
     <xref linkend="installation" />. <xref linkend="part-example" /> introduit
     Maven par sa mise en oeuvre sur des exemples concrets tout en expliquant 
