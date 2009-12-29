@@ -252,14 +252,14 @@ lib/</screen>
       <para>A moins que vous ne travailliez sur un système Unix partagé, vous ne devriez pas avoir à modifier le fichier
       <filename>settings.xml</filename> du répertoire <filename>M2_HOME/conf</filename>. Modifier le fichier
       <filename>settings.xml</filename> global dans l'installation de Maven est inutile dans la plupart des cas, et
-      risque de rendre toute mise à jour de Maven plus compliquée, puisque vous aurez à vous rappeler de copier le
-      fichier modifié <filename>settings.xml</filename> depuis votre ancienne installation de Maven dans la nouvelle. Si
+      risque de rendre toute mise à jour de Maven plus compliquée, puisque vous aurez à vous rappeler de copier ce
+      fichier <filename>settings.xml</filename> modifié  depuis votre ancienne installation de Maven dans la nouvelle. Si
       vous devez modifier le fichier <filename>settings.xml</filename>, vous devriez modifier le fichier
-      <filename>settings.xml</filename> qui vous est propre dans <filename>~/.m2/settings.xml</filename>.</para>
+      <filename>settings.xml</filename> qui vous est propre : <filename>~/.m2/settings.xml</filename>.</para>
     </note>
 
     <section id="installation-sect-user">
-      <title>Configuration et Dépôt spécifiques à l'Utilisateur</title>
+      <title>Configuration et dépôt spécifiques à l'utilisateur</title>
 
       <para>Une fois que vous avez commencé à réellement utiliser Maven, vous vous apercevrez que Maven a créé
       localement des fichiers de configuration spécifiques à l'utilisateur ainsi qu'un dépôt local dans votre répertoire
