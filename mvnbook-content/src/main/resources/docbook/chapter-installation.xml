@@ -136,8 +136,8 @@ from http://www.apache.org/dist/maven/binaries
 ---&gt;  Activating maven2 ${maven.version}_0
 ---&gt;  Cleaning maven2</screen>
 
-        <para>Pour plus d'informations sur le port maven2, allez voir maven2 <filename> <ulink
-        url="http://trac.macports.org/browser/trunk/dports/java/maven2/Portfile">Portfile </ulink> </filename>. Pour
+        <para>Pour plus d'informations sur le port maven2, allez voir maven2 <filename><ulink
+        url="http://trac.macports.org/browser/trunk/dports/java/maven2/Portfile">Portfile </ulink></filename>. Pour
         plus d'informations sur le projet MacPorts et son installation, allez voir la <ulink
         url="http://www.macports.org/index.php">page du projet MacPorts</ulink>.</para>
       </section>
