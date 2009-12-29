@@ -201,7 +201,7 @@ OS name: "mac os x" version: "10.5.6" arch: "i386" Family: "unix"</screen>
   </section>
 
   <section id="installation-sect-details">
-    <title>Détails de l'Installation de Maven</title>
+    <title>Détails de l'installation de Maven</title>
 
     <para>L'archive à télécharger de Maven a une taille d'environ 1.5 MiB <footnote
         id="foot-installation-mebibytes">
