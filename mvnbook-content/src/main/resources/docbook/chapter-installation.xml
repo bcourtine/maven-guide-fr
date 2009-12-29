@@ -146,7 +146,7 @@ from http://www.apache.org/dist/maven/binaries
     <section id="installation-sect-windows">
       <title>Installer Maven sur Microsoft Windows</title>
 
-      <para>Installer Maven sur Windows est très proche de l'installation sur Mac <acronym>OSX</acronym>. Les
+      <para>L'installation de Maven sur Windows est très proche de celle sur Mac <acronym>OSX</acronym>. Les
       principales différences sont le répertoire d'installation et la définition des variables d'environnement. Dans ce
       livre, nous allons supposer que le répertoire d'installation de Maven est <filename>c:\Program
       Files\apache-maven-${maven.version}</filename>. Cela ne change pas grand-chose si vous installez Maven dans un
