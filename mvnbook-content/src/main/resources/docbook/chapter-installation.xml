@@ -27,12 +27,12 @@ java version "1.5.0_16"
 Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_16-b06-284)
 Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)</screen></para>
 
-    <para>Maven fonctionne avec tous les kits de développement Java <superscript>TM</superscript> certifiés compatibles,
+    <para>Maven fonctionne avec tous les kits de développement Java <superscript>TM</superscript> certifiés compatibles
     et également avec certaines implémentations de Java non certifiées. Les exemples fournis avec ce livre ont été
     écrits et testés avec les versions officielles du Java Development Kit téléchargées depuis le site internet de Sun
     Microsystems. Si vous êtes sous GNU/Linux, vous pouvez avoir besoin de télécharger le <acronym>JDK</acronym> de Sun
-    vous-même et vérifier qu'il s'agit de la version que vous utilisez (en exécutant la commande <command>java -version
-    </command>). Maintenant que Sun a mis Java en Open Source, cela devrait s'améliorer et nous devrions rapidement
+    vous-même et vérifier qu'il s'agit de la version que vous utilisez (en exécutant la commande <command>java -version</command>).
+    Maintenant que Sun a mis Java en Open Source, cela devrait s'améliorer et nous devrions rapidement
     trouver la <acronym>JRE</acronym> et le <acronym>JDK</acronym> de Sun par défaut même dans les distributions
     puristes de GNU/Linux. En attendant ce jour, vous pouvez avoir à le télécharger.</para>
   </section>
@@ -47,7 +47,7 @@ Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)</screen></p
     le site de Maven. La dernière version de Maven lorsque ce livre a été écrit était Maven ${maven.version}. Si
     l'Apache Software License ne vous dit rien, nous vous suggérons de vous familiariser avec les termes de cette
     licence avant de commencer à utiliser le produit. Plus d'informtions sur l'Apache Software License se trouvent dans
-    la section <xref linkend="installation-sect-license" />.</para>
+    la <xref linkend="installation-sect-license" />.</para>
   </section>
 
   <section id="installation-sect-maven-install">
