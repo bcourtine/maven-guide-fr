@@ -23,22 +23,22 @@
     <para>Voici une définition plus formelle d'<ulink url="http://maven.apache.org">Apache Maven </ulink> : Maven est un
     outil de gestion de projet qui comprend un modèle objet pour définir un projet, un ensemble de standards, un cycle
     de vie, et un système de gestion des dépendances. Il embarque aussi la logique nécessaire à l'exécution d'actions
-    pour des phases bien définies de ce cycle de vie, par le biais de plugins . Lorsque vous utilisez Maven, vous décrivez
+    pour des phases bien définies de ce cycle de vie, par le biais de plugins. Lorsque vous utilisez Maven, vous décrivez
     votre projet selon un modèle objet de projet clair, Maven peut alors lui appliquer la logique transverse d'un
     ensemble de plugins (partagés ou spécifiques).</para>
 
     <para>Ne vous laissez pas impressionner par le fait que Maven est un "outil de gestion de projet". Si vous cherchiez
     juste un outil de build alors Maven fera l'affaire. D'ailleurs, les premiers chapitres de
-    ce livre traiteront que du cas d'utilisation le plus courant : comment utiliser Maven pour construire et distribuer
+    ce livre ne traiteront que du cas d'utilisation le plus courant : comment utiliser Maven pour construire et distribuer
     votre projet.</para>
   </section>
 
   <section id="installation-sect-conventionConfiguration">
-    <title>Convention plutôt que Configuration</title>
+    <title>Convention plutôt que configuration</title>
 
     <para>Le paradigme "Convention over Configuration" (en français convention plutôt que configuration) repose sur une
     idée simple. Par défaut, les systèmes informatiques, les bibliothèques et les frameworks devraient avoir un
-    comportement raisonnable. Un système devrait être "prêt à l'emploi" sans demander une configuration superflue. De
+    comportement raisonnable. Un système devrait être "prêt à l'emploi" sans demander de configuration superflue. De
     célèbres frameworks comme <ulink url="http://www.rubyonrails.org/">Ruby on Rails</ulink> et <acronym>EJB3</acronym>
     ont commencé à appliquer ces principes en réaction à la complexité du paramètrage de frameworks tels que les
     spécifications initiales <acronym>EJB</acronym> 2.1. On retrouve une illustration de ce principe au travers
@@ -50,7 +50,7 @@
 
     <para>Maven intègre ce concept en ayant un comportement logique par défaut. Sans configuration spécifique, le code
     source est supposé se trouver dans <filename>\${basedir}/src/main/java</filename> et les différentes ressources dans
-    <filename>\${basedir}/src/main/resources</filename>. Les tests eux sont supposés être dans
+    <filename>\${basedir}/src/main/resources</filename>. Les tests, eux, sont supposés être dans
     <filename>\${basedir}/src/test</filename>, et un projet est supposé produire un fichier <acronym>JAR</acronym>.
     Maven suppose que vous voulez compiler en bytecode dans <filename>\${basedir}/target/classes</filename> et ensuite
     créer votre fichier <acronym>JAR</acronym> distribuable dans <filename>\${basedir}/target</filename>. Même si tout
