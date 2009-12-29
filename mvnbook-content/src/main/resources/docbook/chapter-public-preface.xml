@@ -38,26 +38,26 @@
     <para>Ce livre se compose de trois parties: une Introduction, une <xref
     linkend="part-example" />, et une <xref linkend="part-reference" />. L'introduction se
     compose de deux chapitres: <xref linkend="introduction" /> et
-    <xref linkend="installation" />. <xref linkend="part-example" /> introduit
+    <xref linkend="installation" />. La <xref linkend="part-example" /> introduit
     Maven par sa mise en oeuvre sur des exemples concrets tout en expliquant 
     le comment et le pourquoi de leur structure. Si vous êtes
-    novice en ce qui concerne Maven, commencez par <xref linkend="part-example" />.
-    <xref linkend="part-reference" /> est moins une introduction qu'une référence,
-    chaque chapitre de  <xref linkend="part-reference" /> traite d'un sujet en
+    novice en ce qui concerne Maven, commencez par la <xref linkend="part-example" />.
+    La <xref linkend="part-reference" /> est moins une introduction qu'une référence,
+    chaque chapitre de la <xref linkend="part-reference" /> traite d'un sujet en
     particulier et en donne le maximum de détails possible. Par exemple, 
-    le chapitre <xref linkend="writing-plugins" /> dans
+    le <xref linkend="writing-plugins" /> dans la 
     <xref linkend="part-reference" /> traite de la manière d'écrire des plugins
     au travers des quelques exemples associés à un ensemble de tableaux et de
     listes.</para>
 
-    <para>Même si les deux parties <xref linkend="part-example" /> et <xref
+    <para>Même si les deux parties la <xref linkend="part-example" /> et la <xref
     linkend="part-reference" /> fournissent des explications, chacune a sa propre
-    stratégie. Là où <xref linkend="part-example" /> se concentre sur le contexte
-    d'un projet Maven, <xref linkend="part-reference" /> se concentre sur un
-    sujet particulier. Vous pouvez sauter certaines parties du livre, <xref
-    linkend="part-example" /> n'est en aucune sorte un pré-requis pour <xref
-    linkend="part-reference" />, mais vous pourrez mieux apprécier
-    <xref linkend="part-reference" /> si vous avez lu <xref
+    stratégie. Là où la <xref linkend="part-example" /> se concentre sur le contexte
+    d'un projet Maven, la <xref linkend="part-reference" /> se concentre sur un
+    sujet particulier. Vous pouvez sauter certaines parties du livre, la <xref
+    linkend="part-example" /> n'est en aucune sorte un pré-requis pour la <xref
+    linkend="part-reference" />, mais vous pourrez mieux apprécier la
+    <xref linkend="part-reference" /> si vous avez lu la <xref
     linkend="part-example" />. Maven s'apprend mieux par l'exemple, mais une fois
     ceux-ci faits, vous aurez besoin d'éléments de référence pour commencer à
     adapter Maven à votre environnement.</para>
