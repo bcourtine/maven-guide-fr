@@ -193,7 +193,7 @@
         <listitem>
           <para>Les outils tels qu'Eclipse, NetBeans, et IntelliJ ont maintenant un endroit unique pour aller récupérer
           les informations sur un projet. Avant Maven, chaque <acronym>EDI</acronym> conservait à sa manière ce qui
-          était, plus ou moins, son propre Project Object Model (POM</acronym>). Maven a standardisé cette
+          était, plus ou moins, son propre Project Object Model (<acronym>POM</acronym>). Maven a standardisé cette
           description, et alors que chaque EDI continue à maintenir ses propres fichiers décrivant le projet, ils
           peuvent être facilement générés à partir du modèle.</para>
         </listitem>
