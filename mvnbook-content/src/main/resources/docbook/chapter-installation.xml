@@ -227,25 +227,26 @@ lib/</screen>
     <para>Le fichier <filename>LICENSE.txt</filename> contient la licence logicielle pour <indexterm>
         <primary>LICENSE.txt file</primary>
       </indexterm>Apache Maven. Cette licence sera détaillée dans la <xref linkend="installation-sect-license" />.
-    <filename>NOTICE.txt</filename> contient des remarques et les attributions <indexterm>
+    Le fichier <filename>NOTICE.txt</filename> contient des remarques et les attributions <indexterm>
         <primary>NOTICE.txt file</primary>
-      </indexterm>exigées par les bibliothèques dont dépend Maven. <indexterm>
+      </indexterm>exigées par les bibliothèques dont dépend Maven.<indexterm>
         <primary>README.txt file</primary>
-      </indexterm> <filename role="keep-together">README.txt</filename> contient lui les instructions d'installation. Le
+      </indexterm> Le fichier <filename role="keep-together">README.txt</filename> contient lui les instructions d'installation. Le
     répertoire <filename>bin/</filename> contient le script <filename>mvn</filename> <indexterm>
         <primary>mvn script</primary>
       </indexterm>qui permet l'exécution de Maven. Dans <filename>boot/</filename> se trouve le fichier JAR (
     <filename>classwords-1.1.jar</filename>) qui a pour fonction de créer <indexterm>
         <primary>classwords-1.1.jar file</primary>
-      </indexterm>le Class Loader dans lequel s'exécute Maven. <filename>conf/</filename> contient un <filename
+      </indexterm>le chargeur de classes (Classloader) dans lequel s'exécute Maven. Le répertoire <filename>conf/</filename>
+      contient un fichier <filename
     role="keep-together">settings.xml</filename> global qui permet <indexterm>
         <primary>settings.xml file</primary>
       </indexterm>de personnaliser le comportement d'une installation de Maven. Si vous devez personnaliser Maven, il
     est d'usage de surcharger les paramètres dans le fichier <filename>settings.xml</filename> qui se trouve dans
     <indexterm>
         <primary>m2 directory, contents of</primary>
-      </indexterm> <filename>~/.m2</filename>. <filename>lib/</filename> contient un fichier JAR unique (
-    <filename>maven-core-${maven.version}-uber.jar</filename>) qui contient le cœur de Maven.</para>
+      </indexterm> <filename>~/.m2</filename>. Le répertoire <filename>lib/</filename> contient un fichier JAR unique 
+    (<filename>maven-core-${maven.version}-uber.jar</filename>) qui contient le cœur de Maven.</para>
 
     <note>
       <para>A moins que vous ne travailliez sur un système Unix partagé, vous ne devriez pas avoir à modifier le fichier
