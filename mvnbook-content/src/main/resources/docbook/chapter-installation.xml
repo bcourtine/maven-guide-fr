@@ -78,10 +78,10 @@ Java HotSpot(TM) Client VM (build 1.5.0_16-133, mixed mode, sharing)</screen></p
       <filename>/usr/local/apache-maven-${maven.version}</filename>, vous pouvez vouloir créer un lien symbolique afin
       de vous faciliter la vie et éviter d'avoir à modifier l'environnement.</para>
 
-      <screen>/usr/local %<command moreinfo="none">cd /usr/local</command>
-/usr/local %<command moreinfo="none">ln -s apache-maven-${maven.version} maven</command>
-/usr/local %<command>export M2_HOME=/usr/local/maven</command>
-/usr/local %<command>export PATH=\${M2_HOME}/bin:\${PATH}</command></screen>
+      <screen>/usr/local % <command moreinfo="none">cd /usr/local
+</command>/usr/local % <command moreinfo="none">ln -s apache-maven-${maven.version} maven
+</command>/usr/local % <command>export M2_HOME=/usr/local/maven</command>
+/usr/local % <command>export PATH=\${M2_HOME}/bin:\${PATH}</command></screen>
 
       <para>Une fois Maven installé, il vous reste quelques petites choses à faire afin de pouvoir l'utiliser
       correctement. Vous devez ajouter le répertoire <filename moreinfo="none">bin</filename> de la distribution (dans
