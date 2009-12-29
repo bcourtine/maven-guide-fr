@@ -230,7 +230,7 @@
     cela, et Maven fait référence à bien plus que l'outil en lui-même. Quand ce livre parle de Maven, il fait référence
     à la constellation de logiciels, de systèmes, et de standards qui le supportent. Buildr, Ivy, Gradle, tous ces
     outils interagissent avec le format de dépôt que Maven a permis de créer, et vous pourriez tout aussi facilement
-    utiliser un gestionnaire de repository comme Nexus pour gérer des builds écrits entièrement avec Ant.</para>
+    utiliser un gestionnaire de dépôt comme Nexus pour gérer des builds écrits entièrement avec Ant.</para>
 
     <para>Bien que Maven soit une alternative à ces outils, la communauté doit abandonner cet esprit de lutte sanglante
     pour s'approprier utilisateurs et développeurs. C'est peut-être ainsi que ça se passe entre grosses entreprises,
