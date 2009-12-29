@@ -147,7 +147,7 @@
   </section>
 
   <section id="installation-sect-conceptual">
-    <title>Le Modèle Conceptuel d'un "Projet"</title>
+    <title>Le Modèle conceptuel d'un "Projet"</title>
 
     <para>Avec Maven vous modélisez un projet. Vous ne faites plus simplement de la compilation de code en bytecode,
     vous décrivez un projet logiciel et vous lui assignez un ensemble unique de coordonnées. Vous définissez les
