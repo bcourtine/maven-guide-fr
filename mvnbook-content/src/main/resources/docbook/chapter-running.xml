@@ -407,7 +407,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       l'utilisateur final lorsque le checksum ne correspond pas à l'artefact téléchargé. L'utilisation de l'option
       <command>-C</command> fera échouer le build si Maven rencontre un artefact avec un mauvais checksum.</para>
 
-      <para>L'option<command>-U</command> est très utile lorsque vous voulez vous assurer que Maven vérifie qu'il
+      <para>L'option <command>-U</command> est très utile lorsque vous voulez vous assurer que Maven vérifie qu'il
       utilise bien les dernières versions stables et SNAPSHOT des dépendances.</para>
     </section>
 
