@@ -541,8 +541,8 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
     <section>
       <title>Reprise de build</title>
 
-      <para>Supposons que nous sommes en train de travailler sur du code et que nous essayons d'exécuter <varname>mvn install</varname>
-      depuis <varname>simple-parent</varname>, et que nous avons un test en échec dans <varname>simple-weather</varname>. 
+      <para>Supposons que nous soyons en train de travailler sur du code et que nous essayions d'exécuter <varname>mvn install</varname>
+      depuis <varname>simple-parent</varname>, et que nous ayons un test en échec dans <varname>simple-weather</varname>.
       Nous corrigeons donc <varname>simple-weather</varname> sans changer <varname>simple-model</varname> ; 
       nous savons que <varname>simple-model</varname> est bon et que donc il n'est pas nécessaire de le
       reconstruire ou de le tester. Nous pouvons alors utiliser l'argument --resume-from ainsi :</para>
