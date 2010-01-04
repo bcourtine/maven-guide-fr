@@ -549,7 +549,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
 
       <screen>$ <command>mvn --resume-from simple-weather install</command></screen>
 
-      <para>Ainsi, <varname>simple-model</varname> ne sera pas reconstruit et le build reprendra là où l'avions laissé dans <varname>simple-weather</varname>.
+      <para>Ainsi, <varname>simple-model</varname> ne sera pas reconstruit et le build reprendra là où nous l'avions laissé dans <varname>simple-weather</varname>.
       Si <varname>simple-weather</varname> est construit avec succès, Maven poursuivra et construira les autres projets.</para>
     </section>
 
