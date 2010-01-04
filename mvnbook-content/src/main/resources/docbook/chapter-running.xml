@@ -455,7 +455,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
           <term>-npr, --no-plugin-registry</term>
 
           <listitem>
-            <para>Ne pas utiliser ~/.m2/plugin-registry.xml pour les versions de plugin.</para>
+            <para>Ne pas utiliser le fichier <filename>~/.m2/plugin-registry.xml<filename> pour les versions de plugin.</para>
           </listitem>
         </varlistentry>
       </variablelist>
