@@ -344,7 +344,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       développement. Cette option <command>-X</command> est très utile lorsque vous essayez de trouver la cause d'un
       problème très délicat avec une dépendance ou un classpath.</para>
 
-      <para>L'option <command>-e</command> est pratique si vous êtes un développeur Maven ou si vous vous avez besoin
+      <para>L'option <command>-e</command> est pratique si vous êtes un développeur Maven ou si vous avez besoin
       de diagnostiquer une erreur dans un plugin Maven. Si vous remontez une anomalie sur Maven ou l'un de ses plugins,
       n'oubliez pas de fournir les traces obtenues avec les deux options <command>-X</command> et
       <command>-e</command>.</para>
