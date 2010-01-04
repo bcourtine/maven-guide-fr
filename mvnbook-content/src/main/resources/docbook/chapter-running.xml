@@ -270,7 +270,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
     <section id="running-sect-failure-option">
       <title>Gestion des erreurs</title>
 
-      <para>Les options suivantes permettent de contrôler la réaction de Maven lors de l'échec d'un build en plein milieu d'un
+      <para>Les options suivantes permettent de contrôler le comportement de Maven lors de l'échec d'un build en plein milieu d'un
       build multimodule :</para>
 
       <variablelist>
