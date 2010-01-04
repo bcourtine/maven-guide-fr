@@ -585,7 +585,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
     <section>
       <title>Modifier simple-weather et vérifier que nous n'avons rien cassé grâce à --also-make-dependents</title>
 
-      <para>Supposons que nous avons modifié <varname>simple-weather</varname>. 
+      <para>Supposons que nous ayons modifié <varname>simple-weather</varname>.
       Nous voulons nous assurer que nous n'avons cassé aucun des projets qui en dépendent. 
       (Dans ce cas-ci, nous voulons nous assurer que nous n'avons pas cassé <varname>simple-command</varname> et
       <varname>simple-webapp</varname>, mais dans un Reactor plus complexe cela ne serait pas si évident.) 
@@ -595,7 +595,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
       <screen>$ <command>mvn --projects simple-weather --also-make-dependents install</command></screen>Quand
       nous utilisons --also-make-dependents, Maven va examiner tous les projets de notre reactor pour trouver ceux qui
       dépendent de <varname>simple-weather</varname> et va automatiquement construire ceux-ci et aucun autre. Dans notre cas, il va
-      automatiqement construire <varname>simple-weather</varname> puis <varname>simple-command</varname> 
+      automatiquement construire <varname>simple-weather</varname> puis <varname>simple-command</varname>
       et <varname>simple-webapp</varname>.</para>
     </section>
 
