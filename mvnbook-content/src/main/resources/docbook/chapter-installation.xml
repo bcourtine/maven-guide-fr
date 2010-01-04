@@ -251,9 +251,9 @@ lib/</screen>
     <note>
       <para>A moins que vous ne travailliez sur un système Unix partagé, vous ne devriez pas avoir à modifier le fichier
       <filename>settings.xml</filename> du répertoire <filename>M2_HOME/conf</filename>. Modifier le fichier
-      <filename>settings.xml</filename> global dans l'installation de Maven est inutile dans la plupart des cas, et
-      risque de rendre toute mise à jour de Maven plus compliquée, puisque vous aurez à vous rappeler de copier ce
-      fichier <filename>settings.xml</filename> modifié  depuis votre ancienne installation de Maven dans la nouvelle. Si
+      <filename>settings.xml</filename> global dans l'installation de Maven est inutile dans la plupart des cas et
+      risque de compliquer inutilement toute mise à jour de Maven, puisque vous aurez à vous souvenir de copier ce
+      fichier <filename>settings.xml</filename> modifié depuis votre ancienne installation de Maven dans la nouvelle. Si
       vous devez modifier le fichier <filename>settings.xml</filename>, vous devriez modifier le fichier
       <filename>settings.xml</filename> qui vous est propre : <filename>~/.m2/settings.xml</filename>.</para>
     </note>
@@ -288,22 +288,22 @@ lib/</screen>
       <note>
         <para>Sous Unix (et OSX), votre répertoire utilisateur est symbolisé par un tilde (i.e.
         <filename>~/bin</filename> correspond au répertoire <filename>/home/tobrien/bin</filename>). Sous Windows, nous
-        utiliserons aussi <filename>~</filename> pour symboliser votre répertoire utilisateur. Sous Windows XP, votre
-        répertoire utilisateur est <filename>C:\Documents and Settings\tobrien</filename>, et sous Windows Vista, votre
+        utiliserons aussi ce caractère <filename>~</filename> pour symboliser votre répertoire utilisateur. Ainsi, sous Windows XP votre
+        répertoire utilisateur est <filename>C:\Documents and Settings\tobrien</filename> et sous Windows Vista, votre
         répertoire utilisateur est <filename>C:\Users\tobrien</filename>. À partir de maintenant, vous devrez traduire
         les chemins du type <filename>~/m2</filename> en fonction de votre système d'exploitation.</para>
       </note>
     </section>
 
     <section id="installation-sect-upgrade">
-      <title>Mettre à jour une Installation de Maven</title>
+      <title>Mettre à jour une installation de Maven</title>
 
       <para>Si vous avez installé Maven sur une machine sous Mac OSX ou sous Unix en suivant les instructions de la
-      <xref lang="" linkend="installation-sect-maven-osx" /> et de la <xref linkend="installation-sect-maven-linux" />.
-      L'installation de nouvelles versions de Maven devrait être simple. Installez tout simplement la nouvelle version
+      <xref lang="" linkend="installation-sect-maven-osx" /> et de la <xref linkend="installation-sect-maven-linux" />
+      alors installation de nouvelles versions de Maven devrait être simple. Installez tout simplement la nouvelle version
       de Maven ( <filename>/usr/local/maven-2.future</filename>) à côté de l'installation existante (
       <filename>/usr/local/maven-${maven.version}</filename>). Puis modifiez le lien symbolique
-      <filename>/usr/local/maven</filename> de <filename>/usr/local/maven-${maven.version}</filename> à
+      <filename>/usr/local/maven</filename> de <filename>/usr/local/maven-${maven.version}</filename> en
       <filename>/usr/local/maven-2.future</filename>. Comme vous avez déjà défini votre variable d'environnement
       <varname>M2_HOME</varname> pour qu'elle pointe sur <filename>/usr/local/maven</filename>, vous n'aurez pas à
       modifier la moindre variable d'environnement.</para>
@@ -330,8 +330,8 @@ lib/</screen>
       références à des dépôts utilisant la structure <varname>legacy</varname>. Pour plus d'informations sur la
       configuration de dépôt legacy, regardez la <xref linkend="appendix-settings-sect-settings-repository" />.</para>
 
-      <para>Si vous avez tout un ensemble de projets Maven 1, le Maven One Plugin devrait vous intéresser. Le Maven One
-      Plugin a été conçu pour faciliter la migration des projets de Maven 1 à Maven 2. Si vous avez un projet Maven 1,
+      <para>Si vous avez tout un ensemble de projets Maven 1, le plugin Maven One devrait vous intéresser. Le plugin
+      Maven One a été conçu pour faciliter la migration des projets de Maven 1 à Maven 2. Si vous avez un projet Maven 1,
       vous pouvez convertir son POM en exécutant le goal <varname>one:</varname> <varname>convert</varname> de la
       manière suivante:</para>
 
@@ -341,14 +341,14 @@ $ mvn one:convert</screen>
       <para><varname>one:</varname> <varname>convert</varname> va lire le fichier <filename>project.xml</filename> et
       produire un <filename>pom.xml</filename> compatible avec Maven 2. Si votre build Maven 1 a été personnalisé avec
       un script Jelly dans le fichier <filename>maven.xml</filename>, il va vous falloir tester d'autres options. Alors
-      que Maven 1 préconisait l'utilisation de scripts Jelly pour personnaliser les builds, Maven 2 lui préconise la
-      personnalisation au travers de plugins personnels, de plugins de script ou le Maven Antrun Plugin.</para>
+      que Maven 1 préconisait l'utilisation de scripts Jelly pour personnaliser les builds, Maven 2, lui, préconise la
+      personnalisation au travers de vos propres plugins, de plugins de script ou du plugin Maven Antrun.</para>
 
       <para>Ce qu'il faut retenir lorsque l'on migre de Maven 1 à Maven 2, c'est que Maven 2 est un framework de build
       complètement différent. Maven 2 introduit le concept du Cycle de Vie Maven, et redéfinit les relations entre
       plugins. Si vous migrez de Maven 1 à Maven 2, vous devez passer du temps à apprendre les différences qui existent
       entre ces deux versions. Bien qu'il puisse sembler plus important de commencer par apprendre la nouvelle structure
-      du POM, vous devriez commencer par le Cycle de Vie. Une fois le Cycle de Vie de Maven compris, vous pourrez
+      du POM, vous devriez commencer par le cycle de vie. Une fois le cycle de vie de Maven compris, vous pourrez
       utiliser toute la puissance de Maven.</para>
     </section>
   </section>
@@ -357,14 +357,14 @@ $ mvn one:convert</screen>
     <title>Désinstaller Maven</title>
 
     <para>La plupart des instructions d'installation demandent de décompresser l'archive de la distribution de Maven
-    dans un répertoire, et de définir quelques variables d'environnement. Si vous devez supprimer Maven de votre
+    dans un répertoire et de définir quelques variables d'environnement. Si vous devez supprimer Maven de votre
     ordinateur, tout ce que vous avez à faire est de supprimer le répertoire d'installation de Maven ainsi que les
     variables d'environnement. Vous voudrez sûrement supprimer le répertoire <filename>~/.m2</filename> qui contient
     votre dépôt local.</para>
   </section>
 
   <section id="installation-sect-getting-help">
-    <title>Obtenir de l'Aide avec Maven</title>
+    <title>Obtenir de l'aide avec Maven</title>
 
     <para>Même si ce livre essaye de se rapprocher d’une référence complète, nous oublierons certains sujets :
     nous ne couvrirons pas certaines situations particulières ainsi que certaines astuces. Le cœur de Maven est très
