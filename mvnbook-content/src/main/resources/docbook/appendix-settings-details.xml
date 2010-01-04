@@ -737,7 +737,7 @@
     </section>
 
     <section id="appendix-settings-sect-encrypting-passwords">
-      <title>Encryption des mots de passe dans les Settings Maven</title>
+      <title>Chiffrement des mots de passe dans les Settings Maven</title>
 
       <para>Si vous utilisez Maven pour déployer vos artefacts sur des dépôts distants ou tout autre service distant nécessitant l'utilisation de mots de passe,
       la meilleure solution est de stocker ces mots de passe dans vos Settings Maven. 
