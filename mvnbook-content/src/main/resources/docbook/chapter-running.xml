@@ -556,13 +556,13 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
     <section>
       <title>Spécifier un sous ensemble de projets</title>
 
-      <para>Supposons que nous avons modifié <varname>simple-command</varname> et <varname>simple-webapp</varname> 
+      <para>Supposons que nous ayons modifié <varname>simple-command</varname> et <varname>simple-webapp</varname>
       et que nous voulions reconstruire ces deux projets. 
       Nous pouvons utiliser l'argument --projects argument ainsi :</para>
 
       <screen>$ <command>mvn --projects simple-command,simple-webapp install</command></screen>
 
-      <para>Seulement ces deux projets seront construits, ce qui nous évitera d'avoir à exécuter Maven séparément dans
+      <para>Seuls ces deux projets seront construits, ce qui nous évitera d'avoir à exécuter Maven séparément dans
       chaque répertoire.</para>
     </section>
 
