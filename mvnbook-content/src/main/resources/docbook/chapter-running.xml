@@ -136,7 +136,7 @@ Options:
           <term>-P, --activate-profiles &lt;arg&gt;</term>
 
           <listitem>
-            <para>Liste de profils à actier séparés par des virgules</para>
+            <para>Liste de profils à activer séparés par des virgules</para>
           </listitem>
         </varlistentry>
       </variablelist>
