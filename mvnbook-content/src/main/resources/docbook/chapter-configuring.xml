@@ -273,9 +273,9 @@ compiler:testCompile
       &lt;/goals&gt;
       &lt;configuration&gt;
         &lt;tasks&gt;
-          &lt;echo&gt;${PATH}=${env.PATH}&lt;/echo&gt;
-          &lt;echo&gt;User's Home Directory: ${user.home}&lt;/echo&gt;
-          &lt;echo&gt;Project's Base Director: ${basedir}&lt;/echo&gt;
+          &lt;echo&gt;\${PATH}=\${env.PATH}&lt;/echo&gt;
+          &lt;echo&gt;User's Home Directory: \${user.home}&lt;/echo&gt;
+          &lt;echo&gt;Project's Base Director: \${basedir}&lt;/echo&gt;
         &lt;/tasks&gt;
       &lt;/configuration&gt;
     &lt;/execution&gt;
@@ -331,7 +331,7 @@ compiler:testCompile
     </section>
 
     <section>
-      <title>Configuation des paramètres pour les goals rattachés au cycle de vie par défaut</title>
+      <title>Configuration des paramètres pour les goals rattachés au cycle de vie par défaut</title>
 
       <para>Depuis Maven 2.2.0, si vous désirez personnaliser le comportement d'un goal qui est déjà rattaché au cycle de vie par défaut,
       vous pouvez utiliser un id spécial pour l'exécution, "default-&lt;goal&gt;".  
