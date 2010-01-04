@@ -237,7 +237,7 @@ compiler:testCompile
       À moins que cette configuration ne soit surchargée par une configuration de paramètre de plugin plus spécifique,
       Maven utilisera les valeurs définies dans la balise <sgmltag>plugin</sgmltag> pour tous les goals exécutés par ce plugin.</para>
 
-      <example id="ex-config-global-plugin-param" label="">
+      <example id="ex-config-global-plugin-param">
         <title>Configurer un plugin Maven</title>
 
         <programlisting>&lt;plugin&gt;
