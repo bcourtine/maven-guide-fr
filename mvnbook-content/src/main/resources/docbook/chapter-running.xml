@@ -569,7 +569,7 @@ OS name: "mac os x" version: "10.6.1" arch: "x86_64" Family: "mac"
     <section>
       <title>Construire des sous-ensembles</title>
 
-      <para>Supposons que nous sommes des développeurs travaillant sur <varname>simple-command</varname>. 
+      <para>Supposons que nous soyons des développeurs travaillant sur <varname>simple-command</varname>.
       Nous ne désirons pas travailler sur <varname>simple-webapp</varname> pour l'instant 
       mais juste avoir une version fonctionnelle de <varname>simple-command</varname>. Nous pouvons
       utiliser --also-make ainsi :</para>
