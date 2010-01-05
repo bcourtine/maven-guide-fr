@@ -22,9 +22,9 @@
     (<acronym>POM</acronym>).</para>
 
     <section id="simple-project-sect-downloading-example">
-      <title>Télécharger l'Exemple de ce Chapitre</title>
+      <title>Télécharger l'exemple de ce chapitre</title>
 
-      <para>Ce chapitre développe un exemple très simple qui sera utilisé pour explorer les concepts principaux de
+      <para>Ce chapitre développe un exemple très simple qui sera utilisé pour explorer les principaux concepts de
       Maven. Si vous suivez les étapes décrites dans ce chapitre, vous ne devriez pas avoir besoin de télécharger les
       exemples pour recréer le code produit par Maven. Nous allons utiliser le plugin Maven Archetype pour créer ce
       projet simple que ce chapitre ne modifie en rien. Si vous préférez lire ce chapitre avec le code source final de
