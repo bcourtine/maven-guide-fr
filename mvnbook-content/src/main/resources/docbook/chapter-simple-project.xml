@@ -162,7 +162,7 @@ simple/pom.xml<co id="coDef-simple-fs-pom" linkends="coRef-simple-fs-pom" />
 
       <callout arearefs="coDef-simple-fs-test" id="coRef-simple-fs-test">
         <para>Les tests de notre projet vont dans <filename>src/test</filename>. Dans ce répertoire, les classes Java,
-        comme par exemple les tests JUnit ou TestNG, sont dans <filename>src/test/java</filename>, et les ressources du
+        comme par exemple les tests JUnit ou TestNG, sont dans <filename>src/test/java</filename> et les ressources du
         classpath pour les tests vont dans <filename>src/test/resources</filename>.</para>
       </callout>
     </calloutlist>
