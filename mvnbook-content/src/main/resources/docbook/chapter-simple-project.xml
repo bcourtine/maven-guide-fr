@@ -2,7 +2,7 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="simple-project" lang="fr">
-  <title>Mon Premier Projet avec Maven</title>
+  <title>Mon premier projet avec Maven</title>
 
   <section id="simple-project-sect-intro">
     <title>Introduction</title>
@@ -13,9 +13,9 @@
 
     <para>Avant de nous lancer dans l'utilisation de Maven sur des builds complexes avec plusieurs modules, nous allons
     commencer par les bases. Si vous avez déjà utilisé Maven auparavant, vous verrez qu'il fait bien son travail et
-    s'occupe des détails. Vos builds tendent à "fonctionner correctement", et vous n'avez à vous plonger dans les
+    s'occupe des détails. Vos builds tendent à "fonctionner correctement" et vous n'avez à vous plonger dans les
     détails de Maven que lorsque vous voulez personnaliser un comportement par défaut ou écrire votre propre plugin.
-    Cependant, quand vous devez vous plonger dans ces détails, une bonne compréhension des concepts principaux est
+    Cependant, quand vous devez vous plonger dans ces détails, une bonne compréhension des principaux concepts est
     essentielle. Ce chapitre a pour but de vous présenter le projet Maven le plus simple possible puis de vous montrer
     les concepts principaux de Maven qui en font une solide plateforme de build. Une fois que vous l'aurez lu, vous
     aurez une compréhension fondamentale du cycle de vie du build, des dépôts Maven et du Project Object Model (
