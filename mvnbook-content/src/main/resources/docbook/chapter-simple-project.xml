@@ -291,7 +291,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     définit de nombreuses dépendances et personnalise le comportement des plugins. Les premiers éléments —
     <sgmltag>groupId</sgmltag>, <sgmltag>artifactId</sgmltag>, <sgmltag>packaging</sgmltag>,
     <sgmltag>version</sgmltag> — sont ce que l'on appelle les coordonnées Maven qui identifient de manière unique un
-    projet. <sgmltag>name</sgmltag> et <sgmltag>url</sgmltag> sont des éléments descriptifs du <acronym>POM</acronym>
+    projet. Les balises <sgmltag>name</sgmltag> et <sgmltag>url</sgmltag> sont des éléments descriptifs du <acronym>POM</acronym>
     donnant un nom compréhensible par un être humain et associant le projet à un site web. L'élément
     <sgmltag>dependencies</sgmltag> définit une dépendance unique, dans le scope <varname>test</varname>, sur un 
     framework de test appelé JUnit. Nous reverrons ces sujets par la suite dans
