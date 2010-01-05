@@ -95,15 +95,15 @@ package: org.sonatype.mavenbook.simple
     L'élément <varname>archetype:generate</varname> correspond à un goal Maven. Si vous connaissez<indexterm>
         <primary>goals</primary>
         <secondary>à propos</secondary>
-      </indexterm> <indexterm>
+      </indexterm><indexterm>
         <primary>Maven goals, à propos</primary>
-      </indexterm> <indexterm>
+      </indexterm><indexterm>
         <primary>parent POM</primary>
         <seealso>POM</seealso>
-      </indexterm> <indexterm>
+      </indexterm><indexterm>
         <primary>racine POM</primary>
         <seealso>POM</seealso>
-      </indexterm>Apache Ant, un goal Maven est analogue à une target Ant ; tous les deux décrivent une unité de tâche à
+      </indexterm> Apache Ant, un goal Maven est analogue à une target Ant ; tous les deux décrivent une unité de tâche à
     accomplir lors d'un build. La paire <varname>-Dname=value</varname> représente un argument passé au goal sous la
     forme de propriété <varname>-D</varname>, comme pour les propriétés système que vous pourriez passer à la Machine
     Virtuelle Java via la ligne de commande. Le but du goal <varname>archetype:generate</varname> est de créer
