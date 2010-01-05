@@ -190,7 +190,7 @@ public class App
   </section>
 
   <section id="simple-project-sect-building-simple">
-    <title>Construire le Projet Simple</title>
+    <title>Construire le projet Simple</title>
 
     <para>Une fois le projet créé grâce au plugin Maven Archetype suivant les instructions de la section précédente 
     (<xref linkend="simple-project-sect-create-simple" />), il faut construire et packager l'application. Afin
