@@ -310,7 +310,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
     <screen>$<command>mvn help:effective-pom</command></screen>
 
-    <para>Lorsque vous exécutez cette commande, vous pouvez voir un <acronym>POM</acronym> nettement plus consistent qui
+    <para>Lorsque vous exécutez cette commande vous pouvez voir un <acronym>POM</acronym> nettement plus consistent qui
     montre la configuration par défaut de Maven. Ce goal devient vite pratique lorsque vous essayez de débogguer un
     build et que vous voulez voir comment les POMs des parents de ce projet contribuent au POM effectif. Pour plus
     d'informations sur le plugin Maven Help, lisez la <xref linkend="installation-sect-help-plugin-install" />.</para>
