@@ -195,13 +195,12 @@ public class App
     <para>Une fois le projet créé grâce au plugin Maven Archetype suivant les instructions de la section précédente 
     (<xref linkend="simple-project-sect-create-simple" />), il faut construire et packager l'application. Afin
     d'y parvenir, exécutez <command>mvn install</command> depuis<indexterm>
-        <primary>mvn install command</primary>
-      </indexterm> <indexterm>
+        <primary>mvn install command</primary></indexterm><indexterm>
         <primary>building applications</primary>
-      </indexterm> <indexterm>
+      </indexterm><indexterm>
         <primary>packaging applications</primary>
-      </indexterm> <indexterm>
-        <primary>applications, building and packaging</primary>
+      </indexterm><indexterm>
+        <primary> applications, building and packaging</primary>
       </indexterm>le répertoire qui contient le fichier <filename>pom.xml</filename> :</para>
 
     <screen><command>$ cd simple
