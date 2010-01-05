@@ -340,7 +340,7 @@ compiler:testCompile
       Vous pouvez personnaliser les paramètres de configuration d'une exécution comme le présente l'<xref linkend="ex-configure-default-param" />.</para>
 
       <example id="ex-configure-default-param">
-        <title>Configuration d'un paramètres pour l'exécution d'un goal par défaut</title>
+        <title>Configuration d'un paramètre pour l'exécution d'un goal par défaut</title>
 
         <programlisting>&lt;plugin&gt;
   &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;
