@@ -132,7 +132,7 @@ simple/pom.xml<co id="coDef-simple-fs-pom" linkends="coRef-simple-fs-pom" />
 
     <para>Ce répertoire suit les recommandations de la disposition Maven standard des répertoires.<indexterm>
         <primary>Standard Directory Layout</primary>
-      </indexterm> <indexterm>
+      </indexterm><indexterm>
         <primary>Maven Standard Directory Layout</primary>
       </indexterm> Nous détaillerons cela plus tard dans ce chapitre, pour l'instant essayons de comprendre ces
     quelques <phrase role="keep-together">répertoires</phrase> :</para>
