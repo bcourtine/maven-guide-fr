@@ -299,7 +299,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     c'est le fichier <filename>pom.xml</filename> qui permet à Maven de s'exécuter.</para>
 
     <para>Maven s'exécute toujours selon un <acronym>POM</acronym> effectif, une combinaison de la configuration du
-    <filename>pom.xml</filename> du projet, de l'ensemble des <acronym>POM</acronym>s parents, d'un
+    fichier <filename>pom.xml</filename> du projet, de l'ensemble des <acronym>POM</acronym>s parents, d'un
     super-<acronym>POM</acronym> défini dans Maven, de la configuration de l'utilisateur et des profils actifs. Tous
     les projets étendent au final le super-<acronym>POM</acronym>, qui définit une configuration par défaut raisonnable
     et que nous décrivons en détails dans le <xref linkend="pom-relationships" />. Même si votre projet a un fichier
