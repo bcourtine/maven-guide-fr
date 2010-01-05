@@ -40,7 +40,7 @@
   </section>
 
   <section id="simple-project-sect-create-simple">
-    <title>Création du Projet Simple</title>
+    <title>Création du projet Simple</title>
 
     <para>Pour commencer un nouveau projet Maven, utilisez le plugin Maven Archetype depuis la ligne de commande.
     Exécutez le goal <varname>archetype:generate</varname>, sélectionnez l'archetype numéro 15, et tapez "Y" pour
@@ -91,8 +91,8 @@ package: org.sonatype.mavenbook.simple
 [INFO] Parameter: version, Value: 1.0-SNAPSHOT
 [INFO] BUILD SUCCESSFUL</screen>
 
-    <para><command>mvn</command> correspond à l'instruction d'exécution de Maven 2.
-    <varname>archetype:generate</varname> est un goal Maven. Si vous connaissez<indexterm>
+    <para>La commande <command>mvn</command> correspond à l'instruction d'exécution de Maven 2.
+    L'élément <varname>archetype:generate</varname> correspond à un goal Maven. Si vous connaissez<indexterm>
         <primary>goals</primary>
         <secondary>à propos</secondary>
       </indexterm> <indexterm>
@@ -113,9 +113,9 @@ package: org.sonatype.mavenbook.simple
     œuvre ; un prototype<footnote id="foot-archetype-def">
         <para><emphasis>Selon l'American Heritage Dictionary of the English Language</emphasis>.</para>
       </footnote>". Il existe un grand nombre d'archétypes disponibles pour Maven, depuis une simple application Swing
-    jusqu'à une application web complexe, le goal <varname>archetype:generate</varname> propose de choisir parmi environ
+    jusqu'à une application web complexe. Le goal <varname>archetype:generate</varname> propose de choisir parmi environ
     40 archétypes. Dans ce chapitre, nous allons utiliser l'archétype le plus basique pour créer un simple squelette
-    projet de démarrage. Le préfixe <literal>archetype</literal> correspond au plugin, et <literal>generate</literal>
+    de projet permettant de démarrer. Le préfixe <literal>archetype</literal> correspond au plugin, et <literal>generate</literal>
     correspond au goal.</para>
 
     <para>Une fois ce projet généré, allons regarder la structure de répertoire Maven qui a été créée sous le répertoire
