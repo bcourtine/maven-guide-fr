@@ -201,7 +201,7 @@ public class App
         <primary>packaging applications</primary>
       </indexterm><indexterm>
         <primary> applications, building and packaging</primary>
-      </indexterm>le répertoire qui contient le fichier <filename>pom.xml</filename> :</para>
+      </indexterm> le répertoire qui contient le fichier <filename>pom.xml</filename> :</para>
 
     <screen><command>$ cd simple
 $ mvn install</command>
