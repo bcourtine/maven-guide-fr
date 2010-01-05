@@ -287,7 +287,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     </example>
 
     <para>Ce fichier <filename>pom.xml</filename> est le <acronym>POM</acronym> le plus basique que vous rencontrerez
-    dans un projet Maven, la plupart du temps un fichier <acronym>POM</acronym> est considérablement plus complexe : il
+    dans un projet Maven. La plupart du temps un fichier <acronym>POM</acronym> est considérablement plus complexe : il
     définit de nombreuses dépendances et personnalise le comportement des plugins. Les premiers éléments —
     <sgmltag>groupId</sgmltag>, <sgmltag>artifactId</sgmltag>, <sgmltag>packaging</sgmltag>,
     <sgmltag>version</sgmltag> — sont ce que l'on appelle les coordonnées Maven qui identifient de manière unique un
