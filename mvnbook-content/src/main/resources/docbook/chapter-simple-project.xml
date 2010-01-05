@@ -17,9 +17,9 @@
     détails de Maven que lorsque vous voulez personnaliser un comportement par défaut ou écrire votre propre plugin.
     Cependant, quand vous devez vous plonger dans ces détails, une bonne compréhension des principaux concepts est
     essentielle. Ce chapitre a pour but de vous présenter le projet Maven le plus simple possible puis de vous montrer
-    les concepts principaux de Maven qui en font une solide plateforme de build. Une fois que vous l'aurez lu, vous
-    aurez une compréhension fondamentale du cycle de vie du build, des dépôts Maven et du Project Object Model (
-    <acronym>POM</acronym>).</para>
+    les principaux concepts de Maven qui en font une solide plateforme de build. Une fois que vous l'aurez lu, vous
+    aurez une compréhension fondamentale du cycle de vie du build, des dépôts Maven et du Project Object Model 
+    (<acronym>POM</acronym>).</para>
 
     <section id="simple-project-sect-downloading-example">
       <title>Télécharger l'Exemple de ce Chapitre</title>
