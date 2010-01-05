@@ -304,7 +304,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     les projets étendent au final le super-<acronym>POM</acronym>, qui définit une configuration par défaut raisonnable
     et que nous décrivons en détails dans le <xref linkend="pom-relationships" />. Même si votre projet a un fichier
     <filename>pom.xml</filename> minimal, le contenu du <acronym>POM</acronym> de celui-ci est interpolé à partir
-    des contenus des <acronym>POM</acronym>s parent, de la configuration de l'utilisateur et de tout profil actif. Pour
+    des contenus des <acronym>POM</acronym>s parents, de la configuration de l'utilisateur et de tout profil actif. Pour
     voir ce <acronym>POM</acronym> "effectif", exécutez la commande suivante depuis le répertoire racine de votre simple
     projet.</para>
 
