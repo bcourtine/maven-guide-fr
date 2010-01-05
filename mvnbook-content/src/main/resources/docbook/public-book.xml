@@ -169,10 +169,10 @@
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 
   <part id="part-example">
-    <title>Maven par l'Exemple</title>
+    <title>Maven par l'exemple</title>
 
     <partintro>
-      <para>Le premier livre traitant de Maven était <emphasis>Maven: A Developer’s
+      <para>Le premier livre à traiter de Maven fut <emphasis>Maven: A Developer’s
       Notebook</emphasis> (O’Reilly). Ce livre introduisait Maven en plusieurs étapes
       via une conversation entre vous et un collègue qui savait déjà comment utiliser
       Maven. L'idée derrière la série des Developer’s Notebook (maintenant arrêtée)
