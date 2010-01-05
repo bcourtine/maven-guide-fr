@@ -372,7 +372,7 @@ compiler:testCompile
 
       <para>Dans cet exemple, le goal par défaut <varname>jar</varname> est configuré pour exclure le contenu d'un certain package. 
       Un autre goal, <varname>jar</varname>, est rattaché à la phase <varname>package</varname> pour créer un fichier JAR
-      qui contient seulement que le contenu d'un package spécifique.</para> 
+      qui contient seulement le contenu d'un package spécifique.</para> 
 
       <para>Configurer les paramètres des goals par défaut peut aussi être intéressant si vous avez besoin de configurer deux goals 
       avec des valeurs de configuration différentes pour certains paramètres.   
