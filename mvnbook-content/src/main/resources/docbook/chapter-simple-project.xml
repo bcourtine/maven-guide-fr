@@ -486,7 +486,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <varname>package</varname>.</para>
 
       <para><figure id="fig-goals-bind-to-phases">
-          <title>Liens entre un Goal et une Phase</title>
+          <title>Rattacher u goal à une phase</title>
 
           <mediaobject>
             <imageobject role="web">
