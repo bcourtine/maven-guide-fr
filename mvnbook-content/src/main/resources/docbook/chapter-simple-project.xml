@@ -920,7 +920,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     </section>
 
     <section id="simple-project-sect-site-generation">
-      <title>Rapports et Production du Site</title>
+      <title>Rapports et production du site</title>
 
       <para>Une fonction importante de Maven est sa capacité à produire<indexterm>
           <primary>documentation generation</primary>
