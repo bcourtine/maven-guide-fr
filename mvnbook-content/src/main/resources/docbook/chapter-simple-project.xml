@@ -477,7 +477,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <primary>goals</primary>
           <secondary>attaching to lifecycle phases</secondary>
         </indexterm> à une phase du cycle de vie. Pendant que Maven parcourt les phases du cycle de vie, il exécute les
-      goals rattachés à chacune d'entre elles. On peut rattacher aucun ou plusieurs gols à chacune des différentes phases. Dans la
+      goals rattachés à chacune d'entre elles. On peut rattacher de zéro à plusieurs goals à chaque phase. Dans la
       section précédente, quand vous avez exécuté <command>mvn install</command>, il se peut que vous ayez remarqué que
       plusieurs goals s'étaient exécutés. Regardez la sortie après avoir exécuté <command>mvn install</command> et relevez les
       différents goals qui ont été exécutés. Lorsque ce simple exemple atteint la phase <varname>package</varname>, il
