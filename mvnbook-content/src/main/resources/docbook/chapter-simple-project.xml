@@ -806,7 +806,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       votre machine. Une fois que Maven a téléchargé un artefact depuis un dépôt distant, il n'a plus besoin de le
       télécharger à nouveau. En effet, Maven cherchera toujours dans le dépôt local avant d'aller chercher ailleurs. Sur
       Windows XP, votre dépôt local se trouvera probablement dans <filename>C:\Documents and
-      Settings\USERNAME\.m2\repository</filename>, et sur Windows Vista, il se trouve dans
+      Settings\USERNAME\.m2\repository</filename> et sur Windows Vista, il se trouve dans
       <filename>C:\Users\USERNAME\.m2\repository</filename>. Sur les systèmes Unix, votre dépôt local Maven se trouve
       dans <filename>~/.m2/repository</filename>. Quand vous construisez un projet comme celui de la section précédente,
       la phase <varname>install</varname> exécute un goal qui installe les artefacts de votre projet dans votre dépôt
@@ -832,14 +832,14 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     </section>
 
     <section id="simple-project-sect-dep-management">
-      <title>La Gestion des Dépendances de Maven</title>
+      <title>La gestion des dépendances de Maven</title>
 
       <para>Dans l'exemple de ce chapitre, Maven a résolu les coordonnées de la dépendance JUnit —
       <varname>junit:</varname><varname>junit:</varname><varname>3.8.1</varname> — sous la forme d'un chemin dans un dépôt
       Maven <filename>/junit/junit/3.8.1/junit-3.8.1.jar</filename>. C'est cette capacité à trouver un artefact dans un
       dépôt à partir de ses coordonnées qui nous permet de définir les dépendances dans le <acronym>POM</acronym> du
       projet. Si vous examinez le fichier <filename>pom.xml</filename> du projet simple, vous verrez qu'il comporte une
-      section <sgmltag>dependencies</sgmltag> pour traiter des dépendances, et que cette section contient une seule
+      section <sgmltag>dependencies</sgmltag> pour traiter des dépendances et que cette section contient une seule
       dépendance — JUnit.</para>
 
       <para>Un projet plus complexe contiendrait sûrement plusieurs dépendances, ou pourrait avoir des dépendances qui
