@@ -642,9 +642,9 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
       <para>Le plugin Archetype a créé un projet avec un fichier<indexterm class="startofrange" id="coord1">
           <primary>Maven coordinates</primary>
-        </indexterm> <indexterm class="startofrange" id="coord2">
+        </indexterm><indexterm class="startofrange" id="coord2">
           <primary>coordinates</primary>
-        </indexterm><filename>pom.xml</filename>. Ceci est le Project Object Model (<acronym>POM</acronym>), une
+        </indexterm> <filename>pom.xml</filename>. Ceci est le Project Object Model (<acronym>POM</acronym>), une
       description déclarative d'un projet. Quand Maven exécute un goal, celui-ci a accès aux informations définies dans
       le <acronym>POM</acronym> du projet. Lorsque le goal <varname>jar:</varname><varname>jar</varname> veut créer un
       fichier <acronym>JAR</acronym>, il va chercher dans le <acronym>POM</acronym> le nom du fichier JAR. Quand le goal
