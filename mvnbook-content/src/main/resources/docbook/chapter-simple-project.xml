@@ -432,7 +432,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       délègue tout cela à des plugins Maven comme le plugin Compiler et le plugin Jar, qui sont téléchargés selon les
       besoins et mis à jour régulièrement depuis le dépôt central de Maven. Lorsque vous téléchargez Maven, vous
       n'obtenez que le cœur de la plateforme qui ne sait que parser une ligne de commande, gérer un classpath, parser un
-      fichier <acronym>POM</acronym>, et télécharger des plugins Maven selon les besoins. Les utilisateurs ont
+      fichier <acronym>POM</acronym> et télécharger des plugins Maven selon les besoins. Les utilisateurs ont
       facilement accès aux dernières options du compilateur grâce à Maven qui maintient le plugin Compiler en dehors de
       son cœur et fournit un mécanisme de mise à jour. Ainsi, les plugins Maven apportent une logique de build
       réutilisable universellement. Vous ne définissez pas la tâche de compilation dans un fichier de build ; vous
