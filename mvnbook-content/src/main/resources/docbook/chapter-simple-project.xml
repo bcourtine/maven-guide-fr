@@ -772,7 +772,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     </section>
 
     <section id="simple-project-section-simple-repo">
-      <title>Les Dépôts Maven</title>
+      <title>Les dépôts Maven</title>
 
       <para>Lors de sa première exécution, vous allez vous apercevoir que Maven télécharge un grand nombre de fichiers
       depuis un dépôt Maven distant. Si vous exécutez Maven pour la première fois pour le projet simple, la première
@@ -785,7 +785,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       url="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2</ulink>) qu'il utilise pour télécharger les
       principaux plugins et les dépendances Maven.</para>
 
-      <para>Souvent vous aurez des projets qui dépendent de bibliothèques propriétaires ou non disponibles publiquement.
+      <para>Souvent vous aurez des projets qui dépendent de bibliothèques propriétaires ou qui ne sont pas disponibles publiquement.
       Dans ce cas vous devrez installer votre propre dépôt au sein du réseau de votre organisation, ou télécharger et
       installer ces dépendances manuellement. Les dépôts distants par défaut peuvent être remplacés ou complétés par des
       références à des dépôts Maven personnalisés gérés par votre organisation. Il existe de nombreux produits sur le
