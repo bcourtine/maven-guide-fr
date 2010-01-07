@@ -675,7 +675,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           </mediaobject>
         </figure></para>
 
-      <para>Nous avons mis en évidence les coordonnées Maven de ce projet : les <varname>groupId</varname>,
+      <para>Nous avons mis en évidence les coordonnées Maven de ce projet : <varname>groupId</varname>, 
       <varname>artifactId</varname>, <varname>version</varname> et <varname>packaging</varname>. Ces identifiants
       combinés forment ce qu'on appelle les coordonnées d'un projet<footnote id="foot-simple-classify">
           <para>Il existe une cinquième coordonnée, plus rarement utilisée, appelée <varname>classifier</varname> dont
@@ -695,7 +695,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
             <para>Le groupe, l'entreprise, l'équipe, l'organisation, le projet ou autre<indexterm>
                 <primary>groupId attribute (pom.xml)</primary>
               </indexterm> groupe. La convention pour les identifiants du groupe est qu'ils commencent par le nom de
-            domaine inversé de l'organisation qui crée le projet. Les projets de Sonatype devrait avoir un
+            domaine inversé de l'organisation qui crée le projet. Les projets de Sonatype devraient avoir un
             <varname>groupId</varname> qui commence par <package>com.sonatype</package>, et les projets de l'Apache
             Software Foundation devraient avoir un <varname>groupId</varname> qui commence par
             <package>org.apache</package>.</para>
