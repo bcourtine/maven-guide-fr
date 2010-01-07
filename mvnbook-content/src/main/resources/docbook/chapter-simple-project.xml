@@ -424,7 +424,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       Quickstart génère le squelette d'un projet minimal qui contient un <acronym>POM</acronym> et une unique classe. Le
       plugin Archetype est bien plus puissant que cet exemple ne le laisse supposer, mais c'est une façon efficace de
       commencer rapidement de nouveaux projets. Plus tard dans ce livre, nous vous montrerons comment il est possible
-      d'utiliser le plugin Archetype pour produire des projets plus complexes comme des applications web, et comment
+      d'utiliser le plugin Archetype pour produire des projets plus complexes, comme des applications web, et comment
       utiliser le plugin Archetype pour définir vos propres structures de projets.</para>
 
       <para>Le cœur de Maven n'intervient que très peu dans les tâches spécifiques qui composent le build de votre
