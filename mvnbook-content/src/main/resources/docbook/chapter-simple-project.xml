@@ -602,7 +602,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       </variablelist>
 
       <para><figure id="fig-goals-bind-to-default-lifecycle">
-          <title>Les Goals Rattachés sont lancés à l'Exécution de leurs Phases</title>
+          <title>Les goals sont lancés à l'exécution de la phase à laquelle ils sont rattachés</title>
 
           <mediaobject>
             <imageobject role="web">
