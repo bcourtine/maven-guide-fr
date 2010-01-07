@@ -662,7 +662,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       va suivre.</para>
 
       <para><figure id="fig-project-coords">
-          <title>Coordonnées d'un Projet Maven</title>
+          <title>Coordonnées d'un projet Maven</title>
 
           <mediaobject>
             <imageobject role="web">
