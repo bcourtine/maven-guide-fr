@@ -12,14 +12,13 @@
         <primary>customizing projects</primary>
       </indexterm><indexterm class="startofrange" id="customproj2">
         <primary>projects</primary>
-
         <secondary>customizing</secondary>
       </indexterm> grâce au plugin Maven Archetype, lui ajouter quelques dépendances, du code source et le personnaliser
     pour l'adapter à notre besoin. À la fin de ce chapitre, vous devriez être capable d'utiliser Maven pour créer de
     vrais projets.</para>
 
     <section id="customizing-sect-downloading">
-      <title>Télécharger l'Exemple de ce Chapitre</title>
+      <title>Télécharger l'exemple de ce chapitre</title>
 
       <para>Nous allons développer un programme utile qui va interagir avec le service en ligne Yahoo! Météo. Bien que
       vous devriez être capable de suivre ce chapitre sans le code source d'exemple, nous vous recommandons d'en
