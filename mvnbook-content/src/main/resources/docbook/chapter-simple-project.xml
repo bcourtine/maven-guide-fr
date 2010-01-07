@@ -650,9 +650,9 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       fichier <acronym>JAR</acronym>, il va chercher dans le <acronym>POM</acronym> le nom du fichier JAR. Quand le goal
       <varname>compiler:</varname><varname>compile</varname> compile le source code Java en bytecode, il va regarder
       dans le <acronym>POM</acronym> pour voir si on a précisé des options de compilation. Les goals s'exécutent dans le
-      contexte d'un <acronym>POM</acronym>. Les goals sont des actions que nous voulons faire sur un projet, et un
+      contexte d'un <acronym>POM</acronym>. Les goals sont les actions que nous voulons appliquer à un projet et un
       projet est défini par un <acronym>POM</acronym>. Le <acronym>POM</acronym> donne son nom au projet, il fournit un
-      ensemble d'identifiants uniques (les coordonnées) du projet, et précise les relations entre ce projet et d'autres
+      ensemble d'identifiants uniques (les coordonnées) du projet et précise les relations entre ce projet et d'autres
       qu'il s'agisse de dépendances, de parents ou de prérequis. Un <acronym>POM</acronym> permet aussi de personnaliser
       le comportement d'un plugin, et de fournir des informations sur la communauté et les développeurs du
       projet.</para>
