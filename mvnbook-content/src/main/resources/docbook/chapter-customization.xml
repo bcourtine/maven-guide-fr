@@ -37,25 +37,20 @@
   </section>
 
   <section id="customizing-sect-simple-weather">
-    <title>Définir le Projet Simple Weather</title>
+    <title>Présantation du projet Simple Weather</title>
 
     <para>Avant de commencer à personnaliser ce projet, prenons un peu de recul et<indexterm>
         <primary>Simple Weather application</primary>
-
         <see>weather project (example)</see>
       </indexterm><indexterm class="startofrange" id="weather03a">
         <primary>weather project (example)</primary>
-
         <secondary>defining</secondary>
       </indexterm><indexterm class="startofrange" id="weather03a1">
         <primary>customizing projects</primary>
-
         <secondary>defining the project</secondary>
       </indexterm><indexterm class="startofrange" id="weather03a2">
         <primary>projects</primary>
-
         <secondary>customizing</secondary>
-
         <tertiary>defining the project</tertiary>
       </indexterm> discutons de ce projet Simple Weather. De quoi s'agit-il ? Il s'agit d'un exemple dont le but est de
     présenter certaines fonctions clés de Maven. C'est une application représentative de celles que vous pourriez avoir
@@ -124,9 +119,9 @@
       </indexterm> basique du projet Simple Weather. Exécutez la commande suivante pour créer un nouveau projet :</para>
 
     <screen><command>$ mvn archetype:generate -DgroupId=org.sonatype.mavenbook.custom \
-                                         -DartifactId=simple-weather \
-                                         -DpackageName=org.sonatype.mavenbook \
-                                         -Dversion=1.0
+                                    -DartifactId=simple-weather \
+                                    -DpackageName=org.sonatype.mavenbook \
+                                    -Dversion=1.0
 </command>[INFO] Preparing archetype:generate
 ...
 [INFO] [archetype:generate {execution: default-cli}]
@@ -223,10 +218,10 @@ package: org.sonatype.mavenbook.custom
 </programlisting>
     </example>
 
-    <para>Remarquez que nous avons passé le paramètre <varname>version</varname> au goal
-    <varname>archetype:generate</varname>. Ceci remplace la valeur par défaut <literal>1.0-SNAPSHOT</literal>. Dans ce
+    <para>Notez que nous avons passé le paramètre <varname>version</varname> au goal
+    <varname>archetype:generate</varname>. Ce paramètre remplace la valeur par défaut <literal>1.0-SNAPSHOT</literal>. Dans ce
     projet, nous développons la version <literal>1.0</literal> du projet <varname>simple-weather</varname> comme vous
-    pouvez le voir dans la balise <varname>version</varname> du <filename>pom.xml</filename>.</para>
+    pouvez le voir dans la balise <varname>version</varname> du fichier <filename>pom.xml</filename>.</para>
   </section>
 
   <section id="customizing-sect-customizing-project-info">
