@@ -486,7 +486,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <varname>package</varname>.</para>
 
       <para><figure id="fig-goals-bind-to-phases">
-          <title>Rattacher u goal à une phase</title>
+          <title>Un goal est rattaché à une phase</title>
 
           <mediaobject>
             <imageobject role="web">
@@ -577,19 +577,15 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
           <listitem>
             <para>Le goal <varname>test</varname> du plugin Surefire est<indexterm>
                 <primary>Surefire plugin</primary>
-
                 <secondary>test goal</secondary>
-              </indexterm> <indexterm>
+              </indexterm><indexterm>
                 <primary>Maven Surefire plugin</primary>
-
                 <secondary>test goal</secondary>
-              </indexterm> <indexterm>
+              </indexterm><indexterm>
                 <primary>testing</primary>
-
                 <secondary>Surefire:test goal</secondary>
-              </indexterm>rattaché à la phase <varname>test</varname>. Ce goal exécute tous les tests et produit des
-            fichiers contenant leurs résultats détaillés. Par défaut, en cas d'échec de l'un des tests le goal arrêtera
-            le build.</para>
+              </indexterm> rattaché à la phase <varname>test</varname>. Ce goal exécute tous les tests et produit des
+            fichiers contenant leurs résultats détaillés. Par défaut, le goal arrêtera le build en cas d'échec de l'un des tests.</para>
           </listitem>
         </varlistentry>
 
