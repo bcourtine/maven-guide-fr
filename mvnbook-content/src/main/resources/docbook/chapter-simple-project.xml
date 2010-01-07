@@ -941,7 +941,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       production de rapports. Une fois la commande exécutée, vous devriez voir un site web du projet dans le répertoire
       <filename>target/site</filename>. Ouvrez <filename>target/site/index.html</filename> et vous devriez voir le
       squelette du site du projet Simple. Ce squelette contient certains rapports sous le menu de navigation "Project
-      Reports" à gauche, ainsi que des informations sur le projet, les dépendances, et les développeurs dans le menu
+      Reports" à gauche, ainsi que des informations sur le projet, les dépendances et les développeurs dans le menu
       "Project Information". Le site web du projet simple est quasiment vide puisque le <acronym>POM</acronym> contient
       très peu d'informations, juste des coordonnées Maven, un nom, une <acronym>URL</acronym>, et une unique dépendance 
       de test.</para>
