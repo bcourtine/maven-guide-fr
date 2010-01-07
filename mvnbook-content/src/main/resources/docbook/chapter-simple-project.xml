@@ -748,12 +748,12 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <para>Ces quatre éléments sont la clef pour trouver et utiliser un projet particulier dans le vaste monde des
       projets "Mavenisés". Les dépôts Maven (publics,<indexterm>
           <primary>repositories</primary>
-        </indexterm> <indexterm>
+        </indexterm><indexterm>
           <primary>Maven repositories</primary>
         </indexterm> privés, et locaux) sont organisés autour de ces identifiants. Lorsque ce projet est installé dans
       le dépôt Maven local, il devient immédiatement disponible pour tout autre projet qui voudrait l'utiliser. Tout ce
       que vous avez à faire est de l'ajouter comme dépendance à un autre projet<indexterm class="endofrange"
-      startref="coord1"></indexterm> <indexterm class="endofrange" startref="coord2"></indexterm> en utilisant les
+      startref="coord1"></indexterm><indexterm class="endofrange" startref="coord2"></indexterm> en utilisant les
       coordonnées Maven uniques propres à l'artefact.</para>
 
       <para><figure id="fig-simple-mavenspace">
