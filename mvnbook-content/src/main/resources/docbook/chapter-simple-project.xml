@@ -460,9 +460,8 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       Le cycle de vie du build est une suite ordonnée de phases aboutissant à la construction d'un projet. Maven peut
       supporter différents cycles de vie, mais celui qui reste le plus utilisé est le cycle de vie<indexterm>
           <primary>default Maven lifecycle</primary>
-        </indexterm> <indexterm>
+        </indexterm><indexterm>
           <primary>build lifecycle</primary>
-
           <secondary>default Maven lifecycle</secondary>
         </indexterm> par défaut de Maven, qui commence par une phase de validation de l'intégrité du projet et se
       termine par une phase qui déploie le projet en production. Les phases du cycle de vie sont laissées vagues
@@ -473,11 +472,9 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
       <para>Les goals des plugins peuvent être rattachés<indexterm>
           <primary>plugin goals</primary>
-
           <see>goals</see>
-        </indexterm> <indexterm>
+        </indexterm><indexterm>
           <primary>goals</primary>
-
           <secondary>attaching to lifecycle phases</secondary>
         </indexterm> à une phase du cycle de vie. Pendant que Maven parcourt les phases du cycle de vie, il exécute les
       goals rattachés à chacune d'entre elles. Chaque phase peut avoir entre zéro et plusieurs goals rattachés. Dans la
