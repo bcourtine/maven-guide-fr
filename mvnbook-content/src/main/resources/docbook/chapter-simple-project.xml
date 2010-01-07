@@ -846,9 +846,9 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       dépendent elles-mêmes d'autres artefacts. L'une des principales forces de Maven<indexterm>
           <primary>transitive dependencies</primary>
           <secondary>support for</secondary>
-        </indexterm> est sa gestion des dépendances transitives. Supposons que votre projet dépende d'une bibliothèque,
+        </indexterm> est sa gestion des dépendances transitives. Supposons que votre projet dépende d'une bibliothèque
       qui à son tour dépend de 5 ou 10 autres bibliothèques (comme Spring ou Hibernate par exemple). Au lieu d'avoir à
-      trouver et lister explicitement toutes ces dépendances dans votre <filename>pom.xml</filename>, vous pouvez ne
+      trouver et lister explicitement toutes ces dépendances dans votre fichier <filename>pom.xml</filename>, vous pouvez ne
       déclarer que la dépendance à la bibliothèque qui vous intéresse, Maven se chargera d'ajouter ses dépendances à
       votre projet implicitement. Maven va aussi gérer les conflits de dépendances, vous fournira le moyen de modifier
       son comportement par défaut et d'exclure certaines dépendances transitives.</para>
@@ -873,11 +873,11 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
       <para>Dans le monde de Maven, une dépendance n'est plus simplement un fichier <acronym>JAR</acronym> ; c'est un
       fichier <acronym>POM</acronym> qui à son tour peut déclarer de nouvelles dépendances. Ce sont ces dépendances de
-      dépendances que l'on appelle dépendances transitives, et cela est rendu possible par le fait que les dépôts Maven
+      dépendances que l'on appelle dépendances transitives et cela est rendu possible par le fait que les dépôts Maven
       contiennent plus que du bytecode ; ils contiennent des métadonnées sur les artefacts.</para>
 
       <figure id="fig-resolve-transitive">
-        <title>Résolution des Dépendances Transitives par Maven</title>
+        <title>Résolution des dépendances transitives par Maven</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -891,9 +891,9 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
         </mediaobject>
       </figure>
 
-      <para>Dans le schéma précédent, le projet A dépend des projets B et C. Le Projet B dépend du projet D, et le
+      <para>Dans le schéma précédent, le projet A dépend des projets B et C. Le Projet B dépend du projet D et le
       projet C dépend du projet E. L'ensemble des dépendances directes et transitives du projet A serait donc les
-      projets B, C, D, et E, mais tout ce que le projet A doit faire, c'est de déclarer ses dépendances aux projets B et
+      projets B, C, D et E, mais tout ce que le projet A doit faire, c'est de déclarer ses dépendances aux projets B et
       C. Les dépendances transitives sont pratiques lorsque votre projet dépend d'autres projets qui ont leurs propres
       dépendances (comme Hibernate, Apache Struts, ou Spring Framework). Maven vous permet d'exclure certaines
       dépendances transitives du classpath du projet.</para>
@@ -901,7 +901,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <para>Maven fournit enfin différentes portées pour les dépendances. Le fichier <indexterm>
           <primary>scope, dependency</primary>
         </indexterm> <filename>pom.xml</filename> du projet simple contient une unique dépendance —
-      <varname>junit:</varname> <varname>junit:</varname> <varname>jar:</varname> <varname>3.8.1</varname> — ayant pour
+      <varname>junit:</varname><varname>junit:</varname><varname>jar:</varname><varname>3.8.1</varname> — ayant pour
       portée <varname>test</varname> indiquée dans la balise scope. Lorsqu'une dépendance Maven a une portée de type
       <varname>test</varname>, elle n'est pas disponible pour le goal <varname>compile</varname> du plugin Compiler.
       Cette dépendance sera ajoutée au classpath des goals <varname>compiler:</varname><varname>testCompile</varname> et
