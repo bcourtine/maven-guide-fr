@@ -951,7 +951,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       l'<acronym>API</acronym> du projet. Maven fournit un ensemble de rapports configurables, comme le rapport Clover qui
       examine la couverture des tests unitaires, le rapport <acronym>JXR</acronym> qui produit des listings de code
       source en <acronym>HTML</acronym> avec des références croisées, utile pour les revues de code, le rapport
-      <acronym>PMD</acronym> qui analyse le code source à la recherche de différentes erreurs de codage, et le rapport
+      <acronym>PMD</acronym> qui analyse le code source à la recherche de différentes erreurs de codage et le rapport
       JDepend qui analyse les dépendances entre packages dans un code source. Vous pouvez personnaliser les rapports du
       site en configurant quels sont ceux qui seront inclus dans le build via le fichier
       <filename>pom.xml</filename>.</para>
