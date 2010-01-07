@@ -935,7 +935,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
       <screen>$<command>mvn site</command></screen>
 
-      <para>Ce qui exécute la phase <varname>site</varname> du cycle de vie. Contrairement au cycle de vie du build, qui
+      <para>Cette commande exécute la phase <varname>site</varname> du cycle de vie. Contrairement au cycle de vie du build, qui
       gère la génération de code, la manipulation des ressources, la compilation, le packaging, etc., ce cycle de vie ne
       concerne que le traitement du contenu du site qui se trouve dans le répertoire <filename>src/site</filename> et la
       production de rapports. Une fois la commande exécutée, vous devriez voir un site web du projet dans le répertoire
