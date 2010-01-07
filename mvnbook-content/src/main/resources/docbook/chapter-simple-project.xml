@@ -317,13 +317,13 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
   </section>
 
   <section id="simple-project-sect-simple-core">
-    <title>Les Principaux Concepts</title>
+    <title>Les concepts principaux</title>
 
     <para>Maintenant que nous avons exécuté Maven pour la première fois, il est temps de s'intéresser aux concepts qui
     sont au cœur de Maven. Dans l'exemple précédent, vous avez généré un projet qui consistait en un
     <acronym>POM</acronym> et un peu de code respectant la disposition Maven standard des répertoires. Puis vous avez
     exécuté Maven en lui passant une phase de son cycle de vie, ce qui a demandé à Maven d'exécuter toute une série de
-    goals de plugins Maven. Enfin, vous avez installé l'artefact Maven dans votre dépôt local. Une minute ? Qu'est ce
+    goals de plugins Maven. Enfin, vous avez installé l'artefact produit par Maven dans votre dépôt local. Une minute ? Qu'est ce
     que le "cycle de vie" ? Qu'est donc un "dépôt local" ? La section qui suit définit certains des concepts au cœur de
     Maven.</para>
 
@@ -342,9 +342,8 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       un goal d'un plugin, le goal <varname>generate</varname> du plugin Archetype. La deuxième exécution de Maven était
       une phase du cycle de vie, <varname>install</varname>. Pour<indexterm>
           <primary>executing goals</primary>
-        </indexterm> <indexterm>
+        </indexterm><indexterm>
           <primary>executing goals</primary>
-
           <seealso>goals</seealso>
         </indexterm> exécuter un unique goal d'un plugin Maven, nous avons utilisé la syntaxe <command>mvn
       archetype:generate</command>, où <varname>archetype</varname> est l'identifiant du plugin et
@@ -360,18 +359,18 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
        checking for updates from central
 ...</screen>
 
-      <para>Un Plugin Maven se compose d'un ou plusieurs goals. On peut prendre comme exemples de plugins Maven ceux 
+      <para>Un plugin Maven se compose d'un ou plusieurs goals. On peut prendre comme exemples de plugins Maven ceux
       qui constituent le cœur de Maven comme le plugin Jar dont les goals permettent de créer des fichiers
       <acronym>JAR</acronym>, le plugin Compiler avec ses goals pour compiler le code source et le code des tests
       unitaires, ou le plugin Surefire dont les goals permettent l'exécution des tests unitaires et la production des
-      rapports. On trouve aussi d'autres plugins, plus spécialisés, comme le plugin Hibernate3 pour l'intégration de la
-      très connue bibliothèque de persitence Hibernate, le plugin JRuby qui permet l'exécution de code Ruby durant un
+      rapports. On trouve aussi d'autres plugins, plus spécialisés, comme le plugin Hibernate3 pour l'intégration de la 
+      bibliothèque très connue de persistence Hibernate, le plugin JRuby qui permet l'exécution de code Ruby durant un
       build Maven ou l'écriture de plugins Maven en Ruby. Maven permet aussi de définir ses propres plugins. Vous pouvez
       écrire votre propre plugin en Java ou dans de nombreux autres langages dont Ant, Groovy, Beanshell et, comme
       indiqué plus haut, Ruby.</para>
 
       <figure id="fig-plugin-goals">
-        <title>Un Plugin Possède des Goals</title>
+        <title>Un plugin possède des Goals</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -387,7 +386,6 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
       <para>Un goal est une tâche spécifique qui peut être exécutée individuellement<indexterm>
           <primary>goals</primary>
-
           <secondary>defined</secondary>
         </indexterm> ou combinée à d'autres goals pour un build plus large. Un goal est une "tâche unitaire" dans Maven.
       On peut prendre comme exemple le goal <varname>compile</varname> du plugin Compiler, qui, comme son nom
@@ -414,7 +412,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <varname>archetype:generate</varname>, nous n'avons pas précisé, via la ligne de commande, quel type d'archétype
       devait être utilisé pour créer le projet ; nous avons simplement indiqué un <varname>groupId</varname> et un
       <varname>artifactId</varname>. Comme nous n'avons pas fourni le type d'archétype à créer, le goal
-      <varname>generate</varname> nous a demandé d'intervenir, le goal generate s'est donc interrompu et nous a demandé
+      <varname>generate</varname> nous a demandé d'intervenir, le goal <varname>generate</varname> s'est donc interrompu et nous a demandé
       de choisir dans une liste. Par contre, si nous avions utilisé le goal <varname>archetype:create</varname>, Maven
       aurait supposé que nous voulions créer un nouveau projet avec l'archétype
       <varname>maven-archetype-quickstart</varname>. C'est notre premier contact avec le concept<indexterm>
