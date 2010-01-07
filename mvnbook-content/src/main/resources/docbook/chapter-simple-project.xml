@@ -924,13 +924,13 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
       <para>Une fonction importante de Maven est sa capacité à produire<indexterm>
           <primary>documentation generation</primary>
-        </indexterm> <indexterm>
+        </indexterm><indexterm>
           <primary>site generation</primary>
-        </indexterm> <indexterm>
+        </indexterm><indexterm>
           <primary>report generation</primary>
-        </indexterm> <indexterm>
+        </indexterm><indexterm>
           <primary>site lifecycle phase</primary>
-        </indexterm>de la documentation et des rapports. Dans le répertoire de votre projet simple, exécutez la commande
+        </indexterm> de la documentation et des rapports. Dans le répertoire de votre projet simple, exécutez la commande
       suivante :</para>
 
       <screen>$<command>mvn site</command></screen>
