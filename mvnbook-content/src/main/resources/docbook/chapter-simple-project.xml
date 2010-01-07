@@ -910,7 +910,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       <para>Durant la création du <acronym>JAR</acronym> d'un projet, les dépendances ne sont pas intégrées à l'artefact
       produit ; elles ne sont utilisées que lors de la compilation. Par contre lorsque vous utilisez Maven pour produire
       un <acronym>WAR</acronym> ou un <acronym>EAR</acronym>, vous pouvez le configurer de manière à packager les
-      dépendances avec l'artefact produit, et vous pouvez même configurer Maven pour exclure certaines dépendances du
+      dépendances avec l'artefact produit et vous pouvez même configurer Maven pour exclure certaines dépendances du
       fichier <acronym>WAR</acronym> par l'utilisation de la portée <varname>provided</varname>. La portée
       <varname>provided</varname> indique à Maven que la dépendance est nécessaire à la compilation, mais qu'elle ne doit
       pas être intégrée à l'artefact produit par le build. Cette portée est donc très pratique lorsque vous développez
