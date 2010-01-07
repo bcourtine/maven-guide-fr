@@ -442,23 +442,20 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     </section>
 
     <section id="simple-project-sect-lifecycle">
-      <title>Le Cycle de Vie de Maven</title>
+      <title>Cycle de vie de Maven</title>
 
       <para>La deuxième commande que nous avons exécutée dans la section précédente<indexterm>
           <primary>Maven lifecycle</primary>
-
           <see>build lifecycle</see>
-        </indexterm> <indexterm>
+        </indexterm><indexterm>
           <primary>lifecycle, Maven</primary>
-
           <see>build lifecycle</see>
-        </indexterm> <indexterm class="startofrange" id="buildlife">
+        </indexterm><indexterm class="startofrange" id="buildlife">
           <primary>build lifecycle</primary>
-        </indexterm> <indexterm>
+        </indexterm><indexterm>
           <primary>phases, lifecycle</primary>
-
           <see>build lifecycle</see>
-        </indexterm>était <command>mvn install</command>. Cette commande n'appelle pas le goal d'un plugin, mais une
+        </indexterm> était <command>mvn install</command>. Cette commande n'appelle pas le goal d'un plugin, mais une
       phase du cycle de vie de Maven. Une phase est une des étapes de ce que Maven appelle "le cycle de vie du build".
       Le cycle de vie du build est une suite ordonnée de phases aboutissant à la construction d'un projet. Maven peut
       supporter différents cycles de vie, mais celui qui reste le plus utilisé est le cycle de vie<indexterm>
