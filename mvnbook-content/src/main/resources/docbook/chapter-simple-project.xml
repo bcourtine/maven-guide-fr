@@ -638,7 +638,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
     </section>
 
     <section id="simple-project-sect-maven-coordinates">
-      <title>Les Coordonnées Maven</title>
+      <title>Les coordonnées Maven</title>
 
       <para>Le plugin Archetype a créé un projet avec un fichier<indexterm class="startofrange" id="coord1">
           <primary>Maven coordinates</primary>
