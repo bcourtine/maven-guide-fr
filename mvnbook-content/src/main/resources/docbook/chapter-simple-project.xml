@@ -802,7 +802,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
       un artefact sous le répertoire racine du dépôt dans un répertoire respectant le format suivant.
       <screen>/&lt;<varname>groupId</varname>&gt;/&lt;<varname>artifactId</varname>&gt;/&lt;<varname>version</varname>&gt;/&lt;<varname>artifactId</varname>&gt;-&lt;<varname>version</varname>&gt;.&lt;<varname>packaging</varname>&gt;</screen></para>
 
-      <para>Maven télécharge artefacts et plugins depuis un dépôt distant et les enregistre dans le dépôt local Maven de
+      <para>Maven télécharge artefacts et plugins depuis un dépôt distant et les enregistre dans le dépôt Maven local de
       votre machine. Une fois que Maven a téléchargé un artefact depuis un dépôt distant, il n'a plus besoin de le
       télécharger à nouveau. En effet, Maven cherchera toujours dans le dépôt local avant d'aller chercher ailleurs. Sur
       Windows XP, votre dépôt local se trouvera probablement dans <filename>C:\Documents and
