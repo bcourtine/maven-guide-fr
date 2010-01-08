@@ -225,7 +225,7 @@ package: org.sonatype.mavenbook.custom
   </section>
 
   <section id="customizing-sect-customizing-project-info">
-    <title>Personnaliser les Informations du projet</title>
+    <title>Personnaliser les informations du projet</title>
 
     <para>Avant de commencer à écrire du code, personnalisons un peu les informations<indexterm class="startofrange"
         id="weather03c">
@@ -308,15 +308,15 @@ package: org.sonatype.mavenbook.custom
     plus lisible. Lorsque vous rencontrez dans un <filename>pom.xml</filename> des "..." juste après la balise
     ouvrante <varname>project</varname> et juste avant la balise fermante <varname>project</varname>, cela signifie que
     nous ne vous montrons pas le fichier <filename>pom.xml</filename> dans son intégralité. Dans notre cas, les balises
-    <varname>licenses</varname>, <varname>organization</varname>, et <varname>developers</varname> ont été ajoutées
+    <varname>licenses</varname>, <varname>organization</varname> et <varname>developers</varname> ont été ajoutées
     avant la balise <varname>dependencies</varname>.</para>
   </section>
 
   <section id="customizing-sect-add-depend">
-    <title>Ajout de nouvelles Dépendances</title>
+    <title>Ajout de nouvelles dépendances</title>
 
     <para>L'application Simple Weather va devoir accomplir les trois tâches suivantes : récupérer les données sous forme
-    <acronym>XML</acronym> depuis Yahoo! Météo, parser le <acronym>XML</acronym> de Yahoo, et ensuite afficher
+    <acronym>XML</acronym> depuis Yahoo! Météo, parser le <acronym>XML</acronym> de Yahoo et enfin afficher
     proprement le résultat sur la sortie standard. Pour réaliser toutes ces tâches, nous devons introduire de nouvelles
     dépendances dans le <filename>pom.xml</filename> du projet. Pour parser la réponse <acronym>XML</acronym> de Yahoo!,
     nous allons utiliser Dom4J et Jaxen, pour formater le résultat de ce programme en ligne de commande nous utiliserons
