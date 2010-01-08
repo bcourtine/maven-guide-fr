@@ -1210,7 +1210,7 @@ public class WeatherFormatterTest extends TestCase {
   </section>
 
   <section id="customizing-sect-custom-test-resource">
-    <title>Ajouter des ressources pour les Tests Unitaires</title>
+    <title>Ajouter des ressources pour les tests unitaires</title>
 
     <para>Les tests unitaires ont accès à des ressources qui leurs sont spécifiques. Souvent vous aurez des fichiers
     contenant les résultats attendus ou des données de test dans le classpath des tests. Dans ce projet, le fichier
