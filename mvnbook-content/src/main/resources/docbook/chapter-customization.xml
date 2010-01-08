@@ -856,7 +856,7 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
     des données depuis Yahoo! Météo, données que nous avons parsées et formatées avec Velocity. Nous avons réalisé tout
     cela sans faire grand chose d'autre que d'écrire le code source du projet et un peu de configuration dans le
     <filename>pom.xml</filename>. Remarquez l'absence du "processus de build". Nous n'avons pas eu à définir comment le
-    compilateur Java devait compiler notre code source en bytecode, et nous n'avons pas eu besoin d'indiquer au système
+    compilateur Java devait compiler notre code source en bytecode et nous n'avons pas eu besoin d'indiquer au système
     de build où se trouvait le bytecode pour qu'il puisse exécuter l'exemple. Tout ce que nous avons eu à faire pour
     ajouter quelques dépendances a été de trouver leurs coordonnées Maven.</para>
 
