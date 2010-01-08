@@ -1312,7 +1312,7 @@ $ <command>cd resources</command></screen>
   </section>
 
   <section id="customizing-sect-executing-tests">
-    <title>Exécuter les Test Unitaires</title>
+    <title>Exécuter les test unitaires</title>
 
     <para>Maintenant que votre projet possède ses tests unitaires, exécutons-les. Vous n'avez rien<indexterm
         class="startofrange" id="weather03l">
