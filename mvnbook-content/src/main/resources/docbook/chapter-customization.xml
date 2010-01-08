@@ -891,7 +891,7 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
       gérer votre classpath et vos dépendances.</para>
 
       <para>C'est très pratique, mais il est agréable de savoir de quoi se compose exactement le classpath de votre
-      projet. Même si le projet ne dépend que de quelques bibliothèques dont Dom4J, Log4J, Jaxen, et Velocity, il dépend
+      projet. Même si le projet ne dépend que de quelques bibliothèques dont Dom4J, Log4J, Jaxen et Velocity, il dépend
       aussi de dépendances transitives. Si vous avez besoin de connaître la composition de votre classpath, vous pouvez
       utiliser le plugin Maven Dependency pour afficher une<indexterm>
           <primary>Dependency plugin</primary>
@@ -899,7 +899,6 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
           <primary>Maven Dependency plugin</primary>
         </indexterm><indexterm>
           <primary>dependencies</primary>
-
           <secondary>exploring with Dependency plugin</secondary>
         </indexterm> liste des dépendances résolues. Afin d'afficher cette liste pour le projet Simple Weather, exécutez
       le goal <varname>dependency:</varname><varname>resolve</varname> :</para>
@@ -999,36 +998,28 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
   </section>
 
   <section id="customizing-sect-writing-tests">
-    <title>Ecrire des Tests Unitaires</title>
+    <title>Ecrire des tests unitaires</title>
 
-    <para>Maven intègre le support des tests unitaires, et l'exécution de ces tests fait partie intégrante<indexterm
+    <para>Maven intègre le support des tests unitaires et l'exécution de ces tests fait partie intégrante<indexterm
         class="startofrange" id="weather03h">
         <primary>weather project (example)</primary>
-
         <secondary>writing unit tests</secondary>
       </indexterm><indexterm class="startofrange" id="weather03h1">
         <primary>customizing projects</primary>
-
         <secondary>writing unit tests</secondary>
       </indexterm><indexterm class="startofrange" id="weather03h2">
         <primary>projects</primary>
-
         <secondary>customizing</secondary>
-
         <tertiary>writing unit tests</tertiary>
       </indexterm><indexterm class="startofrange" id="weather03h3">
         <primary>unit tests</primary>
-
         <secondary>writing</secondary>
       </indexterm><indexterm>
         <primary>testing</primary>
-
         <secondary>unit tests</secondary>
-
         <see>unit tests</see>
       </indexterm><indexterm>
         <primary>testing</primary>
-
         <seealso>debugging</seealso>
       </indexterm> de son cycle de vie par défaut. Ajoutons quelques tests unitaires à notre projet Simple Weather. Tout
     d'abord, créons le package <package>org.sonatype.mavenbook.weather</package> dans le répertoire
