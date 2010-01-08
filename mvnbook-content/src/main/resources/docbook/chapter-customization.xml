@@ -1141,7 +1141,7 @@ public class WeatherFormatterTest extends TestCase {
   </section>
 
   <section id="customizing-sect-test-scope">
-    <title>Ajouter des dépendances dans le scope <varname>test</varname></title>
+    <title>Ajouter des dépendances dans le scope <literal>test</literal></title>
 
     <para>Le test <classname>WeatherFormatterTest</classname> utilise une classe utilitaire<indexterm class="startofrange"
         id="weather03i">
@@ -1184,7 +1184,7 @@ public class WeatherFormatterTest extends TestCase {
       </indexterm> <sgmltag>dependencies</sgmltag> de votre projet, comme cela est fait dans l'exemple qui suit :</para>
 
     <example>
-      <title>Ajout d'une Dépendance dans le scope Test</title>
+      <title>Ajout d'une dépendance dans le scope <literal>test</literal></title>
 
       <programlisting language="xml">&lt;project&gt;
   ...
