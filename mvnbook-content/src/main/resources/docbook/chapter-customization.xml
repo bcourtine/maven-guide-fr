@@ -230,39 +230,29 @@ package: org.sonatype.mavenbook.custom
     <para>Avant de commencer à écrire du code, personnalisons un peu les informations<indexterm class="startofrange"
         id="weather03c">
         <primary>weather project (example)</primary>
-
         <secondary>adding project information to pom.xml</secondary>
       </indexterm><indexterm class="startofrange" id="weather03c1">
         <primary>customizing projects</primary>
-
         <secondary>adding project information to pom.xml</secondary>
       </indexterm><indexterm class="startofrange" id="weather03c2">
         <primary>projects</primary>
-
         <secondary>customizing</secondary>
-
         <tertiary>adding project information to pom.xml</tertiary>
       </indexterm><indexterm>
         <primary>project information (in pom.xml)</primary>
-
         <secondary>adding to project</secondary>
       </indexterm><indexterm>
         <primary>licensing information (project information)</primary>
-
         <secondary>adding to project</secondary>
       </indexterm><indexterm>
         <primary>organizational information (project information)</primary>
-
         <secondary>adding to project</secondary>
       </indexterm><indexterm>
         <primary>developer information (project information)</primary>
-
         <secondary>adding to project</secondary>
       </indexterm><indexterm>
         <primary>pom.xml file</primary>
-
         <secondary>project information in</secondary>
-
         <tertiary>adding</tertiary>
       </indexterm> du projet. Nous voulons ajouter des informations sur la licence du projet, l'organisation, et les
     quelques développeurs associés à ce projet. Il s'agit d'informations standards que vous attendriez de n'importe quel
@@ -270,7 +260,7 @@ package: org.sonatype.mavenbook.custom
     l'organisation, la licence et les développeurs.</para>
 
     <example id="ex-custom-org-info">
-      <title>Ajout des Informations Organisationnelles, Légales et sur les Développeurs au pom.xml</title>
+      <title>Ajout des Informations Organisationnelles, Légales et la liste des développeurs au fichier <filename>pom.xml</filename></title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
