@@ -880,7 +880,7 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
     </section>
 
     <section id="customizing-sect-exploring-dependencies">
-      <title>Explorer les Dépendances de votre projet</title>
+      <title>Explorer les dépendances de votre projet</title>
 
       <para>Le plugin Exec nous permet d'exécuter le programme Simple Weather sans avoir à charger les dépendances
       requises dans le classpath. Avec un autre système de build, nous aurions dû copier toutes les dépendances du
