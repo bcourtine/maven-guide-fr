@@ -1036,14 +1036,12 @@ $ <command>cd weather/yahoo</command></screen>
     l'exemple qui suit.</para>
 
     <example>
-      <title>Test Unitaire YahooParserTest du projet Simple Weather</title>
+      <title>Test unitaire YahooParserTest du projet Simple Weather</title>
 
       <programlisting language="java">package org.sonatype.mavenbook.weather.yahoo;
 
 import java.io.InputStream;
-
 import junit.framework.TestCase;
-
 import org.sonatype.mavenbook.weather.Weather;
 import org.sonatype.mavenbook.weather.YahooParser;
 
