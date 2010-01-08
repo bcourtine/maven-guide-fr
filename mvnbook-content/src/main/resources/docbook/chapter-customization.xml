@@ -1201,12 +1201,12 @@ public class WeatherFormatterTest extends TestCase {
 &lt;/project&gt;</programlisting>
     </example>
 
-    <para>Après avoir ajouté cette dépendance au <filename>pom.xml</filename>, exécutez <command>mvn
-    dependency:resolve</command> et vous devriez voir que <varname>commons-io</varname> fait maintenant partie des
-    dépendances avec le scope <varname>test</varname>. Nous devons encore faire une chose avant de pouvoir exécuter les
-    tests unitaires de ce projet. Nous devons créer dans le classpath les ressources dont ces tests unitaires ont
-    besoin. Les différents scopes pour les dépendances sont expliqués en détail dans la <xref
-    linkend="pom-relationships-sect-dependency-scope" />.</para>
+    <para>Après avoir ajouté cette dépendance au <filename>pom.xml</filename>, exécutez 
+    <command>mvn dependency:resolve</command> et vous devriez voir que <varname>commons-io</varname> fait
+    maintenant partie des dépendances avec le scope <literal>test</literal>. Nous devons encore faire
+    une chose avant de pouvoir exécuter les  tests unitaires de ce projet. Nous devons créer dans
+    le classpath les ressources dont ces tests unitaires ont besoin. Les différents scopes pour les
+    dépendances sont expliqués en détail dans la <xref linkend="pom-relationships-sect-dependency-scope" />.</para>
   </section>
 
   <section id="customizing-sect-custom-test-resource">
