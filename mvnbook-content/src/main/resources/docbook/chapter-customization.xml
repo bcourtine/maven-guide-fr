@@ -1088,7 +1088,7 @@ public class YahooParserTest extends TestCase {
     <para>Dans le même répertoire, créez un fichier <filename>WeatherFormatterTest.java</filename>.</para>
 
     <example>
-      <title>Test Unitaire WeatherFormatterTest du projet Simple Weather</title>
+      <title>Test unitaire WeatherFormatterTest du projet Simple Weather</title>
 
       <programlisting language="java">package org.sonatype.mavenbook.weather.yahoo;
 
@@ -1141,40 +1141,33 @@ public class WeatherFormatterTest extends TestCase {
   </section>
 
   <section id="customizing-sect-test-scope">
-    <title>Ajouter des Dépendances dans le scope Test</title>
+    <title>Ajouter des dépendances dans le scope <varname>test</varname></title>
 
-    <para>Le test <classname>WeatherFormatterTest</classname> utilise une facilité<indexterm class="startofrange"
+    <para>Le test <classname>WeatherFormatterTest</classname> utilise une classe utilitaire<indexterm class="startofrange"
         id="weather03i">
         <primary>weather project (example)</primary>
-
         <secondary>adding test-scoped dependencies</secondary>
       </indexterm><indexterm class="startofrange" id="weather03i1">
         <primary>customizing projects</primary>
-
         <secondary>adding test-scoped dependencies</secondary>
       </indexterm><indexterm class="startofrange" id="weather03i2">
         <primary>projects</primary>
-
         <secondary>customizing</secondary>
-
         <tertiary>adding test-scoped dependencies</tertiary>
       </indexterm><indexterm class="startofrange" id="weather03i3">
         <primary>dependencies</primary>
-
         <secondary>test-scoped</secondary>
       </indexterm><indexterm class="startofrange" id="weather03i6">
         <primary>test-scoped dependencies</primary>
       </indexterm><indexterm class="startofrange" id="weather03i4">
         <primary>unit tests</primary>
-
         <secondary>test-scoped dependencies</secondary>
       </indexterm><indexterm class="startofrange" id="weather03i5">
         <primary>testing</primary>
-
         <secondary>using test-scoped dependencies</secondary>
       </indexterm> fournie par Apache Commons IO — la classe <classname>IOUtils</classname>.
-    <classname>IOUtils</classname> apporte un certain nombre de fonctions static pratiques qui retirent la plus grande
-    part du travail de la manipulation des entrées/sorties. Dans le cas particulier de ce test unitaire, nous avons
+    <classname>IOUtils</classname> apporte un certain nombre de fonctions static pratiques qui éliminent la plus grande
+    partie du travail de la manipulation des entrées/sorties. Dans le cas particulier de ce test unitaire, nous avons
     utilisé <methodname role="keep-together">IOUtils.toString()</methodname> pour copier la ressource
     <filename>format-expected.dat</filename> du classpath dans une <classname>String</classname>. Nous aurions pu faire
     cela sans Commons IO, mais nous aurions dû écrire six ou sept lignes de code supplémentaires avec différents objets
