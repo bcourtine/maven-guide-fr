@@ -320,11 +320,11 @@ package: org.sonatype.mavenbook.custom
     proprement le résultat sur la sortie standard. Pour réaliser toutes ces tâches, nous devons introduire de nouvelles
     dépendances dans le <filename>pom.xml</filename> du projet. Pour parser la réponse <acronym>XML</acronym> de Yahoo!,
     nous allons utiliser Dom4J et Jaxen, pour formater le résultat de ce programme en ligne de commande nous utiliserons
-    Velocity, et nous allons aussi devoir ajouter une dépendance vers Log4J qui sera utilisé pour les logs. Après avoir
+    Velocity et nous allons aussi devoir ajouter une dépendance vers Log4J qui sera utilisé pour les logs. Après avoir
     ajouté ces dépendances, notre balise <varname>dependencies</varname> va ressembler à l'exemple suivant.</para>
 
     <example>
-      <title>Ajout de Dom4J, Jaxen, Velocity, et Log4J comme Dépendances</title>
+      <title>Ajout de Dom4J, Jaxen, Velocity, et Log4J comme dépendances</title>
 
       <programlisting language="xml">&lt;project&gt;
   [...]
