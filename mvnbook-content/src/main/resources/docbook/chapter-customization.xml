@@ -365,10 +365,10 @@ package: org.sonatype.mavenbook.custom
     <filename>pom.xml</filename> du projet et exécutez la commande <command>mvn install</command>, vous verrez Maven
     télécharger toutes ces dépendances et les dépendances transitives dans votre dépôt local Maven.</para>
 
-    <para>Comment avons-nous trouvé ces dépendances ? "Connaissions" nous juste les bonnes valeurs pour le
+    <para>Comment avons-nous trouvé ces dépendances ? "Savions" nous à l'avance quelles seraient les bonnes valeurs pour le
     <varname>groupId</varname> et l'<varname>artifactId</varname> ? Certaines dépendances sont tellement utilisées
     (comme Log4J) que vous vous souviendrez du <varname>groupId</varname> et de l'<varname>artifactId</varname> à chaque
-    fois que vous en aurez besoin. Velocity, Dom4J, et Jaxen ont été localisés grâce au site internet très utile <ulink
+    fois que vous en aurez besoin. Velocity, Dom4J et Jaxen ont été localisés grâce au site internet très utile <ulink
     url="http://repository.sonatype.org">http://repository.sonatype.org</ulink>. Il s'agit d'une version publique du
     Nexus de Sonatype. Elle fournit une interface permettant d'effectuer des recherches sur différents dépôts Maven,
     vous pouvez l'utiliser pour trouver vos dépendances. Vous pouvez tester ceci par vous même, ouvrez <ulink
