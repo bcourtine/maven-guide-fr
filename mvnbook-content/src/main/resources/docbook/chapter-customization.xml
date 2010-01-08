@@ -874,7 +874,7 @@ $ <command>mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main</c
       aussi les paramètres valides pour le plugin Exec. Si vous désirez personnaliser le comportement du plugin Exec,
       vous devriez utiliser la documentation fournie par <varname>help:</varname><varname>describe</varname> comme
       guide. Aussi utile que soit le plugin Exec, vous ne devriez pas l'utiliser pour exécuter votre application
-      autrement que pour la tester en environnement de développement. Pour une solution plus robuste, utilisez le plugin
+      autrement que pour la tester dans un environnement de développement. Pour une solution plus robuste, utilisez le plugin
       Maven <phrase role="keep-together">Assembly</phrase> qui est présenté dans la <xref
       linkend="customizing-sect-custom-packaged" />, plus loin dans ce chapitre.</para>
     </section>
