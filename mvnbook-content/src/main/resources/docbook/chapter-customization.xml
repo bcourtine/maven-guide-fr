@@ -1069,8 +1069,8 @@ public class YahooParserTest extends TestCase {
 
     <para>Cette classe <classname>YahooParserTest</classname> étend la classe <classname>TestCase</classname> de JUnit.
     Elle respecte le modèle habituel d'un test JUnit : un constructeur qui prend un unique paramètre de type
-    <classname>String</classname> et qui appelle le constructeur de la classe mère, et un ensemble de méthodes publiques
-    dont les noms commencent par “<literal>test</literal>” et qui sont invoquées en tant que tests unitaires. Nous avons
+    <classname>String</classname> et qui appelle le constructeur de la classe mère et un ensemble de méthodes publiques
+    dont les noms commencent par “<literal>test</literal>”, et qui sont invoquées en tant que tests unitaires. Nous avons
     une seule méthode de test, <methodname>testParser</methodname>, qui teste le <classname>YahooParser</classname> en
     parsant un document <acronym>XML</acronym> connu. Le document <acronym>XML</acronym> de test s'appelle
     <filename>ny-weather.xml</filename> et est chargé depuis le classpath. Nous ajouterons les ressources pour les tests
