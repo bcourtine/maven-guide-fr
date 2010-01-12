@@ -48,7 +48,7 @@
   </section>
 
   <section id="web-sect-defining-simple-web">
-    <title>Définition de l'application web Simple</title>
+    <title>Définition de l'application web simple-webapp</title>
 
     <para>Nous avons volontairement gardé ce chapitre axé sur une bonne
     vieille application web (Plain-Old Web Applications,
@@ -65,7 +65,7 @@
   </section>
 
   <section id="web-sect-creating-project">
-    <title>Création du projet web Simple</title>
+    <title>Création du projet web simple-web</title>
 
     <para>Pour créer votre projet d'application web<indexterm
         class="startofrange" id="webapp2">
@@ -112,7 +112,6 @@ package: org.sonatype.mavenbook.simpleweb
     regardez le fichier <filename>pom.xml</filename>. Vous devriez
     voir<indexterm>
         <primary>pom.xml file</primary>
-
         <secondary>for simple Web project (example)</secondary>
       </indexterm> le document <acronym>XML</acronym> présenté dans l'exemple
     suivant :</para>
