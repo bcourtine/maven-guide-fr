@@ -48,7 +48,7 @@
   </section>
 
   <section id="web-sect-defining-simple-web">
-    <title>Définition de la Simple Application Web</title>
+    <title>Définition de l'application web Simple</title>
 
     <para>Nous avons volontairement gardé ce chapitre axé sur une bonne
     vieille application web (Plain-Old Web Applications,
@@ -65,14 +65,12 @@
   </section>
 
   <section id="web-sect-creating-project">
-    <title>Création du Simple Projet Web</title>
+    <title>Création du projet web Simple</title>
 
     <para>Pour créer votre projet d'application web<indexterm
         class="startofrange" id="webapp2">
         <primary>Web applications</primary>
-
         <secondary>simple Web project (example)</secondary>
-
         <tertiary>creating</tertiary>
       </indexterm>, exécutez la commande <command>mvn
     archetype:generate</command> en précisant un <varname>artifactId</varname>
