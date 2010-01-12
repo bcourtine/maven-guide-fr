@@ -1526,8 +1526,8 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
     contienne le bytecode du projet ainsi que toutes ses dépendances.</para>
 
     <para>Le plugin Maven Assembly est un plugin qui vous permet de créer toutes les distributions que vous voulez pour
-    vos applications. Vous pouvez utiliser le plugin Maven Assembly pour transformer votre projet dans n'importe quel
-    format distribuable que vous voulez en définissant un descripteur d'assemblage personnalisé. Dans l'un des chapitres
+    vos applications. Vous pouvez utiliser le plugin Maven Assembly en définissant un descripteur d'assemblage personnalisé 
+    pour produire n'importe quel format distribuable de votre projet comme vous le voulez. Dans l'un des chapitres
     suivants, nous vous montrerons comment créer un descripteur d'assemblage personnalisé pour produire une archive plus
     complexe pour l'application Simple Weather. Dans ce chapitre, nous nous contenterons d'utiliser le format prédéfini
     <varname>jar-with-dependencies</varname>. Pour configurer le plugin Maven Assembly, nous devons ajouter le
@@ -1627,7 +1627,7 @@ $ <command>java -cp simple-weather-1.0-jar-with-dependencies.jar \
       <varname>assembly:</varname><varname>assembly</varname> durant une phase du cycle de vie de Maven est plus
       cohérent.</para>
 
-      <para>La configuration suivante configure le plugin Maven Asembly pour qu'il exécute le goal
+      <para>La configuration suivante configure le plugin Maven Assembly pour qu'il exécute le goal
       <varname>attached</varname> durant la phase <varname>package</varname> du cycle de vie par défaut de Maven. Le
       goal <varname>attached</varname> fait la même chose que le goal <varname>assembly</varname>. Pour rattacher le
       goal <varname>assembly:attached</varname> à la phase <varname>package</varname> nous utilisons la balise
