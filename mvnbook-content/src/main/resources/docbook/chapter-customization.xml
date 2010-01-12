@@ -1635,7 +1635,7 @@ $ <command>java -cp simple-weather-1.0-jar-with-dependencies.jar \
       POM du projet.</para>
 
       <example floatstyle="" id="ex-customization-attach-assembly">
-        <title>Configurer l'Exécution du Goal attached durant la Phase package du cycle de vie</title>
+        <title>Configurer l'exécution du goal <varname>attached</varname> durant la phase Package du cycle de vie</title>
 
         <para><programlisting language="xml">&lt;project&gt;
   [...]
