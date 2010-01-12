@@ -10,23 +10,17 @@
     <para>Dans ce chapitre, nous allons créer une simple application web avec
     le plugin Maven<indexterm>
         <primary>simple Web application</primary>
-
         <see>Web applications</see>
       </indexterm><indexterm class="startofrange" id="webapp1">
         <primary>Web applications</primary>
-
         <secondary>simple Web project (example)</secondary>
       </indexterm><indexterm>
         <primary>customizing projects</primary>
-
         <secondary>Web applications</secondary>
-
         <see>Web applications</see>
       </indexterm><indexterm>
         <primary>projects</primary>
-
         <secondary>Web applications</secondary>
-
         <see>Web applications</see>
       </indexterm> Archetype. Nous allons exécuter cette application web dans
     un conteneur de Servlet nommé Jetty, ajouter quelques dépendances, écrire
@@ -35,7 +29,7 @@
     développement d'applications web en utilisant Maven.</para>
 
     <section id="web-sect-downloading">
-      <title>Télécharger l'Exemple de ce Chapitre</title>
+      <title>Télécharger l'exemple de ce chapitre</title>
 
       <para>L'exemple de ce chapitre est généré avec le plugin Maven
       Archetype. Même si vous devriez pouvoir suivre le développement de ce
