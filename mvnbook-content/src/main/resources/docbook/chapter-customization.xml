@@ -1317,21 +1317,16 @@ $ <command>cd resources</command></screen>
     <para>Maintenant que votre projet possède ses tests unitaires, exécutons-les. Vous n'avez rien<indexterm
         class="startofrange" id="weather03l">
         <primary>weather project (example)</primary>
-
         <secondary>unit tests, executing</secondary>
       </indexterm><indexterm class="startofrange" id="weather03l1">
         <primary>customizing projects</primary>
-
         <secondary>unit tests, executing</secondary>
       </indexterm><indexterm class="startofrange" id="weather03l2">
         <primary>projects</primary>
-
         <secondary>customizing</secondary>
-
         <tertiary>unit tests, executing</tertiary>
       </indexterm><indexterm class="startofrange" id="weather03l3">
         <primary>unit tests</primary>
-
         <secondary>executing</secondary>
       </indexterm> à faire de spécial pour exécuter un test unitaire ; la phase <varname>test</varname> est une étape
     standard du cycle de vie de Maven. Vous lancez les tests avec Maven à chaque fois que vous exécutez <command>mvn
@@ -1382,7 +1377,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
       comme indicateur du reste à faire sur votre projet. Si vous avez des tests en échec et que vous souhaitez
       construire votre projet tout de même, il va vous falloir indiquer à Maven de ne pas tenir compte des tests en
       échec. Quand Maven rencontre un échec lors du build, son comportement par défaut est d'arrêter le build. Pour
-      continuer à construire un projet même lorsque le plugin Surefire plugin rencontre des tests en échec<indexterm>
+      continuer à construire un projet même lorsque le plugin Surefire rencontre des tests en échec<indexterm>
           <primary>testFailureIgnore configuration property (Surefire plugin)</primary>
         </indexterm><indexterm>
           <primary>Surefire plugin</primary>
