@@ -60,7 +60,7 @@
     Plexus, Guice, ou Spring. Le but de ce chapitre est de vous
     montrer les possibilités fournies par Maven pour développer des
     applications web&mdash;ni plus, ni moins. Plus tard dans ce livre nous
-    développerons deux applications web : l'une basée sur Hibernate, Velocity,
+    développerons deux applications web : l'une basée sur Hibernate, Velocity
     et Spring ; l'autre utilisant Plexus.</para>
   </section>
 
