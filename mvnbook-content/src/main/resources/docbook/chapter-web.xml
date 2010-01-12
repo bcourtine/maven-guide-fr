@@ -72,9 +72,8 @@
         <primary>Web applications</primary>
         <secondary>simple Web project (example)</secondary>
         <tertiary>creating</tertiary>
-      </indexterm>, exécutez la commande <command>mvn
-    archetype:generate</command> en précisant un <varname>artifactId</varname>
-    et un <varname>groupId</varname>. Paramétrez
+      </indexterm>, exécutez la commande <command>mvn archetype:generate</command>
+      en précisant un <varname>artifactId</varname> et un <varname>groupId</varname>. Paramétrez
     l'<varname>archetypeArtifactId</varname> à 
     <varname>maven-archetype-webapp</varname>. L'exécution de cette commande va
     créer la structure des répertoires appropriée et le <acronym>POM</acronym>
