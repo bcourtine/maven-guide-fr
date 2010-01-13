@@ -341,9 +341,7 @@ simple-webapp/target/classes
     <para>Une application web avec une seule page JSP et sans
     servlet<indexterm class="startofrange" id="webapp4a">
         <primary>Web applications</primary>
-
         <secondary>simple Web project (example)</secondary>
-
         <tertiary>adding simple servlet</tertiary>
       </indexterm><indexterm class="startofrange" id="webapp4b">
         <primary>servlets, adding to project</primary>
@@ -387,7 +385,7 @@ public class SimpleServlet extends HttpServlet {
     <para>Notre classe <classname>SimpleServlet</classname> est très simple :
     une servlet qui écrit un message simple sur le
     <classname>Writer</classname> de la réponse. 
-    Pour ajouter cette servlet à votre application web et la mapper à l'URL d'une requête,
+    Pour ajouter cette servlet à votre application web et l'associer à l'URL d'une requête,
     ajoutez les balises <sgmltag>servlet</sgmltag> et <sgmltag>servlet-mapping</sgmltag> de l'<xref linkend="web-example-configuring-servlet" />
     dans le fichier<indexterm>
         <primary>web.xml file</primary>
