@@ -418,7 +418,7 @@ public class SimpleServlet extends HttpServlet {
     </example>
 
     <para>Tout est en place pour tester la servlet ; la classe est bien dans
-    <filename>src/main/java</filename> et le <filename>web.xml</filename> a
+    <filename>src/main/java</filename> et le fichier <filename>web.xml</filename> a
     été mis à jour. Avant que vous ne lanciez le plugin Jetty, compilez votre
     projet en exécutant <command>mvn compile</command> :</para>
 
