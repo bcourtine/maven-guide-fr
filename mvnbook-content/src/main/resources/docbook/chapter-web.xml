@@ -214,17 +214,13 @@ package: org.sonatype.mavenbook.simpleweb
     <para>Une fois que vous avez compilé, testé et packagé votre
     application,<indexterm class="startofrange" id="webapp3a">
         <primary>Web applications</primary>
-
         <secondary>simple Web project (example)</secondary>
-
         <tertiary>configuring Jetty plugin</tertiary>
       </indexterm><indexterm class="startofrange" id="webapp3b">
         <primary>Jetty plugin</primary>
-
         <secondary>configuring in pom.xml</secondary>
       </indexterm><indexterm class="startofrange" id="webapp3c">
         <primary>Maven Jetty plugin</primary>
-
         <secondary>configuring in pom.xml</secondary>
       </indexterm> vous allez vouloir la déployer dans un conteneur de
     Servlet et tester la page <filename>index.jsp</filename> qui a été créée par le
@@ -235,7 +231,7 @@ package: org.sonatype.mavenbook.simpleweb
     vous puissiez procéder ainsi, ce n'est pas nécessaire. À la place, vous
     pouvez utiliser le plugin Maven Jetty pour exécuter votre application web
     avec Maven. Pour ce faire, vous allez devoir configurer le plugin Maven
-    Jetty dans le <filename>pom.xml</filename> de votre projet. Ajoutez
+    Jetty dans le fichier <filename>pom.xml</filename> de votre projet. Ajoutez
     l'élément <literal>plugin</literal> à votre configuration de build comme
     le montre l'exemple ci-dessous :</para>
 
@@ -258,10 +254,10 @@ package: org.sonatype.mavenbook.simpleweb
     </example>
 
     <para>Une fois que vous avez configuré le plugin Maven Jetty dans le
-    <filename>pom.xml</filename> de votre projet, vous pouvez invoquer le
-    goal run du plugin Jetty pour démarrer votre application web dans le
-    conteneur de Servlet Jetty. Exécutez la commande <command>mvn jetty:run</command>
-    à partir du répertoire du projet <filename>simple-webapp/</filename> de la manière suivante :</para>
+    <filename>pom.xml</filename> de votre projet, vous pouvez invoquer son
+    goal run pour démarrer votre application web dans le conteneur de Servlet Jetty. 
+    Exécutez la commande <command>mvn jetty:run</command> à partir du répertoire
+    du projet <filename>simple-webapp/</filename> de la manière suivante :</para>
 
     <screen>~/examples/ch-simple-web/simple-webapp $ <command>mvn jetty:run</command>
 ...
@@ -293,15 +289,14 @@ simple-webapp/target/classes
       vous devrez probablement déplacer votre dépôt local dans un répertoire qui ne contient pas d'espaces.
       Des lecteurs nous ont remonté des problèmes lors du démarrage de Jetty car leur
       dépôt local était stocké dans le répertoire <filename>"C:\Documents and Settings\&lt;user&gt;"</filename>.
-      La solution pour régler ce problème est de déplacer votre repository local Maven dans un répertoire qui ne contient pas d'espaces
-      et de redéfinir l'emplacement de votre repository local dans le fichier <filename>~/.m2/settings.xml</filename> 
+      La solution pour régler ce problème est de déplacer votre dépôt local Maven dans un répertoire 
+      qui ne contient pas d'espaces et de redéfinir son emplacement dans le fichier <filename>~/.m2/settings.xml</filename>
       comme décrit dans la <xref linkend="appendix-settings-sect-simpleval" />.</para>
     </warning>  
       
 
     <para>Une fois que Maven a démarré le conteneur de servlet Jetty, ouvrez
-    l'URL <ulink
-    url="http://localhost:8080/simple-webapp/">http://localhost:8080/simple-webapp/</ulink>
+    l'URL <ulink url="http://localhost:8080/simple-webapp/">http://localhost:8080/simple-webapp/</ulink>
     dans un navigateur web. La page <filename>index.jsp</filename>
     générée par l'Archetype est triviale ; elle contient un titre de second
     niveau avec le texte "Hello World!". Maven s'attend à ce que la racine du site
@@ -341,7 +336,7 @@ simple-webapp/target/classes
   </section>
 
   <section id="web-sect-adding-simple-servlet">
-    <title>Ajouter une Servlet simple</title>
+    <title>Ajouter une simple servlet</title>
 
     <para>Une application web avec une seule page JSP et sans
     servlet<indexterm class="startofrange" id="webapp4a">
