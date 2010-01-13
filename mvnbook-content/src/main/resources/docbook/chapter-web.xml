@@ -471,25 +471,22 @@ public class SimpleServlet extends HttpServlet {
     <para>Pour écrire une servlet, nous avons besoin d'ajouter la
     dépendance<indexterm class="startofrange" id="webapp5a">
         <primary>Web applications</primary>
-
         <secondary>simple Web project (example)</secondary>
-
         <tertiary>adding J2EE dependences</tertiary>
       </indexterm><indexterm class="startofrange" id="webapp5b">
         <primary>J2EE dependencies, adding</primary>
       </indexterm><indexterm class="startofrange" id="webapp5c">
         <primary>dependencies</primary>
-
         <secondary>J2EE dependencies, adding</secondary>
       </indexterm><indexterm>
         <primary>Servlet API, adding as dependency</primary>
       </indexterm> à l'<acronym>API</acronym> Servlet dans notre projet. Pour
     ajouter l'<acronym>API</acronym> Servlet en tant que dépendance dans le
-    <acronym>POM</acronym> du projet, ajoutez l'élément dependency comme
+    <acronym>POM</acronym> du projet, ajoutez l'élément <sgmltag>dependency</sgmltag> comme
     présenté dans l'exemple :</para>
 
     <example>
-      <title>Ajouter la dépendance à la spécification Servlet 2.4</title>
+      <title>Ajouter la dépendance vers la spécification Servlet 2.4</title>
 
       <programlisting language="xml">&lt;project&gt;
   [...]
@@ -514,7 +511,6 @@ public class SimpleServlet extends HttpServlet {
         <primary>JSP 2.0 specification, dependency on</primary>
       </indexterm><indexterm>
         <primary>dependencies</primary>
-
         <secondary sortas="JSP 2.0 specification">on JSP 2.0
         specification</secondary>
       </indexterm> pour cette simple application web, vous devrez ajouter une
