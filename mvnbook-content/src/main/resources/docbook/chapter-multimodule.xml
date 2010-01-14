@@ -311,7 +311,7 @@ public class WeatherService {
   </section>
 
   <section id="multimodule-sect-simple-web">
-    <title>Le Module de simple-web</title>
+    <title>Le module simple-web</title>
 
     <para>Le module <varname>simple-webapp</varname> est le second sous-module<indexterm class="startofrange" id="multimod3a">
         <primary>projet multimodule (exemple)</primary>
