@@ -50,7 +50,7 @@
   </section>
 
   <section id="multimodule-sect-simple-parent">
-    <title>Le Projet Parent</title>
+    <title>Le projet Parent</title>
 
     <para>Un projet multimodule est défini par un
     <acronym>POM</acronym><indexterm class="startofrange" id="parent1a">
