@@ -71,7 +71,7 @@
       Ce projet est divisé en cinq sous-modules, dont voici la présentation sur la <xref linkend = "fig-multimodule-web-spring-projects"/>.</para>
 
       <figure id="fig-multimodule-web-spring-projects">
-        <title>Relations entre les modules de l'Application d'Entreprise</title>
+        <title>Relations entre les modules de l'application d'entreprise</title>
 
         <mediaobject>
           <imageobject role="web">
