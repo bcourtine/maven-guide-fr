@@ -143,15 +143,14 @@
       </indexterm> balises <sgmltag>module</sgmltag> qu'elle contient correspond à un
       des sous-répertoires du dossier <filename>simple-parent/</filename>. Maven sait qu'il faut
       chercher pour chacun de ces répertoires un fichier <filename>pom.xml</filename>. 
-      Ainsi, il ajoutera ces sous-modules à la liste des projets Maven inclus dans le build.</para>
-         
+      Ainsi, il ajoutera ces sous-modules à la liste des projets Maven inclus dans le build.</para>         
 
     <para>
     Enfin, nous définissons quelques préférences qui seront héritées dans tous les sous-modules. 
     La configuration du build du projet <varname>simple-parent</varname> définit
     la <acronym>JVM</acronym> Java 5 comme cible de compilation. Comme le 
-    plugin du compilateur est attaché au cycle de vie par défaut, il est possible
-    d'utiliser la section <sgmltag>pluginManagement</sgmltag> du 
+    plugin Maven Compiler est attaché au cycle de vie par défaut, il est possible
+    d'utiliser la section <sgmltag>pluginManagement</sgmltag> du fichier 
     <filename>pom.xml</filename> pour effectuer cela. Nous discuterons de la balise 
     <sgmltag>pluginManagement</sgmltag> plus en détail dans les chapitres suivants, 
     mais la configuration des plugins par défaut et l'ajout de nouveaux plugins sont
@@ -164,7 +163,7 @@
   </section>
 
   <section id="multimodule-sect-simple-weather">
-    <title>Le Module simple-weather</title>
+    <title>Le module simple-weather</title>
 
     <para>Commençons par regarder le sous-module <varname>simple-weather</varname>.
     Ce module contient toutes<indexterm class="startofrange" id="multimod2a">
