@@ -370,7 +370,8 @@ public class WeatherService {
     <para>Ce module <varname>simple-webapp</varname> contient une servlet très 
     simple qui se contente de récupérer un code postal à partir d'une requête HTTP, d'appeler
     la classe <classname>WeatherService</classname> que nous venons de voir précédemment dans     
-    l'<xref linkend="multimodule-weather-service" />, et d'écrire le résultat dans le <classname>Writer</classname> de la réponse.</para>
+    l'<xref linkend="multimodule-weather-service" /> et d'écrire le résultat
+    dans le <classname>Writer</classname> de la réponse.</para>
 
     <example>
       <title>Servlet WeatherServlet du projet simple-webapp</title>
