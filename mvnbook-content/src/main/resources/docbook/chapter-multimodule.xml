@@ -448,7 +448,7 @@ public class WeatherServlet extends HttpServlet {
   </section>
 
   <section id="multimodule-sect-building-multimodule">
-    <title>Build du Projet Multimodule</title>
+    <title>Construction du projet multimodule</title>
 
     <para>Nous venons de créer le projet <varname>simple-weather</varname> qui contient<indexterm class="startofrange" id="multimod4a">
         <primary>projet multimodule (exemple)</primary>
