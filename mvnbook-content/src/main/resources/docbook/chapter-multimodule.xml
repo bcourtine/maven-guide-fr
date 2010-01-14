@@ -538,7 +538,7 @@ public class WeatherServlet extends HttpServlet {
   </section>
 
   <section id="multimodule-sect-running-web">
-    <title>Exécution de l'Application Web</title>
+    <title>Exécution de l'application web</title>
 
     <para>Une fois que le projet multimodule a été installé via la commande
     <command>mvn<indexterm class="startofrange" id="multimod5a">
