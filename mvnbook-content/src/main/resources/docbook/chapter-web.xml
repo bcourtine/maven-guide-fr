@@ -255,9 +255,9 @@ package: org.sonatype.mavenbook.simpleweb
 
     <para>Une fois que vous avez configuré le plugin Maven Jetty dans le
     <filename>pom.xml</filename> de votre projet, vous pouvez invoquer son
-    goal run pour démarrer votre application web dans le conteneur de Servlet Jetty. 
-    Exécutez la commande <command>mvn jetty:run</command> à partir du répertoire
-    du projet <filename>simple-webapp/</filename> de la manière suivante :</para>
+    goal <varname>run</varname> pour démarrer votre application web dans le
+    conteneur de Servlet Jetty. Exécutez la commande <command>mvn jetty:run</command> à
+    partir du répertoire du projet <filename>simple-webapp/</filename> de la manière suivante :</para>
 
     <screen>~/examples/ch-simple-web/simple-webapp $ <command>mvn jetty:run</command>
 ...
