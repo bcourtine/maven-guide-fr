@@ -550,7 +550,8 @@ public class WeatherServlet extends HttpServlet {
         <tertiary>exécution</tertiary>
       </indexterm> clean install</command> depuis le projet parent,
     <varname>simple-project</varname>, vous pouvez vous rendre dans le répertoire
-    de la <varname>simple-webapp</varname> et lancer le goal run du plugin Jetty :</para>
+    de la <varname>simple-webapp</varname> et lancer le goal <literal>run</literal> du
+    plugin Jetty :</para>
 
     <screen>~/examples/ch06/simple-parent/simple-webapp $ <command>mvn jetty:run</command>
 [INFO] ----------------------------------------------------------------------
