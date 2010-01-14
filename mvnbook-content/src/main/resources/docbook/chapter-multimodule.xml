@@ -50,7 +50,7 @@
   </section>
 
   <section id="multimodule-sect-simple-parent">
-    <title>Le projet Parent</title>
+    <title>Le projet parent</title>
 
     <para>Un projet multimodule est défini par un
     <acronym>POM</acronym><indexterm class="startofrange" id="parent1a">
@@ -117,7 +117,7 @@
 </programlisting>
     </example>
 
-    <para>Remarquez que le parent définit un ensemble de coordonnées Maven: le 
+    <para>Remarquez que le parent définit un ensemble de coordonnées Maven : le
     <varname>groupId</varname> avec pour valeur
     <varname>org.</varname><varname>sonatype.</varname><varname>mavenbook.multi</varname>,     
     l'<varname>artifactId</varname> <varname>simple-parent</varname>,
