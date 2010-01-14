@@ -298,8 +298,8 @@ public class WeatherService {
     <varname>simple-webapp</varname> fait référence à un service défini dans module séparé : 
     <varname>simple-weather</varname>.</para>
 
-    <para>La méthode <methodname>retrieveForecast()</methodname> prend une 
-    chaîne de caractères contenant un code postal en paramètre. Celui-ci est 
+    <para>La méthode <methodname>retrieveForecast()</methodname> prend en paramètre
+    une chaîne de caractères contenant un code postal. Celle-ci est
     passé à la méthode <methodname>retrieve()</methodname> de la classe 
     <classname>YahooRetriever</classname> qui retournera un flux <acronym>XML</acronym>
     provenant de Yahoo! Météo. Ce même <acronym>XML</acronym> est ensuite passé 
