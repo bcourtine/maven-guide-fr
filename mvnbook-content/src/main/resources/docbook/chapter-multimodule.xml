@@ -127,9 +127,9 @@
     référence à d'autres projets Maven. Le packaging approprié pour un projet
     du type <varname>simple-parent</varname> qui fournit un simple Modèle Objet de Projet 
     (Project Object Model) est <varname>pom</varname>. 
-    La section suivante du <filename>pom.xml</filename> liste les sous-modules du projet.
-    Ces modules sont déclarés via une balise XML <sgmltag>modules</sgmltag>,
-    et chaque<indexterm>
+    La section suivante du fichier <filename>pom.xml</filename> liste les sous-modules du projet.
+    Ces modules sont déclarés via une balise XML <sgmltag>modules</sgmltag>
+    et chacune des <indexterm>
         <primary sortas="balise modules (pom.xml)">balise &lt;modules&gt; 
         (pom.xml)</primary>
       </indexterm><indexterm>
@@ -140,8 +140,8 @@
       </indexterm><indexterm>
         <primary>fichier pom.xml</primary>
         <secondary>définition des sous-modules</secondary>
-      </indexterm> balise <sgmltag>module</sgmltag> correspond à un des sous-répertoires
-      du dossier <filename>simple-parent/</filename>. Maven sait qu'il faut 
+      </indexterm> balises <sgmltag>module</sgmltag> qu'elle contient correspond à un
+      des sous-répertoires du dossier <filename>simple-parent/</filename>. Maven sait qu'il faut
       chercher pour chacun de ces répertoires un fichier <filename>pom.xml</filename>. 
       Ainsi, il ajoutera ces sous-modules à la liste des projets Maven inclus dans le build.</para>
          
