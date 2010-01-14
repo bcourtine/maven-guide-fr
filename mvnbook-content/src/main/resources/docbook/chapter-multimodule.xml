@@ -304,9 +304,9 @@ public class WeatherService {
     <classname>YahooRetriever</classname> qui retournera un flux <acronym>XML</acronym>
     provenant de Yahoo! Météo. Ce même <acronym>XML</acronym> est ensuite passé 
     à la méthode <methodname>parse()</methodname> de la classe <classname>YahooParser</classname> 
-    qui transforme le flux et le retourne sous la forme d'un objet <classname>Weather</classname>.
-    Ce dernier est ensuite formaté sous la forme d'une chaîne de caractères présentable 
-    par la classe <classname>WeatherFormatter</classname>.</para> 
+    qui analyse ce flux et le retourne sous la forme d'un objet <classname>Weather</classname>.
+    Ce dernier est ensuite formaté par la classe <classname>WeatherFormatter</classname> en une
+    chaîne de caractères présentable.</para>
    
   </section>
 
