@@ -41,7 +41,8 @@
       <para>Une fois téléchargée, décompressez l'archive dans n'importe quel répertoire et entrez dans le répertoire <filename>ch-multi-spring/</filename>.
       Vous trouverez alors dans celui-ci un sous-répertoire <filename>simple-parent/</filename>      
       qui contient le projet Maven multimodule que nous allons développer dans ce chapitre.
-      Dans le répertoire de ce projet, vous trouverez un <filename>pom.xml</filename> et cinq sous-modules :   
+      Dans le répertoire de ce projet, vous trouverez un fichier <filename>pom.xml</filename> et
+      cinq sous-modules :
       <filename>simple-model/</filename>,
       <filename>simple-persist/</filename>,
       <filename>simple-command/</filename>,
