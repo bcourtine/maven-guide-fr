@@ -241,8 +241,7 @@
     </example>
     
     <para>Le fichier <filename>pom.xml</filename> du module <varname>simple-weather</varname> 
-    fait référence à un POM parent par l'intermédiaire d'un ensemble de 
-    coordonnées Maven.<indexterm>
+    fait référence à un POM parent via le triplet des coordonnées Maven.<indexterm>
         <primary>POM (Project Object Model)</primary>
         <secondary>parent (top-level)</secondary>
       </indexterm><indexterm>
