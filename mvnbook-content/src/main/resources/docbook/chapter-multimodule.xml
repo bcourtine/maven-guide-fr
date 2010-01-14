@@ -120,10 +120,10 @@
     <para>Remarquez que le parent définit un ensemble de coordonnées Maven : le
     <varname>groupId</varname> avec pour valeur
     <varname>org.</varname><varname>sonatype.</varname><varname>mavenbook.multi</varname>,     
-    l'<varname>artifactId</varname> <varname>simple-parent</varname>,
-    et la <varname>version</varname> <varname>1.0</varname>. Le projet parent ne crée pas de <acronym>JAR</acronym>
-    ni de <acronym>WAR</acronym> comme c'était le cas dans nos projets précédents.
-    À la place, il s'agit simplement d'un <acronym>POM</acronym> qui fait 
+    l'<varname>artifactId</varname> ayant pour valeur <varname>simple-parent</varname>
+    et la <varname>version</varname> <varname>1.0</varname>. Le projet parent ne crée pas
+    de <acronym>JAR</acronym> ni de <acronym>WAR</acronym> comme c'était le cas
+    de nos projets précédents. À la place, il s'agit simplement d'un <acronym>POM</acronym> qui fait
     référence à d'autres projets Maven. Le packaging approprié pour un projet
     du type <varname>simple-parent</varname> qui fournit un simple Modèle Objet de Projet 
     (Project Object Model) est <varname>pom</varname>. 
