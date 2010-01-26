@@ -87,7 +87,7 @@
       </figure>
 
       <para>Sur la <xref linkend="fig-multimodule-web-spring-projects" />,
-      vous pouvez voir que projet simple-parent contient cinq sous-modules : 
+      vous pouvez voir que projet <varname>simple-parent</varname> se compose de cinq sous-modules :
       </para>
 
       <variablelist>
@@ -104,7 +104,7 @@
             les parseurs définis dans le module <varname>simple-weather</varname> transforment le <acronym>XML</acronym>
             en une liste d'objets <classname>Weather</classname> qui sera ensuite utilisée dans les applications.
             Ce projet contient des objets du modèle annotés avec les annotations Hibernate3. 
-            Le module <varname>simple-persist</varname> utilise ces objets pour mapper chacun d'entre eux à une table de la base de données.
+            Le module <varname>simple-persist</varname> utilise ces objets pour associer chacun d'entre eux à une table de la base de données.
             </para>
           </listitem>
         </varlistentry>
@@ -114,8 +114,8 @@
 
           <listitem>
             <para>Ce module contient toute la logique nécessaire pour récupérer des données du flux Yahoo! Météo et parser le <acronym>XML</acronym> obtenu.
-            Ce <acronym>XML</acronym> est converti dans les objets du modèle du module <varname>simple-model</varname>. 
-            Pour cela, le module <varname>simple-weather</varname> doit avoir comme dépendance le module <varname>simple-model</varname>.  
+            Ce <acronym>XML</acronym> est converti sous la forme d'objets du module <varname>simple-model</varname>.
+            C'est pour cela que le module <varname>simple-weather</varname> doit dépendre du module <varname>simple-model</varname>.
             Enfin, <varname>simple-weather</varname> définit un service <classname>WeatherService</classname> qui est référencé par deux autres projets :
             <varname>simple-command</varname> et <varname>simple-webapp</varname>.
             </para>
