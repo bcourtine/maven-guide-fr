@@ -179,7 +179,7 @@
     </section>
 
     <section id="multimodule-web-spring-sect-example-tech">
-      <title>Technologies Utilisées dans cet Exemple</title>
+      <title>Technologies utilisées dans cet exemple</title>
 
       <para>L'exemple de ce chapitre implique un peu de technologies qui, même si elles sont populaires, ne sont pas directement liées à Maven.
       Ces technologies sont Spring et Hibernate.
