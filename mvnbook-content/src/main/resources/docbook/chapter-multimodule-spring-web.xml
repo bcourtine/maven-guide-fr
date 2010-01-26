@@ -187,7 +187,7 @@
       est de simplifier les interactions entre diverses bibliothèques <acronym>J2EE</acronym>.
       Utiliser Spring comme fondation pour le développement d'applications vous donne accès à un certain nombre d'abstractions très pratiques 
       qui permettent, entre autres, de faciliter l'intégration des framework de persistance comme Hibernate, iBatis ou d'<acronym>API</acronym> d'entreprise
-      comme <acronym>JDBC</acronym>, <acronym>JNDI</acronym>, et <acronym>JMS</acronym>.
+      comme <acronym>JDBC</acronym>, <acronym>JNDI</acronym> et <acronym>JMS</acronym>.
       La popularité de Spring n'a cessé de s'accroître ces dernières années, permettant d'offrir une solution alternative aux lourds standards proposés par Sun Microsystems.
       Quant à Hibernate, il s'agit d'un framework d'<acronym>ORM</acronym> (Object-Relational Mapping) très largement utilisé
       qui permet d'interagir avec une base de données comme s'il s'agissait d'une liste d'objets Java.
