@@ -280,7 +280,7 @@
     </example>
 
     <note>
-      <para>Si les POMs Maven vous sont déjà familiers, vous pourriez remarquer que ce POM au plus haut niveau ne définit pas de balise <sgmltag>dependencyManagement</sgmltag>.  
+      <para>Si les POMs Maven vous sont déjà familiers, vous pouvez remarquer que ce POM de plus haut niveau ne définit pas de balise <sgmltag>dependencyManagement</sgmltag>.
       La balise <sgmltag>dependencyManagement</sgmltag> permet de définir la version des dépendances à un endroit centralisé dans un POM de haut-niveau.
       Ce mécanisme sera abordée dans le <xref linkend="optimizing" />.</para>
     </note>
