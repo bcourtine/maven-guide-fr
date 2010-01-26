@@ -303,7 +303,7 @@
     <classname>Compte</classname>, <classname>Client</classname> et <classname>Transaction</classname>.
     De la même manière, un système publiant des résultats sportifs pourrait contenir des objets <classname>Equipe</classname> et <classname>Match</classname>.
     Quoique vous fassiez, il est probable que vous ayez intégré les concepts de votre système dans un modèle objet.
-    C'est pratique courante dans les projets Maven de séparer ce type de projet et de le référencer largement.
+    C'est pratique courante dans les projets Maven de séparer ce type de projet et de le référencer dans le reste du projet.
     Dans notre système, nous transformons chaque requête du flux Yahoo! Météo dans un objet <classname>Weather</classname> qui référence quatre autres objets.
     La direction, l'effet de froid relatif et la vitesse du vent sont stockées dans un objet <classname>Wind</classname>.
     Les données de localisation telles que le code postal, la ville, la région et le pays sont stockées dans la classe <classname>Location</classname>. 
