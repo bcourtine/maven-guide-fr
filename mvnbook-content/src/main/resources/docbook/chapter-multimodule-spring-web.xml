@@ -205,7 +205,7 @@
   </section>
 
   <section id="multimodule-web-spring-sect-simple-parent">
-    <title>Le Projet Parent Simple</title>
+    <title>Le projet <varname>simple-parent</varname></title>
 
     <para>Ce projet <varname>simple-parent</varname> contient<indexterm
         class="startofrange" id="enterprise2a">
@@ -225,7 +225,7 @@
       </indexterm> un fichier <filename>pom.xml</filename> qui référence cinq sous-modules :
     <varname>simple-command</varname>,
     <varname>simple-model</varname>, <varname>simple-weather</varname>,
-    <varname>simple-persist</varname>, et <varname>simple-webapp</varname>.
+    <varname>simple-persist</varname> et <varname>simple-webapp</varname>.
     Le fichier <filename>pom.xml</filename> de plus haut niveau est affiché dans l'<xref linkend="ex-multimodule-web-spring-parent" />.</para>
 
     <example id="ex-multimodule-web-spring-parent">
