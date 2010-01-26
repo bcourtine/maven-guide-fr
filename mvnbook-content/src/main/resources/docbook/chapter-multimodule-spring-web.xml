@@ -295,12 +295,12 @@
   </section>
 
   <section id="multimodule-web-spring-sect-simple-model-project">
-    <title>Le Module Simple contenant le Modèle</title>
+    <title>Le module <varname>simple-model</varname></title>
 
     <para>La première chose dont ont besoin la plupart des projets d'entreprise est un modèle objet.
     Un modèle objet rassemble la liste des principaux objets du domaine d'un système.
     Par exemple, un système bancaire pourrait avoir un modèle objet qui se compose des objets suivants :
-    <classname>Compte</classname>, <classname>Client</classname>, et <classname>Transaction</classname>.
+    <classname>Compte</classname>, <classname>Client</classname> et <classname>Transaction</classname>.
     De la même manière, un système publiant des résultats sportifs pourrait contenir des objets <classname>Equipe</classname> et <classname>Match</classname>.
     Quoique vous fassiez, il est probable que vous ayez intégré les concepts de votre système dans un modèle objet.
     C'est pratique courante dans les projets Maven de séparer ce type de projet et de le référencer largement.
@@ -311,7 +311,7 @@
     Enfin, la description textuelle des conditions, la température et la date de l'observation sont conservées dans une classe <classname>Condition</classname>.</para>
 
     <figure>
-      <title>Simple Modèle Objet pour les Données Météo</title>
+      <title>Modèle objet pour les données météo</title>
 
       <mediaobject>
         <imageobject role="web">
