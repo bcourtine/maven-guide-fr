@@ -443,7 +443,7 @@ public class Weather {
       </indexterm> <classname>@NamedQuery</classname> est écrit en<indexterm>
         <primary>HQL (Hibernate Query Language)</primary>
       </indexterm> <acronym>HQL</acronym> (Hibernate Query Language).
-      Chaque champ de la classe est annoté par des annotations définissant le type des différentes colonnes à mapper ainsi que les relations impliquées sur celles-ci :</para>
+      Chaque champ de la classe est annoté par des annotations définissant le type des différentes colonnes à associer ainsi que les relations impliquées sur celles-ci :</para>
 
     <variablelist>
       <varlistentry>
@@ -451,7 +451,7 @@ public class Weather {
 
         <listitem>
           <para>La propriété <varname>id</varname> est annotée avec <classname>@Id</classname>. 
-          Cette annotation marque ce champ comme propriété contenant la clé primaire de table de la base de données.
+          Cette annotation marque ce champ comme propriété contenant la clé primaire de la table de base de données.
           L'annotation <classname>@GeneratedValue</classname> permet de contrôler comment les nouvelles valeurs de la clé primaire sont générées. 
           Dans le cas de notre propriété <varname>id</varname>, 
           nous utilisons la valeur <varname>IDENTITY</varname> de l'énumération <classname>GenerationType</classname>
