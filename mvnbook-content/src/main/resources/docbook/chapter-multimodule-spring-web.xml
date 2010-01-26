@@ -338,7 +338,7 @@
     ainsi que les quelques exemples d'utilisation de ces annotations.</para>
 
     <example id="example_simple-model_pom.xml">
-      <title>POM du module simple-model</title>
+      <title>POM du module <varname>simple-model</varname></title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -504,7 +504,7 @@ public class Weather {
     Cette classe se trouve également dans le dossier <filename>src/main/java/org/sonatype/mavenbook/weather/model</filename>.</para>
 
     <example id="example_condition_model_object">
-      <title>Objet Condition du module simple-model.</title>
+      <title>Objet Condition du module <varname>simple-model</varname></title>
 
       <programlisting language="java">package org.sonatype.mavenbook.weather.model;
 
