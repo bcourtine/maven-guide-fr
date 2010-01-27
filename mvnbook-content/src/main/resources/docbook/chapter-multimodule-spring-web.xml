@@ -754,7 +754,7 @@ public class WeatherService {
 &lt;/beans&gt;</programlisting>
     </example>
 
-    <para>Ce fichier déclare trois beans : <varname>yahooParser</varname>, <varname>yahooRetriever</varname>, et <varname>weatherService</varname>.
+    <para>Ce fichier déclare trois beans : <varname>yahooParser</varname>, <varname>yahooRetriever</varname> et <varname>weatherService</varname>.
     Le bean <varname>weatherService</varname> est une instance du service <classname>WeatherService</classname>. 
     Le fichier <acronym>XML</acronym> configure également les propriétés de ce bean
     <varname>yahooParser</varname> et <varname>yahooRetriever</varname> qui référencent les noms des deux instances de
@@ -766,7 +766,7 @@ public class WeatherService {
   </section>
 
   <section id="multimodule-web-spring-sect-simple-persist">
-    <title>Le Module de Persistance Simple</title>
+    <title>Le module simple-persist</title>
 
     <para>Ce module définit deux DAOs (Data Access Objects). Un DAO<indexterm>
         <primary>DAO (Data Access Objects)</primary>
