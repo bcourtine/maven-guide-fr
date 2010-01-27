@@ -893,7 +893,7 @@ public class WeatherService {
         <term><literal>org.springframework:spring:2.0.7</literal></term>
 
         <listitem>
-          <para>Cette dépendance inclut l'intégration du Spring Framework<indexterm>
+          <para>Cette dépendance inclut l'intégration de Spring Framework<indexterm>
               <primary>Spring Framework</primary>
             </indexterm>.</para>
 
