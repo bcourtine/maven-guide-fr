@@ -716,7 +716,7 @@ public class WeatherService {
 </programlisting>
     </example>
 
-    <para>Pour finir, ce projet contient un fichier <acronym>XML</acronym> utilisé par Spring pour créer quelque chose appelé<indexterm>
+    <para>Pour finir, ce projet contient un fichier <acronym>XML</acronym> utilisé par Spring pour créer ce qu'on appelle<indexterm>
         <primary>ApplicationContext (Spring Framework)</primary>
       </indexterm> <classname>ApplicationContext</classname> dont voici le fonctionnement :  
     nos applications web et en ligne de commande ont besoin d'interagir avec le service 
