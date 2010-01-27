@@ -1175,7 +1175,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
   </section>
 
   <section id="multimodule-web-spring-sect-simple-web">
-    <title>Le Module de l'Application Web</title>
+    <title>Le module simple-webapp</title>
 
     <para>L'application Web est définie dans le module <varname>simple-webapp</varname><indexterm class="startofrange" id="enterprise6a">
         <primary>projet multimodule (exemple)</primary>
@@ -1197,7 +1197,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
     L'architecture des composants de cette application web simple est montrée sur la <xref linkend="fig-web-components" />.</para> 
 
     <figure id="fig-web-components">
-      <title>Contrôleurs Spring MVC Référençant les modules simple-weather et simple-persist.</title>
+      <title>Contrôleurs Spring MVC référençant les modules simple-weather et simple-persist.</title>
 
       <mediaobject>
         <imageobject role="web">
