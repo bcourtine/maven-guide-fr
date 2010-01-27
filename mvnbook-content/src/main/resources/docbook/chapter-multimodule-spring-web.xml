@@ -1097,16 +1097,19 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
 
     <para>Dans la suite du fichier XML, sont définis les deux <acronym>DAO</acronym>s du module <varname>simple-persist</varname>.
     Chacun d'entre eux contient une référence vers la <varname>sessionFactory</varname> Hibernate que nous venons de définir.
-    Comme l'<classname>ApplicationContext</classname> du module <varname>simple-weather</varname>, ce fichier <filename>applicationContext-persist.xml</filename> définit l'architecture du sous-module.
-    Si vous travailliez avec un plus grand nombre de classes persistantes, vous pourriez trouver utile de les externaliser dans un <classname>ApplicationContext</classname> séparé.</para>
+    Comme l'<classname>ApplicationContext</classname> du module <varname>simple-weather</varname>,
+    ce fichier <filename>applicationContext-persist.xml</filename> définit l'architecture du sous-module.
+    Si vous travailliez avec un plus grand nombre de classes persistantes, vous pourriez trouver
+    utile de les externaliser dans un <classname>ApplicationContext</classname> séparé.</para>
 
     <para>Il reste encore une dernière pièce du puzzle. Plus tard dans ce chapitre, nous verrons<indexterm>
         <primary>plugin Maven Hibernate3</primary>
       </indexterm><indexterm>
         <primary>plugin Hibernate3</primary>
-      </indexterm> comment nous pouvons utiliser le plugin Maven Hibernate3 pour générer notre schéma de base de données à partir des objets annotés du modèle.  
-    Pour cela, le plugin Maven Hibernate3 a besoin de récupérer les paramètres de connexion <acronym>JDBC</acronym>, 
-    la liste des classes annotées et un autre fichier de configuration nommé<indexterm>
+      </indexterm> comment nous pouvons utiliser le plugin Maven Hibernate3 pour générer notre schéma 
+      de base de données à partir des objets annotés du modèle. Pour cela, le plugin Maven Hibernate3
+      a besoin de récupérer les paramètres de connexion <acronym>JDBC</acronym>, la liste des
+      classes annotées et un autre fichier de configuration nommé<indexterm>
         <primary>fichier hibernate.cfg.xml</primary>
       </indexterm> <filename>hibernate.cfg.xml</filename> présent dans le répertoire
     <filename>src/main/resources</filename>. Le contenu de ce fichier (qui
