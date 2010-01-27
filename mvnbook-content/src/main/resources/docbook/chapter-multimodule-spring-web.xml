@@ -885,7 +885,7 @@ public class WeatherService {
         <term><literal>javax.servlet:servlet-api:2.4</literal></term>
 
         <listitem>
-          <para>Comme le projet contient une Servlet, nous devons inclure une version de Servlet API, ici en 2.4.</para>
+          <para>Comme le projet contient une Servlet, nous devons inclure une version de Servlet API, ici la 2.4.</para>
         </listitem>
       </varlistentry>
 
