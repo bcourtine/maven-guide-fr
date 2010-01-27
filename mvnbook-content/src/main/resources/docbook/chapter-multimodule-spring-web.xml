@@ -537,9 +537,10 @@ public class Condition {
 
     <para>La classe <classname>Condition</classname> ressemble à la classe <classname>Weather</classname>. 
     Elle est annotée avec <classname>@Entity</classname> et possède les mêmes annotations sur la propriété <varname>id</varname>. 
-    Les champs <varname>text</varname>, <varname>code</varname>, <varname>temp</varname> et <varname>date</varname> ne possèdent pas d'annotation et restent donc mappés avec la configuration par défaut.
+    Les champs <varname>text</varname>, <varname>code</varname>, <varname>temp</varname> et <varname>date</varname> ne 
+    possèdent pas d'annotation et restent donc liés à la base de données selon la configuration par défaut.
     La propriété <varname>weather</varname> est annotée avec <classname>@OneToOne</classname> et <classname>@JoinColumn</classname> qui permettent de référencer
-    l'objet <classname>Weather</classname> associé avec une clé étrangère nommée <varname>weather_id</varname>.</para>
+    l'objet <classname>Weather</classname> associé via la clé étrangère <varname>weather_id</varname>.</para>
   </section>
 
   <section id="multimodule-web-spring-sect-simple-weather">
