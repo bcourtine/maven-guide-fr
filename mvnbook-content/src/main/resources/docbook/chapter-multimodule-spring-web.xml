@@ -1300,8 +1300,8 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
 </programlisting>
     </example>
 
-    <para>Au fur et à mesure que nous avançons dans ce livre, les exemples deviennent de plus en plus substantiels.
-    Vous avez d'ailleurs probablement noté que le fichier
+    <para>Au fur et à mesure que nous avançons dans ce livre, les exemples deviennent de plus en
+    plus substantiels. Vous avez d'ailleurs probablement noté que le fichier
     <filename>pom.xml</filename> commence à devenir volumineux.
     Dans ce POM, nous configurons quatre dépendances et deux plugins.
     Regardons ce POM en détail et étendons-nous sur certains des points de configuration importants :</para>
@@ -1310,7 +1310,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
       <callout arearefs="co-springweb-1" id="coref-springweb-1">
         <para>Ce projet <varname>simple-webapp</varname> définit quatre dépendances :
         les spécifications Servlet 2.4, la bibliothèque de services simple-weather, 
-        la bibliothèque de persistance simple-persist, et l'intégralité du Spring Framework 2.0.7.</para>
+        la bibliothèque de persistance simple-persist et l'intégralité du Spring Framework 2.0.7.</para>
       </callout>
 
       <callout arearefs="coDef-spring-web-2" id="coRef-spring-web-2">
@@ -1334,7 +1334,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
       </callout>
 
       <callout arearefs="coDef-spring-web-4" id="coRef-spring-web-4">
-        <para>C'est à partir de l'utilisation du plugin Maven Hibernate que ce POM devient le plus<indexterm>
+        <para>C'est à partir de l'utilisation du plugin Maven Hibernate3 que ce POM devient le plus<indexterm>
             <primary>plugin Hibernate Maven</primary>
           </indexterm><indexterm>
             <primary>plugin Hibernate</primary>
