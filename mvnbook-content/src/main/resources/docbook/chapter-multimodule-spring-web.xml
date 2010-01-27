@@ -565,7 +565,8 @@ public class Condition {
     Un projet d'entreprise contient très souvent plusieurs modules <acronym>API</acronym>
     permettant de centraliser la logique métier et les interactions avec des systèmes externes.
     Un système bancaire pourrait avoir un module qui récupère et analyse des données provenant d'un fournisseur tiers,
-    et un système affichant des résultats sportifs pourrait interagir avec un flux <acronym>XML</acronym> qui présente les scores du basket ou du football en temps réel. 
+    et un système affichant des résultats sportifs pourrait interagir avec un flux <acronym>XML</acronym> 
+    qui fourit les scores du basket ou du football en temps réel.
     Dans l'<xref linkend="example_simple-weather_module_pom" />, ce module renferme toute l'activité réseau et le parsing du flux <acronym>XML</acronym> provenant du service Yahoo! Météo.
     Les autres modules peuvent dépendre de celui-ci et simplement appeler la méthode <methodname
     role="keep-together">retrieveForecast()</methodname> du service <classname>WeatherService</classname> 
