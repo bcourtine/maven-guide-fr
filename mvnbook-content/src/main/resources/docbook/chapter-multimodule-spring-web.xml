@@ -716,7 +716,8 @@ public class WeatherService {
 </programlisting>
     </example>
 
-    <para>Pour finir, ce projet contient un fichier <acronym>XML</acronym> utilisé par Spring pour créer ce qu'on appelle<indexterm>
+    <para>Pour finir, ce projet contient un fichier <acronym>XML</acronym> utilisé par Spring pour 
+    créer ce qu'on appelle l'<indexterm>
         <primary>ApplicationContext (Spring Framework)</primary>
       </indexterm> <classname>ApplicationContext</classname> dont voici le fonctionnement :  
     nos applications web et en ligne de commande ont besoin d'interagir avec le service 
@@ -729,7 +730,7 @@ public class WeatherService {
     et ainsi récupérer une instance du service <classname>WeatherService</classname> par l'intermédiaire de son nom : <varname>weatherService</varname>.</para>
 
     <example>
-      <title>ApplicationContext Spring du Module simple-weather</title>
+      <title>ApplicationContext Spring du module simple-weather</title>
 
       <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 
