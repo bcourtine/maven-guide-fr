@@ -1085,9 +1085,12 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
         <term><literal>hibernate.connection.*</literal></term>
 
         <listitem>
-          <para>Dans cet exemple, nous configurons une connexion <acronym>JDBC</acronym> à partir de la configuration Spring. 
-          Nos applications sont configurées pour se lancer avec la base de données <acronym>HSQLDB</acronym> du répertoire <filename role="keep-together">./data/weather</filename>.   
-          Dans une réelle application d'entreprise, vous utiliseriez plutôt quelque chose du type <acronym>JNDI</acronym> pour externaliser la configuration de la base de données de votre code applicatif.</para>
+          <para>Dans cet exemple, nous configurons une connexion <acronym>JDBC</acronym> à partir de
+          la configuration Spring. Nos applications sont configurées pour se lancer avec la base de
+          données <acronym>HSQLDB</acronym> du répertoire <filename role="keep-together">./data/weather</filename>.
+          Dans une vraie application d'entreprise, vous utiliseriez plutôt quelque chose comme
+          <acronym>JNDI</acronym> pour externaliser la configuration de la base de données de votre
+          code applicatif.</para>
         </listitem>
       </varlistentry>
     </variablelist>
