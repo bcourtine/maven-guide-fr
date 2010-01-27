@@ -544,7 +544,7 @@ public class Condition {
   </section>
 
   <section id="multimodule-web-spring-sect-simple-weather">
-    <title>Le Module Météo Simple</title>
+    <title>Le module simple-weather</title>
 
     <para>Le prochain module que nous allons examiner pourrait être considéré comme<indexterm class="startofrange" id="enterprise4a">
         <primary>projet multimodule (exemple)</primary>
@@ -560,7 +560,8 @@ public class Condition {
       </indexterm> un “service”.
     Ce module contient toute la logique nécessaire pour récupérer et parser les données provenant du flux <acronym>RSS</acronym> Yahoo! Météo.
     Bien qu'il ne contienne que trois classes Java et un test JUnit, 
-    il permet d'exposer un composant simple, <classname>WeatherService</classname>, qui sera utilisé dans l'application web et l'application en ligne de commande.
+    il permet d'exposer un composant simple, <classname>WeatherService</classname>, qui sera utilisé 
+    par l'application web et par l'application en ligne de commande.
     Un projet d'entreprise contient très souvent plusieurs modules <acronym>API</acronym>
     permettant de centraliser la logique métier et les interactions avec des systèmes externes.
     Un système bancaire pourrait avoir un module qui récupère et analyse des données provenant d'un fournisseur tiers,
