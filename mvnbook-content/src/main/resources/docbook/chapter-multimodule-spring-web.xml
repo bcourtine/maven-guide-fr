@@ -2288,14 +2288,18 @@ Evanston, IL, US
     qui ressemble à ce que vous pourriez voir dans la vraie vie, et non 10 minutes de vidéo roulant
     Apache Ant dans la boue et essayant de vous donner envie d'adopter Apache Maven.</para>
 
-    <para>Si vous terminez ce chapitre en vous demandant en quoi il traite de Maven, notre mission est réussie.
-    Nous avons présenté un ensemble complexe de projets en utilisant des frameworks populaires que nous avons assemblés par des build déclaratifs.
-    Le fait que plus de 60% de ce chapitre ait été consacré au fonctionnement de Spring et Hibernate doit montrer que Maven, pour sa plus grosse partie, n'est pas l'étape la plus compliquée d'un projet.
-    Il nous a permis de nous concentrer sur l'application elle-même, et non sur le processus de build.
-    Au lieu de passer du temps à discuter du fonctionnement de Maven et le travail que vous devriez faire pour construire un projet qui intègre Spring et Hibernate,
-    nous avons parlé presque exclusivement des technologies utilisées.
-    Si vous commencez à utiliser Maven et que vous prenez du temps pour l'apprendre, vous commencez vraiment à profiter du fait que vous ne devez pas passer votre temps à écrire vos scripts de build.
-    Vous ne devez pas perdre votre temps à vous inquiéter des aspects classiques de votre build.</para>
+    <para>Si vous terminez ce chapitre en vous demandant en quoi il traite de Maven, notre mission 
+    est réussie. Nous avons présenté un ensemble complexe de projets en utilisant des frameworks
+    populaires que nous avons assemblés par des build déclaratifs. Le fait que plus de 60% de ce
+    chapitre ait été consacré au fonctionnement de Spring et Hibernate doit montrer que Maven, pour
+    sa plus grosse partie, n'est pas l'étape la plus compliquée d'un projet. Il nous a permis de nous
+    concentrer sur l'application elle-même, et non sur le processus de build. Au lieu de passer du
+    temps à discuter du fonctionnement de Maven et le travail que vous devriez faire pour construire
+    un projet qui intègre Spring et Hibernate, nous avons parlé presque exclusivement des technologies
+    utilisées. Si vous commencez à utiliser Maven et que vous prenez du temps pour l'apprendre,
+    vous commencez vraiment à profiter du fait que vous ne devez pas passer votre temps à écrire vos
+    scripts de build. Vous ne devez pas perdre votre temps à vous inquiéter des aspects classiques de
+    votre build.</para>
 
     <para>Vous pouvez utiliser le squelette du projet de ce chapitre comme fondation pour votre propre projet. Fondation à laquelle vous ajouterez des modules au fur et à mesure de vos besoins. 
     Par exemple, le véritable projet dont ce chapitre est tiré comporte deux projets modèles, deux modules de persistance qui permettent de stocker des objets dans différents type de base de données, plusieurs applications web et une application Java mobile.
@@ -2304,14 +2308,14 @@ Evanston, IL, US
     notez cependant que cet exemple se contente d'aborder qu'une infime partie de ce qu'il est possible de faire avec Maven.</para> 
     
     <section id="multimodule-web-spring-sect-interface-projects">
-      <title>Programmation avec des projets d'Interfaces</title>
+      <title>Programmation avec des projets API</title>
 
       <para>Ce chapitre a exploré un projet multimodule qui était plus complexe que l'exemple présenté dans le <xref linkend="multimodule" />,
       pourtant il s'agit encore d'une simplification par rapport à un vrai projet.
       Dans un plus grand projet, vous pourriez construire un système ressemblant à la <xref linkend="fig-multimodule-web-spring-projects-complex" />.</para>  
 
       <figure id="fig-multimodule-web-spring-projects-complex">
-        <title>Programmation avec des projets d'Interfaces</title>
+        <title>Programmation avec des projets API</title>
 
         <mediaobject>
           <imageobject role="web">
@@ -2324,12 +2328,21 @@ Evanston, IL, US
         </mediaobject>
       </figure>
 
-      <para>Quand nous utilisons le terme projet d'interfaces, nous faisons allusion à un projet Maven qui contient uniquement des interfaces et des constantes.
-      Sur la <xref linkend="fig-multimodule-web-spring-projects-complex" />, deux des projets sont des projets d'interfaces : <varname>persist-api</varname> et <varname>parse-api</varname>.
-      Si les projets <varname>big-command</varname> et <varname>big-webapp</varname> utilisent les interfaces définies dans <varname>persist-api</varname>, il sera facile de changer d'implémentations et de framework de persistance. 
-      Ce diagramme en particulier montre deux implémentations du projet <varname>persist-api</varname> : une qui stocke ses données dans une base de données <acronym>XML</acronym> et l'autre qui stocke ses données dans une base de données relationnelle.
-      Si vous décidez de mettre en place certains des concepts de ce chapitre, vous pourriez réfléchir à comment passer un signal au programme pour permettre de changer d'<classname>ApplicationContext</classname> Spring et changer ainsi de base de données à la volée.
-      Comme pour la conception OO de l'application elle-même, il est souvent prudent de séparer les interfaces d'une <acronym>API</acronym> de leurs implémentations en utilisant des projets Maven séparés.</para>
+      <para>Quand nous utilisons le terme projet API, nous faisons allusion à un projet Maven qui 
+      contient uniquement des interfaces et des constantes. Sur la <xref
+      linkend="fig-multimodule-web-spring-projects-complex" />, deux des projets sont des projets
+      API : <varname>persist-api</varname> et <varname>parse-api</varname>. Si les projets
+      <varname>big-command</varname> et <varname>big-webapp</varname> utilisent les interfaces
+      définies dans <varname>persist-api</varname>, il sera facile de changer d'implémentations et
+      de framework de persistance. Ce diagramme en particulier montre deux implémentations du
+      projet <varname>persist-api</varname> : une qui stocke ses données dans une base de données
+      <acronym>XML</acronym> et l'autre qui stocke ses données dans une base de données relationnelle.
+      Si vous décidez de mettre en place certains des concepts de ce chapitre, vous pourriez 
+      réfléchir à comment passer un signal au programme pour permettre de changer
+      d'<classname>ApplicationContext</classname> Spring et changer ainsi de base de données à la volée.
+      Comme pour la conception OO de l'application elle-même, il est souvent prudent de séparer les 
+      interfaces d'une <acronym>API</acronym> de leurs implémentations en utilisant des projets
+      Maven séparés.</para>
       
     </section>
   </section>
