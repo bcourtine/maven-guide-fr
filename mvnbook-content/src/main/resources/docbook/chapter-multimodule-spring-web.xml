@@ -2276,14 +2276,17 @@ Evanston, IL, US
   <section id="multimodule-web-spring-sect-conclusion">
     <title>Conclusion</title>
  
-    <para>Nous avons passé beaucoup de temps sur des sujets ne se rapportant pas directement à Maven pour parcourir tout ce chemin.
-    Nous l'avons fait pour présenter un projet exemple aussi complet et significatif que possible pour que vous puissiez l'utiliser pour réaliser de véritables systèmes.
-    Pour arriver à ce résultat, nous n'avons pas eu besoin de prendre de raccourcis, ni de vous émerveiller avec des tours de magie à la Ruby on Rails,
-    ni de vous laisser croire qu'on peut créer une application Java d'entreprise en "10 minutes ! ".
-    Trop de monde essayent de vous vendre le framework révolutionnaire qui vous demanderait zéro temps d'apprentissage.
-    Ce que nous avons essayé de faire dans ce chapitre est de présenter le tableau dans son intégralité, l'écosystème complet d'un build multimodule.
-    Nous vous avons présenté Maven dans le contexte d'une application qui ressemble à ce que vous pourriez voir dans la vraie vie,
-    et non 10 minutes de vidéo roulant Apache Ant dans la boue et essayant de vous donner envie d'adopter Apache Maven.</para>
+    <para>Nous avons passé beaucoup de temps sur des sujets ne se rapportant pas directement à Maven
+    pour parcourir tout ce chemin. Nous l'avons fait pour présenter un projet exemple aussi complet
+    et significatif que possible pour que vous puissiez l'utiliser pour réaliser de véritables systèmes.
+    Pour arriver à ce résultat, nous n'avons pas eu besoin de prendre de raccourcis, ni de vous
+    émerveiller avec des tours de magie à la Ruby on Rails, ni de vous laisser croire qu'on peut
+    créer une application Java d'entreprise en "10 minutes ! ". Trop de monde essayent de vous vendre
+    le framework révolutionnaire qui vous demanderait zéro temps d'apprentissage. Ce que nous avons 
+    essayé de faire dans ce chapitre est de présenter le tableau dans son intégralité, l'écosystème
+    complet d'un build multimodule. Nous vous avons présenté Maven dans le contexte d'une application
+    qui ressemble à ce que vous pourriez voir dans la vraie vie, et non 10 minutes de vidéo roulant
+    Apache Ant dans la boue et essayant de vous donner envie d'adopter Apache Maven.</para>
 
     <para>Si vous terminez ce chapitre en vous demandant en quoi il traite de Maven, notre mission est réussie.
     Nous avons présenté un ensemble complexe de projets en utilisant des frameworks populaires que nous avons assemblés par des build déclaratifs.
