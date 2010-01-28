@@ -1445,11 +1445,14 @@ public class WeatherController implements Controller {
 </programlisting>
     </example>
 
-    <para>La syntaxe de ce template Velocity est rapide à expliquer, les variables sont référencées par l'intermédiaire de la notation <code>\${}</code>.
-    L'expression entre les accolades fait référence à une propriété, ou à une propriété d'une propriété de la variable <varname>weather</varname> passée à ce modèle par le <classname>WeatherController</classname>.</para>
+    <para>La syntaxe de ce modèle Velocity est rapide à expliquer, les variables sont référencées 
+    par l'intermédiaire de la notation <code>\${}</code>. L'expression entre les accolades fait
+    référence à une propriété, ou à une propriété d'une propriété de la
+    variable <varname>weather</varname> passée à ce modèle par
+    le <classname>WeatherController</classname>.</para>
 
     <para>Le contrôleur <classname>HistoryController</classname> est utilisé pour récupérer la liste 
-    des prévisions météorologiques les plus récentes dernièrement demandées par le <classname>WeatherController</classname>.
+    des prévisions météorologiques les plus récentes parmi celles demandées par le <classname>WeatherController</classname>.
     Chaque fois que nous récupérons une prévision dans le <classname>WeatherController</classname>, celui-ci enregistre l'objet <classname>Weather</classname> récupéré dans la base de données via le <classname>WeatherDAO</classname>.      
     Ce DAO utilise ensuite Hibernate pour transformer l'objet <classname>Weather</classname> en une série de lignes dans un ensemble de tables de la base de données.
     Le contrôleur <classname>HistoryController</classname> est affiché dans l'<xref linkend="ex-spring-history" />.</para>
@@ -1514,10 +1517,10 @@ public class HistoryController implements Controller {
 
     <para>Une fois cet objet <classname>Location</classname> récupéré, l'<classname>HistoryController</classname> essayera de récupérer les objets <classname>Weather</classname> les plus récents associés à cette <classname>Location</classname>.  
     Une fois la <classname>List&lt;Weather&gt;</classname> récupérée, une <classname>HashMap</classname> est créée contenant les deux variables
-    du template Velocity <filename>history.vm</filename> de l'<xref linkend="ex-spring-history-velocity" />.</para>
+    du modèle Velocity <filename>history.vm</filename> de l'<xref linkend="ex-spring-history-velocity" />.</para>
 
     <example id="ex-spring-history-velocity">
-      <title>Template history.vm rendu par l'HistoryController</title>
+      <title>Modèle history.vm utilisé par l'HistoryController</title>
 
       <programlisting language="java">&lt;b&gt;
 Weather History for: \${location.city}, \${location.region}, \${location.country}
@@ -1536,7 +1539,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
 </programlisting>
     </example>
 
-    <para>Le template <filename>history.vm</filename> du dossier <filename>src/main/webapp/WEB-INF/vm</filename> référence la
+    <para>Le modèle <filename>history.vm</filename> du dossier <filename>src/main/webapp/WEB-INF/vm</filename> référence la
     variable <varname>location</varname> pour afficher les prévisions météo provenant du <classname>WeatherDAO</classname>.
     Ce template utilise une structure de contrôle Velocity, <code>#foreach</code>, pour itérer sur chaque élément de la variable <varname>weathers</varname>.
     Chaque élément de la liste <varname>weathers</varname> est assigné à une variable nommée <varname>weather</varname>. 
@@ -1613,21 +1616,27 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
       </callout>
 
       <callout arearefs="coDef-weather-servlet-2" id="coRef-weather-servlet-2">
-        <para>Le bean <varname>urlMapping</varname> définit les patterns des <acronym>URL</acronym> pouvant invoquer les contrôleurs <classname>WeatherController</classname> et <classname>HistoryController</classname>. 
-        Dans cet exemple, nous utilisons le <classname>SimpleUrlHandlerMapping</classname> et mappons <filename>/weather.x</filename> au <classname>WeatherController</classname> et <filename>/history.x</filename> à l'<classname>HistoryController</classname>.</para>
+        <para>Le bean <varname>urlMapping</varname> définit les formats des <acronym>URL</acronym> pouvant invoquer les contrôleurs <classname>WeatherController</classname> et <classname>HistoryController</classname>.
+        Dans cet exemple, nous utilisons le <classname>SimpleUrlHandlerMapping</classname> et 
+        associons <filename>/weather.x</filename> au <classname>WeatherController</classname> et
+        <filename>/history.x</filename> à l'<classname>HistoryController</classname>.</para>
       </callout>
 
       <callout arearefs="coDef-weather-servlet-3" id="coRef-weather-servlet-3">
-        <para>Comme nous utilisons le moteur de templates Velocity, nous avons besoin de fournir quelques options de configuration spécifiques.
-        Dans le bean <varname>velocityConfig</varname>, nous demandons à Velocity de rechercher toutes les templates présentes dans le répertoire <filename>/WEB-INF/vm</filename>.</para>
+        <para>Comme nous utilisons le moteur de template Velocity, nous avons besoin de fournir
+        quelques options de configuration spécifiques. Dans le bean <varname>velocityConfig</varname>,
+        nous demandons à Velocity de rechercher toutes les modèles présents dans le
+        répertoire <filename>/WEB-INF/vm</filename>.</para>
       </callout>
 
       <callout arearefs="coDef-weather-servlet-4" id="coRef-weather-servlet-4">
-        <para>Enfin, le <varname>viewResolver</varname> est configuré avec la classe <classname>VelocityViewResolver</classname>. 
-        Il existe un bon nombre d'implémentations du <classname>ViewResolver</classname> dans Spring, du standard ViewResolver pour afficher une <acronym>JSP</acronym> ou <acronym>JSTL</acronym>
-        au ViewResolver capable d'effectuer le rendu de templates Freemarker. 
-        Dans cet exemple, nous configurons le moteur de template Velocity et modifions les préfixes et suffixes par défaut 
-        pour modifier automatiquement les noms des templates passés aux objets <classname>ModelAndView</classname>.</para>
+        <para>Enfin, le <varname>viewResolver</varname> est configuré avec la classe 
+        <classname>VelocityViewResolver</classname>. Il existe un bon nombre d'implémentations
+        du <classname>ViewResolver</classname> dans Spring, du standard ViewResolver pour afficher
+        une <acronym>JSP</acronym> ou <acronym>JSTL</acronym> au ViewResolver capable d'effectuer
+        le rendu de modèles Freemarker. Dans cet exemple, nous configurons le moteur de template
+        Velocity et modifions les préfixes et suffixes par défaut pour modifier automatiquement les
+        noms des modèles passés aux objets <classname>ModelAndView</classname>.</para>
       </callout>
     </calloutlist>
 
