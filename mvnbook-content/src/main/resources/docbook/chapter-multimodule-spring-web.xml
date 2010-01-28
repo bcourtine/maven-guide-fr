@@ -2198,8 +2198,9 @@ Current Weather Conditions for:
 
     <para>Le build suit le cycle de vie suivant : compilation, exécution des tests unitaires et construction du <acronym>JAR</acronym>.
     Le goal <varname>assembly:assembly</varname> crée un <acronym>JAR</acronym> contenant les dépendances. 
-    Pour cela, toutes les dépendances sont dézippées dans un répertoire temporaire, ensuite tout le bytecode est regroupé dans un unique <acronym>JAR</acronym> crée dans le répertoire    
-    <filename>target/</filename> nommé <filename>simple-command-jar-with-dependencies.jar</filename>. 
+    Pour cela, toutes les dépendances sont dézippées dans un répertoire temporaire, ensuite tout le 
+    bytecode est regroupé dans un unique <acronym>JAR</acronym> créé dans le répertoire
+    <filename>target/</filename> et nommé <filename>simple-command-jar-with-dependencies.jar</filename>.
     Ce "super" <acronym>JAR</acronym> pèse 15 MO.</para>
 
     <para>Avant d'exécuter notre utilitaire à partir de la ligne de commande, nous devons appeler le goal
