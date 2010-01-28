@@ -1743,7 +1743,7 @@ Weather History for: \${location.city}, \${location.region}, \${location.country
   </section>
 
   <section id="multimodule-web-spring-sect-spring-running-web">
-    <title>Exécutez l'Application Web</title>
+    <title>Exécution de l'application web</title>
 
     <para>Pour exécuter l'application web, vous devez tout d'abord construire votre projet multimodule 
     dans son intégralité et ensuite construire la base de données<indexterm class="startofrange" id="enterprise7a">
@@ -1833,14 +1833,16 @@ Multi-Spring Chapter Simple Web Application
   </section>
 
   <section id="multimodule-web-spring-sect-simple-command">
-    <title>Le Module Ligne de Commande</title>
+    <title>Le module de ligne de commande</title>
 
-    <para>Le projet <varname>simple-command</varname> est la version ligne de commande du projet <varname>simple-webapp</varname>.
-    Cet utilitaire possède donc les mêmes dépendances : <varname>simple-persist</varname> et <varname>simple-weather</varname>.   
-    Au lieu d'interagir avec l'application par l'intermédiaire d'un navigateur web, vous pourrez exécuter cet utilitaire à partir de la ligne de commande.</para>  
+    <para>Le projet <varname>simple-command</varname> est la version ligne de commande du
+    projet <varname>simple-webapp</varname>. Cet utilitaire possède donc les mêmes
+    dépendances : <varname>simple-persist</varname> et <varname>simple-weather</varname>. Au lieu
+    d'interagir avec l'application par l'intermédiaire d'un navigateur web, vous pourrez exécuter
+    cet utilitaire à partir de la ligne de commande.</para>
 
     <figure id="fig-multi-spring-command">
-      <title>Application en ligne de commande référence simple-weather et simple-persist</title>
+      <title>L'application en ligne de commande référence simple-weather et simple-persist</title>
 
       <mediaobject>
         <imageobject role="web">
@@ -2164,10 +2166,12 @@ Current Weather Conditions for:
   </section>
 
   <section id="multimodule-web-spring-sect-running-simple-command">
-    <title>Exécuter l'application en ligne de commande</title>
+    <title>Exécution de l'application en ligne de commande</title>
 
-    <para>Le projet <varname>simple-command</varname> est configuré pour créer un unique <acronym>JAR</acronym> contenant le bytecode du projet et celui de toutes ses dépendances.
-    Pour créer cet assemblage, exécuter le goal <varname>assembly</varname> du plugin Maven Assembly à partir du répertoire du projet <varname>simple-command</varname> :</para>  
+    <para>Le projet <varname>simple-command</varname> est configuré pour créer un unique <acronym>JAR</acronym> 
+    contenant le bytecode du projet et celui de toutes ses dépendances. Pour créer cet assemblage,
+    il nous faut exécuter le goal <varname>assembly</varname> du plugin Maven Assembly à partir
+    du répertoire du projet <varname>simple-command</varname> :</para>
 
     <screen>$ <command>mvn assembly:assembly</command>
 [INFO] ------------------------------------------------------------------------
