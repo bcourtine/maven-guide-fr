@@ -2,7 +2,7 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="optimizing" lang="fr">
-  <title>Optimiser et Remanier les POMs</title>
+  <title>Optimiser et remanier les POMs</title>
 
   <section id="optimizing-sect-intro">
     <title>Introduction</title>
@@ -94,21 +94,18 @@
   </section>
 
   <section id="optimizing-sect-dependencies">
-    <title>Optimiser les Dépendances</title>
+    <title>Optimiser les dépendances</title>
 
-    <para>Si vous jetez un oeil aux différents <acronym>POM</acronym>s<indexterm class="startofrange" id="optref2a">
+    <para>Si vous jetez un oeil aux différents <acronym>POM</acronym>s<indexterm class="startofrange"
+    id="optref2a">
         <primary>POM (Project Object Model)</primary>
-
         <secondary>optimizing and refactoring</secondary>
-
         <tertiary>dependency optimization</tertiary>
       </indexterm><indexterm class="startofrange" id="optref2b">
         <primary>optimizing POMs</primary>
-
         <secondary>dependency optimization</secondary>
       </indexterm><indexterm class="startofrange" id="optref2c">
         <primary>dependencies</primary>
-
         <secondary>optimizing</secondary>
       </indexterm> créés dans le <xref linkend="multimodule-web-spring" />, vous remarquerez plusieurs types de
     répétition. Le premier type que vous pouvez voir est la duplication de dépendances comme <varname>spring</varname>
@@ -129,23 +126,17 @@
       </indexterm> duplication de dépendances et de version de modules frères. Maven fournit un mécanisme simple pour
     vous permettre de factoriser ces<indexterm>
         <primary>POM (Project Object Model)</primary>
-
         <secondary>parent (top-level)</secondary>
-
         <tertiary>resolving dependency duplication</tertiary>
       </indexterm><indexterm>
         <primary>top-level POM</primary>
-
         <secondary>resolving dependency duplication</secondary>
       </indexterm><indexterm>
         <primary>parent POM</primary>
-
         <secondary>resolving dependency duplication</secondary>
       </indexterm><indexterm>
         <primary>pom.xml file</primary>
-
         <secondary>parent (top-level)</secondary>
-
         <tertiary>resolving dependency duplication</tertiary>
       </indexterm> duplications dans un <acronym>POM</acronym> parent.</para>
 
@@ -311,15 +302,12 @@
       </indexterm> Une technique que nous pourrions utiliser est de les déplacer dans la section
     <sgmltag>dependencyManagement</sgmltag>, comme toutes les autres,<indexterm>
         <primary>version attribute (pom.xml)</primary>
-
         <secondary>built-in, to avoid dependency duplication</secondary>
       </indexterm><indexterm>
         <primary>groupId attribute (pom.xml)</primary>
-
         <secondary>built-in, to avoid dependency duplication</secondary>
       </indexterm><indexterm>
         <primary>dependencies</primary>
-
         <secondary>plugin</secondary>
 
         <see>plugins</see>
@@ -385,7 +373,7 @@
   </section>
 
   <section id="optimizing-sect-plugins">
-    <title>Optimiser les Plugins</title>
+    <title>Optimiser les plugins</title>
 
     <para>Si nous regardons les configurations des différents plugins, nous pouvons remarquer<indexterm
         class="startofrange" id="optref3a">
@@ -696,7 +684,7 @@
     <varname>simple-parent</varname>.</para>
 
     <example id="ex-final-pom-for-simple-parent">
-      <title>POM Final de simple-parent</title>
+      <title>POM final de simple-parent</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -822,7 +810,7 @@
     commande de l'outil.</para>
 
     <example id="ex-final-pom-for-simple-command">
-      <title>POM Final de simple-command</title>
+      <title>POM final de simple-command</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -910,7 +898,7 @@
     <varname>simple-model</varname> contient les objets métiers utilisés tout au long de l'application.</para>
 
     <example id="ex-final-pom-for-simple-model">
-      <title>POM Final de simple-model</title>
+      <title>POM final de simple-model</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -959,7 +947,7 @@
     role="keep-together">Hibernate</phrase>.</para>
 
     <example id="ex-final-pom-for-simple-persist">
-      <title>POM Final de simple-persist</title>
+      <title>POM final de simple-persist</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1027,7 +1015,7 @@
     <acronym>RSS</acronym> de Yahoo! Météo. Ce projet dépend du projet <varname>simple-model</varname>.</para>
 
     <example id="ex-final-pom-for-simple-weather">
-      <title>POM Final de simple-weather</title>
+      <title>POM final de simple-weather</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1095,7 +1083,7 @@
     <varname>simple-weather</varname>.</para>
 
     <example id="ex-final-pom-for-simple-webapp">
-      <title>POM Final de simple-webapp</title>
+      <title>POM final de simple-webapp</title>
 
       <programlisting language="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
